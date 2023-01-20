@@ -1,7 +1,11 @@
 @import "common/header/header";
 @import "common/header/header-min";
 @import "common/footer/footer";
+@import "common/footer/footer-min";
 @import "common/page-404/page-404.scss";
 @import "common/main-menu/main-menu.scss";
 
+
+
 /* home */
+@import "search-index/search-index";

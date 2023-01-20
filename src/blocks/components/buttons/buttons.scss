@@ -1,7 +1,7 @@
 .btn {
 
     padding: 0.8em 2.05em 0.85em 2.05em;
-    background: $accent-2-1;
+    background: $accent-1-1;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -13,102 +13,13 @@
     white-space: nowrap;
     transition: .3s cubic-bezier(.1, .82, .25, 1);
     font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 15px;
     text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-
-    @media screen and (min-width: $w1200) {
-        height: 56px;
-        font-size: 20px;
-        letter-spacing: 0.04em;
-    }
-
-    // line
-    &.btn-line {
-        background-color: #fff;
-        border: 1px solid #BCBCBC;
-        color: #92919F;
-        height: 39px;
-        font-size: 12px;
-        padding: 0.8em 2.5em 0.75em 2.5em;
-
-        &:hover {
-            background-color: $main;
-            border: 1px solid $main;
-            color: #fff;
-        }
-
-        &--success {
-
-            &.active {
-                background-color: #2FA81A;
-                border: 1px solid #2FA81A;
-                color: #fff;
-
-                &:hover {
-                    background-color: #258115;
-                    border: 1px solid #258115;
-                    color: #fff;
-                }
-            }
-
-
-            height: 39px;
-            font-size: 12px;
-            padding: 0.8em 2.5em 0.75em 2.5em;
-
-
-        }
-
-        &--reject {
-
-            &.active {
-                background-color: #ED1E69;
-                border: 1px solid #ED1E69;
-                color: #fff;
-
-                &:hover {
-                    background-color: #cf1c5d;
-                    border: 1px solid #cf1c5d;
-                    color: #fff;
-                }
-            }
-
-
-            height: 39px;
-            font-size: 12px;
-            padding: 0.8em 2.5em 0.75em 2.5em;
-
-
-        }
-    }
-
-    // line
-    &.btn-line-large {
-        background-color: #fff;
-        border: 1px solid #BCBCBC;
-        color: #92919F;
-        font-size: 12px;
-        padding: 0.8em 2.5em 0.75em 2.5em;
-
-        &:hover {
-            background-color: $main;
-            border: 1px solid $main;
-            color: #fff;
-        }
-
-
-    }
-
-
-
-
-
+    border-radius: 4px;
 
     &:hover {
-        background-color: $accent-2-2;
+        background-color: $accent-1-2;
     }
 
     &:active,
@@ -129,6 +40,24 @@
     & svg {
         fill: #fff;
         margin-right: 1em;
+    }
+
+    &.btn-gray {
+        background-color: $gray-96;
+        color: #000;
+
+        &:hover {
+            background-color: $gray-92;
+        }
+    }
+
+    &.btn-white {
+        background-color: #fff;
+        color: #000;
+
+        &:hover {
+            background-color: $gray-92;
+        }
     }
 
     &.btn-full {

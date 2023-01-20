@@ -1,10 +1,10 @@
 html {
-    font-family: Lora, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Lato, 'Arial Narrow Bold', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 140%;
-    background: #f2f2f2;
+    background: #fff;
     color: #000;
     letter-spacing: normal;
 }
@@ -80,7 +80,7 @@ section {
 
 main {
     width: 100%;
-    min-height: 55vh;
+    min-height: calc(100vh - 210px);
 }
 
 input[type="date"]::-webkit-inner-spin-button,
@@ -113,7 +113,7 @@ input[type="date"] {
 
     @media screen and (min-width: $w576) {
         padding: 0 16px;
-        max-width: 480px;
+        max-width: 705px;
     }
 
     @media screen and (min-width: $w760) {
@@ -459,31 +459,28 @@ input[type="date"] {
 
 @mixin font-h1 {
     font-weight: 700;
-    font-size: 28px;
+    font-size: 20px;
     line-height: 121%;
 
-    @media screen and (min-width: $w1440) {
-        font-size: 56px;
-    }
-
     @media screen and (min-width: $w760) {
-        font-size: 42px;
+        font-size: 28px;
     }
 
-    @media screen and (min-width: $w360) {
-        font-size: 32px;
+    @media screen and (min-width: $w1200) {
+        font-size: 44px;
     }
+
+
 
 }
 
 @mixin font-h3 {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 138%;
 
-    @media screen and (min-width: $w1200) {
-        font-size: 32px;
-    }
+
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 160%;
+
 
 }
 

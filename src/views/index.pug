@@ -1,4 +1,6 @@
 extends layouts/home
+
+include ../blocks/modules/search-index/search-index.pug
  
 block variables
   include ../data/data.pug
@@ -7,7 +9,8 @@ block variables
 
 block content 
 
- 
+
+ +search-index()
 
 
 block scripts

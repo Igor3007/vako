@@ -1,41 +1,17 @@
 /* fonts */
 
-
 @font-face {
-    font-family: 'Lora';
-    src: url('fonts/lora/subset-Lora-Bold.woff2') format('woff2');
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Lora';
-    src: url('fonts/lora/subset-Lora-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Lora';
-    src: url('fonts/lora/subset-Lora-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Lora';
-    src: url('fonts/lora/subset-Lora-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'PT Serif';
-    src: url('fonts/ptserif/subset-PTSerif-Bold.woff2') format('woff2');
+    font-family: 'Lato';
+    src: url('/fonts/lato/subset-Lato-Bold.woff2') format('woff2');
     font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/fonts/lato/subset-Lato-Regular.woff2') format('woff2');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }

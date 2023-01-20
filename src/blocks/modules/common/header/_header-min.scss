@@ -1,0 +1,232 @@
+.header-home {
+    & .container {
+        @media screen and (min-width: $w1440) {
+            max-width: 100%;
+            padding: 24px 48px;
+        }
+    }
+}
+
+.header-min {
+
+    padding: 16px 0;
+
+    &__main {
+        display: flex;
+        align-items: center;
+    }
+
+    &__actions {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+
+        &>div {
+            @media screen and (min-width: $w760) {
+                margin-left: 12px;
+            }
+        }
+    }
+
+    &__logo {
+        & .bgimage {
+            width: 96px;
+            height: 36px;
+            @include bgimage-contain;
+
+            @media screen and (min-width: $w760) {
+                width: 108px;
+                height: 40px;
+            }
+        }
+    }
+
+}
+
+.dropdown-icon {
+
+    position: relative;
+
+    &__elem {
+
+        & a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+
+            @media screen and (min-width: $w760) {
+                width: 48px;
+                height: 48px;
+            }
+
+            & svg {
+                filter: grayscale(1) brightness(0);
+                transition: 0.3 ease;
+                width: 20px;
+                height: 20px;
+
+                @media screen and (min-width: $w760) {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        &:hover {
+            & svg {
+                filter: none;
+            }
+        }
+
+    }
+
+
+
+    &__list {
+
+        position: absolute;
+        top: 100%;
+        right: -12px;
+
+        padding-top: 8px;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+
+        & .dropdown-button {
+            display: block;
+            padding: 15px;
+            background: #FFFFFF;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            font-size: 14px;
+            text-align: center;
+
+            & .btn {
+                width: 240px;
+
+            }
+
+            & a {
+                display: block;
+                margin-bottom: 10px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+        }
+    }
+
+    &:hover {
+        & .dropdown-icon {
+            &__list {
+                opacity: 1;
+                visibility: visible;
+
+            }
+        }
+    }
+}
+
+.tooltip-icon {
+
+    position: relative;
+
+    &__elem {
+
+        & a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 6px;
+
+            @media screen and (min-width: $w760) {
+                width: 48px;
+                height: 48px;
+            }
+
+            & svg {
+                filter: grayscale(1) brightness(0);
+                transition: 0.3 ease;
+                width: 20px;
+                height: 20px;
+
+                @media screen and (min-width: $w760) {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        &:hover {
+            & svg {
+                filter: none;
+            }
+        }
+
+    }
+
+    &__text {
+
+        position: absolute;
+        top: 100%;
+        right: 0;
+        transform: translateX(50%) translateX(-24px);
+        padding-top: 8px;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+
+        & span {
+            display: block;
+            padding: 15px;
+            background: #FFFFFF;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            max-width: 155px;
+            min-width: 155px;
+            font-size: 14px;
+            text-align: center;
+            line-height: 130%;
+        }
+    }
+
+    &:hover {
+        & .tooltip-icon {
+            &__text {
+                opacity: 1;
+                visibility: visible;
+
+            }
+        }
+    }
+}
+
+
+.header-location {
+    &__wrp {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        margin-right: 0.8em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & svg {
+            filter: grayscale(1) brightness(0);
+        }
+    }
+
+
+
+
+}

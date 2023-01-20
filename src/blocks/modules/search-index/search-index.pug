@@ -1,0 +1,24 @@
+mixin search-index
+    section.section-search-index
+        .container
+            .search-index
+                .search-index__find
+                    form(action='#' method='POST')
+                        .search-index__form
+                            .search-index__catalog
+                                button.btn Каталог
+                            .search-index__input
+                                input(type="text" placeholder="Искать на Vako")
+                            .search-index__btn
+                                button.btn Найти
+                .search-index__banner: +medium-banner
+
+
+
+mixin medium-banner
+    .medium-banner
+        .medium-banner__wrp
+            .medium-banner__title Маркетплейс VAKO
+            .medium-banner__subtitle Уникальная платформа, на которой ты можешь видеть и выбирать самые выгодные предложения от всех магазинов!
+            .medium-banner__image
+                +picture('/img/other/img_banner')

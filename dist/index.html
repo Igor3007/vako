@@ -26,47 +26,25 @@
     <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
-    <link rel="preload" href="/fonts/lora/subset-Lora-Regular.woff2" as="font" crossorigin>
-    <link rel="preload" href="/fonts/lora/subset-Lora-SemiBold.woff2" as="font" crossorigin>
-    <link rel="preload" href="/fonts/lora/subset-Lora-Bold.woff2" as="font" crossorigin>
+    <link rel="preload" href="fonts/lato/subset-Lato-Regular.woff2" as="font" crossorigin>
+    <link rel="preload" href="fonts/lato/subset-Lato-Bold.woff2" as="font" crossorigin>
     <link rel="prefetch" href="/img/sprites/sprite.svg" as="image" crossorigin>
     <style>/* fonts */
 
 
-@font-face {
-    font-family: 'Lora';
-    src: url('fonts/lora/subset-Lora-Bold.woff2') format('woff2');
-    font-style: normal;
-    font-display: swap;
-}
 
 @font-face {
-    font-family: 'Lora';
-    src: url('fonts/lora/subset-Lora-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Lora';
-    src: url('fonts/lora/subset-Lora-Regular.woff2') format('woff2');
+    font-family: 'Lato';
+    src: url('fonts/lato/subset-Lato-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Lora';
-    src: url('fonts/lora/subset-Lora-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
 
 @font-face {
-    font-family: 'PT Serif';
-    src: url('fonts/ptserif/subset-PTSerif-Bold.woff2') format('woff2');
+    font-family: 'Lato';
+    src: url('fonts/lato/subset-Lato-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -76,31 +54,108 @@
   </head>
   <body class="perf-no-animation">
     <header> 
-      <div class="container">
-        <div class="header-min">
-          <div class="header-min__main">
-            <div class="header-min__logo"><a href="#"><span class="bgimage" style="background-image: url('/img/common/logo-dark.svg')"></span></a></div>
-            <div class="header-min__actions">
-              <div class="header-min__fav"><a href="#">
-                  <svg width="24" height="24">
-                    <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                  </svg></a></div>
-              <div class="header-min__compare"><a href="#">
-                  <svg width="24" height="24">
-                    <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
-                  </svg></a></div>
-              <div class="header-min__profile"><a href="#">
-                  <svg width="24" height="24">
-                    <use xlink:href="/img/sprites/sprite.svg#ic_user"></use>
-                  </svg></a></div>
+      <div class="header-home">
+        <div class="container">
+          <div class="header-min">
+            <div class="header-min__main">
+              <div class="header-min__logo"><a href="#"><span class="bgimage" style="background-image: url('/img/common/logo-dark.svg')"></span></a></div>
+              <div class="header-min__actions">
+                <div class="header-min__fav">
+                        <div class="tooltip-icon">
+                          <div class="tooltip-icon__elem"><a href="#">
+                              <svg width="24" height="24">
+                                <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                              </svg></a></div>
+                          <div class="tooltip-icon__text"><span> Добавьте товары в избранное </span></div>
+                        </div>
+                </div>
+                <div class="header-min__compare">
+                        <div class="tooltip-icon">
+                          <div class="tooltip-icon__elem"><a href="#">
+                              <svg width="24" height="24">
+                                <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                              </svg></a></div>
+                          <div class="tooltip-icon__text"><span> Добавьте товары в сравнение </span></div>
+                        </div>
+                </div>
+                <div class="header-min__login">
+                        <div class="dropdown-icon">
+                          <div class="dropdown-icon__elem"><a href="#">
+                              <svg width="24" height="24">
+                                <use xlink:href="/img/sprites/sprite.svg#ic_login"></use>
+                              </svg></a></div>
+                          <div class="dropdown-icon__list">
+                            <div class="dropdown-button"><a href="#">
+                                <button class="btn btn-gray">Войти</button></a><a href="#">
+                                <button class="btn btn-gray">Зарегистрироваться</button></a><a href="#">
+                                <button class="btn btn-white">Вход для магазинов</button></a></div>
+                          </div>
+                        </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-location">
+            <div class="header-location__wrp">
+              <div class="header-location__icon">
+                <svg width="25" height="25">
+                  <use xlink:href="/img/sprites/sprite.svg#ic_pin"></use>
+                </svg>
+              </div>
+              <div class="header-location__name">Кременчуг-Константиновское </div>
             </div>
           </div>
         </div>
       </div>
     </header>
     <main> 
+      <section class="section-search-index">
+        <div class="container">
+          <div class="search-index">
+            <div class="search-index__find">
+              <form action="#" method="POST">
+                <div class="search-index__form">
+                  <div class="search-index__catalog">
+                    <button class="btn">Каталог</button>
+                  </div>
+                  <div class="search-index__input">
+                    <input type="text" placeholder="Искать на Vako"/>
+                  </div>
+                  <div class="search-index__btn">
+                    <button class="btn">Найти</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="search-index__banner">
+              <div class="medium-banner">
+                <div class="medium-banner__wrp">
+                  <div class="medium-banner__title">Маркетплейс VAKO</div>
+                  <div class="medium-banner__subtitle">Уникальная платформа, на которой ты можешь видеть и выбирать самые выгодные предложения от всех магазинов!</div>
+                  <div class="medium-banner__image">
+                    <picture>
+                      <source srcset="/img/other/img_banner.webp" type="image/webp"/><img src="/img/other/img_banner.jpg" loading="lazy" alt="image"/>
+                    </picture>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
+      <div class="container">
+        <div class="footer-min">
+          <div class="footer-min__copyright">© ООО «Vako.Market». Все права защищены</div>
+          <div class="footer-min__links">
+            <ul>
+              <li><a href="#">Политика конфиденциальности</a></li>
+              <li><a href="#">Пользовательское соглашение</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </footer>
     <script src="/js/vendor.js"> </script>
     <script src="/js/common.js"> </script>
