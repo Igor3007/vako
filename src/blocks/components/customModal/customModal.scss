@@ -1,0 +1,153 @@
+/* popup */
+
+@keyframes zoomInUp {
+    from {
+        transform: scale(0.97) translate3d(0, 16px, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+.af-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.75);
+    overflow-x: auto;
+    z-index: 100;
+
+
+}
+
+.af-popup--mobile {
+    & .af-popup {
+        &__container {
+            @media screen and (max-width: 480px) {
+                padding-bottom: 0;
+                margin-bottom: 0;
+                width: 100%;
+            }
+        }
+
+    }
+}
+
+.af-popup__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+}
+
+.af-popup__wrp {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -ms-flex-direction: column;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    z-index: 102;
+    position: relative;
+    min-height: 100%;
+}
+
+.af-popup__content {
+    border-radius: 4px;
+    background: #fff;
+    padding: 10px;
+}
+
+.af-popup__container {
+    width: auto;
+    max-width: 100%;
+    margin: auto;
+    padding: 50px 0;
+    position: relative;
+    animation: 0.2s ease both zoomInUp;
+
+    @media screen and (min-width: $w480) {
+        max-width: 90%;
+    }
+
+}
+
+.af-popup__close {
+    height: 24px;
+    text-align: right;
+    position: absolute;
+    bottom: calc(100% + 15px);
+    right: 0;
+    cursor: pointer;
+    z-index: 101;
+    top: 11px;
+
+    @media screen and (max-width: $w480) {
+        right: 10px;
+    }
+}
+
+.af-popup__close svg {
+    fill: #fff;
+    width: 24px;
+    height: 24px;
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.af-spiner {
+
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+        content: '';
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        border-left-color: transparent !important;
+        margin-left: 10px;
+        transition: transform 0.5s linear;
+        animation: 0.5s linear loadingrotate infinite;
+        display: inline-block;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        position: relative;
+        left: 5px;
+    }
+}
+
+.dark-mode {
+    & .af-popup {
+        background: rgba(17, 17, 17, 0.97);
+
+        &__content {
+            background-color: transparent;
+            padding: 10px 20px;
+        }
+
+        &__close {
+            top: 20px;
+            right: 20px;
+
+            @media screen and (min-width: $w760) {
+                top: 25px;
+                right: 15px;
+            }
+        }
+    }
+}

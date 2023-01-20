@@ -1,0 +1,16 @@
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/functions";
+@import "vendor/libs";
+@import "base/fonts";
+@import "helpers/animate";
+@import "base/general";
+@import "base/common";
+//components
+@import '../blocks/components/buttons/buttons.scss';
+@import '../blocks/components/checkbox/checkbox.scss';
+@import '../blocks/components/form/form.scss';
+@import '../blocks/components/burger/burger.scss';
+@import '../blocks/components/customModal/customModal';
+//modules
+@import '../blocks/modules/site'
