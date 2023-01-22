@@ -116,18 +116,21 @@
     <main> 
       <section class="section-search-index">
         <div class="container">
-          <div class="search-index">
+          <div class="search-index" data-index-find="container">
             <div class="search-index__find">
               <form action="#" method="POST">
-                <div class="search-index__form">
+                <div class="search-index__form" data-index-find="form">
                   <div class="search-index__catalog">
-                    <button class="btn">Каталог</button>
+                    <button class="btn btn-catalog"><span class="icon-catalog"><i></i><i></i><i></i><i></i></span>Каталог</button>
                   </div>
-                  <div class="search-index__input">
-                    <input type="text" placeholder="Искать на Vako"/>
-                  </div>
-                  <div class="search-index__btn">
-                    <button class="btn">Найти</button>
+                  <div class="search-index__field">
+                    <div class="search-index__input">
+                      <input type="text" placeholder="Искать на Vako" data-index-find="input"/>
+                    </div>
+                    <div class="search-index__btn">
+                      <button class="btn">Найти</button>
+                    </div>
+                    <div class="search-index__suggest" data-index-find="suggest">suggest</div>
                   </div>
                 </div>
               </form>

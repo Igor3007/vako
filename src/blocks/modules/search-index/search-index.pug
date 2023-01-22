@@ -1,16 +1,24 @@
 mixin search-index
     section.section-search-index
         .container
-            .search-index
+            .search-index(data-index-find="container")
                 .search-index__find
                     form(action='#' method='POST')
-                        .search-index__form
+                        .search-index__form(data-index-find="form")
                             .search-index__catalog
-                                button.btn Каталог
-                            .search-index__input
-                                input(type="text" placeholder="Искать на Vako")
-                            .search-index__btn
-                                button.btn Найти
+                                button.btn.btn-catalog
+                                    span.icon-catalog
+                                        i
+                                        i
+                                        i
+                                        i
+                                    | Каталог
+                            .search-index__field
+                                .search-index__input
+                                        input(type="text" placeholder="Искать на Vako" data-index-find="input")
+                                .search-index__btn
+                                    button.btn Найти
+                                .search-index__suggest(data-index-find="suggest") suggest
                 .search-index__banner: +medium-banner
 
 

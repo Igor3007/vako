@@ -1,5 +1,5 @@
 {
-    "name": "Vako",
+    "name": "Name",
     "description": "",
     "author": "promicom",
     "repository": {
@@ -24,6 +24,7 @@
         "lint:scripts": "eslint --color ./src/blocks",
         "lint:scripts --fix": "eslint --fix --color ./src/blocks"
     },
+
     "devDependencies": {
         "@babel/core": "^7.4.3",
         "@babel/preset-env": "^7.4.3",
@@ -71,6 +72,7 @@
         "webpack-stream": "^5.2.1",
         "yargs": "~13.2.4"
     },
+
     "dependencies": {
         "gulp-uglify": "^3.0.2",
         "lazysizes": "^5.3.2"

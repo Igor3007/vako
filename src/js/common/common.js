@@ -116,58 +116,62 @@
      mobile menu
      ============================================== */
 
-     const elContainer = document.querySelector('[data-menu="container"]')
-     const elButton = document.querySelector('[data-menu="btn"]')
+     if (document.querySelector('[data-menu="btn"]')) {
+         const elContainer = document.querySelector('[data-menu="container"]')
+         const elButton = document.querySelector('[data-menu="btn"]')
 
-     function mobileMenu(params) {
-         this.el = params.elContainer;
-         this.button = params.elButton;
-         this.state = 'close';
+         function mobileMenu(params) {
+             this.el = params.elContainer;
+             this.button = params.elButton;
+             this.state = 'close';
 
-         this.open = function () {
+             this.open = function () {
 
-             if (window.userMenuInstance) {
-                 window.userMenuInstance.close()
+                 if (window.userMenuInstance) {
+                     window.userMenuInstance.close()
+                 }
+
+
+                 this.el.classList.add('open')
+                 this.button.classList.add('open')
+                 document.body.classList.add('hidden')
+                 this.state = 'open';
+
              }
 
+             this.close = function () {
 
-             this.el.classList.add('open')
-             this.button.classList.add('open')
-             document.body.classList.add('hidden')
-             this.state = 'open';
+                 this.el.classList.add('close-animate')
+                 this.button.classList.remove('open')
 
+
+                 setTimeout(() => {
+                     this.el.classList.remove('open')
+                     this.el.classList.remove('close-animate')
+                     document.body.classList.remove('hidden')
+                     this.state = 'close'
+                 }, 200)
+
+
+             }
+
+             this.toggle = function () {
+                 if (this.state == 'close') this.open()
+                 else this.close()
+             }
          }
 
-         this.close = function () {
+         window.menuInstanse = new mobileMenu({
+             elButton,
+             elContainer
+         })
 
-             this.el.classList.add('close-animate')
-             this.button.classList.remove('open')
-
-
-             setTimeout(() => {
-                 this.el.classList.remove('open')
-                 this.el.classList.remove('close-animate')
-                 document.body.classList.remove('hidden')
-                 this.state = 'close'
-             }, 200)
-
-
-         }
-
-         this.toggle = function () {
-             if (this.state == 'close') this.open()
-             else this.close()
-         }
+         elButton.addEventListener('click', function () {
+             window.menuInstanse.toggle()
+         })
      }
 
-     window.menuInstanse = new mobileMenu({
-         elButton,
-         elContainer
-     })
 
-     elButton.addEventListener('click', function () {
-         window.menuInstanse.toggle()
-     })
 
 
      /* ==============================================
@@ -207,6 +211,59 @@
              top: offset.top,
              behavior: "smooth"
          });
+     }
+
+     /* ==================================================
+     find 
+     ==================================================*/
+
+     if (document.querySelector('.search-index__field input')) {
+
+
+         class indexFind {
+             constructor() {
+                 this.$el = document.querySelector('[data-index-find="container"]')
+                 this.input = this.$el.querySelector('[data-index-find="input"]')
+                 this.form = this.$el.querySelector('[data-index-find="form"]')
+                 this.suggest = this.$el.querySelector('[data-index-find="suggest"]')
+                 this.closeButton = null;
+
+                 this.events()
+             }
+
+             events() {
+
+                 this.input.addEventListener('focus', e => {
+                     this.open()
+                 })
+
+             }
+
+             open() {
+                 this.form.classList.add('is-focus')
+                 this.createCloseButton()
+             }
+
+             close() {
+                 this.form.classList.remove('is-focus')
+                 this.closeButton.remove()
+             }
+
+             createCloseButton() {
+                 this.closeButton = document.createElement('span')
+                 this.closeButton.classList.add('icon-cross')
+                 this.closeButton.addEventListener('click', e => this.close())
+
+                 if (!this.input.parentNode.querySelector('.icon-cross')) {
+                     this.input.parentNode.append(this.closeButton)
+                 }
+             }
+
+
+         }
+
+         new indexFind();
+
      }
 
 
