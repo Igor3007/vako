@@ -5,7 +5,7 @@ include dropdown
     .container
         .header-top
             .header-top__logo
-                a(href='#'): span.bgimage(style="background-image: url('/img/common/logo.svg')")
+                a(href='/'): span.bgimage(style="background-image: url('/img/common/logo.svg')")
             .header-top__find
                 .search-index(data-index-find="container")
                     .search-index__find
@@ -43,7 +43,7 @@ include dropdown
         .header-bottom
             .header-bottom__location
                 .header-location
-                    .header-location__wrp
+                    .header-location__wrp(data-popup="region")
                         .header-location__icon: +icons('#ic_pin')
                         .header-location__name Кременчуг-Константиновское 
             .header-bottom__menu

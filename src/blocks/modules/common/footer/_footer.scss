@@ -1,0 +1,140 @@
+.footer {
+
+    padding: 24px 0;
+    background-color: $gray-13;
+
+    @media screen and (min-width: $w480) {
+        padding: 46px 0;
+    }
+
+    @media screen and (min-width: $w1200) {
+        display: flex;
+        align-items: center;
+    }
+
+    &__left {
+        max-width: 450px;
+    }
+
+    &__right {
+        @media screen and (min-width: $w1200) {
+            margin-left: auto;
+        }
+    }
+
+    &__logo {
+
+        margin-right: 16px;
+        padding-bottom: 18px;
+
+        @media screen and (min-width: $w1200) {
+            margin-right: 55px;
+            padding-bottom: 25px;
+        }
+
+        & .bgimage {
+            width: 96px;
+            height: 36px;
+            @include bgimage-contain;
+
+            @media screen and (min-width: $w760) {
+                width: 108px;
+                height: 40px;
+            }
+        }
+    }
+
+    &__desc {
+        color: #fff;
+        opacity: 0.7;
+        padding-bottom: 18px;
+        line-height: 143%;
+
+        @media screen and (min-width: $w480) {
+            font-size: 16px;
+        }
+    }
+
+    &__social {
+
+        padding-bottom: 15px;
+
+        & ul {
+            display: flex;
+
+            & li {
+                width: 24px;
+                height: 24px;
+                margin: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                & a {
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                }
+
+                &:hover {
+                    background-color: #000;
+
+                    & svg {
+                        opacity: 1;
+                    }
+                }
+
+                & svg {
+                    width: 16px;
+                    height: 16px;
+                    fill: #fff;
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+    &__item {
+
+        color: #fff;
+
+        & a {
+            color: #fff;
+            font-size: 16px;
+
+            &:hover {
+                color: $accent-2-1;
+            }
+        }
+
+        @media screen and (min-width: $w760) {
+            padding: 0px 43px;
+            margin-top: -30px;
+        }
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 600;
+        padding-bottom: 15px;
+    }
+
+    &__list {
+        padding-bottom: 20px;
+
+        & li {
+            padding: 7px 0;
+        }
+    }
+
+    &__right {
+        @media screen and (min-width: $w760) {
+            display: flex;
+            margin: 0 -20px;
+        }
+    }
+}
+
+.footer-bottom {
+    background-color: #292929;
+}

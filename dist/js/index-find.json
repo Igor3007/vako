@@ -1,32 +1,32 @@
 {
 
     "suggest": [{
-            "href": "#",
+            "href": "/category.html",
             "text": "клавиатура"
         },
         {
-            "href": "#",
+            "href": "/category.html",
             "text": "клавиатура с подсветкой"
         },
         {
-            "href": "#",
+            "href": "/category.html",
             "text": "клавиатура беспроводная"
         },
         {
-            "href": "#",
+            "href": "/category.html",
             "text": "клавиатура и мышь"
         }
     ],
 
     "category": [{
             "image": "/img/product/min/img-1.jpg",
-            "href": "#",
+            "href": "/category.html",
             "title": "Клавиатуры",
             "desc": "Компьютеры"
         },
         {
             "image": "/img/product/min/img-2.jpg",
-            "href": "#",
+            "href": "/category.html",
             "title": "Клавиатуры и кнопки для ноутбука",
             "desc": "Запчасти для ноутбуков"
         }
@@ -34,25 +34,25 @@
 
     "products": [{
             "image": "/img/product/min/img-3.jpg",
-            "href": "#",
+            "href": "/category.html",
             "title": "Клавиатура Logitech k380 Multi-Device",
             "desc": "от 3 243 ₽"
         },
         {
             "image": "/img/product/min/img-4.jpg",
-            "href": "#",
+            "href": "/category.html",
             "title": "Клавиатура Logitech K580 Slim Multi-Device",
             "desc": "от 4 512 ₽"
         },
         {
             "image": "/img/product/min/img-5.jpg",
-            "href": "#",
+            "href": "/category.html",
             "title": "Клавиатура Apple Magic Keyboard 2021",
             "desc": "от 13 999 ₽"
         },
         {
             "image": "/img/product/min/img.jpg",
-            "href": "#",
+            "href": "/category.html",
             "title": "Клавиатура Logitech k380 Multi-Device",
             "desc": "от 3 243 ₽"
         }

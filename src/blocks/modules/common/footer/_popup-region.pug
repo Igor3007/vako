@@ -1,0 +1,15 @@
+mixin popup-region
+    .select-region(data-popup="select-region")
+        .select-region__wrp
+            .select-region__icon: +bgimage('/img/common/icon_pin_60.svg')
+            .select-region__title Вам показаны товары <br> в Кременчуг-Константиновское
+            .select-region__form
+                form(action='#' method='POST')
+                    .form
+                        .form__item
+                            .form__subitem: input(type="text" placeholder="Укажите регион")
+                        .form__item
+                            .form__subitem
+                                button.btn Сохранить
+            .select-region__auto
+                a(href='#auto') Определять автоматически

@@ -340,9 +340,6 @@
              renderRecent() {
 
                  const recentList = this.getRecentRequest();
-
-
-
                  const elemUl = document.createElement('ul')
                  elemUl.classList.add('recent-list')
 
@@ -407,7 +404,6 @@
 
                      if (!e.target.closest('.search-index__field')) {
                          this.close()
-
                      }
                  })
 
@@ -438,12 +434,19 @@
 
              open() {
                  this.$el.classList.add('open')
+                 const items = this.$el.querySelector('.catalog-popup__nav').querySelectorAll('li')
+                 if (document.body.clientWidth > 768 && items.length) {
+                     this.openSubDesctop(items[0])
+                 }
              }
+
              close() {
                  this.$el.classList.remove('open')
              }
 
              openSubMobile(item) {
+
+
 
                  if (item.querySelector('.sub-menu')) {
 
@@ -474,8 +477,53 @@
 
                  }
 
+             }
 
 
+             openSubDesctop(item) {
+
+                 if (item.querySelector('.sub-menu')) {
+
+                     const template = `
+                        <div class="catalog-popup__catig" >${item.querySelector('a').innerText}</div>
+                        <div class="catalog-popup__list" ><ul>${item.querySelector('.sub-menu').innerHTML}</ul></div>
+                       `;
+
+
+                     const layer = document.createElement('div')
+                     layer.classList.add('catalog-popup__submenu')
+                     layer.innerHTML = template
+
+                     const subMenu = layer.querySelectorAll('.sub-menu')
+
+                     subMenu.forEach(item => {
+
+                         if (item.querySelectorAll('li').length > 5) {
+
+                             item.classList.add('is-slice-list')
+
+                             const elem = document.createElement('div')
+                             elem.classList.add('sub-menu-toggle')
+                             elem.innerText = 'Еще'
+
+                             //add event
+
+                             elem.addEventListener('click', e => {
+                                 item.classList.toggle('is-open')
+                                 elem.classList.toggle('is-open')
+                                 elem.innerText = (item.classList.contains('is-open') ? 'Свернуть' : 'Еще')
+                             })
+
+                             item.after(elem)
+
+                         }
+
+                     })
+
+                     this.$el.querySelector('.catalog-popup__main').innerHTML = '';
+                     this.$el.querySelector('.catalog-popup__main').append(layer)
+
+                 }
 
              }
 
@@ -491,6 +539,18 @@
                  this.liEvents(this.$el.querySelector('.catalog-popup__nav'))
 
 
+                 if (document.body.clientWidth > 768) {
+                     this.$el.addEventListener('click', e => {
+
+                         //console.log(e.target)
+
+                         if (!e.target.closest('.catalog-popup__wrp') && !e.target.closest('.btn-catalog')) {
+                             this.close()
+                         }
+                     })
+                 }
+
+
              }
 
              liEvents(container) {
@@ -498,7 +558,14 @@
 
                  items.forEach(item => {
                      item.addEventListener('click', e => {
-                         this.openSubMobile(e.target)
+
+
+                         if (document.body.clientWidth <= 768) {
+                             this.openSubMobile(e.target)
+                         } else {
+                             this.openSubDesctop(item)
+                         }
+
                      })
                  })
              }
@@ -509,6 +576,75 @@
      }
 
 
+     /* ====================================
+     data-catalog="nav"
+     ====================================*/
+
+     if (document.querySelector('[data-catalog="nav"]')) {
+
+         const container = document.querySelector('[data-catalog="nav"]')
+
+         const subMenu = container.querySelectorAll('.sub-menu')
+
+         subMenu.forEach(item => {
+
+             if (item.querySelectorAll('li').length > 5) {
+
+                 const elem = document.createElement('div')
+                 elem.classList.add('sub-menu-toggle')
+                 elem.innerText = 'Еще'
+
+                 //add event
+
+                 elem.addEventListener('click', e => {
+                     item.classList.toggle('is-open')
+                     elem.classList.toggle('is-open')
+                     elem.innerText = (item.classList.contains('is-open') ? 'Свернуть' : 'Еще')
+                 })
+
+                 item.after(elem)
+
+             }
+
+         })
+
+     }
+
+     /* =======================================
+     show all ctigory
+     =======================================*/
+
+     if (document.querySelector('[data-all-catid="show"]')) {
+         document.querySelector('[data-all-catid="show"]').addEventListener('click', e => {
+             e.target.classList.toggle('is-open')
+             document.querySelector('[data-catalog="nav"]').classList.toggle('is-open')
+         })
+     }
+
+     /*========================================
+     select 
+     ========================================*/
+
+
+     if (document.querySelector('[data-popup="region"]')) {
+
+         const selectRegionPopup = new customModal({
+             mobileInBottom: true
+         })
+
+         const formElement = document.querySelector('[data-popup="select-region"]')
+
+         document.querySelector('[data-popup="region"]').addEventListener('click', function (e) {
+             e.preventDefault()
+
+             selectRegionPopup.open(formElement.outerHTML, function (instanse) {
+                 //selectCustom.reinit(instanse.querySelector('.af-popup select'))
+             })
+
+         })
+
+
+     }
 
 
 

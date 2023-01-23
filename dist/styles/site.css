@@ -1568,6 +1568,28 @@ select {
   top: 0;
 }
 
+@keyframes slide-Y {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 html {
   font-family: Lato, 'Arial Narrow Bold', sans-serif;
   font-style: normal;
@@ -2183,12 +2205,12 @@ input {
   font-size: 14px;
   padding-left: 15px;
   padding-right: 15px;
-  border: 1px solid #EBEBEB;
+  border: 1px solid #ebebeb;
   box-sizing: border-box;
-  border-radius: 0px;
+  border-radius: 4px;
   width: auto;
   flex-grow: 1;
-  background-color: #F2F2F2;
+  background-color: #fff;
   transition: border, background 0.4s ease;
 }
 
@@ -2207,9 +2229,8 @@ input {
 .form input[type="password"]:focus,
 .form input[type="email"]:focus,
 .form input[type="tel"]:focus {
-  border-color: #7B61FF;
+  border-color: #cf1c5d;
   background-color: #fff;
-  border-width: 2px;
   outline: none;
 }
 
@@ -2751,18 +2772,17 @@ input {
   height: 24px;
   text-align: right;
   position: absolute;
-  bottom: calc(100% + 15px);
-  right: 0;
+  right: 15px;
   cursor: pointer;
   z-index: 101;
-  top: 11px;
+  top: 65px;
 }
 
 .af-popup__close svg {
-  fill: #fff;
+  fill: #eee;
   width: 24px;
   height: 24px;
-  stroke: #fff;
+  stroke: #ccc;
   stroke-width: 2px;
 }
 
@@ -2941,25 +2961,6 @@ input {
     font-size: 14px;
   }
 
-  .form input[type="text"],
-  .form input[type="date"],
-  .form input[type="number"],
-  .form input[type="password"],
-  .form input[type="email"],
-  .form input[type="tel"] {
-    height: 56px;
-    padding-left: 25px;
-  }
-
-  .form input[type="text"]::placeholder,
-  .form input[type="date"]::placeholder,
-  .form input[type="number"]::placeholder,
-  .form input[type="password"]::placeholder,
-  .form input[type="email"]::placeholder,
-  .form input[type="tel"]::placeholder {
-    color: transparent;
-  }
-
   .form .af-select {
     height: 56px;
   }
@@ -2968,7 +2969,7 @@ input {
 @media screen and (min-width: 1440px) {
   .container {
     padding: 0 30px;
-    max-width: 1395px;
+    max-width: 1450px;
   }
 
   .form__item > .form__item {

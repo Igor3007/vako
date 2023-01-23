@@ -133,7 +133,7 @@ input[type="date"] {
 
     @media screen and (min-width: $w1440) {
         padding: 0 30px;
-        max-width: 1395px;
+        max-width: 1450px;
     }
 }
 
@@ -469,6 +469,21 @@ input[type="date"] {
     @media screen and (min-width: $w1200) {
         font-size: 44px;
     }
+
+
+
+}
+
+@mixin font-h2 {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 121%;
+
+    @media screen and (min-width: $w760) {
+        font-size: 28px;
+    }
+
+
 
 
 

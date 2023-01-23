@@ -1,18 +1,50 @@
-section.section-catalog-category
-    .container
-        .catalog-category
-            .catalog-category__breadcrumbs
-                +breadcrumbs([
-                    'Главная',
-                    'Компьютеры',
-                ])
-            .catalog-category__h1: h1 Компьютеры
+include  ../../components/breadcrumb/breadcrumb.pug
 
-            .catalog-category__asise
-                nav
-                    ul
-                        li: a(href='#')
+mixin banner-min
+    .min-banner(style="background-color: #409483")
+        .min-banner__wrp
+            .min-banner__title Лучшие ноутбуки и планшеты 2022
+            .min-banner__subtitle Самые популярные модели и производительные <br> модели этого года!
+            .min-banner__image
+                +picture('/img/other/image34')
 
-            .catalog-category__main
-                .catalog-category__banner
-                .catalog-category__list
+mixin catalog-category
+    section.section-catalog-category
+        .container
+            .catalog-category
+                .catalog-category__breadcrumbs
+                    +breadcrumb([
+                        'Главная',
+                        'Компьютеры',
+                    ])
+                .catalog-category__h1: h1 Компьютеры
+
+                .catalog-category__content
+                    .catalog-category__asise(data-catalog="nav")
+                        nav
+                            ul
+                                each sub1 in catalog[0].sub
+                                    li
+                                        a(href='#')= sub1.title 
+                                        if(sub1.sub)
+                                            ul.sub-menu
+                                                each sub2 in sub1.sub
+                                                    li
+                                                        a(href='#')= sub2.title 
+                        .catalog-category__all.sub-menu-toggle(data-all-catid="show") Показать все категории
+
+
+                    .catalog-category__main
+                        .catalog-category__banner: +banner-min()
+                        .catalog-category__h2 Купить компьютерную технику на Vako
+                        .catalog-category__list
+                            each item in products
+                                .catalog-category__item: +card-category(item)
+
+mixin card-category(data)
+    .card-category
+        .card-category__name
+            a(href='#')= data.title
+        .card-category__picture
+            a(href='#')
+                +picture(data.image)

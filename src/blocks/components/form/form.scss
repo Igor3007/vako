@@ -19,32 +19,24 @@ input {
         font-size: 14px;
         padding-left: rem(15);
         padding-right: rem(15);
-        border: 1px solid #EBEBEB;
+        border: 1px solid $gray-92;
         box-sizing: border-box;
-        border-radius: 0px;
+        border-radius: 4px;
         width: auto;
         flex-grow: 1;
-        background-color: #F2F2F2;
+        background-color: #fff;
 
         transition: border, background 0.4s ease;
 
-        @media screen and (min-width: $w1200) {
-            height: 56px;
-            padding-left: 25px;
-        }
+
 
         &::placeholder {
             color: #000;
-
-            @media screen and (min-width: $w1200) {
-                color: transparent;
-            }
         }
 
         &:focus {
-            border-color: $accent-2-1;
+            border-color: $red;
             background-color: #fff;
-            border-width: 2px;
             outline: none;
         }
     }

@@ -1,5 +1,6 @@
 extends ../layouts/catalog
 
+include ../../blocks/modules/catalog-category/catalog-category.pug
  
  
 block variables
@@ -7,7 +8,8 @@ block variables
   - const title = "Vako"
  
 
-block content 
+block content
+  +catalog-category()
 
 
 

@@ -1,3 +1,51 @@
 include ../../search-index/search-index.pug
+include _popup-region.pug
+
+.container
+    .footer
+        .footer__left
+            .footer__logo
+                a(href='/'): span.bgimage(style="background-image: url('/img/common/logo.svg')")
+            .footer__desc Уникальная платформа, где ты можешь видеть и выбирать самые выгодные предложения от всех магазинов!
+            .footer__social
+                ul
+                    li: a(href='#'): +icons('#ic_vk') 
+                    li: a(href='#'): +icons('#ic_inst') 
+                    li: a(href='#'): +icons('#ic_tg') 
+                    li: a(href='#'): +icons('#ic_fb') 
+
+        .footer__right
+            .footer__item 
+                .footer__title Покупателям
+                .footer__list
+                    ul
+                        li: a(href='#') Обзоры
+                        li: a(href='#') Как выбрать товар
+                        li: a(href='#') Права потребителей
+            .footer__item 
+                .footer__title Продавцам
+                .footer__list
+                    ul
+                        li: a(href='#') Личный кабинет магазина
+                        li: a(href='#') Подключение магазина
+                        li: a(href='#') Справка для магазинов
+            .footer__item 
+                .footer__title Компания Vako
+                .footer__list
+                    ul
+                        li: a(href='#') О проекте
+                        li: a(href='#') Обратная связь
+                        li: a(href='#') Вопрос-ответ
+          
+               
+.footer-bottom
+    .container
+        .footer-min
+            .footer-min__copyright © ООО «Vako.Market». Все права защищены
+            .footer-min__links
+                ul
+                    li: a(href='#') Политика конфиденциальности
+                    li: a(href='#') Пользовательское соглашение
 
 +catalog-popup()
++popup-region()

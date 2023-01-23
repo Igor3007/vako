@@ -8,7 +8,7 @@ include dropdown
         .header-min
             .header-min__main
                 .header-min__logo
-                    a(href='#')
+                    a(href='/')
                         span.bgimage(style="background-image: url('/img/common/logo-dark.svg')")
                 .header-min__actions
                     .header-min__fav
@@ -25,6 +25,6 @@ include dropdown
                     .header-min__login
                         +dropdown-icon
         .header-location
-            .header-location__wrp
+            .header-location__wrp(data-popup="region")
                 .header-location__icon: +icons('#ic_pin')
                 .header-location__name Кременчуг-Константиновское 

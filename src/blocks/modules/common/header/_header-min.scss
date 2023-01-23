@@ -94,6 +94,7 @@
         opacity: 0;
         visibility: hidden;
         transition: 0.3s ease;
+        z-index: 10;
 
         & .dropdown-button {
             display: block;
@@ -213,6 +214,7 @@
     &__wrp {
         display: flex;
         align-items: center;
+        cursor: pointer;
     }
 
     &__icon {

@@ -70,7 +70,7 @@ mixin catalog-popup
                             ul
                                 each item in catalog
                                     li
-                                        span.ic-catalog.lazyload(data-bg=item.icon)
+                                        span.ic-catalog.lazyload(style="background-image: url("+item.icon+")")
                                         a(href='#')= item.title
                                         if(item.sub)
                                             ul.sub-menu
@@ -84,3 +84,4 @@ mixin catalog-popup
                                                                         a(href='#')= sub2.title 
                                         
                 .catalog-popup__main
+                    

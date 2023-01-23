@@ -254,6 +254,8 @@
     border-radius: 6px;
     position: relative;
 
+
+
     @media screen and (min-width: $w576) {
         padding: 30px;
     }
@@ -327,6 +329,92 @@
 
 
 }
+
+
+.min-banner {
+
+    background-color: $violet-1-1;
+    color: #fff;
+    padding: 16px;
+    border-radius: 6px;
+    position: relative;
+
+
+
+    @media screen and (min-width: $w576) {
+        padding: 30px;
+    }
+
+    @media screen and (min-width: $w1200) {
+        padding: 49px 48px;
+    }
+
+    &__title {
+        @include font-h2;
+        width: calc(100% - 100px);
+        padding-bottom: 0.8em;
+
+        @media screen and (min-width: $w576) {
+            width: calc(100% - 300px);
+        }
+
+        @media screen and (min-width: $w1200) {
+            padding-bottom: 15px;
+        }
+    }
+
+    &__subtitle {
+        line-height: 143%;
+        width: calc(100% - 100px);
+        font-size: 13px;
+
+        @media screen and (min-width: $w480) {
+            font-size: 14px;
+        }
+
+        @media screen and (min-width: $w576) {
+            width: calc(100% - 240px);
+        }
+
+        @media screen and (min-width: $w1200) {
+            font-size: 18px;
+            line-height: 156%;
+        }
+
+    }
+
+    &__image {
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+        top: 0;
+
+        width: 95px;
+
+        @media screen and (min-width: $w576) {
+            width: 300px;
+        }
+
+        & picture {
+            display: flex;
+            align-items: flex-end;
+            width: 100%;
+            height: 100%;
+
+            & img {
+                width: 100%;
+                height: 100%;
+                max-height: 95%;
+                object-fit: contain;
+                object-position: bottom;
+            }
+        }
+
+    }
+
+
+}
+
 
 
 
@@ -554,7 +642,7 @@
     overflow-y: auto;
     overflow-x: hidden;
 
-    @media screen and (min-width: $w1200) {
+    @media screen and (min-width: $w992) {
         background-color: rgba(0, 0, 0, 0.4);
     }
 
@@ -566,10 +654,12 @@
 
         background-color: #fff;
 
-        @media screen and (min-width: $w1200) {
+        @media screen and (min-width: $w992) {
+            border-radius: 6px;
             max-width: 80%;
             margin: auto;
-            margin-top: 100px;
+            margin-top: 8vh;
+            max-width: 1400px;
         }
     }
 
@@ -588,13 +678,19 @@
         background-color: $gray-96;
         justify-content: center;
         align-items: center;
+
+        @media screen and (min-width: $w992) {
+            display: none;
+        }
     }
 
     &__aside {
 
-        @media screen and (min-width: $w1200) {
+        @media screen and (min-width: $w992) {
             width: 260px;
             min-width: 260px;
+
+            padding: 30px 17px;
         }
 
         & li {
@@ -604,7 +700,7 @@
             display: flex;
             align-items: center;
 
-            @media screen and (min-width: $w1200) {
+            @media screen and (min-width: $w992) {
                 border-bottom: none;
             }
 
@@ -626,9 +722,13 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 cursor: pointer;
+
+                @media screen and (min-width: $w992) {
+                    display: none;
+                }
             }
 
-            & .ic-catalog.lazyloaded {
+            & .ic-catalog {
                 width: 48px;
                 min-width: 48px;
                 height: 48px;
@@ -648,16 +748,52 @@
     &__main {
         width: 100%;
 
-        @media screen and (min-width: $w1200) {
+        @media screen and (min-width: $w992) {
             position: relative;
-            height: 70vh;
+            height: 78vh;
         }
     }
 
     &__content {
 
-        @media screen and (min-width: $w1200) {
+        @media screen and (min-width: $w992) {
             display: flex;
+
+        }
+    }
+
+    &__submenu {
+        position: absolute;
+        background-color: #fff;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        overflow-y: auto;
+        scrollbar-color: #ccc #ebebeb;
+        scrollbar-width: thin !important;
+        margin: 10px 10px 10px 30px;
+        padding-top: 26px;
+
+
+        scrollbar-color: $gray-80 $gray-92;
+        scrollbar-width: thin !important;
+        opacity: 0;
+
+        animation: slide-in-left 0.3s ease forwards;
+
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #e2e6e8;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #cbcfd0;
         }
     }
 
@@ -670,7 +806,7 @@
         bottom: 0;
         overflow-y: auto;
 
-        @media screen and (min-width: $w1200) {
+        @media screen and (min-width: $w992) {
             position: absolute;
         }
 
@@ -761,8 +897,147 @@
         }
 
     }
+
+    &__catig {
+        font-size: 28px;
+        font-weight: 700;
+        padding-bottom: 30px;
+    }
+
+    &__list {
+        &>ul {
+            display: block;
+            columns: 3;
+
+            &>li {
+
+                break-inside: avoid;
+                padding-bottom: 30px;
+
+                &>a {
+                    font-weight: 700;
+                    font-size: 18px;
+                    padding-bottom: 15px;
+                    display: block;
+
+                    &:hover {
+                        color: $accent-2-1;
+                    }
+                }
+
+                &>.sub-menu {
+                    padding-bottom: 5px;
+
+                    & li {
+                        padding: 8px 0 5px 0;
+                    }
+
+                    & a {
+                        font-size: 16px;
+
+                        display: inline-block;
+
+                        &:hover {
+                            color: $accent-2-1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__nav {
+
+        & ul {
+            & li {
+                &:hover {
+                    background-color: #eee;
+                    border-radius: 6px;
+                }
+            }
+        }
+
+    }
 }
 
 .icon-back {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNyAxM0wxIDdsNi02IiBzdHJva2U9IiNDQ0MiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
+}
+
+.is-slice-list {
+
+    &.is-open {
+        & li {
+            display: block;
+        }
+    }
+
+    & li {
+
+        display: none;
+
+        &:nth-child(-n+4) {
+            display: block;
+        }
+    }
+}
+
+.select-region {
+    display: none;
+    padding: 14px;
+
+    &__icon {
+
+        padding-bottom: 25px;
+
+        & .bgimage {
+            width: 60px;
+            height: 60px;
+            @include bgimage-contain;
+            margin: 0 auto
+        }
+    }
+
+    &__title {
+        @include font-h3;
+        padding-bottom: 25px;
+        text-align: center;
+    }
+
+    &__form {
+        & .form {
+            & input {
+                width: 350px;
+                height: 48px;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDBDNS44NjQgMCAyLjUgMy4zNjUgMi41IDcuNWMwIDUuNTMzIDYuOTIgMTIuMTEgNy4yMTQgMTIuMzg3YS40MTguNDE4IDAgMDAuNTcyIDBDMTAuNTggMTkuNjA5IDE3LjUgMTMuMDMzIDE3LjUgNy41IDE3LjUgMy4zNjUgMTQuMTM2IDAgMTAgMHptMCAxMS42NjdBNC4xNzIgNC4xNzIgMCAwMTUuODMzIDcuNSA0LjE3MiA0LjE3MiAwIDAxMTAgMy4zMzMgNC4xNzIgNC4xNzIgMCAwMTE0LjE2NyA3LjUgNC4xNzIgNC4xNzIgMCAwMTEwIDExLjY2N3oiIGZpbGw9IiNDQ0MiLz48L3N2Zz4=);
+                background-position: calc(100% - 12px) center;
+                padding-right: 48px;
+                background-repeat: no-repeat;
+
+            }
+
+            & .btn {
+                width: 100%;
+            }
+        }
+    }
+
+    &__auto {
+        padding: 20px 0;
+        text-align: center;
+
+        & a {
+            font-size: 16px;
+            color: $accent-2-1;
+        }
+    }
+
+
+
+}
+
+.af-popup__content .select-region {
+    display: block;
+
+
 }
