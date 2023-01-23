@@ -18,7 +18,8 @@ mixin search-index
                                         input(type="text" placeholder="Искать на Vako" data-index-find="input")
                                 .search-index__btn
                                     button.btn Найти
-                                .search-index__suggest(data-index-find="suggest") suggest
+                                .search-index__suggest(data-index-find="suggest")
+                                    +find-suggest
                 .search-index__banner: +medium-banner
 
 
@@ -30,3 +31,56 @@ mixin medium-banner
             .medium-banner__subtitle Уникальная платформа, на которой ты можешь видеть и выбирать самые выгодные предложения от всех магазинов!
             .medium-banner__image
                 +picture('/img/other/img_banner')
+
+mixin find-suggest
+    .find-suggest
+        .find-suggest__list
+            ul
+                li: a(href='#') клавиатура
+                li: a(href='#') клавиатура с подсветкой
+                li: a(href='#') клавиатура беспроводная
+                li: a(href='#') клавиатура и мышь
+
+        .find-suggest__category
+            +item-sugest(product)
+            
+
+        .find-suggest__products
+            +item-sugest(product)
+            +item-sugest(product)
+
+mixin item-sugest(data)
+    .item-sugest
+        .item-sugest__image
+            picture
+                img(src=data.image alt="")
+        .item-sugest__main
+            .item-sugest__title: a(href='#')= data.title
+            .item-sugest__desc= data.desc 
+
+
+mixin catalog-popup
+    .catalog-popup
+        .catalog-popup__wrp
+            .catalog-popup__content
+                .catalog-popup__aside
+                    .catalog-popup__title Каталог товаров
+                    .catalog-popup__nav
+                        nav
+                            ul
+                                each item in catalog
+                                    li
+                                        span.ic-catalog.lazyload(data-bg=item.icon)
+                                        a(href='#')= item.title
+                                        if(item.sub)
+                                            ul.sub-menu
+                                                each sub1 in item.sub
+                                                    li
+                                                        a(href='#')= sub1.title 
+                                                        if(item.sub)
+                                                            ul.sub-menu
+                                                                each sub2 in sub1.sub
+                                                                    li
+                                                                        a(href='#')= sub2.title 
+                                        
+                .catalog-popup__main

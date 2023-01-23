@@ -1,0 +1,140 @@
+.header {
+    background-color: $violet-1-1;
+}
+
+.header-top {
+
+    padding: 16px 0;
+    display: flex;
+
+    &__main {
+        display: flex;
+        align-items: center;
+    }
+
+    &__actions {
+
+        display: flex;
+        align-items: center;
+
+
+
+        &>div {
+            @media screen and (min-width: $w760) {
+                margin-left: 12px;
+            }
+        }
+    }
+
+    &__find {
+        width: 100%;
+    }
+
+    &__logo {
+
+        margin-right: 16px;
+
+        @media screen and (min-width: $w1200) {
+            margin-right: 55px;
+        }
+
+        & .bgimage {
+            width: 96px;
+            height: 36px;
+            @include bgimage-contain;
+
+            @media screen and (min-width: $w760) {
+                width: 108px;
+                height: 40px;
+            }
+        }
+    }
+
+    & .dropdown-icon,
+    & .tooltip-icon {
+        &__elem {
+            & a {
+                background-color: $violet-1-2;
+                border-radius: 6px;
+
+                & svg {
+                    filter: grayscale(1) brightness(3);
+                    transition: 0.3s ease;
+                }
+
+                &:hover {
+
+                    background-color: $violet-1-2;
+
+                    & svg {
+                        filter: none;
+                    }
+                }
+            }
+        }
+    }
+
+    & .search-index {
+        &__input {
+            & input {
+                background-color: $violet-1-2;
+                color: #fff;
+            }
+        }
+    }
+
+}
+
+.header-bottom {
+
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    padding: 16px 0;
+
+    &__menu {
+
+        flex-grow: 1;
+
+        & nav {
+            width: 100%;
+        }
+
+        & ul {
+            width: 100%;
+            display: flex;
+
+            & a {
+                color: $violet-2-1;
+                transition: 0.3s ease;
+            }
+
+            & li {
+                flex-grow: 1;
+                padding: 0 10px;
+
+                &:hover {
+                    & a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    &__location {
+
+        margin-right: 80px;
+
+        & .header-location {
+            & svg {
+                filter: grayscale(1) brightness(3);
+            }
+        }
+    }
+
+
+
+
+}

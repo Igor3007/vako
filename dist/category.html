@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vako</title>
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="#{title}">
+    <meta name="keywords" content="#{title}">
+    <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
+    <link rel="preload" href="fonts/lato/subset-Lato-Regular.woff2" as="font" crossorigin>
+    <link rel="preload" href="fonts/lato/subset-Lato-Bold.woff2" as="font" crossorigin>
+    <link rel="prefetch" href="/img/sprites/sprite.svg" as="image" crossorigin>
+    <style>/* fonts */
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/fonts/lato/subset-Lato-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/fonts/lato/subset-Lato-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/fonts/lato/subset-Lato-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+    </style>
+    <link rel="stylesheet" href="styles/main.css?v=1.0">
+  </head>
+  <body class="perf-no-animation">
+    <header> 
+      <div class="header">
+        <div class="container">
+          <div class="header-top">
+            <div class="header-top__logo"><a href="#"><span class="bgimage" style="background-image: url('/img/common/logo.svg')"></span></a></div>
+            <div class="header-top__find">
+              <div class="search-index" data-index-find="container">
+                <div class="search-index__find">
+                  <form action="#" method="POST">
+                    <div class="search-index__form" data-index-find="form">
+                      <div class="search-index__catalog">
+                        <button class="btn btn-catalog"><span class="icon-catalog"><i></i><i></i><i></i><i></i></span>Каталог</button>
+                      </div>
+                      <div class="search-index__field">
+                        <div class="search-index__input">
+                          <input type="text" placeholder="Искать на Vako" data-index-find="input">
+                        </div>
+                        <div class="search-index__btn">
+                          <button class="btn">Найти</button>
+                        </div>
+                        <div class="search-index__suggest" data-index-find="suggest">
+                                <div class="find-suggest">
+                                  <div class="find-suggest__list">
+                                    <ul>
+                                      <li><a href="#">клавиатура</a></li>
+                                      <li><a href="#">клавиатура с подсветкой</a></li>
+                                      <li><a href="#">клавиатура беспроводная</a></li>
+                                      <li><a href="#">клавиатура и мышь</a></li>
+                                    </ul>
+                                  </div>
+                                  <div class="find-suggest__category">
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="find-suggest__products">
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                  </div>
+                                </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="header-top__actions">
+              <div class="header-top__fav">
+                      <div class="tooltip-icon">
+                        <div class="tooltip-icon__elem"><a href="#">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                            </svg></a></div>
+                        <div class="tooltip-icon__text"><span> Добавьте товары в избранное </span></div>
+                      </div>
+              </div>
+              <div class="header-top__compare">
+                      <div class="tooltip-icon">
+                        <div class="tooltip-icon__elem"><a href="#">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                            </svg></a></div>
+                        <div class="tooltip-icon__text"><span> Добавьте товары в сравнение </span></div>
+                      </div>
+              </div>
+              <div class="header-top__login">
+                      <div class="dropdown-icon">
+                        <div class="dropdown-icon__elem"><a href="#">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_login"></use>
+                            </svg></a></div>
+                        <div class="dropdown-icon__list">
+                          <div class="dropdown-button"><a href="#">
+                              <button class="btn btn-gray">Войти</button></a><a href="#">
+                              <button class="btn btn-gray">Зарегистрироваться</button></a><a href="#">
+                              <button class="btn btn-white">Вход для магазинов</button></a></div>
+                        </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-bottom">
+            <div class="header-bottom__location">
+              <div class="header-location">
+                <div class="header-location__wrp">
+                  <div class="header-location__icon">
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_pin"></use>
+                    </svg>
+                  </div>
+                  <div class="header-location__name">Кременчуг-Константиновское </div>
+                </div>
+              </div>
+            </div>
+            <div class="header-bottom__menu">
+              <nav>
+                <ul>
+                  <li><a href="#">Электроника</a></li>
+                  <li><a href="#">Бытовая техника</a></li>
+                  <li><a href="#">Авто</a></li>
+                  <li><a href="#">Компьютеры</a></li>
+                  <li><a href="#">Спорт и отдых</a></li>
+                  <li><a href="#">Товары для дома</a></li>
+                  <li><a href="#">Детские товары</a></li>
+                  <li><a href="#">Дача и сад</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main> 
+    </main>
+    <footer>
+            <div class="catalog-popup">
+              <div class="catalog-popup__wrp">
+                <div class="catalog-popup__content">
+                  <div class="catalog-popup__aside">
+                    <div class="catalog-popup__title">Каталог товаров</div>
+                    <div class="catalog-popup__nav">
+                      <nav>
+                        <ul>
+                          <li><span class="ic-catalog lazyload" data-bg="/img/product/catalog-icon/01.svg"></span><a href="#">Электроника</a>
+                            <ul class="sub-menu">
+                              <li><a href="#">Ноутбуки и планшеты</a>
+                                <ul class="sub-menu">
+                                  <li><a href="#">Ноутбуки</a></li>
+                                  <li><a href="#">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                  <li><a href="#">Аксессуары для планшетов</a></li>
+                                  <li><a href="#">Графические планшеты</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="#">Настольные ПК и моноблоки</a>
+                                <ul class="sub-menu">
+                                  <li><a href="#">Ноутбуки</a></li>
+                                  <li><a href="#">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                  <li><a href="#">Аксессуары для планшетов</a></li>
+                                  <li><a href="#">Графические планшеты</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="#">Комплектующие для ПК</a>
+                                <ul class="sub-menu">
+                                  <li><a href="#">Ноутбуки</a></li>
+                                  <li><a href="#">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                  <li><a href="#">Аксессуары для планшетов</a></li>
+                                  <li><a href="#">Графические планшеты</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="#">Мониторы и аксессуары</a>
+                                <ul class="sub-menu">
+                                  <li><a href="#">Ноутбуки</a></li>
+                                  <li><a href="#">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                  <li><a href="#">Аксессуары для планшетов</a></li>
+                                  <li><a href="#">Графические планшеты</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="#">Гейминг</a>
+                                <ul class="sub-menu">
+                                  <li><a href="#">Ноутбуки</a></li>
+                                  <li><a href="#">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                  <li><a href="#">Аксессуары для планшетов</a></li>
+                                  <li><a href="#">Графические планшеты</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="#">Периферийные устройства</a>
+                                <ul class="sub-menu">
+                                  <li><a href="#">Ноутбуки</a></li>
+                                  <li><a href="#">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                  <li><a href="#">Аксессуары для планшетов</a></li>
+                                  <li><a href="#">Графические планшеты</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="#">Оргтехника и расходные материалы</a>
+                                <ul class="sub-menu">
+                                  <li><a href="#">Ноутбуки</a></li>
+                                  <li><a href="#">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                  <li><a href="#">Аксессуары для планшетов</a></li>
+                                  <li><a href="#">Графические планшеты</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="#">Сетевое оборудование</a>
+                                <ul class="sub-menu">
+                                  <li><a href="#">Ноутбуки</a></li>
+                                  <li><a href="#">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                  <li><a href="#">Аксессуары для планшетов</a></li>
+                                  <li><a href="#">Графические планшеты</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="#">Накопители данных</a>
+                                <ul class="sub-menu">
+                                  <li><a href="#">Ноутбуки</a></li>
+                                  <li><a href="#">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                  <li><a href="#">Аксессуары для планшетов</a></li>
+                                  <li><a href="#">Графические планшеты</a></li>
+                                  <li><a href="#">Планшеты</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li><span class="ic-catalog lazyload" data-bg="/img/product/catalog-icon/02.svg"></span><a href="#">Бытовая техника</a>
+                          </li>
+                          <li><span class="ic-catalog lazyload" data-bg="/img/product/catalog-icon/03.svg"></span><a href="#">Авто</a>
+                          </li>
+                          <li><span class="ic-catalog lazyload" data-bg="/img/product/catalog-icon/04.svg"></span><a href="#">Компьютеры</a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="catalog-popup__main"></div>
+                </div>
+              </div>
+            </div>
+    </footer>
+    <script src="/js/vendor.js"> </script>
+    <script src="/js/common.js"> </script>
+  </body>
+</html>

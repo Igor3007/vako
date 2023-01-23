@@ -1,0 +1,14 @@
+mixin dropdown-icon
+    .dropdown-icon
+        .dropdown-icon__elem: a(href='#'): +icons('#ic_login', 24)
+        .dropdown-icon__list
+            .dropdown-button
+                a(href='#'): button.btn.btn-gray Войти
+                a(href='#'): button.btn.btn-gray Зарегистрироваться
+                a(href='#'): button.btn.btn-white Вход для магазинов
+
+mixin tooltip-icon(data)
+    .tooltip-icon
+        .tooltip-icon__elem: a(href='#'): +icons(data.icon, 24)
+        .tooltip-icon__text
+            span= data.text

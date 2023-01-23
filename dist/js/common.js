@@ -231,13 +231,7 @@
                  this.events()
              }
 
-             events() {
 
-                 this.input.addEventListener('focus', e => {
-                     this.open()
-                 })
-
-             }
 
              open() {
                  this.form.classList.add('is-focus')
@@ -246,7 +240,9 @@
 
              close() {
                  this.form.classList.remove('is-focus')
-                 this.closeButton.remove()
+                 if (this.closeButton) {
+                     this.closeButton.remove()
+                 }
              }
 
              createCloseButton() {
@@ -259,12 +255,260 @@
                  }
              }
 
+             getRecentRequest() {
+                 return [
+                     'galaxy s11',
+                     'askhome norman',
+                     'metta-su-bg-8',
+                     'askhome sirius',
+                     'gigabyte b560m',
+                     'tetchair mesh-4hr',
+                     'everprof polo',
+                     'asus m5',
+                 ]
+
+             }
+
+             render(response) {
+
+                 this.suggest.querySelector('.find-suggest').innerHTML = '';
+
+                 function suggestTemplate(data) {
+                     const elem = document.createElement('li')
+                     elem.innerHTML = `<a href="${data.href}">${data.text}</a>`;
+                     return elem;
+                 }
+
+                 function productTemplate(data) {
+
+                     const elem = document.createElement('div')
+                     elem.classList.add('item-sugest')
+
+
+                     const html = `<div class="item-sugest">
+                                <div class="item-sugest__image">
+                                    <picture><img src="${data.image}" alt=""></picture>
+                                </div>
+                                <div class="item-sugest__main">
+                                    <div class="item-sugest__title"><a href="#">${data.title}</a></div>
+                                    <div class="item-sugest__desc">${data.desc}</div>
+                                </div>
+                            </div>`;
+
+                     elem.innerHTML = html
+
+                     return elem
+                 }
+
+                 const suggestElement = document.createElement('div')
+                 const suggestElementUl = document.createElement('ul')
+                 suggestElement.classList.add('find-suggest__list')
+
+                 response.suggest.forEach(item => {
+                     suggestElementUl.append(suggestTemplate(item))
+                 });
+
+                 suggestElement.append(suggestElementUl)
+                 this.suggest.querySelector('.find-suggest').append(suggestElement)
+
+                 /* ================= */
+
+                 const categoryElement = document.createElement('div')
+                 categoryElement.classList.add('find-suggest__category')
+
+                 response.category.forEach(item => {
+                     categoryElement.append(productTemplate(item))
+                 });
+
+                 // console.log(categoryElement)
+
+                 this.suggest.querySelector('.find-suggest').append(categoryElement)
+
+                 /* ================= */
+
+                 const categoryProduct = document.createElement('div')
+                 categoryProduct.classList.add('find-suggest__product')
+
+                 response.products.forEach(item => {
+                     categoryProduct.append(productTemplate(item))
+                 });
+
+                 this.suggest.querySelector('.find-suggest').append(categoryProduct)
+
+             }
+
+             renderRecent() {
+
+                 const recentList = this.getRecentRequest();
+
+
+
+                 const elemUl = document.createElement('ul')
+                 elemUl.classList.add('recent-list')
+
+                 recentList.forEach(li => {
+
+                     const elem = document.createElement('li')
+                     elem.innerHTML = `<span>${li}</span>  <span class="icon-cross" ></span>`
+
+                     elemUl.append(elem)
+                 })
+
+                 this.suggest.querySelector('.find-suggest').innerHTML = ''
+                 this.suggest.querySelector('.find-suggest').append(elemUl)
+
+             }
+
+             ajaxRequest(e) {
+
+                 let _this = this
+
+
+                 window.ajax({
+                     type: 'GET',
+                     url: '/js/index-find.json',
+                     responseType: 'json',
+                     data: {
+                         value: e.target.value
+                     }
+                 }, function (status, response) {
+                     _this.render(response)
+                 })
+             }
+
+             events() {
+
+                 this.input.addEventListener('focus', e => {
+
+                     this.open()
+
+                     if (e.target.value.length) {
+                         this.ajaxRequest(e)
+                     } else {
+                         this.renderRecent()
+                     }
+
+                 })
+
+                 this.input.addEventListener('keyup', e => {
+
+                     if (e.target.value.length) {
+                         this.ajaxRequest(e)
+                     } else {
+                         this.renderRecent()
+                     }
+
+
+                 })
+
+                 document.addEventListener('click', e => {
+
+                     //console.log(e.target)
+
+                     if (!e.target.closest('.search-index__field')) {
+                         this.close()
+
+                     }
+                 })
+
+             }
+
 
          }
 
          new indexFind();
 
      }
+
+
+
+     /* =======================================
+     btn btn-catalog
+     =======================================*/
+
+     if (document.querySelector('.btn-catalog')) {
+
+         class catalogPopup {
+             constructor() {
+                 this.$el = document.querySelector('.catalog-popup')
+                 this.btnCatalog = document.querySelector('.btn-catalog')
+
+                 this.events()
+             }
+
+             open() {
+                 this.$el.classList.add('open')
+             }
+             close() {
+                 this.$el.classList.remove('open')
+             }
+
+             openSubMobile(item) {
+
+                 if (item.querySelector('.sub-menu')) {
+
+                     const template = `
+                        <div class="catalog-popup__layer-title" >
+                            <span class="icon-back" ></span>
+                            <span class="layer-name" >${item.querySelector('a').innerText}</span>
+                            <span class="icon-cross" ></span>
+                        </div>
+                        <div class="catalog-popup__layer-nav" ><ul>${item.querySelector('.sub-menu').innerHTML}</ul></div>
+                       `;
+
+                     const layer = document.createElement('div')
+                     layer.classList.add('catalog-popup__layer')
+                     layer.innerHTML = template
+
+                     layer.querySelector('.icon-back').addEventListener('click', e => {
+                         layer.remove()
+                     })
+
+                     layer.querySelector('.icon-cross').addEventListener('click', e => {
+                         this.close()
+                     })
+
+                     this.liEvents(layer)
+
+                     this.$el.querySelector('.catalog-popup__main').append(layer)
+
+                 }
+
+
+
+
+             }
+
+             events() {
+
+
+
+                 this.btnCatalog.addEventListener('click', e => {
+                     e.preventDefault()
+                     this.open()
+                 })
+
+                 this.liEvents(this.$el.querySelector('.catalog-popup__nav'))
+
+
+             }
+
+             liEvents(container) {
+                 const items = container.querySelectorAll('li')
+
+                 items.forEach(item => {
+                     item.addEventListener('click', e => {
+                         this.openSubMobile(e.target)
+                     })
+                 })
+             }
+         }
+
+         new catalogPopup()
+
+     }
+
+
 
 
 
