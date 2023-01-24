@@ -1667,7 +1667,7 @@ section {
 
 main {
   width: 100%;
-  min-height: calc(100vh - 210px);
+  min-height: calc(100vh - 223px);
 }
 
 input[type="date"]::-webkit-inner-spin-button,
@@ -2845,6 +2845,10 @@ input {
 }
 
 @media screen and (min-width: 767px) {
+  main {
+    min-height: calc(100vh - 180px);
+  }
+
   .container {
     padding: 0 20px;
     max-width: 705px;
@@ -2932,6 +2936,10 @@ input {
     margin-right: 17px;
   }
 
+  main {
+    min-height: calc(100vh - 162px);
+  }
+
   .container {
     padding: 0 30px;
     max-width: 1200px;
@@ -2967,6 +2975,10 @@ input {
 }
 
 @media screen and (min-width: 1440px) {
+  main {
+    min-height: calc(100vh - 210px);
+  }
+
   .container {
     padding: 0 30px;
     max-width: 1450px;

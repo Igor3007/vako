@@ -80,7 +80,19 @@ section {
 
 main {
     width: 100%;
-    min-height: calc(100vh - 210px);
+    min-height: calc(100vh - 223px);
+
+    @media screen and (min-width: $w1440) {
+        min-height: calc(100vh - 210px);
+    }
+
+    @media screen and (min-width: $w1200) {
+        min-height: calc(100vh - 162px);
+    }
+
+    @media screen and (min-width: $w760) {
+        min-height: calc(100vh - 180px);
+    }
 }
 
 input[type="date"]::-webkit-inner-spin-button,
