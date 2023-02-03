@@ -4,7 +4,7 @@
     background-color: $gray-13;
 
     @media screen and (min-width: $w480) {
-        padding: 46px 0;
+        padding: 45px 0 20px 0;
     }
 
     @media screen and (min-width: $w1200) {
@@ -51,7 +51,7 @@
         line-height: 143%;
 
         @media screen and (min-width: $w480) {
-            font-size: 16px;
+            font-size: 15px;
         }
     }
 
@@ -100,7 +100,7 @@
 
         & a {
             color: #fff;
-            font-size: 16px;
+            font-size: 15px;
 
             &:hover {
                 color: $accent-2-1;
@@ -114,7 +114,7 @@
     }
 
     &__title {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
         padding-bottom: 15px;
     }
@@ -124,13 +124,17 @@
 
         & li {
             padding: 7px 0;
+            opacity: 0.7;
         }
     }
 
     &__right {
+
+
+
         @media screen and (min-width: $w760) {
             display: flex;
-            margin: 0 -20px;
+            margin: 30px -35px;
         }
     }
 }

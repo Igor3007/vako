@@ -1,7 +1,7 @@
 html {
     font-family: Lato, 'Arial Narrow Bold', sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 14px;
     line-height: 140%;
     background: #fff;
@@ -83,15 +83,15 @@ main {
     min-height: calc(100vh - 223px);
 
     @media screen and (min-width: $w1440) {
-        min-height: calc(100vh - 210px);
+        min-height: calc(100vh - 207px);
     }
 
     @media screen and (min-width: $w1200) {
-        min-height: calc(100vh - 162px);
+        min-height: calc(100vh - 159px);
     }
 
     @media screen and (min-width: $w760) {
-        min-height: calc(100vh - 180px);
+        min-height: calc(100vh - 175px);
     }
 }
 
@@ -117,6 +117,7 @@ input[type="date"] {
     margin: 0 auto;
     padding: 0 16px;
     box-sizing: border-box;
+    min-width: 316px;
 
     @media screen and (min-width: $w480) {
         padding: 0 16px;

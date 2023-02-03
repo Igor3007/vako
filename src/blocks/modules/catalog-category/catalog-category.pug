@@ -8,6 +8,17 @@ mixin banner-min
             .min-banner__image
                 +picture('/img/other/image34')
 
+mixin banner-image()
+    .image-banner 
+       .image-banner__image
+            a(href='#banner2')
+                picture 
+                        source(srcset="/img/other/Banner2.webp" type="image/webp" media="(min-width: 576px)")
+                        source(srcset="/img/other/Banner2.jpg" type="image/jpeg" media="(min-width: 576px)")
+                        source(srcset="/img/other/Banner2_760.jpg" type="image/webp" )
+                        img(src="/img/other/Banner2_760.jpg" alt="Image")
+        
+
 mixin catalog-category
     section.section-catalog-category
         .container
@@ -17,7 +28,7 @@ mixin catalog-category
                         'Главная',
                         'Компьютеры',
                     ])
-                .catalog-category__h1: h1 Компьютеры
+                .catalog-category__h1: h1 Компьютеры 
 
                 .catalog-category__content
                     .catalog-category__asise(data-catalog="nav")
@@ -35,7 +46,7 @@ mixin catalog-category
 
 
                     .catalog-category__main
-                        .catalog-category__banner: +banner-min()
+                        .catalog-category__banner: +banner-image()
                         .catalog-category__h2 Купить компьютерную технику на Vako
                         .catalog-category__list
                             each item in products

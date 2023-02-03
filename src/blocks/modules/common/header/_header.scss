@@ -86,7 +86,7 @@
                 border-radius: 6px;
 
                 & svg {
-                    filter: grayscale(1) brightness(3);
+                    filter: grayscale(1) brightness(7);
                     transition: 0.3s ease;
                 }
 
@@ -107,6 +107,11 @@
             & input {
                 background-color: $violet-1-2;
                 color: #fff;
+
+                &::placeholder {
+                    opacity: 1;
+                }
+
             }
         }
 
@@ -183,7 +188,7 @@
     &__location {
 
         @media screen and (min-width: $w1440) {
-            margin-right: 80px;
+            margin-right: 40px;
         }
 
         @media screen and (min-width: $w1200) {
@@ -194,7 +199,7 @@
 
         & .header-location {
             & svg {
-                filter: grayscale(1) brightness(3);
+                fill: #fff;
                 width: 18px;
             }
         }

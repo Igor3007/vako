@@ -20,9 +20,17 @@ mixin search-index
                                     button.btn Найти
                                 .search-index__suggest(data-index-find="suggest")
                                     +find-suggest
-                .search-index__banner: +medium-banner
+                .search-index__banner: +banner-image2()
 
-
+mixin banner-image2()
+    .image-banner 
+       .image-banner__image
+            a(href='#banner')
+                picture 
+                        source(srcset="/img/other/Banner.webp" type="image/webp" media="(min-width: 576px)")
+                        source(srcset="/img/other/Banner.jpg" type="image/jpeg" media="(min-width: 576px)")
+                        source(srcset="/img/other/Banner_760.jpg" type="image/webp" )
+                        img(src="/img/other/Banner_760.jpg" alt="Image")
 
 mixin medium-banner
     .medium-banner
@@ -63,25 +71,27 @@ mixin catalog-popup
     .catalog-popup
         .catalog-popup__wrp
             .catalog-popup__content
+                .catalog-popup__close(data-catalog-popup="close")
+                    span.icon-cross
                 .catalog-popup__aside
                     .catalog-popup__title Каталог товаров
                     .catalog-popup__nav
                         nav
                             ul
                                 each item in catalog
-                                    li
+                                    li(class=(item.sub ? 'isset-sub':''))
                                         span.ic-catalog.lazyload(style="background-image: url("+item.icon+")")
-                                        a(href='#')= item.title
+                                        a(href='category.html')= item.title
                                         if(item.sub)
                                             ul.sub-menu
                                                 each sub1 in item.sub
-                                                    li
-                                                        a(href='#')= sub1.title 
+                                                    li(class=(sub1.sub ? 'isset-sub':''))
+                                                        a(href='category.html')= sub1.title 
                                                         if(item.sub)
                                                             ul.sub-menu
                                                                 each sub2 in sub1.sub
-                                                                    li
-                                                                        a(href='#')= sub2.title 
+                                                                    li(class=(sub2.sub ? 'isset-sub':''))
+                                                                        a(href='category.html')= sub2.title 
                                         
                 .catalog-popup__main
                     

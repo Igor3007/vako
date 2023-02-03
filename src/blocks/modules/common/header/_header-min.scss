@@ -106,8 +106,8 @@
             text-align: center;
 
             & .btn {
-                width: 240px;
-
+                width: 200px;
+                height: 43px;
             }
 
             & a {
@@ -215,17 +215,42 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+
+        &:hover {
+            & .header-location {
+                &__icon {
+                    & svg {
+                        fill: $red;
+                    }
+                }
+
+                &__name {
+                    color: $red;
+                }
+            }
+        }
     }
 
     &__icon {
-        margin-right: 0.8em;
+        margin-right: 0.6em;
         display: flex;
         align-items: center;
         justify-content: center;
 
         & svg {
-            filter: grayscale(1) brightness(0);
+            fill: #000;
+            width: 18px;
         }
+    }
+
+    &__name {
+        margin-top: -2px;
+        white-space: nowrap;
+        max-width: 240px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+
     }
 
 

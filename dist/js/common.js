@@ -217,6 +217,29 @@
      find 
      ==================================================*/
 
+     window.getScrollBarWidth = function () {
+
+         // Creating invisible container
+         const outer = document.createElement('div');
+         outer.style.visibility = 'hidden';
+         outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+         outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+         document.body.appendChild(outer);
+
+         // Creating inner element and placing it in the container
+         const inner = document.createElement('div');
+         outer.appendChild(inner);
+
+         // Calculating difference between container's full width and the child width
+         const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+
+         // Removing temporary elements from the DOM
+         outer.parentNode.removeChild(outer);
+
+         return scrollbarWidth;
+
+     }
+
      if (document.querySelector('.search-index__field input')) {
 
 
@@ -231,15 +254,27 @@
                  this.events()
              }
 
-
+             lockScroll(val) {
+                 document.querySelector('html').style.overflow = (val ? 'hidden' : 'visible')
+                 document.body.style.overflow = (val ? 'hidden' : 'visible')
+                 if (document.body.clientWidth > 1200 && window.location.pathname != '/') {
+                     document.body.style.marginRight = (val ? '17px' : '0')
+                 }
+             }
 
              open() {
                  this.form.classList.add('is-focus')
                  this.createCloseButton()
+                 this.lockScroll(true)
+
+                 window.scrollTo(0, 0)
+
              }
 
              close() {
                  this.form.classList.remove('is-focus')
+                 this.input.blur()
+                 this.lockScroll(false)
                  if (this.closeButton) {
                      this.closeButton.remove()
                  }
@@ -403,7 +438,11 @@
                      //console.log(e.target)
 
                      if (!e.target.closest('.search-index__field')) {
-                         this.close()
+
+                         if (document.querySelector('.search-index__form.is-focus')) {
+                             this.close()
+                         }
+
                      }
                  })
 
@@ -428,20 +467,39 @@
              constructor() {
                  this.$el = document.querySelector('.catalog-popup')
                  this.btnCatalog = document.querySelector('.btn-catalog')
+                 this.btnClose = this.$el.querySelector('[data-catalog-popup="close"]')
+
+                 this.mobileBreakpoint = 993;
 
                  this.events()
              }
 
              open() {
                  this.$el.classList.add('open')
+                 this.lockScroll(true)
                  const items = this.$el.querySelector('.catalog-popup__nav').querySelectorAll('li')
-                 if (document.body.clientWidth > 768 && items.length) {
+                 if (document.body.clientWidth > this.mobileBreakpoint && items.length) {
                      this.openSubDesctop(items[0])
                  }
+
+
+
+
              }
 
              close() {
                  this.$el.classList.remove('open')
+                 this.lockScroll(false)
+             }
+
+             lockScroll(val) {
+                 document.querySelector('html').style.overflow = (val ? 'hidden' : 'visible')
+                 document.body.style.overflow = (val ? 'hidden' : 'visible')
+                 if (document.body.clientWidth > 1200 && window.location.pathname != '/') {
+                     document.body.style.marginRight = (val ? '17px' : '0')
+                 }
+
+
              }
 
              openSubMobile(item) {
@@ -484,6 +542,8 @@
 
                  if (item.querySelector('.sub-menu')) {
 
+                     item.classList.add('is-hover')
+
                      const template = `
                         <div class="catalog-popup__catig" >${item.querySelector('a').innerText}</div>
                         <div class="catalog-popup__list" ><ul>${item.querySelector('.sub-menu').innerHTML}</ul></div>
@@ -504,14 +564,14 @@
 
                              const elem = document.createElement('div')
                              elem.classList.add('sub-menu-toggle')
-                             elem.innerText = 'Еще'
+                             elem.innerText = 'Ещё'
 
                              //add event
 
                              elem.addEventListener('click', e => {
                                  item.classList.toggle('is-open')
                                  elem.classList.toggle('is-open')
-                                 elem.innerText = (item.classList.contains('is-open') ? 'Свернуть' : 'Еще')
+                                 elem.innerText = (item.classList.contains('is-open') ? 'Свернуть' : 'Ещё')
                              })
 
                              item.after(elem)
@@ -539,7 +599,7 @@
                  this.liEvents(this.$el.querySelector('.catalog-popup__nav'))
 
 
-                 if (document.body.clientWidth > 768) {
+                 if (document.body.clientWidth > this.mobileBreakpoint) {
                      this.$el.addEventListener('click', e => {
 
                          //console.log(e.target)
@@ -550,6 +610,10 @@
                      })
                  }
 
+                 this.btnClose.addEventListener('click', e => {
+                     this.close()
+                 })
+
 
              }
 
@@ -557,13 +621,22 @@
                  const items = container.querySelectorAll('li')
 
                  items.forEach(item => {
-                     item.addEventListener('click', e => {
 
 
-                         if (document.body.clientWidth <= 768) {
-                             this.openSubMobile(e.target)
-                         } else {
+
+                     item.addEventListener((document.body.clientWidth > this.mobileBreakpoint ? 'mouseenter' : 'click'), e => {
+
+                         items.forEach(item => {
+                             if (item.classList.contains('is-hover')) {
+                                 item.classList.remove('is-hover')
+                             }
+                         })
+
+
+                         if (document.body.clientWidth > this.mobileBreakpoint) {
                              this.openSubDesctop(item)
+                         } else {
+                             this.openSubMobile(e.target)
                          }
 
                      })
@@ -592,14 +665,14 @@
 
                  const elem = document.createElement('div')
                  elem.classList.add('sub-menu-toggle')
-                 elem.innerText = 'Еще'
+                 elem.innerText = 'Ещё'
 
                  //add event
 
                  elem.addEventListener('click', e => {
                      item.classList.toggle('is-open')
                      elem.classList.toggle('is-open')
-                     elem.innerText = (item.classList.contains('is-open') ? 'Свернуть' : 'Еще')
+                     elem.innerText = (item.classList.contains('is-open') ? 'Свернуть' : 'Ещё')
                  })
 
                  item.after(elem)
@@ -629,7 +702,7 @@
      if (document.querySelector('[data-popup="region"]')) {
 
          const selectRegionPopup = new customModal({
-             mobileInBottom: true
+             mobileInBottom: false
          })
 
          const formElement = document.querySelector('[data-popup="select-region"]')

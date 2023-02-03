@@ -27,14 +27,14 @@
                     padding-bottom: 36px;
                     display: none;
 
-                    &:nth-child(-n+4) {
+                    &:nth-child(-n+5) {
                         display: block;
                     }
 
 
                     &>a {
                         font-weight: 600;
-                        font-size: 18px;
+                        font-size: 17px;
                         margin-bottom: 15px;
                         display: inline-block;
 
@@ -56,7 +56,7 @@
 
 
                 & li {
-                    padding: 8px 0 5px 0;
+                    padding: 5px 0 5px 0;
 
 
                     display: none;
@@ -68,7 +68,7 @@
 
 
                     & a {
-                        font-size: 16px;
+                        font-size: 15px;
                         color: #222;
 
                         &:hover {
@@ -153,14 +153,15 @@
     border-radius: 6px;
     padding: 12px;
     height: 100%;
+    transition: border 0.3s ease;
 
     @media screen and (min-width: $w1200) {
         padding: 15px 12px;
     }
 
     &:hover {
-        box-shadow: 0 0 0 1px rgba(123, 97, 255, 0.2);
-        border: 1px solid rgba(123, 97, 255, 0.2);
+        // box-shadow: 0 0 0 1px rgba(123, 97, 255, 0.2);
+        border: 1px solid rgba(123, 97, 255, 0.9);
 
         & .card-category {
             &__name {
@@ -182,6 +183,8 @@
         text-align: center;
         padding-bottom: 20px;
         min-height: 42px;
+
+        font-size: 15px;
     }
 
     &__picture {
@@ -201,7 +204,7 @@
 .sub-menu-toggle {
     font-size: 16px;
     color: $accent-2-1;
-    font-weight: 600;
+    font-weight: normal;
     filter: grayscale(1) opacity(0.9);
     transition: 0.3s ease;
     cursor: pointer;
