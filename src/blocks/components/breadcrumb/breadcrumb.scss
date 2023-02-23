@@ -14,28 +14,38 @@
     & li {
 
         & a {
-            color: #7A808D;
-            font-size: 14px;
+            color: #000;
+            font-size: 13px;
 
             &:hover {
-                text-decoration: underline;
-                color: $main;
+                color: $accent-2-1;
             }
         }
 
         &::after {
-            content: '-';
+            content: '';
             margin: 0 rem(10);
             color: #7A808D;
             display: inline-block;
             border-radius: 50%;
             position: relative;
-
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuNDM0IDVMLjcxNyAxLjI4M2wuNTY2LS41NjZMNS41NjYgNSAxLjI4MyA5LjI4M2wtLjU2Ni0uNTY2TDQuNDM0IDV6IiBmaWxsPSIjOEY4RjhGIi8+PC9zdmc+);
             font-size: 14px;
+            width: 10px;
+            height: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
-        &:last-child::after {
-            display: none;
+        &:last-child {
+            &::after {
+                display: none;
+            }
+
+            & span,
+            & a {
+                color: $gray-56;
+            }
         }
 
     }

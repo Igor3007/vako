@@ -258,7 +258,7 @@
                  document.querySelector('html').style.overflow = (val ? 'hidden' : 'visible')
                  document.body.style.overflow = (val ? 'hidden' : 'visible')
                  if (document.body.clientWidth > 1200 && window.location.pathname != '/') {
-                     document.body.style.marginRight = (val ? '17px' : '0')
+                     document.body.style.marginRight = (val ? '0' : '0')
                  }
              }
 
@@ -468,8 +468,8 @@
                  this.$el = document.querySelector('.catalog-popup')
                  this.btnCatalog = document.querySelector('.btn-catalog')
                  this.btnClose = this.$el.querySelector('[data-catalog-popup="close"]')
-
                  this.mobileBreakpoint = 993;
+                 this.initWindowWidth = document.body.clientWidth
 
                  this.events()
              }
@@ -483,8 +483,6 @@
                  }
 
 
-
-
              }
 
              close() {
@@ -496,7 +494,7 @@
                  document.querySelector('html').style.overflow = (val ? 'hidden' : 'visible')
                  document.body.style.overflow = (val ? 'hidden' : 'visible')
                  if (document.body.clientWidth > 1200 && window.location.pathname != '/') {
-                     document.body.style.marginRight = (val ? '17px' : '0')
+                     document.body.style.marginRight = (val ? '0' : '0')
                  }
 
 
@@ -599,20 +597,23 @@
                  this.liEvents(this.$el.querySelector('.catalog-popup__nav'))
 
 
-                 if (document.body.clientWidth > this.mobileBreakpoint) {
-                     this.$el.addEventListener('click', e => {
 
-                         //console.log(e.target)
+                 this.$el.addEventListener('click', e => {
 
+                     //console.log(e.target)
+                     if (document.body.clientWidth > this.mobileBreakpoint) {
                          if (!e.target.closest('.catalog-popup__wrp') && !e.target.closest('.btn-catalog')) {
                              this.close()
                          }
-                     })
-                 }
+                     }
+                 })
+
 
                  this.btnClose.addEventListener('click', e => {
                      this.close()
                  })
+
+                 window.addEventListener('resize', e => this.close())
 
 
              }

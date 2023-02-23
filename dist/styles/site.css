@@ -1592,7 +1592,7 @@ select {
 
 html {
   font-family: "lato", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-size: 14px;
   line-height: 140%;
@@ -2203,9 +2203,12 @@ input {
 .form input[type="email"],
 .form input[type="tel"] {
   height: 48px;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 16px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 8px;
+  padding-bottom: 10px;
   border: 1px solid #ebebeb;
   box-sizing: border-box;
   border-radius: 4px;
@@ -2221,7 +2224,8 @@ input {
 .form input[type="password"]::placeholder,
 .form input[type="email"]::placeholder,
 .form input[type="tel"]::placeholder {
-  color: #000;
+  color: #8f8f8f;
+  opacity: 1;
 }
 
 .form input[type="text"]:focus,
@@ -2230,7 +2234,7 @@ input {
 .form input[type="password"]:focus,
 .form input[type="email"]:focus,
 .form input[type="tel"]:focus {
-  border-color: #cf1c5d;
+  border-color: #8f8f8f;
   background-color: #fff;
   outline: none;
 }

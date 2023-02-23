@@ -16,9 +16,12 @@ input {
     & input[type="email"],
     & input[type="tel"] {
         height: 48px;
-        font-size: 14px;
+        font-size: 16px;
+        line-height: 16px;
         padding-left: rem(15);
         padding-right: rem(15);
+        padding-top: 8px;
+        padding-bottom: 10px;
         border: 1px solid $gray-92;
         box-sizing: border-box;
         border-radius: 4px;
@@ -31,11 +34,12 @@ input {
 
 
         &::placeholder {
-            color: #000;
+            color: $gray-56;
+            opacity: 1;
         }
 
         &:focus {
-            border-color: $red;
+            border-color: $gray-56;
             background-color: #fff;
             outline: none;
         }

@@ -82,8 +82,10 @@
     & .tooltip-icon {
         &__elem {
             & a {
+
                 background-color: $violet-1-2;
                 border-radius: 6px;
+                transition: 0.3s ease;
 
                 & svg {
                     filter: grayscale(1) brightness(7);
@@ -92,7 +94,7 @@
 
                 &:hover {
 
-                    background-color: $violet-1-2;
+                    background-color: #fff;
 
                     & svg {
                         filter: none;
@@ -110,9 +112,30 @@
 
                 &::placeholder {
                     opacity: 1;
+                    color: #ebebeb;
+                }
+
+
+
+            }
+        }
+
+        &__form {
+
+            &.is-focus {
+
+                & .search-index {
+                    &__input {
+                        & input {
+                            &::placeholder {
+                                color: #aaa;
+                            }
+                        }
+                    }
                 }
 
             }
+
         }
 
         & .btn.btn-catalog {

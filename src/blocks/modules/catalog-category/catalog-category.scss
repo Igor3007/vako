@@ -202,13 +202,15 @@
 
 
 .sub-menu-toggle {
-    font-size: 16px;
+    font-size: 15px;
     color: $accent-2-1;
     font-weight: normal;
     filter: grayscale(1) opacity(0.9);
     transition: 0.3s ease;
     cursor: pointer;
     padding-top: 6px;
+    display: inline-block;
+    margin-right: auto;
 
     &:hover {
         filter: none;
