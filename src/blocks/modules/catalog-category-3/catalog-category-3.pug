@@ -1,0 +1,203 @@
+include  ../../components/breadcrumb/breadcrumb.pug
+
+mixin catalog-category-3
+    section.section-catalog-category
+        .container
+            .catalog-category
+                .catalog-category__breadcrumbs
+                    +breadcrumb([
+                        'Главная',
+                        'Компьютеры',
+                        'Ноутбуки',
+                    ])
+                .catalog-category__h1: h1 Ноутбуки в Кременчуг-Константиновское 
+
+                .catalog-category__content
+                    .catalog-category__asise 
+                        .current-category
+                            .current-category__label Категории
+                            .current-category__parent
+                                a(href='#')
+                                    +icons('#ic_link-back', 6)
+                                    span Компьютеры
+                            .current-category__link Ноутбуки (124)
+
+                        .category-filter
+                            .category-filter__head
+                                .category-filter__head-title Фильтры и сортировка
+                                .category-filter__head-close: span.icon-cross
+
+                            .category-filter__wrp
+                                .category-filter__props
+                                    .category-filter__item: +prop-range()
+                                    .category-filter__item: +prop-checkbox({
+                                        title: 'Производитель',
+                                        checkbox: [
+                                            'HP',
+                                            'ASUS',
+                                            'Lenovo',
+                                            'MSI',
+                                            'DELL',
+                                            'Acer',
+                                            'Apple',
+                                            'Fujitsu-Siemens',
+                                            'HP',
+                                            'ASUS',
+                                            'Lenovo',
+                                            'MSI',
+                                            'DELL',
+                                            'Acer',
+                                            'Apple',
+                                            'Fujitsu-Siemens',
+                                        ]
+                                    })
+
+                                    .category-filter__item: +prop-checkbox({
+                                        title: 'Тип акустики',
+                                        checkbox: [
+                                            'Dolby Atmos',
+                                            'Harman Kardon',
+                                            'Dolby Digital',
+                                        ]
+                                    })
+
+                                    .category-filter__item: +prop-checkbox-single('В продаже')
+                                    .category-filter__item: +prop-checkbox-single('Bluetooth')
+                                    .category-filter__item: +prop-color({
+                                        title: 'Цвет',
+                                        colors: [
+                                            '#000', 
+                                            '#808080', 
+                                            '#FF0000', 
+                                            '#FF0000', 
+                                            '#008000', 
+                                            '#0000FF', 
+                                            '#C0C0C0', 
+                                            '#fff', 
+                                            '#FFA500', 
+                                            '#42AAFF', 
+                                            '#42AAFF', 
+                                            '#42AAFF', 
+                                        ]
+                                    })
+                                    .category-filter__item: +prop-radio({
+                                        title: 'Рейтинг магазина',
+                                        radio: [
+                                            'Любой',
+                                            'Высокий: 4.5+',
+                                            'Хороший: 4+',
+                                            'Средний: 3.5+',
+                                        ],
+                                    })
+
+                                    .category-filter__item: +prop-checkbox({
+                                        title: 'Производитель',
+                                        checkbox: [
+                                            'Скидки',
+                                            'Промокоды',
+                                            'Подарки за покупки',
+                                            'Больше за ту же цену',
+                                        ]
+                                    })
+
+                                    .category-filter__item: +prop-checkbox({
+                                        title: 'Магазины',
+                                        checkbox: [
+                                            'PCPuls.ru',
+                                            'AMD.ru',
+                                            'intel.cpm',
+                                            'kst.by',
+                                        ]
+                                    })
+
+                                    .category-filter__item: +prop-checkbox({
+                                        title: 'Способ доставки',
+                                        checkbox: [
+                                            'Курьером',
+                                            'Самовывоз',
+                                            'Транспортная компания',
+                                             
+                                        ]
+                                    })
+
+                                    .category-filter__item: +prop-checkbox({
+                                        title: 'Способ оплаты',
+                                        checkbox: [
+                                            'Онлайн',
+                                            'Курьеру',
+                                        ]
+                                    })
+
+                                    .category-filter__item: +prop-checkbox({
+                                        title: 'Состояние товара',
+                                        checkbox: [
+                                            'Новый',
+                                            'Немного БУ',
+                                            'Восстановленный',
+                                        ]
+                                    })
+
+                                    
+                                 
+
+                    .catalog-category__main sdfsdfsdf
+
+mixin prop-range()
+
+    .filter-properties
+        .filter-properties__head
+            .filter-properties__title Цена, ₽
+            .filter-properties__cross
+
+        .filter-properties__list
+            .filter-properties__range
+                .filter-properties__row
+                    .filter-properties__input
+                        span от
+                        input(type="text" placeholder="")
+                    .filter-properties__input
+                        span до
+                        input(type="text" placeholder="")
+                .filter-properties__slider =====#===========#===================
+                
+
+mixin prop-checkbox(data)
+    .filter-properties
+        .filter-properties__head
+            .filter-properties__title= data.title
+            .filter-properties__cross
+
+        .filter-properties__list
+            ul
+                each item in data.checkbox
+                    li: +checkbox(item)
+
+
+mixin prop-checkbox-single(data)
+    .filter-properties
+        .filter-properties__single
+            +checkbox(data)
+
+
+mixin prop-color(data)
+    .filter-properties
+        .filter-properties__head
+            .filter-properties__title= data.title
+            .filter-properties__cross
+
+        .filter-properties__colors
+            ul
+                each item in data.colors
+                    li: +checkbox(item)
+
+
+mixin prop-radio(data)
+    .filter-properties
+        .filter-properties__head
+            .filter-properties__title= data.title
+            .filter-properties__cross
+
+        .filter-properties__list
+            ul
+                each item in data.radio
+                    li: +radio(item) 
