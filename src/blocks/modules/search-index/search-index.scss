@@ -88,6 +88,9 @@
                         border: none;
                         border-top-left-radius: 6px;
                         border-bottom-left-radius: 6px;
+                        position: relative;
+
+
                     }
 
                     & input {
@@ -118,7 +121,19 @@
                         background-color: #fff;
 
                         @media screen and (min-width: $w760) {
-                            display: none;
+                            width: 30px;
+                            height: 30px;
+                            min-width: 30px;
+                            position: absolute;
+                            right: 8px;
+                            top: 9px;
+                            cursor: pointer;
+                            opacity: 0.25;
+                            transition: opacity 0.3s ease;
+
+                            &:hover {
+                                opacity: 1;
+                            }
                         }
                     }
                 }
@@ -213,6 +228,11 @@
             min-width: 90px;
             padding-left: 1em;
             padding-right: 1em;
+
+            @media screen and (min-width: $w576) {
+                font-size: 16px;
+                font-weight: normal;
+            }
         }
     }
 

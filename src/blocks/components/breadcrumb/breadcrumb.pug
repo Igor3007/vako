@@ -5,4 +5,7 @@ mixin breadcrumb(data, modify, active)
         if index === 0
           li: a(href="/" class=(active == index ? 'active':''))!= item
         else
-          li: a(href="#" class=(active == index ? 'active':''))!= item
+          if data.length == (index+1)
+            li: span!= item
+          else
+            li: a(href="#" class=(active == index ? 'active':''))!= item

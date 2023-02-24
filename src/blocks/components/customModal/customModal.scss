@@ -101,6 +101,10 @@
     height: 24px;
     stroke: #ccc;
     stroke-width: 2px;
+
+    &:hover {
+        stroke: #222;
+    }
 }
 
 .af-spiner {

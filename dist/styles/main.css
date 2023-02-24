@@ -2209,6 +2209,10 @@ select {
   color: #7B61FF;
 }
 
+.breadcrumb li span {
+  font-size: 13px;
+}
+
 .breadcrumb li::after {
   content: '';
   margin: 0 10px;
@@ -2249,8 +2253,8 @@ input {
 .form input[type="email"],
 .form input[type="tel"] {
   height: 48px;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 15px;
+  line-height: 15px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 8px;
@@ -2837,6 +2841,10 @@ input {
   stroke-width: 2px;
 }
 
+.af-popup__close svg:hover {
+  stroke: #222;
+}
+
 .af-spiner {
   width: 60px;
   height: 60px;
@@ -3074,6 +3082,7 @@ input {
   width: 172px;
   height: 36px;
   font-size: 14px;
+  font-weight: 400;
 }
 
 .dropdown-icon__list .dropdown-button a {
@@ -3150,11 +3159,11 @@ input {
 }
 
 .header-location__wrp:hover .header-location__icon svg {
-  fill: #cf1c5d;
+  fill: #DF1F26;
 }
 
 .header-location__wrp:hover .header-location__name {
-  color: #cf1c5d;
+  color: #DF1F26;
 }
 
 .header-location__icon {
@@ -4630,6 +4639,11 @@ footer {
     font-weight: normal;
   }
 
+  .search-index__btn .btn {
+    font-size: 16px;
+    font-weight: normal;
+  }
+
   .medium-banner {
     padding: 30px;
   }
@@ -4825,6 +4839,7 @@ footer {
     border: none;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
+    position: relative;
   }
 
   .search-index__form.is-focus .search-index__input input {
@@ -4834,7 +4849,19 @@ footer {
   }
 
   .search-index__form.is-focus .search-index__input .icon-cross {
-    display: none;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    cursor: pointer;
+    opacity: 0.25;
+    transition: opacity 0.3s ease;
+  }
+
+  .search-index__form.is-focus .search-index__input .icon-cross:hover {
+    opacity: 1;
   }
 
   .search-index__input {

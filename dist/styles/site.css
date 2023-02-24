@@ -2203,8 +2203,8 @@ input {
 .form input[type="email"],
 .form input[type="tel"] {
   height: 48px;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 15px;
+  line-height: 15px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 8px;
@@ -2789,6 +2789,10 @@ input {
   height: 24px;
   stroke: #ccc;
   stroke-width: 2px;
+}
+
+.af-popup__close svg:hover {
+  stroke: #222;
 }
 
 .af-spiner {

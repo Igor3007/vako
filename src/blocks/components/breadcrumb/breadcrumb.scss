@@ -22,6 +22,10 @@
             }
         }
 
+        & span {
+            font-size: 13px;
+        }
+
         &::after {
             content: '';
             margin: 0 rem(10);

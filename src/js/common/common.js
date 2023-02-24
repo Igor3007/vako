@@ -283,7 +283,13 @@
              createCloseButton() {
                  this.closeButton = document.createElement('span')
                  this.closeButton.classList.add('icon-cross')
-                 this.closeButton.addEventListener('click', e => this.close())
+                 this.closeButton.addEventListener('click', e => {
+                     if (document.body.clientWidth < 767) {
+                         this.close()
+                     } else {
+                         this.input.value = ''
+                     }
+                 })
 
                  if (!this.input.parentNode.querySelector('.icon-cross')) {
                      this.input.parentNode.append(this.closeButton)
