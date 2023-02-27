@@ -1,0 +1,55 @@
+.category-filter {
+    &__head {
+
+        height: 48px;
+        background-color: $gray-96;
+        padding: 8px 15px 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &-title {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        &-close {
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            z-index: 5;
+
+            & .icon-cross {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: transparent;
+                display: block;
+                opacity: 0.3;
+                cursor: pointer;
+                border-radius: 4px;
+                transition: 0.3s ease;
+
+                &:hover {
+                    opacity: 0.9;
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.filter-properties {
+    padding: 15px 0;
+
+    &__title {
+        font-size: 15px;
+        font-weight: 700;
+        padding-bottom: 15px;
+    }
+
+    &__input {}
+}

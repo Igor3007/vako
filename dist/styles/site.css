@@ -2190,6 +2190,19 @@ table td:first-child {
 input {
   display: block;
   width: 100%;
+  height: 48px;
+  border: 1px solid #ebebeb;
+  padding: 0 15px;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+input::placeholder {
+  color: #ebebeb;
+}
+
+input:focus {
+  border: 1px solid #8f8f8f;
 }
 
 .form input:invalid {
@@ -2402,206 +2415,6 @@ input {
 
 .form .af-select .select-options li {
   max-width: none;
-}
-
-.remove-repeater {
-  min-width: 52px;
-  width: 52px;
-  height: 52px;
-  display: inline-flex;
-  border: 1px solid #bcbcbc;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.remove-repeater:hover {
-  background-color: #eee;
-}
-
-.remove-repeater::before {
-  content: '';
-  width: 40%;
-  display: inline-block;
-  height: 1px;
-  background-color: #DF1F26;
-}
-
-/* ========================================================
-.input-material
- ======================================================== */
-
-.input-material {
-  position: relative;
-  width: auto;
-  border: 1px solid #bcbcbc;
-  border-radius: 5px;
-  padding: 0 15px;
-  height: 52px;
-  flex-grow: 1;
-  /* active state */
-}
-
-.input-material input[type="text"],
-.input-material input[type="date"],
-.input-material input[type="number"],
-.input-material input[type="password"],
-.input-material input[type="email"],
-.input-material input[type="tel"] {
-  font-size: 14px;
-  padding: 10px 0;
-  display: block;
-  width: 100%;
-  border: none;
-  background: transparent;
-  color: #000;
-  font-weight: 600;
-  height: 20px;
-  transform: translateY(15px);
-  color: #525166;
-}
-
-.input-material input[type="text"]:invalid,
-.input-material input[type="date"]:invalid,
-.input-material input[type="number"]:invalid,
-.input-material input[type="password"]:invalid,
-.input-material input[type="email"]:invalid,
-.input-material input[type="tel"]:invalid {
-  box-shadow: none !important;
-}
-
-.input-material input:focus {
-  outline: none;
-}
-
-.input-material label {
-  display: block;
-  color: #92919F;
-  line-height: 140%;
-  font-weight: normal;
-  font-size: 14px;
-  position: absolute;
-  pointer-events: none;
-  left: 0;
-  padding-left: 15px;
-  top: 15px;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-
-.input-material input:focus ~ label,
-.input-material input[area-valid] ~ label,
-.input-material textarea:focus ~ label,
-.input-material textarea[area-valid=true] ~ label,
-.input-material textarea[area-valid=false] ~ label {
-  top: 5px;
-  font-size: 12px;
-  height: 15px;
-  font-size: 12px;
-}
-
-.input-material textarea[area-valid=false] ~ .bar::before,
-.input-material textarea[area-valid=false] ~ .bar::after,
-.input-material input[area-valid=false] ~ .bar::before,
-.input-material input[area-valid=false] ~ .bar::after {
-  background: #cf1c5d;
-  width: 50%;
-}
-
-.input-material textarea[area-valid=false] ~ .tooltip,
-.input-material input[area-valid=false] ~ .tooltip {
-  color: #cf1c5d;
-}
-
-.input-material textarea:focus[area-valid=false] ~ .bar::before,
-.input-material textarea:focus[area-valid=false] ~ .bar::after,
-.input-material input:focus[area-valid=false] ~ .bar::before,
-.input-material input:focus[area-valid=false] ~ .bar::after {
-  background: #86A5C1;
-  width: 50%;
-}
-
-.input-material input[area-valid],
-.input-material input:focus {
-  margin-top: 8px;
-}
-
-.input-material textarea[area-valid=true] ~ .tooltip,
-.input-material input[area-valid=true] ~ .tooltip {
-  width: 13px;
-  height: 13px;
-  display: block;
-  background-image: url(/img/svg/ic_checked-green.svg);
-  font-size: 0;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.input-material textarea[area-valid=true] ~ .tooltip::before,
-.input-material input[area-valid=true] ~ .tooltip::before {
-  display: none;
-}
-
-.input-material--date {
-  padding-right: 3em;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNDQ0IiB2ZXJzaW9uPSIxLjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjY4Mi42NjciIGhlaWdodD0iNjgyLjY2NyIgdmlld0JveD0iMCAwIDUxMiA1MTIiPjxwYXRoIGQ9Ik0xMjEuNSAxLjRjLTMuNyAxLjctNyA1LjItOC40IDguOS0uNiAxLjYtMS4xIDguOC0xLjEgMTYuMnYxMy4zbC0yOS4yLjRjLTI4LjcuMy0yOS41LjQtMzYuOSAzLTIwLjggNy4zLTM1LjMgMjEuNy00Mi42IDQyLjNsLTIuOCA4djM2NWwyLjggOGM3LjMgMjAuNiAyMS43IDM0LjkgNDIuNiA0Mi4zbDcuNiAyLjdoNDA1bDgtMi44YzIwLjYtNy4zIDM0LjktMjEuNyA0Mi4zLTQyLjZsMi43LTcuNnYtMzY1bC0yLjctNy42Yy03LjQtMjAuOS0yMS43LTM1LjMtNDIuMy00Mi42LTcuOS0yLjctOC4yLTIuOC0zNy4yLTMuMWwtMjkuMi0uNC0uMy0xNC44Yy0uMy0xNi4yLS44LTE3LjctNy4yLTIyLjQtMy45LTIuOS0xMy4zLTIuOS0xNy4yIDAtNi40IDQuNy02LjkgNi4yLTcuMiAyMi41bC0uMyAxNC45SDE0NC4xbC0uMy0xNC45Yy0uMy0xNi4yLS44LTE3LjgtNy0yMi40LTMuNC0yLjUtMTEuMy0zLjItMTUuMy0xLjN6bS05LjMgODEuNWMuMyAxMS44IDEuMiAxNC4xIDcuMiAxOC41IDMuOSAyLjkgMTMuMyAyLjkgMTcuMiAwIDYtNC40IDYuOS02LjcgNy4yLTE4LjVsLjQtMTAuOWgyMjMuNmwuNCAxMC45Yy4zIDExLjggMS4yIDE0LjEgNy4yIDE4LjUgMy45IDIuOSAxMy4zIDIuOSAxNy4yIDAgNi00LjQgNi45LTYuNyA3LjItMTguNWwuNC0xMSAyNy4xLjMgMjcuMi4zIDUuNyAyLjhjNy4yIDMuNSAxMyA5LjMgMTYuNSAxNi41IDIuOCA1LjcgMi44IDUuOCAzLjEgMjguOWwuMyAyMy4zSDMydi0yMS4zYzAtMTUuOC40LTIyLjYgMS40LTI2LjIgMy4xLTEwLjEgMTEuOC0xOS4yIDIxLjktMjIuNyA0LjUtMS41IDguOS0xLjcgMzAuOS0xLjhoMjUuNmwuNCAxMC45em0zNjcuNiAyMzIuM2wtLjMgMTM5LjMtMi43IDUuNWMtMy41IDcuMS05LjcgMTMuMy0xNi43IDE2LjhsLTUuNiAyLjdoLTM5N2wtNS41LTIuN2MtNy4xLTMuNS0xMy4zLTkuNy0xNi44LTE2LjdsLTIuNy01LjYtLjMtMTM5LjNMMzIgMTc2aDQ0OGwtLjIgMTM5LjJ6Ii8+PC9zdmc+);
-  background-size: 1.2em auto;
-  background-repeat: no-repeat;
-  background-position: calc(100% - 1.25em) center;
-  min-width: 165px;
-  cursor: pointer;
-}
-
-.input-material--suggest {
-  padding-right: 3em;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNTI1MTY2IiB3aWR0aD0iMTciIGhlaWdodD0iMTciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE2LjgwNSAxNS44NjZMMTIuMDEgMTEuMDdjMi4xODUtMi42NTkgMi4wMzctNi42MDYtLjQ0Ni05LjA4OWE2Ljc4MyA2Ljc4MyAwIDAwLTkuNTgyIDAgNi43ODMgNi43ODMgMCAwMDAgOS41ODJjMi40ODMgMi40ODIgNi40MjkgMi42MzIgOS4wODkuNDQ2bDQuNzk2IDQuNzk2YS42NjQuNjY0IDAgMDAuOTQtLjkzOXptLTYuMTgyLTUuMjQzYTUuNDUzIDUuNDUzIDAgMDEtNy43MDIgMCA1LjQ1MyA1LjQ1MyAwIDAxMC03LjcwMyA1LjQ1MyA1LjQ1MyAwIDAxNy43MDIgMCA1LjQ1MyA1LjQ1MyAwIDAxMCA3LjcwM3oiLz48L3N2Zz4=);
-  background-size: 1.2em auto;
-  background-repeat: no-repeat;
-  background-position: calc(100% - 1.25em) center;
-  min-width: 165px;
-  cursor: pointer;
-}
-
-.input-material--suggest .suggest-list {
-  display: none;
-  position: absolute;
-  top: calc(100% + 10px);
-  right: auto;
-  left: 0;
-  z-index: 999;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background-color: #e9e9e9;
-  max-height: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
-  color: #000;
-  min-width: 100%;
-  width: auto;
-  max-height: 300px;
-}
-
-.input-material--suggest .suggest-list li {
-  margin: 0;
-  padding: 0.75rem 15px;
-  border-top: 1px solid #e3e0ea;
-  transition: all 0.15s ease-in;
-  font-size: 14px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.input-material--suggest .suggest-list li.active,
-.input-material--suggest .suggest-list li:hover {
-  background-color: #E7E6F5;
 }
 
 /* burger */
