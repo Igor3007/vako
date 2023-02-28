@@ -4459,6 +4459,29 @@ footer {
   padding-bottom: 15px;
 }
 
+.filter-properties__input {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.filter-properties__range input {
+  border: none;
+}
+
+.filter-properties__range .filter-properties__input {
+  border: 1px solid #f5f5f5;
+  padding: 0 15px;
+}
+
+.filter-properties__range .filter-properties__row {
+  margin: 0 -5px;
+}
+
+.filter-properties__row {
+  display: flex;
+}
+
 @media screen and (min-width: 445px) {
   .main-menu::before {
     width: calc(100% - 400px);

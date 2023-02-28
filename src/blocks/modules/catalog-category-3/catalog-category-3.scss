@@ -51,5 +51,33 @@
         padding-bottom: 15px;
     }
 
-    &__input {}
+    &__input {
+        display: flex;
+        align-items: center;
+
+        margin: 0 5px;
+
+    }
+
+    &__range {
+        & input {
+            border: none;
+        }
+
+        & .filter-properties {
+            &__input {
+                border: 1px solid $gray-96;
+                padding: 0 15px;
+            }
+
+            &__row {
+                margin: 0 -5px;
+            }
+        }
+    }
+
+    &__row {
+
+        display: flex;
+    }
 }
