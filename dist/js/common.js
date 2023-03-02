@@ -183,7 +183,7 @@
      // select.afSelect.close()
      // select.afSelect.update()
 
-     const selectCustom = new customSelect({
+     const selectCustom = new afSelect({
          selector: 'select'
      })
 
@@ -708,7 +708,7 @@
 
      if (document.querySelector('[data-popup="region"]')) {
 
-         const selectRegionPopup = new customModal({
+         const selectRegionPopup = new afLightbox({
              mobileInBottom: false
          })
 
@@ -723,6 +723,24 @@
 
          })
 
+
+     }
+
+     /*======================================
+      minicard slider
+     ======================================*/
+
+     if (document.querySelector('.minicard')) {
+         const items = document.querySelectorAll('[data-slider="gallery"]')
+
+         items.forEach(item => {
+             const slider = new Splide(item, {
+                 perPage: 1,
+                 arrows: false
+             })
+
+             slider.mount()
+         })
 
      }
 

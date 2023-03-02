@@ -1,4 +1,4 @@
-class customSelect {
+class afSelect {
 
     constructor(option) {
         this.selector = option.selector;

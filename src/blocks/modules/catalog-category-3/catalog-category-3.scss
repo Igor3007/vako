@@ -1,4 +1,13 @@
+@import 'minicard.scss';
+
 .category-filter {
+
+    display: none;
+
+    @media screen and (min-width: $w992) {
+        display: block;
+    }
+
     &__head {
 
         height: 48px;
@@ -79,5 +88,49 @@
     &__row {
 
         display: flex;
+    }
+}
+
+.current-category {
+    display: none;
+
+    @media screen and (min-width: $w992) {
+        display: none;
+    }
+
+}
+
+
+.catalog-category {
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__view {
+
+        & ul {
+            display: flex;
+            align-items: center;
+        }
+
+        & svg {
+            fill: #000;
+        }
+    }
+}
+
+.sort-dropdown {
+    &__list {
+        display: none;
+    }
+}
+
+.catalog-products {
+    &__item {
+        padding: 12px 0;
+        border-bottom: 1px solid $gray-92;
     }
 }

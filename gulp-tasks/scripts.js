@@ -55,17 +55,7 @@ gulp.task('vendor', function () {
         .pipe(gulp.dest('./dist/js/'));
 });
 
-gulp.task('vendororig', function () {
-    return gulp.src('./src/js/vendor/*.js')
-        .pipe(concat('vendor-orig.js'))
-        .pipe(gulp.dest('./dist/js/'));
-});
 
-// gulp.task('common', function () {
-//     return gulp.src('./src/js/common/*.js')
-//         .pipe(concat('common.js'))
-//         .pipe(gulp.dest('./dist/js/'));
-// });
 
 gulp.task("common", () => {
     return gulp.src('./src/js/common/*.{js,json}')
