@@ -1,0 +1,557 @@
+@mixin minicard--price {
+    font-weight: 800;
+    font-size: 16px;
+    color: #222222;
+    padding-bottom: 4px;
+
+    @media screen and (min-width: $w1200) {
+        font-size: 18px;
+    }
+
+
+    @media screen and (min-width: $w1440) {
+        font-size: 20px;
+    }
+}
+
+.minicard {
+
+    display: flex;
+    position: relative;
+    padding: 14px 0;
+    border-bottom: 1px solid $gray-92;
+    transition: 0.3s ease;
+
+    @media screen and (min-width: $w992) {
+        padding: 20px;
+        border: 1px solid $gray-92;
+        border-radius: 6px;
+    }
+
+    &:hover {
+        border-color: $accent-2-1;
+
+        & .minicard {
+            &__action {
+                opacity: 1;
+            }
+        }
+
+    }
+
+    &__images {
+
+        width: 68px;
+        min-width: 68px;
+
+        @media screen and (min-width: $w576) {
+            width: 120px;
+            min-width: 120px;
+        }
+
+        @media screen and (min-width: $w1440) {
+            width: 200px;
+            min-width: 200px;
+        }
+
+
+        & picture {
+
+            @include picture(100%, contain);
+        }
+
+        & .splide {
+            &__pagination {
+                display: none;
+                bottom: -20px;
+
+                &__page {
+                    &.is-active {
+                        background-color: $accent-2-1;
+                        transform: none;
+                    }
+                }
+
+                @media screen and (min-width: $w992) {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    &__content {
+        padding-left: 8px;
+
+        @media screen and (min-width: $w576) {
+            padding-left: 20px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            display: flex;
+            padding-left: 24px;
+        }
+    }
+
+    &__title {
+        font-size: 13px;
+        line-height: 123%;
+        color: $gray-13;
+        padding-bottom: 0.5em;
+
+        @media screen and (min-width: $w1200) {
+            font-weight: 700;
+            line-height: 156%;
+            font-size: 15px;
+        }
+
+        @media screen and (min-width: $w1440) {
+            font-size: 16px;
+            line-height: 148%;
+        }
+
+
+
+        & a {
+
+            line-height: inherit;
+
+            &:hover {
+                color: $accent-2-1
+            }
+
+            @media screen and (min-width: $w992) {
+                @include line-clamp(3);
+            }
+        }
+    }
+
+    &__rating {
+
+        padding-bottom: 13px;
+        display: flex;
+        align-items: center;
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 14px;
+
+        }
+
+        & span {
+            display: inline-flex;
+            width: 32px;
+            height: 26px;
+            background-color: #eee;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+
+        & a {
+            font-size: 13px;
+            margin-left: 9px;
+            color: $green;
+            display: inline-block;
+            margin-top: -1px;
+
+            @media screen and (min-width: $w1440) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__price {
+        @include minicard--price;
+    }
+
+    &__props {
+        display: none;
+        font-size: 13px;
+        color: $gray-13;
+        padding-bottom: 10px;
+        line-height: 120%;
+
+        @media screen and (min-width: $w1200) {
+            padding-bottom: 1px;
+        }
+
+        & ul {
+            & li {
+                padding-bottom: 2px;
+
+                &:last-child {
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        @media screen and (min-width: $w1200) {
+            display: block;
+
+        }
+    }
+
+    &__action {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        @media screen and (min-width: $w1200) {
+            opacity: 0;
+            transition: 0.2s ease;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        & a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 4px;
+
+            & svg {
+                fill: #8F8F8F;
+            }
+
+            &:hover {
+
+                background-color: #f5f5f5;
+                border-radius: 4px;
+
+                & svg {
+                    fill: $accent-1-1;
+                }
+
+            }
+        }
+
+    }
+
+    &__offers {
+
+
+
+        & a {
+            color: $gray-56;
+            font-size: 13px;
+
+            &:hover {
+                color: $accent-2-1;
+            }
+        }
+    }
+
+    &__store {
+        &-phone {
+            & ul {
+                display: none;
+            }
+        }
+    }
+
+    &__colors {
+
+        padding-bottom: 9px;
+
+        & ul {
+
+            display: flex;
+            align-items: center;
+            margin: -2px;
+
+            @media screen and (min-width: $w576) {
+                margin: -4px;
+            }
+
+
+            & li {
+                padding: 2px;
+
+                @media screen and (min-width: $w576) {
+                    padding: 4px;
+                }
+
+                & span {
+                    width: 8px;
+                    min-width: 8px;
+                    height: 8px;
+                    display: inline-block;
+                    border-radius: 50%;
+
+                    @media screen and (min-width: $w576) {
+                        width: 12px;
+                        min-width: 12px;
+                        height: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__store {
+
+        @media screen and (min-width: $w1200) {
+            display: flex;
+        }
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 10px;
+        }
+
+        &-price {
+            @include minicard--price;
+            padding-top: 8px;
+            padding-bottom: 16px;
+        }
+
+        &-detail {
+            margin-right: 10px;
+        }
+
+        &-name {
+            font-weight: 800;
+            margin-right: 10px;
+
+            @media screen and (min-width: $w1440) {
+                font-size: 18px;
+            }
+
+            &:hover {
+                color: $accent-2-1;
+            }
+        }
+
+        &-label {
+            font-size: 13px;
+            padding-bottom: 6px;
+
+            @media screen and (min-width: $w1440) {
+                font-size: 14px;
+                padding-bottom: 9px;
+            }
+        }
+
+        &-wrp {
+            display: flex;
+            padding-bottom: 10px;
+
+            @media screen and (min-width: $w1200) {
+                flex-direction: column;
+            }
+        }
+
+        &-phone {
+
+            @media screen and (min-width: $w1200) {
+                padding-top: 10px;
+            }
+
+            & a {
+                color: $accent-2-1;
+                font-size: 13px;
+
+
+
+                @media screen and (min-width: $w1440) {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        &-rating {
+            & .minicard {
+                &__store {
+                    &-label {
+                        display: none;
+
+                        @media screen and (min-width: $w1200) {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__conditions {
+        display: none;
+        font-size: 13px;
+
+        @media screen and (min-width: $w1440) {
+            font-size: 14px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            display: block;
+        }
+
+        &-label {
+            padding-bottom: 5px;
+
+            @media screen and (min-width: $w1440) {
+                padding-bottom: 10px;
+            }
+        }
+
+        &-text {
+            color: $gray-56;
+        }
+    }
+
+    &__shipping {
+        padding-bottom: 14px;
+
+
+    }
+
+    &__note {
+        color: $gray-56;
+        padding-bottom: 10px;
+        font-size: 13px;
+    }
+
+    &__in-store {
+        margin-top: auto;
+
+        @media screen and (min-width: $w1440) {
+            margin-top: 5px;
+        }
+
+        & .btn {
+            height: 36px;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 8px 3em 10px 3em;
+
+            @media screen and (min-width: $w1440) {
+                height: 40px;
+                padding: 8px 2em 10px 2em;
+            }
+        }
+    }
+
+    &__more {
+
+        position: relative;
+
+
+        @media screen and (min-width: $w1200) {
+            width: 220px;
+            min-width: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media screen and (min-width: $w1440) {
+            width: 241px;
+            min-width: 241px;
+        }
+
+    }
+
+    &__main {
+        @media screen and (min-width: $w1200) {
+            width: 100%;
+            flex-grow: 1;
+            padding-right: 20px;
+
+        }
+
+        @media screen and (min-width: $w1440) {
+            padding-right: 30px;
+        }
+    }
+
+
+}
+
+.shipping-item {
+
+    display: flex;
+    padding-bottom: 11px;
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+
+    &__icon {
+
+        margin-right: 10px;
+
+        & span {
+            @include bgimage-contain;
+            min-width: 20px;
+            width: 20px;
+            height: 20px;
+        }
+
+    }
+
+    &__title {
+
+        font-size: 13px;
+
+        & strong {
+            font-size: inherit;
+            font-weight: 800;
+        }
+
+        & small {
+            font-size: inherit;
+            color: $green;
+        }
+
+    }
+
+    &__points {
+        color: $accent-2-1;
+        font-size: 13px;
+        padding-top: 6px;
+        cursor: pointer;
+
+        @media screen and (min-width: $w1440) {
+            padding-top: 9px;
+        }
+
+        & span {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+}
+
+.minicard--store {
+    & .minicard {
+        &__price {
+            @media screen and (min-width: $w992) {
+                padding-bottom: 10px;
+            }
+
+            @media screen and (min-width: $w1440) {
+                padding-bottom: 22px;
+            }
+        }
+
+        &__title {
+            @media screen and (min-width: $w1440) {
+                padding-bottom: 1em;
+            }
+        }
+
+
+    }
+}
+
+.color--border {
+    border: 1px solid #D6D6D6;
+}

@@ -1,1 +1,19 @@
 /* common styles */
+
+.hide {
+    &--mobile {
+        @media screen and (max-width: $w992) {
+            display: none;
+        }
+    }
+
+    &--desctop {
+        @media screen and (min-width: $w992) {
+            display: none;
+        }
+    }
+}
+
+.splide {
+    &__pagination {}
+}

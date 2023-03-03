@@ -1,4 +1,5 @@
 include  ../../components/breadcrumb/breadcrumb.pug
+include  ../minicard/minicard.pug 
 
 mixin catalog-category-3
     section.section-catalog-category
@@ -9,7 +10,7 @@ mixin catalog-category-3
                         'Главная',
                         'Компьютеры',
                         'Ноутбуки',
-                    ])
+                    ]) 
                 .catalog-category__h1: h1 Ноутбуки в Кременчуг-Константиновское 
 
                 .catalog-category__content
@@ -162,97 +163,9 @@ mixin catalog-category-3
                                 each item in goods
 
                                     if item.type == 'goods'
-                                        .catalog-products__item: +minicard()
+                                        .catalog-products__item: +minicard(item)
                                     if item.type == 'store'
-                                        .catalog-products__item: +minicard--store()
-
-                                    
-mixin minicard()
-    .minicard
-        .minicard__images
-            .minicard__gallery
-                .splide(data-slider="gallery")
-                    .splide__track
-                        .splide__list
-                            .splide__slide: +picture('/img/product/image-35-2')
-                            .splide__slide: +picture('/img/product/image-35-2')
-                            .splide__slide: +picture('/img/product/image-35-2')
-
-        .minicard__content
-            .minicard__main
-                .minicard__title: a(href='#') 15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный
-                
-                .minicard__colors
-                    ul.color-list
-                        li: span(title="Черный" style="background-color: #000")
-                        li: span(title="Темный" style="background-color: #808080")
-                        li: span(title="Серый" style="background-color: #C0C0C0")
-                        li: span(title="Серый" style="background-color: #fff")
-                .minicard__rating
-                    span 4.7
-                    a(href='#') 82 отзыва
-                .minicard__props
-                    ul
-                        li <span>звук:</span> моно
-                        li <span>суммарная мощность:</span> 40 Вт
-                        li <span>диапазон воспроизводимых частот:</span> 50-20000 Гц
-                        li <span>вход аудио (AUX):</span> да
-            .minicard__more
-                .minicard__price от 124 000 ₽
-                .minicard__offers
-                    a(href='#') 24 предложения
-                .minicard__action
-                    a(href='#'): +icons('#ic_compare', 20)
-                    a(href='#'): +icons('#ic_heart', 20)
-
-
-mixin minicard--store()
-    .minicard.minicard--store
-        .minicard__images
-            +picture('/img/product/image-35-2')
-        .minicard__main
-            .minicard__main
-                .minicard__title: a(href='#') 15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный
-                
-                .minicard__store
-                    .minicard__store-detail
-                        .minicard__store-label Магазин:
-                        .minicard__store-name PCPlanet.ru
-                        .minicard__store-phone
-                            a(href='#') Телефоны
-                            ul
-                                li: a(href='tel:+ 7 (495) 123-44-55') + 7 (495) 123-44-55
-                                li: a(href='tel:+ 7 (495) 123-44-55') + 7 (495) 123-44-55
-                                li: a(href='tel:+ 7 (495) 123-44-55') + 7 (495) 123-44-55
-                    .minicard__store-rating
-                        .minicard__store-label Рейтинг магазина:
-                        .minicard__rating
-                            span 4.7
-                            a(href='#') 82 отзыва
-                
-                
-                .minicard__conditions
-                    .minicard__conditions-label Условия покупки:
-                    .minicard__conditions-text Оплата картой, цены не зависят от формы оплаты, гарантия
-                
-            .minicard__more
-                .minicard__price от 124 000 ₽
-                .minicard__shipping
-                    .shipping-item
-                        .shipping-item__icon: +icons('#ic_pin.svg', 20)
-                        .shipping-item__main
-                            .shipping-item__title Курьером, 26-27 мая – 300 ₽
-                    .shipping-item
-                        .shipping-item__icon: +icons('#ic_truck.svg', 20)
-                        .shipping-item__main
-                            .shipping-item__title Самовывоз, 27 сен – бесплатно
-                            .shipping-item__points Пункты выдачи
-                .minicard__note Оплата онлайн / наличными при получении
-                .minicard__in-store
-                    a(href='#'): button.btn В магазин
-               
-
-
+                                        .catalog-products__item: +minicard--store(item)
 
 
 mixin prop-range()
@@ -301,7 +214,7 @@ mixin prop-color(data)
         .filter-properties__colors
             ul
                 each item in data.colors
-                    li: +checkbox(item)
+                    li: span(style='background-color: '+item+'')
 
 
 mixin prop-radio(data)

@@ -1,5 +1,3 @@
-@import 'minicard.scss';
-
 .category-filter {
 
     display: none;
@@ -17,6 +15,10 @@
         align-items: center;
         justify-content: center;
         position: relative;
+
+        @media screen and (min-width: $w992) {
+            display: none;
+        }
 
         &-title {
             font-size: 15px;
@@ -89,6 +91,14 @@
 
         display: flex;
     }
+
+    &__list {
+        & ul {
+            & li {
+                padding-bottom: 10px;
+            }
+        }
+    }
 }
 
 .current-category {
@@ -107,6 +117,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 10px 0;
     }
 
     &__view {
@@ -129,8 +140,14 @@
 }
 
 .catalog-products {
+
+    @media screen and (min-width: $w992) {
+        margin: -6px;
+    }
+
     &__item {
-        padding: 12px 0;
-        border-bottom: 1px solid $gray-92;
+        @media screen and (min-width: $w992) {
+            padding: 6px;
+        }
     }
 }

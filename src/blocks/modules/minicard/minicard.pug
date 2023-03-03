@@ -1,0 +1,88 @@
+mixin minicard(data)
+    .minicard
+        .minicard__images
+            .minicard__gallery
+                .splide(data-slider="gallery")
+                    .splide__track
+                        .splide__list
+                            .splide__slide: +picture('/img/product/minicard-1')
+                            .splide__slide: +picture('/img/product/image-35-2')
+                            .splide__slide: +picture('/img/product/image-35-3')
+
+        .minicard__content
+            .minicard__main
+                .minicard__title: a(href='#')= data.title
+                
+                .minicard__colors
+                    ul.color-list
+                        li: span(title="Черный" style="background-color: #000")
+                        li: span(title="Темный" style="background-color: #808080")
+                        li: span(title="Серый" style="background-color: #C0C0C0")
+                        li: span.color--border(title="Серый" style="background-color: #fff")
+                .minicard__rating
+                    span 4.7
+                    a(href='#') 82 отзыва
+                .minicard__props
+                    ul
+                        li <span>звук:</span> моно
+                        li <span>суммарная мощность:</span> 40 Вт
+                        li <span>диапазон воспроизводимых частот:</span> 50-20000 Гц
+                        li <span>вход аудио (AUX):</span> да
+            .minicard__more
+                .minicard__price= data.price
+                .minicard__offers
+                    a(href='#') 24 предложения
+                .minicard__action
+                    a(href='#'): +icons('#ic_heart-default', 20) 
+                    a(href='#'): +icons('#ic_compare-default', 20)
+
+mixin minicard--store(data) 
+    .minicard.minicard--store
+        .minicard__images
+            +picture('/img/product/minicard-2')
+        .minicard__content
+            .minicard__main
+                .minicard__title: a(href='#')= data.title
+                
+                .minicard__store
+                    .minicard__store-price.hide--desctop= data.price
+                    .minicard__store-detail
+                        .minicard__store-label Магазин:
+                        .minicard__store-wrp
+                            .minicard__store-name: a(href='#') PCPlanet.ru
+                            .minicard__store-phone
+                                a(href='#') Телефоны
+                                ul
+                                    li: a(href='tel:+ 7 (495) 123-44-55') + 7 (495) 123-44-55
+                                    li: a(href='tel:+ 7 (495) 123-44-55') + 7 (495) 123-44-55
+                                    li: a(href='tel:+ 7 (495) 123-44-55') + 7 (495) 123-44-55
+                        
+                    .minicard__store-rating
+                        .minicard__store-label Рейтинг магазина:
+                        .minicard__rating
+                            span 4.7
+                            a(href='#') 82 отзыва
+                
+                
+                .minicard__conditions
+                    .minicard__conditions-label Условия покупки:
+                    .minicard__conditions-text Оплата картой, цены не зависят от формы оплаты, гарантия
+                
+            .minicard__more
+                .minicard__price.hide--mobile= data.price
+                .minicard__shipping
+                    .shipping-item
+                        .shipping-item__icon: +bgimage('/img/svg/ic_truck.svg')
+                        .shipping-item__main
+                            .shipping-item__title Курьером, 26-27 мая – <strong>300 ₽</strong>
+                    .shipping-item
+                        .shipping-item__icon: +bgimage('/img/svg/ic_pin.svg') 
+                        .shipping-item__main
+                            .shipping-item__title Самовывоз, 27 сен – <small>бесплатно</small>
+                            .shipping-item__points: span Пункты выдачи
+                .minicard__note Оплата онлайн / наличными при получении
+                .minicard__in-store
+                    a(href='#'): button.btn В магазин
+                .minicard__action
+                    a(href='#'): +icons('#ic_warning', 20) 
+               

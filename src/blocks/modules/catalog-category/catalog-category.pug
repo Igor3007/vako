@@ -36,12 +36,12 @@ mixin catalog-category
                             ul
                                 each sub1 in catalog[0].sub
                                     li
-                                        a(href='#')= sub1.title 
+                                        a(href='/catalog.html')= sub1.title 
                                         if(sub1.sub)
                                             ul.sub-menu
                                                 each sub2 in sub1.sub
                                                     li
-                                                        a(href='#')= sub2.title 
+                                                        a(href='/catalog.html')= sub2.title 
                         .catalog-category__all.sub-menu-toggle(data-all-catid="show") Показать все категории
 
 
@@ -55,7 +55,7 @@ mixin catalog-category
 mixin card-category(data)
     .card-category
         .card-category__name
-            a(href='#')= data.title
+            a(href='/catalog.html')= data.title
         .card-category__picture
-            a(href='#')
+            a(href='/catalog.html')
                 +picture(data.image)
