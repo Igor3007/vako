@@ -55,6 +55,11 @@ gulp.task('vendor', function () {
         .pipe(gulp.dest('./dist/js/'));
 });
 
+gulp.task('json', function () {
+    return gulp.src('./src/json/*.json')
+        .pipe(gulp.dest('./dist/json/'));
+});
+
 
 
 gulp.task("common", () => {

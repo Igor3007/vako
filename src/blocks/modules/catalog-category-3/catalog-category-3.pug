@@ -137,7 +137,7 @@ mixin catalog-category-3
                                             'Восстановленный',
                                         ]
                                     })
-
+                                .category-filter__clear Очистить все фильтры
                                     
                                  
 
@@ -148,18 +148,18 @@ mixin catalog-category-3
                                     .sort-dropdown__title Сначала популярные
                                     .sort-dropdown__list
                                         ul
-                                            li: a(href='#') Сначала популярные
+                                            li: a(href='#' class="is-active") Сначала популярные
                                             li: a(href='#') По цене <span class="" >ic</span>
                                             li: a(href='#') По рейтингу
                                             li: a(href='#') По отзывам
                             .catalog-category__view
                                 ul
-                                    li: a(href='#list'): +icons('#ic_sort-list', 24)
-                                    li: a(href='#grid'): +icons('#ic_sort-grid', 24)
+                                    li: a(href='#list' data-view="list"): +icons('#ic_sort-list', 24)
+                                    li: a(href='#grid' data-view="grid"): +icons('#ic_sort-grid', 24)
 
                         .catalog-category__products
 
-                            .catalog-products
+                            .catalog-products(data-catalog="container")
                                 each item in goods
 
                                     if item.type == 'goods'
@@ -180,11 +180,20 @@ mixin prop-range()
                 .filter-properties__row
                     .filter-properties__input
                         span от
-                        input(type="text" placeholder="")
+                        input(type="text" placeholder="" data-price-range="min")
                     .filter-properties__input
                         span до
-                        input(type="text" placeholder="")
-                .filter-properties__slider =====#===========#===================
+                        input(type="text" placeholder="" data-price-range="max")
+                .filter-properties__slider
+                    #my-slider.slider(se-min='2500' se-step='1' se-min-value='10000' se-max-value='300000' se-max='950000')
+                        .slider-touch-left
+                            span
+                        .slider-touch-right
+                            span
+                        .slider-line
+                            span
+
+                    
                 
 
 mixin prop-checkbox(data)
@@ -214,7 +223,13 @@ mixin prop-color(data)
         .filter-properties__colors
             ul
                 each item in data.colors
-                    li: span(style='background-color: '+item+'')
+                    li
+                        label
+                            if(item == '#42AAFF')
+                                input(type="checkbox" name="color" disabled)
+                            else
+                                input(type="checkbox" name="color" )
+                            span(style='background-color: '+item+'' class=(item == '#fff' ? 'color--border':'' ))
 
 
 mixin prop-radio(data)

@@ -37,6 +37,14 @@ const requireDir = require("require-dir"),
                 "./src/js/**/*.js"
             ]
         },
+        json: {
+            src: "./src/json/",
+            dist: "./dist/json/",
+            watch: [
+                "./src/blocks/**/*.js",
+                "./src/js/**/*.js"
+            ]
+        },
         vendor: {
             watch: [
                 "./src/blocks/**/*.js",
@@ -102,7 +110,7 @@ export {
 };
 
 export const development = gulp.series("clean", "smart-grid", "styles",
-    gulp.parallel(["views", "vendor", "common", "images", "webp", "libs", "sprites", "fonts", "favicons"]),
+    gulp.parallel(["views", "vendor", "common", "images", "webp", "libs", "sprites", "fonts", "favicons", "json"]),
     gulp.parallel("serve"));
 
 export const prod = gulp.series("clean",

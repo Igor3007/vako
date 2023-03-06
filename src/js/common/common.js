@@ -1,5 +1,24 @@
  document.addEventListener("DOMContentLoaded", function (event) {
 
+     const API_YMAPS = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+
+     window.loadApiYmaps = function (callback) {
+
+         if (window.ymaps == undefined) {
+             const script = document.createElement('script')
+             script.src = API_YMAPS
+             script.onload = () => {
+                 callback(window.ymaps)
+             }
+             document.head.append(script)
+         } else {
+             callback(window.ymaps)
+         }
+
+     }
+
+
+
      /* ==============================================
      mobile menu
      ============================================== */
@@ -64,8 +83,6 @@
      const STATUS = window.STATUS;
      STATUS.init();
 
-
-
      /******************************************** 
       * ajax request
       ********************************************/
@@ -108,9 +125,6 @@
 
          };
      }
-
-
-
 
      /* ==============================================
      mobile menu
@@ -170,8 +184,6 @@
              window.menuInstanse.toggle()
          })
      }
-
-
 
 
      /* ==============================================
@@ -404,7 +416,7 @@
 
                  window.ajax({
                      type: 'GET',
-                     url: '/js/index-find.json',
+                     url: '/json/index-find.json',
                      responseType: 'json',
                      data: {
                          value: e.target.value
@@ -460,8 +472,6 @@
          new indexFind();
 
      }
-
-
 
      /* =======================================
      btn btn-catalog
@@ -655,7 +665,6 @@
 
      }
 
-
      /* ====================================
      data-catalog="nav"
      ====================================*/
@@ -663,7 +672,6 @@
      if (document.querySelector('[data-catalog="nav"]')) {
 
          const container = document.querySelector('[data-catalog="nav"]')
-
          const subMenu = container.querySelectorAll('.sub-menu')
 
          subMenu.forEach(item => {
@@ -743,6 +751,256 @@
          })
 
      }
+
+     /* =========================================
+     range slider
+     =========================================*/
+
+     var newRangeSlider = new ZBRangeSlider('my-slider');
+
+     newRangeSlider.onChange = function (min, max) {
+         console.log(min, max, this);
+         //document.getElementById('result').innerHTML = 'Min: ' + min + ' Max: ' + max;
+
+         document.querySelector('[data-price-range="max"]').value = max
+         document.querySelector('[data-price-range="min"]').value = min
+     }
+
+     newRangeSlider.didChanged = function (min, max) {
+         console.log(min, max, this);
+         //document.getElementById('result').innerHTML = 'Min: ' + min + ' Max: ' + max;
+     }
+
+     /* ===========================================
+     change view catalog
+     ===========================================*/
+
+     if (document.querySelector('[data-view="list"]')) {
+
+         const btnList = document.querySelector('[data-view="list"]')
+         const btnGrid = document.querySelector('[data-view="grid"]')
+         const catalog = document.querySelector('[data-catalog="container"]')
+
+         btnList.addEventListener('click', e => {
+
+             btnList.classList.add('is-active')
+             if (btnGrid.classList.contains('is-active')) {
+                 btnGrid.classList.remove('is-active')
+             }
+
+             if (catalog.classList.contains('grid--view')) {
+                 catalog.classList.remove('grid--view')
+             }
+         })
+
+         btnGrid.addEventListener('click', e => {
+             catalog.classList.add('grid--view')
+
+             btnGrid.classList.add('is-active')
+             if (btnList.classList.contains('is-active')) {
+                 btnList.classList.remove('is-active')
+             }
+         })
+
+     }
+
+     /* ==========================================
+     map point pvz
+     ==========================================*/
+
+     if (document.querySelector('[data-shop-points]')) {
+
+         class PoinstPopup {
+             constructor(elem) {
+                 this.$el = elem.querySelector('.popup-shop-points')
+                 this.init();
+                 this.map = false;
+             }
+
+             init() {
+                 this.$el.innerHTML = this.getTemplateMain()
+                 this.initMap()
+
+             }
+
+             initMap() {
+                 window.loadApiYmaps((e) => {
+
+                     ymaps.ready(() => {
+                         this.map = new ymaps.Map('map', {
+                             center: [55.76, 37.64], // Москва
+                             zoom: 10,
+                             controls: ['zoomControl', 'fullscreenControl']
+                         }, {
+                             suppressMapOpenBlock: true
+                         });
+
+                         this.getJsonData()
+                     });
+
+
+                 })
+             }
+
+             getJsonData() {
+                 window.ajax({
+                     type: 'GET',
+                     url: '/json/points.json',
+                     responseType: 'json',
+                     data: {
+                         value: 123
+                     }
+                 }, (status, response) => {
+                     this.render(response)
+                 })
+             }
+
+             getTemplateMain() {
+                 return `
+                    <div class="popup-points" >
+                        <div class="popup-points__head" >Пункты выдачи магазина PCPlanet.ru</div>
+                        <div class="popup-points__wrp" >
+                            <div class="popup-points__map" ><div id="map" ></div></div>
+                            <div class="popup-points__list" >
+                                <div class="popup-points__stores" ></div>
+                                <div class="popup-points__items" >
+                                    <ul data-poits="list" ></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+             }
+
+             getTemplateItem(item) {
+                 return `
+
+                <div class="popup-points__item" >
+                    <div class="popup-points__title" >${item.title}</div>
+                    <div class="popup-points__worktime" >${item.worktime}</div>
+                    <div class="popup-points__now" >${item.now}</div>
+                </div>
+
+                `;
+             }
+
+             scrollToItem(index) {
+                 const scrollContainer = this.$el.querySelector('.popup-points__items')
+                 const items = this.$el.querySelectorAll('.popup-points__item')
+
+                 scrollContainer.scrollTo({
+                     top: items[index].offsetTop,
+                     behavior: 'smooth'
+                 })
+
+                 this.setActive(index)
+             }
+
+             createPlacemark(item, index) {
+                 let point = new window.ymaps.GeoObject({
+                     geometry: {
+                         type: "Point",
+                         coordinates: item.coordinates.split(',')
+                     },
+                     properties: {
+                         //iconContent: 'Метка',
+                         //balloonHeader: item.title,
+                         //balloonContent: item.title
+                     }
+                 }, {
+                     preset: 'islands#blueCircleDotIcon',
+                 })
+
+                 point.events.add('click', () => {
+                     this.scrollToItem(index)
+                 })
+
+                 return point;
+             }
+
+             setActive(index) {
+
+                 const items = this.$el.querySelectorAll('.popup-points__item')
+
+                 items.forEach(i => {
+                     if (i.classList.contains('is-active')) {
+                         i.classList.remove('is-active')
+                     }
+                 })
+
+                 items[index].classList.add('is-active')
+             }
+
+             render(response) {
+
+                 function word(number, txt) {
+                     var cases = [2, 0, 1, 1, 1, 2];
+                     return txt[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+                 }
+
+                 this.$el.querySelector('.popup-points__stores').innerHTML = response.length + ' ' + word(response.length, ['магазин', 'магазина', 'магазинов'])
+
+                 response.forEach((item, index) => {
+
+                     let elem = document.createElement('div')
+                     elem.innerHTML = this.getTemplateItem(item)
+
+                     elem.querySelector('.popup-points__item').addEventListener('click', e => {
+
+                         this.setActive(index)
+
+                         this.map.setCenter(item.coordinates.split(','), 16, {
+                             checkZoomRange: true
+                         });
+                     })
+
+                     this.$el.querySelector('[data-poits="list"]').append(elem.lastElementChild)
+
+
+                     let placemark = this.createPlacemark(item, index)
+                     this.map.geoObjects.add(placemark)
+
+                 })
+             }
+         }
+
+         const pointPopup = new afLightbox({
+             mobileInBottom: true
+         })
+
+         const items = document.querySelectorAll('[data-shop-points]')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+
+                 pointPopup.open('<div class="popup-shop-points" ></div>', function (instanse) {
+
+                     new PoinstPopup(instanse)
+
+                 })
+
+
+             })
+         })
+
+
+     }
+
+     /* =========================================
+     show / hide item filter
+     =========================================*/
+
+     if (document.querySelector('.filter-properties__head')) {
+         const items = document.querySelectorAll('.filter-properties__head')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+                 item.closest('.filter-properties').classList.toggle('is-hide')
+             })
+         })
+     }
+
+
 
 
 

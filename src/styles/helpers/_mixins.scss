@@ -11,6 +11,25 @@
     margin: auto;
 }
 
+@mixin scrollbar {
+
+    scrollbar-color: $gray-80 $gray-92;
+    scrollbar-width: thin !important;
+
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #e2e6e8;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #cbcfd0;
+    }
+}
+
 @mixin layer($z) {
     position: absolute;
     top: 0;

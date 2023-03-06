@@ -19,8 +19,8 @@ mixin minicard(data)
                         li: span(title="Темный" style="background-color: #808080")
                         li: span(title="Серый" style="background-color: #C0C0C0")
                         li: span.color--border(title="Серый" style="background-color: #fff")
-                .minicard__rating
-                    span 4.7
+                .minicard__rating(class=data.rating_color)
+                    span= data.rate
                     a(href='#') 82 отзыва
                 .minicard__props
                     ul
@@ -33,8 +33,8 @@ mixin minicard(data)
                 .minicard__offers
                     a(href='#') 24 предложения
                 .minicard__action
-                    a(href='#'): +icons('#ic_heart-default', 20) 
-                    a(href='#'): +icons('#ic_compare-default', 20)
+                    a(href='#' data-tooltip="Добавить в избранное"): +icons('#ic_heart-default', 20) 
+                    a(href='#' data-tooltip="Добавить в сравнение"): +icons('#ic_compare-default', 20)
 
 mixin minicard--store(data) 
     .minicard.minicard--store
@@ -59,8 +59,8 @@ mixin minicard--store(data)
                         
                     .minicard__store-rating
                         .minicard__store-label Рейтинг магазина:
-                        .minicard__rating
-                            span 4.7
+                        .minicard__rating(class=data.rating_color)
+                            span= data.rate
                             a(href='#') 82 отзыва
                 
                 
@@ -79,10 +79,10 @@ mixin minicard--store(data)
                         .shipping-item__icon: +bgimage('/img/svg/ic_pin.svg') 
                         .shipping-item__main
                             .shipping-item__title Самовывоз, 27 сен – <small>бесплатно</small>
-                            .shipping-item__points: span Пункты выдачи
+                            .shipping-item__points: span(data-shop-points="178") Пункты выдачи
                 .minicard__note Оплата онлайн / наличными при получении
                 .minicard__in-store
                     a(href='#'): button.btn В магазин
                 .minicard__action
-                    a(href='#'): +icons('#ic_warning', 20) 
+                    a(href='#'  data-tooltip="Пожаловаться"): +icons('#ic_warning', 20) 
                
