@@ -199,7 +199,7 @@
                 <div class="category-filter">
                   <div class="category-filter__head">
                     <div class="category-filter__head-title">Фильтры и сортировка</div>
-                    <div class="category-filter__head-close"><span class="icon-cross"></span></div>
+                    <div class="category-filter__head-close"><span class="icon-cross" data-filter="open"></span></div>
                   </div>
                   <div class="category-filter__wrp">
                     <div class="category-filter__props">
@@ -353,15 +353,6 @@
                         <div class="filter-properties">
                           <div class="filter-properties__single">
                             <label class="checkbox">
-                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">В продаже</span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="category-filter__item">
-                        <div class="filter-properties">
-                          <div class="filter-properties__single">
-                            <label class="checkbox">
                               <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Bluetooth</span>
                             </label>
                           </div>
@@ -474,7 +465,7 @@
                       <div class="category-filter__item">
                         <div class="filter-properties">
                           <div class="filter-properties__head">
-                            <div class="filter-properties__title">Производитель</div>
+                            <div class="filter-properties__title">Скидки и акции </div>
                             <div class="filter-properties__cross"></div>
                           </div>
                           <div class="filter-properties__list">
@@ -612,7 +603,12 @@
                         </div>
                       </div>
                     </div>
-                    <div class="category-filter__clear">Очистить все фильтры</div>
+                    <div class="category-filter__submit">
+                      <div class="category-filter__send">
+                        <button class="btn"><span>Посмотреть</span><small>328 предложений </small></button>
+                      </div>
+                      <div class="category-filter__clear"><span class="icon-cross"> </span><small>Очистить <span>все фильтры</span></small></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -623,13 +619,20 @@
                       <div class="sort-dropdown__title">Сначала популярные</div>
                       <div class="sort-dropdown__list">
                         <ul>
-                          <li><a class="is-active" href="#">Сначала популярные</a></li>
-                          <li><a href="#">По цене <span class="" >ic</span></a></li>
-                          <li><a href="#">По рейтингу</a></li>
+                          <li><a href="#">Сначала популярные</a></li>
+                          <li><a class="is-active is-active--down" href="#">По цене</a></li>
+                          <li><a class="is-active is-active--up" href="#">По рейтингу</a></li>
                           <li><a href="#">По отзывам</a></li>
                         </ul>
                       </div>
                     </div>
+                  </div>
+                  <div class="catalog-category__mobile">
+                    <button data-filter="open"> 
+                      <svg width="17" height="17">
+                        <use xlink:href="/img/sprites/sprite.svg#ic_filter"></use>
+                      </svg><span>Фильтры</span>
+                    </button>
                   </div>
                   <div class="catalog-category__view">
                     <ul>
@@ -724,7 +727,7 @@
                                 <div class="minicard__store-label">Магазин:</div>
                                 <div class="minicard__store-wrp">
                                   <div class="minicard__store-name"><a href="#">PCPlanet.ru</a></div>
-                                  <div class="minicard__store-phone"><a href="#">Телефоны</a>
+                                  <div class="minicard__store-phone" data-popup="number" data-store="PCPlanet.ru"><a href="#">Телефоны</a>
                                     <ul>
                                       <li><a href="tel:+ 7 (495) 123-44-55">+ 7 (495) 123-44-55</a></li>
                                       <li><a href="tel:+ 7 (495) 123-44-55">+ 7 (495) 123-44-55</a></li>
@@ -975,7 +978,7 @@
                                 <div class="minicard__store-label">Магазин:</div>
                                 <div class="minicard__store-wrp">
                                   <div class="minicard__store-name"><a href="#">PCPlanet.ru</a></div>
-                                  <div class="minicard__store-phone"><a href="#">Телефоны</a>
+                                  <div class="minicard__store-phone" data-popup="number" data-store="PCPlanet.ru"><a href="#">Телефоны</a>
                                     <ul>
                                       <li><a href="tel:+ 7 (495) 123-44-55">+ 7 (495) 123-44-55</a></li>
                                       <li><a href="tel:+ 7 (495) 123-44-55">+ 7 (495) 123-44-55</a></li>
@@ -1102,7 +1105,7 @@
                                 <div class="minicard__store-label">Магазин:</div>
                                 <div class="minicard__store-wrp">
                                   <div class="minicard__store-name"><a href="#">PCPlanet.ru</a></div>
-                                  <div class="minicard__store-phone"><a href="#">Телефоны</a>
+                                  <div class="minicard__store-phone" data-popup="number" data-store="PCPlanet.ru"><a href="#">Телефоны</a>
                                     <ul>
                                       <li><a href="tel:+ 7 (495) 123-44-55">+ 7 (495) 123-44-55</a></li>
                                       <li><a href="tel:+ 7 (495) 123-44-55">+ 7 (495) 123-44-55</a></li>
@@ -1229,7 +1232,7 @@
                                 <div class="minicard__store-label">Магазин:</div>
                                 <div class="minicard__store-wrp">
                                   <div class="minicard__store-name"><a href="#">PCPlanet.ru</a></div>
-                                  <div class="minicard__store-phone"><a href="#">Телефоны</a>
+                                  <div class="minicard__store-phone" data-popup="number" data-store="PCPlanet.ru"><a href="#">Телефоны</a>
                                     <ul>
                                       <li><a href="tel:+ 7 (495) 123-44-55">+ 7 (495) 123-44-55</a></li>
                                       <li><a href="tel:+ 7 (495) 123-44-55">+ 7 (495) 123-44-55</a></li>
@@ -1523,6 +1526,32 @@
                                   <use xlink:href="/img/sprites/sprite.svg#ic_compare-default"></use>
                                 </svg></a></div>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="catalog-pagination">
+                    <div class="catalog-pagination__more">
+                      <button>
+                        <svg width="14" height="14">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_more"></use>
+                        </svg><span>Показать ещё</span>
+                      </button>
+                    </div>
+                    <div class="catalog-pagination__page">
+                      <div class="pagination">
+                        <div class="pagination__page">
+                          <ul>
+                            <li class="active"><a href="#1">1</a></li>
+                            <li><a href="#2">2</a></li>
+                            <li><a href="#3">3</a></li>
+                            <li><a href="#4">...</a></li>
+                            <li><a href="#10">10</a></li>
+                            <li class="next"><a href="#2"><span>Вперед </span>
+                                <svg width="10" height="10">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_next-pagination"></use>
+                                </svg></a></li>
+                          </ul>
                         </div>
                       </div>
                     </div>

@@ -1,5 +1,6 @@
 include  ../../components/breadcrumb/breadcrumb.pug
 include  ../minicard/minicard.pug 
+include  ../../components/pagination/pagination.pug
 
 mixin catalog-category-3
     section.section-catalog-category
@@ -26,7 +27,7 @@ mixin catalog-category-3
                         .category-filter
                             .category-filter__head
                                 .category-filter__head-title Фильтры и сортировка
-                                .category-filter__head-close: span.icon-cross
+                                .category-filter__head-close: span.icon-cross(data-filter="open")
 
                             .category-filter__wrp
                                 .category-filter__props
@@ -62,7 +63,6 @@ mixin catalog-category-3
                                         ]
                                     })
 
-                                    .category-filter__item: +prop-checkbox-single('В продаже')
                                     .category-filter__item: +prop-checkbox-single('Bluetooth')
                                     .category-filter__item: +prop-color({
                                         title: 'Цвет',
@@ -92,7 +92,7 @@ mixin catalog-category-3
                                     })
 
                                     .category-filter__item: +prop-checkbox({
-                                        title: 'Производитель',
+                                        title: 'Скидки и акции ',
                                         checkbox: [
                                             'Скидки',
                                             'Промокоды',
@@ -137,7 +137,14 @@ mixin catalog-category-3
                                             'Восстановленный',
                                         ]
                                     })
-                                .category-filter__clear Очистить все фильтры
+                                .category-filter__submit
+                                    .category-filter__send
+                                        button.btn
+                                            span Посмотреть
+                                            small 328 предложений 
+                                    .category-filter__clear
+                                        span.icon-cross 
+                                        small Очистить <span>все фильтры</span>
                                     
                                  
 
@@ -148,14 +155,21 @@ mixin catalog-category-3
                                     .sort-dropdown__title Сначала популярные
                                     .sort-dropdown__list
                                         ul
-                                            li: a(href='#' class="is-active") Сначала популярные
-                                            li: a(href='#') По цене <span class="" >ic</span>
-                                            li: a(href='#') По рейтингу
+                                            li: a(href='#' ) Сначала популярные
+                                            li: a(href='#' class="is-active is-active--down") По цене
+                                            li: a(href='#' class="is-active is-active--up") По рейтингу
                                             li: a(href='#') По отзывам
+
+                            .catalog-category__mobile
+                                button(data-filter="open") 
+                                    +icons('#ic_filter', 17)
+                                    span Фильтры
+
                             .catalog-category__view
                                 ul
                                     li: a(href='#list' data-view="list"): +icons('#ic_sort-list', 24)
                                     li: a(href='#grid' data-view="grid"): +icons('#ic_sort-grid', 24)
+                            
 
                         .catalog-category__products
 
@@ -166,6 +180,15 @@ mixin catalog-category-3
                                         .catalog-products__item: +minicard(item)
                                     if item.type == 'store'
                                         .catalog-products__item: +minicard--store(item)
+
+                            .catalog-pagination
+                                .catalog-pagination__more
+                                    button
+                                        +icons('#ic_more', 14)
+                                        span Показать ещё
+                                .catalog-pagination__page
+                                    +pagination()
+
 
 
 mixin prop-range()

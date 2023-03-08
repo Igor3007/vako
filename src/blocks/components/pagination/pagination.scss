@@ -1,84 +1,91 @@
-.section-pagination {
-    @include section-padding;
-    padding-top: 0 !important;
-    padding-bottom: 75px;
-}
-
-.pagination {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+ .pagination {
+     display: flex;
+     justify-content: space-between;
+     width: 100%;
 
 
 
-    &__page {
+     &__page {
 
 
 
-        display: flex;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
+         display: flex;
+         align-items: center;
+         margin-left: auto;
+         margin-right: auto;
 
-        @media screen and (min-width: $w992) {
-            margin-right: 0;
-        }
+         @media screen and (min-width: $w992) {
+             margin-left: 0;
+         }
 
-        & ul {
-            display: flex;
-            list-style-type: none;
+         & ul {
+             display: flex;
+             list-style-type: none;
 
-            & li {
+             & li {
 
-                margin-left: rem(10);
+                 &.next {
+                     & a {
+                         width: auto;
+                         display: flex;
+                         align-items: center;
+                         padding: 0 1em;
+                     }
+                 }
 
-                &:first-child {
-                    margin-left: 0;
-                }
+                 &:first-child {
+                     margin-left: 0;
+                 }
 
-                &.active a {
-                    background-color: $red;
-                    color: #fff;
+                 &.active a {
+                     background-color: $accent-2-1;
+                     color: #fff;
 
-                    & svg {
-                        fill: #fff;
-                    }
-                }
+                     & svg {
+                         fill: #fff;
 
-                & a {
-                    width: rem(40);
-                    height: rem(40);
-                    display: flex;
-                    border-radius: 10px;
-                    align-items: center;
-                    justify-content: center;
-                    color: $black;
-                    background-color: #f1f1f1;
+                     }
+                 }
 
-                    @media screen and (min-width: $w992) {
-                        width: rem(55);
-                        height: rem(55);
-                    }
-
-                    & svg {
-                        fill: #000;
-                    }
-
+                 & a {
+                     width: rem(36);
+                     height: rem(36);
+                     display: flex;
+                     border-radius: 3px;
+                     align-items: center;
+                     justify-content: center;
+                     color: $black;
+                     font-weight: 800;
 
 
+                     @media screen and (min-width: $w992) {
+                         width: rem(40);
+                         height: rem(40);
+                     }
 
-                    &:hover {
-                        background-color: $red;
-                        color: #fff;
+                     & svg {
+                         fill: #000;
+                         min-width: 10px;
+                         height: 10px;
+                         margin-left: 10px;
+                         margin-top: 4px;
+                     }
 
-                        & svg {
-                            fill: #fff;
-                        }
-                    }
-                }
 
-            }
-        }
 
-    }
-}
+
+                     &:hover {
+
+                         color: $accent-2-1;
+
+                         & svg {
+                             fill: $accent-2-1;
+                         }
+                     }
+                 }
+
+             }
+         }
+
+     }
+ }

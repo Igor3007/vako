@@ -756,19 +756,51 @@
      range slider
      =========================================*/
 
-     var newRangeSlider = new ZBRangeSlider('my-slider');
+     function initPriceRange() {
+         let newRangeSlider = new ZBRangeSlider('my-slider');
 
-     newRangeSlider.onChange = function (min, max) {
-         console.log(min, max, this);
-         //document.getElementById('result').innerHTML = 'Min: ' + min + ' Max: ' + max;
+         let inputMax = document.querySelector('[data-price-range="max"]');
+         let inputMin = document.querySelector('[data-price-range="min"]');
 
-         document.querySelector('[data-price-range="max"]').value = max
-         document.querySelector('[data-price-range="min"]').value = min
+         let priceMax = newRangeSlider.slider.getAttribute('se-max')
+         let priceMin = newRangeSlider.slider.getAttribute('se-min')
+
+         newRangeSlider.onChange = function (min, max) {
+             inputMax.value = max
+             inputMin.value = min
+         }
+
+         inputMax.addEventListener('keyup', e => {
+             let int = e.target.value.replace(/[^\+\d]/g, '');
+
+
+             if (Number(int) >= Number(priceMax)) {
+                 int = priceMax
+
+                 console.log(priceMax)
+                 console.log(int)
+             }
+
+
+
+             e.target.value = int
+             newRangeSlider.setMaxValue(int)
+         })
+
+         inputMin.addEventListener('keyup', e => {
+             let int = e.target.value.replace(/[^\+\d]/g, '');
+
+             if (int >= 0) {
+                 e.target.value = int
+                 newRangeSlider.setMinValue(int)
+             }
+         })
+
+
      }
 
-     newRangeSlider.didChanged = function (min, max) {
-         console.log(min, max, this);
-         //document.getElementById('result').innerHTML = 'Min: ' + min + ' Max: ' + max;
+     if (document.querySelector('#my-slider')) {
+         initPriceRange()
      }
 
      /* ===========================================
@@ -885,13 +917,30 @@
              }
 
              scrollToItem(index) {
-                 const scrollContainer = this.$el.querySelector('.popup-points__items')
-                 const items = this.$el.querySelectorAll('.popup-points__item')
 
-                 scrollContainer.scrollTo({
-                     top: items[index].offsetTop,
+                 const container = this.$el.querySelector('.popup-points__items')
+                 const items = this.$el.querySelectorAll('.popup-points__item')
+                 const elem = items[index];
+
+                 var rect = elem.getBoundingClientRect();
+                 var rectContainer = container.getBoundingClientRect();
+
+                 let elemOffset = {
+                     top: rect.top + document.body.scrollTop,
+                     left: rect.left + document.body.scrollLeft
+                 }
+
+                 let containerOffset = {
+                     top: rectContainer.top + document.body.scrollTop,
+                     left: rectContainer.left + document.body.scrollLeft
+                 }
+
+                 let TopPX = elemOffset.top - containerOffset.top + container.scrollTop - (container.offsetHeight / 2) + (elem.offsetHeight / 2)
+
+                 container.scrollTo({
+                     top: TopPX,
                      behavior: 'smooth'
-                 })
+                 });
 
                  this.setActive(index)
              }
@@ -961,6 +1010,11 @@
                      this.map.geoObjects.add(placemark)
 
                  })
+
+                 this.map.setBounds(this.map.geoObjects.getBounds(), {
+                     checkZoomRange: true,
+                     zoomMargin: 50
+                 });
              }
          }
 
@@ -998,6 +1052,95 @@
                  item.closest('.filter-properties').classList.toggle('is-hide')
              })
          })
+     }
+
+     /* =======================================
+     open filter
+     ======================================= */
+
+     if (document.querySelector('[data-filter="open"]')) {
+
+         const items = document.querySelectorAll('[data-filter="open"]')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+                 document.querySelector('.category-filter').classList.toggle('is-open')
+
+
+                 setTimeout(() => {
+                     initPriceRange()
+                 }, 50)
+
+             })
+         })
+
+
+     }
+
+     /* ========================================
+     popup number for mobile
+     ========================================*/
+
+     if (document.querySelector('[data-popup="number"]')) {
+         const items = document.querySelectorAll('[data-popup="number"]')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+
+                 if (document.body.clientWidth <= 480) {
+                     const callPopup = new afLightbox({
+                         mobileInBottom: true
+                     })
+
+                     const html = `
+                       <div class="popup-call-number" >
+                           <h2>${item.dataset.store}</h2>
+                           <ul>${item.querySelector('ul').innerHTML}</ul>
+                       </div>
+                    `
+
+                     callPopup.open(html, function (instanse) {})
+                 }
+
+             })
+         })
+     }
+
+     /* ====================================
+     show-hide properties filter
+     ====================================*/
+
+     if (document.querySelector('.filter-properties')) {
+
+         const container = document.querySelector('.category-filter')
+         const subMenu = container.querySelectorAll('.filter-properties__list ul')
+
+         console.log(subMenu)
+
+         subMenu.forEach(item => {
+
+
+
+             if (item.querySelectorAll('li').length > 8) {
+
+                 const elem = document.createElement('div')
+                 elem.classList.add('sub-menu-toggle')
+                 elem.innerText = 'Ещё'
+
+                 //add event
+
+                 elem.addEventListener('click', e => {
+                     item.classList.toggle('is-open')
+                     elem.classList.toggle('is-open')
+                     elem.innerText = (item.classList.contains('is-open') ? 'Свернуть' : 'Ещё')
+                 })
+
+                 item.after(elem)
+
+             }
+
+         })
+
      }
 
 

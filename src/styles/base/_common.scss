@@ -223,6 +223,7 @@ a[data-tooltip]::before {
     min-width: 150px;
     opacity: 0;
     transition: 0.3s ease;
+    pointer-events: none;
 
 }
 
