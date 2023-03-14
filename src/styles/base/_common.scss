@@ -1,16 +1,19 @@
 /* common styles */
 
+.page-hidden {
+    overflow: hidden !important;
+}
 
 
 .hide {
     &--mobile {
-        @media screen and (max-width: $w992) {
+        @media screen and (max-width: $w1200) {
             display: none;
         }
     }
 
     &--desctop {
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w1200) {
             display: none;
         }
     }
@@ -203,10 +206,12 @@
     }
 }
 
+span[data-tooltip],
 a[data-tooltip] {
     position: relative;
 }
 
+span[data-tooltip]::before,
 a[data-tooltip]::before {
     content: attr(data-tooltip);
     position: absolute;
@@ -227,6 +232,7 @@ a[data-tooltip]::before {
 
 }
 
+span[data-tooltip]:hover::before,
 a[data-tooltip]:hover::before {
     opacity: 1;
 }

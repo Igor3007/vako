@@ -42,6 +42,10 @@ class afLightbox {
             this.modal.querySelector(".af-popup").classList.add("af-popup--mobile")
         }
 
+        if (window.innerWidth <= 480) {
+            document.body.classList.add('page-hidden')
+        }
+
         this.modal.querySelector('.af-popup__content').innerHTML = content
         this.modal.querySelector('.af-popup__close').addEventListener('click', function () {
             _this.close()
@@ -71,5 +75,9 @@ class afLightbox {
 
     close() {
         this.instanse.remove()
+
+        if (window.innerWidth <= 480 && document.body.classList.contains('page-hidden')) {
+            document.body.classList.remove('page-hidden')
+        }
     }
 }

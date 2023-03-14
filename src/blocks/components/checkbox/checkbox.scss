@@ -1,5 +1,5 @@
 .checkbox {
-    display: flex;
+    display: inline-flex;
     position: relative;
     cursor: pointer;
     font-size: 13px;
@@ -19,11 +19,11 @@
         display: none;
     }
 
-    & .checkbox__text {
+    &__text {
         line-height: 140%;
     }
 
-    & .checkbox__elem {
+    &__elem {
         top: 1px;
         position: relative;
         height: 16px;
@@ -81,6 +81,14 @@
         }
     }
 
+    &:hover {
+        & .checkbox {
+            &__elem {
+                border-color: $accent-1-1;
+            }
+        }
+    }
+
 }
 
 
@@ -88,7 +96,7 @@
 /* radio */
 
 .radio {
-    display: flex;
+    display: inline-flex;
     position: relative;
     cursor: pointer;
     font-size: 14px;

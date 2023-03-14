@@ -2,6 +2,11 @@
 
      const API_YMAPS = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
 
+
+     /* =================================================
+     load ymaps api
+     =================================================*/
+
      window.loadApiYmaps = function (callback) {
 
          if (window.ymaps == undefined) {
@@ -16,6 +21,48 @@
          }
 
      }
+
+     /* =================================================
+     preloader
+     ================================================= */
+
+     class Preloader {
+
+         constructor() {
+             this.$el = this.init()
+             this.state = false
+         }
+
+         init() {
+             const el = document.createElement('div')
+             el.classList.add('loading')
+             el.innerHTML = '<div class="indeterminate"></div>';
+             document.body.append(el)
+             return el;
+         }
+
+         load() {
+
+             this.state = true;
+
+             setTimeout(() => {
+                 if (this.state) this.$el.classList.add('load')
+             }, 300)
+         }
+
+         stop() {
+
+             this.state = false;
+
+             setTimeout(() => {
+                 if (this.$el.classList.contains('load'))
+                     this.$el.classList.remove('load')
+             }, 200)
+         }
+
+     }
+
+     window.preloader = new Preloader();
 
 
 
@@ -93,6 +140,8 @@
          //dom element
          //collback function
 
+         window.preloader.load()
+
          let xhr = new XMLHttpRequest();
          xhr.open((params.type ? params.type : 'POST'), params.url)
 
@@ -105,6 +154,13 @@
 
          xhr.onload = function () {
              response(xhr.status, xhr.response)
+             window.preloader.stop()
+
+             setTimeout(function () {
+                 if (params.btn) {
+                     params.btn.classList.remove('btn-loading')
+                 }
+             }, 300)
          };
 
          xhr.onerror = function () {
@@ -113,14 +169,10 @@
 
          xhr.onreadystatechange = function () {
 
-             if (xhr.readyState == 3 && params.btn) {
-                 params.btn.classList.add('btn-loading')
-             }
-
-             if (xhr.readyState == 4 && params.btn) {
-                 setTimeout(function () {
-                     params.btn.classList.remove('btn-loading')
-                 }, 300)
+             if (xhr.readyState == 3) {
+                 if (params.btn) {
+                     params.btn.classList.add('btn-loading')
+                 }
              }
 
          };
@@ -1066,15 +1118,41 @@
              item.addEventListener('click', e => {
                  document.querySelector('.category-filter').classList.toggle('is-open')
 
-
                  setTimeout(() => {
                      initPriceRange()
+                     window.scrollTo(0, 1);
+                     document.body.classList.toggle('page-hidden')
                  }, 50)
+
+
 
              })
          })
 
 
+     }
+
+
+
+     /* =======================================
+     click sort dropdown
+     =======================================*/
+
+     if (document.querySelector('.sort-dropdown')) {
+         const items = document.querySelectorAll('.sort-dropdown')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+                 item.classList.toggle('is-active')
+
+                 document.addEventListener('click', e => {
+                     if (item.classList.contains('is-active') && !e.target.closest('.sort-dropdown')) item.classList.toggle('is-active')
+                 })
+
+             })
+
+
+         })
      }
 
      /* ========================================
@@ -1087,20 +1165,51 @@
          items.forEach(item => {
              item.addEventListener('click', e => {
 
-                 if (document.body.clientWidth <= 480) {
-                     const callPopup = new afLightbox({
-                         mobileInBottom: true
+                 window.ajax({
+                     type: 'GET',
+                     url: '/json/phones.json',
+                     responseType: 'json',
+                     data: {
+                         value: e.target.dataset.store
+                     }
+                 }, function (status, response) {
+
+                     let numbers = new String();
+
+                     response.phones.forEach(num => {
+                         numbers += '<li><a href="tel:' + num.replace(/[^\+\d]/g, '') + '" >' + num + '</a></li>'
                      })
 
-                     const html = `
-                       <div class="popup-call-number" >
-                           <h2>${item.dataset.store}</h2>
-                           <ul>${item.querySelector('ul').innerHTML}</ul>
-                       </div>
-                    `
 
-                     callPopup.open(html, function (instanse) {})
-                 }
+                     if (document.body.clientWidth <= 480) {
+                         const callPopup = new afLightbox({
+                             mobileInBottom: true
+                         })
+
+                         const html = `
+                          <div class="popup-call-number" >
+                              <h2>${response.store}</h2>
+                              <ul>${numbers}</ul>
+                          </div>`
+
+                         callPopup.open(html, function (instanse) {})
+
+                     } else {
+                         item.classList.toggle('is-active')
+                         item.querySelector('[data-numbers="store"]').innerHTML = numbers
+
+                         function closeNumber() {
+                             if (item.classList.contains('is-active')) item.classList.remove('is-active')
+                         }
+
+                         document.addEventListener('click', closeNumber)
+                         document.addEventListener('scroll', closeNumber)
+                     }
+
+                 })
+
+
+
 
              })
          })
@@ -1118,8 +1227,6 @@
          console.log(subMenu)
 
          subMenu.forEach(item => {
-
-
 
              if (item.querySelectorAll('li').length > 8) {
 

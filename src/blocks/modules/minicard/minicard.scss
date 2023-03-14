@@ -29,7 +29,9 @@
     }
 
     &:hover {
-        border-color: $accent-2-1;
+        @media screen and (min-width: $w992) {
+            border-color: $accent-2-1;
+        }
 
         & .minicard {
             &__action {
@@ -93,15 +95,16 @@
     }
 
     &__title {
-        font-size: 13px;
+        font-size: 14px;
         line-height: 123%;
         color: $gray-13;
         padding-bottom: 0.5em;
 
         @media screen and (min-width: $w1200) {
-            font-weight: 700;
+            font-weight: 600;
             line-height: 156%;
             font-size: 15px;
+
         }
 
         @media screen and (min-width: $w1440) {
@@ -374,6 +377,8 @@
         &-name {
             font-weight: 800;
             margin-right: 10px;
+            font-size: 14px;
+
 
             @media screen and (min-width: $w1440) {
                 font-size: 18px;
@@ -415,12 +420,19 @@
                 margin-bottom: -10px;
             }
 
-            & a {
+            &>span,
+            &>a {
                 color: $accent-2-1;
-                font-size: 13px;
+                font-size: 14px;
+                cursor: pointer;
 
-                @media screen and (min-width: $w1440) {
-                    font-size: 13px;
+                &:hover {
+                    text-decoration: underline;
+                }
+
+
+                @media screen and (min-width: $w1200) {
+                    font-size: 14px;
                 }
             }
 
@@ -429,7 +441,7 @@
             }
 
             @media screen and (min-width: $w480) {
-                &:hover {
+                &.is-active {
 
                     @keyframes fade-drop-down2 {
                         from {
@@ -655,6 +667,16 @@
             @media screen and (min-width: $w1440) {
                 padding-bottom: 1em;
             }
+
+            @media screen and (min-width: $w1200) {
+                padding-bottom: 0.8em;
+            }
+        }
+
+        &__store {
+            @media screen and (min-width: $w1200) and (max-width: $w1440) {
+                padding-bottom: 0.3em;
+            }
         }
 
 
@@ -669,6 +691,8 @@
 
     & h2 {
         padding-top: 3px;
+        text-align: center;
+        font-size: 18px;
     }
 
     & ul {
@@ -678,6 +702,7 @@
     & li {
 
         padding: 4px 0;
+        text-align: center;
 
         & a {
             display: block;

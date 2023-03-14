@@ -213,7 +213,8 @@
         padding-bottom: 15px;
 
         &:hover {
-            color: $accent-2-1;
+            //color: $accent-2-1;
+            cursor: pointer;
         }
     }
 
@@ -226,6 +227,7 @@
         align-items: center;
         margin-top: 3px;
         margin-right: 9px;
+        cursor: pointer;
 
         &::before {
             width: 100%;
@@ -254,7 +256,7 @@
     &__head {
         display: flex;
         justify-content: space-between;
-        cursor: pointer;
+
     }
 
     &__input {
@@ -281,6 +283,10 @@
         max-height: 600px;
         transition: 0.3s ease;
         overflow: hidden;
+
+        &:hover {
+            overflow: visible;
+        }
 
         & ul {
             display: flex;
@@ -316,6 +322,21 @@
                             }
                         }
                     }
+
+                    & span {
+
+                        &::before {
+                            min-width: auto;
+                            white-space: nowrap;
+                            top: auto;
+                            bottom: calc(100% + 8px);
+                            padding: 6px 10px;
+                            font-size: 13px;
+                            transform: translateX(calc(-50% + 12px));
+                        }
+                    }
+
+
                 }
             }
 
@@ -401,12 +422,29 @@
         & svg {
             width: 10px;
             height: 10px;
+            fill: #8F8F8F;
         }
 
         & span {
             color: $gray-56;
             padding-left: 10px;
+
+
         }
+
+
+        & a {
+            &:hover {
+                & svg {
+                    fill: #000;
+                }
+
+                & span {
+                    color: #000;
+                }
+            }
+        }
+
     }
 
     &__link {
@@ -443,7 +481,7 @@
 
         display: none;
 
-        @media screen and (min-width: $w375) {
+        @media screen and (min-width: $w992) {
             display: block;
         }
 
@@ -479,6 +517,7 @@
     &__mobile {
 
         margin-left: auto;
+        font-size: 14px;
 
         @media screen and (min-width: $w992) {
             display: none;
@@ -498,6 +537,7 @@
 
         & span {
             padding-left: 10px;
+            color: #000;
         }
 
         &:hover {
@@ -518,6 +558,7 @@
 .sort-dropdown {
 
     position: relative;
+    cursor: pointer;
 
     &__list {
         display: none;
@@ -598,6 +639,7 @@
         padding: 8px;
         color: $accent-2-1;
         height: 36px;
+        font-size: 14px;
 
         &:hover {
             border-radius: 4px;
@@ -619,7 +661,7 @@
         }
     }
 
-    &:hover {
+    &.is-active {
 
         @media screen and (max-width: $w992) {
             @keyframes fade-drop-down {

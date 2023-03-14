@@ -50,12 +50,9 @@ mixin minicard--store(data)
                         .minicard__store-label Магазин:
                         .minicard__store-wrp
                             .minicard__store-name: a(href='#') PCPlanet.ru
-                            .minicard__store-phone(data-popup="number" data-store="PCPlanet.ru")
-                                a(href='#' ) Телефоны
-                                ul
-                                    li: a(href='tel:+ 7 (495) 123-44-55') + 7 (495) 123-44-55
-                                    li: a(href='tel:+ 7 (495) 123-44-55') + 7 (495) 123-44-55
-                                    li: a(href='tel:+ 7 (495) 123-44-55') + 7 (495) 123-44-55
+                            .minicard__store-phone(data-popup="number" data-store="12788")
+                                span Телефоны
+                                ul(data-numbers="store")
                         
                     .minicard__store-rating
                         .minicard__store-label Рейтинг магазина:

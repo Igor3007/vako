@@ -67,18 +67,18 @@ mixin catalog-category-3
                                     .category-filter__item: +prop-color({
                                         title: 'Цвет',
                                         colors: [
-                                            '#000', 
-                                            '#808080', 
-                                            '#FF0000', 
-                                            '#FF0000', 
-                                            '#008000', 
-                                            '#0000FF', 
-                                            '#C0C0C0', 
-                                            '#fff', 
-                                            '#FFA500', 
-                                            '#42AAFF', 
-                                            '#42AAFF', 
-                                            '#42AAFF', 
+                                            {hex: '#000000', name: 'Черный'}, 
+                                            {hex: '#808080', name: 'Серый'}, 
+                                            {hex: '#FF0000', name: 'Красный'}, 
+                                            {hex: '#FF0000', name: 'Красный'}, 
+                                            {hex: '#008000', name: 'Зеленый'}, 
+                                            {hex: '#0000FF', name: 'Синий'}, 
+                                            {hex: '#C0C0C0', name: 'Серый'}, 
+                                            {hex: '#ffffff', name: 'Белый'}, 
+                                            {hex: '#FFA500', name: 'Оранжевый'}, 
+                                            {hex: '#42AAFF', name: 'Голубой'}, 
+                                            {hex: '#42AAFF', name: 'Голубой'}, 
+                                            {hex: '#42AAFF', name: 'Голубой'}, 
                                         ]
                                     })
                                     .category-filter__item: +prop-radio({
@@ -248,11 +248,12 @@ mixin prop-color(data)
                 each item in data.colors
                     li
                         label
-                            if(item == '#42AAFF')
+                            if(item.hex == '#42AAFF')
                                 input(type="checkbox" name="color" disabled)
                             else
                                 input(type="checkbox" name="color" )
-                            span(style='background-color: '+item+'' class=(item == '#fff' ? 'color--border':'' ))
+                            span(data-tooltip=item.name  style='background-color: '+item.hex+'' class=(item.hex == '#ffffff' ? 'color--border':'' ))
+ 
 
 
 mixin prop-radio(data)
