@@ -15,6 +15,12 @@ html {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
+  height: -webkit-fill-available;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 :root {
@@ -851,6 +857,7 @@ select {
   margin-bottom: -2px;
   display: none;
   position: fixed;
+  z-index: 10000;
 }
 
 .loading.load {
@@ -4472,6 +4479,7 @@ footer {
   flex-grow: 1;
   overflow: auto;
   height: calc(100vh - 64px - 48px);
+  height: calc((var(--vh, 1vh) * 100) - 64px - 48px);
   padding-bottom: 16px;
 }
 

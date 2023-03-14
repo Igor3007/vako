@@ -30,121 +30,122 @@ mixin catalog-category-3
                                 .category-filter__head-close: span.icon-cross(data-filter="open")
 
                             .category-filter__wrp
-                                .category-filter__props
-                                    .category-filter__item: +prop-range()
-                                    .category-filter__item: +prop-checkbox({
-                                        title: 'Производитель',
-                                        checkbox: [
-                                            'HP',
-                                            'ASUS',
-                                            'Lenovo',
-                                            'MSI',
-                                            'DELL',
-                                            'Acer',
-                                            'Apple',
-                                            'Fujitsu-Siemens',
-                                            'HP',
-                                            'ASUS',
-                                            'Lenovo',
-                                            'MSI',
-                                            'DELL',
-                                            'Acer',
-                                            'Apple',
-                                            'Fujitsu-Siemens',
-                                        ]
-                                    })
+                                form(action='#' method='POST')
+                                    .category-filter__props
+                                        .category-filter__item: +prop-range()
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Производитель',
+                                            checkbox: [
+                                                'HP',
+                                                'ASUS',
+                                                'Lenovo',
+                                                'MSI',
+                                                'DELL',
+                                                'Acer',
+                                                'Apple',
+                                                'Fujitsu-Siemens',
+                                                'HP',
+                                                'ASUS',
+                                                'Lenovo',
+                                                'MSI',
+                                                'DELL',
+                                                'Acer',
+                                                'Apple',
+                                                'Fujitsu-Siemens',
+                                            ]
+                                        })
 
-                                    .category-filter__item: +prop-checkbox({
-                                        title: 'Тип акустики',
-                                        checkbox: [
-                                            'Dolby Atmos',
-                                            'Harman Kardon',
-                                            'Dolby Digital',
-                                        ]
-                                    })
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Тип акустики',
+                                            checkbox: [
+                                                'Dolby Atmos',
+                                                'Harman Kardon',
+                                                'Dolby Digital',
+                                            ]
+                                        })
 
-                                    .category-filter__item: +prop-checkbox-single('Bluetooth')
-                                    .category-filter__item: +prop-color({
-                                        title: 'Цвет',
-                                        colors: [
-                                            {hex: '#000000', name: 'Черный'}, 
-                                            {hex: '#808080', name: 'Серый'}, 
-                                            {hex: '#FF0000', name: 'Красный'}, 
-                                            {hex: '#FF0000', name: 'Красный'}, 
-                                            {hex: '#008000', name: 'Зеленый'}, 
-                                            {hex: '#0000FF', name: 'Синий'}, 
-                                            {hex: '#C0C0C0', name: 'Серый'}, 
-                                            {hex: '#ffffff', name: 'Белый'}, 
-                                            {hex: '#FFA500', name: 'Оранжевый'}, 
-                                            {hex: '#42AAFF', name: 'Голубой'}, 
-                                            {hex: '#42AAFF', name: 'Голубой'}, 
-                                            {hex: '#42AAFF', name: 'Голубой'}, 
-                                        ]
-                                    })
-                                    .category-filter__item: +prop-radio({
-                                        title: 'Рейтинг магазина',
-                                        radio: [
-                                            'Любой',
-                                            'Высокий: 4.5+',
-                                            'Хороший: 4+',
-                                            'Средний: 3.5+',
-                                        ],
-                                    })
+                                        .category-filter__item: +prop-checkbox-single('Bluetooth')
+                                        .category-filter__item: +prop-color({
+                                            title: 'Цвет',
+                                            colors: [
+                                                {hex: '#000000', name: 'Черный'}, 
+                                                {hex: '#808080', name: 'Серый'}, 
+                                                {hex: '#FF0000', name: 'Красный'}, 
+                                                {hex: '#FF0000', name: 'Красный'}, 
+                                                {hex: '#008000', name: 'Зеленый'}, 
+                                                {hex: '#0000FF', name: 'Синий'}, 
+                                                {hex: '#C0C0C0', name: 'Серый'}, 
+                                                {hex: '#ffffff', name: 'Белый'}, 
+                                                {hex: '#FFA500', name: 'Оранжевый'}, 
+                                                {hex: '#42AAFF', name: 'Голубой'}, 
+                                                {hex: '#42AAFF', name: 'Голубой'}, 
+                                                {hex: '#42AAFF', name: 'Голубой'}, 
+                                            ]
+                                        })
+                                        .category-filter__item: +prop-radio({
+                                            title: 'Рейтинг магазина',
+                                            radio: [
+                                                'Любой',
+                                                'Высокий: 4.5+',
+                                                'Хороший: 4+',
+                                                'Средний: 3.5+',
+                                            ],
+                                        })
 
-                                    .category-filter__item: +prop-checkbox({
-                                        title: 'Скидки и акции ',
-                                        checkbox: [
-                                            'Скидки',
-                                            'Промокоды',
-                                            'Подарки за покупки',
-                                            'Больше за ту же цену',
-                                        ]
-                                    })
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Скидки и акции ',
+                                            checkbox: [
+                                                'Скидки',
+                                                'Промокоды',
+                                                'Подарки за покупки',
+                                                'Больше за ту же цену',
+                                            ]
+                                        })
 
-                                    .category-filter__item: +prop-checkbox({
-                                        title: 'Магазины',
-                                        checkbox: [
-                                            'PCPuls.ru',
-                                            'AMD.ru',
-                                            'intel.cpm',
-                                            'kst.by',
-                                        ]
-                                    })
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Магазины',
+                                            checkbox: [
+                                                'PCPuls.ru',
+                                                'AMD.ru',
+                                                'intel.cpm',
+                                                'kst.by',
+                                            ]
+                                        })
 
-                                    .category-filter__item: +prop-checkbox({
-                                        title: 'Способ доставки',
-                                        checkbox: [
-                                            'Курьером',
-                                            'Самовывоз',
-                                            'Транспортная компания',
-                                             
-                                        ]
-                                    })
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Способ доставки',
+                                            checkbox: [
+                                                'Курьером',
+                                                'Самовывоз',
+                                                'Транспортная компания',
+                                                
+                                            ]
+                                        })
 
-                                    .category-filter__item: +prop-checkbox({
-                                        title: 'Способ оплаты',
-                                        checkbox: [
-                                            'Онлайн',
-                                            'Курьеру',
-                                        ]
-                                    })
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Способ оплаты',
+                                            checkbox: [
+                                                'Онлайн',
+                                                'Курьеру',
+                                            ]
+                                        })
 
-                                    .category-filter__item: +prop-checkbox({
-                                        title: 'Состояние товара',
-                                        checkbox: [
-                                            'Новый',
-                                            'Немного БУ',
-                                            'Восстановленный',
-                                        ]
-                                    })
-                                .category-filter__submit
-                                    .category-filter__send
-                                        button.btn
-                                            span Посмотреть
-                                            small 328 предложений 
-                                    .category-filter__clear
-                                        span.icon-cross 
-                                        small Очистить <span>все фильтры</span>
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Состояние товара',
+                                            checkbox: [
+                                                'Новый',
+                                                'Немного БУ',
+                                                'Восстановленный',
+                                            ]
+                                        })
+                                    .category-filter__submit
+                                        .category-filter__send(data-filter="submit")
+                                            button.btn
+                                                span Посмотреть
+                                                small 328 предложений 
+                                        .category-filter__clear(data-filter="clear")
+                                            span.icon-cross 
+                                            small Очистить <span>все фильтры</span>
                                     
                                  
 

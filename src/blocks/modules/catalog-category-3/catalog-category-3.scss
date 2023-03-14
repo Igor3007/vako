@@ -42,6 +42,7 @@
                 flex-grow: 1;
                 overflow: auto;
                 height: calc(100vh - 64px - 48px);
+                height: calc((var(--vh, 1vh) * 100) - 64px - 48px);
                 padding-bottom: 16px;
             }
         }

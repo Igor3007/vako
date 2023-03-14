@@ -828,13 +828,7 @@
 
              if (Number(int) >= Number(priceMax)) {
                  int = priceMax
-
-                 console.log(priceMax)
-                 console.log(int)
              }
-
-
-
              e.target.value = int
              newRangeSlider.setMaxValue(int)
          })
@@ -1120,7 +1114,6 @@
 
                  setTimeout(() => {
                      initPriceRange()
-                     window.scrollTo(0, 1);
                      document.body.classList.toggle('page-hidden')
                  }, 50)
 
@@ -1249,6 +1242,54 @@
          })
 
      }
+
+     /* ====================================
+     clear filter
+     ====================================*/
+
+     if (document.querySelector('[data-filter="clear"]')) {
+         document.querySelector('[data-filter="clear"]').addEventListener('click', e => {
+             e.target.closest('form').reset()
+         })
+     }
+
+     /* ====================================
+     send filter
+     ====================================*/
+
+     if (document.querySelector('[data-filter="submit"]')) {
+         document.querySelector('[data-filter="submit"]').addEventListener('click', e => {
+             window.preloader.load()
+
+
+
+             setTimeout(() => {
+                 window.preloader.stop()
+                 if (document.querySelector('.category-filter').classList.contains('is-open')) {
+                     document.querySelector('.category-filter').classList.remove('is-open')
+                 }
+             }, 1000)
+         })
+     }
+
+     if (document.querySelector('[data-filter="clear"]')) {
+         document.querySelector('[data-filter="clear"]').addEventListener('click', e => {
+             e.target.closest('form').reset()
+         })
+
+         //=========
+
+         document.querySelector('.category-filter__wrp form').addEventListener('submit', e => {
+             e.preventDefault()
+         })
+     }
+
+
+     window.addEventListener('resize', () => {
+         // We execute the same script as before
+         let vh = window.innerHeight * 0.01;
+         document.documentElement.style.setProperty('--vh', `${vh}px`);
+     });
 
 
 
