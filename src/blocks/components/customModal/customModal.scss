@@ -12,17 +12,23 @@
     }
 }
 
+
+
 .af-popup {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.7);
     overflow-x: auto;
     z-index: 100;
+    opacity: 0;
+    transition: 0.25s ease;
+}
 
-
+.af-popup--visible {
+    opacity: 1;
 }
 
 .af-popup--mobile {
@@ -32,6 +38,7 @@
                 padding-bottom: 0;
                 margin-bottom: 0;
                 width: 100%;
+                animation: 0.2s ease 0.2s both fade-drop-filter;
             }
         }
 
@@ -73,7 +80,8 @@
     margin: auto;
     padding: 50px 0;
     position: relative;
-    animation: 0.2s ease both zoomInUp;
+    animation: 0.2s ease 0.2s both zoomInUp;
+    opacity: 0;
 
     @media screen and (min-width: $w480) {
         max-width: 90%;

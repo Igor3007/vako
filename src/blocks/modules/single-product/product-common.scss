@@ -1,0 +1,11 @@
+.single-product {
+    &__breadcrumbs {
+        padding: 20px 0 0 0;
+    }
+
+    &__h1 {
+        & h1 {
+            @include font-h2;
+        }
+    }
+}

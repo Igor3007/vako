@@ -1,0 +1,246 @@
+include ../catalog-category-3/catalog-category-3.pug
+
+
+mixin product-common
+    .product-common
+        .product-common
+            .product-main
+                .product-main__images
+                    .product-images
+                        .product-images__large
+                            .splide(data-slider="product")
+                                .splide__track
+                                    .splide__list
+                                        .splide__slide: +picture('/img/product/sp-1')
+                                        .splide__slide: +picture('/img/product/sp-2')
+                                        .splide__slide: +picture('/img/product/sp-3')
+                                        .splide__slide: +picture('/img/product/sp-4')
+                                        .splide__slide: +picture('/img/product/sp-5')
+                        .product-images__thumb
+                            .product-images__slider
+                                .splide(data-slider="thumb")
+                                    .splide__track
+                                        .splide__list
+                                            .splide__slide: +picture('/img/product/sp-1')
+                                            .splide__slide: +picture('/img/product/sp-2')
+                                            .splide__slide: +picture('/img/product/sp-3')
+                                            .splide__slide: +picture('/img/product/sp-4')
+                                            .splide__slide: +picture('/img/product/sp-5')
+                            .product-images__all
+                                span Все фото
+                             
+                .product-main__details
+                    .product-details
+                        .product-details__action
+                            .product-details__review
+                                span 4.7
+                                a(href='#') 82 отзыва
+                            .product-details__fav
+                                +icons('#ic_heart-default', 20)
+                                span В избранное
+                            .product-details__compare
+                                +icons('#ic_compare-default', 20)
+                                span Сравнить
+                        .product-details__colors
+
+                            span Цвет: Pine Grey
+
+                            ul
+                                li  
+                                    label
+                                        input(type="radio" name="color-product")
+                                        span(data-tooltip="Графитовый" style="background-color: #808080")
+                                li  
+                                    label
+                                        input(type="radio" name="color-product")
+                                        span(data-tooltip="Графитовый" style="background-color: #c0c0c0")
+                                li  
+                                    label
+                                        input(type="radio" name="color-product")
+                                        span.color--border(data-tooltip="Графитовый" style="background-color: #fff")
+
+                        .product-details__properties
+                            .product-details__properties-fast
+                                each item in fastProperty
+                                    +fast-properties(item)
+                            .product-details__properties-min
+                                .min-properties
+                                    .min-properties__title Коротко о товаре
+                                    .min-properties__list
+                                        ul
+                                            li
+                                                small Экран
+                                                span 14" (1920x1080) IPS, 60 Гц
+                                            li
+                                                small Процессор
+                                                span Intel Core i5 1135G7 (4x2.40 ГГц)
+                                            li
+                                                small Память
+                                                span оперативная 8 ГБ (4266 МГц), SSD 512 ГБ, HDD отсутствует
+                                            li
+                                                small Видеокарта
+                                                span Intel Iris Xe Graphics
+                                    .min-properties__more
+                                        a(href='#properties') Все характеристики
+
+                   
+                            
+            .product-offers
+                .product-offers__title: h2 Все предложения магазинов (27)
+
+                .product-offers__catalog
+                    .catalog-category
+                        .catalog-category__content
+                            .catalog-category__asise(style="display:block")
+
+                                .category-filter
+                                    .category-filter__head
+                                        .category-filter__head-title Фильтры и сортировка
+                                        .category-filter__head-close: span.icon-cross(data-filter="open")
+
+                                    .category-filter__wrp
+                                        form(action='#' method='POST')
+                                            .category-filter__props
+                                                .category-filter__item: +prop-range()
+
+                                                .category-filter__item: +prop-radio({
+                                                    title: 'Рейтинг магазина',
+                                                    radio: [
+                                                        'Без учёта доставки',
+                                                        'С учётом доставки курьером',
+                                                        'С учётом самовывоза',
+                                                    ],
+                                                })
+
+                                                .category-filter__item: +prop-checkbox-single('Гарантия производителя')
+                                                 
+                                                .category-filter__item: +prop-color({
+                                                    title: 'Цвет',
+                                                    colors: [
+                                                        {hex: '#000000', name: 'Черный'}, 
+                                                        {hex: '#808080', name: 'Серый'}, 
+                                                        {hex: '#FF0000', name: 'Красный'}, 
+                                                        {hex: '#FF0000', name: 'Красный'}, 
+                                                        {hex: '#008000', name: 'Зеленый'}, 
+                                                        {hex: '#0000FF', name: 'Синий'}, 
+                                                        {hex: '#C0C0C0', name: 'Серый'}, 
+                                                        {hex: '#ffffff', name: 'Белый'}, 
+                                                        {hex: '#FFA500', name: 'Оранжевый'}, 
+                                                        {hex: '#42AAFF', name: 'Голубой'}, 
+                                                        {hex: '#42AAFF', name: 'Голубой'}, 
+                                                        {hex: '#42AAFF', name: 'Голубой'}, 
+                                                    ]
+                                                })
+
+                                                
+
+                                                 
+                                                
+                                                .category-filter__item: +prop-radio({
+                                                    title: 'Рейтинг магазина',
+                                                    radio: [
+                                                        'Любой',
+                                                        'Высокий: 4.5+',
+                                                        'Хороший: 4+',
+                                                        'Средний: 3.5+',
+                                                    ],
+                                                })
+
+                                                .category-filter__item: +prop-checkbox({
+                                                    title: 'Способ оплаты',
+                                                    checkbox: [
+                                                        'Любой',
+                                                        'Картой на сайте',
+                                                        'Картой курьеру',
+                                                        'Наличными курьеру',
+                                                    ]
+                                                })
+
+                                                .category-filter__item: +prop-checkbox({
+                                                    title: 'Скидки и акции ',
+                                                    checkbox: [
+                                                        'Скидки',
+                                                        'Промокоды',
+                                                        'Подарки за покупки',
+                                                        'Больше за ту же цену',
+                                                    ]
+                                                })
+
+                                                 
+
+                                                .category-filter__item: +prop-checkbox({
+                                                    title: 'Способ доставки',
+                                                    checkbox: [
+                                                        'Курьером',
+                                                        'Самовывоз',
+                                                        'Транспортная компания',
+                                                    ]
+                                                })
+
+
+                                                 
+                                            .category-filter__submit
+                                                .category-filter__send(data-filter="submit")
+                                                    button.btn
+                                                        span Посмотреть
+                                                        small 328 предложений 
+                                                .category-filter__clear(data-filter="clear")
+                                                    span.icon-cross 
+                                                    small Очистить <span>все фильтры</span>
+                                            
+                                        
+
+                            .catalog-category__main 
+                                .catalog-category__top
+                                    .catalog-category__sort
+                                        .sort-dropdown
+                                            .sort-dropdown__title Сначала популярные
+                                            .sort-dropdown__list
+                                                ul
+                                                    li: a(href='#' ) Сначала популярные
+                                                    li: a(href='#' class="is-active is-active--down") По цене
+                                                    li: a(href='#' class="is-active is-active--up") По рейтингу
+                                                    li: a(href='#') По отзывам
+
+                                    .catalog-category__mobile
+                                        button(data-filter="open") 
+                                            +icons('#ic_filter', 17)
+                                            span Фильтры
+
+                                    .catalog-category__view
+                                        ul
+                                            li: a(href='#list' data-view="list"): +icons('#ic_sort-list', 24)
+                                            li: a(href='#map'  data-view="map"): +icons('#ic_pin-default', 24)
+                                    
+
+                                .catalog-category__products
+
+                                    .catalog-products(data-catalog="container")
+                                        each item in storeOoffers
+
+                                            if item.type == 'goods'
+                                                .catalog-products__item: +minicard(item)
+                                            if item.type == 'store'
+                                                .catalog-products__item: +minicard--store(item)
+
+                                    .catalog-pagination
+                                        .catalog-pagination__more
+                                            button
+                                                +icons('#ic_more', 14)
+                                                span Показать ещё
+                                        
+
+
+
+
+mixin fast-properties(data)
+    .fast-properties
+        .fast-properties__title= data.title
+        .fast-properties__items
+            ul
+                each item, index in data.option
+                
+                    if(item.disabled)
+                        li: a(href='#' disabled="")= item.name
+                    else
+                        li: a(href='#' )= item.name

@@ -38,6 +38,8 @@ class afLightbox {
         let _this = this;
         this.modal = this.createTemplate();
 
+
+
         if (window.innerWidth <= 480 && this.mobileBottom) {
             this.modal.querySelector(".af-popup").classList.add("af-popup--mobile")
         }
@@ -52,6 +54,10 @@ class afLightbox {
         })
 
         if (afterShow) afterShow(this.modal);
+
+        setTimeout(() => {
+            this.modal.querySelector(".af-popup").classList.add("af-popup--visible")
+        }, 10)
 
         this.createEvent();
 
@@ -74,10 +80,16 @@ class afLightbox {
     }
 
     close() {
-        this.instanse.remove()
+
 
         if (window.innerWidth <= 480 && document.body.classList.contains('page-hidden')) {
             document.body.classList.remove('page-hidden')
         }
+
+        this.instanse.querySelector('.af-popup').classList.remove('af-popup--visible')
+
+        setTimeout(() => {
+            this.instanse.remove()
+        }, 300)
     }
 }

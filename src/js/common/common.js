@@ -859,26 +859,30 @@
          const btnGrid = document.querySelector('[data-view="grid"]')
          const catalog = document.querySelector('[data-catalog="container"]')
 
-         btnList.addEventListener('click', e => {
+         if (btnList) {
+             btnList.addEventListener('click', e => {
 
-             btnList.classList.add('is-active')
-             if (btnGrid.classList.contains('is-active')) {
-                 btnGrid.classList.remove('is-active')
-             }
+                 btnList.classList.add('is-active')
+                 if (btnGrid.classList.contains('is-active')) {
+                     btnGrid.classList.remove('is-active')
+                 }
 
-             if (catalog.classList.contains('grid--view')) {
-                 catalog.classList.remove('grid--view')
-             }
-         })
+                 if (catalog.classList.contains('grid--view')) {
+                     catalog.classList.remove('grid--view')
+                 }
+             })
+         }
 
-         btnGrid.addEventListener('click', e => {
-             catalog.classList.add('grid--view')
+         if (btnGrid) {
+             btnGrid.addEventListener('click', e => {
+                 catalog.classList.add('grid--view')
 
-             btnGrid.classList.add('is-active')
-             if (btnList.classList.contains('is-active')) {
-                 btnList.classList.remove('is-active')
-             }
-         })
+                 btnGrid.classList.add('is-active')
+                 if (btnList.classList.contains('is-active')) {
+                     btnList.classList.remove('is-active')
+                 }
+             })
+         }
 
      }
 
@@ -1290,6 +1294,47 @@
          let vh = window.innerHeight * 0.01;
          document.documentElement.style.setProperty('--vh', `${vh}px`);
      });
+
+
+     /* ======================================
+     
+     ======================================*/
+
+     if (document.querySelector('[data-slider="product"]')) {
+
+         let main = new Splide('[data-slider="product"]', {
+             type: 'fade',
+             pagination: false,
+             arrows: false,
+             cover: true,
+         });
+
+         let thumbnails = new Splide('[data-slider="thumb"]', {
+             rewind: true,
+
+             perPage: 4,
+             isNavigation: false,
+             gap: 10,
+             focus: 'center',
+             pagination: false,
+             cover: true,
+             dragMinThreshold: {
+                 mouse: 4,
+                 touch: 10,
+             },
+             //  breakpoints: {
+             //      640: {
+             //          fixedWidth: 70,
+             //          fixedHeight: 70,
+             //      },
+             //  },
+         });
+
+         main.sync(thumbnails);
+         main.mount();
+         thumbnails.mount();
+
+     }
 
 
 

@@ -1,0 +1,33 @@
+include ../../components/breadcrumb/breadcrumb.pug
+include single-product__common.pug
+include single-product__prop.pug
+include single-product__prices.pug
+include single-product__review.pug
+include single-product__video.pug
+
+mixin single-product
+    section.single-product
+        .container
+            .single-product
+                .single-product__breadcrumbs
+                    +breadcrumb([
+                        'Главная',
+                        'Компьютеры',
+                        'Ноутбуки',
+                        'Ноутбуки ASUS'
+                    ]) 
+                .single-product__h1: h1 14" Ноутбук ASUS ZenBook 14 UX425EA-KI421T 1920x1080, Intel Core i3 1115G4 3 ГГц, RAM 8 ГБ, SSD 256 ГБ, Intel UHD Graphics, Windows 10 Home, 90NB0SM1-M08850, Pine Grey
+                .single-product__tabs
+                    ul
+                        li: a(href='#common') Общая информация
+                        li: a(href='#properties') Характеристики
+                        li: a(href='#prices') Цены
+                        li: a(href='#review') Отзывы
+                        li: a(href='#video') Обзоры
+
+                .single-product__content
+                    .single-product__item(data-tab="common"): +product-common
+                    .single-product__item(data-tab="properties"): +product-prop
+                    .single-product__item(data-tab="prices"): +product-prices
+                    .single-product__item(data-tab="review"): +product-review
+                    .single-product__item(data-tab="video"): +product-video

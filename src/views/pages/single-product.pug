@@ -1,0 +1,17 @@
+extends ../layouts/catalog
+
+include ../../blocks/modules/single-product/single-product.pug
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Vako"
+ 
+
+block content
+  +single-product()
+
+
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js") 
+  
