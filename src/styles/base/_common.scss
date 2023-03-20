@@ -236,3 +236,20 @@ span[data-tooltip]:hover::before,
 a[data-tooltip]:hover::before {
     opacity: 1;
 }
+
+.splide__pagination {
+    &__page {
+
+
+
+        @media screen and (max-width: $w480) {
+            width: 4px;
+            height: 4px;
+        }
+
+
+        &.is-active {
+            background: $accent-2-1;
+        }
+    }
+}

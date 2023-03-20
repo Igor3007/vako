@@ -1307,11 +1307,16 @@
              pagination: false,
              arrows: false,
              cover: true,
+             isNavigation: false,
+             breakpoints: {
+                 640: {
+                     pagination: true,
+                 },
+             },
          });
 
          let thumbnails = new Splide('[data-slider="thumb"]', {
              rewind: true,
-
              perPage: 4,
              isNavigation: false,
              gap: 10,

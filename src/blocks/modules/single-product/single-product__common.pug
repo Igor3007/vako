@@ -32,15 +32,17 @@ mixin product-common
                 .product-main__details
                     .product-details
                         .product-details__action
-                            .product-details__review
+                            .product-details__review.rating--green
                                 span 4.7
                                 a(href='#') 82 отзыва
                             .product-details__fav
-                                +icons('#ic_heart-default', 20)
-                                span В избранное
+                                a(href='#')
+                                    +icons('#ic_heart-default', 20)
+                                    span В избранное
                             .product-details__compare
-                                +icons('#ic_compare-default', 20)
-                                span Сравнить
+                                a(href='#')
+                                    +icons('#ic_compare-default', 20)
+                                    span Сравнить
                         .product-details__colors
 
                             span Цвет: Pine Grey
@@ -241,6 +243,6 @@ mixin fast-properties(data)
                 each item, index in data.option
                 
                     if(item.disabled)
-                        li: a(href='#' disabled="")= item.name
+                        li(class=(data.active == index ? 'is-active':'')): a(href='#' disabled="")= item.name
                     else
-                        li: a(href='#' )= item.name
+                        li(class=(data.active == index ? 'is-active':'')): a(href='#' )= item.name
