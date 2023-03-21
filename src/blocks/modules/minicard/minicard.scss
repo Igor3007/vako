@@ -41,6 +41,20 @@
 
     }
 
+    &__other {
+        padding-bottom: 15px;
+
+        & span {
+            color: $accent-2-1;
+            cursor: pointer;
+
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
     &__images {
 
         width: 68px;

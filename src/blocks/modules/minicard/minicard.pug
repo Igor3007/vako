@@ -43,6 +43,10 @@ mixin minicard--store(data)
         .minicard__content
             .minicard__main
                 .minicard__title: a(href='#')= data.title
+
+                if(data.other)
+                    .minicard__other
+                        span(data-popup="more-offers" data-store="79268" data-store-name="PCPlanet.ru") Другие предложения
                 
                 .minicard__store
                     .minicard__store-price.hide--desctop= data.price
@@ -83,3 +87,23 @@ mixin minicard--store(data)
                 .minicard__action
                     a(href='#'  data-tooltip="Пожаловаться"): +icons('#ic_warning', 20) 
                
+mixin minicard--offer(data) 
+    .minicard.minicard--offer
+        .minicard__images
+            +picture('/img/product/minicard-2')
+        .minicard__content
+            .minicard__main
+                .minicard__title: a(href='#')= data.title
+            .minicard__more
+                .minicard__price.hide--mobile= data.price
+                .minicard__shipping
+                    .shipping-item
+                        .shipping-item__icon: +bgimage('/img/svg/ic_truck.svg')
+                        .shipping-item__main
+                            .shipping-item__title Курьером, 26-27 мая – <strong>300 ₽</strong>
+                    .shipping-item
+                        .shipping-item__icon: +bgimage('/img/svg/ic_pin.svg') 
+                        .shipping-item__main
+                            .shipping-item__title Самовывоз, 27 сен – <small>бесплатно</small>
+                .minicard__in-store
+                    a(href='#'): button.btn В магазин

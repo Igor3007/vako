@@ -864,13 +864,14 @@ $w991: 991px;
         right: 0;
         bottom: 0;
         overflow-y: hidden;
-        scrollbar-color: #ccc #ebebeb;
-        scrollbar-width: thin !important;
+
         margin: 10px 10px 10px 30px;
         padding-top: 26px;
         animation: slide-in-left 0.3s ease forwards;
         opacity: 0;
         display: none;
+
+        @include scrollbar;
 
         @media screen and (min-width: $w992) {
             display: block;
@@ -1005,25 +1006,9 @@ $w991: 991px;
 
     &__list {
 
-        scrollbar-color: $gray-80 $gray-92;
-        scrollbar-width: thin !important;
+        @include scrollbar;
         overflow-y: auto;
         height: calc(100% - 80px);
-
-        &::-webkit-scrollbar {
-            width: 5px;
-            border-radius: 10px;
-        }
-
-        &::-webkit-scrollbar-track {
-            background-color: #e2e6e8;
-            border-radius: 10px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background-color: #cbcfd0;
-            border-radius: 10px;
-        }
 
         &>ul {
             display: block;

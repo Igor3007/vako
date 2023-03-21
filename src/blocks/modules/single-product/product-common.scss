@@ -4,6 +4,9 @@
     }
 
     &__h1 {
+
+        padding-bottom: 25px;
+
         & h1 {
             @include font-h2;
         }
@@ -17,6 +20,12 @@
             overflow-x: auto;
             overflow-y: hidden;
             padding-bottom: 10px;
+
+            @media screen and (min-width: $w992) {
+                border-bottom: 1px solid #E0E0E0;
+                padding-bottom: 0;
+                margin-bottom: 20px;
+            }
 
 
             & li {
@@ -35,6 +44,12 @@
                     border-radius: 6px;
                     font-weight: 700;
                     font-size: 15px;
+
+                    @media screen and (min-width: $w992) {
+                        border-bottom-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                        padding: 9px 15px 11px 15px;
+                    }
                 }
 
                 &.active {
@@ -46,10 +61,51 @@
             }
 
         }
+
+        &.fixed-tabs {
+            position: fixed;
+            background-color: #fff;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            right: 0;
+            filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.12));
+            padding: 12px 15px;
+
+            & ul {
+                margin: 0 auto;
+
+                border: none;
+
+                @include container-breakpoint;
+
+
+
+                & li {
+                    & a {
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__item {
+        display: none;
+        transition: 0.3s ease;
+
+        &.active,
+        &.is-active {
+            display: block;
+            animation: fade-in 0.3s ease forwards;
+        }
     }
 }
 
 .product-main {
+
+    padding-bottom: 50px;
+
     @media screen and (min-width: $w992) {
         display: flex;
 
@@ -73,6 +129,53 @@
 
     &__thumb {
         display: none;
+
+        & .splide {
+
+            &__track {
+                &--nav {
+                    & .splide {
+                        &__slide {
+
+                            border: 2px solid transparent;
+                            border-radius: 6px;
+                            overflow: hidden;
+                            padding: 5px;
+
+                            &.is-active {
+                                border: 2px solid $accent-2-1;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+
+        }
+
+        @media screen and (min-width: $w760) {
+            display: flex;
+        }
+    }
+
+    &__slider {
+        width: calc(100% - 70px);
+    }
+
+    &__all {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        min-width: 70px;
+        font-size: 13px;
+        color: $accent-2-1;
+
+        & span {
+            font-weight: 700;
+            cursor: pointer;
+        }
     }
 
     &__large {
@@ -84,6 +187,8 @@
             position: relative;
             padding-top: 10px;
         }
+
+
     }
 
 }
@@ -271,10 +376,18 @@
             width: 20px;
             min-width: 20px;
             height: 20px;
+
+
         }
 
         & span {
             display: none;
+            padding-left: 10px;
+            font-size: 13px;
+
+            @media screen and (min-width: $w992) {
+                display: inline-block;
+            }
         }
 
         & a {
@@ -282,12 +395,18 @@
             height: 28px;
             display: flex;
             align-items: center;
-
             border-radius: 6px;
             justify-content: center;
 
+            @media screen and (min-width: $w992) {
+                width: auto;
+                padding: 0 12px;
+                height: 36px;
+            }
+
             &:hover {
-                background-color: $gray-56;
+                background-color: $gray-96;
+                color: $accent-1-1;
 
                 & svg {
                     fill: $accent-1-1;
@@ -323,6 +442,9 @@
     &__items {
         padding-bottom: 30px;
 
+
+
+
         & ul {
             display: flex;
             flex-wrap: wrap;
@@ -341,6 +463,10 @@
                 border-radius: 4px;
                 line-height: 123%;
                 font-size: 13px;
+
+                &:hover {
+                    background-color: $gray-92;
+                }
             }
 
             &.is-active {
@@ -357,6 +483,124 @@
 .product-offers {
     &__title {
         padding-bottom: 25px;
+
+        @media screen and (min-width: $w760) {
+            padding-bottom: 45px;
+        }
+
+        & h2 {
+            @include font-h2;
+        }
     }
 
+}
+
+.min-properties {
+    &__title {
+        font-size: 18px;
+        font-weight: 700;
+        padding-bottom: 15px;
+    }
+
+    &__list {
+
+        & ul {
+            & li {
+
+                padding-bottom: 8px;
+
+                & small {
+                    font-size: 14px;
+                    color: $gray-56;
+                }
+
+                & span {
+                    font-size: 14px;
+                    padding-left: 10px;
+                }
+            }
+        }
+
+    }
+
+    &__more {
+        padding-top: 10px;
+
+        & a {
+            font-weight: 800;
+            color: $accent-2-1;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.popup-store-offers {
+
+    max-width: 1072px;
+
+    @media screen and (min-width: $w760) {
+        padding: 30px;
+    }
+
+    &__title {
+        @include font-h3;
+        font-weight: 900;
+        padding-bottom: 25px;
+        padding-right: 60px;
+
+        @media screen and (min-width: $w1200) {
+            margin-top: -15px;
+
+        }
+
+    }
+
+    &__items {
+        max-height: calc(75vh - 100px);
+        overflow-y: auto;
+        @include scrollbar;
+
+        @media screen and (min-width: $w992) {
+            margin-right: -10px;
+        }
+
+        & .minicard {
+            margin-bottom: 12px;
+
+            &__title {
+                @media screen and (min-width: $w1440) {
+                    font-size: 18px;
+                }
+            }
+
+            &__images {
+                @media screen and (min-width: $w1200) {
+                    max-width: 148px;
+                    min-width: 148px;
+                }
+            }
+
+
+
+            &__main {
+                display: flex;
+                align-items: center;
+            }
+
+            &__price {
+                display: block;
+                padding-bottom: 10px;
+            }
+
+        }
+    }
+
+    &__wrp {
+        @media screen and (min-width: $w992) {
+            padding-right: 10px;
+        }
+    }
 }

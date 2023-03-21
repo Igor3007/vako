@@ -1297,7 +1297,7 @@
 
 
      /* ======================================
-     
+     slider sigle product
      ======================================*/
 
      if (document.querySelector('[data-slider="product"]')) {
@@ -1307,10 +1307,11 @@
              pagination: false,
              arrows: false,
              cover: true,
-             isNavigation: false,
+
              breakpoints: {
                  640: {
                      pagination: true,
+                     type: 'fade',
                  },
              },
          });
@@ -1318,11 +1319,13 @@
          let thumbnails = new Splide('[data-slider="thumb"]', {
              rewind: true,
              perPage: 4,
-             isNavigation: false,
+             arrows: false,
+             isNavigation: true,
              gap: 10,
              focus: 'center',
              pagination: false,
              cover: true,
+             updateOnMove: true,
              dragMinThreshold: {
                  mouse: 4,
                  touch: 10,
@@ -1340,6 +1343,156 @@
          thumbnails.mount();
 
      }
+
+     /* =====================================
+     tabs single product
+     =====================================*/
+
+
+     class Tabs {
+
+         constructor(params) {
+             this.setting = params
+             this.nav = document.querySelector(this.setting.navElem)
+             this.container = document.querySelector(this.setting.containerElem)
+
+
+
+             this.init()
+
+         }
+
+
+         init() {
+
+             if (this.checkHash()) {
+                 this.changeTab(this.checkHash())
+             } else {
+                 this.changeTab(this.setting.tabStart)
+             }
+
+             this.clickTab()
+
+
+         }
+
+         checkHash() {
+             if (window.location.hash == '') return false;
+             return window.location.hash.replace('#', '')
+         }
+
+         changeTab(tab) {
+
+             if (this.container.querySelector('.active')) {
+                 this.container.querySelector('.active').classList.remove('active')
+                 this.nav.querySelector('.active').classList.remove('active')
+             }
+
+             if (this.container.querySelector('[data-tab="' + tab + '"]')) {
+                 this.container.querySelector('[data-tab="' + tab + '"]').classList.add('active')
+
+                 this.nav.querySelectorAll('a').forEach(function (item) {
+                     if (item.getAttribute('href') == '#' + tab) {
+                         item.parentNode.classList.add('active')
+                     }
+                 })
+
+                 this.setting.onChangeTab(tab)
+
+                 initPriceRange()
+             }
+         }
+
+         clickTab() {
+
+             var _this = this;
+
+             this.nav.querySelectorAll('a').forEach(function (item) {
+                 item.addEventListener('click', function (event) {
+                     _this.changeTab((this.getAttribute('href').replace('#', '')))
+                 })
+             })
+         }
+
+
+     }
+
+
+     window.tabsSingleProduct = new Tabs({
+         navElem: '[data-tab-nav="product"]',
+         containerElem: '[data-tab-container="product"]',
+         tabStart: 'common',
+
+         onChangeTab: function (tab) {
+             console.log('info', tab)
+         }
+     })
+
+     /* ======================================
+     fixed nav single product
+     ======================================*/
+
+     window.addEventListener('scroll', () => {
+         if (window.pageYOffset > 100) {
+
+             document.querySelector('.single-product__tabs').classList.add('fixed-tabs')
+
+         } else {
+
+             if (document.querySelector('.single-product__tabs').classList.contains('fixed-tabs')) {
+                 document.querySelector('.single-product__tabs').classList.remove('fixed-tabs')
+             }
+
+         }
+     })
+
+     /* =================================
+     store offers
+     =================================*/
+
+     if (document.querySelector('[data-popup="more-offers"]')) {
+
+         const buttons = document.querySelectorAll('[data-popup="more-offers"]')
+
+         const popupStoreOffers = new afLightbox({
+             mobileInBottom: true
+         })
+
+         function getTemplateModal(response, name) {
+
+             const html = document.createElement('div')
+             html.classList.add('popup-store-offers')
+             html.innerHTML = `
+                <div class="popup-store-offers__title" >Другие предложения магазина ${name}</div>
+                <div class="popup-store-offers__items" >
+                    <div class="popup-store-offers__wrp" >${response}</div>
+                </div>
+            `
+             return html.outerHTML;
+
+         }
+
+         buttons.forEach(function (button) {
+             button.addEventListener('click', e => {
+                 window.ajax({
+                     type: 'GET',
+                     url: '/_store-offers.html',
+                     responseType: 'html',
+                     data: {
+                         value: e.target.value
+                     }
+                 }, (status, response) => {
+                     popupStoreOffers.open(getTemplateModal(response, button.dataset.storeName), function (instanse) {
+                         // after open
+                     })
+                 })
+             })
+         })
+
+     }
+
+
+
 
 
 

@@ -1,0 +1,6 @@
+include ../../views/helpers/mixins.pug
+include ../../blocks/modules/minicard/minicard.pug
+include ../../data/data.pug
+
+each item in storeOoffers
+    +minicard--offer(item) 

@@ -18,14 +18,14 @@ mixin single-product
                     ]) 
                 .single-product__h1: h1 14" Ноутбук ASUS ZenBook 14 UX425EA-KI421T 1920x1080, Intel Core i3 1115G4 3 ГГц, RAM 8 ГБ, SSD 256 ГБ, Intel UHD Graphics, Windows 10 Home, 90NB0SM1-M08850, Pine Grey
                 .single-product__tabs
-                    ul
+                    ul(data-tab-nav="product")
                         li: a(href='#common') Общая информация
-                        li.active: a(href='#properties') Характеристики
+                        li: a(href='#properties') Характеристики
                         li: a(href='#prices') Цены
                         li: a(href='#review') Отзывы
                         li: a(href='#video') Обзоры
 
-                .single-product__content
+                .single-product__content(data-tab-container="product")
                     .single-product__item(data-tab="common"): +product-common
                     .single-product__item(data-tab="properties"): +product-prop
                     .single-product__item(data-tab="prices"): +product-prices

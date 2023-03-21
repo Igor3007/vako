@@ -19,14 +19,17 @@
 
     &::-webkit-scrollbar {
         width: 5px;
+        border-radius: 4px;
     }
 
     &::-webkit-scrollbar-track {
         background-color: #e2e6e8;
+        border-radius: 4px;
     }
 
     &::-webkit-scrollbar-thumb {
         background-color: #cbcfd0;
+        border-radius: 4px;
     }
 }
 
