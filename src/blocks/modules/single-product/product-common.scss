@@ -90,14 +90,16 @@
         }
     }
 
-    &__item {
-        display: none;
-        transition: 0.3s ease;
+    &__content {
+        & [data-tab] {
+            display: none;
+            transition: 0.3s ease;
 
-        &.active,
-        &.is-active {
-            display: block;
-            animation: fade-in 0.3s ease forwards;
+            &.active,
+            &.is-active {
+                display: block;
+                animation: fade-in 0.3s ease forwards;
+            }
         }
     }
 }
@@ -602,5 +604,186 @@
         @media screen and (min-width: $w992) {
             padding-right: 10px;
         }
+    }
+}
+
+.product-mini {
+
+    display: flex;
+    padding-bottom: 20px;
+
+
+
+
+
+    &__image {
+
+        width: 68px;
+        min-width: 68px;
+
+        & picture {
+            @include picture(100%, cover);
+        }
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        padding-left: 32px;
+
+        @media screen and (min-width: $w760) {
+            display: block;
+            padding-top: 8px;
+        }
+    }
+
+
+    &__review {
+
+
+        display: flex;
+        align-items: center;
+
+
+
+        & span {
+            display: inline-flex;
+            width: 32px;
+            height: 26px;
+            background-color: #eee;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            border-radius: 4px;
+        }
+
+        & a {
+            font-size: 13px;
+            margin-left: 9px;
+
+            display: inline-block;
+            margin-top: -1px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            @media screen and (min-width: $w1440) {
+                font-size: 13px;
+            }
+        }
+
+        &.rating {
+            &--green {
+                & span {
+                    background: $green;
+                    color: #fff
+                }
+
+                & a {
+                    color: $green;
+                }
+            }
+
+            &--red {
+                & span {
+                    background: $red;
+                    color: #fff
+                }
+
+                & a {
+                    color: $red;
+                }
+            }
+
+            &--orange {
+                & span {
+                    background: $orange;
+                    color: #fff
+                }
+
+                & a {
+                    color: $orange;
+                }
+            }
+
+            &--blue {
+                & span {
+                    background: $blue;
+                    color: #fff
+                }
+
+                & a {
+                    color: $blue;
+                }
+            }
+        }
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-left: 12px;
+
+        @media screen and (min-width: $w760) {
+
+            padding-left: 0;
+        }
+    }
+
+    &__compare,
+    &__fav {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+
+        & svg {
+            fill: $gray-56;
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+
+
+        }
+
+        & span {
+            display: none;
+            padding-left: 10px;
+            font-size: 13px;
+
+            @media screen and (min-width: $w992) {
+                display: inline-block;
+            }
+        }
+
+        & a {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            border-radius: 6px;
+            justify-content: center;
+
+            @media screen and (min-width: $w992) {
+                width: auto;
+                padding: 0 7px;
+                height: 36px;
+            }
+
+            &:hover {
+                background-color: $gray-96;
+                color: $accent-1-1;
+
+                & svg {
+                    fill: $accent-1-1;
+                }
+            }
+        }
+    }
+
+    &__fav {
+        margin-left: 0;
     }
 }

@@ -26,8 +26,8 @@ mixin single-product
                         li: a(href='#video') Обзоры
 
                 .single-product__content(data-tab-container="product")
-                    .single-product__item(data-tab="common"): +product-common
-                    .single-product__item(data-tab="properties"): +product-prop
-                    .single-product__item(data-tab="prices"): +product-prices
-                    .single-product__item(data-tab="review"): +product-review
-                    .single-product__item(data-tab="video"): +product-video
+                    +product-common
+                    +product-prop
+                    +product-prices
+                    +product-review
+                    +product-video

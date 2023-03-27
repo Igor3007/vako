@@ -246,7 +246,7 @@ input[type="date"] {
 
             @media screen and (min-width: $w760) {
                 padding: 15px 25px;
-                font-size: 16px;
+
             }
 
 
@@ -266,7 +266,7 @@ input[type="date"] {
 
             @media screen and (min-width: $w760) {
                 padding: 35px 25px;
-                font-size: 16px;
+
             }
 
             & strong {
@@ -282,19 +282,16 @@ input[type="date"] {
     }
 
     & a {
-        color: $main;
-        text-decoration: underline;
+        color: $accent-2-1;
+        //text-decoration: underline;
     }
 
     & div:not([class]),
     & p {
-        margin: 20px 0;
-        color: $main;
+        margin: 10px 0;
         line-height: 150%;
 
-        @media screen and (min-width: $w760) {
-            font-size: 16px;
-        }
+
     }
 
     & ul {
@@ -309,11 +306,9 @@ input[type="date"] {
 
             position: relative;
             padding-left: 20px;
-            font-size: 14px;
             padding-bottom: 15px;
 
             @media screen and (min-width: $w760) {
-                font-size: 16px;
                 padding-left: 25px;
             }
 
@@ -357,7 +352,7 @@ input[type="date"] {
             font-size: 14px;
 
             @media screen and (min-width: $w760) {
-                font-size: 16px;
+
                 padding-left: 30px;
             }
 
@@ -378,14 +373,7 @@ input[type="date"] {
     }
 
     & strong {
-
-        color: $main;
-        font-weight: 600;
-
-
-        @media screen and (min-width: $w760) {
-            font-size: 16px;
-        }
+        font-weight: 800;
     }
 }
 
@@ -564,7 +552,7 @@ table {
 
         @media screen and (min-width: $w760) {
             padding: 15px 20px;
-            font-size: 16px;
+
         }
 
 
@@ -577,7 +565,7 @@ table {
 
         @media screen and (min-width: $w760) {
             padding: 15px 20px;
-            font-size: 16px;
+
         }
 
         & strong {

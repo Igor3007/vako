@@ -1355,8 +1355,7 @@
              this.setting = params
              this.nav = document.querySelector(this.setting.navElem)
              this.container = document.querySelector(this.setting.containerElem)
-
-
+             this.items = this.container.querySelectorAll('[data-tab]')
 
              this.init()
 
@@ -1383,24 +1382,41 @@
 
          changeTab(tab) {
 
-             if (this.container.querySelector('.active')) {
-                 this.container.querySelector('.active').classList.remove('active')
-                 this.nav.querySelector('.active').classList.remove('active')
-             }
 
-             if (this.container.querySelector('[data-tab="' + tab + '"]')) {
-                 this.container.querySelector('[data-tab="' + tab + '"]').classList.add('active')
+             this.items.forEach(item => {
 
-                 this.nav.querySelectorAll('a').forEach(function (item) {
-                     if (item.getAttribute('href') == '#' + tab) {
-                         item.parentNode.classList.add('active')
+                 console.log(item.dataset.tab.split(','))
+
+                 if (item.dataset.tab.split(',').indexOf(tab) !== -1) {
+                     item.classList.add('active')
+                 } else {
+                     if (item.classList.contains('active')) {
+                         item.classList.remove('active')
                      }
-                 })
+                 }
 
-                 this.setting.onChangeTab(tab)
 
-                 initPriceRange()
-             }
+
+             })
+
+
+
+             this.nav.querySelectorAll('a').forEach(function (item) {
+                 if (item.getAttribute('href') == '#' + tab) {
+                     item.parentNode.classList.add('active')
+                 } else {
+                     if (item.parentNode.classList.contains('active')) {
+                         item.parentNode.classList.remove('active')
+                     }
+                 }
+             })
+
+
+
+             this.setting.onChangeTab(tab)
+
+             initPriceRange()
+
          }
 
          clickTab() {
@@ -1488,6 +1504,82 @@
                  })
              })
          })
+
+     }
+
+
+     /* ====================================
+     ajax tooltip
+     ====================================*/
+
+     if (document.querySelector('[data-tooltip]')) {
+
+
+         class TooltipAjax {
+
+             constructor() {
+                 this.$items = document.querySelectorAll('[data-tooltip]')
+             }
+
+             ajaxLoadTooltip(tooltipID) {
+
+                 window.ajax({
+                     type: 'GET',
+                     url: '/json/index-find.json',
+                     responseType: 'json',
+                     data: {
+                         value: e.target.value
+                     }
+                 }, function (status, response) {
+                     _this.render(response)
+                 })
+
+             }
+
+             getTemplate() {
+
+                 const html = `
+
+                    <div class="tooltip-box" >
+                        <div class="tooltip-box__title" ></div>
+                        <div class="tooltip-box__text" ></div>
+                    </div>
+
+                `;
+
+
+             }
+
+             tooltipDesctop() {
+
+             }
+
+             addEvents() {
+                 this.$items.forEach(item => {
+
+                     //for desctop
+                     if (document.body.clientWidth > 992) {
+                         item.addEventListener('mouseenter', e => {
+                             this.tooltipDesctop()
+                         })
+                     }
+
+                     //for mobile
+                     if (document.body.clientWidth <= 992) {
+                         item.addEventListener('mouseenter', e => {
+                             this.tooltipPopup()
+                         })
+                     }
+
+                 })
+             }
+
+         }
+
+
+
+
+
 
      }
 

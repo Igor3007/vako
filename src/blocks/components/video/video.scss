@@ -1,10 +1,10 @@
 .video {
     margin: 0 auto;
     position: relative;
-    background: $main;
+    background: #ccc;
     border-radius: 0px;
     overflow: hidden;
-    margin-top: rem(20);
+
 
     & iframe {
         border: none;
@@ -88,7 +88,7 @@
         right: 0;
         top: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.0);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -122,6 +122,13 @@
         flex-direction: column;
         align-items: center;
         cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 21px 34px;
+        border-radius: 12px;
+
+        &:hover {
+            background-color: $accent-2-1;
+        }
 
 
 
@@ -132,19 +139,14 @@
         }
 
         & svg {
-            margin: rem(20) 0;
-            width: rem(100);
-            height: rem(100);
-            border-radius: 50%;
 
-            opacity: 0.8;
+            width: rem(28);
+            height: rem(25);
             transition: 0.3s ease;
 
             &:hover {
                 opacity: 1;
-
             }
-
 
             // @media screen and (min-width: $w1200) {
             //     width: 60px;

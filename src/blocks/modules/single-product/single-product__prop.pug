@@ -1,2 +1,29 @@
+mixin product-properties(data)
+    .product-properties
+        .product-properties__head= data.head
+        .product-properties__items
+            each item in data.items
+                .product-properties__item
+                    .product-properties__name= item.title
+                    .product-properties__tooltip 
+                        span(data-tooltip="12456" data-id="123456"): +icons('#ic_tooltip', 20)
+                    .product-properties__dots
+                    .product-properties__value= item.value
+
 mixin product-prop
-    .product-prop product-prop
+    .product-prop(data-tab="properties")
+        .product-prop__title Описание
+        .product-prop__desc.formated-text
+            p Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе.
+            p Тенты часто применяют, чтобы законсервировать <a href="#">морозоустойчивые бассейны</a> на зиму. В этом случае нужно следить за что уровнем снега на поверхности бассейна и вовремя его убирать, чтобы накопившаяся снежная масса не продавливала тент. 
+            p Изготавливают тенты чаще всего из ПВХ, реже — из полиэтилена и брезента. Брезент, в отличие от двух других материалов, пропускает воду, намокает и может утратить свои качества, если его не просушить. <strong>С другой стороны — он позволяет воде «дышать», и она меньше портится и застаивается.</strong>
+            p Тент должен быть на 10–20 см шире и длиннее поверхности бассейна, чтобы был запас для крепления полотна. При эксплуатации аксессуара главное — не натягивать его слишком сильно, чтобы не порвать в местах присоединения верёвок.
+        
+        .product-prop__title Подробные характеристики
+
+        .product-prop__list
+            each item in properties
+                .product-prop__item: +product-properties(item)
+        .product-prop__note Перед покупкой уточняйте характеристики и комплектацию у продавца.
+        .product-prop__complain
+            a(href='#') Пожаловаться на товар
