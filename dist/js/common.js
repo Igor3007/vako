@@ -1423,11 +1423,15 @@
 
              var _this = this;
 
-             this.nav.querySelectorAll('a').forEach(function (item) {
-                 item.addEventListener('click', function (event) {
-                     _this.changeTab((this.getAttribute('href').replace('#', '')))
-                 })
-             })
+             //  this.nav.querySelectorAll('a').forEach(function (item) {
+             //      item.addEventListener('click', function (event) {
+             //          _this.changeTab((this.getAttribute('href').replace('#', '')))
+             //      })
+             //  })
+
+             window.addEventListener('hashchange', function () {
+                 _this.changeTab(window.location.hash.replace('#', ''))
+             });
          }
 
 
@@ -1443,6 +1447,8 @@
              console.log('info', tab)
          }
      })
+
+
 
      /* ======================================
      fixed nav single product

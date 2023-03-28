@@ -1,2 +1,55 @@
+include ../catalog-category-3/catalog-category-3.pug
+
 mixin product-review
-    .product-review(data-tab="review") product-review
+    .product-review(data-tab="review")
+        .product-review__wrp
+            .product-review__content
+                .review-content
+                    .review-content__top
+                        .review-content__h2 Отзывы о товаре (27)
+                        .review-content__action
+                            .review-content__sort
+                                .sort-dropdown
+                                    .sort-dropdown__title Сначала популярные
+                                    .sort-dropdown__list
+                                        ul
+                                            li: a(href='#' ) По дате
+                                            li: a(href='#' class="is-active is-active--up") По оценке
+                                            li: a(href='#') По полезности
+
+                            .review-content__mobile
+                                button(data-filter="open") 
+                                    +icons('#ic_filter', 17)
+                                    span Фильтры
+
+            .product-review__aside
+                .review-filter
+                    .review-filter__head
+                        .review-filter__head-title Фильтры и сортировка
+                        .review-filter__head-close: span.icon-cross(data-filter="open")
+
+                    .review-filter__wrp
+                        .review-filter__add
+                            button.btn Оставить отзыв
+                        .review-filter__form
+                            form(action='#' method='POST')
+                                .review-filter__props
+                                    .review-filter__item: +prop-checkbox({
+                                        title: 'Производитель',
+                                        checkbox: [
+                                            'Отлично (72)',
+                                            'Хорошо (5)',
+                                            'Средне (3)',
+                                            'Плохо (1)',
+                                            'Ужасно (1)',
+                                        ]
+                                    })
+
+                                .review-filter__submit
+                                    .review-filter__send(data-filter="submit")
+                                        button.btn
+                                            span Посмотреть
+                                            small 328 предложений 
+                                    //- .review-filter__clear(data-filter="clear")
+                                    //-     span.icon-cross 
+                                    //-     small Очистить <span>все фильтры</span>
