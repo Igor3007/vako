@@ -1221,7 +1221,7 @@
          const container = document.querySelector('.category-filter')
          const subMenu = container.querySelectorAll('.filter-properties__list ul')
 
-         console.log(subMenu)
+         // console.log(subMenu)
 
          subMenu.forEach(item => {
 
@@ -1380,15 +1380,42 @@
              return window.location.hash.replace('#', '')
          }
 
+         scrollToElem(elem, container) {
+             var rect = elem.getBoundingClientRect();
+             var rectContainer = container.getBoundingClientRect();
+
+             console.log(elem, 'elem')
+
+             let elemOffset = {
+                 top: rect.top + document.body.scrollTop,
+                 left: rect.left + document.body.scrollLeft
+             }
+
+             let containerOffset = {
+                 top: rectContainer.top + document.body.scrollTop,
+                 left: rectContainer.left + document.body.scrollLeft
+             }
+
+             let leftPX = elemOffset.left - containerOffset.left + container.scrollLeft - (container.offsetWidth / 2) + (elem.offsetWidth / 2) + 5
+
+             container.scrollTo({
+                 left: leftPX,
+                 behavior: 'smooth'
+             });
+         }
+
          changeTab(tab) {
 
 
              this.items.forEach(item => {
 
-                 console.log(item.dataset.tab.split(','))
+
 
                  if (item.dataset.tab.split(',').indexOf(tab) !== -1) {
                      item.classList.add('active')
+
+
+
                  } else {
                      if (item.classList.contains('active')) {
                          item.classList.remove('active')
@@ -1401,9 +1428,10 @@
 
 
 
-             this.nav.querySelectorAll('a').forEach(function (item) {
+             this.nav.querySelectorAll('a').forEach((item) => {
                  if (item.getAttribute('href') == '#' + tab) {
                      item.parentNode.classList.add('active')
+                     this.scrollToElem(item.parentNode, this.nav)
                  } else {
                      if (item.parentNode.classList.contains('active')) {
                          item.parentNode.classList.remove('active')
@@ -1444,7 +1472,7 @@
          tabStart: 'common',
 
          onChangeTab: function (tab) {
-             console.log('info', tab)
+             //console.log('info', tab)
          }
      })
 
@@ -1588,6 +1616,8 @@
 
 
      }
+
+
 
 
 

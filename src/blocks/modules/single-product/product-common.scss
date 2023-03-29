@@ -70,7 +70,11 @@
             top: 0;
             right: 0;
             filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.12));
-            padding: 12px 15px;
+            padding: 12px 0px 12px 0px;
+
+            @media screen and (min-width: $w480) {
+                padding: 12px 15px;
+            }
 
             & ul {
                 margin: 0 auto;
@@ -612,10 +616,6 @@
     display: flex;
     padding-bottom: 20px;
 
-
-
-
-
     &__image {
 
         width: 68px;
@@ -637,14 +637,10 @@
         }
     }
 
-
     &__review {
-
 
         display: flex;
         align-items: center;
-
-
 
         & span {
             display: inline-flex;
@@ -785,5 +781,9 @@
 
     &__fav {
         margin-left: 0;
+    }
+
+    &__text {
+        line-height: 143%;
     }
 }

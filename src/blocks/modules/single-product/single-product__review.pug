@@ -10,7 +10,7 @@ mixin product-review
                         .review-content__action
                             .review-content__sort
                                 .sort-dropdown
-                                    .sort-dropdown__title Сначала популярные
+                                    .sort-dropdown__title По полезности
                                     .sort-dropdown__list
                                         ul
                                             li: a(href='#' ) По дате
@@ -21,6 +21,10 @@ mixin product-review
                                 button(data-filter="open") 
                                     +icons('#ic_filter', 17)
                                     span Фильтры
+
+                    .review-content__list
+                        each item in [1,1,1,1,1,1,1,1,1]
+                            .review-content__item: +card-review
 
             .product-review__aside
                 .review-filter
@@ -53,3 +57,28 @@ mixin product-review
                                     //- .review-filter__clear(data-filter="clear")
                                     //-     span.icon-cross 
                                     //-     small Очистить <span>все фильтры</span>
+
+mixin card-review
+    .card-review
+        .card-review__photo
+            +picture('/img/user')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Андрей Маяковский
+                .card-review__date 2 месяца назад, Москва
+            .card-review__rating.rating--green
+                span 5
+                small Отлично
+            .card-review__text Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.
+            .card-review__thesis
+                .card-review__adv 
+                    +icons('#ic_like', 20)
+                    span дизайн, качество низких частот
+                .card-review__flaws 
+                    +icons('#ic_dislike', 20)
+                    span не нашел
+            .card-review__action
+                .card-review__add
+                    +icons('#ic_comment', 20)
+                    span Комментировать
+                .card-review__commets Все комментарии (14)
