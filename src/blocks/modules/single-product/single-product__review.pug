@@ -23,8 +23,14 @@ mixin product-review
                                     span Фильтры
 
                     .review-content__list
-                        each item in [1,1,1,1,1,1,1,1,1]
-                            .review-content__item: +card-review
+
+                        .review-content__item: +card-review
+                        .review-content__item: +card-review-reply
+                        .review-content__item: +card-review
+                        .review-content__item: +card-review
+                        .review-content__item: +card-review-reply
+                        .review-content__item: +card-review
+                        .review-content__item: +card-review
 
             .product-review__aside
                 .review-filter
@@ -61,7 +67,7 @@ mixin product-review
 mixin card-review
     .card-review
         .card-review__photo
-            +picture('/img/user')
+            +picture('/img/common/user')
         .card-review__main
             .card-review__head 
                 .card-review__name Андрей Маяковский
@@ -78,7 +84,57 @@ mixin card-review
                     +icons('#ic_dislike', 20)
                     span не нашел
             .card-review__action
-                .card-review__add
+                .card-review__add(data-review="add")
                     +icons('#ic_comment', 20)
                     span Комментировать
-                .card-review__commets Все комментарии (14)
+            .card-review__childs
+
+
+mixin card-review-childs
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Андрей Маяковский
+                .card-review__date 2 месяца назад, Москва
+            .card-review__text Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.
+            .card-review__action
+                .card-review__commets(data-review="show-comment") Все ответы
+
+            .card-review__childs
+                +card-review-last()
+                +card-review-last()
+                +card-review-last()
+
+
+mixin card-review-last
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user4') 
+        .card-review__main
+            .card-review__head 
+                .card-review__name Анна Блохина
+                .card-review__date 2 месяца назад, Москва
+            .card-review__text Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.
+            .card-review__action
+                .card-review__add(data-review="add")
+                    span Ответить
+
+
+mixin card-review-reply
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user3')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Иван Троцкий
+                .card-review__date 2 месяца назад, Москва
+            .card-review__text Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.
+            .card-review__action
+                .card-review__commets(data-review="show-comment") Все комментарии (14)
+
+            .card-review__childs
+                +card-review-childs()  
+                 
+

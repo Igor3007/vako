@@ -1617,6 +1617,127 @@
 
      }
 
+     /* ====================================
+      class revies
+      ====================================*/
+
+     class Reviews {
+         constructor(params) {
+             this.$el = document.querySelector(params.container)
+             this.buttonsAddComment = this.$el.querySelectorAll('[data-review="add"]')
+             this.buttonsShowComment = this.$el.querySelectorAll('[data-review="show-comment"]')
+             this.addEvents();
+             this.formInstanse = null;
+         }
+
+         getTemplateForm() {
+             const html = `
+                <form>
+                    <div class="review-form" >
+                        <div class="review-form__textarea" >
+                            <textarea name="comment" placeholder="Введите..." ></textarea>
+                        </div>
+                        <div class="review-form__send" >
+                            <button class="btn btn-small" type="submit" >Отправить</button>
+                        </div>
+                    </div>
+                </form>
+            `;
+
+             return html;
+         }
+
+         addForm(e) {
+             const parent = e.target.closest('.card-review__main')
+
+             if (this.formInstanse) {
+                 this.formInstanse.remove()
+             }
+
+             this.formInstanse = document.createElement('div')
+             this.formInstanse.classList.add('card-review__form')
+             this.formInstanse.innerHTML = this.getTemplateForm()
+
+             this.sendComment(this.formInstanse.querySelector('form'))
+
+             parent.append(this.formInstanse)
+         }
+
+         sendComment(form) {
+
+             form.addEventListener('submit', e => {
+                 e.preventDefault()
+
+                 const formData = new FormData(form)
+
+                 if (!formData.get('comment')) {
+                     window.STATUS.wrn('Нельзя отправить пустой комментарий')
+                     return false;
+                 }
+
+                 window.ajax({
+                     type: 'GET', //POST
+                     url: '/_comment-reply.html',
+                     responseType: 'html',
+                     data: {
+                         value: e.target.value
+                     }
+                 }, (status, response) => {
+                     window.STATUS.msg('Комментарий добавлен!', '')
+
+                     console.log(e.target.closest('.card-review__main'))
+
+                     const main = e.target.closest('.card-review__main');
+                     const htmlComment = document.createElement('div')
+                     htmlComment.innerHTML = response
+
+                     if (!main.querySelector('.card-review__childs')) {
+                         e.target.closest('.card-review__childs').append(htmlComment.lastChild)
+                     } else {
+                         main.querySelector('.card-review__childs').append(htmlComment.lastChild)
+                     }
+
+                     if (this.formInstanse) {
+                         this.formInstanse.remove()
+                     }
+
+
+                 })
+
+
+             })
+
+         }
+
+         showHideChilds(e) {
+             const itemComment = e.target.closest('.card-review')
+
+             itemComment.querySelector('.card-review__childs').classList.toggle('is-open')
+         }
+
+         addEvents() {
+             this.buttonsAddComment.forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.addForm(e)
+                 })
+             })
+
+             this.buttonsShowComment.forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.showHideChilds(e)
+                 })
+             })
+
+
+         }
+
+
+     }
+
+     new Reviews({
+         container: '.review-content'
+     });
+
 
 
 

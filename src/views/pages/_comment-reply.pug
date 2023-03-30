@@ -1,0 +1,6 @@
+include ../../views/helpers/mixins.pug
+include ../../blocks/modules/single-product/single-product__review.pug
+include ../../data/data.pug
+
+each item in storeOoffers
+    +card-review-last(item) 

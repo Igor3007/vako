@@ -404,18 +404,18 @@
 
         & picture {
             @include picture(100%, cover);
+            background-color: #eee;
+            color: transparent;
         }
     }
 
     &__main {
-        padding-left: 14px;
+        padding-left: 10px;
 
         @media screen and (min-width: $w992) {
-            padding-left: 20px;
+            padding-left: 12px;
         }
     }
-
-
 
     &__name {
         font-weight: 800;
@@ -538,6 +538,7 @@
 
         &>div {
             padding: 5px;
+            cursor: pointer;
         }
     }
 
@@ -582,4 +583,64 @@
         }
     }
 
+    &__childs {
+
+        &:not(.is-open) {
+            display: none;
+        }
+
+        & .card-review {
+
+            margin-top: 10px;
+
+            &__head {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                padding-bottom: 10px;
+            }
+
+            &__date {
+                padding-bottom: 0;
+            }
+
+            &__name {
+                padding-right: 15px;
+            }
+
+            &__photo {
+                max-width: 24px;
+                min-width: 24px;
+            }
+        }
+    }
+
+}
+
+.review-form {
+
+    &__textarea {
+        padding-bottom: 10px;
+    }
+
+    &__send {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    & textarea {
+        border: 1px solid #ddd;
+        font-size: 14px;
+        padding: 10px;
+        display: block;
+        width: 100%;
+        resize: vertical;
+        min-height: 80px;
+        max-height: 240px;
+
+        &:focus {
+            border-color: $accent-1-1;
+            outline: none;
+        }
+    }
 }

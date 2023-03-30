@@ -1988,8 +1988,9 @@ select {
 
 .btn.btn-small {
   height: 40px;
-  font-size: 11px;
-  padding: 0.8em 2.5em 0.8em 2.5em;
+  font-size: 14px;
+  padding: 0.7em 2.5em 0.8em 2.5em;
+  font-weight: 400;
 }
 
 .btn.btn-loading::after {
@@ -6720,6 +6721,8 @@ footer {
   position: relative;
   display: block;
   padding-top: 100%;
+  background-color: #eee;
+  color: transparent;
 }
 
 .card-review__photo picture img {
@@ -6732,7 +6735,7 @@ footer {
 }
 
 .card-review__main {
-  padding-left: 14px;
+  padding-left: 10px;
 }
 
 .card-review__name {
@@ -6828,6 +6831,7 @@ footer {
 
 .card-review__action > div {
   padding: 5px;
+  cursor: pointer;
 }
 
 .card-review__thesis {
@@ -6870,6 +6874,59 @@ footer {
 
 .card-review__add span {
   padding-left: 6px;
+}
+
+.card-review__childs:not(.is-open) {
+  display: none;
+}
+
+.card-review__childs .card-review {
+  margin-top: 10px;
+}
+
+.card-review__childs .card-review__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.card-review__childs .card-review__date {
+  padding-bottom: 0;
+}
+
+.card-review__childs .card-review__name {
+  padding-right: 15px;
+}
+
+.card-review__childs .card-review__photo {
+  max-width: 24px;
+  min-width: 24px;
+}
+
+.review-form__textarea {
+  padding-bottom: 10px;
+}
+
+.review-form__send {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review-form textarea {
+  border: 1px solid #ddd;
+  font-size: 14px;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  resize: vertical;
+  min-height: 80px;
+  max-height: 240px;
+}
+
+.review-form textarea:focus {
+  border-color: #DF1F26;
+  outline: none;
 }
 
 .product-video {
@@ -7119,6 +7176,87 @@ a[data-tooltip]:hover::before {
 
 .splide__pagination__page.is-active {
   background: #7B61FF;
+}
+
+#status {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 15px 20px 20px 20px;
+  background: rgba(0, 0, 0, 0.75);
+  border-left: 0px solid #bbb;
+  font-size: 13px;
+  min-width: 300px;
+  transform: translateY(100%) translateY(20px);
+  transition: 0.3s ease;
+  color: #fff;
+  z-index: 100000;
+  max-width: 450px;
+  visibility: hidden;
+}
+
+#status_header {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+#status.error {
+  border-color: #ca2c2c;
+  transform: translateY(0);
+  border-left-width: 4px;
+  height: auto;
+  display: block;
+  visibility: visible;
+}
+
+#status.error #status_header {
+  color: #fff;
+}
+
+#status.warning #status_header {
+  color: #fff;
+}
+
+#status.complete #status_header {
+  color: #fff;
+}
+
+#status.warning {
+  border-color: orange;
+  transform: translateY(0);
+  border-left-width: 4px;
+  display: block;
+  visibility: visible;
+}
+
+#status.complete {
+  border-color: #2dba70;
+  transform: translateY(0);
+  border-left-width: 4px;
+  display: block;
+  visibility: visible;
+}
+
+#status_msg {
+  line-height: 140%;
+  margin-top: 5px;
+}
+
+#status_btn {
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.681818 0L15 14.3182L14.3182 15L1.62748e-08 0.681818L0.681818 0Z' fill='%23FFFFFF'/%3E%3Cpath d='M15 0.681818L0.681818 15L0 14.3182L14.3182 6.09593e-07L15 0.681818Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A");
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  right: 12px;
+  top: 13px;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+#status_btn {
+  opacity: 1;
 }
 
 @media screen and (min-width: 445px) {
@@ -7929,7 +8067,7 @@ a[data-tooltip]:hover::before {
   }
 
   .card-review__main {
-    padding-left: 20px;
+    padding-left: 12px;
   }
 
   .card-review__name {
