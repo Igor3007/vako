@@ -123,10 +123,10 @@ mixin product-common
                 .catalog-category__content
                     .catalog-category__aside(style="display:block")
 
-                        .category-filter
+                        .category-filter(data-filter-container="prices")
                             .category-filter__head
                                 .category-filter__head-title Фильтры и сортировка
-                                .category-filter__head-close: span.icon-cross(data-filter="open")
+                                .category-filter__head-close: span.icon-cross(data-filter="open" data-elem="prices")
 
                             .category-filter__wrp
                                 form(action='#' method='POST')
@@ -233,7 +233,7 @@ mixin product-common
                                             li: a(href='#') По отзывам
 
                             .catalog-category__mobile
-                                button(data-filter="open") 
+                                button(data-filter="open" data-elem="prices") 
                                     +icons('#ic_filter', 17)
                                     span Фильтры
 

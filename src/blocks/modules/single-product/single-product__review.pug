@@ -18,7 +18,7 @@ mixin product-review
                                             li: a(href='#') По полезности
 
                             .review-content__mobile
-                                button(data-filter="open") 
+                                button(data-filter="open" data-elem="review") 
                                     +icons('#ic_filter', 17)
                                     span Фильтры
 
@@ -35,10 +35,10 @@ mixin product-review
             .product-review__aside
                 .product-review__add
                             button.btn(data-review="create") Оставить отзыв
-                .review-filter
+                .review-filter(data-filter-container="review") 
                     .review-filter__head
                         .review-filter__head-title Фильтры и сортировка
-                        .review-filter__head-close: span.icon-cross(data-filter="open")
+                        .review-filter__head-close: span.icon-cross(data-filter="open" data-elem="review")
 
                     .review-filter__wrp
                         
@@ -59,11 +59,10 @@ mixin product-review
                                 .review-filter__submit
                                     .review-filter__send(data-filter="submit")
                                         button.btn
-                                            span Посмотреть
-                                            small 328 предложений 
-                                    //- .review-filter__clear(data-filter="clear")
-                                    //-     span.icon-cross 
-                                    //-     small Очистить <span>все фильтры</span>
+                                            span Показать выбранные
+                                    .review-filter__clear(data-filter="clear")
+                                        span.icon-cross 
+                                        small Очистить <span>все фильтры</span>
 
 mixin card-review
     .card-review

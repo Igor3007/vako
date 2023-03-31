@@ -1114,7 +1114,11 @@
 
          items.forEach(item => {
              item.addEventListener('click', e => {
-                 document.querySelector('.category-filter').classList.toggle('is-open')
+
+
+                 if (document.querySelector('[data-filter-container="' + item.dataset.elem + '"]')) {
+                     document.querySelector('[data-filter-container="' + item.dataset.elem + '"]').classList.toggle('is-open')
+                 }
 
                  setTimeout(() => {
                      initPriceRange()
@@ -1252,9 +1256,16 @@
      ====================================*/
 
      if (document.querySelector('[data-filter="clear"]')) {
-         document.querySelector('[data-filter="clear"]').addEventListener('click', e => {
-             e.target.closest('form').reset()
+
+         const items = document.querySelectorAll('[data-filter="clear"]')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+                 e.target.closest('form').reset()
+             })
          })
+
+
      }
 
      /* ====================================

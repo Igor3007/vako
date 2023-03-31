@@ -2750,7 +2750,7 @@ input:focus {
 }
 
 .af-popup--mobile .af-popup__content {
-  border-radius: 9px 9px 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 .af-popup__bg {
@@ -6682,13 +6682,13 @@ div[data-single-catalog]:not(.is-active) {
   height: 100%;
 }
 
-.review-filter.is-open .category-filter__wrp {
+.review-filter.is-open .review-filter__wrp {
   padding: 16px;
   display: flex;
   flex-direction: column;
 }
 
-.review-filter.is-open .category-filter__props {
+.review-filter.is-open .review-filter__props {
   flex-grow: 1;
   overflow: auto;
   height: calc(100vh - 64px - 48px);
