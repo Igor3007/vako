@@ -126,23 +126,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 105;
+    background-color: #fff;
+    position: relative;
 
     &::after {
         content: '';
         width: 40px;
         min-width: 40px;
         height: 40px;
-        border: 3px solid #fff;
+        border: 3px solid $accent-2-1;
         border-radius: 50%;
         border-left-color: transparent !important;
-        margin-left: 10px;
         transition: transform 0.5s linear;
-        animation: 0.5s linear loadingrotate infinite;
+        animation: 0.5s linear load infinite;
         display: inline-block;
         white-space: nowrap;
         flex-wrap: nowrap;
         position: relative;
-        left: 5px;
     }
 }
 

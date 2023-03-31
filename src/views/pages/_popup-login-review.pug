@@ -1,0 +1,11 @@
+include ../../views/helpers/mixins.pug
+include ../../data/data.pug
+
+.popup-succes
+    .popup-succes__icon: +bgimage('/img/common/icon_warn_60.svg')
+    .popup-succes__title Спасибо за ваш отзыв!
+    .popup-succes__desc Он появится на сайте сразу после проверки нашими модераторами.
+    .popup-succes__btn
+        button.btn(data-popup="close") Хорошо
+    .popup-succes__btn
+        a(href='#'): button.btn.btn-gray Зарегистрироваться

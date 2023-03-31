@@ -1873,6 +1873,9 @@
          const createReviewPopup = new afLightbox({
              mobileInBottom: false
          })
+         const successPopup = new afLightbox({
+             mobileInBottom: true
+         })
 
 
          items.forEach(item => {
@@ -1888,6 +1891,31 @@
 
 
                          instanse.querySelector('.af-popup__content').innerHTML = response
+
+                         const form = instanse.querySelector('form')
+
+                         form.addEventListener('submit', e => {
+
+                             e.preventDefault()
+
+                             window.ajax({
+                                 type: 'GET', //POST
+                                 url: '/_popup-succes-review.html',
+                                 responseType: 'html',
+
+                             }, (status, response) => {
+
+                                 successPopup.open(response, (popup) => {
+                                     createReviewPopup.close()
+                                     popup.querySelector('[data-popup="close"]').addEventListener('click', e => successPopup.close())
+
+                                 })
+
+                             })
+
+
+                         })
+
 
 
                      })

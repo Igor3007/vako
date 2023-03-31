@@ -2821,6 +2821,9 @@ input:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 105;
+  background-color: #fff;
+  position: relative;
 }
 
 .af-spiner::after {
@@ -2828,17 +2831,15 @@ input:focus {
   width: 40px;
   min-width: 40px;
   height: 40px;
-  border: 3px solid #fff;
+  border: 3px solid #7B61FF;
   border-radius: 50%;
   border-left-color: transparent !important;
-  margin-left: 10px;
   transition: transform 0.5s linear;
-  animation: 0.5s linear loadingrotate infinite;
+  animation: 0.5s linear load infinite;
   display: inline-block;
   white-space: nowrap;
   flex-wrap: nowrap;
   position: relative;
-  left: 5px;
 }
 
 .dark-mode .af-popup {
@@ -7720,6 +7721,48 @@ a[data-tooltip]:hover::before {
   color: #367fbd;
 }
 
+.popup-succes {
+  max-width: 400px;
+}
+
+.popup-succes__title {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 160%;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.popup-succes__desc {
+  text-align: center;
+  max-width: 80%;
+  margin: 0 auto;
+  padding-bottom: 25px;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.popup-succes__icon {
+  max-width: 60px;
+  margin: 0 auto;
+  padding-bottom: 5px;
+}
+
+.popup-succes__icon span {
+  display: block;
+  padding-top: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.popup-succes__btn {
+  padding-bottom: 10px;
+}
+
+.popup-succes__btn .btn {
+  width: 100%;
+}
+
 @media screen and (min-width: 445px) {
   .main-menu::before {
     width: calc(100% - 400px);
@@ -7809,6 +7852,10 @@ a[data-tooltip]:hover::before {
 
   .create-review__form .form__subitem .policy {
     text-align: left;
+  }
+
+  .popup-succes {
+    padding: 20px;
   }
 }
 
@@ -7923,6 +7970,10 @@ a[data-tooltip]:hover::before {
   .qi-review li {
     width: auto;
     padding: 10px;
+  }
+
+  .popup-succes__title {
+    font-size: 20px;
   }
 }
 
