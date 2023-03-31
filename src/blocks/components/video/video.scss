@@ -126,8 +126,20 @@
         padding: 21px 34px;
         border-radius: 12px;
 
+        & span {
+            display: none;
+        }
+
         &:hover {
             background-color: $accent-2-1;
+        }
+
+        & a {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
         }
 
 

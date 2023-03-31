@@ -239,11 +239,11 @@ mixin product-common
 
                             .catalog-category__view
                                 ul
-                                    li: a(href='#list' data-view="list"): +icons('#ic_sort-list', 24)
-                                    li: a(href='#map'  data-view="map"): +icons('#ic_pin-default', 24)
+                                    li: a(href='#list' data-single-view="list"): +icons('#ic_sort-list', 24)
+                                    li: a(href='#map'  data-single-view="map"): +icons('#ic_pin-default', 24)
                             
 
-                        .catalog-category__products
+                        .catalog-category__products.is-active(data-single-catalog="list")
 
                             .catalog-products(data-catalog="container")
                                 each item in storeOoffers
@@ -258,3 +258,33 @@ mixin product-common
                                     button
                                         +icons('#ic_more', 14)
                                         span Показать ещё
+
+                        .catalog-category__inmap(data-single-catalog="map")
+                            .store-points
+                                
+                                .store-points__wrp
+                                    .store-points__map
+                                        #map-stores
+                                    .store-points__list
+                                        .store-points__stores 27 магазинов
+                                        .store-points__items
+                                            each item in [1,1,1,1,1,1]
+                                                .store-points__item
+                                                    .point-store
+                                                        .point-store__name: a(href='#') PCPlanet.ru
+                                                        .point-store__address Москва, улица Воздвиженка, д. 10
+                                                        .point-store__worktime Пн-Пт 10:00 - 22:00, Сб-Вс 10:00 - 20:00
+                                                        .point-store__now Открыто до 22:00
+                                                        .point-store__product
+                                                            .point-store__image
+                                                                +picture('/img/product/minicard-1')
+                                                            .point-store__main
+                                                                .point-store__title: a(href='#') 15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный
+                                                                .point-store__price 28 000 ₽
+
+
+                                             
+                                
+                            
+                        
+                    

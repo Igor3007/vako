@@ -2581,8 +2581,20 @@ input:focus {
   border-radius: 12px;
 }
 
+.video__button span {
+  display: none;
+}
+
 .video__button:hover {
   background-color: #7B61FF;
+}
+
+.video__button a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .video__button span {
@@ -2736,6 +2748,10 @@ input:focus {
 
 .af-popup--visible {
   opacity: 1;
+}
+
+.af-popup--mobile .af-popup__content {
+  border-radius: 9px 9px 0 0;
 }
 
 .af-popup__bg {
@@ -5736,13 +5752,15 @@ footer {
 }
 
 .single-product__h1 {
-  padding-bottom: 25px;
+  padding-bottom: 6px;
 }
 
 .single-product__h1 h1 {
   font-weight: 900;
   font-size: 20px;
   line-height: 121%;
+  margin-top: 4px;
+  line-height: 131%;
 }
 
 .single-product__tabs ul {
@@ -5884,7 +5902,7 @@ footer {
 .product-details__colors span {
   font-weight: 700;
   display: block;
-  padding-bottom: 10px;
+  padding-bottom: 18px;
 }
 
 .product-details__colors:hover {
@@ -6190,7 +6208,7 @@ footer {
 
 .product-mini {
   display: flex;
-  padding-bottom: 20px;
+  padding-bottom: 16px;
 }
 
 .product-mini__image {
@@ -6339,6 +6357,219 @@ footer {
 
 .product-mini__text {
   line-height: 143%;
+}
+
+.store-points {
+  background-color: #eee;
+  margin: -10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.store-points__head {
+  font-size: 16px;
+  line-height: 160%;
+  padding: 13px 15px;
+  font-weight: 800;
+  padding-right: 40px;
+}
+
+.store-points__map {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.store-points__map #map-stores {
+  height: 40vh;
+  background-color: #ddd;
+}
+
+.store-points__list {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 40vh;
+}
+
+.store-points__items {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: #ccc #ebebeb;
+  scrollbar-width: thin !important;
+}
+
+.store-points__items::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 4px;
+}
+
+.store-points__items::-webkit-scrollbar-track {
+  background-color: #e2e6e8;
+  border-radius: 4px;
+}
+
+.store-points__items::-webkit-scrollbar-thumb {
+  background-color: #cbcfd0;
+  border-radius: 4px;
+}
+
+.store-points__stores {
+  color: #8f8f8f;
+  font-weight: 600;
+  padding: 12px 10px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.store-points__item {
+  padding: 10px 16px 10px 10px;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+
+.store-points__item.is-active,
+.store-points__item:hover {
+  border-color: #7B61FF;
+  background-color: #f7f7f7;
+}
+
+.store-points__title {
+  color: #222222;
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+
+.store-points__worktime {
+  color: #8f8f8f;
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+
+div[data-single-catalog] {
+  animation: fade-in 0.3s ease forwards;
+}
+
+div[data-single-catalog]:not(.is-active) {
+  display: none;
+}
+
+.point-store {
+  padding: 5px 5px;
+}
+
+.point-store__name {
+  padding-bottom: 10px;
+}
+
+.point-store__name a {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.point-store__name a:hover {
+  color: #7B61FF;
+}
+
+.point-store__address {
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+.point-store__worktime {
+  padding-bottom: 10px;
+  font-size: 14px;
+  color: #8f8f8f;
+}
+
+.point-store__now {
+  color: #37A735;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.point-store__now::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #37A735;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+.point-store__product {
+  display: flex;
+}
+
+.point-store__image {
+  width: 56px;
+  min-width: 56px;
+}
+
+.point-store__image picture {
+  position: relative;
+  display: block;
+  padding-top: 100%;
+}
+
+.point-store__image picture img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.point-store__main {
+  padding-left: 12px;
+}
+
+.point-store__title {
+  padding-bottom: 15px;
+}
+
+.point-store__title a {
+  font-size: 13px;
+}
+
+.point-store__title a:hover {
+  color: #7B61FF;
+  text-decoration: underline;
+}
+
+.point-store__price {
+  font-weight: 800;
+}
+
+.tooltip-box-item {
+  position: absolute;
+  background-color: #fff;
+  width: 400px;
+  padding: 15px;
+  filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.15));
+  z-index: 15;
+  left: -180px;
+  bottom: 33px;
+  animation: fade-in 0.3s ease forwards;
+}
+
+.popup-tooltip-box {
+  background-color: #fff;
+  padding: 15px;
+}
+
+.tooltip-box__title {
+  font-size: 18px;
+  font-weight: 800;
+  padding-bottom: 10px;
+}
+
+.tooltip-box__text {
+  font-size: 13px;
+  line-height: 140%;
 }
 
 .product-prop {
@@ -6570,6 +6801,14 @@ footer {
   font-weight: 400;
 }
 
+.review-filter__add {
+  padding-bottom: 20px;
+}
+
+.review-filter__add .btn {
+  width: 100%;
+}
+
 .product-review__aside {
   display: none;
 }
@@ -6754,7 +6993,7 @@ footer {
 .card-review__rating {
   display: flex;
   align-items: center;
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 }
 
 .card-review__rating span {
@@ -6818,8 +7057,8 @@ footer {
 
 .card-review__text {
   line-height: 143%;
-  font-size: 14px;
-  padding-bottom: 10px;
+  font-size: 15px;
+  padding-bottom: 12px;
 }
 
 .card-review__action {
@@ -6836,12 +7075,14 @@ footer {
 
 .card-review__thesis {
   padding-bottom: 10px;
+  margin: -5px -10px;
 }
 
 .card-review__flaws,
 .card-review__adv {
   display: flex;
   align-items: center;
+  padding: 5px 10px;
 }
 
 .card-review__flaws span,
@@ -7336,6 +7577,10 @@ a[data-tooltip]:hover::before {
   .single-product__tabs.fixed-tabs ul {
     padding: 0 16px;
     max-width: 400px;
+  }
+
+  .popup-tooltip-box {
+    max-width: 480px;
   }
 }
 
@@ -7939,7 +8184,7 @@ a[data-tooltip]:hover::before {
   .single-product__tabs ul {
     border-bottom: 1px solid #E0E0E0;
     padding-bottom: 0;
-    margin-bottom: 20px;
+    margin-bottom: 33px;
   }
 
   .single-product__tabs ul li a {
@@ -7963,7 +8208,11 @@ a[data-tooltip]:hover::before {
 
   .product-main__details {
     width: 71%;
-    padding-left: 50px;
+    padding-left: 42px;
+  }
+
+  .product-details__colors {
+    padding-bottom: 25px;
   }
 
   .product-details__compare span,
@@ -7986,6 +8235,11 @@ a[data-tooltip]:hover::before {
     columns: 2;
   }
 
+  .fast-properties__items li a {
+    font-size: 15px;
+    padding: 7px 16px 9px 16px;
+  }
+
   .popup-store-offers__items {
     margin-right: -10px;
   }
@@ -8004,6 +8258,43 @@ a[data-tooltip]:hover::before {
     width: auto;
     padding: 0 7px;
     height: 36px;
+  }
+
+  .store-points {
+    width: 60vw;
+    max-width: 1070px;
+  }
+
+  .store-points__wrp {
+    display: flex;
+  }
+
+  .store-points__head {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 160%;
+    padding: 25px 25px;
+  }
+
+  .store-points__map #map-stores {
+    height: 70vh;
+  }
+
+  .store-points__list {
+    width: 40%;
+    height: 70vh;
+  }
+
+  .store-points__title {
+    font-size: 14px;
+  }
+
+  .store-points__worktime {
+    font-size: 14px;
+  }
+
+  .point-store__name a {
+    font-size: 18px;
   }
 
   .product-prop__list {
@@ -8043,19 +8334,20 @@ a[data-tooltip]:hover::before {
   }
 
   .product-review__aside {
-    min-width: 270px;
-    width: 270px;
+    min-width: 240px;
+    width: 240px;
     display: block;
   }
 
   .product-review__content {
-    padding-right: 33px;
+    padding-right: 70px;
   }
 
   .review-content__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 0 36px 0;
   }
 
   .review-content__view {
@@ -8076,6 +8368,12 @@ a[data-tooltip]:hover::before {
 
   .card-review__date {
     font-size: 14px;
+  }
+
+  .card-review__thesis {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
   }
 
   .product-video__list {
@@ -8357,6 +8655,15 @@ a[data-tooltip]:hover::before {
     min-width: 148px;
   }
 
+  .product-mini__image {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .product-mini__review {
+    padding-bottom: 15px;
+  }
+
   .product-video__list {
     margin: -12px;
   }
@@ -8522,7 +8829,7 @@ a[data-tooltip]:hover::before {
   }
 
   .product-review__aside {
-    min-width: 320px;
+    min-width: 240px;
   }
 
   .card-review__rating small {

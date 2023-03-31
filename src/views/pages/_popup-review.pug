@@ -1,0 +1,64 @@
+include ../../views/helpers/mixins.pug
+include ../../blocks/modules/single-product/single-product__review.pug
+include ../../data/data.pug
+
+.create-review
+    .create-review__title Новый отзыв о товаре:
+    .create-review__product
+        .create-review__image
+            +picture('/img/product/minicard-1')
+        .create-review__name 14" Ноутбук ASUS ZenBook 14 UX425EA-KI421T 1920x1080, Intel Core i3 1115G4 3 ГГц, RAM 8 ГБ, SSD 256 ГБ, Intel UHD Graphics, Windows 10 Home, 90NB0SM1-M08850, Pine Grey
+        .create-review__form
+            .form
+                .form__item
+                    .form__subitem
+                        label Оценка *
+                        ul
+                            li
+                                label
+                                    input(type="radio" name="qi" value="1")
+                                    span 5
+                                    small Отлично
+                            li
+                                label
+                                    input(type="radio" name="qi" value="1")
+                                    span 4
+                                    small Хорошо
+                            li
+                                label
+                                    input(type="radio" name="qi" value="1")
+                                    span 3
+                                    small Средне
+                            li
+                                label
+                                    input(type="radio" name="qi" value="1")
+                                    span 2
+                                    small Плохо
+                            li
+                                label
+                                    input(type="radio" name="qi" value="1")
+                                    span 1
+                                    small Ужасно
+                .form__item
+                    .form__subitem
+                        label Отзыв*
+                        textarea(placeholder="Текст отзыва")
+                .form__item
+                    .form__subitem
+                        label Достоинства товара <span data-tooltip="До 120 символов,отделять запятыми" ></span>
+                        input( type="text" placeholder="Введите достоинства")
+                .form__item
+                    .form__subitem
+                        label Недостатки товара <span data-tooltip="До 120 символов,отделять запятыми" ></span>
+                        input( type="text" placeholder="Введите недостатки")
+                .form__item
+                    .form__subitem
+                        +checkbox('Оставить анонимно')
+                .form__item
+                    .form__subitem
+                        button.btn Отправить отзыв
+                    .form__subitem
+                        .policy Оставляя отзыв, вы соглашаетесь c <br> <a href="/policy.html" >условиями использования сервиса</a>
+
+
+

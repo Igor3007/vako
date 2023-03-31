@@ -1407,22 +1407,26 @@
          changeTab(tab) {
 
 
+             // this.items[0].classList.add('active')
+
              this.items.forEach(item => {
 
-
-
                  if (item.dataset.tab.split(',').indexOf(tab) !== -1) {
-                     item.classList.add('active')
 
+                     this.items.forEach(item => {
 
+                         if (item.dataset.tab.split(',').indexOf(tab) !== -1) {
+                             item.classList.add('active')
 
-                 } else {
-                     if (item.classList.contains('active')) {
-                         item.classList.remove('active')
-                     }
+                         } else {
+                             if (item.classList.contains('active')) {
+                                 item.classList.remove('active')
+                             }
+                         }
+
+                     })
+
                  }
-
-
 
              })
 
@@ -1482,19 +1486,19 @@
      fixed nav single product
      ======================================*/
 
-     window.addEventListener('scroll', () => {
-         if (window.pageYOffset > 100) {
+     //  window.addEventListener('scroll', () => {
+     //      if (window.pageYOffset > 100) {
 
-             document.querySelector('.single-product__tabs').classList.add('fixed-tabs')
+     //          document.querySelector('.single-product__tabs').classList.add('fixed-tabs')
 
-         } else {
+     //      } else {
 
-             if (document.querySelector('.single-product__tabs').classList.contains('fixed-tabs')) {
-                 document.querySelector('.single-product__tabs').classList.remove('fixed-tabs')
-             }
+     //          if (document.querySelector('.single-product__tabs').classList.contains('fixed-tabs')) {
+     //              document.querySelector('.single-product__tabs').classList.remove('fixed-tabs')
+     //          }
 
-         }
-     })
+     //      }
+     //  })
 
      /* =================================
      store offers
@@ -1546,13 +1550,15 @@
      ajax tooltip
      ====================================*/
 
-     if (document.querySelector('[data-tooltip]')) {
+     if (document.querySelector('[data-prop-tooltip]')) {
 
 
          class TooltipAjax {
 
              constructor() {
-                 this.$items = document.querySelectorAll('[data-tooltip]')
+                 this.$items = document.querySelectorAll('[data-prop-tooltip]')
+                 this.addEvents()
+                 this.tooltip = null;
              }
 
              ajaxLoadTooltip(tooltipID) {
@@ -1575,17 +1581,42 @@
                  const html = `
 
                     <div class="tooltip-box" >
-                        <div class="tooltip-box__title" ></div>
-                        <div class="tooltip-box__text" ></div>
+                        <div class="tooltip-box__title" >Жесткий диск</div>
+                        <div class="tooltip-box__text" >Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе. Тенты часто применяют, чтобы законсервировать морозоустойчивые бассейны на зиму. В этом случае нужно следить за что уровнем снега на поверхности бассейна и вовремя его убирать, чтобы накопившаяся снежная масса не продавливала тент. Изготавливают тенты чаще всего из ПВХ, реже — из полиэтилена и брезента. Брезент, в отличие от двух других материалов, пропускает воду, намокает и может утратить свои качества, если его не просушить. </div>
                     </div>
 
                 `;
 
+                 return html;
+
 
              }
 
-             tooltipDesctop() {
+             tooltipDesctop(e) {
 
+                 if (this.tooltip) {
+                     this.tooltip.remove()
+                 }
+
+                 this.tooltip = document.createElement('div')
+                 this.tooltip.innerHTML = this.getTemplate()
+
+                 this.tooltip.classList.add('tooltip-box-item')
+                 //  this.tooltip.style.left = (e.target.clientWidth / 2) + 'px'
+                 //  this.tooltip.style.top = (e.target.clientHeight) + 'px'
+
+                 e.target.append(this.tooltip)
+             }
+
+             tooltipPopup() {
+                 const tooltipPopup = new afLightbox({
+                     mobileInBottom: true
+                 })
+
+                 tooltipPopup.open('<div class="popup-tooltip-box" >' + this.getTemplate() + '</div>', function (instanse) {
+
+
+                 })
              }
 
              addEvents() {
@@ -1594,14 +1625,19 @@
                      //for desctop
                      if (document.body.clientWidth > 992) {
                          item.addEventListener('mouseenter', e => {
-                             this.tooltipDesctop()
+                             this.tooltipDesctop(e)
+                         })
+                         item.addEventListener('mouseleave', e => {
+                             if (this.tooltip) {
+                                 this.tooltip.remove()
+                             }
                          })
                      }
 
                      //for mobile
                      if (document.body.clientWidth <= 992) {
-                         item.addEventListener('mouseenter', e => {
-                             this.tooltipPopup()
+                         item.addEventListener('click', e => {
+                             this.tooltipPopup(e)
                          })
                      }
 
@@ -1610,12 +1646,64 @@
 
          }
 
+         new TooltipAjax()
+
 
 
 
 
 
      }
+
+     /* ====================================
+      change tab catalog
+      ====================================*/
+
+     if (document.querySelector('[data-single-view]')) {
+
+         const items = document.querySelectorAll('[data-single-view]')
+         const tabs = document.querySelectorAll('[data-single-catalog]')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+
+                 tabs.forEach(tab => {
+                     if (tab.dataset.singleCatalog == item.dataset.singleView) {
+                         tab.classList.add('is-active')
+                     } else {
+                         if (tab.classList.contains('is-active')) {
+                             tab.classList.remove('is-active')
+                         }
+                     }
+                 })
+
+             })
+         })
+
+         /* ======================== */
+
+         window.loadApiYmaps((e) => {
+
+             ymaps.ready(() => {
+
+                 var map;
+
+                 map = new ymaps.Map('map-stores', {
+                     center: [55.76, 37.64], // Москва
+                     zoom: 10,
+                     controls: ['zoomControl', 'fullscreenControl']
+                 }, {
+                     suppressMapOpenBlock: true
+                 });
+
+                 //this.getJsonData()
+             });
+
+
+         })
+
+     }
+
 
      /* ====================================
       class revies
@@ -1737,6 +1825,31 @@
      new Reviews({
          container: '.review-content'
      });
+
+     /* ==============================================
+     view all photo
+    ============================================== */
+
+     if (document.querySelector('.product-images__all')) {
+
+         document.querySelector('.product-images__all').addEventListener('click', e => {
+
+             const img = document.querySelectorAll('.product-images__thumb img')
+             const arrImage = [];
+
+             img.forEach(image => {
+                 arrImage.push(image.getAttribute('src'))
+             })
+
+             const instance = new FsLightbox();
+             instance.props.type = "image";
+             instance.props.sources = arrImage;
+             instance.open()
+
+
+         })
+
+     }
 
 
 
