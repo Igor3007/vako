@@ -1497,19 +1497,28 @@
      fixed nav single product
      ======================================*/
 
-     //  window.addEventListener('scroll', () => {
-     //      if (window.pageYOffset > 100) {
+     if (document.querySelector('.single-product__tabs')) {
 
-     //          document.querySelector('.single-product__tabs').classList.add('fixed-tabs')
+         const elemTabs = document.querySelector('.single-product__tabs')
+         const topOffset = elemTabs.getBoundingClientRect().top + document.body.scrollTop
+         const heihgtTabs = (topOffset - elemTabs.clientHeight)
 
-     //      } else {
+         window.addEventListener('scroll', () => {
 
-     //          if (document.querySelector('.single-product__tabs').classList.contains('fixed-tabs')) {
-     //              document.querySelector('.single-product__tabs').classList.remove('fixed-tabs')
-     //          }
 
-     //      }
-     //  })
+
+             if (window.pageYOffset > heihgtTabs) {
+                 document.querySelector('.single-product__tabs').classList.add('fixed-tabs')
+             } else {
+                 if (document.querySelector('.single-product__tabs').classList.contains('fixed-tabs')) {
+                     document.querySelector('.single-product__tabs').classList.remove('fixed-tabs')
+                 }
+             }
+         })
+
+     }
+
+
 
      /* =================================
      store offers
@@ -1605,9 +1614,9 @@
 
              tooltipDesctop(e) {
 
-                 if (this.tooltip) {
-                     this.tooltip.remove()
-                 }
+                 //  if (this.tooltip) {
+                 //      this.tooltip.remove()
+                 //  }
 
                  this.tooltip = document.createElement('div')
                  this.tooltip.innerHTML = this.getTemplate()
@@ -1871,10 +1880,10 @@
 
          const items = document.querySelectorAll('[data-review="create"]')
          const createReviewPopup = new afLightbox({
-             mobileInBottom: false
+             mobileInBottom: true
          })
          const successPopup = new afLightbox({
-             mobileInBottom: true
+             mobileInBottom: false
          })
 
 
@@ -1925,6 +1934,65 @@
          })
 
      }
+
+     /* ========================================
+     show more
+     ========================================*/
+
+     if (document.querySelector('.product-prop__desc')) {
+
+         const text = document.querySelector('.product-prop__desc')
+
+         if (text.innerText.length > 300 && document.body.clientWidth <= 480) {
+
+             // create button
+             const showButton = document.createElement('div')
+             showButton.classList.add('product-prop__show')
+             showButton.classList.add('sub-menu-toggle')
+             showButton.innerHTML = 'Читать полностью'
+
+             showButton.addEventListener('click', e => {
+                 text.classList.toggle('is-open')
+                 showButton.classList.toggle('is-open')
+                 showButton.innerText = (text.classList.contains('is-open') ? 'Свернуть' : 'Читать полностью')
+             })
+
+             text.classList.add('text--line-clamp-6')
+             text.after(showButton)
+
+         }
+
+
+
+     }
+
+     /* ==========================================
+     like
+     ==========================================*/
+
+     if (document.querySelector('[data-like="add"]')) {
+
+         const items = document.querySelectorAll('[data-like="add"]')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+
+                 let num = item.querySelector('.like-count')
+
+                 item.classList.toggle('is-active')
+
+                 if (item.classList.contains('is-active')) {
+                     num.innerText = (Number(item.querySelector('.like-count').innerText) + 1)
+                 } else {
+                     num.innerText = (Number(item.querySelector('.like-count').innerText) - 1)
+                 }
+
+
+             })
+         })
+
+     }
+
 
 
 

@@ -23,6 +23,26 @@
             overflow-y: hidden;
             padding-bottom: 10px;
 
+
+            scrollbar-color: transparent transparent;
+            scrollbar-width: thin !important;
+
+
+            &::-webkit-scrollbar {
+                width: 5px;
+                border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+                border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border-radius: 4px;
+            }
+
             @media screen and (min-width: $w992) {
                 border-bottom: 1px solid #E0E0E0;
                 padding-bottom: 0;
@@ -232,6 +252,7 @@
             & li {
                 padding: 2px;
 
+
                 & label {
                     & input {
                         display: none;
@@ -273,6 +294,16 @@
                     }
 
 
+                }
+
+                &:nth-child(1) {
+
+
+                    & span[data-tooltip] {
+                        &::before {
+                            transform: translateX(0);
+                        }
+                    }
                 }
             }
 
@@ -382,6 +413,8 @@
         display: flex;
         align-items: center;
         margin-left: 10px;
+        color: $gray-56;
+        font-weight: 600;
 
         & svg {
             fill: $gray-56;
@@ -396,6 +429,7 @@
             display: none;
             padding-left: 10px;
             font-size: 13px;
+            color: $gray-56;
 
             @media screen and (min-width: $w992) {
                 display: inline-block;
@@ -423,6 +457,12 @@
                 & svg {
                     fill: $accent-1-1;
                 }
+
+                & span {
+                    color: $accent-1-1;
+                }
+
+
             }
         }
     }
@@ -436,6 +476,10 @@
     }
 
     &__properties-fast {
+
+        border-bottom: 1px solid #eee;
+        margin-bottom: 20px;
+
         @media screen and (min-width: $w992) {
             columns: 2;
         }
@@ -754,6 +798,8 @@
         display: flex;
         align-items: center;
         margin-left: 10px;
+        font-weight: 600;
+
 
         & svg {
             fill: $gray-56;
@@ -768,6 +814,7 @@
             display: none;
             padding-left: 10px;
             font-size: 13px;
+            color: $gray-56;
 
             @media screen and (min-width: $w992) {
                 display: inline-block;
@@ -794,6 +841,10 @@
 
                 & svg {
                     fill: $accent-1-1;
+                }
+
+                & span {
+                    color: $accent-1-1;
                 }
             }
         }
@@ -1025,14 +1076,20 @@ div[data-single-catalog] {
     position: absolute;
     background-color: #fff;
     width: 400px;
-    padding: 15px;
-    filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.15));
+    padding: 16px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
 
     z-index: 15;
     left: -180px;
     bottom: 33px;
     animation: fade-in 0.3s ease forwards;
+
+    -webkit-column-break-inside: avoid;
+    -webkit-backface-visibility: hidden;
 }
+
+
 
 .popup-tooltip-box {
     background-color: #fff;
@@ -1046,14 +1103,37 @@ div[data-single-catalog] {
 
 
 .tooltip-box {
+
+    -webkit-column-break-inside: avoid;
+    -webkit-backface-visibility: hidden;
+
+
     &__title {
         font-size: 18px;
         font-weight: 800;
         padding-bottom: 10px;
+
+        -webkit-column-break-inside: avoid;
+        -webkit-backface-visibility: hidden;
     }
 
     &__text {
         font-size: 13px;
         line-height: 140%;
+        -webkit-column-break-inside: avoid;
+        -webkit-backface-visibility: hidden;
     }
+}
+
+.single-product__tabs.fixed-tabs~div {
+
+    margin-top: 48px;
+
+    @media screen and (min-width: $w992) {
+        margin-top: 73px;
+    }
+}
+
+.page-hidden .single-product__tabs {
+    display: none;
 }

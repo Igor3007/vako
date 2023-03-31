@@ -88,6 +88,12 @@ mixin card-review
                 .card-review__add(data-review="add")
                     +icons('#ic_comment', 20)
                     span Комментировать
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                    .card-review__complaint
+                        +icons('#ic_warning', 20) 
             .card-review__childs
 
 

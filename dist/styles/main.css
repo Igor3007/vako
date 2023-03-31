@@ -2188,7 +2188,7 @@ select {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  scrollbar-color: #eee;
+  scrollbar-color: transparent transparent;
   scrollbar-width: thin !important;
 }
 
@@ -5771,6 +5771,23 @@ footer {
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 10px;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin !important;
+}
+
+.single-product__tabs ul::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 4px;
+}
+
+.single-product__tabs ul::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.single-product__tabs ul::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 4px;
 }
 
 .single-product__tabs ul li {
@@ -5949,6 +5966,10 @@ footer {
   transform: translateX(calc(-50% + 12px));
 }
 
+.product-details__colors ul li:nth-child(1) span[data-tooltip]::before {
+  transform: translateX(0);
+}
+
 .product-details__colors ul span {
   width: 24px;
   height: 24px;
@@ -6034,6 +6055,8 @@ footer {
   display: flex;
   align-items: center;
   margin-left: 10px;
+  color: #8f8f8f;
+  font-weight: 600;
 }
 
 .product-details__compare svg,
@@ -6049,6 +6072,7 @@ footer {
   display: none;
   padding-left: 10px;
   font-size: 13px;
+  color: #8f8f8f;
 }
 
 .product-details__compare a,
@@ -6072,8 +6096,18 @@ footer {
   fill: #DF1F26;
 }
 
+.product-details__compare a:hover span,
+.product-details__fav a:hover span {
+  color: #DF1F26;
+}
+
 .product-details__properties-min {
   display: none;
+}
+
+.product-details__properties-fast {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
 }
 
 .fast-properties__title {
@@ -6314,6 +6348,7 @@ footer {
   display: flex;
   align-items: center;
   margin-left: 10px;
+  font-weight: 600;
 }
 
 .product-mini__compare svg,
@@ -6329,6 +6364,7 @@ footer {
   display: none;
   padding-left: 10px;
   font-size: 13px;
+  color: #8f8f8f;
 }
 
 .product-mini__compare a,
@@ -6350,6 +6386,11 @@ footer {
 .product-mini__compare a:hover svg,
 .product-mini__fav a:hover svg {
   fill: #DF1F26;
+}
+
+.product-mini__compare a:hover span,
+.product-mini__fav a:hover span {
+  color: #DF1F26;
 }
 
 .product-mini__fav {
@@ -6549,12 +6590,15 @@ div[data-single-catalog]:not(.is-active) {
   position: absolute;
   background-color: #fff;
   width: 400px;
-  padding: 15px;
-  filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.15));
+  padding: 16px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
   z-index: 15;
   left: -180px;
   bottom: 33px;
   animation: fade-in 0.3s ease forwards;
+  -webkit-column-break-inside: avoid;
+  -webkit-backface-visibility: hidden;
 }
 
 .popup-tooltip-box {
@@ -6562,15 +6606,32 @@ div[data-single-catalog]:not(.is-active) {
   padding: 15px;
 }
 
+.tooltip-box {
+  -webkit-column-break-inside: avoid;
+  -webkit-backface-visibility: hidden;
+}
+
 .tooltip-box__title {
   font-size: 18px;
   font-weight: 800;
   padding-bottom: 10px;
+  -webkit-column-break-inside: avoid;
+  -webkit-backface-visibility: hidden;
 }
 
 .tooltip-box__text {
   font-size: 13px;
   line-height: 140%;
+  -webkit-column-break-inside: avoid;
+  -webkit-backface-visibility: hidden;
+}
+
+.single-product__tabs.fixed-tabs ~ div {
+  margin-top: 48px;
+}
+
+.page-hidden .single-product__tabs {
+  display: none;
 }
 
 .product-prop {
@@ -6579,6 +6640,11 @@ div[data-single-catalog]:not(.is-active) {
 
 .product-prop__desc {
   padding-bottom: 15px;
+}
+
+.product-prop__desc.is-open {
+  line-clamp: unset;
+  display: block;
 }
 
 .product-prop__title {
@@ -6607,6 +6673,11 @@ div[data-single-catalog]:not(.is-active) {
 
 .product-prop__complain a {
   color: #7B61FF;
+}
+
+.product-prop__show {
+  filter: none;
+  margin-bottom: 30px;
 }
 
 .product-properties__tooltip {
@@ -6957,6 +7028,60 @@ div[data-single-catalog]:not(.is-active) {
   align-items: flex-start;
 }
 
+.card-review__like,
+.card-review__complaint {
+  min-width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  padding: 0 7px;
+  color: #8f8f8f;
+}
+
+.card-review__like svg,
+.card-review__complaint svg {
+  fill: #8F8F8F;
+}
+
+.card-review__like:hover,
+.card-review__complaint:hover {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.card-review__like:hover svg,
+.card-review__complaint:hover svg {
+  fill: #DF1F26;
+}
+
+.card-review__like:hover span,
+.card-review__complaint:hover span {
+  color: #DF1F26;
+}
+
+.card-review__like.is-active svg,
+.card-review__complaint.is-active svg {
+  fill: #DF1F26;
+}
+
+.card-review__like.is-active span,
+.card-review__complaint.is-active span {
+  color: #DF1F26;
+}
+
+.card-review__like span {
+  font-weight: 800;
+  margin-left: 5px;
+}
+
+.card-review__button {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
 .card-review__photo {
   max-width: 40px;
   width: 40px;
@@ -7235,6 +7360,14 @@ div[data-single-catalog]:not(.is-active) {
 
 .page-hidden {
   overflow: hidden !important;
+}
+
+.text--line-clamp-6 {
+  letter-spacing: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .slider {
@@ -7581,7 +7714,6 @@ a[data-tooltip]:hover::before {
 
 .create-review__form .form__subitem .btn {
   width: 100%;
-  padding-top: 8px;
 }
 
 .create-review__form .form__subitem .policy {
@@ -7671,10 +7803,6 @@ a[data-tooltip]:hover::before {
   margin-left: 9px;
   display: inline-block;
   margin-top: -1px;
-}
-
-.qi-review small:hover {
-  text-decoration: underline;
 }
 
 .qi-review label {
@@ -8602,6 +8730,10 @@ a[data-tooltip]:hover::before {
     font-size: 18px;
   }
 
+  .single-product__tabs.fixed-tabs ~ div {
+    margin-top: 73px;
+  }
+
   .product-prop__list {
     columns: 2;
     padding-top: 40px;
@@ -9335,6 +9467,27 @@ a[data-tooltip]:hover::before {
     left: auto;
     right: 0;
     transform: none;
+  }
+
+  .minicard--mini .minicard__images {
+    display: none;
+  }
+
+  .minicard--mini .minicard__content {
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .minicard--mini .minicard__title {
+    display: none;
+  }
+
+  .minicard--mini .minicard__other {
+    display: none;
+  }
+
+  .minicard--mini .minicard__store-price {
+    display: none;
   }
 
   .splide__pagination__page {

@@ -248,10 +248,9 @@ mixin product-common
                             .catalog-products(data-catalog="container")
                                 each item in storeOoffers
 
-                                    if item.type == 'goods'
-                                        .catalog-products__item: +minicard(item)
+                                   
                                     if item.type == 'store'
-                                        .catalog-products__item: +minicard--store(item)
+                                        .catalog-products__item: +minicard--mini(item)
 
                             .catalog-pagination
                                 .catalog-pagination__more

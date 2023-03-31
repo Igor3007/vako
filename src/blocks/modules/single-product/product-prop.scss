@@ -4,6 +4,12 @@
 
     &__desc {
         padding-bottom: 15px;
+
+        &.is-open {
+            line-clamp: unset;
+            display: block
+        }
+
     }
 
     &__title {
@@ -46,6 +52,11 @@
         & a {
             color: $accent-2-1;
         }
+    }
+
+    &__show {
+        filter: none;
+        margin-bottom: 30px;
     }
 }
 
@@ -102,4 +113,6 @@
         text-align: right;
         margin-left: auto;
     }
+
+
 }

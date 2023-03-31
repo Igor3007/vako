@@ -24,6 +24,10 @@
 }
 
 
+.text--line-clamp-6 {
+    @include line-clamp(6);
+}
+
 
 .slider {
     display: block;
@@ -419,7 +423,7 @@ a[data-tooltip]:hover::before {
 
                 & .btn {
                     width: 100%;
-                    padding-top: 8px;
+
                 }
 
                 & .policy {
@@ -437,7 +441,6 @@ a[data-tooltip]:hover::before {
 
                         &:hover {
                             text-decoration: underline;
-
                         }
                     }
 
@@ -542,9 +545,7 @@ a[data-tooltip]:hover::before {
         display: inline-block;
         margin-top: -1px;
 
-        &:hover {
-            text-decoration: underline;
-        }
+
 
         @media screen and (min-width: $w1440) {
             font-size: 14px;
