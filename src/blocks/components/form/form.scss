@@ -105,16 +105,15 @@ input {
         max-width: 100%;
         resize: vertical;
         width: 100%;
-        border: 1px solid #BCBCBC;
+        border: 1px solid $gray-92;
         border-radius: 5px;
         font-size: 14px;
         padding: rem(15);
         line-height: 140%;
+        outline: none !important;
 
         &:focus {
-            border-color: $accent-2-1;
-            background-color: #fff;
-            border-width: 2px;
+            border-color: $gray-56;
             outline: none !important;
         }
     }

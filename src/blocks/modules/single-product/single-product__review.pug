@@ -33,14 +33,15 @@ mixin product-review
                         .review-content__item: +card-review
 
             .product-review__aside
+                .product-review__add
+                            button.btn(data-review="create") Оставить отзыв
                 .review-filter
                     .review-filter__head
                         .review-filter__head-title Фильтры и сортировка
                         .review-filter__head-close: span.icon-cross(data-filter="open")
 
                     .review-filter__wrp
-                        .review-filter__add
-                            button.btn Оставить отзыв
+                        
                         .review-filter__form
                             form(action='#' method='POST')
                                 .review-filter__props

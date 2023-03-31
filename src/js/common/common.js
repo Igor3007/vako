@@ -1768,7 +1768,8 @@
                      url: '/_comment-reply.html',
                      responseType: 'html',
                      data: {
-                         value: e.target.value
+                         id: 123,
+                         parentId: 256
                      }
                  }, (status, response) => {
                      window.STATUS.msg('Комментарий добавлен!', '')
@@ -1847,6 +1848,41 @@
              instance.open()
 
 
+         })
+
+     }
+
+     /* =========================================
+     create review
+     =========================================*/
+
+     if (document.querySelector('[data-review="create"]')) {
+
+         const items = document.querySelectorAll('[data-review="create"]')
+         const createReviewPopup = new afLightbox({
+             mobileInBottom: false
+         })
+
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+
+                 createReviewPopup.open('<div class="af-spiner" ></div>', function (instanse) {
+                     window.ajax({
+                         type: 'GET', //POST
+                         url: '/_popup-create-review.html',
+                         responseType: 'html',
+
+                     }, (status, response) => {
+
+
+                         instanse.querySelector('.af-popup__content').innerHTML = response
+
+
+                     })
+                 })
+
+             })
          })
 
      }
