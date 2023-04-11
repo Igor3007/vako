@@ -563,7 +563,7 @@
         & .btn {
             height: 36px;
             font-size: 14px;
-            font-weight: 400;
+            font-weight: 600;
             padding: 8px 3em 10px 3em;
 
             @media screen and (min-width: $w1440) {
@@ -685,11 +685,33 @@
             @media screen and (min-width: $w1200) {
                 padding-bottom: 0.8em;
             }
+
+            @media screen and (max-width: $w1200) and (min-width: $w576) {
+                font-size: 15px;
+            }
         }
 
         &__store {
             @media screen and (min-width: $w1200) and (max-width: $w1440) {
                 padding-bottom: 0.3em;
+            }
+        }
+
+        &__store-price {
+            @media screen and (max-width: $w1200) and (min-width: $w576) {
+                font-size: 17px;
+            }
+        }
+
+        &__store-name {
+            @media screen and (max-width: $w1200) and (min-width: $w576) {
+                font-size: 15px;
+            }
+        }
+
+        &__store-phone span {
+            @media screen and (max-width: $w1200) and (min-width: $w576) {
+                font-size: 15px;
             }
         }
 

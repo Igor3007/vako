@@ -12,6 +12,18 @@
     }
 }
 
+@-webkit-keyframes zoomInUp {
+    from {
+        transform: scale(0.97) translate3d(0, 16px, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
 
 
 .af-popup {
@@ -20,11 +32,37 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
+
     overflow-x: auto;
     z-index: 100;
     opacity: 0;
     transition: 0.25s ease;
+
+    &__bg {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 101;
+        background-color: #000;
+        transition: 0.3s ease;
+        opacity: 0.75;
+    }
+
+    &__wrp {
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        -ms-flex-direction: column;
+        -ms-flex-align: center;
+        -ms-flex-pack: center;
+        z-index: 102;
+        position: relative;
+        min-height: 100%;
+    }
 }
 
 .af-popup--visible {
@@ -47,29 +85,6 @@
         }
 
     }
-}
-
-.af-popup__bg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 101;
-}
-
-.af-popup__wrp {
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    -ms-flex-direction: column;
-    -ms-flex-align: center;
-    -ms-flex-pack: center;
-    z-index: 102;
-    position: relative;
-    min-height: 100%;
 }
 
 .af-popup__content {

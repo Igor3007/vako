@@ -1376,9 +1376,13 @@
          init() {
 
              if (this.checkHash()) {
-                 this.changeTab(this.checkHash())
+                 this.changeTab(this.checkHash(), {
+                     scroll: false
+                 })
              } else {
-                 this.changeTab(this.setting.tabStart)
+                 this.changeTab(this.setting.tabStart, {
+                     scroll: false
+                 })
              }
 
              this.clickTab()
@@ -1415,7 +1419,7 @@
              });
          }
 
-         changeTab(tab) {
+         changeTab(tab, params) {
 
 
              // this.items[0].classList.add('active')
@@ -1441,22 +1445,36 @@
 
              })
 
+             if (this.nav.querySelector('[href="#' + tab + '"]')) {
 
-
-             this.nav.querySelectorAll('a').forEach((item) => {
-                 if (item.getAttribute('href') == '#' + tab) {
-                     item.parentNode.classList.add('active')
-                     this.scrollToElem(item.parentNode, this.nav)
-                 } else {
-                     if (item.parentNode.classList.contains('active')) {
-                         item.parentNode.classList.remove('active')
+                 //select active tab
+                 this.nav.querySelectorAll('a').forEach((item) => {
+                     if (item.getAttribute('href') == '#' + tab) {
+                         item.parentNode.classList.add('active')
+                         this.scrollToElem(item.parentNode, this.nav)
+                     } else {
+                         if (item.parentNode.classList.contains('active')) {
+                             item.parentNode.classList.remove('active')
+                         }
                      }
+                 })
+
+                 //scroll to elem
+
+                 if (params.scroll) {
+                     window.scrollTo({
+                         top: (document.querySelector('header').clientHeight || 0),
+                         behavior: 'smooth'
+
+                     })
                  }
-             })
-
-
+             }
 
              this.setting.onChangeTab(tab)
+
+
+
+
 
              initPriceRange()
 
@@ -1473,7 +1491,9 @@
              //  })
 
              window.addEventListener('hashchange', function () {
-                 _this.changeTab(window.location.hash.replace('#', ''))
+                 _this.changeTab(window.location.hash.replace('#', ''), {
+                     scroll: true
+                 })
              });
          }
 
@@ -1614,18 +1634,21 @@
 
              tooltipDesctop(e) {
 
-                 //  if (this.tooltip) {
-                 //      this.tooltip.remove()
-                 //  }
-
                  this.tooltip = document.createElement('div')
                  this.tooltip.innerHTML = this.getTemplate()
-
                  this.tooltip.classList.add('tooltip-box-item')
-                 //  this.tooltip.style.left = (e.target.clientWidth / 2) + 'px'
-                 //  this.tooltip.style.top = (e.target.clientHeight) + 'px'
 
                  e.target.append(this.tooltip)
+
+                 console.log(this.tooltip.getBoundingClientRect())
+
+                 if (this.tooltip.getBoundingClientRect().left < 20) {
+                     this.tooltip.classList.add('tooltip-box-item--left')
+                 }
+
+                 if (this.tooltip.getBoundingClientRect().top < 20) {
+                     this.tooltip.classList.add('tooltip-box-item--top')
+                 }
              }
 
              tooltipPopup() {
@@ -1633,10 +1656,7 @@
                      mobileInBottom: true
                  })
 
-                 tooltipPopup.open('<div class="popup-tooltip-box" >' + this.getTemplate() + '</div>', function (instanse) {
-
-
-                 })
+                 tooltipPopup.open('<div class="popup-tooltip-box" >' + this.getTemplate() + '</div>', false)
              }
 
              addEvents() {

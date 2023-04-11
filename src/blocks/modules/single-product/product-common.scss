@@ -165,13 +165,13 @@
                     & .splide {
                         &__slide {
 
-                            border: 2px solid transparent;
+                            border: 1px solid transparent;
                             border-radius: 6px;
                             overflow: hidden;
                             padding: 5px;
 
                             &.is-active {
-                                border: 2px solid $accent-2-1;
+                                border: 1px solid $accent-2-1;
                             }
                         }
                     }
@@ -197,11 +197,11 @@
         justify-content: center;
         width: 70px;
         min-width: 70px;
-        font-size: 13px;
+        font-size: 14px;
         color: $accent-2-1;
 
         & span {
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
         }
     }
@@ -498,9 +498,6 @@
     &__items {
         padding-bottom: 30px;
 
-
-
-
         & ul {
             display: flex;
             flex-wrap: wrap;
@@ -518,10 +515,10 @@
                 background-color: $gray-96;
                 border-radius: 4px;
                 line-height: 123%;
-                font-size: 13px;
+                font-size: 14px;
 
                 @media screen and (min-width: $w992) {
-                    font-size: 15px;
+                    font-size: 14px;
                     padding: 7px 16px 9px 16px;
                 }
 
@@ -588,7 +585,7 @@
         padding-top: 10px;
 
         & a {
-            font-weight: 800;
+            font-weight: 600;
             color: $accent-2-1;
 
             &:hover {
@@ -1087,6 +1084,15 @@ div[data-single-catalog] {
 
     -webkit-column-break-inside: avoid;
     -webkit-backface-visibility: hidden;
+}
+
+.tooltip-box-item.tooltip-box-item--left {
+    left: 0;
+}
+
+.tooltip-box-item.tooltip-box-item--top {
+    bottom: auto;
+    top: 28px;
 }
 
 
