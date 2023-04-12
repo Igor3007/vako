@@ -22,7 +22,7 @@ mixin product-review
                                     +icons('#ic_filter', 17)
                                     span Фильтры
 
-                    .review-content__list
+                    .review-content__list(data-review="list")
 
                         .review-content__item: +card-review
                         .review-content__item: +card-review-reply
@@ -31,6 +31,11 @@ mixin product-review
                         .review-content__item: +card-review-reply
                         .review-content__item: +card-review
                         .review-content__item: +card-review
+
+                    .review-content__more
+                        button(data-review="load" data-id="289")
+                            +icons('#ic_more', 14)
+                            span Показать ещё
 
             .product-review__aside
                 .product-review__add
@@ -85,7 +90,7 @@ mixin card-review
                     +icons('#ic_dislike', 20)
                     span не нашел
             .card-review__action
-                .card-review__add(data-review="add")
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
                     +icons('#ic_comment', 20)
                     span Комментировать
                 .card-review__button
@@ -125,7 +130,20 @@ mixin card-review-last
                 .card-review__date 2 месяца назад, Москва
             .card-review__text Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.
             .card-review__action
-                .card-review__add(data-review="add")
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    span Ответить
+
+mixin card-review-last--reply
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user-wooman') 
+        .card-review__main
+            .card-review__head 
+                .card-review__name Виктория Моисеенко
+                .card-review__date 2 месяца назад, Москва
+            .card-review__text В частности: название товара, слово магазин, оплата онлайн и 24 предложения явно больше, чем на iOS и в дизайне.
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
                     span Ответить
 
 
@@ -139,8 +157,16 @@ mixin card-review-reply
                 .card-review__date 2 месяца назад, Москва
             .card-review__text Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.
             .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Комментировать
                 .card-review__commets(data-review="show-comment") Все комментарии (14)
-
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                    .card-review__complaint
+                        +icons('#ic_warning', 20) 
             .card-review__childs
                 +card-review-childs()  
                  

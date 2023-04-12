@@ -148,12 +148,23 @@
          if (params.responseType == 'json') {
              xhr.responseType = 'json';
              xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+             xhr.send(JSON.stringify(params.data))
+         } else {
+
+             let formData = new FormData()
+
+             for (key in params.data) {
+                 formData.append(key, params.data[key])
+             }
+
+             xhr.send(formData)
+
          }
 
-         xhr.send(JSON.stringify(params.data))
-
          xhr.onload = function () {
-             response(xhr.status, xhr.response)
+
+             response ? response(xhr.status, xhr.response) : ''
+
              window.preloader.stop()
 
              setTimeout(function () {
@@ -1282,6 +1293,7 @@
                  window.preloader.stop()
                  if (document.querySelector('.category-filter').classList.contains('is-open')) {
                      document.querySelector('.category-filter').classList.remove('is-open')
+                     document.body.classList.contains('page-hidden') ? document.body.classList.remove('page-hidden') : ''
                  }
              }, 1000)
          })
@@ -1365,10 +1377,12 @@
          constructor(params) {
              this.setting = params
              this.nav = document.querySelector(this.setting.navElem)
-             this.container = document.querySelector(this.setting.containerElem)
-             this.items = this.container.querySelectorAll('[data-tab]')
 
-             this.init()
+             if (this.nav) {
+                 this.container = document.querySelector(this.setting.containerElem)
+                 this.items = this.container.querySelectorAll('[data-tab]')
+                 this.init()
+             }
 
          }
 
@@ -1398,8 +1412,6 @@
          scrollToElem(elem, container) {
              var rect = elem.getBoundingClientRect();
              var rectContainer = container.getBoundingClientRect();
-
-             console.log(elem, 'elem')
 
              let elemOffset = {
                  top: rect.top + document.body.scrollTop,
@@ -1601,62 +1613,99 @@
                  this.tooltip = null;
              }
 
-             ajaxLoadTooltip(tooltipID) {
+             ajaxLoadTooltip(e, callback) {
 
                  window.ajax({
-                     type: 'GET',
-                     url: '/json/index-find.json',
+                     type: 'GET', //POST
+                     url: '/json/tooltips.json',
                      responseType: 'json',
                      data: {
-                         value: e.target.value
+                         idProduct: e.target.dataset.id,
+                         idTooltip: e.target.dataset.propTooltip
                      }
                  }, function (status, response) {
-                     _this.render(response)
+                     callback(response)
                  })
 
              }
 
-             getTemplate() {
+             getTemplate(data) {
 
-                 const html = `
 
-                    <div class="tooltip-box" >
-                        <div class="tooltip-box__title" >Жесткий диск</div>
-                        <div class="tooltip-box__text" >Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе. Тенты часто применяют, чтобы законсервировать морозоустойчивые бассейны на зиму. В этом случае нужно следить за что уровнем снега на поверхности бассейна и вовремя его убирать, чтобы накопившаяся снежная масса не продавливала тент. Изготавливают тенты чаще всего из ПВХ, реже — из полиэтилена и брезента. Брезент, в отличие от двух других материалов, пропускает воду, намокает и может утратить свои качества, если его не просушить. </div>
-                    </div>
 
-                `;
+                 let html = ` <div class="tooltip-box" ><div class="af-spiner" ></div></div> `;
+
+                 if (data) {
+
+                     html = `<div class="tooltip-box" >
+                                <div class="tooltip-box__title" >${data.title}</div>
+                                <div class="tooltip-box__text" >${data.text}</div>
+                            </div> `;
+                 }
 
                  return html;
 
+             }
 
+             positionTooltip(e) {
+                 const DomRect = e.target.getBoundingClientRect()
+                 const tooltipW = this.tooltip.clientWidth;
+                 const tooltipH = this.tooltip.clientHeight;
+                 const offset = 20;
+
+                 this.tooltip.style.left = (DomRect.x - (tooltipW / 2) + (offset / 2)) + 'px'
+                 this.tooltip.style.top = (DomRect.y - tooltipH - (offset / 2)) + 'px'
+
+
+                 if (this.tooltip.getBoundingClientRect().left < offset) {
+                     this.tooltip.classList.add('tooltip-box-item--left')
+                     this.tooltip.style.left = (DomRect.x - (DomRect.x / 2) + (offset / 2)) + 'px'
+                 }
+
+                 if (this.tooltip.getBoundingClientRect().top < offset) {
+                     this.tooltip.classList.add('tooltip-box-item--top')
+                     this.tooltip.style.top = (DomRect.y + (offset)) + 'px'
+                 }
              }
 
              tooltipDesctop(e) {
 
+                 this.tooltipRemove()
+
                  this.tooltip = document.createElement('div')
-                 this.tooltip.innerHTML = this.getTemplate()
+                 this.tooltip.innerHTML = this.getTemplate(false)
                  this.tooltip.classList.add('tooltip-box-item')
 
                  e.target.append(this.tooltip)
+                 this.positionTooltip(e)
 
-                 console.log(this.tooltip.getBoundingClientRect())
+                 //load data
 
-                 if (this.tooltip.getBoundingClientRect().left < 20) {
-                     this.tooltip.classList.add('tooltip-box-item--left')
-                 }
+                 this.ajaxLoadTooltip(e, (response) => {
+                     this.tooltip.innerHTML = this.getTemplate(response)
+                     this.positionTooltip(e)
 
-                 if (this.tooltip.getBoundingClientRect().top < 20) {
-                     this.tooltip.classList.add('tooltip-box-item--top')
-                 }
+                 })
+
+
              }
 
-             tooltipPopup() {
+             tooltipPopup(e) {
                  const tooltipPopup = new afLightbox({
                      mobileInBottom: true
                  })
 
-                 tooltipPopup.open('<div class="popup-tooltip-box" >' + this.getTemplate() + '</div>', false)
+                 tooltipPopup.open('<div class="popup-tooltip-box" >' + this.getTemplate(false) + '</div>', () => {
+
+                     this.ajaxLoadTooltip(e, (response) => {
+                         tooltipPopup.changeContent('<div class="popup-tooltip-box" >' + this.getTemplate(response) + '</div>')
+                     })
+
+                 })
+             }
+
+             tooltipRemove() {
+                 this.tooltip ? this.tooltip.remove() : ''
              }
 
              addEvents() {
@@ -1668,18 +1717,16 @@
                              this.tooltipDesctop(e)
                          })
                          item.addEventListener('mouseleave', e => {
-                             if (this.tooltip) {
-                                 this.tooltip.remove()
-                             }
+                             this.tooltipRemove()
                          })
                      }
 
                      //for mobile
-                     if (document.body.clientWidth <= 992) {
-                         item.addEventListener('click', e => {
-                             this.tooltipPopup(e)
-                         })
-                     }
+
+                     item.addEventListener('click', e => {
+                         this.tooltipPopup(e)
+                     })
+
 
                  })
              }
@@ -1752,10 +1799,24 @@
      class Reviews {
          constructor(params) {
              this.$el = document.querySelector(params.container)
-             this.buttonsAddComment = this.$el.querySelectorAll('[data-review="add"]')
-             this.buttonsShowComment = this.$el.querySelectorAll('[data-review="show-comment"]')
-             this.addEvents();
-             this.formInstanse = null;
+
+             if (this.$el) {
+
+                 this.addSelector = '[data-review="add"]';
+                 this.showSelector = '[data-review="show-comment"]';
+                 this.loadSelector = '[data-review="load"]';
+                 this.LikeSelector = '[data-like="add"]';
+
+                 this.buttonsAddComment = this.$el.querySelectorAll(this.addSelector);
+                 this.buttonsShowComment = this.$el.querySelectorAll(this.showSelector);
+                 this.buttonsLoadComment = this.$el.querySelectorAll(this.loadSelector);
+                 this.buttonsLikeComment = this.$el.querySelectorAll(this.LikeSelector);
+
+                 this.ListComments = this.$el.querySelector('[data-review="list"]');
+                 this.addEvents();
+                 this.formInstanse = null;
+             }
+
          }
 
          getTemplateForm() {
@@ -1786,17 +1847,18 @@
              this.formInstanse.classList.add('card-review__form')
              this.formInstanse.innerHTML = this.getTemplateForm()
 
-             this.sendComment(this.formInstanse.querySelector('form'))
+             this.sendComment(this.formInstanse.querySelector('form'), e)
 
-             parent.append(this.formInstanse)
+             parent.querySelector('.card-review__action').after(this.formInstanse)
          }
 
-         sendComment(form) {
+         sendComment(form, eventClick) {
 
              form.addEventListener('submit', e => {
                  e.preventDefault()
 
                  const formData = new FormData(form)
+                 const button = eventClick.target.closest('[data-review]')
 
                  if (!formData.get('comment')) {
                      window.STATUS.wrn('Нельзя отправить пустой комментарий')
@@ -1804,32 +1866,17 @@
                  }
 
                  window.ajax({
-                     type: 'GET', //POST
+                     type: 'POST', //POST
                      url: '/_comment-reply.html',
                      responseType: 'html',
                      data: {
-                         id: 123,
-                         parentId: 256
+                         id: button.dataset.id || 0,
+                         parentId: button.dataset.parent || 0
                      }
                  }, (status, response) => {
                      window.STATUS.msg('Комментарий добавлен!', '')
 
-                     console.log(e.target.closest('.card-review__main'))
-
-                     const main = e.target.closest('.card-review__main');
-                     const htmlComment = document.createElement('div')
-                     htmlComment.innerHTML = response
-
-                     if (!main.querySelector('.card-review__childs')) {
-                         e.target.closest('.card-review__childs').append(htmlComment.lastChild)
-                     } else {
-                         main.querySelector('.card-review__childs').append(htmlComment.lastChild)
-                     }
-
-                     if (this.formInstanse) {
-                         this.formInstanse.remove()
-                     }
-
+                     this.renderReply(e, response)
 
                  })
 
@@ -1838,11 +1885,120 @@
 
          }
 
+         renderReply(e, response) {
+             const main = e.target.closest('.card-review__main');
+
+             const htmlComment = document.createElement('div')
+             htmlComment.innerHTML = response
+
+             this.updateEvent(htmlComment)
+
+             //если нету дочерних 
+             if (!main.querySelector('.card-review__childs')) {
+
+                 this.formInstanse.closest('.card-review').after(htmlComment.lastChild)
+
+             } else {
+                 main.querySelector('.card-review__childs').classList.add('is-open')
+                 main.querySelector('.card-review__childs').append(htmlComment.lastChild)
+
+             }
+
+             //удалить форму
+             if (this.formInstanse) {
+                 this.formInstanse.remove()
+             }
+
+         }
+
          showHideChilds(e) {
              const itemComment = e.target.closest('.card-review')
 
              itemComment.querySelector('.card-review__childs').classList.toggle('is-open')
          }
+
+         renderLoadComments(response) {
+
+             const LoadComments = document.createElement('div')
+             LoadComments.innerHTML = response
+
+             LoadComments.querySelectorAll('.comment > .card-review').forEach(item => {
+
+                 this.updateEvent(item)
+
+                 const newComment = document.createElement('div')
+                 newComment.classList.add('review-content__item')
+                 newComment.append(item)
+
+                 this.ListComments.append(newComment)
+
+             })
+         }
+
+         loadMore(e) {
+             window.ajax({
+                 type: 'GET', //POST
+                 url: '/_comment-more.html',
+                 responseType: 'html',
+                 data: {
+                     id: e.target.dataset.id,
+                 }
+             }, (status, response) => {
+                 window.STATUS.msg('Комментарий load!', '')
+
+                 this.renderLoadComments(response)
+
+             })
+         }
+
+         changeLike(e) {
+             let item = e.target.closest('[data-like]')
+             let num = item.querySelector('.like-count')
+
+             item.classList.toggle('is-active')
+
+             if (item.classList.contains('is-active')) {
+                 num.innerText = (Number(item.querySelector('.like-count').innerText) + 1)
+             } else {
+                 num.innerText = (Number(item.querySelector('.like-count').innerText) - 1)
+             }
+
+             window.ajax({
+                 type: 'GET', //POST
+                 url: '/json/tooltips.json',
+                 responseType: 'json',
+                 data: {
+                     id: item.dataset.id,
+                 }
+             }, false)
+         }
+
+         updateEvent(comment) {
+             comment.querySelectorAll(this.addSelector).forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.addForm(e)
+                 })
+             })
+
+             comment.querySelectorAll(this.showSelector).forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.showHideChilds(e)
+                 })
+             })
+
+             comment.querySelectorAll(this.loadSelector).forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.loadMore(e)
+                 })
+             })
+             comment.querySelectorAll(this.LikeSelector).forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.changeLike(e)
+                 })
+             })
+         }
+
+
 
          addEvents() {
              this.buttonsAddComment.forEach(item => {
@@ -1854,6 +2010,18 @@
              this.buttonsShowComment.forEach(item => {
                  item.addEventListener('click', e => {
                      this.showHideChilds(e)
+                 })
+             })
+
+             this.buttonsLoadComment.forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.loadMore(e)
+                 })
+             })
+
+             this.buttonsLikeComment.forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.changeLike(e)
                  })
              })
 
@@ -1983,33 +2151,6 @@
          }
 
 
-
-     }
-
-     /* ==========================================
-     like
-     ==========================================*/
-
-     if (document.querySelector('[data-like="add"]')) {
-
-         const items = document.querySelectorAll('[data-like="add"]')
-
-         items.forEach(item => {
-             item.addEventListener('click', e => {
-
-                 let num = item.querySelector('.like-count')
-
-                 item.classList.toggle('is-active')
-
-                 if (item.classList.contains('is-active')) {
-                     num.innerText = (Number(item.querySelector('.like-count').innerText) + 1)
-                 } else {
-                     num.innerText = (Number(item.querySelector('.like-count').innerText) - 1)
-                 }
-
-
-             })
-         })
 
      }
 

@@ -6606,27 +6606,31 @@ div[data-single-catalog]:not(.is-active) {
 }
 
 .tooltip-box-item {
-  position: absolute;
+  position: fixed;
   background-color: #fff;
   width: 400px;
   padding: 16px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   z-index: 15;
-  left: -180px;
-  bottom: 33px;
   animation: fade-in 0.3s ease forwards;
   -webkit-column-break-inside: avoid;
   -webkit-backface-visibility: hidden;
 }
 
-.tooltip-box-item.tooltip-box-item--left {
-  left: 0;
+.tooltip-box .af-spiner {
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
 }
 
-.tooltip-box-item.tooltip-box-item--top {
-  bottom: auto;
-  top: 28px;
+.tooltip-box .af-spiner::after {
+  content: '';
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  border: 3px solid #7B61FF;
 }
 
 .popup-tooltip-box {
@@ -6964,6 +6968,38 @@ div[data-single-catalog]:not(.is-active) {
   width: 100%;
 }
 
+.review-content__more {
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+
+.review-content__more button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  color: #8f8f8f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.review-content__more button svg {
+  fill: #8f8f8f;
+  margin-right: 10px;
+}
+
+.review-content__more button:hover {
+  color: #7B61FF;
+}
+
+.review-content__more button:hover svg {
+  fill: #7B61FF;
+  margin-right: 10px;
+}
+
 .review-content__top {
   padding: 0 0 30px 0;
   margin-top: -5px;
@@ -7223,6 +7259,11 @@ div[data-single-catalog]:not(.is-active) {
   padding-bottom: 12px;
 }
 
+.card-review__commets {
+  display: flex;
+  align-items: center;
+}
+
 .card-review__action {
   padding-bottom: 10px;
   color: #7B61FF;
@@ -7452,7 +7493,6 @@ div[data-single-catalog]:not(.is-active) {
 }
 
 .popup-points {
-  width: 100vw;
   background-color: #eee;
   margin: -10px;
   border-radius: 6px;
@@ -8865,6 +8905,7 @@ a[data-tooltip]:hover::before {
   .popup-points {
     width: 60vw;
     max-width: 1070px;
+    min-width: 992px;
   }
 
   .popup-points__wrp {

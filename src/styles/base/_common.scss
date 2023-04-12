@@ -85,7 +85,7 @@
 }
 
 .popup-points {
-    width: 100vw;
+    // width: 100vw;
     background-color: #eee;
     margin: -10px;
     border-radius: 6px;
@@ -94,7 +94,7 @@
     @media screen and (min-width: $w992) {
         width: 60vw;
         max-width: 1070px;
-
+        min-width: 992px;
     }
 
     &__wrp {
