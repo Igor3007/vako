@@ -1,0 +1,14 @@
+extends ../../layouts/store
+
+include ../../../blocks/modules/store/store-index/store-index.pug
+ 
+block variables
+  include ../../../data/data.pug
+  - const title = "Vako - Панель управления магазином"
+
+block content
+  +store-index()
+
+
+ 
+  

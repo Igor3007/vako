@@ -11,7 +11,7 @@
     margin: auto;
 }
 
-@mixin scrollbar {
+@mixin scrollbar() {
 
     scrollbar-color: $gray-80 $gray-92;
     scrollbar-width: thin !important;

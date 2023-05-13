@@ -261,11 +261,7 @@ input {
         height: 48px;
         border: 1px solid #EBEBEB;
         box-sizing: border-box;
-        background-color: #f2f2f2;
-
-        @media screen and (min-width: $w1200) {
-            height: 56px;
-        }
+        border-radius: 4px;
 
         & .select-options li {
             max-width: none;

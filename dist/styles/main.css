@@ -744,7 +744,6 @@ select {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  color: #DF1F26;
 }
 
 .select-styled:after {
@@ -769,6 +768,7 @@ select {
 .select-styled:active,
 .select-styled.active {
   background-color: #e5e5e5;
+  border-color: 1px solid #8f8f8f;
 }
 
 .select-styled:active:after,
@@ -1916,6 +1916,18 @@ select {
   }
 }
 
+@keyframes fade-drop-filter {
+  from {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .btn {
   padding: 0.8em 2.05em 0.85em 2.05em;
   background: #DF1F26;
@@ -2466,7 +2478,7 @@ input:focus {
   height: 48px;
   border: 1px solid #EBEBEB;
   box-sizing: border-box;
-  background-color: #f2f2f2;
+  border-radius: 4px;
 }
 
 .form .af-select .select-options li {
@@ -8992,10 +9004,6 @@ a[data-tooltip]:hover::before {
 
   .formated-text h6 {
     font-size: 14px;
-  }
-
-  .form .af-select {
-    height: 56px;
   }
 
   .header-top__logo {

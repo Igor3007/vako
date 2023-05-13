@@ -1,0 +1,114 @@
+mixin staistic-on-click
+    .widget-block
+        .widget-block__wrp
+            .widget-block__title Статистика по кликам
+            .widget-block__tabs(data-widget="tabs")
+                ul 
+                    li.is-active: span Вчера
+                    li: span За неделю
+                    li: span За месяц
+            .widget-block__tabs-content
+                
+                .widget-block__tabs-item.is-active(data-widget="tabs-item")
+                    .widget-block__props
+                        ul 
+                            li
+                                small Всего:
+                                strong 512
+                            li
+                                small В магазин:
+                                strong 4096
+                            li
+                                small Телефоны:
+                                strong 4096 
+                            li
+                                small Расход:
+                                strong 100 000 ₽
+
+                .widget-block__tabs-item(data-widget="tabs-item")
+                    .widget-block__props
+                        ul 
+                            li
+                                small Всего:
+                                strong 1522
+                            li
+                                small В магазин:
+                                strong 10224
+                            li
+                                small Телефоны:
+                                strong 8523 
+                            li
+                                small Расход:
+                                strong 190 258 ₽
+
+                .widget-block__tabs-item(data-widget="tabs-item")
+                    .widget-block__props
+                        ul 
+                            li
+                                small Всего:
+                                strong 5132
+                            li
+                                small В магазин:
+                                strong 409456
+                            li
+                                small Телефоны:
+                                strong 14096 
+                            li
+                                small Расход:
+                                strong 567 000 ₽
+
+mixin staistic-on-rate
+    .widget-block
+        .widget-block__wrp
+            .widget-block__title Рейтинг и отзывы
+            .widget-block__rate
+                span.rate--green 4.9
+            .widget-block__props
+                ul 
+                    li
+                        small Всего отзывов:
+                        strong 28
+                    li
+                        small Без ответа:
+                        strong 12 <a href='#'>Ответить</a>
+
+mixin staistic-on-xml
+    .widget-block.widget-block--xml
+        .widget-block__wrp
+            .widget-block__title Данные о XML-файле
+            .widget-block__subtitle 
+                a(href='price.html') Перейти к прайс-листу
+            .widget-block__props.widget-block__props--col2
+                ul 
+                    li
+                        small Всего товаров в файле:
+                        strong 451
+                    li
+                        small Товары, привязанные к карточкам: 
+                        strong 336
+                    li
+                        small Товары в категориях: 
+                        strong 110
+                    li
+                        small Нераспознанные предложения:
+                        strong 5
+
+
+mixin upload-price
+   .widget-block 
+        .widget-block__title Добавьте свой прайс-лист
+        .widget-block__subtitle Добавьте XML-файл в поле ниже и нажмите кнопку «Сохранить»
+            
+        .widget-block__upload
+            .widget-block__fields
+                form(action='#' method='POST')
+                    .widget-block__input
+                        input(type="text" placeholder="Ссылка на XML")
+                        label
+                            input(type="file")
+
+
+
+             
+                     
+            

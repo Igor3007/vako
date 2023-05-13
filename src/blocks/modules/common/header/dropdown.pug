@@ -7,6 +7,14 @@ mixin dropdown-icon
                 a(href='#'): button.btn.btn-gray Зарегистрироваться
                 a(href='#'): button.btn.btn-white Вход для магазинов
 
+mixin dropdown-icon-store
+    .dropdown-icon
+        .dropdown-icon__elem: a(href='#'): +icons('#ic_login', 24)
+        .dropdown-icon__list
+            .dropdown-button
+                a(href='#'): button.btn.btn-gray(data-popup="store-login") Войти
+                a(href='#'): button.btn.btn-gray Справка
+
 mixin tooltip-icon(data)
     .tooltip-icon
         .tooltip-icon__elem: a(href='#'): +icons(data.icon, 24)

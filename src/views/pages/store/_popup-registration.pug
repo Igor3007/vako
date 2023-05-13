@@ -1,0 +1,72 @@
+.login-partners
+    .login-partners__wrp
+        .login-partners__title Регистрация магазина
+        .login-partners__form
+            form(action='#' method='POST') 
+                .form-step(data-step="0")
+                    .form
+                        .form__item
+                            .form__subitem
+                                label E-mail
+                                input(type="email" placeholder="Введите e-mail")
+
+                        .form__item
+                            .form__subitem
+                                label Контактный телефон
+                                input(type="email" placeholder="Введите номер телефона")
+
+                        .form__item
+                            .form__subitem
+                                label Ваш город
+                                input(type="email" placeholder="Например, Санкт-Петербург")
+
+                        .form__item
+                            .form__subitem
+                                label Доменное имя магазина
+                                input(type="email" placeholder="https://site.ru")
+
+
+                        .form__item
+                            .form__subitem
+                                button.btn(data-step="next") Далее
+
+                
+
+                .form-step(data-step="1")
+                    .form
+                        .form__item
+                            .form__subitem
+                                label Имя контактного лица
+                                input(type="email" placeholder="Введите имя")
+
+                        .form__item
+                            .form__subitem
+                                label Название магазина
+                                input(type="email" placeholder="Введите название магазина")
+
+                        .form__item
+                            .form__subitem
+                                label Тип юр. лица
+                                select
+                                    option(value="0") Выберите тип
+                                    option(value="1") Индивидуальный предприниматель
+                                    option(value="2") ООО
+
+                        .form__item
+                            .form__subitem
+                                label Название юр. лица
+                                input(type="email" placeholder="Введите название")
+
+                        .form__item
+                            .form__subitem
+                                label ИНН/УНП
+                                input(type="email" placeholder="Введите номер ИНН или УНП")
+
+
+                        .form__item
+                            .form__subitem
+                                button.btn Отправить
+
+                        .form__item
+                            .form__note
+                                a(href='#' data-step="prev") Вернуться назад

@@ -1,0 +1,28 @@
+.header-store {
+    background-color: #2D2148;
+
+    & .dropdown-icon {
+        background-color: $violet-1-2;
+        border-radius: 6px;
+        transition: 0.3s ease;
+
+        &__elem {
+            & a svg {
+                filter: grayscale(1) brightness(5);
+            }
+        }
+
+        &:hover {
+
+            background-color: #fff;
+
+            & .dropdown-icon {
+                &__elem {
+                    & a svg {
+                        filter: none;
+                    }
+                }
+            }
+        }
+    }
+}

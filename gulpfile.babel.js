@@ -7,8 +7,7 @@ const requireDir = require("require-dir"),
         views: {
             src: [
                 "./src/views/index.pug",
-                "./src/views/pages/*.pug",
-                "./src/views/pages/parts/*.pug"
+                "./src/views/pages/**/*.pug",
             ],
             dist: "./dist/",
             watch: [
@@ -21,7 +20,7 @@ const requireDir = require("require-dir"),
         styles: {
             src: [
                 "./src/styles/main.{scss,sass}",
-                "./src/styles/site.{scss,sass}",
+                "./src/styles/store.{scss,sass}",
                 "./src/styles/critical.{scss,sass}",
             ],
             dist: "./dist/styles/",

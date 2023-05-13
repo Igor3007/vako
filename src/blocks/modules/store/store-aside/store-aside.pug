@@ -1,0 +1,27 @@
+mixin store-aside(active) 
+
+    -
+        const menu = [
+            {
+                icon: '/img/common/ic_home.svg',
+                text: 'Главная',
+                link: 'home.html',
+            },
+            {
+                icon: '/img/common/ic_bill.svg',
+                text: 'Прайс-листы',
+                link: 'price.html',
+            },
+            {
+                icon: '/img/common/ic_config.svg',
+                text: 'Настройки',
+                link: 'config.html',
+            },
+        ]
+
+    ul
+        each  item,index in menu
+            li(class = `${index == active ? 'is-active':''}`)
+                +bgimage(item.icon)
+                a(href=item.link  )= item.text
+        

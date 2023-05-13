@@ -94,6 +94,7 @@ class afSelect {
     renderTemplate() {
 
         const _this = this;
+        const istanse = []
 
         this.selectAll.forEach(function (item, index) {
 
@@ -108,13 +109,13 @@ class afSelect {
 
                 //add event 
                 _this.clickEventOpenSelect(wrapper)
+                istanse.push(wrapper)
             }
 
         })
 
-        document.querySelectorAll('.af-select').forEach(function (item, index) {
+        istanse.forEach(function (item, index) {
             _this.renderOption(item)
-
         })
 
 

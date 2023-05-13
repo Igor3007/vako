@@ -1,0 +1,40 @@
+.popup-success {
+    padding: 30px;
+    max-width: 450px;
+
+    &__title {
+        @include font-h2;
+        padding-bottom: 0.8em;
+        text-align: center;
+    }
+
+    &__desc {
+        padding-bottom: 25px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    &__btn {
+        width: 100%;
+
+        & .btn {
+            width: 100%;
+        }
+    }
+
+    &__icon {
+
+        display: flex;
+        justify-content: center;
+        padding-bottom: 15px;
+
+        & .bgimage {
+            width: 60px;
+            height: 60px;
+            display: inline-block;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+}

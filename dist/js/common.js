@@ -831,6 +831,9 @@
          newRangeSlider.onChange = function (min, max) {
              inputMax.value = max
              inputMin.value = min
+
+             inputMin.closest('form').submit()
+
          }
 
          inputMax.addEventListener('keyup', e => {
@@ -1483,10 +1486,6 @@
              }
 
              this.setting.onChangeTab(tab)
-
-
-
-
 
              initPriceRange()
 
