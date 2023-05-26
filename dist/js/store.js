@@ -94,7 +94,7 @@
          this.onShow = function (_type, _header, _msg) {
              document.querySelector(this.headerElem).innerText = _header
              document.querySelector(this.msgElem).innerText = _msg
-             document.querySelector(this.containerElem).classList.add(_type)
+             document.querySelector(this.containerElem).setAttribute('class', _type)
          }
 
          this.onHide = function () {
@@ -168,6 +168,83 @@
          };
      }
 
+     /* ==========================================
+     FileUpload
+     ==========================================*/
+
+     class FileUpload {
+         constructor(files, action) {
+             this.files = files
+             this.action = action
+         }
+
+         ajax(params, response) {
+
+             window.STATUS.msg('Загрузка файла...')
+             let xhr = new XMLHttpRequest();
+
+             xhr.responseType = 'json';
+             xhr.open('POST', this.action)
+             xhr.send(params.data)
+             xhr.onload = function () {
+                 response(xhr.status, xhr.response)
+             };
+
+             xhr.onerror = function () {
+                 window.STATUS.err('Error: ajax request failed')
+             };
+
+             xhr.onreadystatechange = function () {
+
+                 if (xhr.readyState == 1) {
+                     window.STATUS.msg('Загрузка файла...')
+                 }
+
+                 if (xhr.readyState == 3) {
+                     window.STATUS.msg('Загрузка файла...')
+                 }
+
+                 if (xhr.readyState == 4) {
+                     setTimeout(function () {
+                         //params.btn.classList.remove('btn-loading')
+                         console.log('loaded')
+                         // window.STATUS.msg('Завершение...')
+                     }, 1000)
+                 }
+
+             };
+         }
+
+         upload(type, callback) {
+
+             let formData = new FormData();
+
+             formData.append('file', this.files.item(0))
+             formData.append('type', type)
+
+             let params = {
+                 data: formData
+             }
+
+             this.ajax(params, function (status, response) {
+
+                 if (!response) {
+                     window.STATUS.err('Ошибка при загрузке файла')
+                     return false
+                 }
+
+                 if (response.status) {
+                     window.STATUS.msg(response.msg || 'Загрузка завершена!')
+                 } else {
+                     window.STATUS.err(response.msg || 'Ошибка при загрузке файла')
+                 }
+
+                 callback(response);
+             })
+
+         }
+
+     }
 
      /* ==============================================
      select
@@ -360,6 +437,71 @@
          });
 
 
+     }
+
+     /* =====================================
+     upload price list
+     =====================================*/
+
+     if (document.querySelectorAll('[data-upload="input"] input')) {
+
+         const items = document.querySelectorAll('[data-upload="input"] input')
+
+         items.forEach(inputFile => {
+
+             inputFile.addEventListener('change', e => {
+                 const instanseFileUpload = new FileUpload(e.target.files, e.target.dataset.action)
+                 instanseFileUpload.upload('price', (response) => {
+                     console.log(response)
+
+                     const parent = e.target.closest('div')
+                     const inputURL = parent.querySelector('[data-upload="url"]')
+
+                     if (inputURL) {
+                         inputURL.value = response.url
+                         inputURL.disabled = false
+
+                         inputURL.dispatchEvent(new Event('change', {
+                             'bubbles': true
+                         }));
+                     }
+
+
+                 })
+             })
+
+
+         })
+
+         // add event change url
+
+         if (document.querySelectorAll('[data-upload="url"]')) {
+             const itemsInput = document.querySelectorAll('[data-upload="url"]')
+
+             itemsInput.forEach(input => {
+                 input.addEventListener('change', (e) => {
+                     const form = e.target.closest('form');
+                     const sendButton = form.querySelector('[type="submit"]');
+                     sendButton.disabled = (input.value ? false : true)
+                 })
+             })
+         }
+
+     }
+
+
+     /*========================================
+      change form
+      ========================================*/
+
+     if (document.querySelector('[data-store-user="form"]')) {
+         const items = document.querySelector('[data-store-user="form"]')
+
+         items.querySelectorAll('input').forEach(item => {
+             item.addEventListener('change', e => {
+                 e.target.closest('form').querySelector('[type="submit"]').removeAttribute('disabled')
+             })
+         })
      }
 
 

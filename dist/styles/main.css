@@ -3406,11 +3406,12 @@ footer {
 }
 
 .page-404__image {
-  width: 100%;
+  width: 80%;
+  padding-bottom: 50px;
 }
 
 .page-404__image picture {
-  padding-top: 70%;
+  padding-top: 30%;
   display: block;
   position: relative;
   mix-blend-mode: multiply;
@@ -3440,6 +3441,8 @@ footer {
   text-transform: uppercase;
   color: #DF1F26;
   padding-bottom: 30px;
+  color: #222;
+  font-weight: 800;
 }
 
 .page-404__desc {
@@ -3447,15 +3450,11 @@ footer {
   padding-bottom: 30px;
   text-align: center;
   font-size: 14px;
+  line-height: 140%;
 }
 
 .page-404__btn {
   padding-bottom: 30px;
-}
-
-.page-404__btn .btn {
-  color: #000;
-  border-color: #000;
 }
 
 .main-menu {

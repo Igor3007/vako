@@ -96,16 +96,52 @@ mixin staistic-on-xml
 
 mixin upload-price
    .widget-block 
-        .widget-block__title Добавьте свой прайс-лист
+        .widget-block__h2 Добавьте свой прайс-лист
         .widget-block__subtitle Добавьте XML-файл в поле ниже и нажмите кнопку «Сохранить»
-            
-        .widget-block__upload
-            .widget-block__fields
-                form(action='#' method='POST')
-                    .widget-block__input
-                        input(type="text" placeholder="Ссылка на XML")
-                        label
-                            input(type="file")
+        .widget-block__fields
+            .form
+                form(action='/price.html' method='POST')
+                    .widget-block__upload
+                        .widget-block__input
+                            input(type="text" placeholder="Ссылка на XML" data-upload="url")
+                            label(data-upload="input")
+                                input(type="file" name="price-list" data-action="/upload.php" )
+                                span
+                                    +icons("#ic_upload_24", 24)
+                        .widget-block__send
+                            button.btn(disabled type="submit") Сохранить
+
+mixin my-price
+   .widget-block.widget-block--price 
+        .widget-block__h2 Текущий прайс-лист
+        .widget-block__subtitle
+            a(href='#') testpricelist.xml
+         
+        .widget-block__status
+            span.price-list-status--green Опубликован
+            span.price-list-status--orange На рассмотрении
+            span.price-list-status--red Не опубликован
+
+        .widget-block__props.widget-block__props--col2
+            ul 
+                li
+                    small Всего товаров в файле:
+                    strong 451
+                li
+                    small Товары, привязанные к карточкам: 
+                    strong 336
+                li
+                    small Товары в категориях: 
+                    strong 110
+                li
+                    small Нераспознанные предложения:
+                    strong 5
+
+        .widget-block__action
+            a(href='/store/price-upload.html'): button.btn Заменить прайс-лист
+            a(href='#'): button.btn.btn-white Скачать отчёт
+
+         
 
 
 

@@ -1,14 +1,14 @@
 extends ../../layouts/store-login
 
-include ../../../blocks/modules/store/store-blocks/store-blocks.pug
 include ../../../blocks/modules/store/store-aside/store-aside.pug
+include ../../../blocks/modules/store/user-data/user-data.pug
  
 block variables
   include ../../../data/data.pug
   - const title = "Vako - Панель управления магазином"
 
 block aside
-  +store-aside(1)
+  +store-aside(5)
 
 block content
-  +my-price()
+  +store-user-data()

@@ -1,0 +1,48 @@
+mixin store-user-data
+    .store-user-data
+        .store-user-data__title Личные данные
+        .store-user-data__form
+            form(action='#' method='POST' data-store-user="form")
+                fieldset
+                    h3 Личные данные
+                    .form
+                        .form__item
+                            .form__subitem
+                                label Имя пользователя
+                                input(type="text" placeholder="Имя")
+                        .form__item
+                            .form__subitem
+                                label Телефон пользователя
+                                input(type="tel" placeholder="+7(***)***-**-**")
+                        .form__item
+                            .form__subitem
+                                label Почта (логин)
+                                input(type="email" placeholder="user@mail.ru")
+                        .form__item
+                            .form__subitem
+                                label Текущий пароль
+                                input(type="text" placeholder="Введите текущий пароль")
+                        .form__item
+                            .form__subitem
+                                label Новый пароль
+                                input(type="text" placeholder="Введите новый пароль")
+                        .form__item
+                            .form__subitem
+                                label Повтор нового пароля
+                                input(type="text" placeholder="Введите новый пароль ещё раз")
+                fieldset
+                    h3 Уведомления
+                    .form
+                        .form__item
+                            .form__subitem
+                                label Почта для уведомлений
+                                input(type="email" placeholder="Email")
+                        .form__item
+                            .form__subitem
+                                label 
+                                .form__group
+                                    +checkbox('Информационные письма')
+                                    +checkbox('Новые отзывы магазина')
+                                    +checkbox('Популярные статьи и новости')
+
+                button.btn(type="submit" disabled="") Сохранить изменения

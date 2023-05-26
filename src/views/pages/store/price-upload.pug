@@ -1,5 +1,6 @@
 extends ../../layouts/store-login
 
+include ../../../blocks/modules/store/store-blocks/store-blocks.pug
 include ../../../blocks/modules/store/store-aside/store-aside.pug
  
 block variables
@@ -10,4 +11,4 @@ block aside
   +store-aside(1)
 
 block content
-  
+  +upload-price(1)

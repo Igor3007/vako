@@ -40,7 +40,7 @@
         <div class="container">
           <div class="header-min">
             <div class="header-min__main">
-              <div class="header-min__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo_partners.svg')"></span></a></div>
+              <div class="header-min__logo"><a href="/store/"><span class="bgimage" style="background-image: url('/img/common/logo_partners.svg')"></span></a></div>
               <div class="header-min__actions">
                 <div class="header-min__login">
                         <div class="dropdown-icon">
@@ -75,6 +75,30 @@
             </ul>
           </div>
           <div class="store-panel__content">
+            <div class="widget-block"> 
+              <div class="widget-block__h2">Добавьте свой прайс-лист</div>
+              <div class="widget-block__subtitle">Добавьте XML-файл в поле ниже и нажмите кнопку «Сохранить»</div>
+              <div class="widget-block__fields">
+                <div class="form">
+                  <form action="/price.html" method="POST">
+                    <div class="widget-block__upload">
+                      <div class="widget-block__input">
+                        <input type="text" placeholder="Ссылка на XML" data-upload="url"/>
+                        <label data-upload="input">
+                          <input type="file" name="price-list" data-action="/upload.php"/><span>
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_upload_24"></use>
+                            </svg></span>
+                        </label>
+                      </div>
+                      <div class="widget-block__send">
+                        <button class="btn" disabled="disabled" type="submit">Сохранить</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,74 @@
+.store-user-data {
+
+    margin-bottom: 60px;
+
+    &__title {
+        @include font-h1;
+        padding-bottom: 0.8em;
+
+    }
+
+    &__form {
+        & .form {
+            &__subitem {
+                flex-direction: column;
+
+                &>label {
+                    font-weight: bold;
+                    padding-bottom: 10px;
+                }
+
+                @media screen and (min-width: $w760) {
+
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+
+                    &--top {
+                        align-items: flex-start;
+                    }
+
+                    &>label {
+                        width: 215px;
+                        padding-bottom: 0;
+                    }
+                }
+
+
+            }
+
+            &__group {
+                display: flex;
+                flex-direction: column;
+
+                @media screen and (min-width: $w760) {
+                    width: calc(100% - 215px);
+                }
+
+                & input {
+                    margin-bottom: 10px;
+                }
+
+                & label.checkbox {
+                    margin-top: 10px;
+
+
+                }
+            }
+        }
+    }
+
+    & fieldset {
+        background: #fff;
+        padding: 25px;
+        border: none;
+        border-radius: 6px;
+        margin-bottom: 20px;
+
+        & h3 {
+            @include font-h2;
+            padding-bottom: 25px;
+
+        }
+    }
+}

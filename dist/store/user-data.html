@@ -34,13 +34,13 @@
     <style></style>
     <link rel="stylesheet" href="/styles/store.css?v=1.0">
   </head>
-  <body class="body-ba">
+  <body class="body-gray">
     <header> 
       <div class="header-store">
         <div class="container">
           <div class="header-min">
             <div class="header-min__main">
-              <div class="header-min__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo_partners.svg')"></span></a></div>
+              <div class="header-min__logo"><a href="/store/"><span class="bgimage" style="background-image: url('/img/common/logo_partners.svg')"></span></a></div>
               <div class="header-min__actions">
                 <div class="header-min__login">
                         <div class="dropdown-icon">
@@ -66,7 +66,7 @@
         <div class="store-panel">
           <div class="store-panel__aside">
             <ul>
-              <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_home.svg"></span><a href="home.html">Главная</a>
+              <li><span class="bgimage lazyload" data-bg="/img/common/ic_home.svg"></span><a href="home.html">Главная</a>
               </li>
               <li><span class="bgimage lazyload" data-bg="/img/common/ic_bill.svg"></span><a href="price.html">Прайс-листы</a>
               </li>
@@ -75,7 +75,82 @@
             </ul>
           </div>
           <div class="store-panel__content">
-            <div>sdsd  </div>
+            <div class="store-user-data">
+              <div class="store-user-data__title">Личные данные</div>
+              <div class="store-user-data__form">
+                <form action="#" method="POST" data-store-user="form">
+                  <fieldset>
+                    <h3>Личные данные</h3>
+                    <div class="form">
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <label>Имя пользователя</label>
+                          <input type="text" placeholder="Имя"/>
+                        </div>
+                      </div>
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <label>Телефон пользователя</label>
+                          <input type="tel" placeholder="+7(***)***-**-**"/>
+                        </div>
+                      </div>
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <label>Почта (логин)</label>
+                          <input type="email" placeholder="user@mail.ru"/>
+                        </div>
+                      </div>
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <label>Текущий пароль</label>
+                          <input type="text" placeholder="Введите текущий пароль"/>
+                        </div>
+                      </div>
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <label>Новый пароль</label>
+                          <input type="text" placeholder="Введите новый пароль"/>
+                        </div>
+                      </div>
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <label>Повтор нового пароля</label>
+                          <input type="text" placeholder="Введите новый пароль ещё раз"/>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <h3>Уведомления</h3>
+                    <div class="form">
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <label>Почта для уведомлений</label>
+                          <input type="email" placeholder="Email"/>
+                        </div>
+                      </div>
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <label> </label>
+                          <div class="form__group">
+                            <label class="checkbox">
+                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Информационные письма</span>
+                            </label>
+                            <label class="checkbox">
+                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Новые отзывы магазина</span>
+                            </label>
+                            <label class="checkbox">
+                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Популярные статьи и новости</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <button class="btn" type="submit" disabled="">Сохранить изменения</button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>

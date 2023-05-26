@@ -1,0 +1,135 @@
+mixin store-config 
+
+    .store-config
+        .store-config__wrp
+            form(action='#' method='POST')
+                .store-config__row
+                    .store-config__col
+                        +shop-info()
+                .store-config__row
+                    .store-config__col: +shop-phones()
+                    .store-config__col: +shop-shiping()
+                .store-config__row
+                    .store-config__col: +shop-points()
+
+     
+mixin shop-info
+    .shop-block
+        .shop-block__title 
+            .shop-block__h2 Информация о магазине
+            .shop-block__toggle
+                +checkbox('Показ предложений отключен')
+        .shop-block__logo
+            .shop-upload-logo
+                .shop-upload-logo__image
+                    span.bgimage
+
+                .shop-upload-logo__action
+                    .shop-upload-logo__button
+                        label
+                            input(type="file" name="logo")
+                            span.btn Добавить логотип
+                    .shop-upload-logo__note Загрузите jpg или png файл размером не более 5 MB
+        .shop-block__group
+            .form
+              .form__item
+                .form__subitem
+                    label Название магазина на Vako
+                    input(type="text" placeholder="Укажите название")
+              .form__item
+                .form__subitem
+                    label Город
+                    input(type="text" placeholder="Укажите город")
+              .form__item
+                .form__subitem
+                    label Сайт
+                    input(type="text" placeholder="Ссылка на сайт")
+              .form__item
+                .form__subitem
+                    label Тип юр. лица
+                    .form__group
+                        select(placeholder="Выберите тип")
+                            option(value="") ООО
+                            option(value="") ОАО
+                            option(value="") Индивидуальный предприниматель
+              .form__item
+                .form__subitem
+                    label Название юр. лица
+                    input(type="text" placeholder="Введите название")
+              .form__item
+                .form__subitem
+                    label ИНН/УНП
+                    input(type="text" placeholder="Введите данные")
+              .form__item
+                .form__subitem
+                    label Адрес регистрацииай
+                    input(type="text" placeholder="Введите адрес")
+
+mixin shop-shiping
+    .shop-block
+        .shop-block__title Доставка и оплата
+        .shop-block__district.form
+            label Регион доставки
+            select(name="district[]")
+                option Санкт-Петербург
+                option Москва
+
+            ul
+                li: +checkbox('Собственная доставка в данном регионе')
+                li: +checkbox('Есть доставка через транспортные компании (ТК)')
+
+        .shop-block__payment
+            label Способы оплаты в регионе:
+            ul
+                li: +checkbox('Картой на сайте')
+                li: +checkbox('Картой курьеру')
+                li: +checkbox('Наличными курьеру')
+                li: +checkbox('Безналичный расчёт')
+
+        .shop-block__repeat
+            span Добавить ещё регион
+
+mixin shop-points
+
+    .shop-block
+        .shop-block__title Пункты выдачи, розничные магазины
+        .shop-block__address.form
+            label Адрес пункта выдачи или магазина
+            input(type="text" placeholder="Укажите адрес")
+        .shop-block__worktime.shop-block__worktime--col2
+            each item in ['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']
+                label
+                    input(type="checkbox" value = item)
+                    .worktime-item
+                        .worktime-item__day: span= item
+                        .worktime-item__from: input(type="text" placeholder="От")
+                        .worktime-item__to: input(type="text" placeholder="До") 
+        .shop-block__pay-methods
+            strong  Способы оплаты в регионе:
+            +checkbox('Картой на сайте')
+            +checkbox('Через терминал')
+            +checkbox('Наличный расчёт')
+            +checkbox('Безналичный расчёт')
+        .shop-block__repeat
+            span Добавить пункт выдачи / магазин
+
+mixin shop-phones
+    .shop-block
+        .shop-block__title Телефоны и время показа предложений
+        .shop-block__form
+            .form
+              .form__item
+                .form__subitem
+                    label Номер телефона
+                    input(type="tel" name="phones[]" placeholder="Укажите номер")
+                    span(class="repeat-field") + Добавить ещё номер
+
+        .shop-block__worktime
+
+            each item in ['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']
+                label
+                    input(type="checkbox" value = item)
+                    .worktime-item
+                        .worktime-item__day: span= item
+                        .worktime-item__from: input(type="text" placeholder="От")
+                        .worktime-item__to: input(type="text" placeholder="До") 

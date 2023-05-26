@@ -1,6 +1,7 @@
 extends ../../layouts/store-login
 
 include ../../../blocks/modules/store/store-aside/store-aside.pug
+include ../../../blocks/modules/store/store-config/store-config.pug
  
 block variables
   include ../../../data/data.pug
@@ -8,6 +9,7 @@ block variables
 
 block aside
   +store-aside(2)
+  
 
 block content
-   div sdsd  
+   +store-config()

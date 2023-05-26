@@ -33,6 +33,11 @@
         padding-bottom: 0.8em;
     }
 
+    &__h2 {
+        @include font-h2;
+        padding-bottom: 0.8em;
+    }
+
     &__tabs {
 
         padding-bottom: 29px;
@@ -179,7 +184,181 @@
         }
     }
 
+    &__fields {
+        padding-top: 20px;
+    }
+
+    &__input {
+        position: relative;
+        flex-grow: 1;
+        width: 100%;
+        margin-bottom: 12px;
+
+        @media screen and (min-width: $w576) {
+            margin-right: 12px;
+            margin-bottom: 0;
+        }
+
+        & input[type] {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    &__upload {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        @media screen and (min-width: $w576) {
+            flex-direction: row;
+        }
+    }
+
+    &__send {
+        width: 100%;
+
+        @media screen and (min-width: $w576) {
+            width: auto;
+        }
+
+        & .btn {
+            width: 100%;
+
+            @media screen and (min-width: $w576) {
+                width: auto;
+            }
+        }
+    }
+
+    & label[data-upload="input"] {
+
+        position: absolute;
+        z-index: 2;
+        right: 16px;
+        top: 50%;
+        margin-top: -12px;
+
+        & input {
+            display: none;
+        }
+
+        & svg {
+            fill: $accent-2-1;
+        }
+
+        & span {
+            cursor: pointer;
+        }
+    }
+
+    &__status {
+
+        padding-top: 10px;
+
+        & span {
+            padding: 8px 16px;
+            border: 1px solid #EBEBEB;
+            border-radius: 6px;
+            margin-right: 10px;
+            display: inline-flex;
+            align-items: center;
+            font-size: 13px;
+
+            &:before {
+                content: '';
+                width: 18px;
+                height: 18px;
+                background-color: #eee;
+                display: inline-block;
+                margin-right: 10px;
+                border-radius: 2px;
+                background-position: center;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.price-list-status {
+                &--green {
+                    color: $green;
+
+                    &:before {
+                        background-color: transparent;
+                        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iOSIgZmlsbD0iIzM3QTczNSIvPjxwYXRoIGQ9Ik02IDlsMiAyIDQtNCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==);
+                    }
+                }
+
+                &--orange {
+                    color: $orange;
+
+                    &:before {
+                        background-color: transparent;
+                        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iOSIgZmlsbD0iI0Y4MCIvPjxwYXRoIGQ9Ik03IDZ2Nm00LTZ2NiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==);
+                    }
+
+                }
+
+                &--red {
+                    color: $red;
+
+                    &:before {
+                        background-color: transparent;
+                        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iOSIgZmlsbD0iI0RGMUYyNiIvPjxwYXRoIGQ9Ik02IDZsMyAzbTAgMGwzIDNNOSA5bDMtM005IDlsLTMgMyIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==);
+                    }
+                }
+            }
+        }
+    }
+
+    &__action {
+        padding-top: 30px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: -5px;
+
+        & a {
+            padding: 5px;
+            display: inline-block;
+            width: 100%;
+
+            @media screen and (min-width: $w576) {
+                width: auto;
+            }
+
+        }
+
+        & .btn {
+            width: 100%;
+
+            @media screen and (min-width: $w576) {
+                width: auto;
+            }
+
+            &.btn-white {
+                color: $accent-2-1;
+            }
+        }
+    }
+
+    &--price {
+
+        & .widget-block {
+            &__props {
+                padding-top: 30px;
+                max-width: 500px;
+            }
+
+
+        }
+
+
+    }
+
 }
+
 
 .widget-block.widget-block--xml {
     @media screen and (min-width: $w1200) {

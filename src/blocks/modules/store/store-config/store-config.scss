@@ -1,0 +1,286 @@
+.store-config {
+    margin: -12px;
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__col {
+        padding: 12px;
+        width: 100%;
+        flex-grow: 1;
+        flex-basis: 320px;
+    }
+}
+
+.shop-block {
+
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 6px;
+
+    &__title {
+        @include font-h2;
+        padding-bottom: 0.8em;
+    }
+
+    &__group {
+        & .form {
+            &__subitem {
+                flex-direction: column;
+
+                &>label {
+                    font-weight: bold;
+                    padding-bottom: 10px;
+                }
+
+                @media screen and (min-width: $w760) {
+
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+
+                    &--top {
+                        align-items: flex-start;
+                    }
+
+                    &>label {
+                        width: 215px;
+                        padding-bottom: 0;
+                    }
+                }
+
+
+            }
+
+            &__group {
+                display: flex;
+                flex-direction: column;
+
+                @media screen and (min-width: $w760) {
+                    width: calc(100% - 215px);
+                }
+
+                & input {
+                    margin-bottom: 10px;
+                }
+
+                & label.checkbox {
+                    margin-top: 10px;
+
+
+                }
+            }
+        }
+    }
+
+    &__worktime {
+
+        margin: -2px;
+
+        &>label {
+
+            & input[type="checkbox"] {
+                display: none;
+
+                &:checked {
+                    &~.worktime-item {
+                        & .worktime-item {
+                            &__day {
+                                & span {
+                                    background-color: $accent-2-1;
+                                    color: #fff;
+                                }
+                            }
+
+                            &__from,
+                            &__to {
+                                & input {
+                                    background-color: transparent;
+                                    pointer-events: all;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        &--col2 {
+
+            padding-bottom: 30px;
+
+            @media screen and (min-width: $w992) {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: -12px;
+                margin-right: -12px;
+
+                & label {
+                    width: 50%;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                }
+            }
+        }
+    }
+
+    &__form {
+
+        & .form {
+            &__subitem {
+                & label {
+                    font-weight: 800;
+                    display: block;
+                    width: 100%;
+                    font-size: 16px;
+                    padding-bottom: 10px;
+                }
+
+                & input {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+    }
+
+    &__pay-methods {
+
+        & strong {
+            display: block;
+            padding-bottom: 1em;
+        }
+
+        padding-bottom: 30px;
+    }
+
+    &__repeat {
+
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+
+        & span {
+            color: $accent-2-1;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    }
+
+    &__address {
+        & label {
+            font-weight: 800;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            padding-bottom: 10px;
+        }
+
+        & input {
+            width: 100% !important;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__district {
+        & label:not(.checkbox) {
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: 15px;
+            display: block;
+        }
+
+        & .checkbox {
+            margin: 3px 0;
+        }
+
+        & .af-select {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__payment {
+
+        padding-bottom: 25px;
+
+        & label:not(.checkbox) {
+            font-weight: 800;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            display: block;
+        }
+
+        & .checkbox {
+            margin: 3px 0;
+        }
+    }
+}
+
+.repeat-field {
+    color: $accent-2-1;
+    font-weight: 600;
+    padding: 10px 0 20px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.worktime-item {
+    display: flex;
+    height: 38px;
+
+
+    & input {
+        height: 100%;
+
+        &::placeholder {
+            color: #565656;
+            font-size: 13px;
+        }
+    }
+
+    &__from,
+    &__to,
+    &__day {
+        padding: 2px;
+
+        & input {
+            background-color: $gray-96;
+            pointer-events: none;
+        }
+    }
+
+    &__day {
+        & span {
+            width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $gray-13;
+            font-weight: 800;
+            border-radius: 5px;
+            height: 100%;
+            background-color: $gray-96;
+            cursor: pointer;
+        }
+    }
+}
+
+.shop-upload-logo {
+
+    display: flex;
+    align-items: center;
+
+    &__image {
+        width: 120px;
+    }
+
+    &__action {
+        width: calc(100% - 120px);
+        padding-left: 20px;
+    }
+}

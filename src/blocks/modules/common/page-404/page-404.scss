@@ -15,11 +15,12 @@
 
     &__image {
 
-        width: 100%;
+        width: 80%;
+        padding-bottom: 50px;
 
 
         & picture {
-            padding-top: 70%;
+            padding-top: 30%;
             display: block;
             position: relative;
             mix-blend-mode: multiply;
@@ -42,6 +43,9 @@
     &__title {
         @include section-title;
         padding-bottom: 30px;
+
+        color: #222;
+        font-weight: 800;
     }
 
     &__desc {
@@ -49,16 +53,14 @@
         padding-bottom: 30px;
         text-align: center;
         font-size: 14px;
+        line-height: 140%;
     }
 
     &__btn {
 
         padding-bottom: 30px;
 
-        & .btn {
-            color: #000;
-            border-color: #000;
-        }
+
 
     }
 }
