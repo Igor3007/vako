@@ -10,12 +10,15 @@ include dropdown
                 .header-min__status
                     span.icon-status-show Предложения магазина показываются
                 
-                .header-min__pay
-                    .header-min__wallet
-                        +icons('#ic_wallet', 24)
-                        span 24 390.17 ₽
-                    .header-min__add
-                        a(href='#'): button.btn.btn-small Пополнить
+                .header-min__bill
+                    .header-min__mobile
+                        span.ic_open menu
+                    .header-min__pay
+                        .header-min__wallet
+                            +icons('#ic_wallet', 24)
+                            span 24 390.17 ₽
+                        .header-min__add
+                            a(href='#'): button.btn.btn-small Пополнить
                 .header-min__notification
                     .header-notification
                         .header-notification__icon

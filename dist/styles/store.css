@@ -3252,10 +3252,19 @@ footer {
   filter: none;
 }
 
+.header-store .header-min__main {
+  flex-wrap: wrap;
+}
+
+.header-store .header-min__pay {
+  order: 5;
+}
+
 .header-min__status {
   color: #37A735;
   margin-right: auto;
   font-weight: 800;
+  font-size: 0;
 }
 
 .header-min__wallet {
@@ -3322,13 +3331,22 @@ footer {
   fill: #fff;
 }
 
-.icon-status-show::bofore {
+.icon-status-show {
+  display: flex;
+  align-items: center;
+}
+
+.icon-status-show::before {
   content: '';
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI2IiBmaWxsPSIjZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNy43MDcuMjkzYTEgMSAwIDAxMCAxLjQxNGwtNCA0YTEgMSAwIDAxLTEuNDE0IDBsLTItMmExIDEgMCAwMTEuNDE0LTEuNDE0TDMgMy41ODYgNi4yOTMuMjkzYTEgMSAwIDAxMS40MTQgMHoiLz48L3N2Zz4=);
   background-color: #37A735;
   display: block;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px;
 }
 
 .store-index {
@@ -4801,6 +4819,10 @@ a[data-tooltip]:hover::before {
     margin-top: -25px;
   }
 
+  .header-store .header-min__main {
+    flex-wrap: nowrap;
+  }
+
   .widget-block__title {
     font-size: 20px;
   }
@@ -5071,6 +5093,11 @@ a[data-tooltip]:hover::before {
   .pagination__page ul li a {
     width: 40px;
     height: 40px;
+  }
+
+  .header-min__status {
+    margin-left: 20px;
+    font-size: 14px;
   }
 
   .store-index__subtitle {
