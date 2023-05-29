@@ -2188,6 +2188,76 @@ select {
   color: #525166;
 }
 
+.toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle div {
+  display: flex;
+  align-items: center;
+}
+
+.toggle div .toggle-slide {
+  width: 48px;
+  height: 24px;
+  display: inline-block;
+  background: #ccc;
+  border-radius: 50px 50px;
+  position: relative;
+  margin-right: 10px;
+  transition: 0.3s ease;
+}
+
+.toggle div .toggle-slide:hover {
+  background: #ADADAD;
+}
+
+.toggle div .toggle-slide::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  display: block;
+  transition: 0.3s ease;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle input:checked ~ div .toggle-slide {
+  background: #DF1F26;
+}
+
+.toggle input:checked ~ div .toggle-slide:hover {
+  background: #B81A1F;
+}
+
+.toggle input:checked ~ div .toggle-slide::before {
+  left: calc(100% - 20px);
+}
+
+.toggle .toggle-active {
+  display: none;
+}
+
+.toggle input:checked ~ div .toggle-active {
+  display: block;
+  color: #7B61FF;
+}
+
+.toggle input:checked ~ div .toggle-deactive {
+  display: none;
+  color: #222222;
+}
+
 .breadcrumb {
   background-color: transparent;
   padding: 0 0 22px 0;
@@ -3081,7 +3151,6 @@ input:focus {
 }
 
 .header-min__actions {
-  margin-left: auto;
   display: flex;
   align-items: center;
 }
@@ -8505,6 +8574,10 @@ a[data-tooltip]:hover::before {
   .container {
     padding: 0 30px;
     max-width: 990px;
+  }
+
+  .toggle {
+    font-size: 15px;
   }
 
   .pagination__page {

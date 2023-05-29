@@ -15,6 +15,20 @@ mixin dropdown-icon-store
                 a(href='#'): button.btn.btn-gray(data-popup="store-login") Войти
                 a(href='#'): button.btn.btn-gray Справка
 
+
+mixin dropdown-icon-store-login
+    .dropdown-icon
+        .dropdown-icon__elem: a(href='#'): +icons('#ic_login', 24)
+        .dropdown-icon__list
+            .dropdown-button
+                a(href='#'): button.btn.btn-white PCPlanet.ru
+                a(href='#'): button.btn.btn-gray Параметры
+                a(href='#'): button.btn.btn-gray Справка
+                a(href='#'): button.btn.btn-white Выход
+
+
+
+
 mixin tooltip-icon(data)
     .tooltip-icon
         .tooltip-icon__elem: a(href='#'): +icons(data.icon, 24)

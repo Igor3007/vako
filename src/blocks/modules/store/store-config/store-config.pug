@@ -18,17 +18,17 @@ mixin shop-info
         .shop-block__title 
             .shop-block__h2 Информация о магазине
             .shop-block__toggle
-                +checkbox('Показ предложений отключен')
+                +toggle('Показ предложений включен','Показ предложений отключен')
         .shop-block__logo
             .shop-upload-logo
                 .shop-upload-logo__image
-                    span.bgimage
+                    +bgimage('/img/common/no-photo.svg')
 
                 .shop-upload-logo__action
                     .shop-upload-logo__button
                         label
-                            input(type="file" name="logo")
-                            span.btn Добавить логотип
+                            input(type="file" name="logo" data-upload="logo-store")
+                            span.btn.btn-small Добавить логотип
                     .shop-upload-logo__note Загрузите jpg или png файл размером не более 5 MB
         .shop-block__group
             .form
@@ -87,7 +87,7 @@ mixin shop-shiping
                 li: +checkbox('Безналичный расчёт')
 
         .shop-block__repeat
-            span Добавить ещё регион
+            span.icon-add Добавить ещё регион
 
 mixin shop-points
 
@@ -111,7 +111,7 @@ mixin shop-points
             +checkbox('Наличный расчёт')
             +checkbox('Безналичный расчёт')
         .shop-block__repeat
-            span Добавить пункт выдачи / магазин
+            span.icon-add Добавить пункт выдачи / магазин
 
 mixin shop-phones
     .shop-block
@@ -122,8 +122,10 @@ mixin shop-phones
                 .form__subitem
                     label Номер телефона
                     input(type="tel" name="phones[]" placeholder="Укажите номер")
-                    span(class="repeat-field") + Добавить ещё номер
+                    span(class="repeat-field icon-add") Добавить ещё номер
 
+         
+        .shop-block__note-wt Выберите дни и время для показа предложений и номеров телефона магазина:
         .shop-block__worktime
 
             each item in ['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']

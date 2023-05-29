@@ -504,6 +504,39 @@
          })
      }
 
+     /* ======================================
+     upload logo
+     ======================================*/
+
+     if (document.querySelector('[data-upload="logo-store"]')) {
+
+         document.querySelector('[data-upload="logo-store"]').addEventListener('change', function () {
+
+             const file = this.files[0];
+
+             if (file.size / (1024 * 1024) > 5) { //5mb
+                 window.STATUS.err('Допустимы файлы не более 5 мб');
+                 return false;
+             }
+
+             if (file.type == 'image/jpeg' || file.type == 'image/png') {
+
+                 var reader = new FileReader();
+                 reader.readAsDataURL(file);
+                 reader.onload = function (e) {
+                     document.querySelector('.shop-upload-logo__image span').style.backgroundImage = 'url(' + e.target.result + ')'
+                 }
+             } else {
+                 window.STATUS.err('Допустимы только jpeg/png файлы')
+             }
+
+
+         })
+
+
+
+     }
+
 
 
 

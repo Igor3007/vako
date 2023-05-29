@@ -27,7 +27,7 @@
                 padding: 12px;
                 display: flex;
                 align-items: center;
-                margin-bottom: 8px;
+                margin-bottom: 4px;
 
                 &:last-child {
                     margin-bottom: 0;
@@ -37,8 +37,16 @@
                     width: 24px;
                     height: 24px;
                     @include bgimage-contain;
-                    margin-right: 10px;
+                    margin-right: 12px;
                     filter: grayscale(1);
+                }
+
+                & a {
+                    font-weight: 800;
+
+                    @media screen and (min-width: $w992) {
+                        font-size: 16px;
+                    }
                 }
 
                 &:hover {
@@ -81,6 +89,8 @@
             padding-left: 48px;
         }
     }
+
+
 
 
 }

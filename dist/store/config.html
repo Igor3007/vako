@@ -41,6 +41,38 @@
           <div class="header-min">
             <div class="header-min__main">
               <div class="header-min__logo"><a href="/store/"><span class="bgimage" style="background-image: url('/img/common/logo_partners.svg')"></span></a></div>
+              <div class="header-min__status"><span class="icon-status-show">Предложения магазина показываются</span></div>
+              <div class="header-min__pay">
+                <div class="header-min__wallet">
+                  <svg width="24" height="24">
+                    <use xlink:href="/img/sprites/sprite.svg#ic_wallet"></use>
+                  </svg><span>24 390.17 ₽</span>
+                </div>
+                <div class="header-min__add"><a href="#">
+                    <button class="btn btn-small">Пополнить</button></a></div>
+              </div>
+              <div class="header-min__notification">
+                <div class="header-notification">
+                  <div class="header-notification__icon">
+                    <svg width="24" height="24">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_notifications"></use>
+                    </svg>
+                  </div>
+                  <div class="header-notification__dropdown">
+                    <ul>
+                      <li><strong>Новые поступления!</strong>
+                        <p>Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе.</p>
+                      </li>
+                      <li><strong>10% процентов на все!</strong>
+                        <p>Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе.</p>
+                      </li>
+                      <li><strong>Он позволяет воде «дышать»</strong>
+                        <p> Брезент, в отличие от двух других материалов, пропускает воду, намокает и может утратить свои качества, если его не просушить. </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
               <div class="header-min__actions">
                 <div class="header-min__login">
                         <div class="dropdown-icon">
@@ -84,18 +116,20 @@
                         <div class="shop-block__title"> 
                           <div class="shop-block__h2">Информация о магазине</div>
                           <div class="shop-block__toggle">
-                            <label class="checkbox">
-                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Показ предложений отключен</span>
+                            <label class="toggle">
+                              <input type="checkbox" name="" value="1"/>
+                              <div><span class="toggle-slide"></span><span class="toggle-active">Показ предложений включен</span><span class="toggle-deactive">Показ предложений отключен</span></div>
                             </label>
                           </div>
                         </div>
                         <div class="shop-block__logo">
                           <div class="shop-upload-logo">
-                            <div class="shop-upload-logo__image"><span class="bgimage"></span></div>
+                            <div class="shop-upload-logo__image"><span class="bgimage lazyload" data-bg="/img/common/no-photo.svg"></span>
+                            </div>
                             <div class="shop-upload-logo__action">
                               <div class="shop-upload-logo__button">
                                 <label>
-                                  <input type="file" name="logo"/><span class="btn">Добавить логотип</span>
+                                  <input type="file" name="logo" data-upload="logo-store"/><span class="btn btn-small">Добавить логотип</span>
                                 </label>
                               </div>
                               <div class="shop-upload-logo__note">Загрузите jpg или png файл размером не более 5 MB</div>
@@ -166,11 +200,12 @@
                             <div class="form__item">
                               <div class="form__subitem">
                                 <label>Номер телефона</label>
-                                <input type="tel" name="phones[]" placeholder="Укажите номер"/><span class="repeat-field">+ Добавить ещё номер</span>
+                                <input type="tel" name="phones[]" placeholder="Укажите номер"/><span class="repeat-field icon-add">Добавить ещё номер</span>
                               </div>
                             </div>
                           </div>
                         </div>
+                        <div class="shop-block__note-wt">Выберите дни и время для показа предложений и номеров телефона магазина:</div>
                         <div class="shop-block__worktime">
                           <label>
                             <input type="checkbox" value="ПН"/>
@@ -306,7 +341,7 @@
                             </li>
                           </ul>
                         </div>
-                        <div class="shop-block__repeat"><span>Добавить ещё регион</span></div>
+                        <div class="shop-block__repeat"><span class="icon-add">Добавить ещё регион</span></div>
                       </div>
                     </div>
                   </div>
@@ -418,7 +453,7 @@
                             <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Безналичный расчёт</span>
                           </label>
                         </div>
-                        <div class="shop-block__repeat"><span>Добавить пункт выдачи / магазин</span></div>
+                        <div class="shop-block__repeat"><span class="icon-add">Добавить пункт выдачи / магазин</span></div>
                       </div>
                     </div>
                   </div>

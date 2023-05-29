@@ -179,74 +179,85 @@
 
 
 
-// .toggle {
-//     display: flex;
-//     align-items: center;
-//     cursor: pointer;
-//     font-size: 14px;
-//     color: $main;
+.toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+
+    @media screen and (min-width: $w992) {
+        font-size: 15px;
+    }
 
 
 
-//     & div {
-//         display: flex;
-//         align-items: center;
 
-//         & .toggle-slide {
-//             width: 40px;
-//             height: 20px;
-//             display: inline-block;
-//             background: $green;
-//             border-radius: 50px 50px;
-//             position: relative;
-//             box-shadow: 0 0 0 1px $green;
-//             margin-right: rem(10);
-//             transition: 0.3s ease;
+    & div {
+        display: flex;
+        align-items: center;
 
-//             &::before {
-//                 content: '';
-//                 width: 16px;
-//                 height: 16px;
-//                 background: #fff;
-//                 border-radius: 50%;
-//                 position: absolute;
-//                 left: 2px;
-//                 top: 2px;
-//                 display: block;
-//                 transition: 0.3s ease;
+        & .toggle-slide {
+            width: 48px;
+            height: 24px;
+            display: inline-block;
+            background: $gray-80;
+            border-radius: 50px 50px;
+            position: relative;
+            margin-right: rem(10);
+            transition: 0.3s ease;
 
-//             }
-//         }
-//     }
+            &:hover {
+                background: #ADADAD;
+            }
 
-//     & input {
-//         display: none;
+            &::before {
+                content: '';
+                width: 16px;
+                height: 16px;
+                background: #fff;
+                border-radius: 50%;
+                position: absolute;
+                left: 4px;
+                top: 4px;
+                display: block;
+                transition: 0.3s ease;
 
-//         &:checked~div .toggle-slide {
-//             background: #fff;
+            }
+        }
+    }
 
+    & input {
+        display: none;
 
-//             &::before {
-//                 left: calc(100% - 18px);
-//                 background: $green;
-//             }
-//         }
+        &:checked~div .toggle-slide {
+            background: $accent-1-1;
 
-//     }
-
-//     & .toggle-active {
-//         display: none;
-//     }
-
-//     & input:checked~div .toggle-active {
-//         display: block;
-//         color: $black;
-
-//     }
-
-//     & input:checked~div .toggle-deactive {
-//         display: none;
+            &:hover {
+                background: $accent-1-2;
+            }
 
 
-//     }
-// }
+            &::before {
+                left: calc(100% - 20px);
+
+            }
+        }
+
+    }
+
+    & .toggle-active {
+        display: none;
+    }
+
+    & input:checked~div .toggle-active {
+        display: block;
+        color: $accent-2-1;
+
+    }
+
+    & input:checked~div .toggle-deactive {
+        display: none;
+        color: $gray-22;
+
+    }
+}
