@@ -18,7 +18,7 @@ mixin shop-info
         .shop-block__title 
             .shop-block__h2 Информация о магазине
             .shop-block__toggle
-                +toggle('Показ предложений включен','Показ предложений отключен')
+                +toggle('Предложения показываются','Показ предложений отключен')
         .shop-block__logo
             .shop-upload-logo
                 .shop-upload-logo__image
@@ -59,7 +59,7 @@ mixin shop-info
               .form__item
                 .form__subitem
                     label ИНН/УНП
-                    input(type="text" placeholder="Введите данные")
+                    input(type="text" placeholder="Введите данные" data-input-mask='number')
               .form__item
                 .form__subitem
                     label Адрес регистрацииай
@@ -102,8 +102,8 @@ mixin shop-points
                     input(type="checkbox" value = item)
                     .worktime-item
                         .worktime-item__day: span= item
-                        .worktime-item__from: input(type="text" placeholder="От")
-                        .worktime-item__to: input(type="text" placeholder="До") 
+                        .worktime-item__from: input(type="text" placeholder="От" data-input-mask="time")
+                        .worktime-item__to: input(type="text" placeholder="До" data-input-mask="time") 
         .shop-block__pay-methods
             strong  Способы оплаты в регионе:
             +checkbox('Картой на сайте')
@@ -120,8 +120,9 @@ mixin shop-phones
             .form
               .form__item
                 .form__subitem
-                    label Номер телефона
-                    input(type="tel" name="phones[]" placeholder="Укажите номер")
+                    .form__repeat
+                        label Номер телефона
+                        input(type="tel" name="phones[]" data-maska="+7 (###) ###-##-##" placeholder="Укажите номер")
                     span(class="repeat-field icon-add") Добавить ещё номер
 
          
@@ -133,5 +134,5 @@ mixin shop-phones
                     input(type="checkbox" value = item)
                     .worktime-item
                         .worktime-item__day: span= item
-                        .worktime-item__from: input(type="text" placeholder="От")
-                        .worktime-item__to: input(type="text" placeholder="До") 
+                        .worktime-item__from: input(type="text" placeholder="От" data-input-mask="time")
+                        .worktime-item__to: input(type="text" placeholder="До" data-input-mask="time") 

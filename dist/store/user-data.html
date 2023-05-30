@@ -41,9 +41,9 @@
           <div class="header-min">
             <div class="header-min__main">
               <div class="header-min__logo"><a href="/store/"><span class="bgimage" style="background-image: url('/img/common/logo_partners.svg')"></span></a></div>
-              <div class="header-min__status"><span class="icon-status-show">Предложения магазина показываются</span></div>
+              <div class="header-min__status"><span class="icon-status--green"> <!--  icon-status--orange icon-status--red  -->  Предложения магазина показываются  </span></div>
               <div class="header-min__bill">
-                <div class="header-min__mobile"><span class="ic_open">menu</span></div>
+                <div class="header-min__mobile"><span class="ic-open-aside" data-aside="open"></span></div>
                 <div class="header-min__pay">
                   <div class="header-min__wallet">
                     <svg width="24" height="24">
@@ -55,7 +55,7 @@
                 </div>
               </div>
               <div class="header-min__notification">
-                <div class="header-notification">
+                <div class="header-notification is-unread">
                   <div class="header-notification__icon">
                     <svg width="24" height="24">
                       <use xlink:href="/img/sprites/sprite.svg#ic_notifications"></use>
@@ -63,13 +63,25 @@
                   </div>
                   <div class="header-notification__dropdown">
                     <ul>
-                      <li><strong>Новые поступления!</strong>
+                      <li><strong><a href="#">Новые поступления!</a></strong>
                         <p>Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе.</p>
                       </li>
-                      <li><strong>10% процентов на все!</strong>
+                      <li><strong><a href="#">10% процентов на все!</a></strong>
                         <p>Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе.</p>
                       </li>
-                      <li><strong>Он позволяет воде «дышать»</strong>
+                      <li><strong><a href="#">Новые поступления!</a></strong>
+                        <p>Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе.</p>
+                      </li>
+                      <li><strong><a href="#">10% процентов на все!</a></strong>
+                        <p>Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе.</p>
+                      </li>
+                      <li><strong><a href="#">Новые поступления!</a></strong>
+                        <p>Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе.</p>
+                      </li>
+                      <li><strong><a href="#">10% процентов на все!</a></strong>
+                        <p>Тент защищает воду от попадания в неё мусора и пыли. Он полезен, если нужно оставить бассейн без присмотра на какой тек длительный период или чтобы защитить его от грозы и сильного ветра. Тент можно использовать чаще, если бассейн расположен на открытом воздухе.</p>
+                      </li>
+                      <li><strong><a href="#">Он позволяет воде «дышать»</a></strong>
                         <p> Брезент, в отличие от двух других материалов, пропускает воду, намокает и может утратить свои качества, если его не просушить. </p>
                       </li>
                     </ul>
@@ -85,8 +97,10 @@
                               </svg></a></div>
                           <div class="dropdown-icon__list">
                             <div class="dropdown-button"><a href="#">
-                                <button class="btn btn-gray" data-popup="store-login">Войти</button></a><a href="#">
-                                <button class="btn btn-gray">Справка</button></a></div>
+                                <button class="btn btn-white">PCPlanet.ru</button></a><a href="user-data.html">
+                                <button class="btn btn-gray">Параметры</button></a><a href="#">
+                                <button class="btn btn-gray">Справка</button></a><a href="#">
+                                <button class="btn btn-white">Выход</button></a></div>
                           </div>
                         </div>
                 </div>
@@ -138,19 +152,25 @@
                       <div class="form__item">
                         <div class="form__subitem">
                           <label>Текущий пароль</label>
-                          <input type="text" placeholder="Введите текущий пароль"/>
+                          <div class="form__group view-password">
+                            <input type="password" placeholder="Введите текущий пароль"/><span class="icon-eye"></span>
+                          </div>
                         </div>
                       </div>
                       <div class="form__item">
                         <div class="form__subitem">
                           <label>Новый пароль</label>
-                          <input type="text" placeholder="Введите новый пароль"/>
+                          <div class="form__group view-password">
+                            <input type="password" placeholder="Введите новый пароль"/><span class="icon-eye"></span>
+                          </div>
                         </div>
                       </div>
                       <div class="form__item">
                         <div class="form__subitem">
                           <label>Повтор нового пароля</label>
-                          <input type="text" placeholder="Введите новый пароль ещё раз"/>
+                          <div class="form__group view-password">
+                            <input type="password" placeholder="Введите новый пароль ещё раз"/><span class="icon-eye"></span>
+                          </div>
                         </div>
                       </div>
                     </div>

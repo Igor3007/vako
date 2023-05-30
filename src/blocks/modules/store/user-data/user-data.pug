@@ -13,7 +13,7 @@ mixin store-user-data
                         .form__item
                             .form__subitem
                                 label Телефон пользователя
-                                input(type="tel" placeholder="+7(***)***-**-**")
+                                input(type="tel" placeholder="+7(***)***-**-**" )
                         .form__item
                             .form__subitem
                                 label Почта (логин)
@@ -21,15 +21,21 @@ mixin store-user-data
                         .form__item
                             .form__subitem
                                 label Текущий пароль
-                                input(type="text" placeholder="Введите текущий пароль")
+                                .form__group.view-password
+                                    input(type="password" placeholder="Введите текущий пароль")
+                                    span.icon-eye
                         .form__item
                             .form__subitem
                                 label Новый пароль
-                                input(type="text" placeholder="Введите новый пароль")
+                                .form__group.view-password
+                                    input(type="password" placeholder="Введите новый пароль")
+                                    span.icon-eye
                         .form__item
                             .form__subitem
                                 label Повтор нового пароля
-                                input(type="text" placeholder="Введите новый пароль ещё раз")
+                                .form__group.view-password
+                                    input(type="password" placeholder="Введите новый пароль ещё раз")
+                                    span.icon-eye
                 fieldset
                     h3 Уведомления
                     .form

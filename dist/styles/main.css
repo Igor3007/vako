@@ -2192,7 +2192,8 @@ select {
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 .toggle div {
@@ -8577,7 +8578,7 @@ a[data-tooltip]:hover::before {
   }
 
   .toggle {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .pagination__page {

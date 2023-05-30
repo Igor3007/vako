@@ -183,10 +183,11 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 400;
 
     @media screen and (min-width: $w992) {
-        font-size: 15px;
+        font-size: 14px;
     }
 
 

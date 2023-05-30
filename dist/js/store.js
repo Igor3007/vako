@@ -169,6 +169,57 @@
      }
 
      /* ==========================================
+     mask
+     ==========================================*/
+
+     const {
+         MaskInput,
+     } = Maska
+
+     function initMask() {
+         new MaskInput("input[type='tel']", {
+             mask: '+7 (###) ###-##-##'
+         })
+
+         new MaskInput("[data-input-mask='time']", {
+             mask: 'Hh:Mm',
+             tokens: {
+                 H: {
+                     pattern: /[0-9]/,
+                     transform: (chr) => {
+                         return Number(chr) > 2 ? '2' : chr
+                     }
+                 },
+                 h: {
+                     pattern: /[0-9]/
+                 },
+                 M: {
+                     pattern: /[0-9]/,
+                     transform: (chr) => {
+                         return Number(chr) > 5 ? '5' : chr
+                     }
+                 },
+                 m: {
+                     pattern: /[0-9]/,
+                 },
+             }
+
+         })
+
+         new MaskInput("[data-input-mask='number']", {
+             mask: '9',
+             tokens: {
+                 9: {
+                     pattern: /[0-9]/,
+                     repeated: true
+                 },
+             }
+         })
+     }
+
+     initMask();
+
+     /* ==========================================
      FileUpload
      ==========================================*/
 
@@ -385,6 +436,10 @@
                  })
                  selectCustom.init()
 
+                 // init mask
+
+                 initMask()
+
                  if (steps.length) {
 
                      // enable first step
@@ -533,6 +588,101 @@
 
          })
 
+
+
+     }
+
+     /* =====================================
+     open mobile aside
+     =====================================*/
+
+     if (document.querySelector('[data-aside="open"]')) {
+
+         const items = document.querySelectorAll('[data-aside="open"]')
+
+
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+                 item.classList.toggle('is-open')
+                 document.querySelector('.store-panel__aside').classList.toggle('is-open')
+                 window.scrollTo({
+                     top: 0
+                 })
+                 document.body.classList.toggle('hidden')
+             })
+         })
+
+
+         document.querySelector('.store-panel__aside').addEventListener('click', e => {
+
+             console.log(e.target.closest('ul'))
+
+             if (!e.target.closest('ul')) {
+                 document.querySelector('.store-panel__aside').classList.remove('is-open')
+                 document.body.classList.remove('hidden')
+
+                 items.forEach(item => {
+                     item.classList.remove('is-open')
+                 })
+             }
+         })
+
+     }
+
+
+     /*================================================
+     repeat field
+     ================================================*/
+
+     if (document.querySelector('.repeat-field')) {
+
+         const buttons = document.querySelectorAll('.repeat-field');
+
+         buttons.forEach(button => {
+             button.addEventListener('click', e => {
+
+                 const parent = e.target.closest('.form__subitem')
+
+                 if (parent.querySelectorAll('input').length >= 3) {
+                     window.STATUS.err('Допустимо не более 3 телефонов')
+                     return false
+                 }
+
+                 const newPhone = document.createElement('div')
+                 newPhone.innerHTML = '<span class="remove-field" ></span>'
+                 newPhone.append(parent.querySelector('input').cloneNode(true))
+
+                 newPhone.querySelector('input').value = ''
+                 newPhone.querySelector('.remove-field').addEventListener('click', e => {
+                     e.target.closest('div').remove()
+                 })
+
+                 parent.querySelector('.form__repeat').append(newPhone)
+
+                 //init mask
+
+                 initMask();
+
+             })
+         })
+
+     }
+
+     /* ==============================================
+     show password
+     ==============================================*/
+
+     if (document.querySelector('.icon-eye')) {
+
+         document.querySelectorAll('.icon-eye').forEach(item => {
+             item.addEventListener('click', e => {
+
+                 const input = item.parentNode.querySelector('input')
+                 input.type = (input.type == 'text' ? 'password' : 'text')
+
+             })
+         })
 
 
      }

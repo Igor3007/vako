@@ -16,9 +16,13 @@
 
 .shop-block {
 
-    padding: 30px;
+    padding: 20px;
     background-color: #fff;
     border-radius: 6px;
+
+    @media screen and (min-width: $w480) {
+        padding: 30px;
+    }
 
     &__title {
         @include font-h2;
@@ -27,8 +31,18 @@
         @media screen and (min-width: $w760) {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             justify-content: space-between;
         }
+    }
+
+    &__toggle {
+        padding-top: 15px;
+
+        @media screen and (min-width: $w760) {
+            padding-top: 0;
+        }
+
     }
 
     &__logo {
@@ -350,7 +364,11 @@
     align-items: center;
 
     &__image {
-        width: 105px;
+        width: 80px;
+
+        @media screen and (min-width: $w480) {
+            width: 105px;
+        }
 
         @media screen and (min-width: $w576) {
             width: 120px;
@@ -368,8 +386,12 @@
     }
 
     &__action {
-        width: calc(100% - 105px);
+        width: calc(100% - 80px);
         padding-left: 20px;
+
+        @media screen and (min-width: $w480) {
+            width: calc(100% - 105px);
+        }
 
         @media screen and (min-width: $w576) {
             width: calc(100% - 120px);
@@ -389,6 +411,12 @@
             & .btn {
                 display: inline-flex;
                 font-weight: 600;
+
+
+                @media screen and (max-width: 400px) {
+                    padding: 0.7em 2em 0.8em 2em;
+
+                }
             }
         }
 
@@ -419,4 +447,37 @@
         background-position: center;
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNCAwYTEgMSAwIDAxMSAxdjJoMmExIDEgMCAwMTAgMkg1djJhMSAxIDAgMDEtMiAwVjVIMWExIDEgMCAxMTAtMmgyVjFhMSAxIDAgMDExLTF6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
     }
+}
+
+.form__repeat {
+    width: 100%;
+
+    & div {
+        position: relative;
+    }
+}
+
+.form__repeat>div {
+    position: relative;
+}
+
+.remove-field {
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    position: relative;
+    display: block;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0uMjkzLjI5M2ExIDEgMCAwMTEuNDE0IDBMNyA1LjU4NiAxMi4yOTMuMjkzYTEgMSAwIDExMS40MTQgMS40MTRMOC40MTQgN2w1LjI5MyA1LjI5M2ExIDEgMCAwMS0xLjQxNCAxLjQxNEw3IDguNDE0bC01LjI5MyA1LjI5M2ExIDEgMCAwMS0xLjQxNC0xLjQxNEw1LjU4NiA3IC4yOTMgMS43MDdhMSAxIDAgMDEwLTEuNDE0eiIgZmlsbD0iIzIyMiIvPjwvc3ZnPg==);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.6;
+    }
+
 }

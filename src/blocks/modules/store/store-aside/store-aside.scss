@@ -6,6 +6,21 @@
             max-width: 1284px;
         }
     }
+
+    main {
+        min-height: calc(100vh - 134px);
+    }
+}
+
+@keyframes left-slide {
+
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
 .store-panel {
@@ -17,11 +32,22 @@
     }
 
     &__aside {
+
+        display: none;
+
         @media screen and (min-width: $w992) {
             width: 264px;
+            display: block;
         }
 
         & ul {
+
+            animation: left-slide 0.3s ease forwards;
+
+            @media screen and (min-width: $w992) {
+                animation: none;
+            }
+
             & li {
                 min-height: 48px;
                 padding: 12px;
@@ -79,6 +105,27 @@
                         filter: grayscale(1) brightness(300);
                     }
                 }
+            }
+        }
+
+        &.is-open {
+            @media screen and (max-width: $w992) {
+                display: block;
+                position: fixed;
+                background-color: #00000082;
+                left: 0;
+                top: 134px;
+                bottom: 0;
+                right: 0;
+                z-index: 50;
+
+                & ul {
+                    background-color: #fff;
+                    max-width: 320px;
+                    height: 100%;
+                    padding: 15px;
+                }
+
             }
         }
     }
