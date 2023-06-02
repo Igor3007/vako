@@ -3,7 +3,7 @@
   <div class="login-partners__wrp">
     <div class="login-partners__title">Регистрация магазина</div>
     <div class="login-partners__form">
-      <form action="#" method="POST"> 
+      <form action="#" method="POST" data-store-form="registration"> 
         <div class="form-step" data-step="0">
           <div class="form">
             <div class="form__item">
@@ -33,6 +33,13 @@
             <div class="form__item">
               <div class="form__subitem">
                 <button class="btn" data-step="next">Далее</button>
+              </div>
+            </div>
+            <div class="form__item">
+              <div class="form__subitem">
+                <label class="checkbox">
+                  <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Ознакомлен(-а) с <a href="/policy.html" >соглашением о конфиденциальности</a> и принимаю <a href="public.html" >договор-оферту</a></span>
+                </label>
               </div>
             </div>
           </div>
@@ -79,7 +86,7 @@
               </div>
             </div>
             <div class="form__item">
-              <div class="form__note"><a href="#" data-step="prev">Вернуться назад</a></div>
+              <div class="form__note"><a class="icon-back" href="#" data-step="prev">Вернуться назад</a></div>
             </div>
           </div>
         </div>

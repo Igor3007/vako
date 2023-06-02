@@ -1,8 +1,10 @@
+include ../../helpers/mixins.pug
+
 .login-partners
     .login-partners__wrp
         .login-partners__title Регистрация магазина
         .login-partners__form
-            form(action='#' method='POST') 
+            form(action='#' method='POST' data-store-form="registration") 
                 .form-step(data-step="0")
                     .form
                         .form__item
@@ -30,7 +32,9 @@
                             .form__subitem
                                 button.btn(data-step="next") Далее
 
-                
+                        .form__item
+                            .form__subitem
+                                +checkbox('Ознакомлен(-а) с <a href="/policy.html" >соглашением о конфиденциальности</a> и принимаю <a href="public.html" >договор-оферту</a>')
 
                 .form-step(data-step="1")
                     .form
@@ -69,4 +73,4 @@
 
                         .form__item
                             .form__note
-                                a(href='#' data-step="prev") Вернуться назад
+                                a(href='#' data-step="prev" class="icon-back") Вернуться назад

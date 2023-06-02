@@ -3,7 +3,7 @@
 
     &__title {
         @include font-h2;
-        padding-bottom: 0.8em;
+        padding-bottom: 1.2em;
     }
 
     &__form {}
@@ -19,7 +19,7 @@
             }
         }
 
-        & label {
+        & label:not(.checkbox) {
             width: 100%;
             padding-bottom: 10px;
             font-weight: bold;
@@ -37,6 +37,8 @@
             }
         }
 
+        & .checkbox {}
+
         & .btn {
             width: 100%;
         }
@@ -51,12 +53,34 @@
                 font-size: 16px;
             }
         }
+
+        &__item {
+            @media screen and (min-width: $w992) {
+                padding-bottom: 14px;
+            }
+        }
     }
 
 }
 
 .login-partners .form-step {
     display: none;
+}
+
+.icon-back::before {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    content: '';
+    background-color: transparent;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    margin-right: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 90%;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNSIgaGVpZ2h0PSI4IiBmaWxsPSIjN0I2MUZGIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNC4zNTQuNjQ2YS41LjUgMCAwMTAgLjcwOEwxLjcwNyA0bDIuNjQ3IDIuNjQ2YS41LjUgMCAxMS0uNzA4LjcwOGwtMy0zYS41LjUgMCAwMTAtLjcwOGwzLTNhLjUuNSAwIDAxLjcwOCAweiIvPjwvc3ZnPg==);
 }
 
 @media screen and (min-width: $w480) {

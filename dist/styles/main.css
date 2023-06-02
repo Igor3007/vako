@@ -1018,6 +1018,10 @@ select {
   opacity: 1;
 }
 
+.af-select.af-select--selected .select-styled span {
+  color: #000;
+}
+
 @keyframes splide-loading {
   0% {
     transform: rotate(0);

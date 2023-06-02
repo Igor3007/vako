@@ -30,6 +30,7 @@
 
     &__title {
         @include font-h3;
+        font-size: 20px;
         padding-bottom: 0.8em;
     }
 
@@ -56,7 +57,7 @@
                     background-color: $gray-96;
                     border-radius: 4px;
                     height: 36px;
-                    padding: 0 10px 3px 10px;
+                    padding: 0 1em 3px 1em;
                     font-size: 14px;
                     cursor: pointer;
                 }
@@ -100,6 +101,11 @@
                 flex-direction: column;
 
                 padding: 8px 12px;
+
+                @media screen and (min-width: $w992) {
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
 
                 & small {
                     color: $gray-56;
@@ -178,6 +184,7 @@
     &__subtitle {
         margin-top: -5px;
         padding-bottom: 15px;
+        line-height: 145%;
 
         & a {
             color: $accent-2-1;
@@ -264,6 +271,12 @@
             display: inline-flex;
             align-items: center;
             font-size: 13px;
+            font-weight: 600;
+            width: 100%;
+
+            @media screen and (min-width: $w480) {
+                width: auto;
+            }
 
             &:before {
                 content: '';
@@ -364,4 +377,20 @@
     @media screen and (min-width: $w1200) {
         max-width: 600px;
     }
+}
+
+
+.user-menu-popup .dropdown-button a {
+    font-size: 15px;
+    display: block;
+    margin: 8px 0
+}
+
+.user-menu-popup .dropdown-button a button {
+    width: 100%;
+    height: 40px
+}
+
+.user-menu-popup .dropdown-button {
+    margin: -8px 0;
 }

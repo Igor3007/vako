@@ -46,7 +46,7 @@
     }
 
     &__logo {
-        padding-bottom: 23px;
+        padding-bottom: 30px;
     }
 
     &__group {
@@ -58,8 +58,12 @@
         & .form {
 
             &__item {
+
+                padding-bottom: 12px;
+
                 @media screen and (min-width: $w1440) {
                     margin-bottom: 2px;
+                    padding-bottom: 0;
                 }
             }
 
@@ -185,10 +189,24 @@
     &__pay-methods {
 
         padding-bottom: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 12px;
+
+        @media screen and (min-width: $w480) {
+            flex-direction: row;
+
+
+        }
 
         & .checkbox {
-            font-size: 14px;
+
             margin-right: 15px;
+
+            @media screen and (min-width: $w480) {
+                font-size: 14px;
+            }
 
             &:last-child {
                 margin-right: 0;
@@ -200,6 +218,7 @@
             padding-bottom: 1em;
             font-size: 16px;
             font-weight: 800;
+            width: 100%;
         }
 
     }

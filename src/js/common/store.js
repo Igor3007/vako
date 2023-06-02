@@ -384,6 +384,55 @@
 
      }
 
+     /* ==============================================
+      form recovery check email
+     ==============================================*/
+
+     function openRecoveryCheckEmail() {
+         const CHECKEMAILPOPUP = new afLightbox({
+             mobileInBottom: true
+         })
+
+         window.ajax({
+             type: 'GET',
+             url: '/store/_popup-check-email.html',
+             responseType: 'html',
+             data: {
+                 value: 0
+             }
+         }, (status, response) => {
+             CHECKEMAILPOPUP.open(response, (html) => {
+                 html.querySelector('.btn').addEventListener('click', e => CHECKEMAILPOPUP.close())
+             })
+         })
+
+     }
+
+     /* ==============================================
+      form thanks popup
+     ==============================================*/
+
+     function openThanksPopup() {
+         const CHECKEMAILPOPUP = new afLightbox({
+             mobileInBottom: true
+         })
+
+         window.ajax({
+             type: 'GET',
+             url: '/store/_popup-thanks.html',
+             responseType: 'html',
+             data: {
+                 value: 0
+             }
+         }, (status, response) => {
+             CHECKEMAILPOPUP.open(response, (html) => {
+                 html.querySelector('.btn').addEventListener('click', e => CHECKEMAILPOPUP.close())
+             })
+         })
+
+     }
+
+
      /* ===========================================
      popup recovery password
      ============================================= */
@@ -402,7 +451,18 @@
                      value: 0
                  }
              }, (status, response) => {
-                 console.log(RecoveryPassword.changeContent(response))
+                 RecoveryPassword.changeContent(response)
+
+                 const form = RecoveryPassword.modal.querySelector('[data-store-form="recovery"]')
+                 form.addEventListener('submit', e => {
+                     e.preventDefault()
+
+
+                     //send success
+                     RecoveryPassword.close()
+                     openRecoveryCheckEmail()
+                 })
+
              })
          })
      }
@@ -440,6 +500,9 @@
 
                  initMask()
 
+                 //form
+                 const form = document.querySelector('[data-store-form="registration"]')
+
                  if (steps.length) {
 
                      // enable first step
@@ -449,14 +512,13 @@
                      registerPopup.modal.querySelectorAll('[data-step="next"]').forEach(element => {
                          element.addEventListener('click', e => {
 
-                             e.preventDefault()
-
                              let currentStep = e.target.closest('.form-step')
                              currentStep.style.display = 'none'
 
                              if (currentStep.nextElementSibling) {
                                  currentStep.nextElementSibling.style.display = 'block'
                              }
+
                          })
                      });
 
@@ -474,6 +536,16 @@
                              }
                          })
                      });
+
+                     // form submit
+
+                     form.addEventListener('submit', e => {
+                         e.preventDefault()
+
+                         //send data
+                         registerPopup.close()
+                         openThanksPopup()
+                     })
                  }
 
              })
@@ -686,6 +758,30 @@
 
 
      }
+
+     /* =============================================
+     user menu
+     =============================================*/
+
+     if (document.querySelector('[data-popup="user-menu"]') && document.body.clientWidth <= 480) {
+
+         const button = document.querySelector('[data-popup="user-menu"]')
+
+         button.addEventListener('click', e => {
+
+             const html = button.querySelector('.dropdown-button').outerHTML
+
+             const userMenuPopup = new afLightbox({
+                 mobileInBottom: true
+             })
+
+             userMenuPopup.open('<div class="user-menu-popup" >' + html + '</div>')
+
+         })
+
+     }
+
+
 
 
 

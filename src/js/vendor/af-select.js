@@ -123,6 +123,7 @@ class afSelect {
 
     openSelect(elem) {
         elem.style.maxWidth = (elem.offsetWidth) + 'px'
+        elem.classList.add('af-select--selected')
         elem.querySelector('.select-styled').classList.toggle('active')
         elem.querySelector('.select-options').classList.toggle('active')
         elem.querySelector('.select-list').classList.toggle('active')
