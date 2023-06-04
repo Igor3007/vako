@@ -316,51 +316,53 @@
                     <div class="store-config__col">
                       <div class="shop-block">
                         <div class="shop-block__title">Доставка и оплата</div>
-                        <div class="shop-block__district form">
-                          <label>Регион доставки</label>
-                          <select name="district[]">
-                            <option>Санкт-Петербург</option>
-                            <option>Москва</option>
-                          </select>
-                          <ul>
-                            <li>
-                              <label class="checkbox">
-                                <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Собственная доставка в данном регионе</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label class="checkbox">
-                                <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Есть доставка через транспортные компании (ТК)</span>
-                              </label>
-                            </li>
-                          </ul>
+                        <div class="shop-block__row">
+                          <div class="shop-block__district form">
+                            <label>Регион доставки</label>
+                            <select name="district[]">
+                              <option>Санкт-Петербург</option>
+                              <option>Москва</option>
+                            </select>
+                            <ul>
+                              <li>
+                                <label class="checkbox">
+                                  <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Собственная доставка в данном регионе</span>
+                                </label>
+                              </li>
+                              <li>
+                                <label class="checkbox">
+                                  <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Есть доставка через транспортные компании (ТК)</span>
+                                </label>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="shop-block__payment">
+                            <label>Способы оплаты в регионе:</label>
+                            <ul>
+                              <li>
+                                <label class="checkbox">
+                                  <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Картой на сайте</span>
+                                </label>
+                              </li>
+                              <li>
+                                <label class="checkbox">
+                                  <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Картой курьеру</span>
+                                </label>
+                              </li>
+                              <li>
+                                <label class="checkbox">
+                                  <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Наличными курьеру</span>
+                                </label>
+                              </li>
+                              <li>
+                                <label class="checkbox">
+                                  <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Безналичный расчёт</span>
+                                </label>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
-                        <div class="shop-block__payment">
-                          <label>Способы оплаты в регионе:</label>
-                          <ul>
-                            <li>
-                              <label class="checkbox">
-                                <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Картой на сайте</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label class="checkbox">
-                                <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Картой курьеру</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label class="checkbox">
-                                <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Наличными курьеру</span>
-                              </label>
-                            </li>
-                            <li>
-                              <label class="checkbox">
-                                <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Безналичный расчёт</span>
-                              </label>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="shop-block__repeat"><span class="icon-add">Добавить ещё регион</span></div>
+                        <div class="shop-block__repeat" data-store="shiping-repeat"><span class="icon-add">Добавить ещё регион</span></div>
                       </div>
                     </div>
                   </div>
@@ -368,111 +370,113 @@
                     <div class="store-config__col">
                       <div class="shop-block">
                         <div class="shop-block__title">Пункты выдачи, розничные магазины</div>
-                        <div class="shop-block__address form">
-                          <label>Адрес пункта выдачи или магазина</label>
-                          <input type="text" placeholder="Укажите адрес"/>
+                        <div class="shop-block__point">
+                          <div class="shop-block__address form">
+                            <label>Адрес пункта выдачи или магазина</label>
+                            <input type="text" placeholder="Укажите адрес"/>
+                          </div>
+                          <div class="shop-block__worktime shop-block__worktime--col2">
+                            <label>
+                              <input type="checkbox" value="ПН"/>
+                              <div class="worktime-item">
+                                <div class="worktime-item__day"><span>ПН</span></div>
+                                <div class="worktime-item__from">
+                                  <input type="text" placeholder="От" data-input-mask="time"/>
+                                </div>
+                                <div class="worktime-item__to">
+                                  <input type="text" placeholder="До" data-input-mask="time"/>
+                                </div>
+                              </div>
+                            </label>
+                            <label>
+                              <input type="checkbox" value="ВТ"/>
+                              <div class="worktime-item">
+                                <div class="worktime-item__day"><span>ВТ</span></div>
+                                <div class="worktime-item__from">
+                                  <input type="text" placeholder="От" data-input-mask="time"/>
+                                </div>
+                                <div class="worktime-item__to">
+                                  <input type="text" placeholder="До" data-input-mask="time"/>
+                                </div>
+                              </div>
+                            </label>
+                            <label>
+                              <input type="checkbox" value="СР"/>
+                              <div class="worktime-item">
+                                <div class="worktime-item__day"><span>СР</span></div>
+                                <div class="worktime-item__from">
+                                  <input type="text" placeholder="От" data-input-mask="time"/>
+                                </div>
+                                <div class="worktime-item__to">
+                                  <input type="text" placeholder="До" data-input-mask="time"/>
+                                </div>
+                              </div>
+                            </label>
+                            <label>
+                              <input type="checkbox" value="ЧТ"/>
+                              <div class="worktime-item">
+                                <div class="worktime-item__day"><span>ЧТ</span></div>
+                                <div class="worktime-item__from">
+                                  <input type="text" placeholder="От" data-input-mask="time"/>
+                                </div>
+                                <div class="worktime-item__to">
+                                  <input type="text" placeholder="До" data-input-mask="time"/>
+                                </div>
+                              </div>
+                            </label>
+                            <label>
+                              <input type="checkbox" value="ПТ"/>
+                              <div class="worktime-item">
+                                <div class="worktime-item__day"><span>ПТ</span></div>
+                                <div class="worktime-item__from">
+                                  <input type="text" placeholder="От" data-input-mask="time"/>
+                                </div>
+                                <div class="worktime-item__to">
+                                  <input type="text" placeholder="До" data-input-mask="time"/>
+                                </div>
+                              </div>
+                            </label>
+                            <label>
+                              <input type="checkbox" value="СБ"/>
+                              <div class="worktime-item">
+                                <div class="worktime-item__day"><span>СБ</span></div>
+                                <div class="worktime-item__from">
+                                  <input type="text" placeholder="От" data-input-mask="time"/>
+                                </div>
+                                <div class="worktime-item__to">
+                                  <input type="text" placeholder="До" data-input-mask="time"/>
+                                </div>
+                              </div>
+                            </label>
+                            <label>
+                              <input type="checkbox" value="ВС"/>
+                              <div class="worktime-item">
+                                <div class="worktime-item__day"><span>ВС</span></div>
+                                <div class="worktime-item__from">
+                                  <input type="text" placeholder="От" data-input-mask="time"/>
+                                </div>
+                                <div class="worktime-item__to">
+                                  <input type="text" placeholder="До" data-input-mask="time"/>
+                                </div>
+                              </div>
+                            </label>
+                          </div>
+                          <div class="shop-block__pay-methods"><strong> Способы оплаты в пункте выдачи:</strong>
+                            <label class="checkbox">
+                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Картой на сайте</span>
+                            </label>
+                            <label class="checkbox">
+                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Через терминал</span>
+                            </label>
+                            <label class="checkbox">
+                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Наличный расчёт</span>
+                            </label>
+                            <label class="checkbox">
+                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Безналичный расчёт</span>
+                            </label>
+                          </div>
                         </div>
-                        <div class="shop-block__worktime shop-block__worktime--col2">
-                          <label>
-                            <input type="checkbox" value="ПН"/>
-                            <div class="worktime-item">
-                              <div class="worktime-item__day"><span>ПН</span></div>
-                              <div class="worktime-item__from">
-                                <input type="text" placeholder="От" data-input-mask="time"/>
-                              </div>
-                              <div class="worktime-item__to">
-                                <input type="text" placeholder="До" data-input-mask="time"/>
-                              </div>
-                            </div>
-                          </label>
-                          <label>
-                            <input type="checkbox" value="ВТ"/>
-                            <div class="worktime-item">
-                              <div class="worktime-item__day"><span>ВТ</span></div>
-                              <div class="worktime-item__from">
-                                <input type="text" placeholder="От" data-input-mask="time"/>
-                              </div>
-                              <div class="worktime-item__to">
-                                <input type="text" placeholder="До" data-input-mask="time"/>
-                              </div>
-                            </div>
-                          </label>
-                          <label>
-                            <input type="checkbox" value="СР"/>
-                            <div class="worktime-item">
-                              <div class="worktime-item__day"><span>СР</span></div>
-                              <div class="worktime-item__from">
-                                <input type="text" placeholder="От" data-input-mask="time"/>
-                              </div>
-                              <div class="worktime-item__to">
-                                <input type="text" placeholder="До" data-input-mask="time"/>
-                              </div>
-                            </div>
-                          </label>
-                          <label>
-                            <input type="checkbox" value="ЧТ"/>
-                            <div class="worktime-item">
-                              <div class="worktime-item__day"><span>ЧТ</span></div>
-                              <div class="worktime-item__from">
-                                <input type="text" placeholder="От" data-input-mask="time"/>
-                              </div>
-                              <div class="worktime-item__to">
-                                <input type="text" placeholder="До" data-input-mask="time"/>
-                              </div>
-                            </div>
-                          </label>
-                          <label>
-                            <input type="checkbox" value="ПТ"/>
-                            <div class="worktime-item">
-                              <div class="worktime-item__day"><span>ПТ</span></div>
-                              <div class="worktime-item__from">
-                                <input type="text" placeholder="От" data-input-mask="time"/>
-                              </div>
-                              <div class="worktime-item__to">
-                                <input type="text" placeholder="До" data-input-mask="time"/>
-                              </div>
-                            </div>
-                          </label>
-                          <label>
-                            <input type="checkbox" value="СБ"/>
-                            <div class="worktime-item">
-                              <div class="worktime-item__day"><span>СБ</span></div>
-                              <div class="worktime-item__from">
-                                <input type="text" placeholder="От" data-input-mask="time"/>
-                              </div>
-                              <div class="worktime-item__to">
-                                <input type="text" placeholder="До" data-input-mask="time"/>
-                              </div>
-                            </div>
-                          </label>
-                          <label>
-                            <input type="checkbox" value="ВС"/>
-                            <div class="worktime-item">
-                              <div class="worktime-item__day"><span>ВС</span></div>
-                              <div class="worktime-item__from">
-                                <input type="text" placeholder="От" data-input-mask="time"/>
-                              </div>
-                              <div class="worktime-item__to">
-                                <input type="text" placeholder="До" data-input-mask="time"/>
-                              </div>
-                            </div>
-                          </label>
-                        </div>
-                        <div class="shop-block__pay-methods"><strong> Способы оплаты в регионе:</strong>
-                          <label class="checkbox">
-                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Картой на сайте</span>
-                          </label>
-                          <label class="checkbox">
-                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Через терминал</span>
-                          </label>
-                          <label class="checkbox">
-                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Наличный расчёт</span>
-                          </label>
-                          <label class="checkbox">
-                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Безналичный расчёт</span>
-                          </label>
-                        </div>
-                        <div class="shop-block__repeat"><span class="icon-add">Добавить пункт выдачи / магазин</span></div>
+                        <div class="shop-block__repeat" data-store="point-repeat"><span class="icon-add">Добавить пункт выдачи / магазин</span></div>
                       </div>
                     </div>
                   </div>

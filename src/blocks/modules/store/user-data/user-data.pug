@@ -46,8 +46,10 @@ mixin store-user-data
                             .form__subitem
                                 label 
                                 .form__group
-                                    +checkbox('Информационные письма')
-                                    +checkbox('Новые отзывы магазина')
-                                    +checkbox('Популярные статьи и новости')
+                                    ul
+                                        li: +checkbox('Информационные письма')
+                                        li: +checkbox('Новые отзывы магазина')
+                                        li: +checkbox('Популярные статьи и новости')
+                                    
 
                 button.btn(type="submit" disabled="") Сохранить изменения

@@ -47,17 +47,14 @@ html(lang="ru")
 
 
 
-  body
+  body.body-store-home
     header 
       block header
         include ../../blocks/modules/common/header/header-store.pug
-    main 
+    main.page-store
       block content
 
-    footer
-      block footer
-          include ../../blocks/modules/common/footer/footer-store.pug
-     
+    
      
     block scripts
       script(src="/js/vendor.js")

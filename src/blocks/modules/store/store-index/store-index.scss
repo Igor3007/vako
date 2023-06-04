@@ -1,12 +1,20 @@
 .store-index {
     background: radial-gradient(54.63% 54.63% at 50% 100%, #3D1F83 0%, #2D2148 100%);
     color: #fff;
-    padding-top: 40px;
+
+
+
 
     & .container {
-        min-height: calc((var(--vh, 1vh) * 87));
+        min-height: calc((var(--vh, 1vh) * 100) - 75px);
         display: flex;
         flex-direction: column;
+        padding-top: 44px;
+        transition: 0.2s ease;
+
+        @media screen and (min-width: $w992) {
+            min-height: calc((var(--vh, 1vh) * 100) - 80px);
+        }
     }
 
     &__title {

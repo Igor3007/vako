@@ -18,9 +18,13 @@ input {
 
 .form {
 
-    & input:invalid {
-        box-shadow: none;
+    &.is-validate {
+        & input:invalid {
+            border: 1px solid $red;
+        }
     }
+
+
 
     & input[type="text"],
     & input[type="date"],
@@ -41,8 +45,9 @@ input {
         width: auto;
         flex-grow: 1;
         background-color: #fff;
-
         transition: border, background 0.4s ease;
+
+
 
 
 

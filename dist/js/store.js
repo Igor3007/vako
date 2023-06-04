@@ -178,7 +178,13 @@
 
      function initMask() {
          new MaskInput("input[type='tel']", {
-             mask: '+7 (###) ###-##-##'
+             mask: '+7 (###) ###-##-##',
+
+         })
+
+         document.querySelectorAll("input[type='tel']").forEach(input => {
+             input.addEventListener('focus', e => input.value = (input.value.length ? input.value : '+7'))
+             input.addEventListener('blur', e => input.value = (input.value == '+7' ? '' : input.value))
          })
 
          new MaskInput("[data-input-mask='time']", {
@@ -512,11 +518,25 @@
                      registerPopup.modal.querySelectorAll('[data-step="next"]').forEach(element => {
                          element.addEventListener('click', e => {
 
-                             let currentStep = e.target.closest('.form-step')
-                             currentStep.style.display = 'none'
+                             e.preventDefault()
 
-                             if (currentStep.nextElementSibling) {
-                                 currentStep.nextElementSibling.style.display = 'block'
+                             let currentStep = e.target.closest('.form-step')
+                             let err = [];
+
+                             currentStep.querySelectorAll('input').forEach(input => {
+                                 if (!input.validity.valid) {
+                                     e.target.closest('.form').classList.add('is-validate')
+                                     window.STATUS.err('Заполните обязательные поля')
+                                     err.push('err')
+                                 }
+                             })
+
+                             if (!err.length) {
+                                 currentStep.style.display = 'none'
+
+                                 if (currentStep.nextElementSibling) {
+                                     currentStep.nextElementSibling.style.display = 'block'
+                                 }
                              }
 
                          })
@@ -540,11 +560,26 @@
                      // form submit
 
                      form.addEventListener('submit', e => {
+
+                         let err = [];
+
+                         form.querySelectorAll('input').forEach(input => {
+                             if (!input.validity.valid) {
+                                 e.target.querySelector('[data-step="1"]').classList.add('is-validate')
+                                 window.STATUS.err('Заполните обязательные поля')
+                                 err.push('err')
+                             }
+                         })
+
+                         if (!err.length) {
+                             //ajax send data
+                             registerPopup.close()
+                             openThanksPopup()
+                         }
+
                          e.preventDefault()
 
-                         //send data
-                         registerPopup.close()
-                         openThanksPopup()
+
                      })
                  }
 
@@ -668,39 +703,71 @@
      open mobile aside
      =====================================*/
 
-     if (document.querySelector('[data-aside="open"]')) {
+     class mobileAside {
+         constructor() {
+             this.$aside = document.querySelector('.store-panel__aside') || null;
+             this.$items = document.querySelectorAll('[data-aside="open"]')
 
-         const items = document.querySelectorAll('[data-aside="open"]')
+             if (this.$aside) {
+                 this.events()
+             }
 
 
+         }
 
-         items.forEach(item => {
-             item.addEventListener('click', e => {
-                 item.classList.toggle('is-open')
-                 document.querySelector('.store-panel__aside').classList.toggle('is-open')
+         open(item) {
+
+             if (!item.classList.contains('is-open')) {
+                 item.classList.add('is-open')
+                 this.$aside.classList.add('is-open')
                  window.scrollTo({
                      top: 0
                  })
-                 document.body.classList.toggle('hidden')
-             })
-         })
-
-
-         document.querySelector('.store-panel__aside').addEventListener('click', e => {
-
-             console.log(e.target.closest('ul'))
-
-             if (!e.target.closest('ul')) {
-                 document.querySelector('.store-panel__aside').classList.remove('is-open')
-                 document.body.classList.remove('hidden')
-
-                 items.forEach(item => {
-                     item.classList.remove('is-open')
-                 })
+                 document.body.classList.add('hidden')
+             } else {
+                 this.close()
              }
-         })
 
+
+         }
+
+         close() {
+
+             if (document.body.clientWidth > 992) {
+                 return false
+             }
+
+             this.$aside.classList.add('slide-left-out')
+
+             setTimeout(() => {
+                 this.$aside.classList.remove('slide-left-out')
+                 this.$aside.classList.remove('is-open')
+                 document.body.classList.remove('hidden')
+             }, 300)
+
+             this.$items.forEach(item => {
+                 item.classList.remove('is-open')
+             })
+         }
+
+         events() {
+             this.$aside.addEventListener('click', e => {
+
+                 !e.target.closest('ul') ? this.close() : null
+
+             })
+
+             this.$items.forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.open(item)
+                 })
+             })
+         }
      }
+
+     new mobileAside();
+
+
 
 
      /*================================================
@@ -763,19 +830,93 @@
      user menu
      =============================================*/
 
-     if (document.querySelector('[data-popup="user-menu"]') && document.body.clientWidth <= 480) {
+     if (document.querySelector('[data-popup="user-menu"]')) {
 
          const button = document.querySelector('[data-popup="user-menu"]')
 
          button.addEventListener('click', e => {
 
-             const html = button.querySelector('.dropdown-button').outerHTML
+             if (document.body.clientWidth <= 480) {
+                 const html = button.querySelector('.dropdown-button').outerHTML
+                 const userMenuPopup = new afLightbox({
+                     mobileInBottom: true
+                 })
+                 userMenuPopup.open('<div class="user-menu-popup" >' + html + '</div>')
+             }
 
-             const userMenuPopup = new afLightbox({
-                 mobileInBottom: true
+         })
+
+     }
+
+     /* =============================================
+     tabs widget
+     ===============================================*/
+
+     if (document.querySelector('[data-widget="tabs"]')) {
+         const tabs = document.querySelectorAll('[data-widget="tabs"] li')
+         const items = document.querySelectorAll('[data-widget="tabs-item"]')
+
+         tabs.forEach((item, index) => {
+             item.addEventListener('click', e => {
+
+                 tabs.forEach(item => item.classList.contains('is-active') ? item.classList.remove('is-active') : '')
+                 item.classList.add('is-active')
+
+                 items.forEach(item => item.classList.contains('is-active') ? item.classList.remove('is-active') : '')
+                 items[index].classList.add('is-active')
+
+             })
+         })
+     }
+
+     /* =============================================
+     shiping repeat
+     =============================================*/
+
+     if (document.querySelector('[data-store="shiping-repeat"]')) {
+
+         const elem = document.querySelector('[data-store="shiping-repeat"]')
+         const fields = document.querySelector('.shop-block__row')
+
+         elem.addEventListener('click', e => {
+
+             if (document.querySelectorAll('.shop-block__row').length >= 3) {
+                 window.STATUS.err('Допустимо не более 3х регионов')
+                 return false
+             }
+
+             const cloneElement = fields.cloneNode(true);
+             fields.parentNode.insertBefore(cloneElement, elem.closest('.shop-block').querySelector('.shop-block__repeat'));
+             const selectCustomReinit = new afSelect({
+                 selector: 'select'
              })
 
-             userMenuPopup.open('<div class="user-menu-popup" >' + html + '</div>')
+             selectCustomReinit.init()
+
+
+         })
+
+     }
+
+
+     /* =============================================
+     point order repeat
+     =============================================*/
+
+     if (document.querySelector('[data-store="point-repeat"]')) {
+
+         const elem = document.querySelector('[data-store="point-repeat"]')
+         const fields = document.querySelector('.shop-block__point')
+
+         elem.addEventListener('click', e => {
+
+             if (document.querySelectorAll('.shop-block__point').length >= 3) {
+                 window.STATUS.err('Допустимо не более 3х ПВЗ')
+                 return false
+             }
+
+             const cloneElement = fields.cloneNode(true);
+             fields.parentNode.insertBefore(cloneElement, elem.closest('.shop-block').querySelector('.shop-block__repeat'));
 
          })
 

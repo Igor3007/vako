@@ -96,19 +96,26 @@ section {
 
 main {
     width: 100%;
-    min-height: calc(100vh - 223px);
+    min-height: calc((var(--vh, 1vh) * 100) - 223px);
+
 
     @media screen and (min-width: $w1440) {
-        min-height: calc(100vh - 207px);
+
+        min-height: calc((var(--vh, 1vh) * 100) - 207px);
     }
 
     @media screen and (min-width: $w1200) {
-        min-height: calc(100vh - 159px);
+        min-height: calc((var(--vh, 1vh) * 100) - 159px);
     }
 
     @media screen and (min-width: $w760) {
-        min-height: calc(100vh - 175px);
+        min-height: calc((var(--vh, 1vh) * 100) - 175px);
     }
+}
+
+.page-store {
+    min-height: auto;
+
 }
 
 input[type="date"]::-webkit-inner-spin-button,
@@ -592,4 +599,8 @@ table {
 .lazyloaded {
     opacity: 1;
     transition: opacity 0.5s ease;
+}
+
+.body-store-home {
+    background-color: $violet-1-1;
 }

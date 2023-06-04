@@ -1,5 +1,10 @@
 .login-partners {
-    padding: 30px;
+    padding: 15px;
+
+    @media screen and (min-width: $w480) {
+        padding: 30px;
+
+    }
 
     &__title {
         @include font-h2;
@@ -83,7 +88,7 @@
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNSIgaGVpZ2h0PSI4IiBmaWxsPSIjN0I2MUZGIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNC4zNTQuNjQ2YS41LjUgMCAwMTAgLjcwOEwxLjcwNyA0bDIuNjQ3IDIuNjQ2YS41LjUgMCAxMS0uNzA4LjcwOGwtMy0zYS41LjUgMCAwMTAtLjcwOGwzLTNhLjUuNSAwIDAxLjcwOCAweiIvPjwvc3ZnPg==);
 }
 
-@media screen and (min-width: $w480) {
+@media screen and (min-width: $w760) {
     .login-partners {
         width: 480px;
     }

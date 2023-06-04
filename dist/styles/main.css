@@ -94,7 +94,11 @@ section {
 
 main {
   width: 100%;
-  min-height: calc(100vh - 223px);
+  min-height: calc((var(--vh, 1vh) * 100) - 223px);
+}
+
+.page-store {
+  min-height: auto;
 }
 
 input[type="date"]::-webkit-inner-spin-button,
@@ -304,6 +308,10 @@ table td:first-child {
 .lazyloaded {
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+
+.body-store-home {
+  background-color: #2D2148;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -2349,8 +2357,8 @@ input:focus {
   border: 1px solid #8f8f8f;
 }
 
-.form input:invalid {
-  box-shadow: none;
+.form.is-validate input:invalid {
+  border: 1px solid #DF1F26;
 }
 
 .form input[type="text"],
@@ -8260,7 +8268,7 @@ a[data-tooltip]:hover::before {
 
 @media screen and (min-width: 767px) {
   main {
-    min-height: calc(100vh - 175px);
+    min-height: calc((var(--vh, 1vh) * 100) - 175px);
   }
 
   .container {
@@ -9051,7 +9059,7 @@ a[data-tooltip]:hover::before {
   }
 
   main {
-    min-height: calc(100vh - 159px);
+    min-height: calc((var(--vh, 1vh) * 100) - 159px);
   }
 
   .container {
@@ -9290,7 +9298,7 @@ a[data-tooltip]:hover::before {
 
 @media screen and (min-width: 1440px) {
   main {
-    min-height: calc(100vh - 207px);
+    min-height: calc((var(--vh, 1vh) * 100) - 207px);
   }
 
   .container {
