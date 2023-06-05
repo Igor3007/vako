@@ -3574,6 +3574,7 @@ footer {
 
 .login-partners {
   padding: 15px;
+  padding-bottom: 0;
 }
 
 .login-partners__title {
@@ -3619,6 +3620,11 @@ footer {
 
 .login-partners .form-step {
   display: none;
+}
+
+.login-partners .form-step .form__note {
+  padding: 0;
+  padding-top: 3px;
 }
 
 .icon-back::before {
@@ -5817,6 +5823,10 @@ a[data-tooltip]:hover::before {
 
   .header-store .header-min__login .dropdown-icon {
     pointer-events: none;
+  }
+
+  .login-partners .form-step label:not(.checkbox) {
+    padding-bottom: 4px;
   }
 
   .splide__pagination__page {

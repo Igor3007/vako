@@ -21,7 +21,7 @@ class afSelect {
             item.querySelector('.select-list').remove()
         }
 
-        _this.renderOption(item)
+
 
     }
 

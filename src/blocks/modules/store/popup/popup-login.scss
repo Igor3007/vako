@@ -1,5 +1,6 @@
 .login-partners {
     padding: 15px;
+    padding-bottom: 0;
 
     @media screen and (min-width: $w480) {
         padding: 30px;
@@ -70,6 +71,17 @@
 
 .login-partners .form-step {
     display: none;
+
+    & label:not(.checkbox) {
+        @media screen and (max-width: $w480) {
+            padding-bottom: 4px;
+        }
+    }
+
+    & .form__note {
+        padding: 0;
+        padding-top: 3px;
+    }
 }
 
 .icon-back::before {

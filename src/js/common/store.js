@@ -318,6 +318,8 @@
 
      selectCustom.init()
 
+     let vh = window.innerHeight * 0.01;
+     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
      window.addEventListener('resize', () => {
          // We execute the same script as before
@@ -886,13 +888,30 @@
              }
 
              const cloneElement = fields.cloneNode(true);
+
+             cloneElement.querySelectorAll('select').forEach(select => {
+
+                 select.setAttribute('class', '')
+                 select.parentNode.setAttribute('class', '')
+
+                 let item = select.parentNode
+
+                 if (item.querySelector('.select-styled')) {
+                     item.querySelector('.select-styled').remove()
+                     item.querySelector('.select-list').remove()
+                 }
+
+             })
+
+
+
              fields.parentNode.insertBefore(cloneElement, elem.closest('.shop-block').querySelector('.shop-block__repeat'));
+
              const selectCustomReinit = new afSelect({
                  selector: 'select'
              })
 
              selectCustomReinit.init()
-
 
          })
 
