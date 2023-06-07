@@ -882,13 +882,16 @@
 
          elem.addEventListener('click', e => {
 
-             if (document.querySelectorAll('.shop-block__row').length >= 3) {
+             const countPoint = document.querySelectorAll('.shop-block__row').length
+
+             if (countPoint >= 3) {
                  window.STATUS.err('Допустимо не более 3х регионов')
                  return false
              }
 
              const cloneElement = fields.cloneNode(true);
 
+             cloneElement.querySelector('.district-name').innerHTML = ' #' + (countPoint + 1)
              cloneElement.querySelectorAll('select').forEach(select => {
 
                  select.setAttribute('class', '')
@@ -904,7 +907,17 @@
              })
 
 
+             const removeButton = document.createElement('div')
+             removeButton.classList.add('shop-block__remove')
+             removeButton.innerHTML = '<span class="remove-field" ></span>'
+             removeButton.querySelector('.remove-field').addEventListener('click', e => {
+                 if (confirm('Вы действительно хотите удалить ?')) {
+                     cloneElement.remove()
+                 }
+             })
 
+
+             cloneElement.append(removeButton)
              fields.parentNode.insertBefore(cloneElement, elem.closest('.shop-block').querySelector('.shop-block__repeat'));
 
              const selectCustomReinit = new afSelect({
@@ -927,14 +940,29 @@
          const elem = document.querySelector('[data-store="point-repeat"]')
          const fields = document.querySelector('.shop-block__point')
 
+
          elem.addEventListener('click', e => {
 
-             if (document.querySelectorAll('.shop-block__point').length >= 3) {
+             const countPoint = document.querySelectorAll('.shop-block__point').length
+
+             if (countPoint >= 3) {
                  window.STATUS.err('Допустимо не более 3х ПВЗ')
                  return false
              }
 
              const cloneElement = fields.cloneNode(true);
+
+             cloneElement.querySelector('.point-number').innerHTML = ' #' + (countPoint + 1)
+             const removeButton = document.createElement('div')
+             removeButton.classList.add('shop-block__remove')
+             removeButton.innerHTML = '<span class="remove-field" ></span>'
+             removeButton.querySelector('.remove-field').addEventListener('click', e => {
+                 if (confirm('Вы действительно хотите удалить ?')) {
+                     cloneElement.remove()
+                 }
+             })
+
+             cloneElement.append(removeButton)
              fields.parentNode.insertBefore(cloneElement, elem.closest('.shop-block').querySelector('.shop-block__repeat'));
 
          })

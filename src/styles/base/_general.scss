@@ -23,6 +23,7 @@ html * {
 body {
     min-height: 100vh;
     min-height: -webkit-fill-available;
+
 }
 
 :root {
@@ -603,4 +604,5 @@ table {
 
 .body-store-home {
     background-color: $violet-1-1;
+    touch-action: pan-x;
 }

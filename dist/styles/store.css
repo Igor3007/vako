@@ -312,6 +312,7 @@ table td:first-child {
 
 .body-store-home {
   background-color: #2D2148;
+  touch-action: pan-x;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -3243,6 +3244,10 @@ footer {
   text-overflow: ellipsis;
 }
 
+.user-menu-popup {
+  padding-top: 45px;
+}
+
 .header-store {
   background-color: #2D2148;
 }
@@ -3581,7 +3586,7 @@ footer {
   font-weight: 900;
   font-size: 20px;
   line-height: 121%;
-  padding-bottom: 1.2em;
+  padding-bottom: 0.8em;
 }
 
 .login-partners .form a {
@@ -3625,6 +3630,7 @@ footer {
 .login-partners .form-step .form__note {
   padding: 0;
   padding-top: 3px;
+  padding-bottom: 10px;
 }
 
 .icon-back::before {
@@ -4355,7 +4361,7 @@ footer {
   display: block;
   width: 100%;
   font-size: 16px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .shop-block__address input {
@@ -4560,10 +4566,51 @@ footer {
   opacity: 0.6;
 }
 
+.point-number,
+.district-name {
+  color: #8870FF;
+}
+
+.shop-block__point {
+  position: relative;
+}
+
+.shop-block__row {
+  position: relative;
+}
+
+.shop-block__row:not(:nth-last-child(2)),
+.shop-block__point:not(:nth-last-child(2)) {
+  border-bottom: 1px solid #eee;
+  padding: 14px 0;
+}
+
+.shop-block__row:not(:nth-last-child(2)) .shop-block__district label:not(.checkbox),
+.shop-block__point:not(:nth-last-child(2)) .shop-block__district label:not(.checkbox) {
+  margin-bottom: 16px;
+}
+
+.shop-block__row:nth-last-child(2),
+.shop-block__point:nth-last-child(2) {
+  padding: 14px 0;
+}
+
+.shop-block__row:nth-last-child(2) .shop-block__district label:not(.checkbox),
+.shop-block__point:nth-last-child(2) .shop-block__district label:not(.checkbox) {
+  margin-bottom: 16px;
+}
+
+.shop-block__row .remove-field {
+  background-color: #eee;
+  border-radius: 3px;
+  right: 0;
+}
+
 /* common styles */
 
 .page-hidden {
   overflow: hidden !important;
+  touch-action: none;
 }
 
 .text--line-clamp-6 {

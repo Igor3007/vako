@@ -9,7 +9,7 @@
 
     &__title {
         @include font-h2;
-        padding-bottom: 1.2em;
+        padding-bottom: 0.8em;
     }
 
     &__form {}
@@ -81,6 +81,7 @@
     & .form__note {
         padding: 0;
         padding-top: 3px;
+        padding-bottom: 10px;
     }
 }
 

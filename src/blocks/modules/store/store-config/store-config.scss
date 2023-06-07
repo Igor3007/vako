@@ -241,7 +241,7 @@
             display: block;
             width: 100%;
             font-size: 16px;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
 
         & input {
@@ -499,4 +499,46 @@
         opacity: 0.6;
     }
 
+}
+
+.point-number,
+.district-name {
+    color: $accent-2-2;
+}
+
+.shop-block__point {
+    position: relative;
+}
+
+.shop-block__row {
+    position: relative;
+}
+
+
+.shop-block__row:not(:nth-last-child(2)),
+.shop-block__point:not(:nth-last-child(2)) {
+    border-bottom: 1px solid #eee;
+    padding: 14px 0;
+
+    & .shop-block__district label:not(.checkbox) {
+        margin-bottom: 16px;
+    }
+
+}
+
+.shop-block__row:nth-last-child(2),
+.shop-block__point:nth-last-child(2) {
+
+    padding: 14px 0;
+
+    & .shop-block__district label:not(.checkbox) {
+        margin-bottom: 16px;
+    }
+
+}
+
+.shop-block__row .remove-field {
+    background-color: #eee;
+    border-radius: 3px;
+    right: 0;
 }

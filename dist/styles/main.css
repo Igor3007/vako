@@ -312,6 +312,7 @@ table td:first-child {
 
 .body-store-home {
   background-color: #2D2148;
+  touch-action: pan-x;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -3328,6 +3329,10 @@ input:focus {
   max-width: 240px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.user-menu-popup {
+  padding-top: 45px;
 }
 
 .footer {
@@ -7522,6 +7527,7 @@ div[data-single-catalog]:not(.is-active) {
 
 .page-hidden {
   overflow: hidden !important;
+  touch-action: none;
 }
 
 .text--line-clamp-6 {

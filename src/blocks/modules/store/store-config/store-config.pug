@@ -74,7 +74,9 @@ mixin shop-shiping
         .shop-block__title Доставка и оплата
         .shop-block__row
             .shop-block__district.form
-                label Регион доставки
+                label 
+                    | Регион доставки 
+                    span.district-name (Основной)
                 select(name="district[]")
                     option Санкт-Петербург
                     option Москва
@@ -97,10 +99,16 @@ mixin shop-shiping
 mixin shop-points
 
     .shop-block
-        .shop-block__title Пункты выдачи, розничные магазины
+        .shop-block__title 
+            | Пункты выдачи, розничные магазины
+            
+
         .shop-block__point
             .shop-block__address.form
-                label Адрес пункта выдачи или магазина
+                label 
+                    | Адрес пункта выдачи или магазина
+                    span.point-number
+
                 input(type="text" placeholder="Укажите адрес")
             .shop-block__worktime.shop-block__worktime--col2
                 each item in ['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']
