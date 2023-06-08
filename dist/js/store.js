@@ -880,6 +880,14 @@
          const elem = document.querySelector('[data-store="shiping-repeat"]')
          const fields = document.querySelector('.shop-block__row')
 
+         function numbering() {
+             document.querySelectorAll('.shop-block__row').forEach((item, index) => {
+                 if (index) {
+                     item.querySelector('.district-name').innerHTML = ' #' + (index + 1)
+                 }
+             })
+         }
+
          elem.addEventListener('click', e => {
 
              const countPoint = document.querySelectorAll('.shop-block__row').length
@@ -891,7 +899,7 @@
 
              const cloneElement = fields.cloneNode(true);
 
-             cloneElement.querySelector('.district-name').innerHTML = ' #' + (countPoint + 1)
+
              cloneElement.querySelectorAll('select').forEach(select => {
 
                  select.setAttribute('class', '')
@@ -913,6 +921,7 @@
              removeButton.querySelector('.remove-field').addEventListener('click', e => {
                  if (confirm('Вы действительно хотите удалить ?')) {
                      cloneElement.remove()
+                     numbering()
                  }
              })
 
@@ -920,6 +929,9 @@
              cloneElement.append(removeButton)
              fields.parentNode.insertBefore(cloneElement, elem.closest('.shop-block').querySelector('.shop-block__repeat'));
 
+             numbering()
+
+             //init select
              const selectCustomReinit = new afSelect({
                  selector: 'select'
              })
@@ -940,6 +952,14 @@
          const elem = document.querySelector('[data-store="point-repeat"]')
          const fields = document.querySelector('.shop-block__point')
 
+         function numbering() {
+             document.querySelectorAll('.shop-block__point').forEach((item, index) => {
+                 if (index) {
+                     item.querySelector('.point-number').innerHTML = ' #' + (index + 1)
+                 }
+             })
+         }
+
 
          elem.addEventListener('click', e => {
 
@@ -952,19 +972,22 @@
 
              const cloneElement = fields.cloneNode(true);
 
-             cloneElement.querySelector('.point-number').innerHTML = ' #' + (countPoint + 1)
+             //cloneElement.querySelector('.point-number').innerHTML = ' #' + (countPoint + 1)
              const removeButton = document.createElement('div')
              removeButton.classList.add('shop-block__remove')
              removeButton.innerHTML = '<span class="remove-field" ></span>'
+
              removeButton.querySelector('.remove-field').addEventListener('click', e => {
                  if (confirm('Вы действительно хотите удалить ?')) {
                      cloneElement.remove()
+                     numbering()
                  }
              })
 
              cloneElement.append(removeButton)
              fields.parentNode.insertBefore(cloneElement, elem.closest('.shop-block').querySelector('.shop-block__repeat'));
 
+             numbering()
          })
 
      }

@@ -3170,6 +3170,10 @@ input:focus {
   align-items: center;
 }
 
+.header-min__actions--login {
+  margin-left: 0;
+}
+
 .header-min__logo .bgimage {
   width: 96px;
   height: 36px;

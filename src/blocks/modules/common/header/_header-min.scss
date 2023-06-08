@@ -21,6 +21,10 @@
         display: flex;
         align-items: center;
 
+        &--login {
+            margin-left: 0;
+        }
+
         &>div {
             @media screen and (min-width: $w760) {
                 margin-left: 12px;
