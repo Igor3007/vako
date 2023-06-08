@@ -42,9 +42,11 @@ const requireDir = require("require-dir"),
             dist: "./dist/json/",
             watch: [
                 "./src/blocks/**/*.js",
-                "./src/js/**/*.js"
+                "./src/js/**/*.js",
+                "./src/js/**/*.php"
             ]
         },
+
         vendor: {
             watch: [
                 "./src/blocks/**/*.js",

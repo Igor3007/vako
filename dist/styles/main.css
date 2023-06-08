@@ -3165,6 +3165,7 @@ input:focus {
 }
 
 .header-min__actions {
+  margin-left: auto;
   display: flex;
   align-items: center;
 }

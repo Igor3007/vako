@@ -56,7 +56,7 @@ gulp.task('vendor', function () {
 });
 
 gulp.task('json', function () {
-    return gulp.src('./src/json/*.json')
+    return gulp.src('./src/json/*.**')
         .pipe(gulp.dest('./dist/json/'));
 });
 

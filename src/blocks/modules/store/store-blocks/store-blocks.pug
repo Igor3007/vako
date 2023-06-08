@@ -105,7 +105,7 @@ mixin upload-price
                         .widget-block__input
                             input(type="text" placeholder="Ссылка на XML" data-upload="url")
                             label(data-upload="input")
-                                input(type="file" name="price-list" data-action="/upload.php" )
+                                input(type="file" name="price-list" data-action="/json/upload.php" )
                                 span
                                     +icons("#ic_upload_24", 24)
                         .widget-block__send
