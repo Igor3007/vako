@@ -916,6 +916,36 @@
     }
 }
 
+.catalog-products {
+    &.grid--view {
+
+        display: flex;
+        flex-wrap: wrap;
+
+        & .catalog-products {
+            &__item {
+
+                @media screen and (min-width: $w1440) {
+                    width: 20%;
+                }
+
+                @media screen and (min-width: $w1200) {
+                    width: 25%;
+                }
+
+                @media screen and (min-width: $w992) {
+                    width: 33.33%;
+                }
+
+                @media screen and (min-width: $w576) {
+                    width: 50%;
+                }
+
+            }
+        }
+    }
+}
+
 .catalog-pagination {
     &__more {
 

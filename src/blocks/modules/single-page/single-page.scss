@@ -1,0 +1,30 @@
+.single-page {
+    &__breadcrumbs {
+        padding: 20px 0 0 0;
+    }
+
+    &__h1 {
+
+        padding-bottom: 6px;
+
+        & h1 {
+            @include font-h2;
+            margin-top: 4px;
+            line-height: 131%;
+        }
+    }
+
+
+    &__content {
+        & [data-tab] {
+            display: none;
+            transition: 0.3s ease;
+
+            &.active,
+            &.is-active {
+                display: block;
+                animation: fade-in 0.3s ease forwards;
+            }
+        }
+    }
+}

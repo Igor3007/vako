@@ -1,0 +1,44 @@
+extends ../layouts/catalog
+
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+include ../../blocks/modules/minicard/minicard.pug
+ 
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Vako"
+ 
+
+block content
+  section.single-page
+      .container
+          .single-page
+              .single-page__breadcrumbs
+                  +breadcrumb([
+                      'Главная',
+                      'Избранное',
+                  ]) 
+              .single-page__h1
+                h1 Избранное
+                a(href='#')
+                  +icons('#ic_trash', 24)
+                  span Очистить избранное
+                
+
+              .single-page__content
+                .catalog-products.catalog-products--wishlist.grid--view
+                  each item in goods
+                    if item.type == 'goods'
+                        .catalog-products__item: +minicard(item)
+                   
+                
+                
+
+
+
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js") 
+  
+
+ 
