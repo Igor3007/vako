@@ -5844,6 +5844,42 @@ footer {
   text-decoration: underline;
 }
 
+.minicard--favourites:hover .minicard__action a[data-tooltip] {
+  opacity: 1;
+}
+
+.minicard--favourites .minicard__action {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.minicard--favourites .minicard__action a[data-tooltip]::before {
+  min-width: auto;
+  white-space: nowrap;
+}
+
+.minicard--favourites .minicard__action a {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+}
+
+.minicard--favourites .minicard__action a svg {
+  fill: #8F8F8F;
+}
+
+.minicard--favourites .minicard__action a:hover {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
 .color--border {
   border: 1px solid #D6D6D6;
 }
@@ -7560,6 +7596,33 @@ div[data-single-catalog]:not(.is-active) {
   animation: fade-in 0.3s ease forwards;
 }
 
+.favourites {
+  padding-bottom: 48px;
+}
+
+.favourites-title {
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.favourites-title a {
+  display: flex;
+  align-items: center;
+}
+
+.favourites-title a:hover {
+  opacity: .7;
+  transition: .3s ease;
+}
+
+.favourites-title a span {
+  color: #8F8F8F;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-left: 12px;
+}
+
 /* common styles */
 
 .page-hidden {
@@ -8293,6 +8356,16 @@ a[data-tooltip]:hover::before {
 
   .popup-store-offers__title {
     font-size: 20px;
+  }
+
+  .favourites-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .favourites-title h1 {
+    margin: 0;
   }
 
   .create-review__title {
@@ -9107,6 +9180,16 @@ a[data-tooltip]:hover::before {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .favourites {
+    padding-bottom: 178px;
+  }
+
+  .favourites-title {
+    margin-bottom: 32px;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .hidden-profile,
   .hidden {
@@ -9317,6 +9400,16 @@ a[data-tooltip]:hover::before {
 
   .minicard--store .minicard__title {
     padding-bottom: 0.8em;
+  }
+
+  .minicard--favourites .minicard__action {
+    opacity: 1;
+    transition: 0.2s ease;
+  }
+
+  .minicard--favourites .minicard__action a[data-tooltip]:last-child {
+    opacity: 0;
+    transition: 0.2s ease;
   }
 
   .single-product__tabs.fixed-tabs ul {

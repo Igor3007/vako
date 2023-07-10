@@ -1,787 +1,842 @@
 @mixin minicard--price {
-    font-weight: 800;
-    font-size: 16px;
-    color: #222222;
-    padding-bottom: 4px;
+  font-weight: 800;
+  font-size: 16px;
+  color: #222222;
+  padding-bottom: 4px;
 
-    @media screen and (min-width: $w1200) {
-        font-size: 18px;
-    }
+  @media screen and (min-width: $w1200) {
+    font-size: 18px;
+  }
 
 
-    @media screen and (min-width: $w1440) {
-        font-size: 20px;
-    }
+  @media screen and (min-width: $w1440) {
+    font-size: 20px;
+  }
 }
 
 .minicard {
 
-    display: flex;
-    position: relative;
-    padding: 14px 0;
-    border-bottom: 1px solid $gray-92;
-    transition: 0.3s ease;
+  display: flex;
+  position: relative;
+  padding: 14px 0;
+  border-bottom: 1px solid $gray-92;
+  transition: 0.3s ease;
 
+  @media screen and (min-width: $w992) {
+    padding: 20px;
+    border: 1px solid $gray-92;
+    border-radius: 6px;
+  }
+
+  &:hover {
     @media screen and (min-width: $w992) {
-        padding: 20px;
-        border: 1px solid $gray-92;
-        border-radius: 6px;
+      border-color: $accent-2-1;
     }
 
-    &:hover {
+    & .minicard {
+      &__action {
+        opacity: 1;
+      }
+    }
+
+  }
+
+  &__other {
+    padding-bottom: 15px;
+
+    & span {
+      color: $accent-2-1;
+      cursor: pointer;
+
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__images {
+
+    width: 68px;
+    min-width: 68px;
+
+    @media screen and (min-width: $w576) {
+      width: 120px;
+      min-width: 120px;
+    }
+
+    @media screen and (min-width: $w1440) {
+      width: 200px;
+      min-width: 200px;
+    }
+
+
+    & picture {
+
+      @include picture(100%, contain);
+    }
+
+    & .splide {
+      &__pagination {
+        display: none;
+        bottom: -20px;
+
+        &__page {
+          &.is-active {
+            background-color: $accent-2-1;
+            transform: none;
+          }
+        }
+
         @media screen and (min-width: $w992) {
-            border-color: $accent-2-1;
+          display: flex;
         }
+      }
+    }
+  }
 
-        & .minicard {
-            &__action {
-                opacity: 1;
-            }
-        }
+  &__content {
+    padding-left: 8px;
+
+    @media screen and (min-width: $w576) {
+      padding-left: 20px;
+    }
+
+    @media screen and (min-width: $w1200) {
+      display: flex;
+      padding-left: 24px;
+    }
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: 123%;
+    color: $gray-13;
+    padding-bottom: 0.5em;
+
+    @media screen and (min-width: $w1200) {
+      font-weight: 600;
+      line-height: 156%;
+      font-size: 15px;
 
     }
 
-    &__other {
-        padding-bottom: 15px;
-
-        & span {
-            color: $accent-2-1;
-            cursor: pointer;
-
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+    @media screen and (min-width: $w1440) {
+      font-size: 16px;
+      line-height: 148%;
     }
 
-    &__images {
 
-        width: 68px;
-        min-width: 68px;
+    & a {
 
-        @media screen and (min-width: $w576) {
-            width: 120px;
-            min-width: 120px;
-        }
+      line-height: inherit;
 
-        @media screen and (min-width: $w1440) {
-            width: 200px;
-            min-width: 200px;
-        }
+      &:hover {
+        color: $accent-2-1
+      }
 
+      @media screen and (min-width: $w992) {
+        @include line-clamp(3);
+      }
+    }
+  }
 
-        & picture {
+  &__rating {
 
-            @include picture(100%, contain);
-        }
+    padding-bottom: 13px;
+    display: flex;
+    align-items: center;
 
-        & .splide {
-            &__pagination {
-                display: none;
-                bottom: -20px;
+    @media screen and (min-width: $w1440) {
+      padding-bottom: 14px;
 
-                &__page {
-                    &.is-active {
-                        background-color: $accent-2-1;
-                        transform: none;
-                    }
-                }
-
-                @media screen and (min-width: $w992) {
-                    display: flex;
-                }
-            }
-        }
     }
 
-    &__content {
-        padding-left: 8px;
-
-        @media screen and (min-width: $w576) {
-            padding-left: 20px;
-        }
-
-        @media screen and (min-width: $w1200) {
-            display: flex;
-            padding-left: 24px;
-        }
+    & span {
+      display: inline-flex;
+      width: 32px;
+      height: 26px;
+      background-color: #eee;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      border-radius: 4px;
     }
 
-    &__title {
-        font-size: 14px;
-        line-height: 123%;
-        color: $gray-13;
-        padding-bottom: 0.5em;
+    & a {
+      font-size: 13px;
+      margin-left: 9px;
 
-        @media screen and (min-width: $w1200) {
-            font-weight: 600;
-            line-height: 156%;
-            font-size: 15px;
+      display: inline-block;
+      margin-top: -1px;
 
-        }
+      &:hover {
+        text-decoration: underline;
+      }
 
-        @media screen and (min-width: $w1440) {
-            font-size: 16px;
-            line-height: 148%;
-        }
-
-
-
-        & a {
-
-            line-height: inherit;
-
-            &:hover {
-                color: $accent-2-1
-            }
-
-            @media screen and (min-width: $w992) {
-                @include line-clamp(3);
-            }
-        }
-    }
-
-    &__rating {
-
-        padding-bottom: 13px;
-        display: flex;
-        align-items: center;
-
-        @media screen and (min-width: $w1440) {
-            padding-bottom: 14px;
-
-        }
-
-        & span {
-            display: inline-flex;
-            width: 32px;
-            height: 26px;
-            background-color: #eee;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: 800;
-            border-radius: 4px;
-        }
-
-        & a {
-            font-size: 13px;
-            margin-left: 9px;
-
-            display: inline-block;
-            margin-top: -1px;
-
-            &:hover {
-                text-decoration: underline;
-            }
-
-            @media screen and (min-width: $w1440) {
-                font-size: 13px;
-            }
-        }
-
-        &.rating {
-            &--green {
-                & span {
-                    background: $green;
-                    color: #fff
-                }
-
-                & a {
-                    color: $green;
-                }
-            }
-
-            &--red {
-                & span {
-                    background: $red;
-                    color: #fff
-                }
-
-                & a {
-                    color: $red;
-                }
-            }
-
-            &--orange {
-                & span {
-                    background: $orange;
-                    color: #fff
-                }
-
-                & a {
-                    color: $orange;
-                }
-            }
-
-            &--blue {
-                & span {
-                    background: $blue;
-                    color: #fff
-                }
-
-                & a {
-                    color: $blue;
-                }
-            }
-        }
-    }
-
-    &__price {
-        @include minicard--price;
-    }
-
-    &__props {
-        display: none;
+      @media screen and (min-width: $w1440) {
         font-size: 13px;
-        color: $gray-13;
-        padding-bottom: 10px;
-        line-height: 120%;
-
-        @media screen and (min-width: $w1200) {
-            padding-bottom: 1px;
-        }
-
-        & ul {
-            & li {
-                padding-bottom: 2px;
-
-                &:last-child {
-                    padding-bottom: 0;
-                }
-            }
-        }
-
-        @media screen and (min-width: $w1200) {
-            display: block;
-
-        }
+      }
     }
 
-    &__action {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        @media screen and (min-width: $w1200) {
-            opacity: 0;
-            transition: 0.2s ease;
-
-            &:hover {
-                opacity: 1;
-            }
-        }
-
-        & a[data-tooltip]::before {
-            min-width: auto;
-            white-space: nowrap;
+    &.rating {
+      &--green {
+        & span {
+          background: $green;
+          color: #fff
         }
 
         & a {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 4px;
-
-            & svg {
-                fill: #8F8F8F;
-            }
-
-            &:hover {
-
-                background-color: #f5f5f5;
-                border-radius: 4px;
-
-                & svg {
-                    fill: $accent-1-1;
-                }
-
-            }
+          color: $green;
         }
+      }
 
-    }
-
-    &__offers {
-
-
+      &--red {
+        & span {
+          background: $red;
+          color: #fff
+        }
 
         & a {
-            color: $gray-56;
-            font-size: 13px;
-
-            &:hover {
-                color: $accent-2-1;
-            }
+          color: $red;
         }
+      }
+
+      &--orange {
+        & span {
+          background: $orange;
+          color: #fff
+        }
+
+        & a {
+          color: $orange;
+        }
+      }
+
+      &--blue {
+        & span {
+          background: $blue;
+          color: #fff
+        }
+
+        & a {
+          color: $blue;
+        }
+      }
+    }
+  }
+
+  &__price {
+    @include minicard--price;
+  }
+
+  &__props {
+    display: none;
+    font-size: 13px;
+    color: $gray-13;
+    padding-bottom: 10px;
+    line-height: 120%;
+
+    @media screen and (min-width: $w1200) {
+      padding-bottom: 1px;
     }
 
-    &__store {
-        &-phone {
-            & ul {
-                display: none;
-            }
+    & ul {
+      & li {
+        padding-bottom: 2px;
+
+        &:last-child {
+          padding-bottom: 0;
         }
+      }
     }
 
-    &__colors {
+    @media screen and (min-width: $w1200) {
+      display: block;
 
+    }
+  }
+
+  &__action {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    @media screen and (min-width: $w1200) {
+      opacity: 0;
+      transition: 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    & a[data-tooltip]::before {
+      min-width: auto;
+      white-space: nowrap;
+    }
+
+    & a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 4px;
+
+      & svg {
+        fill: #8F8F8F;
+      }
+
+      &:hover {
+
+        background-color: #f5f5f5;
+        border-radius: 4px;
+
+        & svg {
+          fill: $accent-1-1;
+        }
+
+      }
+    }
+
+  }
+
+  &__offers {
+
+
+    & a {
+      color: $gray-56;
+      font-size: 13px;
+
+      &:hover {
+        color: $accent-2-1;
+      }
+    }
+  }
+
+  &__store {
+    &-phone {
+      & ul {
+        display: none;
+      }
+    }
+  }
+
+  &__colors {
+
+    padding-bottom: 9px;
+
+    & ul {
+
+      display: flex;
+      align-items: center;
+      margin: -2px;
+
+      @media screen and (min-width: $w576) {
+        margin: -4px;
+      }
+
+
+      & li {
+        padding: 2px;
+
+        @media screen and (min-width: $w576) {
+          padding: 4px;
+        }
+
+        & span {
+          width: 8px;
+          min-width: 8px;
+          height: 8px;
+          display: inline-block;
+          border-radius: 50%;
+
+          @media screen and (min-width: $w576) {
+            width: 12px;
+            min-width: 12px;
+            height: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  &__store {
+
+    @media screen and (min-width: $w1200) {
+      display: flex;
+    }
+
+    @media screen and (min-width: $w1440) {
+      padding-bottom: 10px;
+    }
+
+    &-price {
+      @include minicard--price;
+      padding-top: 8px;
+      padding-bottom: 16px;
+    }
+
+    &-detail {
+      margin-right: 10px;
+    }
+
+    &-name {
+      font-weight: 800;
+      margin-right: 10px;
+      font-size: 14px;
+
+
+      @media screen and (min-width: $w1440) {
+        font-size: 18px;
+      }
+
+      &:hover {
+        & a {
+          color: $accent-2-1;
+        }
+      }
+    }
+
+    &-label {
+      font-size: 13px;
+      padding-bottom: 6px;
+
+      @media screen and (min-width: $w1440) {
+        font-size: 13px;
         padding-bottom: 9px;
-
-        & ul {
-
-            display: flex;
-            align-items: center;
-            margin: -2px;
-
-            @media screen and (min-width: $w576) {
-                margin: -4px;
-            }
-
-
-            & li {
-                padding: 2px;
-
-                @media screen and (min-width: $w576) {
-                    padding: 4px;
-                }
-
-                & span {
-                    width: 8px;
-                    min-width: 8px;
-                    height: 8px;
-                    display: inline-block;
-                    border-radius: 50%;
-
-                    @media screen and (min-width: $w576) {
-                        width: 12px;
-                        min-width: 12px;
-                        height: 12px;
-                    }
-                }
-            }
-        }
+      }
     }
 
-    &__store {
+    &-wrp {
+      display: flex;
+      padding-bottom: 10px;
 
-        @media screen and (min-width: $w1200) {
-            display: flex;
-        }
-
-        @media screen and (min-width: $w1440) {
-            padding-bottom: 10px;
-        }
-
-        &-price {
-            @include minicard--price;
-            padding-top: 8px;
-            padding-bottom: 16px;
-        }
-
-        &-detail {
-            margin-right: 10px;
-        }
-
-        &-name {
-            font-weight: 800;
-            margin-right: 10px;
-            font-size: 14px;
-
-
-            @media screen and (min-width: $w1440) {
-                font-size: 18px;
-            }
-
-            &:hover {
-                & a {
-                    color: $accent-2-1;
-                }
-            }
-        }
-
-        &-label {
-            font-size: 13px;
-            padding-bottom: 6px;
-
-            @media screen and (min-width: $w1440) {
-                font-size: 13px;
-                padding-bottom: 9px;
-            }
-        }
-
-        &-wrp {
-            display: flex;
-            padding-bottom: 10px;
-
-            @media screen and (min-width: $w1200) {
-                flex-direction: column;
-            }
-        }
-
-        &-phone {
-
-            position: relative;
-
-            @media screen and (min-width: $w1200) {
-                padding-top: 10px;
-                padding-bottom: 10px;
-                margin-bottom: -10px;
-            }
-
-            &>span,
-            &>a {
-                color: $accent-2-1;
-                font-size: 14px;
-                cursor: pointer;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-
-
-                @media screen and (min-width: $w1200) {
-                    font-size: 14px;
-                }
-            }
-
-            & ul {
-                transition: 0.3s ease;
-            }
-
-            @media screen and (min-width: $w480) {
-                &.is-active {
-
-                    @keyframes fade-drop-down2 {
-                        from {
-                            opacity: 0;
-                            transform: translateY(-10px);
-                        }
-
-                        to {
-                            opacity: 1;
-                            transform: translateY(0);
-                        }
-                    }
-
-                    & ul {
-                        position: absolute;
-                        display: flex;
-                        flex-wrap: wrap;
-                        background-color: #fff;
-                        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
-                        border-radius: 6px;
-                        padding: 4px;
-                        top: 100%;
-                        z-index: 3;
-                        animation: fade-drop-down2 0.3s ease forwards;
-
-                        & a {
-                            display: block;
-                            min-width: 180px;
-                            padding: 8px 12px;
-                            color: #222;
-                            font-size: 14px;
-                            font-weight: 600;
-
-                            &:hover {
-                                color: $accent-2-1;
-                            }
-
-                        }
-                    }
-                }
-            }
-
-
-        }
-
-        &-rating {
-            & .minicard {
-                &__store {
-                    &-label {
-                        display: none;
-
-                        @media screen and (min-width: $w1200) {
-                            display: block;
-                        }
-                    }
-                }
-            }
-        }
+      @media screen and (min-width: $w1200) {
+        flex-direction: column;
+      }
     }
 
-    &__conditions {
-        display: none;
-        font-size: 13px;
+    &-phone {
 
-        @media screen and (min-width: $w1440) {
-            font-size: 13px;
-        }
+      position: relative;
 
-        @media screen and (min-width: $w1200) {
-            display: block;
-        }
-
-        &-label {
-            padding-bottom: 5px;
-
-            @media screen and (min-width: $w1440) {
-                padding-bottom: 10px;
-            }
-        }
-
-        &-text {
-            color: $gray-56;
-        }
-    }
-
-    &__shipping {
-        padding-bottom: 14px;
-
-
-    }
-
-    &__note {
-        color: $gray-56;
+      @media screen and (min-width: $w1200) {
+        padding-top: 10px;
         padding-bottom: 10px;
-        font-size: 13px;
-    }
+        margin-bottom: -10px;
+      }
 
-    &__in-store {
-        margin-top: auto;
+      & > span,
+      & > a {
+        color: $accent-2-1;
+        font-size: 14px;
+        cursor: pointer;
 
-        @media screen and (min-width: $w1440) {
-            margin-top: 5px;
+        &:hover {
+          text-decoration: underline;
         }
 
-        & .btn {
-            height: 36px;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 8px 3em 10px 3em;
 
-            @media screen and (min-width: $w1440) {
-                height: 40px;
-                padding: 8px 2em 10px 2em;
+        @media screen and (min-width: $w1200) {
+          font-size: 14px;
+        }
+      }
+
+      & ul {
+        transition: 0.3s ease;
+      }
+
+      @media screen and (min-width: $w480) {
+        &.is-active {
+
+          @keyframes fade-drop-down2 {
+            from {
+              opacity: 0;
+              transform: translateY(-10px);
             }
-        }
-    }
 
-    &__more {
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
 
-        position: relative;
-
-
-        @media screen and (min-width: $w1200) {
-            width: 220px;
-            min-width: 220px;
+          & ul {
+            position: absolute;
             display: flex;
-            flex-direction: column;
-        }
+            flex-wrap: wrap;
+            background-color: #fff;
+            box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 6px;
+            padding: 4px;
+            top: 100%;
+            z-index: 3;
+            animation: fade-drop-down2 0.3s ease forwards;
 
-        @media screen and (min-width: $w1440) {
-            width: 241px;
-            min-width: 241px;
+            & a {
+              display: block;
+              min-width: 180px;
+              padding: 8px 12px;
+              color: #222;
+              font-size: 14px;
+              font-weight: 600;
+
+              &:hover {
+                color: $accent-2-1;
+              }
+
+            }
+          }
         }
+      }
+
 
     }
 
-    &__main {
-        @media screen and (min-width: $w1200) {
-            width: 100%;
-            flex-grow: 1;
-            padding-right: 20px;
+    &-rating {
+      & .minicard {
+        &__store {
+          &-label {
+            display: none;
 
+            @media screen and (min-width: $w1200) {
+              display: block;
+            }
+          }
         }
-
-        @media screen and (min-width: $w1440) {
-            padding-right: 30px;
-        }
+      }
     }
+  }
+
+  &__conditions {
+    display: none;
+    font-size: 13px;
+
+    @media screen and (min-width: $w1440) {
+      font-size: 13px;
+    }
+
+    @media screen and (min-width: $w1200) {
+      display: block;
+    }
+
+    &-label {
+      padding-bottom: 5px;
+
+      @media screen and (min-width: $w1440) {
+        padding-bottom: 10px;
+      }
+    }
+
+    &-text {
+      color: $gray-56;
+    }
+  }
+
+  &__shipping {
+    padding-bottom: 14px;
+
+
+  }
+
+  &__note {
+    color: $gray-56;
+    padding-bottom: 10px;
+    font-size: 13px;
+  }
+
+  &__in-store {
+    margin-top: auto;
+
+    @media screen and (min-width: $w1440) {
+      margin-top: 5px;
+    }
+
+    & .btn {
+      height: 36px;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 3em 10px 3em;
+
+      @media screen and (min-width: $w1440) {
+        height: 40px;
+        padding: 8px 2em 10px 2em;
+      }
+    }
+  }
+
+  &__more {
+
+    position: relative;
+
+
+    @media screen and (min-width: $w1200) {
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: $w1440) {
+      width: 241px;
+      min-width: 241px;
+    }
+
+  }
+
+  &__main {
+    @media screen and (min-width: $w1200) {
+      width: 100%;
+      flex-grow: 1;
+      padding-right: 20px;
+
+    }
+
+    @media screen and (min-width: $w1440) {
+      padding-right: 30px;
+    }
+  }
 
 
 }
 
 .shipping-item {
 
-    display: flex;
-    padding-bottom: 11px;
+  display: flex;
+  padding-bottom: 11px;
 
-    &:last-child {
-        padding-bottom: 0;
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  &__icon {
+
+    margin-right: 10px;
+
+    & span {
+      @include bgimage-contain;
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
     }
 
-    &__icon {
+  }
 
-        margin-right: 10px;
+  &__title {
 
-        & span {
-            @include bgimage-contain;
-            min-width: 20px;
-            width: 20px;
-            height: 20px;
-        }
+    font-size: 13px;
 
+    & strong {
+      font-size: inherit;
+      font-weight: 800;
     }
 
-    &__title {
-
-        font-size: 13px;
-
-        & strong {
-            font-size: inherit;
-            font-weight: 800;
-        }
-
-        & small {
-            font-size: inherit;
-            color: $green;
-        }
-
+    & small {
+      font-size: inherit;
+      color: $green;
     }
 
-    &__points {
-        color: $accent-2-1;
-        font-size: 13px;
-        padding-top: 6px;
-        cursor: pointer;
+  }
 
-        @media screen and (min-width: $w1440) {
-            padding-top: 9px;
-        }
+  &__points {
+    color: $accent-2-1;
+    font-size: 13px;
+    padding-top: 6px;
+    cursor: pointer;
 
-        & span {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+    @media screen and (min-width: $w1440) {
+      padding-top: 9px;
     }
+
+    & span {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 
 }
 
 .minicard--store {
-    & .minicard {
-        &__price {
-            @media screen and (min-width: $w992) {
-                padding-bottom: 10px;
-            }
+  & .minicard {
+    &__price {
+      @media screen and (min-width: $w992) {
+        padding-bottom: 10px;
+      }
 
-            @media screen and (min-width: $w1440) {
-                padding-bottom: 22px;
-            }
+      @media screen and (min-width: $w1440) {
+        padding-bottom: 22px;
+      }
+    }
+
+    &__title {
+      @media screen and (min-width: $w1440) {
+        padding-bottom: 1em;
+      }
+
+      @media screen and (min-width: $w1200) {
+        padding-bottom: 0.8em;
+      }
+
+      @media screen and (max-width: $w1200) and (min-width: $w576) {
+        font-size: 15px;
+      }
+    }
+
+    &__store {
+      @media screen and (min-width: $w1200) and (max-width: $w1440) {
+        padding-bottom: 0.3em;
+      }
+    }
+
+    &__store-price {
+      @media screen and (max-width: $w1200) and (min-width: $w576) {
+        font-size: 17px;
+      }
+    }
+
+    &__store-name {
+      @media screen and (max-width: $w1200) and (min-width: $w576) {
+        font-size: 15px;
+      }
+    }
+
+    &__store-phone span {
+      @media screen and (max-width: $w1200) and (min-width: $w576) {
+        font-size: 15px;
+      }
+    }
+
+
+  }
+}
+
+
+.minicard--favourites {
+
+  &:hover {
+    .minicard__action a[data-tooltip] {
+      opacity: 1;
+    }
+  }
+
+  & .minicard {
+    &__action {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      @media screen and (min-width: $w1200) {
+        opacity: 1;
+        transition: 0.2s ease;
+      }
+
+
+      & a[data-tooltip]:last-child {
+        @media screen and (min-width: $w1200) {
+          opacity: 0;
+          transition: 0.2s ease;
+        }
+      }
+
+      & a[data-tooltip]::before {
+        min-width: auto;
+        white-space: nowrap;
+      }
+
+      & a {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 4px;
+
+        & svg {
+          fill: #8F8F8F;
         }
 
-        &__title {
-            @media screen and (min-width: $w1440) {
-                padding-bottom: 1em;
-            }
-
-            @media screen and (min-width: $w1200) {
-                padding-bottom: 0.8em;
-            }
-
-            @media screen and (max-width: $w1200) and (min-width: $w576) {
-                font-size: 15px;
-            }
+        &:hover {
+          background-color: #f5f5f5;
+          border-radius: 4px;
         }
-
-        &__store {
-            @media screen and (min-width: $w1200) and (max-width: $w1440) {
-                padding-bottom: 0.3em;
-            }
-        }
-
-        &__store-price {
-            @media screen and (max-width: $w1200) and (min-width: $w576) {
-                font-size: 17px;
-            }
-        }
-
-        &__store-name {
-            @media screen and (max-width: $w1200) and (min-width: $w576) {
-                font-size: 15px;
-            }
-        }
-
-        &__store-phone span {
-            @media screen and (max-width: $w1200) and (min-width: $w576) {
-                font-size: 15px;
-            }
-        }
-
+      }
 
     }
+  }
 }
 
 .minicard--mini {
 
-    @media screen and (max-width: $w480) {
-        & .minicard {
-            &__images {
-                display: none;
-            }
+  @media screen and (max-width: $w480) {
+    & .minicard {
+      &__images {
+        display: none;
+      }
 
-            &__content {
-                padding-left: 0;
-                width: 100%;
-            }
+      &__content {
+        padding-left: 0;
+        width: 100%;
+      }
 
-            &__title {
-                display: none;
-            }
+      &__title {
+        display: none;
+      }
 
-            &__other {
-                display: none;
-            }
+      &__other {
+        display: none;
+      }
 
-            &__store-price {
-                display: none;
-            }
+      &__store-price {
+        display: none;
+      }
 
-        }
     }
-
+  }
 
 
 }
 
 .color--border {
-    border: 1px solid #D6D6D6;
+  border: 1px solid #D6D6D6;
 }
 
 .popup-call-number {
 
-    & h2 {
-        padding-top: 3px;
-        text-align: center;
-        font-size: 18px;
+  & h2 {
+    padding-top: 3px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  & ul {
+    padding-top: 15px;
+  }
+
+  & li {
+
+    padding: 4px 0;
+    text-align: center;
+
+    & a {
+      display: block;
+      padding: 13px 10px;
+      background: $gray-96;
+      font-weight: 800;
+      border-radius: 6px;
+
+      &:hover {
+        color: $accent-2-1
+      }
     }
-
-    & ul {
-        padding-top: 15px;
-    }
-
-    & li {
-
-        padding: 4px 0;
-        text-align: center;
-
-        & a {
-            display: block;
-            padding: 13px 10px;
-            background: $gray-96;
-            font-weight: 800;
-            border-radius: 6px;
-
-            &:hover {
-                color: $accent-2-1
-            }
-        }
-    }
+  }
 }

@@ -10,7 +10,7 @@ block variables
  
 
 block content
-  section.single-page
+  section.single-page.favourites
       .container
           .single-page
               .single-page__breadcrumbs
@@ -18,10 +18,10 @@ block content
                       'Главная',
                       'Избранное',
                   ]) 
-              .single-page__h1
+              .single-page__h1.favourites-title
                 h1 Избранное
                 a(href='#')
-                  +icons('#ic_trash', 24)
+                  +icons('#ic_trash', 22)
                   span Очистить избранное
                 
 
@@ -29,7 +29,7 @@ block content
                 .catalog-products.catalog-products--wishlist.grid--view
                   each item in goods
                     if item.type == 'goods'
-                        .catalog-products__item: +minicard(item)
+                        .catalog-products__item: +minicard-favourites(item)
                    
                 
                 
