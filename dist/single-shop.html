@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vako</title>
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="#{title}">
+    <meta name="keywords" content="#{title}">
+    <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
+    <link rel="stylesheet" href="https://use.typekit.net/kbc2isn.css">
+    <link rel="preload" href="fonts/lato/subset-Lato-Black.woff2" as="font" crossorigin>
+    <link rel="preload" href="fonts/lato/subset-Lato-Regular.woff2" as="font" crossorigin>
+    <link rel="preload" href="fonts/lato/subset-Lato-Bold.woff2" as="font" crossorigin>
+    <link rel="prefetch" href="/img/sprites/sprite.svg" as="image" crossorigin>
+    <style></style>
+    <link rel="stylesheet" href="styles/main.css?v=1.0">
+  </head>
+  <body class="perf-no-animation">
+    <header> 
+      <div class="header">
+        <div class="container">
+          <div class="header-top">
+            <div class="header-top__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo.svg')"></span></a></div>
+            <div class="header-top__find">
+              <div class="search-index" data-index-find="container">
+                <div class="search-index__find">
+                  <form action="#" method="POST">
+                    <div class="search-index__form" data-index-find="form">
+                      <div class="search-index__catalog">
+                        <button class="btn btn-catalog"><span class="icon-catalog"><i></i><i></i><i></i><i></i></span>Каталог</button>
+                      </div>
+                      <div class="search-index__field">
+                        <div class="search-index__input">
+                          <input type="text" placeholder="Искать на Vako" data-index-find="input">
+                        </div>
+                        <div class="search-index__btn">
+                          <button class="btn">Найти</button>
+                        </div>
+                        <div class="search-index__suggest" data-index-find="suggest">
+                                <div class="find-suggest">
+                                  <div class="find-suggest__list">
+                                    <ul>
+                                      <li><a href="#">клавиатура</a></li>
+                                      <li><a href="#">клавиатура с подсветкой</a></li>
+                                      <li><a href="#">клавиатура беспроводная</a></li>
+                                      <li><a href="#">клавиатура и мышь</a></li>
+                                    </ul>
+                                  </div>
+                                  <div class="find-suggest__category">
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="find-suggest__products">
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                  </div>
+                                </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="header-top__actions">
+              <div class="header-top__fav">
+                      <div class="tooltip-icon">
+                        <div class="tooltip-icon__elem"><a href="#">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                            </svg></a></div>
+                        <div class="tooltip-icon__text"><span> Добавьте товары в избранное </span></div>
+                      </div>
+              </div>
+              <div class="header-top__compare">
+                      <div class="tooltip-icon">
+                        <div class="tooltip-icon__elem"><a href="#">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                            </svg></a></div>
+                        <div class="tooltip-icon__text"><span> Добавьте товары в сравнение </span></div>
+                      </div>
+              </div>
+              <div class="header-top__login">
+                      <div class="dropdown-icon">
+                        <div class="dropdown-icon__elem"><a href="#">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_login"></use>
+                            </svg></a></div>
+                        <div class="dropdown-icon__list">
+                          <div class="dropdown-button"><a href="#">
+                              <button class="btn btn-gray">Войти</button></a><a href="#">
+                              <button class="btn btn-gray">Зарегистрироваться</button></a><a href="#">
+                              <button class="btn btn-white">Вход для магазинов</button></a></div>
+                        </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-bottom">
+            <div class="header-bottom__location">
+              <div class="header-location">
+                <div class="header-location__wrp">
+                  <div class="header-location__icon">
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_pin"></use>
+                    </svg>
+                  </div>
+                  <div class="header-location__name" data-popup="region">Кременчуг-Константиновское </div>
+                </div>
+              </div>
+            </div>
+            <div class="header-bottom__menu">
+              <nav>
+                <ul>
+                  <li><a href="/category.html">Электроника</a></li>
+                  <li><a href="/category.html">Бытовая техника</a></li>
+                  <li><a href="/category.html">Авто</a></li>
+                  <li><a href="/category.html">Компьютеры</a></li>
+                  <li><a href="/category.html">Спорт и отдых</a></li>
+                  <li><a href="/category.html">Товары для дома</a></li>
+                  <li><a href="/category.html">Детские товары</a></li>
+                  <li><a href="/category.html">Дача и сад </a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main> 
+      <section class="single-product">
+        <div class="container">
+          <div class="single-product">
+            <div class="single-product__breadcrumbs">
+              <div class="breadcrumb">
+                <ul>
+                  <li><a href="/">Главная</a></li>
+                  <li><span>Магазин Shop Local</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="single-product__h1 single-shop__h1">
+              <h1>Магазин Shop Local</h1>
+            </div>
+            <section class="single-shop-head">
+              <div class="single-shop-head__problem"><span>3 года на Vako</span><a href="#">Сообщить о проблеме</a></div>
+              <div class="single-shop-head__content">
+                <div class="single-shop-head__rating">
+                  <div class="single-shop-head__rating-img">
+                    <picture>
+                      <source srcset="img/other/single-shop.webp" type="image/webp"/><img src="img/other/single-shop.jpg" loading="lazy" alt="image"/>
+                    </picture>
+                  </div>
+                  <div class="single-shop-head__rating-content">
+                    <div>Рейтинг магазина:</div>
+                    <div class="card-review__rating rating--green"><span>4.9</span><small>27 отзывов</small></div><a href="#">
+                      <svg width="20" height="20">
+                        <use xlink:href="/img/sprites/sprite.svg#ic_shop"></use>
+                      </svg><span>shop-local.ru</span></a><a href="#">Телефоны</a>
+                  </div>
+                </div>
+                <div class="single-shop-head__payment">
+                  <ul>
+                    <div>Способы доставки:</div>
+                    <li>Курьером</li>
+                    <li>Транспортной компанией</li>
+                    <li>Самовывоз</li><a href="#">Пункты выдачи</a>
+                  </ul>
+                  <ul>
+                    <div>Способы оплаты:</div>
+                    <li>Картой на сайте</li>
+                    <li>Картой курьеру</li>
+                    <li>Наличными курьеру</li>
+                    <li>Безналичный расчёт</li>
+                  </ul>
+                  <ul>
+                    <div>Дни и время работы:</div>
+                    <ul class="single-shop-head__payment-days">
+                      <li class="days--blue"><span>ПН</span></li>
+                      <li class="days--blue"><span>ВТ</span></li>
+                      <li class="days--blue"><span>СР</span></li>
+                      <li class="days--blue"><span>ЧТ</span></li>
+                      <li class="days--blue"><span>ПТ</span></li>
+                      <li><span>СБ</span></li>
+                      <li><span>ВС</span></li>
+                    </ul>
+                    <div class="single-shop-head__payment-state state--green"><span></span><small>Открыт</small></div>
+                    <div class="single-shop-head__work-time"><span>Работает с 8:00 до 18:00</span></div>
+                    <div class="single-shop-head__work-info"><a href="#">Информация о магазине</a>
+                      <div class="single-shop-head__work-description">
+                        <div class="single-shop-head__work-description-wrapper">
+                          <div class="single-shop-head__work-description-title">
+                            <div>Тип и название юр. лица:</div><span>ООО «Шоп Локал»</span>
+                          </div>
+                          <div class="single-shop-head__work-description-title">
+                            <div>УНП:</div><span>7733890815</span>
+                          </div>
+                          <div class="single-shop-head__work-description-title">
+                            <div>Юридический адрес:</div><span>Российская Федерация, 125362, г. Москва, Строительный пр-д., д. 7А, корп. 28 комната 104-106</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <div class="single-product__tabs">
+              <ul data-tab-nav="product">
+                <li><a href="#review">Отзывы магазина</a></li>
+                <li><a href="#common">Товары магазина</a></li>
+              </ul>
+            </div>
+            <div class="single-product__content" data-tab-container="product">
+              <div class="product-review" data-tab="review">
+                <div class="product-review__wrp">
+                  <div class="product-review__content">
+                    <div class="review-content">
+                      <div class="review-content__top">
+                        <div class="review-content__h2">Отзывы о магазине (27)</div>
+                        <div class="review-content__action">
+                          <div class="review-content__sort">
+                            <div class="sort-dropdown">
+                              <div class="sort-dropdown__title">По полезности</div>
+                              <div class="sort-dropdown__list">
+                                <ul>
+                                  <li><a href="#">По дате</a></li>
+                                  <li><a class="is-active is-active--up" href="#">По оценке</a></li>
+                                  <li><a href="#">По полезности</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="review-content__mobile">
+                            <button data-filter="open" data-elem="review">
+                              <svg width="17" height="17">
+                                <use xlink:href="/img/sprites/sprite.svg#ic_filter"></use>
+                              </svg><span>Фильтры</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="review-content__list" data-review="list">
+                        <div class="review-content__item">
+                          <div class="card-review">
+                            <div class="card-review__photo">
+                              <picture>
+                                <source srcset="/img/common/user.webp" type="image/webp"/><img src="/img/common/user.jpg" loading="lazy" alt="image"/>
+                              </picture>
+                            </div>
+                            <div class="card-review__main">
+                              <div class="card-review__head"> 
+                                <div class="card-review__name">Андрей Маяковский</div>
+                                <div class="card-review__date">2 месяца назад, Москва</div>
+                              </div>
+                              <div class="card-review__rating rating--green"><span>5</span><small>Отлично</small></div>
+                              <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                              <div class="card-review__thesis">
+                                <div class="card-review__adv"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_like"></use>
+                                  </svg><span>дизайн, качество низких частот</span>
+                                </div>
+                                <div class="card-review__flaws"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_dislike"></use>
+                                  </svg><span>не нашел</span>
+                                </div>
+                              </div>
+                              <div class="card-review__action">
+                                <div class="card-review__add" data-review="add" data-id="123" data-parent="369">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                  </svg><span>Комментировать</span>
+                                </div>
+                                <div class="card-review__button">
+                                  <div class="card-review__like" data-like="add" data-id="789">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                    </svg><span class="like-count">2</span>
+                                  </div>
+                                  <div class="card-review__complaint">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card-review__childs"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="review-content__item">
+                          <div class="card-review">
+                            <div class="card-review__photo">
+                              <picture>
+                                <source srcset="/img/common/user3.webp" type="image/webp"/><img src="/img/common/user3.jpg" loading="lazy" alt="image"/>
+                              </picture>
+                            </div>
+                            <div class="card-review__main">
+                              <div class="card-review__head"> 
+                                <div class="card-review__name">Иван Троцкий</div>
+                                <div class="card-review__date">2 месяца назад, Москва</div>
+                              </div>
+                              <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                              <div class="card-review__action">
+                                <div class="card-review__add" data-review="add" data-id="123" data-parent="369">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                  </svg><span>Комментировать</span>
+                                </div>
+                                <div class="card-review__commets" data-review="show-comment">Все комментарии (14)</div>
+                                <div class="card-review__button">
+                                  <div class="card-review__like" data-like="add" data-id="789">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                    </svg><span class="like-count">2</span>
+                                  </div>
+                                  <div class="card-review__complaint">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card-review__childs">
+                                <div class="card-review">
+                                  <div class="card-review__photo">
+                                    <picture>
+                                      <source srcset="/img/common/user.webp" type="image/webp"/><img src="/img/common/user.jpg" loading="lazy" alt="image"/>
+                                    </picture>
+                                  </div>
+                                  <div class="card-review__main">
+                                    <div class="card-review__head"> 
+                                      <div class="card-review__name">Андрей Маяковский</div>
+                                      <div class="card-review__date">2 месяца назад, Москва</div>
+                                    </div>
+                                    <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                                    <div class="card-review__action">
+                                      <div class="card-review__commets" data-review="show-comment">Все ответы</div>
+                                    </div>
+                                    <div class="card-review__childs">
+                                      <div class="card-review">
+                                        <div class="card-review__photo">
+                                          <picture>
+                                            <source srcset="/img/common/user4.webp" type="image/webp"/><img src="/img/common/user4.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="card-review__main">
+                                          <div class="card-review__head"> 
+                                            <div class="card-review__name">Анна Блохина</div>
+                                            <div class="card-review__date">2 месяца назад, Москва</div>
+                                          </div>
+                                          <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                                          <div class="card-review__action">
+                                            <div class="card-review__add" data-review="add" data-id="123" data-parent="369"><span>Ответить</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="card-review">
+                                        <div class="card-review__photo">
+                                          <picture>
+                                            <source srcset="/img/common/user4.webp" type="image/webp"/><img src="/img/common/user4.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="card-review__main">
+                                          <div class="card-review__head"> 
+                                            <div class="card-review__name">Анна Блохина</div>
+                                            <div class="card-review__date">2 месяца назад, Москва</div>
+                                          </div>
+                                          <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                                          <div class="card-review__action">
+                                            <div class="card-review__add" data-review="add" data-id="123" data-parent="369"><span>Ответить</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="card-review">
+                                        <div class="card-review__photo">
+                                          <picture>
+                                            <source srcset="/img/common/user4.webp" type="image/webp"/><img src="/img/common/user4.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="card-review__main">
+                                          <div class="card-review__head"> 
+                                            <div class="card-review__name">Анна Блохина</div>
+                                            <div class="card-review__date">2 месяца назад, Москва</div>
+                                          </div>
+                                          <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                                          <div class="card-review__action">
+                                            <div class="card-review__add" data-review="add" data-id="123" data-parent="369"><span>Ответить</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="review-content__item">
+                          <div class="card-review">
+                            <div class="card-review__photo">
+                              <picture>
+                                <source srcset="/img/common/user.webp" type="image/webp"/><img src="/img/common/user.jpg" loading="lazy" alt="image"/>
+                              </picture>
+                            </div>
+                            <div class="card-review__main">
+                              <div class="card-review__head"> 
+                                <div class="card-review__name">Андрей Маяковский</div>
+                                <div class="card-review__date">2 месяца назад, Москва</div>
+                              </div>
+                              <div class="card-review__rating rating--green"><span>5</span><small>Отлично</small></div>
+                              <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                              <div class="card-review__thesis">
+                                <div class="card-review__adv"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_like"></use>
+                                  </svg><span>дизайн, качество низких частот</span>
+                                </div>
+                                <div class="card-review__flaws"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_dislike"></use>
+                                  </svg><span>не нашел</span>
+                                </div>
+                              </div>
+                              <div class="card-review__action">
+                                <div class="card-review__add" data-review="add" data-id="123" data-parent="369">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                  </svg><span>Комментировать</span>
+                                </div>
+                                <div class="card-review__button">
+                                  <div class="card-review__like" data-like="add" data-id="789">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                    </svg><span class="like-count">2</span>
+                                  </div>
+                                  <div class="card-review__complaint">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card-review__childs"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="review-content__item">
+                          <div class="card-review">
+                            <div class="card-review__photo">
+                              <picture>
+                                <source srcset="/img/common/user.webp" type="image/webp"/><img src="/img/common/user.jpg" loading="lazy" alt="image"/>
+                              </picture>
+                            </div>
+                            <div class="card-review__main">
+                              <div class="card-review__head"> 
+                                <div class="card-review__name">Андрей Маяковский</div>
+                                <div class="card-review__date">2 месяца назад, Москва</div>
+                              </div>
+                              <div class="card-review__rating rating--green"><span>5</span><small>Отлично</small></div>
+                              <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                              <div class="card-review__thesis">
+                                <div class="card-review__adv"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_like"></use>
+                                  </svg><span>дизайн, качество низких частот</span>
+                                </div>
+                                <div class="card-review__flaws"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_dislike"></use>
+                                  </svg><span>не нашел</span>
+                                </div>
+                              </div>
+                              <div class="card-review__action">
+                                <div class="card-review__add" data-review="add" data-id="123" data-parent="369">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                  </svg><span>Комментировать</span>
+                                </div>
+                                <div class="card-review__button">
+                                  <div class="card-review__like" data-like="add" data-id="789">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                    </svg><span class="like-count">2</span>
+                                  </div>
+                                  <div class="card-review__complaint">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card-review__childs"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="review-content__item">
+                          <div class="card-review">
+                            <div class="card-review__photo">
+                              <picture>
+                                <source srcset="/img/common/user3.webp" type="image/webp"/><img src="/img/common/user3.jpg" loading="lazy" alt="image"/>
+                              </picture>
+                            </div>
+                            <div class="card-review__main">
+                              <div class="card-review__head"> 
+                                <div class="card-review__name">Иван Троцкий</div>
+                                <div class="card-review__date">2 месяца назад, Москва</div>
+                              </div>
+                              <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                              <div class="card-review__action">
+                                <div class="card-review__add" data-review="add" data-id="123" data-parent="369">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                  </svg><span>Комментировать</span>
+                                </div>
+                                <div class="card-review__commets" data-review="show-comment">Все комментарии (14)</div>
+                                <div class="card-review__button">
+                                  <div class="card-review__like" data-like="add" data-id="789">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                    </svg><span class="like-count">2</span>
+                                  </div>
+                                  <div class="card-review__complaint">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card-review__childs">
+                                <div class="card-review">
+                                  <div class="card-review__photo">
+                                    <picture>
+                                      <source srcset="/img/common/user.webp" type="image/webp"/><img src="/img/common/user.jpg" loading="lazy" alt="image"/>
+                                    </picture>
+                                  </div>
+                                  <div class="card-review__main">
+                                    <div class="card-review__head"> 
+                                      <div class="card-review__name">Андрей Маяковский</div>
+                                      <div class="card-review__date">2 месяца назад, Москва</div>
+                                    </div>
+                                    <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                                    <div class="card-review__action">
+                                      <div class="card-review__commets" data-review="show-comment">Все ответы</div>
+                                    </div>
+                                    <div class="card-review__childs">
+                                      <div class="card-review">
+                                        <div class="card-review__photo">
+                                          <picture>
+                                            <source srcset="/img/common/user4.webp" type="image/webp"/><img src="/img/common/user4.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="card-review__main">
+                                          <div class="card-review__head"> 
+                                            <div class="card-review__name">Анна Блохина</div>
+                                            <div class="card-review__date">2 месяца назад, Москва</div>
+                                          </div>
+                                          <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                                          <div class="card-review__action">
+                                            <div class="card-review__add" data-review="add" data-id="123" data-parent="369"><span>Ответить</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="card-review">
+                                        <div class="card-review__photo">
+                                          <picture>
+                                            <source srcset="/img/common/user4.webp" type="image/webp"/><img src="/img/common/user4.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="card-review__main">
+                                          <div class="card-review__head"> 
+                                            <div class="card-review__name">Анна Блохина</div>
+                                            <div class="card-review__date">2 месяца назад, Москва</div>
+                                          </div>
+                                          <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                                          <div class="card-review__action">
+                                            <div class="card-review__add" data-review="add" data-id="123" data-parent="369"><span>Ответить</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="card-review">
+                                        <div class="card-review__photo">
+                                          <picture>
+                                            <source srcset="/img/common/user4.webp" type="image/webp"/><img src="/img/common/user4.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="card-review__main">
+                                          <div class="card-review__head"> 
+                                            <div class="card-review__name">Анна Блохина</div>
+                                            <div class="card-review__date">2 месяца назад, Москва</div>
+                                          </div>
+                                          <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                                          <div class="card-review__action">
+                                            <div class="card-review__add" data-review="add" data-id="123" data-parent="369"><span>Ответить</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="review-content__item">
+                          <div class="card-review">
+                            <div class="card-review__photo">
+                              <picture>
+                                <source srcset="/img/common/user.webp" type="image/webp"/><img src="/img/common/user.jpg" loading="lazy" alt="image"/>
+                              </picture>
+                            </div>
+                            <div class="card-review__main">
+                              <div class="card-review__head"> 
+                                <div class="card-review__name">Андрей Маяковский</div>
+                                <div class="card-review__date">2 месяца назад, Москва</div>
+                              </div>
+                              <div class="card-review__rating rating--green"><span>5</span><small>Отлично</small></div>
+                              <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                              <div class="card-review__thesis">
+                                <div class="card-review__adv"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_like"></use>
+                                  </svg><span>дизайн, качество низких частот</span>
+                                </div>
+                                <div class="card-review__flaws"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_dislike"></use>
+                                  </svg><span>не нашел</span>
+                                </div>
+                              </div>
+                              <div class="card-review__action">
+                                <div class="card-review__add" data-review="add" data-id="123" data-parent="369">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                  </svg><span>Комментировать</span>
+                                </div>
+                                <div class="card-review__button">
+                                  <div class="card-review__like" data-like="add" data-id="789">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                    </svg><span class="like-count">2</span>
+                                  </div>
+                                  <div class="card-review__complaint">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card-review__childs"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="review-content__item">
+                          <div class="card-review">
+                            <div class="card-review__photo">
+                              <picture>
+                                <source srcset="/img/common/user.webp" type="image/webp"/><img src="/img/common/user.jpg" loading="lazy" alt="image"/>
+                              </picture>
+                            </div>
+                            <div class="card-review__main">
+                              <div class="card-review__head"> 
+                                <div class="card-review__name">Андрей Маяковский</div>
+                                <div class="card-review__date">2 месяца назад, Москва</div>
+                              </div>
+                              <div class="card-review__rating rating--green"><span>5</span><small>Отлично</small></div>
+                              <div class="card-review__text">Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.</div>
+                              <div class="card-review__thesis">
+                                <div class="card-review__adv"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_like"></use>
+                                  </svg><span>дизайн, качество низких частот</span>
+                                </div>
+                                <div class="card-review__flaws"> 
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_dislike"></use>
+                                  </svg><span>не нашел</span>
+                                </div>
+                              </div>
+                              <div class="card-review__action">
+                                <div class="card-review__add" data-review="add" data-id="123" data-parent="369">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                  </svg><span>Комментировать</span>
+                                </div>
+                                <div class="card-review__button">
+                                  <div class="card-review__like" data-like="add" data-id="789">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                    </svg><span class="like-count">2</span>
+                                  </div>
+                                  <div class="card-review__complaint">
+                                    <svg width="20" height="20">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card-review__childs"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="review-content__more">
+                        <button data-review="load" data-id="289">
+                          <svg width="14" height="14">
+                            <use xlink:href="/img/sprites/sprite.svg#ic_more"></use>
+                          </svg><span>Показать ещё</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-review__aside">
+                    <div class="product-review__add">
+                      <button class="btn" data-review="create">Оставить отзыв</button>
+                    </div>
+                    <div class="review-filter" data-filter-container="review">
+                      <div class="review-filter__head">
+                        <div class="review-filter__head-title">Фильтры и сортировка</div>
+                        <div class="review-filter__head-close"><span class="icon-cross" data-filter="open" data-elem="review"></span></div>
+                      </div>
+                      <div class="review-filter__wrp">
+                        <div class="review-filter__form">
+                          <form action="#" method="POST">
+                            <div class="review-filter__props">
+                              <div class="review-filter__item">
+                                <div class="filter-properties">
+                                  <div class="filter-properties__head">
+                                    <div class="filter-properties__title">Оценка покупателей</div>
+                                    <div class="filter-properties__cross"></div>
+                                  </div>
+                                  <div class="filter-properties__list">
+                                    <ul>
+                                      <li>
+                                        <label class="checkbox">
+                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Отлично (72)</span>
+                                        </label>
+                                      </li>
+                                      <li>
+                                        <label class="checkbox">
+                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Хорошо (5)</span>
+                                        </label>
+                                      </li>
+                                      <li>
+                                        <label class="checkbox">
+                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Средне (3)</span>
+                                        </label>
+                                      </li>
+                                      <li>
+                                        <label class="checkbox">
+                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Плохо (1)</span>
+                                        </label>
+                                      </li>
+                                      <li>
+                                        <label class="checkbox">
+                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Ужасно (1)</span>
+                                        </label>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="review-filter__submit">
+                              <div class="review-filter__send" data-filter="submit">
+                                <button class="btn"><span>Показать</span><small>72 отзыва</small></button>
+                              </div>
+                              <div class="review-filter__clear" data-filter="clear"><span class="icon-cross"></span><small>Очистить <span>все фильтры</span></small></div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-common" data-tab="common"></div>
+              <div class="product-offers" data-tab="common,prices">
+                <div class="product-offers__title">
+                  <h2>Список товаров (27)</h2>
+                </div>
+                <div class="product-offers__catalog">
+                  <div class="catalog-category">
+                    <div class="catalog-category__content">
+                      <div class="catalog-category__aside" style="display:none">
+                        <div class="category-filter" data-filter-container="prices">
+                          <div class="category-filter__head">
+                            <div class="category-filter__head-title">Фильтры и сортировка</div>
+                            <div class="category-filter__head-close"><span class="icon-cross" data-filter="open" data-elem="prices"></span></div>
+                          </div>
+                          <div class="category-filter__wrp">
+                            <form action="#" method="POST">
+                              <div class="category-filter__props">
+                                <div class="category-filter__item">
+                                  <div class="filter-properties">
+                                    <div class="filter-properties__head">
+                                      <div class="filter-properties__title">Цена, ₽ </div>
+                                      <div class="filter-properties__cross"></div>
+                                    </div>
+                                    <div class="filter-properties__list">
+                                      <div class="filter-properties__range">
+                                        <div class="filter-properties__row">
+                                          <div class="filter-properties__input"><span>от</span>
+                                            <input type="text" placeholder="" data-price-range="min"/>
+                                          </div>
+                                          <div class="filter-properties__input"><span>до</span>
+                                            <input type="text" placeholder="" data-price-range="max"/>
+                                          </div>
+                                        </div>
+                                        <div class="filter-properties__slider">
+                                          <div class="slider" id="my-slider" se-min="2500" se-step="1" se-min-value="10000" se-max-value="300000" se-max="950000">
+                                            <div class="slider-touch-left"><span></span></div>
+                                            <div class="slider-touch-right"><span></span></div>
+                                            <div class="slider-line"><span></span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="category-filter__item">
+                                  <div class="filter-properties">
+                                    <div class="filter-properties__head">
+                                      <div class="filter-properties__title">Рейтинг магазина</div>
+                                      <div class="filter-properties__cross"></div>
+                                    </div>
+                                    <div class="filter-properties__list">
+                                      <ul>
+                                        <li>
+                                          <label class="radio">
+                                            <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Без учёта доставки</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="radio">
+                                            <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">С учётом доставки курьером</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="radio">
+                                            <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">С учётом самовывоза</span>
+                                          </label>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="category-filter__item">
+                                  <div class="filter-properties">
+                                    <div class="filter-properties__single">
+                                      <label class="checkbox">
+                                        <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Гарантия производителя</span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="category-filter__item">
+                                  <div class="filter-properties">
+                                    <div class="filter-properties__head">
+                                      <div class="filter-properties__title">Цвет</div>
+                                      <div class="filter-properties__cross"></div>
+                                    </div>
+                                    <div class="filter-properties__colors">
+                                      <ul>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color"/><span data-tooltip="Черный" style="background-color: #000000"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color"/><span data-tooltip="Серый" style="background-color: #808080"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color"/><span data-tooltip="Красный" style="background-color: #FF0000"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color"/><span data-tooltip="Красный" style="background-color: #FF0000"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color"/><span data-tooltip="Зеленый" style="background-color: #008000"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color"/><span data-tooltip="Синий" style="background-color: #0000FF"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color"/><span data-tooltip="Серый" style="background-color: #C0C0C0"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color"/><span class="color--border" data-tooltip="Белый" style="background-color: #ffffff"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color"/><span data-tooltip="Оранжевый" style="background-color: #FFA500"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color" disabled="disabled"/><span data-tooltip="Голубой" style="background-color: #42AAFF"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color" disabled="disabled"/><span data-tooltip="Голубой" style="background-color: #42AAFF"></span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label>
+                                            <input type="checkbox" name="color" disabled="disabled"/><span data-tooltip="Голубой" style="background-color: #42AAFF"></span>
+                                          </label>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="category-filter__item">
+                                  <div class="filter-properties">
+                                    <div class="filter-properties__head">
+                                      <div class="filter-properties__title">Рейтинг магазина</div>
+                                      <div class="filter-properties__cross"></div>
+                                    </div>
+                                    <div class="filter-properties__list">
+                                      <ul>
+                                        <li>
+                                          <label class="radio">
+                                            <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Любой</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="radio">
+                                            <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Высокий: 4.5+</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="radio">
+                                            <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Хороший: 4+</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="radio">
+                                            <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Средний: 3.5+</span>
+                                          </label>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="category-filter__item">
+                                  <div class="filter-properties">
+                                    <div class="filter-properties__head">
+                                      <div class="filter-properties__title">Способ оплаты</div>
+                                      <div class="filter-properties__cross"></div>
+                                    </div>
+                                    <div class="filter-properties__list">
+                                      <ul>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Любой</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Картой на сайте</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Картой курьеру</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Наличными курьеру</span>
+                                          </label>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="category-filter__item">
+                                  <div class="filter-properties">
+                                    <div class="filter-properties__head">
+                                      <div class="filter-properties__title">Скидки и акции </div>
+                                      <div class="filter-properties__cross"></div>
+                                    </div>
+                                    <div class="filter-properties__list">
+                                      <ul>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Скидки</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Промокоды</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Подарки за покупки</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Больше за ту же цену</span>
+                                          </label>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="category-filter__item">
+                                  <div class="filter-properties">
+                                    <div class="filter-properties__head">
+                                      <div class="filter-properties__title">Способ доставки</div>
+                                      <div class="filter-properties__cross"></div>
+                                    </div>
+                                    <div class="filter-properties__list">
+                                      <ul>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Курьером</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Самовывоз</span>
+                                          </label>
+                                        </li>
+                                        <li>
+                                          <label class="checkbox">
+                                            <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Транспортная компания</span>
+                                          </label>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="category-filter__submit">
+                                <div class="category-filter__send" data-filter="submit">
+                                  <button class="btn"><span>Посмотреть</span><small>328 предложений</small></button>
+                                </div>
+                                <div class="category-filter__clear" data-filter="clear"><span class="icon-cross"></span><small>Очистить <span>все фильтры</span></small></div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="catalog-category__main shop-category">
+                        <div class="catalog-category__top">
+                          <div class="catalog-category__sort">
+                            <div class="sort-dropdown">
+                              <div class="sort-dropdown__title">Сначала популярные</div>
+                              <div class="sort-dropdown__list">
+                                <ul>
+                                  <li><a href="#">Сначала популярные</a></li>
+                                  <li><a class="is-active is-active--down" href="#">По цене</a></li>
+                                  <li><a class="is-active is-active--up" href="#">По рейтингу</a></li>
+                                  <li><a href="#">По отзывам</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="catalog-category__mobile">
+                            <button data-filter="open" data-elem="prices">
+                              <svg width="17" height="17">
+                                <use xlink:href="/img/sprites/sprite.svg#ic_filter"></use>
+                              </svg><span>Фильтры</span>
+                            </button>
+                          </div>
+                          <div class="catalog-category__view">
+                            <ul>
+                              <li><a href="#list" data-single-view="list">
+                                  <svg width="24" height="24">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_sort-list"></use>
+                                  </svg></a></li>
+                              <li><a href="#map" data-single-view="map">
+                                  <svg width="24" height="24">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_pin-default"></use>
+                                  </svg></a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="catalog-category__products is-active" data-single-catalog="list">
+                          <div class="catalog-products" data-catalog="container">
+                            <div class="catalog-products__item">
+                              <div class="minicard minicard--store">
+                                <div class="minicard__images">
+                                  <picture>
+                                    <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="minicard__content">
+                                  <div class="minicard__main">
+                                    <div class="minicard__title"><a href="#">17.3&quot; Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                    <div class="minicard__other"><span data-popup="more-offers" data-store="79268" data-store-name="PCPlanet.ru">Другие предложения</span></div>
+                                    <div class="minicard__store">
+                                      <div class="minicard__store-price hide--desctop">132 000 ₽</div>
+                                      <div class="minicard__store-detail">
+                                        <div class="minicard__store-label">Магазин:</div>
+                                        <div class="minicard__store-wrp">
+                                          <div class="minicard__store-name"><a href="#">PCPlanet.ru</a></div>
+                                          <div class="minicard__store-phone" data-popup="number" data-store="12788"><span>Телефоны</span>
+                                            <ul data-numbers="store"></ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__store-rating">
+                                        <div class="minicard__store-label">Рейтинг магазина:</div>
+                                        <div class="minicard__rating rating--orange"><span>3.8</span><a href="#">82 отзыва</a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__conditions">
+                                      <div class="minicard__conditions-label">Условия покупки:</div>
+                                      <div class="minicard__conditions-text">Оплата картой, цены не зависят от формы оплаты, гарантия</div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__more">
+                                    <div class="minicard__price hide--mobile">132 000 ₽</div>
+                                    <div class="minicard__shipping">
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_truck.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Курьером, 26-27 мая – <strong>300 ₽</strong></div>
+                                        </div>
+                                      </div>
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_pin.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Самовывоз, 27 сен – <small>бесплатно</small></div>
+                                          <div class="shipping-item__points"><span data-shop-points="178">Пункты выдачи</span></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__note">Оплата онлайн / наличными при получении</div>
+                                    <div class="minicard__in-store"><a href="#">
+                                        <button class="btn">В магазин</button></a></div>
+                                    <div class="minicard__action"><a href="#" data-tooltip="Пожаловаться">
+                                        <svg width="20" height="20">
+                                          <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                        </svg></a></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="catalog-products__item">
+                              <div class="minicard minicard--store">
+                                <div class="minicard__images">
+                                  <picture>
+                                    <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="minicard__content">
+                                  <div class="minicard__main">
+                                    <div class="minicard__title"><a href="#">17.3&quot; Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                    <div class="minicard__other"><span data-popup="more-offers" data-store="79268" data-store-name="PCPlanet.ru">Другие предложения</span></div>
+                                    <div class="minicard__store">
+                                      <div class="minicard__store-price hide--desctop">132 000 ₽</div>
+                                      <div class="minicard__store-detail">
+                                        <div class="minicard__store-label">Магазин:</div>
+                                        <div class="minicard__store-wrp">
+                                          <div class="minicard__store-name"><a href="#">PCPlanet.ru</a></div>
+                                          <div class="minicard__store-phone" data-popup="number" data-store="12788"><span>Телефоны</span>
+                                            <ul data-numbers="store"></ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__store-rating">
+                                        <div class="minicard__store-label">Рейтинг магазина:</div>
+                                        <div class="minicard__rating rating--orange"><span>3.8</span><a href="#">82 отзыва</a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__conditions">
+                                      <div class="minicard__conditions-label">Условия покупки:</div>
+                                      <div class="minicard__conditions-text">Оплата картой, цены не зависят от формы оплаты, гарантия</div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__more">
+                                    <div class="minicard__price hide--mobile">132 000 ₽</div>
+                                    <div class="minicard__shipping">
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_truck.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Курьером, 26-27 мая – <strong>300 ₽</strong></div>
+                                        </div>
+                                      </div>
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_pin.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Самовывоз, 27 сен – <small>бесплатно</small></div>
+                                          <div class="shipping-item__points"><span data-shop-points="178">Пункты выдачи</span></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__note">Оплата онлайн / наличными при получении</div>
+                                    <div class="minicard__in-store"><a href="#">
+                                        <button class="btn">В магазин</button></a></div>
+                                    <div class="minicard__action"><a href="#" data-tooltip="Пожаловаться">
+                                        <svg width="20" height="20">
+                                          <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                        </svg></a></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="catalog-products__item">
+                              <div class="minicard minicard--store">
+                                <div class="minicard__images">
+                                  <picture>
+                                    <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="minicard__content">
+                                  <div class="minicard__main">
+                                    <div class="minicard__title"><a href="#">17.3&quot; Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                    <div class="minicard__other"><span data-popup="more-offers" data-store="79268" data-store-name="PCPlanet.ru">Другие предложения</span></div>
+                                    <div class="minicard__store">
+                                      <div class="minicard__store-price hide--desctop">132 000 ₽</div>
+                                      <div class="minicard__store-detail">
+                                        <div class="minicard__store-label">Магазин:</div>
+                                        <div class="minicard__store-wrp">
+                                          <div class="minicard__store-name"><a href="#">PCPlanet.ru</a></div>
+                                          <div class="minicard__store-phone" data-popup="number" data-store="12788"><span>Телефоны</span>
+                                            <ul data-numbers="store"></ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__store-rating">
+                                        <div class="minicard__store-label">Рейтинг магазина:</div>
+                                        <div class="minicard__rating rating--orange"><span>3.8</span><a href="#">82 отзыва</a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__conditions">
+                                      <div class="minicard__conditions-label">Условия покупки:</div>
+                                      <div class="minicard__conditions-text">Оплата картой, цены не зависят от формы оплаты, гарантия</div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__more">
+                                    <div class="minicard__price hide--mobile">132 000 ₽</div>
+                                    <div class="minicard__shipping">
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_truck.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Курьером, 26-27 мая – <strong>300 ₽</strong></div>
+                                        </div>
+                                      </div>
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_pin.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Самовывоз, 27 сен – <small>бесплатно</small></div>
+                                          <div class="shipping-item__points"><span data-shop-points="178">Пункты выдачи</span></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__note">Оплата онлайн / наличными при получении</div>
+                                    <div class="minicard__in-store"><a href="#">
+                                        <button class="btn">В магазин</button></a></div>
+                                    <div class="minicard__action"><a href="#" data-tooltip="Пожаловаться">
+                                        <svg width="20" height="20">
+                                          <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                        </svg></a></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="catalog-products__item">
+                              <div class="minicard minicard--store">
+                                <div class="minicard__images">
+                                  <picture>
+                                    <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="minicard__content">
+                                  <div class="minicard__main">
+                                    <div class="minicard__title"><a href="#">17.3&quot; Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                    <div class="minicard__other"><span data-popup="more-offers" data-store="79268" data-store-name="PCPlanet.ru">Другие предложения</span></div>
+                                    <div class="minicard__store">
+                                      <div class="minicard__store-price hide--desctop">132 000 ₽</div>
+                                      <div class="minicard__store-detail">
+                                        <div class="minicard__store-label">Магазин:</div>
+                                        <div class="minicard__store-wrp">
+                                          <div class="minicard__store-name"><a href="#">PCPlanet.ru</a></div>
+                                          <div class="minicard__store-phone" data-popup="number" data-store="12788"><span>Телефоны</span>
+                                            <ul data-numbers="store"></ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__store-rating">
+                                        <div class="minicard__store-label">Рейтинг магазина:</div>
+                                        <div class="minicard__rating rating--orange"><span>3.8</span><a href="#">82 отзыва</a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__conditions">
+                                      <div class="minicard__conditions-label">Условия покупки:</div>
+                                      <div class="minicard__conditions-text">Оплата картой, цены не зависят от формы оплаты, гарантия</div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__more">
+                                    <div class="minicard__price hide--mobile">132 000 ₽</div>
+                                    <div class="minicard__shipping">
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_truck.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Курьером, 26-27 мая – <strong>300 ₽</strong></div>
+                                        </div>
+                                      </div>
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_pin.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Самовывоз, 27 сен – <small>бесплатно</small></div>
+                                          <div class="shipping-item__points"><span data-shop-points="178">Пункты выдачи</span></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__note">Оплата онлайн / наличными при получении</div>
+                                    <div class="minicard__in-store"><a href="#">
+                                        <button class="btn">В магазин</button></a></div>
+                                    <div class="minicard__action"><a href="#" data-tooltip="Пожаловаться">
+                                        <svg width="20" height="20">
+                                          <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                        </svg></a></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="catalog-products__item">
+                              <div class="minicard minicard--store">
+                                <div class="minicard__images">
+                                  <picture>
+                                    <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="minicard__content">
+                                  <div class="minicard__main">
+                                    <div class="minicard__title"><a href="#">17.3&quot; Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                    <div class="minicard__other"><span data-popup="more-offers" data-store="79268" data-store-name="PCPlanet.ru">Другие предложения</span></div>
+                                    <div class="minicard__store">
+                                      <div class="minicard__store-price hide--desctop">132 000 ₽</div>
+                                      <div class="minicard__store-detail">
+                                        <div class="minicard__store-label">Магазин:</div>
+                                        <div class="minicard__store-wrp">
+                                          <div class="minicard__store-name"><a href="#">PCPlanet.ru</a></div>
+                                          <div class="minicard__store-phone" data-popup="number" data-store="12788"><span>Телефоны</span>
+                                            <ul data-numbers="store"></ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__store-rating">
+                                        <div class="minicard__store-label">Рейтинг магазина:</div>
+                                        <div class="minicard__rating rating--orange"><span>3.8</span><a href="#">82 отзыва</a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__conditions">
+                                      <div class="minicard__conditions-label">Условия покупки:</div>
+                                      <div class="minicard__conditions-text">Оплата картой, цены не зависят от формы оплаты, гарантия</div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__more">
+                                    <div class="minicard__price hide--mobile">132 000 ₽</div>
+                                    <div class="minicard__shipping">
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_truck.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Курьером, 26-27 мая – <strong>300 ₽</strong></div>
+                                        </div>
+                                      </div>
+                                      <div class="shipping-item">
+                                        <div class="shipping-item__icon"><span class="bgimage lazyload" data-bg="/img/svg/ic_pin.svg"></span>
+                                        </div>
+                                        <div class="shipping-item__main">
+                                          <div class="shipping-item__title">Самовывоз, 27 сен – <small>бесплатно</small></div>
+                                          <div class="shipping-item__points"><span data-shop-points="178">Пункты выдачи</span></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__note">Оплата онлайн / наличными при получении</div>
+                                    <div class="minicard__in-store"><a href="#">
+                                        <button class="btn">В магазин</button></a></div>
+                                    <div class="minicard__action"><a href="#" data-tooltip="Пожаловаться">
+                                        <svg width="20" height="20">
+                                          <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                        </svg></a></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="catalog-pagination">
+                            <div class="catalog-pagination__more">
+                              <button>
+                                <svg width="14" height="14">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_more"></use>
+                                </svg><span>Показать ещё</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="catalog-category__inmap" data-single-catalog="map">
+                          <div class="store-points">
+                            <div class="store-points__wrp">
+                              <div class="store-points__map">
+                                <div id="map-stores"></div>
+                              </div>
+                              <div class="store-points__list">
+                                <div class="store-points__stores">27 магазинов</div>
+                                <div class="store-points__items">
+                                  <div class="store-points__item">
+                                    <div class="point-store">
+                                      <div class="point-store__name"><a href="#">PCPlanet.ru</a></div>
+                                      <div class="point-store__address">Москва, улица Воздвиженка, д. 10</div>
+                                      <div class="point-store__worktime">Пн-Пт 10:00 - 22:00, Сб-Вс 10:00 - 20:00</div>
+                                      <div class="point-store__now">Открыто до 22:00</div>
+                                      <div class="point-store__product">
+                                        <div class="point-store__image">
+                                          <picture>
+                                            <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="point-store__main">
+                                          <div class="point-store__title"><a href="#">15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный</a></div>
+                                          <div class="point-store__price">28 000 ₽</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="store-points__item">
+                                    <div class="point-store">
+                                      <div class="point-store__name"><a href="#">PCPlanet.ru</a></div>
+                                      <div class="point-store__address">Москва, улица Воздвиженка, д. 10</div>
+                                      <div class="point-store__worktime">Пн-Пт 10:00 - 22:00, Сб-Вс 10:00 - 20:00</div>
+                                      <div class="point-store__now">Открыто до 22:00</div>
+                                      <div class="point-store__product">
+                                        <div class="point-store__image">
+                                          <picture>
+                                            <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="point-store__main">
+                                          <div class="point-store__title"><a href="#">15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный</a></div>
+                                          <div class="point-store__price">28 000 ₽</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="store-points__item">
+                                    <div class="point-store">
+                                      <div class="point-store__name"><a href="#">PCPlanet.ru</a></div>
+                                      <div class="point-store__address">Москва, улица Воздвиженка, д. 10</div>
+                                      <div class="point-store__worktime">Пн-Пт 10:00 - 22:00, Сб-Вс 10:00 - 20:00</div>
+                                      <div class="point-store__now">Открыто до 22:00</div>
+                                      <div class="point-store__product">
+                                        <div class="point-store__image">
+                                          <picture>
+                                            <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="point-store__main">
+                                          <div class="point-store__title"><a href="#">15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный</a></div>
+                                          <div class="point-store__price">28 000 ₽</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="store-points__item">
+                                    <div class="point-store">
+                                      <div class="point-store__name"><a href="#">PCPlanet.ru</a></div>
+                                      <div class="point-store__address">Москва, улица Воздвиженка, д. 10</div>
+                                      <div class="point-store__worktime">Пн-Пт 10:00 - 22:00, Сб-Вс 10:00 - 20:00</div>
+                                      <div class="point-store__now">Открыто до 22:00</div>
+                                      <div class="point-store__product">
+                                        <div class="point-store__image">
+                                          <picture>
+                                            <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="point-store__main">
+                                          <div class="point-store__title"><a href="#">15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный</a></div>
+                                          <div class="point-store__price">28 000 ₽</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="store-points__item">
+                                    <div class="point-store">
+                                      <div class="point-store__name"><a href="#">PCPlanet.ru</a></div>
+                                      <div class="point-store__address">Москва, улица Воздвиженка, д. 10</div>
+                                      <div class="point-store__worktime">Пн-Пт 10:00 - 22:00, Сб-Вс 10:00 - 20:00</div>
+                                      <div class="point-store__now">Открыто до 22:00</div>
+                                      <div class="point-store__product">
+                                        <div class="point-store__image">
+                                          <picture>
+                                            <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="point-store__main">
+                                          <div class="point-store__title"><a href="#">15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный</a></div>
+                                          <div class="point-store__price">28 000 ₽</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="store-points__item">
+                                    <div class="point-store">
+                                      <div class="point-store__name"><a href="#">PCPlanet.ru</a></div>
+                                      <div class="point-store__address">Москва, улица Воздвиженка, д. 10</div>
+                                      <div class="point-store__worktime">Пн-Пт 10:00 - 22:00, Сб-Вс 10:00 - 20:00</div>
+                                      <div class="point-store__now">Открыто до 22:00</div>
+                                      <div class="point-store__product">
+                                        <div class="point-store__image">
+                                          <picture>
+                                            <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="point-store__main">
+                                          <div class="point-store__title"><a href="#">15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный</a></div>
+                                          <div class="point-store__price">28 000 ₽</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="footer">
+          <div class="footer__left">
+            <div class="footer__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo-footer.svg')"></span></a></div>
+            <div class="footer__desc">Уникальная платформа, где ты можешь видеть и выбирать самые выгодные предложения от всех магазинов!</div>
+            <div class="footer__social">
+              <ul>
+                <li><a href="#">
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_vk"></use>
+                    </svg></a></li>
+                <li><a href="#">
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_inst"></use>
+                    </svg></a></li>
+                <li><a href="#">
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_tg"></use>
+                    </svg></a></li>
+                <li><a href="#">
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_fb"></use>
+                    </svg></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__right">
+            <div class="footer__item"> 
+              <div class="footer__title">Покупателям</div>
+              <div class="footer__list">
+                <ul>
+                  <li><a href="#">Обзоры</a></li>
+                  <li><a href="#">Как выбрать товар</a></li>
+                  <li><a href="#">Права потребителей</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__item"> 
+              <div class="footer__title">Продавцам</div>
+              <div class="footer__list">
+                <ul>
+                  <li><a href="#">Личный кабинет магазина</a></li>
+                  <li><a href="#">Подключение магазина</a></li>
+                  <li><a href="#">Справка для магазинов</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__item"> 
+              <div class="footer__title">Компания Vako</div>
+              <div class="footer__list">
+                <ul>
+                  <li><a href="#">О проекте</a></li>
+                  <li><a href="#">Обратная связь</a></li>
+                  <li><a href="#">Вопрос-ответ</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-min">
+            <div class="footer-min__copyright">© ООО «Vako.Market». Все права защищены</div>
+            <div class="footer-min__links">
+              <ul>
+                <li><a href="#">Политика конфиденциальности</a></li>
+                <li><a href="#">Пользовательское соглашение</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+            <div class="catalog-popup">
+              <div class="catalog-popup__wrp">
+                <div class="catalog-popup__content">
+                  <div class="catalog-popup__close" data-catalog-popup="close"><span class="icon-cross"></span></div>
+                  <div class="catalog-popup__aside">
+                    <div class="catalog-popup__title">Каталог товаров</div>
+                    <div class="catalog-popup__nav">
+                      <nav>
+                        <ul>
+                          <li class="isset-sub"><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/01.svg)"></span><a href="category.html">Электроника</a>
+                            <ul class="sub-menu">
+                              <li class="isset-sub"><a href="category.html">Наушники</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Настольные ПК и моноблоки</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Комплектующие для ПК</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Мониторы и аксессуары</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Гейминг</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Периферийные устройства</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Оргтехника и расходные материалы</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Сетевое оборудование</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Накопители данных</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/02.svg)"></span><a href="category.html">Бытовая техника</a>
+                          </li>
+                          <li><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/03.svg)"></span><a href="category.html">Авто</a>
+                          </li>
+                          <li class="isset-sub"><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/04.svg)"></span><a href="category.html">Компьютеры</a>
+                            <ul class="sub-menu">
+                              <li class="isset-sub"><a href="category.html">Ноутбуки и планшеты</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Настольные ПК и моноблоки</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Комплектующие для ПК</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Мониторы и аксессуары</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Гейминг</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Периферийные устройства</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Оргтехника и расходные материалы</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Сетевое оборудование</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Накопители данных</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="catalog-popup__main"></div>
+                </div>
+              </div>
+            </div>
+            <div class="select-region" data-popup="select-region">
+              <div class="select-region__wrp">
+                <div class="select-region__icon"><span class="bgimage lazyload" data-bg="/img/common/icon_pin_60.svg"></span>
+                </div>
+                <div class="select-region__title">Вам показаны товары <br> в Кременчуг-Константиновское</div>
+                <div class="select-region__form">
+                  <form action="#" method="POST">
+                    <div class="form">
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <input type="text" placeholder="Укажите регион">
+                        </div>
+                      </div>
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <button class="btn">Сохранить</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="select-region__auto"><a href="#auto">Определять автоматически</a></div>
+              </div>
+            </div>
+    </footer>
+    <script src="/js/vendor.js"></script>
+    <script src="/js/common.js"></script>
+  </body>
+</html>

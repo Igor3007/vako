@@ -70,6 +70,78 @@ mixin product-review
                                         span.icon-cross 
                                         small Очистить <span>все фильтры</span>
 
+
+mixin shop-review
+    .product-review(data-tab="review")
+        .product-review__wrp
+            .product-review__content
+                .review-content
+                    .review-content__top
+                        .review-content__h2 Отзывы о магазине (27)
+                        .review-content__action
+                            .review-content__sort
+                                .sort-dropdown
+                                    .sort-dropdown__title По полезности
+                                    .sort-dropdown__list
+                                        ul
+                                            li: a(href='#' ) По дате
+                                            li: a(href='#' class="is-active is-active--up") По оценке
+                                            li: a(href='#') По полезности
+
+                            .review-content__mobile
+                                button(data-filter="open" data-elem="review")
+                                    +icons('#ic_filter', 17)
+                                    span Фильтры
+
+                    .review-content__list(data-review="list")
+
+                        .review-content__item: +card-review
+                        .review-content__item: +card-review-reply
+                        .review-content__item: +card-review
+                        .review-content__item: +card-review
+                        .review-content__item: +card-review-reply
+                        .review-content__item: +card-review
+                        .review-content__item: +card-review
+
+                    .review-content__more
+                        button(data-review="load" data-id="289")
+                            +icons('#ic_more', 14)
+                            span Показать ещё
+
+            .product-review__aside
+                .product-review__add
+                    button.btn(data-review="create") Оставить отзыв
+                .review-filter(data-filter-container="review")
+                    .review-filter__head
+                        .review-filter__head-title Фильтры и сортировка
+                        .review-filter__head-close: span.icon-cross(data-filter="open" data-elem="review")
+
+                    .review-filter__wrp
+
+                        .review-filter__form
+                            form(action='#' method='POST')
+                                .review-filter__props
+                                    .review-filter__item: +prop-checkbox({
+                                        title: 'Оценка покупателей',
+                                        checkbox: [
+                                            'Отлично (72)',
+                                            'Хорошо (5)',
+                                            'Средне (3)',
+                                            'Плохо (1)',
+                                            'Ужасно (1)',
+                                        ]
+                                    })
+
+                                .review-filter__submit
+                                    .review-filter__send(data-filter="submit")
+                                        button.btn
+                                            span Показать
+                                            small 72 отзыва
+                                    .review-filter__clear(data-filter="clear")
+                                        span.icon-cross
+                                        small Очистить <span>все фильтры</span>
+
+
 mixin card-review
     .card-review
         .card-review__photo

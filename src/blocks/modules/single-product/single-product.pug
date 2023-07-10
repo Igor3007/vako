@@ -1,9 +1,11 @@
 include ../../components/breadcrumb/breadcrumb.pug
+include ../../modules/single-shop-head/single-shop-head.pug
 include single-product__common.pug
 include single-product__prop.pug
 include single-product__prices.pug
 include single-product__review.pug
 include single-product__video.pug
+
 
 mixin single-product
     section.single-product
@@ -31,3 +33,26 @@ mixin single-product
                     +product-prices
                     +product-review
                     +product-video
+
+
+
+mixin single-shop
+    section.single-product
+        .container
+            .single-product
+                .single-product__breadcrumbs
+                    +breadcrumb([
+                        'Главная',
+                        'Магазин Shop Local'
+                    ])
+                .single-product__h1.single-shop__h1: h1 Магазин Shop Local
+                +single-shop-head
+                .single-product__tabs
+                    ul(data-tab-nav="product")
+                        li: a(href='#review') Отзывы магазина
+                        li: a(href='#common') Товары магазина
+
+                .single-product__content(data-tab-container="product")
+                    +shop-review
+                    +product-common-shop-items
+

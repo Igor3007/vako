@@ -282,8 +282,185 @@ mixin product-common
                                                                 .point-store__price 28 000 ₽
 
 
-                                             
-                                
-                            
-                        
-                    
+
+
+
+
+
+
+
+mixin product-common-shop-items
+
+    .product-common(data-tab="common")
+
+    .product-offers(data-tab="common,prices")
+        .product-offers__title: h2 Список товаров (27)
+
+        .product-offers__catalog
+            .catalog-category
+                .catalog-category__content
+                    .catalog-category__aside(style="display:none")
+
+                        .category-filter(data-filter-container="prices")
+                            .category-filter__head
+                                .category-filter__head-title Фильтры и сортировка
+                                .category-filter__head-close: span.icon-cross(data-filter="open" data-elem="prices")
+
+                            .category-filter__wrp
+                                form(action='#' method='POST')
+                                    .category-filter__props
+                                        .category-filter__item: +prop-range()
+
+                                        .category-filter__item: +prop-radio({
+                                            title: 'Рейтинг магазина',
+                                            radio: [
+                                                'Без учёта доставки',
+                                                'С учётом доставки курьером',
+                                                'С учётом самовывоза',
+                                            ],
+                                        })
+
+                                        .category-filter__item: +prop-checkbox-single('Гарантия производителя')
+
+                                        .category-filter__item: +prop-color({
+                                            title: 'Цвет',
+                                            colors: [
+                                                {hex: '#000000', name: 'Черный'},
+                                                {hex: '#808080', name: 'Серый'},
+                                                {hex: '#FF0000', name: 'Красный'},
+                                                {hex: '#FF0000', name: 'Красный'},
+                                                {hex: '#008000', name: 'Зеленый'},
+                                                {hex: '#0000FF', name: 'Синий'},
+                                                {hex: '#C0C0C0', name: 'Серый'},
+                                                {hex: '#ffffff', name: 'Белый'},
+                                                {hex: '#FFA500', name: 'Оранжевый'},
+                                                {hex: '#42AAFF', name: 'Голубой'},
+                                                {hex: '#42AAFF', name: 'Голубой'},
+                                                {hex: '#42AAFF', name: 'Голубой'},
+                                            ]
+                                        })
+
+
+
+
+
+                                        .category-filter__item: +prop-radio({
+                                            title: 'Рейтинг магазина',
+                                            radio: [
+                                                'Любой',
+                                                'Высокий: 4.5+',
+                                                'Хороший: 4+',
+                                                'Средний: 3.5+',
+                                            ],
+                                        })
+
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Способ оплаты',
+                                            checkbox: [
+                                                'Любой',
+                                                'Картой на сайте',
+                                                'Картой курьеру',
+                                                'Наличными курьеру',
+                                            ]
+                                        })
+
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Скидки и акции ',
+                                            checkbox: [
+                                                'Скидки',
+                                                'Промокоды',
+                                                'Подарки за покупки',
+                                                'Больше за ту же цену',
+                                            ]
+                                        })
+
+
+
+                                        .category-filter__item: +prop-checkbox({
+                                            title: 'Способ доставки',
+                                            checkbox: [
+                                                'Курьером',
+                                                'Самовывоз',
+                                                'Транспортная компания',
+                                            ]
+                                        })
+
+
+
+                                    .category-filter__submit
+                                        .category-filter__send(data-filter="submit")
+                                            button.btn
+                                                span Посмотреть
+                                                small 328 предложений
+                                        .category-filter__clear(data-filter="clear")
+                                            span.icon-cross
+                                            small Очистить <span>все фильтры</span>
+
+
+
+                    .catalog-category__main.shop-category
+                        .catalog-category__top
+                            .catalog-category__sort
+                                .sort-dropdown
+                                    .sort-dropdown__title Сначала популярные
+                                    .sort-dropdown__list
+                                        ul
+                                            li: a(href='#' ) Сначала популярные
+                                            li: a(href='#' class="is-active is-active--down") По цене
+                                            li: a(href='#' class="is-active is-active--up") По рейтингу
+                                            li: a(href='#') По отзывам
+
+                            .catalog-category__mobile
+                                button(data-filter="open" data-elem="prices")
+                                    +icons('#ic_filter', 17)
+                                    span Фильтры
+
+                            .catalog-category__view
+                                ul
+                                    li: a(href='#list' data-single-view="list"): +icons('#ic_sort-list', 24)
+                                    li: a(href='#map'  data-single-view="map"): +icons('#ic_pin-default', 24)
+
+
+                        .catalog-category__products.is-active(data-single-catalog="list")
+
+                            .catalog-products(data-catalog="container")
+                                each item in storeOoffers
+
+
+                                    if item.type == 'store'
+                                        .catalog-products__item: +minicard--store(item)
+
+                            .catalog-pagination
+                                .catalog-pagination__more
+                                    button
+                                        +icons('#ic_more', 14)
+                                        span Показать ещё
+
+                        .catalog-category__inmap(data-single-catalog="map")
+                            .store-points
+
+                                .store-points__wrp
+                                    .store-points__map
+                                        #map-stores
+                                    .store-points__list
+                                        .store-points__stores 27 магазинов
+                                        .store-points__items
+                                            each item in [1,1,1,1,1,1]
+                                                .store-points__item
+                                                    .point-store
+                                                        .point-store__name: a(href='#') PCPlanet.ru
+                                                        .point-store__address Москва, улица Воздвиженка, д. 10
+                                                        .point-store__worktime Пн-Пт 10:00 - 22:00, Сб-Вс 10:00 - 20:00
+                                                        .point-store__now Открыто до 22:00
+                                                        .point-store__product
+                                                            .point-store__image
+                                                                +picture('/img/product/minicard-1')
+                                                            .point-store__main
+                                                                .point-store__title: a(href='#') 15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без ОС, NH.QBWER.005, черный
+                                                                .point-store__price 28 000 ₽
+
+
+
+
+
+

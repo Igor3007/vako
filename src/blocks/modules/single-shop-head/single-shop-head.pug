@@ -1,0 +1,67 @@
+mixin single-shop-head
+    section.single-shop-head
+        .single-shop-head__problem
+            span 3 года на Vako
+            a(href="#") Сообщить о проблеме
+        .single-shop-head__content
+            .single-shop-head__rating
+                .single-shop-head__rating-img
+                    +picture("img/other/single-shop")
+                .single-shop-head__rating-content
+                    div Рейтинг магазина:
+                    .card-review__rating.rating--green
+                        span 4.9
+                        small 27 отзывов
+                    a(href='#')
+                        +icons('#ic_shop', 20)
+                        span shop-local.ru
+                    a(href="#") Телефоны
+            .single-shop-head__payment
+                ul
+                    div Способы доставки:
+                    li Курьером
+                    li Транспортной компанией
+                    li Самовывоз
+                    a(href="#") Пункты выдачи
+                ul
+                    div Способы оплаты:
+                    li Картой на сайте
+                    li Картой курьеру
+                    li Наличными курьеру
+                    li Безналичный расчёт
+                ul
+                    div Дни и время работы:
+                    ul.single-shop-head__payment-days
+                        li.days--blue
+                            span ПН
+                        li.days--blue
+                            span ВТ
+                        li.days--blue
+                            span СР
+                        li.days--blue
+                            span ЧТ
+                        li.days--blue
+                            span ПТ
+                        li
+                            span СБ
+                        li
+                            span ВС
+                    .single-shop-head__payment-state.state--green
+                        span
+                        small Открыт
+                    .single-shop-head__work-time
+                        span Работает с 8:00 до 18:00
+                    .single-shop-head__work-info
+                        a(href="#") Информация о магазине
+                        .single-shop-head__work-description
+                            .single-shop-head__work-description-wrapper
+                                .single-shop-head__work-description-title
+                                    div Тип и название юр. лица:
+                                    span ООО «Шоп Локал»
+                                .single-shop-head__work-description-title
+                                    div УНП:
+                                    span 7733890815
+                                .single-shop-head__work-description-title
+                                    div Юридический адрес:
+                                    span Российская Федерация, 125362, г. Москва, Строительный пр-д., д. 7А, корп. 28 комната 104-106
+
