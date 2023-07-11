@@ -7667,7 +7667,7 @@ div[data-single-catalog]:not(.is-active) {
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 24px 0;
+  margin: 12px 0;
 }
 
 .single-shop-head__rating {
@@ -7676,7 +7676,7 @@ div[data-single-catalog]:not(.is-active) {
 }
 
 .single-shop-head__rating-img {
-  margin-right: 36px;
+  margin-right: 12px;
 }
 
 .single-shop-head__rating-img img {
@@ -7686,6 +7686,10 @@ div[data-single-catalog]:not(.is-active) {
 .single-shop-head__rating-content {
   display: flex;
   flex-direction: column;
+}
+
+.single-shop-head__rating-content .card-review__rating {
+  margin-bottom: 0;
 }
 
 .single-shop-head__rating-content div {
@@ -7720,10 +7724,16 @@ div[data-single-catalog]:not(.is-active) {
 .single-shop-head__payment {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .single-shop-head__payment ul:not(:last-child) {
-  margin-right: 86px;
+  flex: 1 1 40%;
+  margin: 24px 0;
+}
+
+.single-shop-head__payment ul:first-child {
+  margin-right: 12px;
 }
 
 .single-shop-head__payment ul div {
@@ -7772,7 +7782,7 @@ div[data-single-catalog]:not(.is-active) {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 14px;
+  padding: 6px 10px;
   gap: 6px;
   border-radius: 4px;
   background: #F5F5F5;
@@ -7840,6 +7850,7 @@ div[data-single-catalog]:not(.is-active) {
   font-weight: 400;
   line-height: 20px;
   color: #8F8F8F;
+  margin-left: 16px;
 }
 
 .single-shop-head__work-info {
@@ -8612,6 +8623,10 @@ a[data-tooltip]:hover::before {
     margin: 0;
   }
 
+  .single-shop-head__rating-img {
+    margin-right: 36px;
+  }
+
   .create-review__title {
     font-size: 20px;
   }
@@ -9371,6 +9386,23 @@ a[data-tooltip]:hover::before {
     grid-row-end: 3;
   }
 
+  .single-shop-head__content {
+    margin: 24px 0;
+  }
+
+  .single-shop-head__payment {
+    flex-wrap: nowrap;
+    margin-top: 24px;
+  }
+
+  .single-shop-head__payment ul:not(:last-child) {
+    margin: 0 86px 0 0;
+  }
+
+  .single-shop-head__payment-days li {
+    padding: 6px 14px;
+  }
+
   .popup-points {
     width: 60vw;
     max-width: 1070px;
@@ -9853,6 +9885,10 @@ a[data-tooltip]:hover::before {
 
   .card-review__rating small {
     font-size: 13px;
+  }
+
+  .single-shop-head__payment {
+    margin-top: 0;
   }
 
   .qi-review small {
