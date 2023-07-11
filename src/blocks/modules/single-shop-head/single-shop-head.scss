@@ -1,3 +1,4 @@
+
 .single-shop__h1 {
   padding: 0;
 
@@ -7,6 +8,7 @@
 }
 
 .single-shop-head {
+  overflow: visible;
   &__problem {
     display: flex;
     align-items: center;
@@ -53,6 +55,12 @@
 
   &__rating-img {
     margin-right: 12px;
+    background: #8F8F8F;
+    border-radius: 8px;
+    width: 180px;
+    height: 120px;
+    max-width: 180px;
+    max-height: 120px;
     @media screen and (min-width: $w576) {
       margin-right: 36px;
 
@@ -118,6 +126,7 @@
       margin: 24px 0;
       @media screen and (min-width: $w992) {
         margin: 0 86px 0 0;
+        flex: initial;
       }
     }
     ul:first-child{
@@ -260,6 +269,16 @@
 
   &__work-info {
     position: relative;
+    &:hover{
+      .single-shop-head__work-description{
+        opacity: 1;
+        overflow: visible;
+        height: auto;
+        transition: .7s ease;
+        transform: translateY(0);
+
+      }
+    }
 
     a {
       font-size: 14px;
@@ -268,19 +287,45 @@
       line-height: 20px;
       color: #7B61FF;
       margin-left: 0 !important;
+      padding-bottom: 8px;
 
       &:hover {
         text-decoration: underline;
+
       }
     }
   }
 
   &__work-description {
+    opacity: 0;
+    overflow: hidden;
+    height: 0;
+    transform: translateY(10%);
     position: absolute;
     left: 0;
-    top: 24px;
+    z-index: 1;
+    top: 28px;
     width: 100%;
-    max-width: 340px;
+    max-width: 320px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 15px 0 #00000026;
 
+  }
+  &__work-description-wrapper{
+    padding: 6px 12px;
+  }
+  &__work-description-title{
+    div{
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      margin-bottom: 4px !important;
+    }
+    span{
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      color: #222;
+    }
   }
 }
