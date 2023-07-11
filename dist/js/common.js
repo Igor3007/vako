@@ -1489,7 +1489,9 @@
 
              this.setting.onChangeTab(tab)
 
-             initPriceRange()
+             if (document.querySelector('#my-slider')) {
+                 initPriceRange()
+             }
 
          }
 
@@ -1518,6 +1520,17 @@
          navElem: '[data-tab-nav="product"]',
          containerElem: '[data-tab-container="product"]',
          tabStart: 'common',
+
+         onChangeTab: function (tab) {
+             //console.log('info', tab)
+         }
+     })
+
+     //compare
+     window.tabsSingleProduct = new Tabs({
+         navElem: '[data-tab-nav="compare"]',
+         containerElem: '[data-tab-container="compare"]',
+         tabStart: false,
 
          onChangeTab: function (tab) {
              //console.log('info', tab)
