@@ -1200,8 +1200,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                               <ul>${numbers}</ul>
                           </div>`
 
-                        callPopup.open(html, function (instanse) {
-                        })
+                        callPopup.open(html, function (instanse) {})
 
                     } else {
                         item.classList.toggle('is-active')
@@ -1449,13 +1448,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     })
 
-<<<<<<< HEAD
-             if (document.querySelector('#my-slider')) {
-                 initPriceRange()
-             }
-=======
+
                 }
->>>>>>> 7ffa6bdfa79f7fba10b1cdca6ad731104c0b6921
+
 
             })
 
@@ -1486,33 +1481,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             this.setting.onChangeTab(tab)
 
-            initPriceRange()
+            if (document.querySelector('#my-slider')) {
+                initPriceRange()
+            }
 
         }
 
         clickTab() {
-
-<<<<<<< HEAD
-     //compare
-     window.tabsSingleProduct = new Tabs({
-         navElem: '[data-tab-nav="compare"]',
-         containerElem: '[data-tab-container="compare"]',
-         tabStart: false,
-
-         onChangeTab: function (tab) {
-             //console.log('info', tab)
-         }
-     })
-
-=======
-            var _this = this;
->>>>>>> 7ffa6bdfa79f7fba10b1cdca6ad731104c0b6921
 
             //  this.nav.querySelectorAll('a').forEach(function (item) {
             //      item.addEventListener('click', function (event) {
             //          _this.changeTab((this.getAttribute('href').replace('#', '')))
             //      })
             //  })
+
+            const _this = this
 
             window.addEventListener('hashchange', function () {
                 _this.changeTab(window.location.hash.replace('#', ''), {
@@ -1529,6 +1512,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
         navElem: '[data-tab-nav="product"]',
         containerElem: '[data-tab-container="product"]',
         tabStart: 'common',
+
+        onChangeTab: function (tab) {
+            //console.log('info', tab)
+        }
+    })
+
+    //compare
+    window.tabsSingleProduct = new Tabs({
+        navElem: '[data-tab-nav="compare"]',
+        containerElem: '[data-tab-container="compare"]',
+        tabStart: '1',
 
         onChangeTab: function (tab) {
             //console.log('info', tab)
