@@ -1,0 +1,76 @@
+include ../../views/helpers/mixins.pug
+include ../../blocks/modules/single-product/single-product__review.pug
+include ../../data/data.pug
+
+.create-review
+    .create-review__title Новый отзыв о магазине:
+    .create-review__product
+        .create-review__image.create-review__image-shop
+            +picture('/img/product/shop-local-mini')
+        .create-review__title-wrapper
+            .create-review__shop-title Shop Local
+            .create-review__shop-desc 3 года на Vako
+    .create-review__form
+        form(action='#' method='POST')
+            .form
+                .form__item
+                    .form__subitem
+                        label Оценка *
+                        ul.qi-review
+                            li
+                                label.rating--green
+                                    input(type="radio" name="qi" value="1")
+                                    span 5
+                                    small Отлично
+                            li
+                                label.rating--blue
+                                    input(type="radio" name="qi" value="1")
+                                    span 4
+                                    small Хорошо
+                            li
+                                label.rating--orange
+                                    input(type="radio" name="qi" value="1")
+                                    span 3
+                                    small Средне
+                            li
+                                label.rating--red
+                                    input(type="radio" name="qi" value="1")
+                                    span 2
+                                    small Плохо
+                            li
+                                label.rating--red
+                                    input(type="radio" name="qi" value="1")
+                                    span 1
+                                    small Ужасно
+                .form__item
+                    .form__subitem
+                        label Отзыв*
+                        textarea(placeholder="Текст отзыва")
+                .form__item
+                    .form__subitem
+                        label Способ покупки
+                        .filter-properties__list.filter-properties__list-shop
+                            ul
+                                li
+                                    label.radio
+                                        input(type="radio", name="undefined", value="undefined", checked)
+                                        span.radio__elem
+                                        span.radio__text Доставка
+                                li
+                                    label.radio
+                                        input(type="radio", name="undefined", value="undefined")
+                                        span.radio__elem
+                                        span.radio__text Самовывоз
+                .form__item
+                    .form__subitem
+                        label Номер заказа, если есть
+                        input( type="text" placeholder="Введите номер")
+
+                .form__item
+                    .form__subitem
+                        div: +checkbox('Оставить анонимно')
+                .form__item
+                    .form__subitem
+                        button.btn(type="submit") Отправить отзыв
+                    .form__subitem
+                        .policy Оставляя отзыв, вы соглашаетесь c <br> <a href="/policy.html" >условиями использования сервиса</a>

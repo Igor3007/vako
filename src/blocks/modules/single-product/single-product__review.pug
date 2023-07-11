@@ -95,13 +95,12 @@ mixin shop-review
 
                     .review-content__list(data-review="list")
 
-                        .review-content__item: +card-review
-                        .review-content__item: +card-review-reply
-                        .review-content__item: +card-review
-                        .review-content__item: +card-review
-                        .review-content__item: +card-review-reply
-                        .review-content__item: +card-review
-                        .review-content__item: +card-review
+                        .review-content__item: +card-review-with-date
+                        .review-content__item: +card-review-reply-with-date
+                        .review-content__item: +card-review-with-date
+                        .review-content__item: +card-review-with-date
+                        .review-content__item: +card-review-reply-with-date
+                        .review-content__item: +card-review-with-date
 
                     .review-content__more
                         button(data-review="load" data-id="289")
@@ -110,7 +109,7 @@ mixin shop-review
 
             .product-review__aside
                 .product-review__add
-                    button.btn(data-review="create") Оставить отзыв
+                    button.btn(data-review="create-review-shop") Оставить отзыв
                 .review-filter(data-filter-container="review")
                     .review-filter__head
                         .review-filter__head-title Фильтры и сортировка
@@ -173,6 +172,41 @@ mixin card-review
                         +icons('#ic_warning', 20) 
             .card-review__childs
 
+
+mixin card-review-with-date
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user')
+        .card-review__main
+            .card-review__head
+                .card-review__name Андрей Маяковский
+                .card-review__date.card-review__date-wrapper
+                    ul
+                        li 2 месяца назад, Москва
+                        li Доставка
+                        li Заказ №136559
+            .card-review__rating.rating--green
+                span 5
+                small Отлично
+            .card-review__text Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.
+            .card-review__thesis
+                .card-review__adv
+                    +icons('#ic_like', 20)
+                    span дизайн, качество низких частот
+                .card-review__flaws
+                    +icons('#ic_dislike', 20)
+                    span не нашел
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Комментировать
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                    .card-review__complaint
+                        +icons('#ic_warning', 20)
+            .card-review__childs
 
 mixin card-review-childs
     .card-review
@@ -240,6 +274,54 @@ mixin card-review-reply
                     .card-review__complaint
                         +icons('#ic_warning', 20) 
             .card-review__childs
-                +card-review-childs()  
+                +card-review-shop-childs()
+                +card-review-childs()
+
+
+mixin card-review-reply-with-date
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user3')
+        .card-review__main
+            .card-review__head
+                .card-review__name Иван Троцкий
+                .card-review__date.card-review__date-wrapper
+                    ul
+                        li 2 месяца назад, Москва
+                        li Доставка
+                        li Заказ №136559
+            .card-review__text Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Комментировать
+                .card-review__commets(data-review="show-comment") Все комментарии (14)
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                    .card-review__complaint
+                        +icons('#ic_warning', 20)
+            .card-review__childs
+                +card-review-shop-childs()
+                +card-review-childs()
+
+
+mixin card-review-shop-childs
+    .card-review.card-review-shop
+        .card-review__photo
+            +picture('/img/common/shop-user')
+        .card-review__main
+            .card-review__head
+                .card-review__name Shop Local
+                .card-review__date 2 месяца назад, Москва
+            .card-review__text Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.
+            .card-review__action
+                .card-review__add.card-review__add-shop(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Ответить
+
+            .card-review__childs
+
                  
 
