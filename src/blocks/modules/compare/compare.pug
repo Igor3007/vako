@@ -1,0 +1,91 @@
+mixin table-prop(arr, name)
+    tr
+        each item,index in arr
+            td= (!index ? name : '')
+    tr
+        each item in arr
+            td= item
+
+mixin table-group(count, name)
+    
+    tr
+        each item,index in Array(count)
+            td= (!index ? name : '')
+
+
+mixin compare
+    .compare-table 
+        table
+            tbody.product-table__tbody
+                tr
+                    each item in [1,2,3,4,5,5,5,5,5]
+                        td
+                            .compare-product
+                                img(src="/img/product/image-35-6.jpg")
+            tbody.product-table__scroll
+                tr
+                   td scroll-box
+
+            tbody.product-table__group
+                +table-group(9, 'Основные характеристики')
+                 
+
+            tbody.product-table__prop
+                +table-prop([
+                    '24',
+                    '27',
+                    '24',
+                    '32',
+                    '32',
+                    '32',
+                    '32',
+                    '32',
+                    '32',
+                ], 'Диагональ')
+
+            tbody.product-table__prop
+                +table-prop([
+                    '24',
+                    '27',
+                    '24',
+                    '32',
+                    '32',
+                    '32',
+                    '32',
+                    '32',
+                    '32',
+                ], 'Длинна')
+               
+
+            tbody.product-table__prop
+
+                +table-prop([
+                    'OLED',
+                    'AMOLED',
+                    'AMOLED',
+                    'OLED',
+                    'OLED',
+                    'OLED',
+                    'OLED',
+                    'OLED',
+                    'OLED',
+                ], 'Матрица')
+
+               
+
+            tbody.product-table__group
+                +table-group(9, 'Экран')
+
+            tbody.product-table__prop   
+
+                   +table-prop([
+                    'подсветка без мерцания (Flicker-Free)',
+                    'поворот на 90 градусов, регулировка по высоте',
+                    'поворот на 90 градусов, подсветка без мерцания (Flicker-Free), регулировка по высоте',
+                    'подсветка без мерцания (Flicker-Free)',
+                    'подсветка без мерцания (Flicker-Free)',
+                    'подсветка без мерцания (Flicker-Free)',
+                    'подсветка без мерцания (Flicker-Free)',
+                    'подсветка без мерцания (Flicker-Free)',
+                    'подсветка без мерцания (Flicker-Free)',
+                ], 'Тип LED-подсветки (!)') 

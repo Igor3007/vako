@@ -1,0 +1,41 @@
+extends ../layouts/catalog
+
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+include ../../blocks/modules/compare/compare.pug
+ 
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Vako"
+ 
+
+block content
+  section.single-page.favourites
+      .container
+          .single-page
+              .single-page__breadcrumbs
+                  +breadcrumb([
+                      'Главная',
+                      'Сравнение товаров',
+                  ]) 
+              .single-page__h1.favourites-title
+                h1 Сравнение товаров
+                a(href='#')
+                  +icons('#ic_trash', 22)
+                  span Очистить список
+
+              .single-product__tabs
+                    ul(data-tab-nav="compare")
+                        li: a(href='#1') Мониторы
+                        li: a(href='#2') Наушники
+                        li: a(href='#3') Ноутбуки
+
+              .single-product__content(data-tab-container="compare")
+                .single-product__item(data-tab="1"): +compare()
+                .single-product__item(data-tab="2") Наушники
+                .single-product__item(data-tab="3") Ноутбуки
+
+
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js") 
