@@ -2195,4 +2195,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
+    if (document.querySelector('.favourites')) {
+        if (document.body.clientWidth <= 576) {
+            let currentBlock = document.querySelector('.catalog-products--wishlist')
+            currentBlock.classList.remove('grid--view')
+        }
+    }
+
+
+
+
+
 });
