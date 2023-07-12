@@ -7638,9 +7638,22 @@ div[data-single-catalog]:not(.is-active) {
   padding-bottom: 48px;
 }
 
+.favourites .minicard__title a {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
 .favourites-title {
   padding: 0;
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.favourites-title h1 {
+  margin: 0;
 }
 
 .favourites-title a {
@@ -8741,16 +8754,6 @@ a[data-tooltip]:hover::before {
 
   .popup-store-offers__title {
     font-size: 20px;
-  }
-
-  .favourites-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .favourites-title h1 {
-    margin: 0;
   }
 
   .single-shop-head__rating-img {
