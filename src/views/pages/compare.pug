@@ -24,16 +24,16 @@ block content
                   +icons('#ic_trash', 22)
                   span Очистить список
 
-              .single-product__tabs
+              .single-page__tabs
                     ul(data-tab-nav="compare")
                         li: a(href='#1') Мониторы
                         li: a(href='#2') Наушники
                         li: a(href='#3') Ноутбуки
 
-              .single-product__content(data-tab-container="compare")
-                .single-product__item(data-tab="1"): +compare()
-                .single-product__item(data-tab="2") Наушники
-                .single-product__item(data-tab="3") Ноутбуки
+              .single-page__content(data-tab-container="compare")
+                .single-page__item(data-tab="1"): +compare()
+                .single-page__item(data-tab="2") Наушники
+                .single-page__item(data-tab="3") Ноутбуки
 
 
 block scripts
