@@ -7,15 +7,27 @@
     &__wrp {
         overflow-x: auto;
         width: 100%;
+
+        @include scrollbar();
     }
 
     & td {
-        min-width: 230px;
-        width: 230px;
+        min-width: 176px;
+        width: 176px;
         font-weight: normal;
         font-size: 14px;
-        padding: 14px 12px;
+        padding: 18px 12px;
         border-color: #ebebeb;
+        vertical-align: top;
+
+        @media screen and (min-width: $w480) {
+            min-width: 230px;
+            width: 230px;
+        }
+
+        &:first-child {
+            font-weight: normal;
+        }
     }
 
     & table {
@@ -29,6 +41,7 @@
         empty-cells: show;
         font-size: 15px;
         table-layout: fixed;
+        margin: 0;
     }
 }
 
@@ -37,6 +50,7 @@
     &__scroll {
         & td {
             border: none;
+            padding: 0;
         }
     }
 
@@ -45,27 +59,51 @@
         position: relative;
         padding: 10px 0;
 
-        & td {
 
+        & td {
             height: 50px;
+            padding: 20px 0;
+            box-sizing: content-box;
+            border: none;
 
             & .table-group {
                 &__head {
                     position: absolute;
+                    height: 50px;
                     left: 0;
-                    top: 0;
+                    top: 20px;
                     right: 0;
                     bottom: 0;
-                    background-color: #eee;
+                    background-color: $gray-96;
                     padding: 15px 12px;
                     display: flex;
                     align-items: center;
                     font-size: 18px;
+                    border-radius: 6px;
+                    font-weight: 700;
+                    color: #222;
 
                     & span {
                         position: sticky;
                         left: 12px;
+                        font-weight: bold;
+                        display: flex;
+                        cursor: pointer;
 
+                        &::after {
+                            content: '';
+                            width: 24px;
+                            height: 24px;
+                            background-color: transparent;
+                            border-radius: 50%;
+                            display: inline-block;
+                            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBjbGlwLXBhdGg9InVybCgjcHJlZml4X19wcmVmaXhfX2NsaXAwXzIwMzFfMTk5MTgpIj48cGF0aCBkPSJNOSAxTDUgNSAxIDEiIHN0cm9rZT0iIzUyNTE2NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0icHJlZml4X19wcmVmaXhfX2NsaXAwXzIwMzFfMTk5MTgiPjxwYXRoIGZpbGw9IiNmZmYiIHRyYW5zZm9ybT0icm90YXRlKC05MCAzIDMpIiBkPSJNMCAwaDZ2MTBIMHoiLz48L2NsaXBQYXRoPjwvZGVmcz48L3N2Zz4=);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: 16px auto;
+                            margin-left: 10px;
+                            transition: transform 0.3s ease;
+                        }
                     }
                 }
             }
@@ -96,6 +134,24 @@
             }
 
 
+        }
+
+        & .tooltip-box-item * {
+            font-style: normal;
+            white-space: normal;
+            color: #222;
+        }
+
+        & i svg {
+            fill: #8F8F8F;
+        }
+
+        & i {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            margin-top: -1px;
         }
     }
 }
@@ -278,10 +334,139 @@
 }
 
 
-.compare-filter {
-    display: flex;
+
+.product-table__group.is-hide-group .table-group__head span::after {
+    transform: rotate(-90deg)
 }
 
-.compare-filter__link ul {
+.compare-filter {
     display: flex;
+    flex-wrap: wrap;
+    padding-top: 25px;
+
+    @media screen and (min-width: $w480) {
+        padding-top: 0;
+    }
+
+    &__title {
+        color: $gray-56;
+        width: 100%;
+
+        @media screen and (min-width: $w480) {
+            width: auto;
+        }
+    }
+
+    &__link {
+
+        margin: 0 -5px;
+        padding-top: 10px;
+
+        @media screen and (min-width: $w480) {
+            padding-left: 10px;
+            padding-top: 0;
+            margin: 0;
+        }
+
+        & ul {
+            display: flex;
+
+            & li {
+                color: $gray-13;
+                padding: 0 5px;
+                cursor: pointer;
+
+                &:hover {
+                    color: $accent-2-2;
+                }
+
+                &.is-active {
+                    color: $accent-2-1;
+                }
+
+            }
+
+        }
+    }
+
+    & .text--mobile {
+        @media screen and (min-width: $w480) {
+            display: none;
+        }
+    }
+
+    & .text--desktop {
+
+        display: none;
+
+        @media screen and (min-width: $w480) {
+            display: inline;
+        }
+    }
+}
+
+
+
+.compare-table-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.compare-table-top__nav {
+    display: none;
+
+    @media screen and (min-width: $w480) {
+        display: flex;
+    }
+}
+
+.table-prop-head {
+    display: flex;
+    align-items: center;
+
+    & span {
+        display: inline-block;
+        height: 20px;
+    }
+}
+
+.table-scroller {
+
+    //margin-left: -12px;
+    height: 25px;
+
+    &__wrp {
+        height: 10px;
+        margin: 10px 0;
+        overflow-x: auto;
+        position: absolute;
+        overflow-y: hidden;
+
+        @include scrollbar()
+    }
+
+    &__content {
+        height: 10px;
+    }
+}
+
+.product-table__prop.hide-tbody {
+    height: 0;
+    display: none;
+}
+
+
+
+div[data-state="0"] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+div[data-state="1"] {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.product-table__prop.hide-prop-tbody {
+    display: none;
 }

@@ -203,13 +203,24 @@
                       <div class="compare-filter__title">Показывать:</div>
                       <div class="compare-filter__link">
                         <ul>
-                          <li class="is-active">Все характеристики</li>
-                          <li>Различающиеся характеристики</li>
+                          <li class="is-active" data-similar="show"> <span class="text--mobile">Все хар-ки</span><span class="text--desktop">Все характеристики</span></li>
+                          <li data-similar="hide"> <span class="text--mobile">Различающиеся хар-ки</span><span class="text--desktop">Различающиеся характеристики</span></li>
                         </ul>
                       </div>
                     </div>
                   </div>
-                  <div class="compare-table-top__nav"></div>
+                  <div class="compare-table-top__nav">
+                    <div class="compare-table-top__nav-prev" data-se-slider="prev">
+                      <svg width="24" height="24">
+                        <use xlink:href="/img/sprites/sprite.svg#ic_arr-left"></use>
+                      </svg>
+                    </div>
+                    <div class="compare-table-top__nav-next" data-se-slider="next">
+                      <svg width="24" height="24">
+                        <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 <div class="compare-table"> 
                   <div class="compare-table__wrp">
@@ -417,8 +428,15 @@
                         </tr>
                       </tbody>
                       <tbody class="product-table__scroll">
-                        <tr></tr>
-                        <td>scroll-box</td>
+                        <tr>
+                          <td>
+                            <div class="table-scroller"> 
+                              <div class="table-scroller__wrp"> 
+                                <div class="table-scroller__content"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
                       </tbody>
                       <tbody class="product-table__group">
                         <tr>
@@ -429,7 +447,12 @@
                       </tbody>
                       <tbody class="product-table__prop">
                         <tr>
-                          <td><span>Диагональ</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Диагональ</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>24</td>
@@ -445,7 +468,12 @@
                       </tbody>
                       <tbody class="product-table__prop">
                         <tr>
-                          <td><span>Макс. разрешение</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Макс. разрешение</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>1920x1080</td>
@@ -461,7 +489,12 @@
                       </tbody>
                       <tbody class="product-table__prop">
                         <tr>
-                          <td><span>Тип матрицы экрана</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Тип матрицы экрана</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>OLED</td>
@@ -477,7 +510,12 @@
                       </tbody>
                       <tbody class="product-table__prop">
                         <tr>
-                          <td><span>Соотношение сторон</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Соотношение сторон</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>16:9</td>
@@ -493,7 +531,12 @@
                       </tbody>
                       <tbody class="product-table__prop">
                         <tr>
-                          <td><span>Изогнутый экран</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Изогнутый экран</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>-</td>
@@ -509,7 +552,12 @@
                       </tbody>
                       <tbody class="product-table__prop">
                         <tr>
-                          <td><span>Макс. частота обновления кадров</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Макс. частота обновления кадров</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>144 Гц</td>
@@ -525,7 +573,12 @@
                       </tbody>
                       <tbody class="product-table__prop">
                         <tr>
-                          <td><span>Тип LED-подсветки</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Тип LED-подсветки</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>—</td>
@@ -541,7 +594,12 @@
                       </tbody>
                       <tbody class="product-table__prop">
                         <tr>
-                          <td><span>Особенности</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Особенности</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>подсветка без мерцания (Flicker-Free)</td>
@@ -557,7 +615,12 @@
                       </tbody>
                       <tbody class="product-table__prop">
                         <tr>
-                          <td><span>Поддержка FreeSync/G-Sync</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Поддержка FreeSync/G-Sync</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>FreeSync Premium, G-Sync Compatible</td>
@@ -580,7 +643,12 @@
                       </tbody>
                       <tbody class="product-table__prop">  
                         <tr>
-                          <td><span>Тип LED-подсветки (!)</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Тип LED-подсветки (!)</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>подсветка без мерцания (Flicker-Free)</td>
@@ -603,7 +671,12 @@
                       </tbody>
                       <tbody class="product-table__prop">  
                         <tr>
-                          <td><span>HDMI</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>HDMI</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>да</td>
@@ -619,7 +692,12 @@
                       </tbody>
                       <tbody class="product-table__prop">  
                         <tr>
-                          <td><span>USB</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>USB</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>да</td>
@@ -642,7 +720,12 @@
                       </tbody>
                       <tbody class="product-table__prop">  
                         <tr>
-                          <td><span>Выход в интернет</span></td>
+                          <td>
+                            <div class="table-prop-head"><span>Выход в интернет</span><i data-prop-tooltip="12456" data-id="123456">
+                                <svg width="20" height="20">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                </svg></i></div>
+                          </td>
                         </tr>
                         <tr>
                           <td>да</td>

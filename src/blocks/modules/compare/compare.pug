@@ -3,7 +3,9 @@ mixin table-prop(arr, name)
         each item,index in arr
             if(index == 0) 
                 td
-                    span= name
+                    div.table-prop-head
+                        span= name
+                        i(data-prop-tooltip="12456" data-id="123456"): +icons('#ic_tooltip', 20) 
     tr
         each item in arr
             td= item
@@ -43,10 +45,16 @@ mixin compare
                 .compare-filter__title Показывать:
                 .compare-filter__link
                     ul
-                        li.is-active Все характеристики
-                        li Различающиеся характеристики
+                        li(data-similar="show").is-active 
+                            span.text--mobile Все хар-ки
+                            span.text--desktop Все характеристики
+                        li(data-similar="hide")  
+                            span.text--mobile Различающиеся хар-ки
+                            span.text--desktop Различающиеся характеристики
 
         .compare-table-top__nav
+            .compare-table-top__nav-prev(data-se-slider="prev"): +icons('#ic_arr-left', 24)
+            .compare-table-top__nav-next(data-se-slider="next"): +icons('#ic_arr-right', 24)
 
     .compare-table 
         .compare-table__wrp
@@ -58,7 +66,10 @@ mixin compare
                                 +compare-product(item)
                 tbody.product-table__scroll
                     tr
-                    td scroll-box
+                        td
+                            .table-scroller 
+                                .table-scroller__wrp 
+                                    .table-scroller__content
 
                 tbody.product-table__group
                     +table-group(9, 'Основные характеристики')

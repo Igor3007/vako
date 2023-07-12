@@ -3418,15 +3418,16 @@ footer {
 .header-notification__dropdown ul::-webkit-scrollbar {
   width: 5px;
   border-radius: 4px;
+  height: 5px;
 }
 
 .header-notification__dropdown ul::-webkit-scrollbar-track {
-  background-color: #e2e6e8;
+  background-color: #ebebeb;
   border-radius: 4px;
 }
 
 .header-notification__dropdown ul::-webkit-scrollbar-thumb {
-  background-color: #cbcfd0;
+  background-color: #ccc;
   border-radius: 4px;
 }
 
@@ -4720,15 +4721,16 @@ footer {
 .popup-points__items::-webkit-scrollbar {
   width: 5px;
   border-radius: 4px;
+  height: 5px;
 }
 
 .popup-points__items::-webkit-scrollbar-track {
-  background-color: #e2e6e8;
+  background-color: #ebebeb;
   border-radius: 4px;
 }
 
 .popup-points__items::-webkit-scrollbar-thumb {
-  background-color: #cbcfd0;
+  background-color: #ccc;
   border-radius: 4px;
 }
 
