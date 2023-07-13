@@ -3243,7 +3243,7 @@ input:focus {
   width: 172px;
   height: 36px;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .dropdown-icon__list .dropdown-button a {
@@ -5268,6 +5268,8 @@ footer {
 
 .catalog-category__sort {
   position: relative;
+  width: 100%;
+  max-width: 50%;
 }
 
 .sort-dropdown {
@@ -5293,6 +5295,7 @@ footer {
   color: #8f8f8f;
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .sort-dropdown__list ul a::after {
@@ -5340,7 +5343,7 @@ footer {
   padding: 8px;
   color: #7B61FF;
   height: 36px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .sort-dropdown__title:hover {
@@ -5581,7 +5584,7 @@ footer {
 }
 
 .minicard__title {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 123%;
   color: #222222;
   padding-bottom: 0.5em;
@@ -10414,7 +10417,7 @@ a[data-tooltip]:hover::before {
   .minicard__title {
     font-weight: 600;
     line-height: 156%;
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .minicard__price {
@@ -10613,7 +10616,7 @@ a[data-tooltip]:hover::before {
   }
 
   .minicard__title {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 148%;
   }
 
@@ -10689,8 +10692,21 @@ a[data-tooltip]:hover::before {
     max-width: 1450px;
   }
 
+  .product-details__colors span {
+    font-size: 15px;
+  }
+
   .product-details__review a {
-    font-size: 13px;
+    font-size: 14px;
+  }
+
+  .product-details__compare span,
+  .product-details__fav span {
+    font-size: 14px;
+  }
+
+  .fast-properties__title {
+    font-size: 15px;
   }
 
   .popup-store-offers__items .minicard__title {

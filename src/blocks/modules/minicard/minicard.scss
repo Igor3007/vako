@@ -109,7 +109,7 @@
   }
 
   &__title {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 123%;
     color: $gray-13;
     padding-bottom: 0.5em;
@@ -117,12 +117,12 @@
     @media screen and (min-width: $w1200) {
       font-weight: 600;
       line-height: 156%;
-      font-size: 15px;
+      font-size: 16px;
 
     }
 
     @media screen and (min-width: $w1440) {
-      font-size: 16px;
+      font-size: 17px;
       line-height: 148%;
     }
 
