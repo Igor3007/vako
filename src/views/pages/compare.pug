@@ -1,4 +1,4 @@
-extends ../layouts/catalog
+extends ../layouts/compare
 
 include ../../blocks/components/breadcrumb/breadcrumb.pug
 include ../../blocks/modules/compare/compare.pug
@@ -24,17 +24,15 @@ block content
                   +icons('#ic_trash', 22)
                   span Очистить список
 
-              .single-product__tabs
-                    ul(data-tab-nav="compare")
-                        li: a(href='#1') Мониторы
-                        li: a(href='#2') Наушники
-                        li: a(href='#3') Ноутбуки
+              .single-page__tabs
+                    ul
+                        li.active: a(href='compare.html') Мониторы
+                        li: a(href='compare-headphones.html') Наушники
+                        li: a(href='compare-laptop.html') Ноутбуки
 
-              .single-product__content(data-tab-container="compare")
-                .single-product__item(data-tab="1"): +compare()
-                .single-product__item(data-tab="2") Наушники
-                .single-product__item(data-tab="3") Ноутбуки
-
+              .single-page__content
+                .single-page__item: +compare()
+                 
 
 block scripts
   script(src="/js/vendor.js") 

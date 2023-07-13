@@ -1,28 +1,125 @@
 .compare-table {
-    & td {
+
+    width: 100%;
+    position: relative;
+
+
+    &__wrp {
+        overflow-x: auto;
         width: 100%;
+
+        @include scrollbar();
+    }
+
+    & td {
+        min-width: 176px;
+        width: 176px;
         font-weight: normal;
         font-size: 14px;
+        padding: 18px 12px;
+        border-color: #ebebeb;
+        vertical-align: top;
+
+        @media screen and (min-width: $w480) {
+            min-width: 230px;
+            width: 230px;
+        }
+
+        &:first-child {
+            font-weight: normal;
+        }
     }
 
     & table {
+        //width: 100%;
+        //table-layout: fixed;
+        //overflow-wrap: break-word;
+
         width: 100%;
+        background-color: #fff;
+        border-collapse: collapse;
+        empty-cells: show;
+        font-size: 15px;
         table-layout: fixed;
-        overflow-wrap: break-word;
+        margin: 0;
     }
 }
 
 .product-table {
 
-    &__group {
-        td {
-            background-color: #eee;
-            min-width: 320px;
+    &__scroll {
+        & td {
+            border: none;
+            padding: 0;
         }
+    }
+
+    &__group {
+
+        position: relative;
+        padding: 10px 0;
+
+
+        & td {
+            height: 50px;
+            padding: 20px 0;
+            box-sizing: content-box;
+            border: none;
+
+            & .table-group {
+                &__head {
+                    position: absolute;
+                    height: 50px;
+                    left: 0;
+                    top: 20px;
+                    right: 0;
+                    bottom: 0;
+                    background-color: $gray-96;
+                    padding: 15px 12px;
+                    display: flex;
+                    align-items: center;
+                    font-size: 18px;
+                    border-radius: 6px;
+                    font-weight: 700;
+                    color: #222;
+
+                    & span {
+                        position: sticky;
+                        left: 12px;
+                        font-weight: bold;
+                        display: flex;
+                        cursor: pointer;
+
+                        &::after {
+                            content: '';
+                            width: 24px;
+                            height: 24px;
+                            background-color: transparent;
+                            border-radius: 50%;
+                            display: inline-block;
+                            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBjbGlwLXBhdGg9InVybCgjcHJlZml4X19wcmVmaXhfX2NsaXAwXzIwMzFfMTk5MTgpIj48cGF0aCBkPSJNOSAxTDUgNSAxIDEiIHN0cm9rZT0iIzUyNTE2NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0icHJlZml4X19wcmVmaXhfX2NsaXAwXzIwMzFfMTk5MTgiPjxwYXRoIGZpbGw9IiNmZmYiIHRyYW5zZm9ybT0icm90YXRlKC05MCAzIDMpIiBkPSJNMCAwaDZ2MTBIMHoiLz48L2NsaXBQYXRoPjwvZGVmcz48L3N2Zz4=);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: 16px auto;
+                            margin-left: 10px;
+                            transition: transform 0.3s ease;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     &__prop {
         & tr {
+
+            & td {
+                padding-top: 35px;
+                font-size: 15px;
+                cursor: grab;
+            }
+
             &:first-child {
                 & td {
                     border: none;
@@ -30,8 +127,358 @@
                     padding-bottom: 0;
                     font-weight: 400;
                     color: #999;
+                    position: absolute;
+                    left: 0;
+                    white-space: nowrap;
+                    font-size: 13px;
+                }
+            }
+
+
+        }
+
+        & .tooltip-box-item * {
+            font-style: normal;
+            white-space: normal;
+            color: #222;
+        }
+
+        & i svg {
+            fill: #8F8F8F;
+        }
+
+        & i {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            margin-top: -4px;
+        }
+    }
+}
+
+.compare-product {
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 320px;
+
+    &__top {
+        display: flex;
+    }
+
+    &__image {
+        width: calc(100% - 40px);
+
+        & picture {
+            @include picture(100%, contain);
+        }
+    }
+
+    &__action {
+        width: 40px;
+        min-width: 40px;
+    }
+
+    &__rating {
+
+        padding-bottom: 13px;
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 8px;
+
+        }
+
+        & span {
+            display: inline-flex;
+            width: 32px;
+            height: 26px;
+            background-color: #eee;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            border-radius: 4px;
+        }
+
+        & a {
+            font-size: 13px;
+            margin-left: 9px;
+
+            display: inline-block;
+            margin-top: -1px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            @media screen and (min-width: $w1440) {
+                font-size: 13px;
+            }
+        }
+
+        &.rating {
+            &--green {
+                & span {
+                    background: $green;
+                    color: #fff
+                }
+
+                & a {
+                    color: $green;
+                }
+            }
+
+            &--red {
+                & span {
+                    background: $red;
+                    color: #fff
+                }
+
+                & a {
+                    color: $red;
+                }
+            }
+
+            &--orange {
+                & span {
+                    background: $orange;
+                    color: #fff
+                }
+
+                & a {
+                    color: $orange;
+                }
+            }
+
+            &--blue {
+                & span {
+                    background: $blue;
+                    color: #fff
+                }
+
+                & a {
+                    color: $blue;
                 }
             }
         }
     }
+
+    &__price {
+        @include minicard--price;
+
+        @media screen and (min-width: $w1440) {
+            font-size: 18px;
+            padding-bottom: 5px;
+        }
+    }
+
+    &__action {
+
+
+        @media screen and (min-width: $w1200) {
+            opacity: 0;
+            transition: 0.2s ease;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        & a[data-tooltip]::before {
+            min-width: auto;
+            white-space: nowrap;
+        }
+
+        & a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 4px;
+
+            & svg {
+                fill: #8F8F8F;
+            }
+
+            &:hover {
+
+                background-color: #f5f5f5;
+                border-radius: 4px;
+
+                & svg {
+                    fill: $accent-1-1;
+                }
+
+            }
+        }
+
+    }
+
+    &__offers {
+
+
+        & a,
+        & span {
+            color: $gray-56;
+            font-size: 13px;
+
+            &:hover {
+                color: $accent-2-1;
+            }
+        }
+    }
+
+    &__title {
+        padding-bottom: 20px;
+
+        & a {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 140%;
+        }
+    }
+}
+
+
+
+.product-table__group.is-hide-group .table-group__head span::after {
+    transform: rotate(-90deg)
+}
+
+.compare-filter {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 25px;
+
+    @media screen and (min-width: $w480) {
+        padding-top: 0;
+    }
+
+    &__title {
+        color: $gray-56;
+        width: 100%;
+
+        @media screen and (min-width: $w480) {
+            width: auto;
+        }
+    }
+
+    &__link {
+
+        margin: 0 -5px;
+        padding-top: 10px;
+
+        @media screen and (min-width: $w480) {
+            padding-left: 10px;
+            padding-top: 0;
+            margin: 0;
+        }
+
+        & ul {
+            display: flex;
+
+            & li {
+                color: $gray-13;
+                padding: 0 5px;
+                cursor: pointer;
+
+                &:hover {
+                    color: $accent-2-2;
+                }
+
+                &.is-active {
+                    color: $accent-2-1;
+                }
+
+            }
+
+        }
+    }
+
+    & .text--mobile {
+        @media screen and (min-width: $w480) {
+            display: none;
+        }
+    }
+
+    & .text--desktop {
+
+        display: none;
+
+        @media screen and (min-width: $w480) {
+            display: inline;
+        }
+    }
+}
+
+
+
+.compare-table-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.compare-table-top__nav {
+    display: none;
+
+    @media screen and (min-width: $w480) {
+        display: flex;
+    }
+}
+
+.table-prop-head {
+    display: flex;
+    align-items: center;
+
+    & span {
+        display: inline-block;
+        height: 20px;
+    }
+}
+
+.table-scroller {
+
+    //margin-left: -12px;
+    height: 25px;
+
+    &__wrp {
+        height: 10px;
+        margin: 10px 0;
+        overflow-x: auto;
+        position: absolute;
+        overflow-y: hidden;
+
+        @include scrollbar()
+    }
+
+    &__content {
+        height: 10px;
+    }
+}
+
+.product-table__prop.hide-tbody {
+    height: 0;
+    display: none;
+}
+
+
+
+div[data-state="0"] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+div[data-state="1"] {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.product-table__prop.hide-prop-tbody {
+    display: none;
 }

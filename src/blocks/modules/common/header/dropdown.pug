@@ -31,6 +31,18 @@ mixin dropdown-icon-store-login
 
 mixin tooltip-icon(data)
     .tooltip-icon
-        .tooltip-icon__elem: a(href='#'): +icons(data.icon, 24)
+        .tooltip-icon__elem
+            a(href=data.link ? data.link : '#')
+                +icons(data.icon, 24)
+                span.tooltip-icon__count(data-total=data.attr)
         .tooltip-icon__text
             span= data.text
+
+mixin tooltip-icon-active(data)
+    .tooltip-icon
+        .tooltip-icon__elem
+            a(href=data.link ? data.link : '#')
+                +icons(data.icon, 24)
+                span.tooltip-icon__count(data-total=data.attr)= data.count
+        .tooltip-icon__text
+            span!= data.text

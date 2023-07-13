@@ -484,23 +484,27 @@ a[data-tooltip]:hover::before {
     }
 
 }
-.create-review__image-shop{
+
+.create-review__image-shop {
     width: 96px;
     min-width: 96px;
 }
-.create-review__title-wrapper{
+
+.create-review__title-wrapper {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
 }
-.create-review__shop-title{
+
+.create-review__shop-title {
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: 28px;
     color: #222;
 }
-.create-review__shop-desc{
+
+.create-review__shop-desc {
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -682,3 +686,111 @@ a[data-tooltip]:hover::before {
     }
 }
 
+@keyframes to-fade-popup {
+
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes out-fade-popup {
+
+    to {
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+
+}
+
+.popup-top-tooltip {
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    max-width: 520px;
+    border-radius: 6px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: to-fade-popup 0.3s ease forwards;
+    z-index: 15;
+    left: 10px;
+
+    @media screen and (min-width: $w992) {
+        top: 30px;
+        left: auto;
+    }
+
+    &.fadeout {
+        animation: out-fade-popup 0.3s ease forwards;
+    }
+
+
+    & .product-mini {
+
+        padding-bottom: 0;
+
+        &__title {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 146%;
+
+            @include line-clamp(3);
+        }
+
+        &__image {
+            max-width: 68px;
+            min-width: 68px;
+        }
+
+        &__main {
+            padding-left: 16px;
+            padding-top: 0;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+
+
+
+}
+
+.popup-tooltip {
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: -5px;
+        flex-direction: column;
+        width: 100%;
+
+
+        @media screen and (min-width: $w576) {
+            flex-direction: row;
+        }
+
+        & button {
+            flex-grow: 1;
+            width: 100%;
+            margin: 5px;
+
+            @media screen and (min-width: $w576) {
+                width: 50%;
+            }
+        }
+    }
+
+    &__info {
+        padding-bottom: 16px;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+
+
+
+}

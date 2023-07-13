@@ -175,6 +175,13 @@
             & svg {
                 filter: none;
             }
+
+            & .tooltip-icon {
+
+                &__count {
+                    border: 2px solid #fff;
+                }
+            }
         }
 
     }
@@ -204,6 +211,29 @@
         }
     }
 
+    &__count {
+        background-color: $red;
+        color: #fff;
+        font-weight: bold;
+        font-size: 10px;
+        border-radius: 16px;
+        display: inline-block;
+        height: 19px;
+        min-width: 19px;
+        padding: 0 3px;
+        text-align: center;
+        border: 2px solid #352A4F;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        transition: 0.3s ease;
+        line-height: 14px;
+        padding: 0 4px;
+
+
+
+    }
+
     &:hover {
         & .tooltip-icon {
             &__text {
@@ -211,6 +241,7 @@
                 visibility: visible;
 
             }
+
         }
     }
 }

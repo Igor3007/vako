@@ -1,0 +1,13 @@
+include ../../views/helpers/mixins.pug
+
+.popup-tooltip
+    .popup-tooltip__product
+        .product-mini
+            .product-mini__image
+                +picture('/img/product/minicard-1')
+            .product-mini__main
+                .product-mini__title 15.6" Ноутбук Acer Nitro 5 AN515-57-57DF 1920x1080, Intel Core i5 11400H 2.7 ГГц, RAM 16 ГБ, DDR4, SSD 512 ГБ, NVIDIA GeForce GTX 1650, без...
+                .popup-tooltip__info добавлен в сравнение
+                .popup-tooltip__buttons
+                    button.btn.btn-small(onclick="window.location.href = '/wishlist.html'") Перейти в сравнение
+                    button.btn.btn-white.btn-small(data-popup="close") Скрыть 

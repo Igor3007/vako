@@ -1,0 +1,144 @@
+include parts.pug
+
+
+mixin compare
+    .compare-box
+        +compare-table-top()
+
+        .compare-table 
+            .compare-table__wrp.dragscroll
+                table
+                    tbody.product-table__tbody
+                        tr
+                            each item in compare_product.headphones
+                                td
+                                    +compare-product(item)
+                    tbody.product-table__scroll
+                        tr
+                            td
+                                .table-scroller 
+                                    .table-scroller__wrp 
+                                        .table-scroller__content
+
+                    tbody.product-table__group
+                        +table-group(9, 'Общая информация ')
+                        
+
+                    tbody.product-table__prop
+                        +table-prop([
+                            'Нет данных',
+                            '2022 г',
+                        ], 'Дата выхода на рынок')
+
+                    tbody.product-table__prop
+                        +table-prop([
+                            'портативные',
+                            'геймерские',
+                        ], 'Назначение')
+
+                    tbody.product-table__group
+                        +table-group(9, 'Основные')
+
+                    tbody.product-table__prop
+                        +table-prop([
+                            'да',
+                            'да',
+                        ], 'Пыле-, влаго-, ударопрочность')
+                    
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                             'пластик',
+                            'пластик',
+                        ], 'Материал')
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                             'наушники с микрофоном',
+                            'наушники без микрофоном',
+                        ], 'Тип')
+
+                    
+                    tbody.product-table__prop
+
+                        +table-prop([
+                             'внутриканальные 	',
+                            'мониторные (охватывающие)',
+                        ], 'Конструкция')
+
+                    
+                    tbody.product-table__prop
+
+                        +table-prop([
+                             'закрытое',
+                            'закрытое',
+                        ], 'Акустическое оформление')
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                             'да',
+                            'да',
+                        ], 'Беспроводной интерфейс')
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                           'Bluetooth ',
+                            'радио/Bluetooth ',
+                        ],  'Тип беспроводного интерфейса')
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                            'полностью беспроводные',
+                            'съёмный аудиокабель',
+                        ], 'Тип беспроводных наушников')
+
+                    
+
+                    tbody.product-table__group
+                        +table-group(9, 'Кабель')
+
+                    tbody.product-table__prop   
+
+                        +table-prop([
+                            'подсветка без мерцания (Flicker-Free)',
+                            'подсветка без мерцания (Flicker-Free)',
+                        ], 'Подключение кабеля') 
+
+                    tbody.product-table__group
+                        +table-group(9, 'Технические характеристики микрофона')
+
+                    tbody.product-table__prop   
+
+                        +table-prop([
+                            'да',
+                            'да',
+                        ], 'Шумоподавление микрофона') 
+
+                    tbody.product-table__prop   
+
+                        +table-prop([
+                            'да',
+                            '-',
+                        ], 'USB') 
+
+
+                    tbody.product-table__group
+                        +table-group(9, 'Функциональность')
+
+                    tbody.product-table__prop   
+
+                        +table-prop([
+                            'да',
+                            'да',
+                        ], 'Аудиокодеки Bluetooth') 
+                    tbody.product-table__prop   
+
+                        +table-prop([
+                            'да',
+                            '-',
+                        ], 'Multipoint') 

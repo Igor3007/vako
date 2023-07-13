@@ -1,0 +1,142 @@
+include parts.pug
+
+
+mixin compare
+    .compare-box
+        +compare-table-top()
+
+        .compare-table 
+            .compare-table__wrp.dragscroll
+                table
+                    tbody.product-table__tbody
+                        tr
+                            each item in compare_product.laptop
+                                td
+                                    +compare-product(item)
+                    tbody.product-table__scroll
+                        tr
+                            td
+                                .table-scroller 
+                                    .table-scroller__wrp 
+                                        .table-scroller__content
+
+                    tbody.product-table__group
+                        +table-group(9, 'Основные характеристики')
+                        
+
+                    tbody.product-table__prop
+                        +table-prop([
+                            '24',
+                            '27',
+                            '24',
+                        ], 'Диагональ')
+
+                    tbody.product-table__prop
+                        +table-prop([
+                            '1920x1080',
+                            '2560x1440',
+                            '2560x1440',
+                        ], 'Макс. разрешение')
+                    
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                            'OLED',
+                            'OLED',
+                            'OLED',
+                        ], 'Тип матрицы экрана')
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                            '16:9',
+                            '16:9',
+                            '21:9',
+                        ], 'Соотношение сторон')
+
+                    
+                    tbody.product-table__prop
+
+                        +table-prop([
+                            '-',
+                            '-',
+                            'да',
+                        ], 'Изогнутый экран')
+
+                    
+                    tbody.product-table__prop
+
+                        +table-prop([
+                            '144 Гц',
+                            '165 Гц',
+                            '200 Гц',
+                        ], 'Макс. частота обновления кадров')
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                            '—',
+                            'WLED',
+                            'WLED',
+                        ], 'Тип LED-подсветки')
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                            'подсветка без мерцания (Flicker-Free)',
+                            'подсветка без мерцания (Flicker-Free)',
+                            'подсветка без мерцания (Flicker-Free)',
+                        ],  'Особенности')
+
+                    tbody.product-table__prop
+
+                        +table-prop([
+                            'FreeSync Premium, G-Sync Compatible',
+                            'G-Sync Compatible',
+                            'FreeSync Premium',
+                        ], 'Поддержка FreeSync/G-Sync')
+
+                    
+
+                    tbody.product-table__group
+                        +table-group(9, 'Экран')
+
+                    tbody.product-table__prop   
+
+                        +table-prop([
+                            'подсветка без мерцания (Flicker-Free)',
+                            'подсветка без мерцания (Flicker-Free)',
+                            'подсветка без мерцания (Flicker-Free)',
+                        ], 'Тип LED-подсветки (!)') 
+
+                    tbody.product-table__group
+                        +table-group(9, 'Интерфейсы')
+
+                    tbody.product-table__prop   
+
+                        +table-prop([
+                            'да',
+                            'да',
+                            'да',
+                        ], 'HDMI') 
+
+                    tbody.product-table__prop   
+
+                        +table-prop([
+                            'да',
+                            '-',
+                            'да',
+                        ], 'USB') 
+
+
+                    tbody.product-table__group
+                        +table-group(9, 'Прочее')
+
+                    tbody.product-table__prop   
+
+                        +table-prop([
+                            'да',
+                            'да',
+                            'да',
+                        ], 'Выход в интернет') 

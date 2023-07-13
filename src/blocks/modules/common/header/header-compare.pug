@@ -1,0 +1,65 @@
+include ../../search-index/search-index.pug
+include dropdown
+
+.header
+    .container
+        .header-top
+            .header-top__logo
+                a(href='/'): span.bgimage(style="background-image: url('/img/common/logo.svg')")
+            .header-top__find
+                .search-index(data-index-find="container")
+                    .search-index__find
+                        form(action='#' method='POST')
+                            .search-index__form(data-index-find="form")
+                                .search-index__catalog
+                                    button.btn.btn-catalog
+                                        span.icon-catalog
+                                            i
+                                            i
+                                            i
+                                            i
+                                        | Каталог
+                                .search-index__field
+                                    .search-index__input
+                                            input(type="text" placeholder="Искать на Vako" data-index-find="input")
+                                    .search-index__btn
+                                        button.btn Найти
+                                    .search-index__suggest(data-index-find="suggest")
+                                        +find-suggest
+            .header-top__actions
+                .header-top__fav
+                    +tooltip-icon-active({
+                        icon: '#ic_heart',
+                        text: ' <i>6 товаров</i> в избранном ',
+                        link: '/wishlist.html',
+                        count: 6,
+                        attr: 'wishlist'
+                    })
+                .header-top__compare
+                    +tooltip-icon-active({
+                        icon: '#ic_compare',
+                        text: ' <i>9 товаров</i> в сравнении ',
+                        link: '/compare.html',
+                        count: 14,
+                        attr: 'compare'
+                    })
+                .header-top__login
+                    +dropdown-icon
+
+        .header-bottom
+            .header-bottom__location
+                .header-location
+                    .header-location__wrp
+                        .header-location__icon: +icons('#ic_pin')
+                        .header-location__name(data-popup="region") Кременчуг-Константиновское 
+            .header-bottom__menu
+                nav
+                    ul
+                        li: a(href='/category.html') Электроника
+                        li: a(href='/category.html') Бытовая техника
+                        li: a(href='/category.html') Авто
+                        li: a(href='/category.html') Компьютеры
+                        li: a(href='/category.html') Спорт и отдых
+                        li: a(href='/category.html') Товары для дома
+                        li: a(href='/category.html') Детские товары
+                        li: a(href='/category.html') Дача и сад 

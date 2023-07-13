@@ -2208,6 +2208,507 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* =============================================
+    compare scroll
+    =============================================*/
+
+    if (document.querySelector('.compare-table__wrp')) {
+
+        let widthWrp = document.querySelector('.compare-table__wrp')
+        let widthTable = document.querySelector('.compare-table__wrp > table')
+        let scrollerWrp = document.querySelector('.table-scroller__wrp')
+        let scrollerContent = document.querySelector('.table-scroller__content')
+        let scroller = document.querySelector('.table-scroller')
+
+
+        scrollerWrp.style.width = widthWrp.clientWidth + 'px'
+        scrollerContent.style.width = widthTable.clientWidth + 'px'
+
+        scrollerWrp.addEventListener('scroll', e => {
+
+            if (scroller.classList.contains('is-hover-scroller')) {
+                widthWrp.scrollLeft = e.target.scrollLeft
+            }
+
+        })
+
+        widthWrp.addEventListener('scroll', e => {
+            scrollerWrp.scrollLeft = e.target.scrollLeft
+        })
+
+        scroller.addEventListener('mouseenter', e => {
+            e.target.classList.add('is-hover-scroller')
+        })
+        scroller.addEventListener('mouseleave', e => {
+            e.target.classList.contains('is-hover-scroller') ? e.target.classList.remove('is-hover-scroller') : ''
+        })
+
+
+
+
+    }
+
+    /* =====================================
+    compare slider
+    =====================================*/
+
+    function compareSlider(elem) {
+        this.elem = elem
+        this.container = this.elem.querySelector('.compare-table__wrp')
+        this.items = this.container.querySelectorAll('.compare-product')
+        this.nav = {
+            next: this.elem.querySelector('[data-se-slider="next"]'),
+            prev: this.elem.querySelector('[data-se-slider="prev"]'),
+        }
+        this.activeSlide = 0
+
+        this.init = function () {
+            this.addEvent()
+            this.changeSlide()
+            this.nav.prev.dataset.state = '0'
+
+
+
+            if (this.container.scrollWidth <= this.container.offsetWidth) {
+                this.nav.next.dataset.state = '0'
+            }
+        }
+
+        this.changeSlide = function () {
+
+            function scrollElement(container, elem, _this) {
+
+                var rect = elem.getBoundingClientRect();
+                var rectContainer = container.getBoundingClientRect();
+
+                let elemOffset = {
+                    top: rect.top + document.body.scrollTop,
+                    left: rect.left + document.body.scrollLeft
+                }
+
+                let containerOffset = {
+                    top: rectContainer.top + document.body.scrollTop,
+                    left: rectContainer.left + document.body.scrollLeft
+                }
+
+                let leftPX = ((elem.offsetWidth + 24) * _this.activeSlide)
+
+                container.scrollTo({
+                    left: leftPX,
+                    behavior: 'smooth'
+                });
+
+
+
+            }
+
+            this.items.forEach(item => {
+                if (item.classList.contains('active'))
+                    item.classList.remove('active')
+            })
+
+            if (this.items.length) {
+                this.items[this.activeSlide].classList.add('active')
+                scrollElement(this.container, this.items[this.activeSlide], this)
+            }
+        }
+
+        this.nextSlide = function () {
+            if (this.activeSlide < (this.items.length - 1)) {
+                this.activeSlide++
+                this.changeSlide()
+            }
+
+        }
+
+        this.prevSlide = function () {
+            if (this.activeSlide > 0) {
+                this.activeSlide--
+                this.changeSlide()
+            }
+        }
+
+        this.addEvent = function () {
+            this.nav.next.addEventListener('click', () => {
+                this.nextSlide()
+            })
+            this.nav.prev.addEventListener('click', () => {
+                this.prevSlide()
+            })
+
+            this.container.addEventListener('scroll', (e) => {
+                this.nav.prev.dataset.state = (e.target.scrollLeft < 10 ? '0' : '1')
+                this.nav.next.dataset.state = ((e.target.scrollWidth - (this.container.offsetWidth + 50) <= e.target.scrollLeft) ? '0' : '1')
+
+                if (e.target.scrollLeft < 10) {
+                    this.activeSlide = 0
+                }
+
+                // if ((e.target.scrollWidth - (this.container.offsetWidth + 50) <= e.target.scrollLeft)) {
+                //     this.activeSlide = (this.items.length - 2)
+
+                //     console.log(this.items.length)
+                // }
+
+            })
+        }
+
+    }
+
+    if (document.querySelector('[data-tab-container="compare"]')) {
+
+        const instanseSeansSlider = new compareSlider(document.querySelector('[data-tab-container="compare"]'))
+        instanseSeansSlider.init()
+
+    }
+
+    /* =====================================
+    compare show/hide
+    =====================================*/
+
+    if (document.querySelector('.compare-table__wrp')) {
+
+        const groups = document.querySelectorAll('.product-table__group')
+        const items = document.querySelectorAll('.compare-table__wrp tbody')
+
+        groups.forEach(group => {
+            group.addEventListener('click', e => {
+
+
+                if (group.classList.contains('is-hide-group')) {
+                    group.classList.add('is-hide-group--close')
+                    hideTbody(items)
+                    group.classList.remove('is-hide-group')
+                    group.classList.remove('is-hide-group--close')
+                } else {
+                    group.classList.add('is-hide-group')
+                    showTbody(items)
+                }
+
+            })
+        })
+
+        function showTbody(items) {
+            let flag = false
+
+            items.forEach(item => {
+
+                if (item.classList.contains('is-hide-group')) {
+                    flag = true
+                    return false
+                }
+
+                // alert('ee')
+
+                if (flag && !item.classList.contains('product-table__group')) {
+
+                    item.classList.add('hide-tbody')
+
+                } else {
+                    flag = false
+                }
+            })
+        }
+
+        function hideTbody(items) {
+            let flag = false
+
+            items.forEach(item => {
+
+                if (item.classList.contains('is-hide-group--close')) {
+                    flag = true
+                    return false
+                }
+
+                // alert('ee')
+
+                if (flag && !item.classList.contains('product-table__group')) {
+
+                    if (item.classList.contains('hide-tbody')) {
+                        item.classList.remove('hide-tbody')
+                    }
+
+                } else {
+                    flag = false
+                }
+            })
+        }
+
+
+
+    }
+
+    /* ====================================
+    hide similar prop
+    ====================================*/
+
+    if (document.querySelector('.product-table__prop')) {
+
+
+        const buttonShow = document.querySelector('[data-similar="show"]')
+        const buttonHide = document.querySelector('[data-similar="hide"]')
+        const props = document.querySelectorAll('.product-table__prop')
+
+
+        buttonShow.addEventListener('click', e => {
+            showSimilarProp()
+            changeActive('show')
+        })
+
+        buttonHide.addEventListener('click', e => {
+            hideSimilarProp()
+            changeActive('hide')
+        })
+
+        function showSimilarProp() {
+            props.forEach(prop => {
+                if (prop.classList.contains('hide-prop-tbody')) {
+                    prop.classList.remove('hide-prop-tbody')
+                }
+            })
+        }
+
+        function hideSimilarProp(prop) {
+            props.forEach(prop => {
+                const arr = new Set()
+                prop.querySelectorAll('td').forEach(td => {
+                    arr.add(td.innerText)
+                })
+
+                if (arr.size <= 2) {
+                    prop.classList.add('hide-prop-tbody')
+                }
+            })
+        }
+
+        function changeActive(data) {
+            const buttons = document.querySelectorAll('[data-similar]')
+
+
+
+            buttons.forEach(item => {
+
+                console.log(item.dataset.similar)
+                console.log(data)
+
+                if (item.dataset.similar == data) {
+                    item.classList.add('is-active')
+                } else {
+                    if (item.classList.contains('is-active')) {
+                        item.classList.remove('is-active')
+                    }
+                }
+            })
+
+        }
+
+
+
+
+    }
+
+    /* ==========================================
+    add to compare
+    ==========================================*/
+
+    function WishList(params) {
+
+        this.elemCookie = params.elemCookie;
+        this.elemTotal = document.querySelector(params.elemTotal);
+
+        this.init = function () {
+            this.getTotal()
+        }
+
+        this.getTotal = function () {
+
+            if (this.getArray().length) {
+                this.elemTotal.classList.remove('hide');
+                this.elemTotal.innerText = this.getArray().length;
+            }
+
+        }
+
+        this.getArray = function () {
+            if (!Cookies.get(this.elemCookie)) return new Array()
+
+            return String(Cookies.get(this.elemCookie)).split(',')
+        }
+
+        this.add = function (id) {
+            var array = this.getArray();
+            array.push(id)
+            array = Array.from(new Set(array))
+
+            Cookies.set(this.elemCookie, array.join(','), {
+                expires: 7
+            })
+            this.getTotal()
+            return array;
+        }
+
+        this.remove = function (id) {
+
+            var array = this.getArray();
+            var result = array.filter(function (item) {
+                return item != id
+            })
+
+            Cookies.set(this.elemCookie, result.join(','), {
+                expires: 7
+            })
+            this.getTotal()
+            return array;
+
+        }
+    }
+
+    /* ==========================================
+    popup wishlist
+    ==========================================*/
+
+    function wishlistPopup(id, type) {
+
+        if (!id) return false
+
+        switch (type) {
+            case 'wishlist':
+                var url = '_wishlist-popup.html';
+                break;
+            case 'compare':
+                var url = '_compare-popup.html';
+                break;
+
+            default:
+                var url = '_compare-popup.html';
+        }
+
+        window.ajax({
+            type: 'GET',
+            url,
+            data: {
+                id: id
+            }
+        }, (status, response) => {
+
+
+            if (document.querySelector('main')) {
+
+                let elem = document.createElement('div')
+                let main = document.querySelector('main')
+
+                elem.innerHTML = response
+                elem.classList.add('popup-top-tooltip')
+
+                elem.querySelector('[data-popup="close"]').addEventListener('click', e => {
+                    elem.remove()
+                })
+
+                //remove old
+                main.querySelectorAll('.popup-top-tooltip').forEach(item => item.remove())
+                main.append(elem)
+
+                //add scroll event
+
+
+                window.addEventListener('scroll', e => {
+
+                    elem.classList.add('fadeout')
+
+                    setTimeout(() => {
+                        elem.remove()
+                    }, 1000)
+                })
+
+            } else {
+                window.STATUS.msg('Товар добавлен в избранное')
+            }
+
+
+        })
+
+    }
+
+
+    /*===========================================
+    init wishlist
+    ===========================================*/
+
+    window.wishlistInstance = new WishList({
+        elemCookie: 'wishlist',
+        elemTotal: '[data-total="wishlist"]',
+    });
+
+    const WL = window.wishlistInstance;
+
+    WL.init()
+
+    const wishlist = document.querySelectorAll('[data-wishlist]');
+    const arrayWishList = WL.getArray()
+
+    wishlist.forEach(function (item, index) {
+
+        const product_id = item.dataset.wishlist;
+
+        if (arrayWishList.lastIndexOf(product_id) !== -1) {
+            item.classList.add('active')
+        }
+
+        item.addEventListener('click', function (event) {
+            event.preventDefault()
+            if (this.classList.contains('active')) {
+                WL.remove(product_id)
+                this.classList.remove('active')
+            } else {
+                WL.add(product_id)
+                this.classList.add('active')
+                wishlistPopup(product_id, 'wishlist')
+            }
+        })
+    })
+
+
+    /*===========================================
+    init compare
+    ===========================================*/
+
+    window.compareInstance = new WishList({
+        elemCookie: 'compare',
+        elemTotal: '[data-total="compare"]',
+    });
+
+    const CMP = window.compareInstance;
+
+    CMP.init()
+
+    const compare = document.querySelectorAll('[data-compare]');
+    const arrayCompare = CMP.getArray()
+
+    compare.forEach(function (item, index) {
+
+        const product_id = item.dataset.compare;
+
+        if (arrayCompare.lastIndexOf(product_id) !== -1) {
+            item.classList.add('active')
+        }
+
+        item.addEventListener('click', function (event) {
+            event.preventDefault()
+            if (this.classList.contains('active')) {
+                CMP.remove(product_id)
+                this.classList.remove('active')
+            } else {
+                CMP.add(product_id)
+                this.classList.add('active')
+
+                wishlistPopup(product_id, 'compare')
+            }
+        })
+    })
+
+
+
+
 
     if (document.querySelector('.favourites')) {
         if (document.body.clientWidth <= 576) {
