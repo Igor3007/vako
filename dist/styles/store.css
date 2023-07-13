@@ -3277,6 +3277,10 @@ footer {
   padding-top: 45px;
 }
 
+.header-min .tooltip-icon__count {
+  border-color: #fff;
+}
+
 .header-store {
   background-color: #2D2148;
 }

@@ -3375,6 +3375,10 @@ input:focus {
   padding-top: 45px;
 }
 
+.header-min .tooltip-icon__count {
+  border-color: #fff;
+}
+
 .footer {
   padding: 24px 0;
   background-color: #222222;
@@ -9380,24 +9384,11 @@ a[data-tooltip]:hover::before {
     font-size: 20px;
   }
 
-<<<<<<< HEAD
-=======
   .single-page__tabs.fixed-tabs ul {
     padding: 0 16px;
     max-width: 705px;
   }
 
-  .favourites-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .favourites-title h1 {
-    margin: 0;
-  }
-
->>>>>>> compare
   .single-shop-head__rating-img {
     margin-right: 36px;
   }
