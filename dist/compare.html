@@ -107,20 +107,20 @@
             <div class="header-top__actions">
               <div class="header-top__fav">
                       <div class="tooltip-icon">
-                        <div class="tooltip-icon__elem"><a href="#">
+                        <div class="tooltip-icon__elem"><a href="/wishlist.html">
                             <svg width="24" height="24">
                               <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                            </svg></a></div>
-                        <div class="tooltip-icon__text"><span> Добавьте товары в избранное </span></div>
+                            </svg><span class="tooltip-icon__count" data-total="wishlist">6</span></a></div>
+                        <div class="tooltip-icon__text"><span> <i>6 товаров</i> в избранном </span></div>
                       </div>
               </div>
               <div class="header-top__compare">
                       <div class="tooltip-icon">
-                        <div class="tooltip-icon__elem"><a href="#">
+                        <div class="tooltip-icon__elem"><a href="/compare.html">
                             <svg width="24" height="24">
                               <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
-                            </svg></a></div>
-                        <div class="tooltip-icon__text"><span> Добавьте товары в сравнение </span></div>
+                            </svg><span class="tooltip-icon__count" data-total="compare">14</span></a></div>
+                        <div class="tooltip-icon__text"><span> <i>9 товаров</i> в сравнении </span></div>
                       </div>
               </div>
               <div class="header-top__login">
@@ -189,562 +189,553 @@
                 </svg><span>Очистить список</span></a>
             </div>
             <div class="single-page__tabs">
-              <ul data-tab-nav="compare">
-                <li><a href="#1">Мониторы</a></li>
-                <li><a href="#2">Наушники</a></li>
-                <li><a href="#3">Ноутбуки</a></li>
+              <ul>
+                <li class="active"><a href="compare.html">Мониторы</a></li>
+                <li><a href="compare-headphones.html">Наушники</a></li>
+                <li><a href="compare-laptop.html">Ноутбуки</a></li>
               </ul>
             </div>
-            <div class="single-page__content" data-tab-container="compare">
-              <div class="single-page__item" data-tab="1">
-                <div class="compare-table-top">
-                  <div class="compare-table-top__sort">
-                    <div class="compare-filter">
-                      <div class="compare-filter__title">Показывать:</div>
-                      <div class="compare-filter__link">
-                        <ul>
-                          <li class="is-active" data-similar="show"> <span class="text--mobile">Все хар-ки</span><span class="text--desktop">Все характеристики</span></li>
-                          <li data-similar="hide"> <span class="text--mobile">Различающиеся хар-ки</span><span class="text--desktop">Различающиеся характеристики</span></li>
-                        </ul>
+            <div class="single-page__content">
+              <div class="single-page__item">
+                <div class="compare-box">
+                  <div class="compare-table-top">
+                    <div class="compare-table-top__sort">
+                      <div class="compare-filter">
+                        <div class="compare-filter__title">Показывать:</div>
+                        <div class="compare-filter__link">
+                          <ul>
+                            <li class="is-active" data-similar="show"> <span class="text--mobile">Все хар-ки</span><span class="text--desktop">Все характеристики</span></li>
+                            <li data-similar="hide"> <span class="text--mobile">Различающиеся хар-ки</span><span class="text--desktop">Различающиеся характеристики</span></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="compare-table-top__nav">
+                      <div class="compare-table-top__nav-prev" data-se-slider="prev">
+                        <svg width="24" height="24">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_arr-left"></use>
+                        </svg>
+                      </div>
+                      <div class="compare-table-top__nav-next" data-se-slider="next">
+                        <svg width="24" height="24">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
+                        </svg>
                       </div>
                     </div>
                   </div>
-                  <div class="compare-table-top__nav">
-                    <div class="compare-table-top__nav-prev" data-se-slider="prev">
-                      <svg width="24" height="24">
-                        <use xlink:href="/img/sprites/sprite.svg#ic_arr-left"></use>
-                      </svg>
+                  <div class="compare-table"> 
+                    <div class="compare-table__wrp dragscroll">
+                      <table>
+                        <tbody class="product-table__tbody">
+                          <tr>
+                            <td>
+                              <div class="compare-product">
+                                <div class="compare-product__top">
+                                  <div class="compare-product__image"><a href="single-product.html" target="_blank">
+                                      <picture>
+                                        <source srcset="/img/product/monitors/img.webp" type="image/webp"/><img src="/img/product/monitors/img.jpg" loading="lazy" alt="image"/>
+                                      </picture></a></div>
+                                  <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                      </svg></a><a href="#" data-tooltip="Удалить">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg></a></div>
+                                </div>
+                                <div class="compare-product__title"><a href="single-product.html" target="_blank">27&quot; Монитор LG UltraGear 27GN600-B, 1920x1080, 144 Гц, IPS</a></div>
+                                <div class="compare-product__rating rating--green"><span>4.7</span><a href="single-product.html#review" target="_blank">82 отзыва</a></div>
+                                <div class="compare-product__price">от 34 990 ₽</div>
+                                <div class="compare-product__offers"><span>7 предложений</span></div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="compare-product">
+                                <div class="compare-product__top">
+                                  <div class="compare-product__image"><a href="single-product.html" target="_blank">
+                                      <picture>
+                                        <source srcset="/img/product/monitors/img-1.webp" type="image/webp"/><img src="/img/product/monitors/img-1.jpg" loading="lazy" alt="image"/>
+                                      </picture></a></div>
+                                  <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                      </svg></a><a href="#" data-tooltip="Удалить">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg></a></div>
+                                </div>
+                                <div class="compare-product__title"><a href="single-product.html" target="_blank">27&quot; Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
+                                <div class="compare-product__rating rating--green"><span>4.7</span><a href="single-product.html#review" target="_blank">82 отзыва</a></div>
+                                <div class="compare-product__price">от 34 990 ₽</div>
+                                <div class="compare-product__offers"><span>7 предложений</span></div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="compare-product">
+                                <div class="compare-product__top">
+                                  <div class="compare-product__image"><a href="single-product.html" target="_blank">
+                                      <picture>
+                                        <source srcset="/img/product/monitors/img-2.webp" type="image/webp"/><img src="/img/product/monitors/img-2.jpg" loading="lazy" alt="image"/>
+                                      </picture></a></div>
+                                  <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                      </svg></a><a href="#" data-tooltip="Удалить">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg></a></div>
+                                </div>
+                                <div class="compare-product__title"><a href="single-product.html" target="_blank">27&quot; Монитор Xiaomi Mi Gaming Display, 2560x1440, 165 Гц, IPS</a></div>
+                                <div class="compare-product__rating rating--green"><span>4.7</span><a href="single-product.html#review" target="_blank">82 отзыва</a></div>
+                                <div class="compare-product__price">от 34 990 ₽</div>
+                                <div class="compare-product__offers"><span>7 предложений</span></div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="compare-product">
+                                <div class="compare-product__top">
+                                  <div class="compare-product__image"><a href="single-product.html" target="_blank">
+                                      <picture>
+                                        <source srcset="/img/product/monitors/img-2.webp" type="image/webp"/><img src="/img/product/monitors/img-2.jpg" loading="lazy" alt="image"/>
+                                      </picture></a></div>
+                                  <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                      </svg></a><a href="#" data-tooltip="Удалить">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg></a></div>
+                                </div>
+                                <div class="compare-product__title"><a href="single-product.html" target="_blank">27&quot; Монитор LG 27GN850-B, 2560x1440, 144 Гц, IPS</a></div>
+                                <div class="compare-product__rating rating--green"><span>4.7</span><a href="single-product.html#review" target="_blank">82 отзыва</a></div>
+                                <div class="compare-product__price">от 34 990 ₽</div>
+                                <div class="compare-product__offers"><span>7 предложений</span></div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="compare-product">
+                                <div class="compare-product__top">
+                                  <div class="compare-product__image"><a href="single-product.html" target="_blank">
+                                      <picture>
+                                        <source srcset="/img/product/monitors/img-3.webp" type="image/webp"/><img src="/img/product/monitors/img-3.jpg" loading="lazy" alt="image"/>
+                                      </picture></a></div>
+                                  <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                      </svg></a><a href="#" data-tooltip="Удалить">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg></a></div>
+                                </div>
+                                <div class="compare-product__title"><a href="single-product.html" target="_blank">30&quot; Монитор Xiaomi Curved Gaming Monitor 30, 2560x1080, 200 Гц, *VA</a></div>
+                                <div class="compare-product__rating rating--green"><span>4.7</span><a href="single-product.html#review" target="_blank">82 отзыва</a></div>
+                                <div class="compare-product__price">от 34 990 ₽</div>
+                                <div class="compare-product__offers"><span>7 предложений</span></div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="compare-product">
+                                <div class="compare-product__top">
+                                  <div class="compare-product__image"><a href="single-product.html" target="_blank">
+                                      <picture>
+                                        <source srcset="/img/product/monitors/img-4.webp" type="image/webp"/><img src="/img/product/monitors/img-4.jpg" loading="lazy" alt="image"/>
+                                      </picture></a></div>
+                                  <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                      </svg></a><a href="#" data-tooltip="Удалить">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg></a></div>
+                                </div>
+                                <div class="compare-product__title"><a href="single-product.html" target="_blank">34&quot; Монитор Xiaomi Mi Curved Gaming Monitor 34, 3440x1440, 144 Гц, *VA...</a></div>
+                                <div class="compare-product__rating rating--green"><span>4.7</span><a href="single-product.html#review" target="_blank">82 отзыва</a></div>
+                                <div class="compare-product__price">от 34 990 ₽</div>
+                                <div class="compare-product__offers"><span>7 предложений</span></div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="compare-product">
+                                <div class="compare-product__top">
+                                  <div class="compare-product__image"><a href="single-product.html" target="_blank">
+                                      <picture>
+                                        <source srcset="/img/product/monitors/img-5.webp" type="image/webp"/><img src="/img/product/monitors/img-5.jpg" loading="lazy" alt="image"/>
+                                      </picture></a></div>
+                                  <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                      </svg></a><a href="#" data-tooltip="Удалить">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg></a></div>
+                                </div>
+                                <div class="compare-product__title"><a href="single-product.html" target="_blank">27&quot; Монитор LG UltraGear 27GN600-B, 1920x1080, 144 Гц, IPS</a></div>
+                                <div class="compare-product__rating rating--green"><span>4.7</span><a href="single-product.html#review" target="_blank">82 отзыва</a></div>
+                                <div class="compare-product__price">от 34 990 ₽</div>
+                                <div class="compare-product__offers"><span>7 предложений</span></div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="compare-product">
+                                <div class="compare-product__top">
+                                  <div class="compare-product__image"><a href="single-product.html" target="_blank">
+                                      <picture>
+                                        <source srcset="/img/product/monitors/img-2.webp" type="image/webp"/><img src="/img/product/monitors/img-2.jpg" loading="lazy" alt="image"/>
+                                      </picture></a></div>
+                                  <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                      </svg></a><a href="#" data-tooltip="Удалить">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg></a></div>
+                                </div>
+                                <div class="compare-product__title"><a href="single-product.html" target="_blank">27&quot; Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
+                                <div class="compare-product__rating rating--green"><span>4.7</span><a href="single-product.html#review" target="_blank">82 отзыва</a></div>
+                                <div class="compare-product__price">от 34 990 ₽</div>
+                                <div class="compare-product__offers"><span>7 предложений</span></div>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="compare-product">
+                                <div class="compare-product__top">
+                                  <div class="compare-product__image"><a href="single-product.html" target="_blank">
+                                      <picture>
+                                        <source srcset="/img/product/monitors/img-3.webp" type="image/webp"/><img src="/img/product/monitors/img-3.jpg" loading="lazy" alt="image"/>
+                                      </picture></a></div>
+                                  <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
+                                      </svg></a><a href="#" data-tooltip="Удалить">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg></a></div>
+                                </div>
+                                <div class="compare-product__title"><a href="single-product.html" target="_blank">27&quot; Монитор Xiaomi Mi Gaming Display, 2560x1440, 165 Гц, IPS</a></div>
+                                <div class="compare-product__rating rating--green"><span>4.7</span><a href="single-product.html#review" target="_blank">82 отзыва</a></div>
+                                <div class="compare-product__price">от 34 990 ₽</div>
+                                <div class="compare-product__offers"><span>7 предложений</span></div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__scroll">
+                          <tr>
+                            <td>
+                              <div class="table-scroller"> 
+                                <div class="table-scroller__wrp"> 
+                                  <div class="table-scroller__content"></div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__group">
+                          <tr>
+                            <td>
+                              <div class="table-group__head"><span>Основные характеристики</span></div>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Диагональ</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>24</td>
+                            <td>27</td>
+                            <td>24</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Макс. разрешение</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>1920x1080</td>
+                            <td>2560x1440</td>
+                            <td>2560x1440</td>
+                            <td>2560x1440</td>
+                            <td>2560x1080</td>
+                            <td>3440x1440</td>
+                            <td>2560x1440</td>
+                            <td>3440x1440</td>
+                            <td>2560x1440</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Тип матрицы экрана</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>OLED</td>
+                            <td>AMOLED</td>
+                            <td>AMOLED</td>
+                            <td>OLED</td>
+                            <td>OLED</td>
+                            <td>OLED</td>
+                            <td>OLED</td>
+                            <td>OLED</td>
+                            <td>OLED</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Соотношение сторон</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>16:9</td>
+                            <td>16:9</td>
+                            <td>21:9</td>
+                            <td>16:9</td>
+                            <td>16:9</td>
+                            <td>21:9</td>
+                            <td>16:9</td>
+                            <td>16:9</td>
+                            <td>21:9</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Изогнутый экран</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Макс. частота обновления кадров</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>144 Гц</td>
+                            <td>165 Гц</td>
+                            <td>165 Гц</td>
+                            <td>144 Гц</td>
+                            <td>200 Гц</td>
+                            <td>144 Гц</td>
+                            <td>165 Гц</td>
+                            <td>144 Гц</td>
+                            <td>200 Гц</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Тип LED-подсветки</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>—</td>
+                            <td>WLED</td>
+                            <td>WLED</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>WLED</td>
+                            <td>WLED</td>
+                            <td>—</td>
+                            <td>-</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Особенности</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>поворот на 90 градусов, регулировка по высоте</td>
+                            <td>поворот на 90 градусов, подсветка без мерцания (Flicker-Free), регулировка по высоте</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>подсветка без мерцания (Flicker-Free), регулировка по высоте</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Поддержка FreeSync/G-Sync</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>FreeSync Premium, G-Sync Compatible</td>
+                            <td>G-Sync Compatible</td>
+                            <td>FreeSync, G-Sync</td>
+                            <td>FreeSync Premium, G-Sync Compatible</td>
+                            <td>FreeSync Premium</td>
+                            <td>FreeSync Premium</td>
+                            <td>G-Sync Compatible</td>
+                            <td>FreeSync, G-Sync</td>
+                            <td>FreeSync Premium</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__group">
+                          <tr>
+                            <td>
+                              <div class="table-group__head"><span>Экран</span></div>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">  
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Тип LED-подсветки (!)</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>поворот на 90 градусов, регулировка по высоте</td>
+                            <td>поворот на 90 градусов, подсветка без мерцания (Flicker-Free), регулировка по высоте</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                            <td>подсветка без мерцания (Flicker-Free)</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__group">
+                          <tr>
+                            <td>
+                              <div class="table-group__head"><span>Интерфейсы</span></div>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">  
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>HDMI</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">  
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>USB</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>да</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__group">
+                          <tr>
+                            <td>
+                              <div class="table-group__head"><span>Прочее</span></div>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tbody class="product-table__prop">  
+                          <tr>
+                            <td>
+                              <div class="table-prop-head"><span>Выход в интернет</span><i data-prop-tooltip="12456" data-id="123456">
+                                  <svg width="20" height="20">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                  </svg></i></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                            <td>да</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                    <div class="compare-table-top__nav-next" data-se-slider="next">
-                      <svg width="24" height="24">
-                        <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="compare-table"> 
-                  <div class="compare-table__wrp">
-                    <table>
-                      <tbody class="product-table__tbody">
-                        <tr>
-                          <td>
-                            <div class="compare-product">
-                              <div class="compare-product__top">
-                                <div class="compare-product__image">
-                                  <picture>
-                                    <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
-                                  </picture>
-                                </div>
-                                <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
-                                    </svg></a><a href="#" data-tooltip="Удалить">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                    </svg></a></div>
-                              </div>
-                              <div class="compare-product__title"><a href="#">27" Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
-                              <div class="compare-product__rating rating--green"><span>4.7</span><a href="#">82 отзыва</a></div>
-                              <div class="compare-product__price">от 34 990 ₽</div>
-                              <div class="compare-product__offers"><span>7 предложений</span></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="compare-product">
-                              <div class="compare-product__top">
-                                <div class="compare-product__image">
-                                  <picture>
-                                    <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
-                                  </picture>
-                                </div>
-                                <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
-                                    </svg></a><a href="#" data-tooltip="Удалить">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                    </svg></a></div>
-                              </div>
-                              <div class="compare-product__title"><a href="#">27" Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
-                              <div class="compare-product__rating rating--green"><span>4.7</span><a href="#">82 отзыва</a></div>
-                              <div class="compare-product__price">от 34 990 ₽</div>
-                              <div class="compare-product__offers"><span>7 предложений</span></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="compare-product">
-                              <div class="compare-product__top">
-                                <div class="compare-product__image">
-                                  <picture>
-                                    <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
-                                  </picture>
-                                </div>
-                                <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
-                                    </svg></a><a href="#" data-tooltip="Удалить">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                    </svg></a></div>
-                              </div>
-                              <div class="compare-product__title"><a href="#">27" Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
-                              <div class="compare-product__rating rating--green"><span>4.7</span><a href="#">82 отзыва</a></div>
-                              <div class="compare-product__price">от 34 990 ₽</div>
-                              <div class="compare-product__offers"><span>7 предложений</span></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="compare-product">
-                              <div class="compare-product__top">
-                                <div class="compare-product__image">
-                                  <picture>
-                                    <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
-                                  </picture>
-                                </div>
-                                <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
-                                    </svg></a><a href="#" data-tooltip="Удалить">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                    </svg></a></div>
-                              </div>
-                              <div class="compare-product__title"><a href="#">27" Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
-                              <div class="compare-product__rating rating--green"><span>4.7</span><a href="#">82 отзыва</a></div>
-                              <div class="compare-product__price">от 34 990 ₽</div>
-                              <div class="compare-product__offers"><span>7 предложений</span></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="compare-product">
-                              <div class="compare-product__top">
-                                <div class="compare-product__image">
-                                  <picture>
-                                    <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
-                                  </picture>
-                                </div>
-                                <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
-                                    </svg></a><a href="#" data-tooltip="Удалить">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                    </svg></a></div>
-                              </div>
-                              <div class="compare-product__title"><a href="#">27" Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
-                              <div class="compare-product__rating rating--green"><span>4.7</span><a href="#">82 отзыва</a></div>
-                              <div class="compare-product__price">от 34 990 ₽</div>
-                              <div class="compare-product__offers"><span>7 предложений</span></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="compare-product">
-                              <div class="compare-product__top">
-                                <div class="compare-product__image">
-                                  <picture>
-                                    <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
-                                  </picture>
-                                </div>
-                                <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
-                                    </svg></a><a href="#" data-tooltip="Удалить">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                    </svg></a></div>
-                              </div>
-                              <div class="compare-product__title"><a href="#">27" Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
-                              <div class="compare-product__rating rating--green"><span>4.7</span><a href="#">82 отзыва</a></div>
-                              <div class="compare-product__price">от 34 990 ₽</div>
-                              <div class="compare-product__offers"><span>7 предложений</span></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="compare-product">
-                              <div class="compare-product__top">
-                                <div class="compare-product__image">
-                                  <picture>
-                                    <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
-                                  </picture>
-                                </div>
-                                <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
-                                    </svg></a><a href="#" data-tooltip="Удалить">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                    </svg></a></div>
-                              </div>
-                              <div class="compare-product__title"><a href="#">27" Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
-                              <div class="compare-product__rating rating--green"><span>4.7</span><a href="#">82 отзыва</a></div>
-                              <div class="compare-product__price">от 34 990 ₽</div>
-                              <div class="compare-product__offers"><span>7 предложений</span></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="compare-product">
-                              <div class="compare-product__top">
-                                <div class="compare-product__image">
-                                  <picture>
-                                    <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
-                                  </picture>
-                                </div>
-                                <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
-                                    </svg></a><a href="#" data-tooltip="Удалить">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                    </svg></a></div>
-                              </div>
-                              <div class="compare-product__title"><a href="#">27" Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
-                              <div class="compare-product__rating rating--green"><span>4.7</span><a href="#">82 отзыва</a></div>
-                              <div class="compare-product__price">от 34 990 ₽</div>
-                              <div class="compare-product__offers"><span>7 предложений</span></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="compare-product">
-                              <div class="compare-product__top">
-                                <div class="compare-product__image">
-                                  <picture>
-                                    <source srcset="/img/product/minicard-1.webp" type="image/webp"/><img src="/img/product/minicard-1.jpg" loading="lazy" alt="image"/>
-                                  </picture>
-                                </div>
-                                <div class="compare-product__action"><a href="#" data-tooltip="Добавить в избранное">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_heart-default"></use>
-                                    </svg></a><a href="#" data-tooltip="Удалить">
-                                    <svg width="20" height="20">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                    </svg></a></div>
-                              </div>
-                              <div class="compare-product__title"><a href="#">27" Монитор MSI Optix G273QF, 2560x1440, 165 Гц, IPS</a></div>
-                              <div class="compare-product__rating rating--green"><span>4.7</span><a href="#">82 отзыва</a></div>
-                              <div class="compare-product__price">от 34 990 ₽</div>
-                              <div class="compare-product__offers"><span>7 предложений</span></div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__scroll">
-                        <tr>
-                          <td>
-                            <div class="table-scroller"> 
-                              <div class="table-scroller__wrp"> 
-                                <div class="table-scroller__content"></div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__group">
-                        <tr>
-                          <td>
-                            <div class="table-group__head"><span>Основные характеристики</span></div>
-                          </td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Диагональ</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>24</td>
-                          <td>27</td>
-                          <td>24</td>
-                          <td>32</td>
-                          <td>32</td>
-                          <td>32</td>
-                          <td>32</td>
-                          <td>32</td>
-                          <td>32</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Макс. разрешение</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1920x1080</td>
-                          <td>2560x1440</td>
-                          <td>2560x1440</td>
-                          <td>2560x1440</td>
-                          <td>2560x1080</td>
-                          <td>3440x1440</td>
-                          <td>2560x1440</td>
-                          <td>3440x1440</td>
-                          <td>2560x1440</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Тип матрицы экрана</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>OLED</td>
-                          <td>AMOLED</td>
-                          <td>AMOLED</td>
-                          <td>OLED</td>
-                          <td>OLED</td>
-                          <td>OLED</td>
-                          <td>OLED</td>
-                          <td>OLED</td>
-                          <td>OLED</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Соотношение сторон</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>16:9</td>
-                          <td>16:9</td>
-                          <td>21:9</td>
-                          <td>16:9</td>
-                          <td>16:9</td>
-                          <td>21:9</td>
-                          <td>16:9</td>
-                          <td>16:9</td>
-                          <td>21:9</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Изогнутый экран</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>-</td>
-                          <td>-</td>
-                          <td>-</td>
-                          <td>-</td>
-                          <td>-</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Макс. частота обновления кадров</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>144 Гц</td>
-                          <td>165 Гц</td>
-                          <td>165 Гц</td>
-                          <td>144 Гц</td>
-                          <td>200 Гц</td>
-                          <td>144 Гц</td>
-                          <td>165 Гц</td>
-                          <td>144 Гц</td>
-                          <td>200 Гц</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Тип LED-подсветки</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>—</td>
-                          <td>WLED</td>
-                          <td>WLED</td>
-                          <td>—</td>
-                          <td>—</td>
-                          <td>WLED</td>
-                          <td>WLED</td>
-                          <td>—</td>
-                          <td>-</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Особенности</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>поворот на 90 градусов, регулировка по высоте</td>
-                          <td>поворот на 90 градусов, подсветка без мерцания (Flicker-Free), регулировка по высоте</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>подсветка без мерцания (Flicker-Free), регулировка по высоте</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Поддержка FreeSync/G-Sync</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>FreeSync Premium, G-Sync Compatible</td>
-                          <td>G-Sync Compatible</td>
-                          <td>FreeSync, G-Sync</td>
-                          <td>FreeSync Premium, G-Sync Compatible</td>
-                          <td>FreeSync Premium</td>
-                          <td>FreeSync Premium</td>
-                          <td>G-Sync Compatible</td>
-                          <td>FreeSync, G-Sync</td>
-                          <td>FreeSync Premium</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__group">
-                        <tr>
-                          <td>
-                            <div class="table-group__head"><span>Экран</span></div>
-                          </td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">  
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Тип LED-подсветки (!)</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>поворот на 90 градусов, регулировка по высоте</td>
-                          <td>поворот на 90 градусов, подсветка без мерцания (Flicker-Free), регулировка по высоте</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                          <td>подсветка без мерцания (Flicker-Free)</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__group">
-                        <tr>
-                          <td>
-                            <div class="table-group__head"><span>Интерфейсы</span></div>
-                          </td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">  
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>HDMI</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">  
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>USB</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>да</td>
-                          <td>-</td>
-                          <td>-</td>
-                          <td>-</td>
-                          <td>-</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__group">
-                        <tr>
-                          <td>
-                            <div class="table-group__head"><span>Прочее</span></div>
-                          </td>
-                        </tr>
-                      </tbody>
-                      <tbody class="product-table__prop">  
-                        <tr>
-                          <td>
-                            <div class="table-prop-head"><span>Выход в интернет</span><i data-prop-tooltip="12456" data-id="123456">
-                                <svg width="20" height="20">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
-                                </svg></i></div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                          <td>да</td>
-                        </tr>
-                      </tbody>
-                    </table>
                   </div>
                 </div>
               </div>
-              <div class="single-page__item" data-tab="2">Наушники</div>
-              <div class="single-page__item" data-tab="3">Ноутбуки</div>
             </div>
           </div>
         </div>

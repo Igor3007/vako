@@ -2439,7 +2439,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     /* ====================================
-    hide 
+    hide similar prop
     ====================================*/
 
     if (document.querySelector('.product-table__prop')) {
@@ -2506,6 +2506,208 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     }
+
+    /* ==========================================
+    add to compare
+    ==========================================*/
+
+    function WishList(params) {
+
+        this.elemCookie = params.elemCookie;
+        this.elemTotal = document.querySelector(params.elemTotal);
+
+        this.init = function () {
+            this.getTotal()
+        }
+
+        this.getTotal = function () {
+
+            if (this.getArray().length) {
+                this.elemTotal.classList.remove('hide');
+                this.elemTotal.innerText = this.getArray().length;
+            }
+
+        }
+
+        this.getArray = function () {
+            if (!Cookies.get(this.elemCookie)) return new Array()
+
+            return String(Cookies.get(this.elemCookie)).split(',')
+        }
+
+        this.add = function (id) {
+            var array = this.getArray();
+            array.push(id)
+            array = Array.from(new Set(array))
+
+            Cookies.set(this.elemCookie, array.join(','), {
+                expires: 7
+            })
+            this.getTotal()
+            return array;
+        }
+
+        this.remove = function (id) {
+
+            var array = this.getArray();
+            var result = array.filter(function (item) {
+                return item != id
+            })
+
+            Cookies.set(this.elemCookie, result.join(','), {
+                expires: 7
+            })
+            this.getTotal()
+            return array;
+
+        }
+    }
+
+    /* ==========================================
+    popup wishlist
+    ==========================================*/
+
+    function wishlistPopup(id, type) {
+
+        if (!id) return false
+
+        switch (type) {
+            case 'wishlist':
+                var url = '_wishlist-popup.html';
+                break;
+            case 'compare':
+                var url = '_compare-popup.html';
+                break;
+
+            default:
+                var url = '_compare-popup.html';
+        }
+
+        window.ajax({
+            type: 'GET',
+            url,
+            data: {
+                id: id
+            }
+        }, (status, response) => {
+
+
+            if (document.querySelector('main')) {
+
+                let elem = document.createElement('div')
+                let main = document.querySelector('main')
+
+                elem.innerHTML = response
+                elem.classList.add('popup-top-tooltip')
+
+                elem.querySelector('[data-popup="close"]').addEventListener('click', e => {
+                    elem.remove()
+                })
+
+                //remove old
+                main.querySelectorAll('.popup-top-tooltip').forEach(item => item.remove())
+                main.append(elem)
+
+                //add scroll event
+
+
+                window.addEventListener('scroll', e => {
+
+                    elem.classList.add('fadeout')
+
+                    setTimeout(() => {
+                        elem.remove()
+                    }, 1000)
+                })
+
+            } else {
+                window.STATUS.msg('Товар добавлен в избранное')
+            }
+
+
+        })
+
+    }
+
+
+    /*===========================================
+    init wishlist
+    ===========================================*/
+
+    window.wishlistInstance = new WishList({
+        elemCookie: 'wishlist',
+        elemTotal: '[data-total="wishlist"]',
+    });
+
+    const WL = window.wishlistInstance;
+
+    WL.init()
+
+    const wishlist = document.querySelectorAll('[data-wishlist]');
+    const arrayWishList = WL.getArray()
+
+    wishlist.forEach(function (item, index) {
+
+        const product_id = item.dataset.wishlist;
+
+        if (arrayWishList.lastIndexOf(product_id) !== -1) {
+            item.classList.add('active')
+        }
+
+        item.addEventListener('click', function (event) {
+            event.preventDefault()
+            if (this.classList.contains('active')) {
+                WL.remove(product_id)
+                this.classList.remove('active')
+            } else {
+                WL.add(product_id)
+                this.classList.add('active')
+                wishlistPopup(product_id, 'wishlist')
+            }
+        })
+    })
+
+
+    /*===========================================
+    init compare
+    ===========================================*/
+
+    window.compareInstance = new WishList({
+        elemCookie: 'compare',
+        elemTotal: '[data-total="compare"]',
+    });
+
+    const CMP = window.compareInstance;
+
+    CMP.init()
+
+    const compare = document.querySelectorAll('[data-compare]');
+    const arrayCompare = CMP.getArray()
+
+    compare.forEach(function (item, index) {
+
+        const product_id = item.dataset.compare;
+
+        if (arrayCompare.lastIndexOf(product_id) !== -1) {
+            item.classList.add('active')
+        }
+
+        item.addEventListener('click', function (event) {
+            event.preventDefault()
+            if (this.classList.contains('active')) {
+                CMP.remove(product_id)
+                this.classList.remove('active')
+            } else {
+                CMP.add(product_id)
+                this.classList.add('active')
+
+                wishlistPopup(product_id, 'compare')
+            }
+        })
+    })
+
+
+
 
 
 });

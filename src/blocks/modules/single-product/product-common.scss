@@ -453,13 +453,19 @@
                 height: 36px;
             }
 
+            &.active {
+                & svg {
+                    fill: $accent-1-1;
+                }
+            }
+
             &:hover {
                 background-color: $gray-96;
                 color: $accent-1-1;
 
-                & svg {
-                    fill: $accent-1-1;
-                }
+                // & svg {
+                //     fill: $accent-1-1;
+                // }
 
                 & span {
                     color: $accent-1-1;
@@ -835,13 +841,19 @@
                 height: 36px;
             }
 
+            &.active {
+                & svg {
+                    fill: $accent-1-1;
+                }
+            }
+
             &:hover {
                 background-color: $gray-96;
                 color: $accent-1-1;
 
-                & svg {
-                    fill: $accent-1-1;
-                }
+                // & svg {
+                //     fill: $accent-1-1;
+                // }
 
                 & span {
                     color: $accent-1-1;

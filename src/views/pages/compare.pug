@@ -1,4 +1,4 @@
-extends ../layouts/catalog
+extends ../layouts/compare
 
 include ../../blocks/components/breadcrumb/breadcrumb.pug
 include ../../blocks/modules/compare/compare.pug
@@ -25,16 +25,14 @@ block content
                   span Очистить список
 
               .single-page__tabs
-                    ul(data-tab-nav="compare")
-                        li: a(href='#1') Мониторы
-                        li: a(href='#2') Наушники
-                        li: a(href='#3') Ноутбуки
+                    ul
+                        li.active: a(href='compare.html') Мониторы
+                        li: a(href='compare-headphones.html') Наушники
+                        li: a(href='compare-laptop.html') Ноутбуки
 
-              .single-page__content(data-tab-container="compare")
-                .single-page__item(data-tab="1"): +compare()
-                .single-page__item(data-tab="2") Наушники
-                .single-page__item(data-tab="3") Ноутбуки
-
+              .single-page__content
+                .single-page__item: +compare()
+                 
 
 block scripts
   script(src="/js/vendor.js") 

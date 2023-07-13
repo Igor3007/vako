@@ -15,12 +15,16 @@ include dropdown
                         +tooltip-icon({
                             icon: '#ic_heart',
                             text: ' Добавьте товары в избранное ',
+                            attr: 'wishlist',
+                            link: '/wishlist.html',
                         })
                     .header-min__compare
                         
                         +tooltip-icon({
                             icon: '#ic_compare',
                             text: ' Добавьте товары в сравнение ',
+                            attr: 'compare',
+                            link: '/compare.html',
                         })
                     .header-min__login(data-popup="user-menu")
                         +dropdown-icon

@@ -232,3 +232,14 @@
 
 
 }
+
+.tooltip-icon__text i {
+    color: $red;
+    font-style: normal;
+    display: block;
+    text-align: center;
+}
+
+.tooltip-icon__count:empty {
+    display: none;
+}

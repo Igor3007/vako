@@ -117,6 +117,7 @@
             & td {
                 padding-top: 35px;
                 font-size: 15px;
+                cursor: grab;
             }
 
             &:first-child {
@@ -151,18 +152,28 @@
             width: 20px;
             height: 20px;
             margin-left: 10px;
-            margin-top: -1px;
+            margin-top: -4px;
         }
     }
 }
 
 .compare-product {
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 320px;
+
     &__top {
         display: flex;
     }
 
     &__image {
         width: calc(100% - 40px);
+
+        & picture {
+            @include picture(100%, contain);
+        }
     }
 
     &__action {
@@ -175,6 +186,7 @@
         padding-bottom: 13px;
         display: flex;
         align-items: center;
+        margin-top: auto;
 
         @media screen and (min-width: $w1440) {
             padding-bottom: 8px;

@@ -1,0 +1,39 @@
+extends ../layouts/compare
+
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+include ../../blocks/modules/compare/compare-laptop.pug
+ 
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Vako"
+ 
+
+block content
+  section.single-page.favourites
+      .container
+          .single-page
+              .single-page__breadcrumbs
+                  +breadcrumb([
+                      'Главная',
+                      'Сравнение товаров',
+                  ]) 
+              .single-page__h1.favourites-title
+                h1 Сравнение товаров
+                a(href='#')
+                  +icons('#ic_trash', 22)
+                  span Очистить список
+
+              .single-page__tabs
+                    ul
+                        li: a(href='compare.html') Мониторы
+                        li: a(href='compare-headphones.html') Наушники
+                        li.active: a(href='compare-laptop.html') Ноутбуки
+
+              .single-page__content
+                .single-page__item: +compare()
+                 
+
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js") 
