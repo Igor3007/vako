@@ -7288,6 +7288,7 @@ div[data-single-catalog]:not(.is-active) {
 }
 
 .card-review {
+  padding-left: 12px;
   display: flex;
   align-items: flex-start;
 }
@@ -7932,7 +7933,6 @@ div[data-single-catalog]:not(.is-active) {
 
 .single-shop-head__payment ul a {
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 20px;
   color: #7B61FF;
@@ -7941,6 +7941,11 @@ div[data-single-catalog]:not(.is-active) {
 
 .single-shop-head__payment ul a:hover {
   text-decoration: underline;
+}
+
+.single-shop-head__payment ul .payment-place {
+  display: block;
+  margin-top: -8px;
 }
 
 .single-shop-head__payment-days {
@@ -7955,10 +7960,10 @@ div[data-single-catalog]:not(.is-active) {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 10px;
-  gap: 6px;
   border-radius: 4px;
   background: #F5F5F5;
+  width: 44px;
+  height: 36px;
 }
 
 .single-shop-head__payment-days li span {
@@ -10938,6 +10943,12 @@ a[data-tooltip]:hover::before {
   .splide__pagination__page {
     width: 4px;
     height: 4px;
+  }
+}
+
+@media screen and (max-width: 346px) {
+  .single-shop-head__payment-days {
+    flex-wrap: wrap;
   }
 }
 
