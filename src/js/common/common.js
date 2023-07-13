@@ -1942,7 +1942,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     id: e.target.dataset.id,
                 }
             }, (status, response) => {
-                window.STATUS.msg('Комментарий load!', '')
+
 
                 this.renderLoadComments(response)
 

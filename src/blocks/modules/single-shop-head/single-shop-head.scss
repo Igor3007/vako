@@ -9,6 +9,7 @@
 
 .single-shop-head {
   overflow: visible;
+
   &__problem {
     display: flex;
     align-items: center;
@@ -74,7 +75,8 @@
   &__rating-content {
     display: flex;
     flex-direction: column;
-    .card-review__rating{
+
+    .card-review__rating {
       margin-bottom: 0;
     }
 
@@ -129,7 +131,8 @@
         flex: initial;
       }
     }
-    ul:first-child{
+
+    ul:first-child {
       margin-right: 12px;
       @media screen and (min-width: $w576) {
 
@@ -160,7 +163,6 @@
 
       a {
         font-size: 14px;
-        font-style: normal;
         font-weight: 400;
         line-height: 20px;
         color: #7B61FF;
@@ -170,13 +172,23 @@
           text-decoration: underline;
         }
       }
+      .payment-place {
+        display: block;
+        margin-top: -8px;
+      }
+
     }
   }
+
+
 
   &__payment-days {
     display: flex;
     align-items: center;
     margin: 0 0 12px 0 !important;
+    @media screen and (max-width: 346px) {
+      flex-wrap: wrap;
+    }
 
     li {
       list-style-type: none !important;
@@ -184,10 +196,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 6px 10px;
-      gap: 6px;
       border-radius: 4px;
       background: #F5F5F5;
+      width: 44px;
+      height: 36px;
       @media screen and (min-width: $w992) {
         padding: 6px 14px;
       }
@@ -269,8 +281,9 @@
 
   &__work-info {
     position: relative;
-    &:hover{
-      .single-shop-head__work-description{
+
+    &:hover {
+      .single-shop-head__work-description {
         opacity: 1;
         overflow: visible;
         height: auto;
@@ -311,17 +324,20 @@
     box-shadow: 0 2px 15px 0 #00000026;
 
   }
-  &__work-description-wrapper{
+
+  &__work-description-wrapper {
     padding: 6px 12px;
   }
-  &__work-description-title{
-    div{
+
+  &__work-description-title {
+    div {
       font-size: 14px;
       font-weight: 400;
       line-height: 20px;
       margin-bottom: 4px !important;
     }
-    span{
+
+    span {
       font-size: 14px;
       font-weight: 400;
       line-height: 20px;
