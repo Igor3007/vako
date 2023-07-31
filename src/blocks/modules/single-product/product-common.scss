@@ -241,6 +241,10 @@
             font-weight: 700;
             display: block;
             padding-bottom: 18px;
+
+            @media screen and (min-width: $w1440) {
+                font-size: 15px;
+            }
         }
 
         &:hover {
@@ -353,7 +357,7 @@
             }
 
             @media screen and (min-width: $w1440) {
-                font-size: 13px;
+                font-size: 14px;
             }
         }
 
@@ -434,6 +438,10 @@
             font-size: 13px;
             color: $gray-56;
 
+            @media screen and (min-width: $w1440) {
+                font-size: 14px;
+            }
+
             @media screen and (min-width: $w992) {
                 display: inline-block;
             }
@@ -502,6 +510,10 @@
     &__title {
         font-weight: 700;
         padding-bottom: 15px;
+
+        @media screen and (min-width: $w1440) {
+            font-size: 15px;
+        }
     }
 
     &__items {
