@@ -2355,9 +2355,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
-    if (document.querySelector('[data-tab-container="compare"]')) {
+    if (document.querySelector('[data-container="compare"]')) {
 
-        const instanseSeansSlider = new compareSlider(document.querySelector('[data-tab-container="compare"]'))
+        const instanseSeansSlider = new compareSlider(document.querySelector('[data-container="compare"]'))
         instanseSeansSlider.init()
 
     }

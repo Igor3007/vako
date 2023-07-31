@@ -30,7 +30,7 @@ mixin compare-product(item)
                      +picture(item.img)
             .compare-product__action
                 a(href='#' data-tooltip="Добавить в избранное"): +icons('#ic_heart-default', 20) 
-                a(href='#' data-tooltip="Удалить"): +icons('#ic_trash', 20)
+                a(href='#' data-tooltip="Удалить"): +icons('#ic_trash-strong', 24)
         .compare-product__title
             a(href='single-product.html' target="_blank")= item.title
         .compare-product__rating.rating--green
@@ -54,5 +54,5 @@ mixin compare-table-top(item)
                             span.text--desktop Различающиеся характеристики
 
         .compare-table-top__nav
-            .compare-table-top__nav-prev(data-se-slider="prev"): +icons('#ic_arr-left', 24)
-            .compare-table-top__nav-next(data-se-slider="next"): +icons('#ic_arr-right', 24)
+            .compare-table-top__nav-prev(data-se-slider="prev"): +icons('#ic_arrow-left', 24)
+            .compare-table-top__nav-next(data-se-slider="next"): +icons('#ic_arrow-right', 24)

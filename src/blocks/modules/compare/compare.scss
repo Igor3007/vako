@@ -341,6 +341,10 @@
             font-size: 15px;
             font-weight: 600;
             line-height: 140%;
+
+            &:hover {
+                color: $accent-2-1
+            }
         }
     }
 }
@@ -430,6 +434,23 @@
     @media screen and (min-width: $w480) {
         display: flex;
     }
+
+    &-next,
+    &-prev {
+
+        margin: 0 5px;
+
+        & svg {
+            fill: #222;
+
+            &:hover {
+                fill: $accent-2-1;
+            }
+        }
+
+    }
+
+
 }
 
 .table-prop-head {

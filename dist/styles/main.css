@@ -8391,6 +8391,10 @@ div[data-single-catalog]:not(.is-active) {
   line-height: 140%;
 }
 
+.compare-product__title a:hover {
+  color: #7B61FF;
+}
+
 .product-table__group.is-hide-group .table-group__head span::after {
   transform: rotate(-90deg);
 }
@@ -8440,6 +8444,21 @@ div[data-single-catalog]:not(.is-active) {
 
 .compare-table-top__nav {
   display: none;
+}
+
+.compare-table-top__nav-next,
+.compare-table-top__nav-prev {
+  margin: 0 5px;
+}
+
+.compare-table-top__nav-next svg,
+.compare-table-top__nav-prev svg {
+  fill: #222;
+}
+
+.compare-table-top__nav-next svg:hover,
+.compare-table-top__nav-prev svg:hover {
+  fill: #7B61FF;
 }
 
 .table-prop-head {
