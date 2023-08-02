@@ -1,0 +1,63 @@
+.block-plug {
+
+    padding: 32px 32px;
+    background-color: #eeeeee;
+    border-radius: 8px;
+    align-items: center;
+    text-align: center;
+
+    &__icon {
+
+        padding-bottom: 15px;
+
+        & .bgimage {
+            width: 60px;
+            height: 60px;
+            @include bgimage-contain;
+            margin: 0 auto
+        }
+    }
+
+    &__title {
+        @include font-h3;
+        padding-bottom: 12px;
+        max-width: 1350px;
+        margin: 0 auto;
+
+        & a {
+            color: $accent-2-1;
+        }
+
+        & strong {
+            font-weight: 800;
+        }
+    }
+
+    &__desc {
+        font-size: 15px;
+        line-height: 150%;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        & a {
+            color: $accent-2-1;
+        }
+
+        & strong {
+            font-weight: 800;
+        }
+    }
+
+    & .ic_24 {
+        margin: 0 5px 3px 5px;
+    }
+
+
+}
+
+.ic_24 {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}

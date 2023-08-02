@@ -1,0 +1,17 @@
+extends ../layouts/header-white
+
+include ../../blocks/modules/common/parts/parts.pug
+ 
+block variables
+  include ../../data/data.pug
+  -
+    title = 'Help'
+
+
+block content
+  +parts()
+
+
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js") 

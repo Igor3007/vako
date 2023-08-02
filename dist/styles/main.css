@@ -3596,6 +3596,72 @@ footer {
   padding: 0.4em;
 }
 
+.block-plug {
+  padding: 32px 32px;
+  background-color: #eeeeee;
+  border-radius: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.block-plug__icon {
+  padding-bottom: 15px;
+}
+
+.block-plug__icon .bgimage {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0 auto;
+}
+
+.block-plug__title {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 160%;
+  padding-bottom: 12px;
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+.block-plug__title a {
+  color: #7B61FF;
+}
+
+.block-plug__title strong {
+  font-weight: 800;
+}
+
+.block-plug__desc {
+  font-size: 15px;
+  line-height: 150%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.block-plug__desc a {
+  color: #7B61FF;
+}
+
+.block-plug__desc strong {
+  font-weight: 800;
+}
+
+.block-plug .ic_24 {
+  margin: 0 5px 3px 5px;
+}
+
+.ic_24 {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .section-page-404 {
   padding: 50px 0;
 }
@@ -9607,6 +9673,10 @@ a[data-tooltip]:hover::before {
     height: 50px;
     margin-left: -25px;
     margin-top: -25px;
+  }
+
+  .block-plug__title {
+    font-size: 20px;
   }
 
   .search-index__catalog .btn {
