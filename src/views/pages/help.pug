@@ -1,17 +1,15 @@
-extends ../layouts/catalog
+extends ../layouts/header-white
 
-include ../../blocks/modules/common/page-404/page-404.pug
-
-
-
+include ../../blocks/modules/page-help/page-help.pug
+ 
 block variables
   include ../../data/data.pug
   -
-    title = 'Page not found'
+    title = 'Help'
 
 
 block content
-  +page-404
+  +page-help
 
 
 block scripts

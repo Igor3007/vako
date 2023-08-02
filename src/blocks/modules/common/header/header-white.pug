@@ -1,0 +1,47 @@
+include ../../search-index/search-index.pug
+include dropdown
+
+.header.header-white
+    .container
+        .header-top
+            .header-top__logo
+                a(href='/'): span.bgimage(style="background-image: url('/img/common/logo-dark.svg')")
+            .header-top__find
+                .search-index(data-index-find="container")
+                    .search-index__find
+                        form(action='#' method='POST')
+                            .search-index__form(data-index-find="form")
+                                .search-index__catalog
+                                    button.btn.btn-catalog
+                                        span.icon-catalog
+                                            i
+                                            i
+                                            i
+                                            i
+                                        | Каталог
+                                .search-index__field
+                                    .search-index__input
+                                            input(type="text" placeholder="Искать на Vako" data-index-find="input")
+                                    .search-index__btn
+                                        button.btn Найти
+                                    .search-index__suggest(data-index-find="suggest")
+                                        +find-suggest
+            .header-top__actions
+                .header-top__fav
+                    +tooltip-icon({
+                        icon: '#ic_heart',
+                        text: ' Добавьте товары в избранное ',
+                        link: '/wishlist.html',
+                        attr: 'wishlist'
+                    })
+                .header-top__compare
+                    +tooltip-icon({
+                        icon: '#ic_compare',
+                        text: ' Добавьте товары в сравнение ',
+                        link: '/compare.html',
+                        attr: 'compare'
+                    })
+                .header-top__login
+                    +dropdown-icon
+
+        

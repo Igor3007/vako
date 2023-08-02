@@ -7,8 +7,6 @@
 
      &__page {
 
-
-
          display: flex;
          align-items: center;
          margin-left: auto;
@@ -25,6 +23,8 @@
              & li {
 
                  &.next {
+
+                     & span,
                      & a {
                          width: auto;
                          display: flex;
@@ -37,9 +37,14 @@
                      margin-left: 0;
                  }
 
+                 &.active span,
                  &.active a {
                      background-color: $accent-2-1;
                      color: #fff;
+
+                     &:hover {
+                         color: #fff;
+                     }
 
                      & svg {
                          fill: #fff;
@@ -47,6 +52,7 @@
                      }
                  }
 
+                 & span,
                  & a {
                      width: rem(36);
                      height: rem(36);
@@ -56,7 +62,6 @@
                      justify-content: center;
                      color: $black;
                      font-weight: 800;
-
 
                      @media screen and (min-width: $w992) {
                          width: rem(40);
@@ -71,11 +76,7 @@
                          margin-top: 4px;
                      }
 
-
-
-
                      &:hover {
-
                          color: $accent-2-1;
 
                          & svg {

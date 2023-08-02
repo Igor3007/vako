@@ -125,8 +125,12 @@ input[type="date"] {
   min-width: 316px;
 }
 
+.formated-text {
+  font-size: 15px;
+}
+
 .formated-text * {
-  line-height: 140%;
+  line-height: 160%;
 }
 
 .formated-text h1,
@@ -137,12 +141,29 @@ input[type="date"] {
 .formated-text h6 {
   margin-bottom: 25px;
   line-height: 120%;
-  color: #DF1F26;
-  font-weight: 700;
+  font-weight: 900;
+  margin-top: 1.5em;
 }
 
 .formated-text .table {
   overflow-x: auto;
+}
+
+.formated-text blockquote {
+  background-color: #eee;
+  margin: 0;
+  padding: 20px 56px;
+  border-radius: 6px;
+  background-repeat: no-repeat;
+  background-position: 20px 22px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMCAyYTggOCAwIDEwMCAxNiA4IDggMCAwMDAtMTZ6TTAgMTBDMCA0LjQ3NyA0LjQ3NyAwIDEwIDBzMTAgNC40NzcgMTAgMTAtNC40NzcgMTAtMTAgMTBTMCAxNS41MjMgMCAxMHptOS00YTEgMSAwIDExMiAwIDEgMSAwIDAxLTIgMHptMSAzYTEgMSAwIDAxMSAxdjRhMSAxIDAgMTEtMiAwdi00YTEgMSAwIDAxMS0xeiIgZmlsbD0iIzdCNjFGRiIvPjwvc3ZnPg==);
+  margin: 20px 0;
+}
+
+.formated-text blockquote strong {
+  display: block;
+  width: 100%;
+  padding-bottom: 6px;
 }
 
 .formated-text table {
@@ -199,7 +220,7 @@ input[type="date"] {
 .formated-text div:not([class]),
 .formated-text p {
   margin: 10px 0;
-  line-height: 150%;
+  line-height: 175%;
 }
 
 .formated-text ul {
@@ -218,14 +239,14 @@ input[type="date"] {
 
 .formated-text ul li::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
   display: block;
   position: absolute;
   left: 0;
-  top: 0.45em;
+  top: 0.65em;
   border-radius: 50%;
-  background-color: #DF1F26;
+  background-color: #7B61FF;
 }
 
 .formated-text img {
@@ -2984,6 +3005,7 @@ input:focus {
   list-style-type: none;
 }
 
+.pagination__page ul li.next span,
 .pagination__page ul li.next a {
   width: auto;
   display: flex;
@@ -2995,15 +3017,23 @@ input:focus {
   margin-left: 0;
 }
 
+.pagination__page ul li.active span,
 .pagination__page ul li.active a {
   background-color: #7B61FF;
   color: #fff;
 }
 
+.pagination__page ul li.active span:hover,
+.pagination__page ul li.active a:hover {
+  color: #fff;
+}
+
+.pagination__page ul li.active span svg,
 .pagination__page ul li.active a svg {
   fill: #fff;
 }
 
+.pagination__page ul li span,
 .pagination__page ul li a {
   width: 36px;
   height: 36px;
@@ -3015,6 +3045,7 @@ input:focus {
   font-weight: 800;
 }
 
+.pagination__page ul li span svg,
 .pagination__page ul li a svg {
   fill: #000;
   min-width: 10px;
@@ -3023,10 +3054,12 @@ input:focus {
   margin-top: 4px;
 }
 
+.pagination__page ul li span:hover,
 .pagination__page ul li a:hover {
   color: #7B61FF;
 }
 
+.pagination__page ul li span:hover svg,
 .pagination__page ul li a:hover svg {
   fill: #7B61FF;
 }
@@ -5446,6 +5479,7 @@ a[data-tooltip]:hover::before {
   }
 
   .formated-text ol > li {
+    font-size: 15px;
     padding-left: 30px;
   }
 
@@ -5650,6 +5684,7 @@ a[data-tooltip]:hover::before {
     margin-left: 0;
   }
 
+  .pagination__page ul li span,
   .pagination__page ul li a {
     width: 40px;
     height: 40px;

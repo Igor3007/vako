@@ -51,9 +51,16 @@
     &__logo {
 
         margin-right: 16px;
+        display: flex;
+        align-items: center;
 
         @media screen and (min-width: $w1200) {
             margin-right: 47px;
+        }
+
+        & a {
+            display: flex;
+            align-items: center;
         }
 
         & .bgimage {

@@ -1,0 +1,39 @@
+.header.header-white {
+    background-color: #fff;
+    border-bottom: 1px solid #E0E0E0;
+
+    & .header-top .search-index__input input {
+        background-color: #fff;
+        color: #222;
+
+        &::placeholder {
+            color: #8F8F8F;
+        }
+    }
+
+    & .dropdown-icon,
+    & .tooltip-icon {
+        &__elem {
+            & a {
+                background-color: #fff;
+
+
+
+                & svg {
+                    filter: grayscale(1) brightness(0)
+                }
+
+                &:hover {
+                    background-color: $gray-96;
+
+                    & svg {
+                        filter: grayscale(0) brightness(1)
+                    }
+                }
+            }
+        }
+    }
+
+
+
+}

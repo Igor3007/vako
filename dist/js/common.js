@@ -1307,10 +1307,38 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
+    /* =========================================
+    change view catalog
+    =========================================*/
+
+    function changeViewCatalog() {
+        let btnList = document.querySelector('[data-view="list"]')
+        let btnGrid = document.querySelector('[data-view="grid"]')
+        let catalog = document.querySelector('[data-catalog="container"]')
+
+        if (btnList && document.body.clientWidth < 992 && catalog.classList.contains('grid--view')) {
+
+            btnList.classList.add('is-active')
+            if (btnGrid.classList.contains('is-active')) {
+                btnGrid.classList.remove('is-active')
+            }
+
+            if (catalog.classList.contains('grid--view')) {
+                catalog.classList.remove('grid--view')
+            }
+
+        }
+
+
+    }
+
+
     window.addEventListener('resize', () => {
         // We execute the same script as before
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+        changeViewCatalog()
     });
 
 
@@ -2715,6 +2743,42 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let currentBlock = document.querySelector('.catalog-products--wishlist')
             currentBlock.classList.remove('grid--view')
         }
+    }
+
+    /* ====================================
+    help page category
+    ====================================*/
+
+    if (document.querySelector('.page-help__aside')) {
+
+        const items = document.querySelectorAll('.page-help__aside .isset-sub')
+
+        items.forEach(item => {
+            item.addEventListener('click', e => {
+                item.classList.toggle('is-open')
+
+                if (e.target.closest('.icon-cross-show')) {
+                    e.stopPropagation()
+                    e.preventDefault()
+                }
+
+            })
+        })
+
+    }
+
+    //open mobile 
+    if (document.querySelector('[data-help="open"]')) {
+
+        const buttonOpen = document.querySelector('[data-help="open"]')
+        const menuContainer = document.querySelector('[data-help="menu"]')
+
+        buttonOpen.addEventListener('click', e => {
+            buttonOpen.classList.toggle('is-open')
+            menuContainer.classList.toggle('is-open')
+            document.body.classList.toggle('page-hidden')
+        })
+
     }
 
 
