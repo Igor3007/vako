@@ -150,7 +150,7 @@ input[type="date"] {
 }
 
 .formated-text blockquote {
-  background-color: #eee;
+  background-color: #f5f5f5;
   margin: 0;
   padding: 20px 56px;
   border-radius: 6px;
@@ -3700,16 +3700,12 @@ footer {
 }
 
 .page-404__title {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 133%;
-  text-align: center;
-  text-transform: uppercase;
-  color: #DF1F26;
   padding-bottom: 30px;
   color: #222;
   font-weight: 800;
   text-transform: none;
+  font-size: 24px;
+  text-align: center;
 }
 
 .page-404__desc {
@@ -10177,6 +10173,10 @@ a[data-tooltip]:hover::before {
     margin-left: 0;
   }
 
+  .page-404__title {
+    font-size: 28px;
+  }
+
   .catalog-popup {
     background-color: rgba(0, 0, 0, 0);
     animation: bg-fade-in 0.6s ease forwards;
@@ -10994,7 +10994,7 @@ a[data-tooltip]:hover::before {
   }
 
   .page-404__title {
-    font-size: 48px;
+    font-size: 32px;
   }
 
   .main-menu__nav nav ul li .sub-menu li a {
