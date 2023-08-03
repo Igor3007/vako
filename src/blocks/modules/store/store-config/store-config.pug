@@ -93,6 +93,9 @@ mixin shop-shiping
                     li: +checkbox('Наличными курьеру')
                     li: +checkbox('Безналичный расчёт')
 
+            .shop-block__params 
+            .shop-block__more Параметры доставки
+
         .shop-block__repeat(data-store="shiping-repeat")
             span.icon-add Добавить ещё регион
 
@@ -124,6 +127,10 @@ mixin shop-points
                 +checkbox('Через терминал')
                 +checkbox('Наличный расчёт')
                 +checkbox('Безналичный расчёт')
+
+            .shop-block__params 
+            .shop-block__more Параметры самовывоза
+                
         .shop-block__repeat(data-store="point-repeat")
             span.icon-add Добавить пункт выдачи / магазин
 

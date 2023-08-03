@@ -2557,12 +2557,8 @@ input:focus {
 }
 
 .form__label {
-  font-weight: 600;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #DF1F26;
-  padding-top: 25px;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
+  width: 100%;
 }
 
 .form fieldset {
@@ -3716,6 +3712,13 @@ footer {
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNSIgaGVpZ2h0PSI4IiBmaWxsPSIjN0I2MUZGIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNC4zNTQuNjQ2YS41LjUgMCAwMTAgLjcwOEwxLjcwNyA0bDIuNjQ3IDIuNjQ2YS41LjUgMCAxMS0uNzA4LjcwOGwtMy0zYS41LjUgMCAwMTAtLjcwOGwzLTNhLjUuNSAwIDAxLjcwOCAweiIvPjwvc3ZnPg==);
 }
 
+.radio-button-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
 .popup-success {
   padding: 30px;
   max-width: 450px;
@@ -4436,6 +4439,18 @@ footer {
   margin-bottom: 10px;
 }
 
+.shop-block__params {
+  padding-bottom: 15px;
+}
+
+.shop-block__params label:not(.checkbox) {
+  font-weight: 800;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  display: block;
+}
+
 .shop-block__district label:not(.checkbox) {
   font-weight: 800;
   margin-bottom: 10px;
@@ -4460,7 +4475,7 @@ footer {
 }
 
 .shop-block__payment {
-  padding-bottom: 25px;
+  padding-bottom: 15px;
 }
 
 .shop-block__payment label:not(.checkbox) {
@@ -4487,6 +4502,12 @@ footer {
   line-height: 140%;
   color: #838383;
   font-size: 14px;
+}
+
+.shop-block__more {
+  color: #7B61FF;
+  padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .repeat-field {

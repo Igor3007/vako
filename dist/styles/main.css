@@ -2557,12 +2557,8 @@ input:focus {
 }
 
 .form__label {
-  font-weight: 600;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #DF1F26;
-  padding-top: 25px;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
+  width: 100%;
 }
 
 .form fieldset {

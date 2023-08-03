@@ -769,9 +769,6 @@
 
      new mobileAside();
 
-
-
-
      /*================================================
      repeat field
      ================================================*/
@@ -899,7 +896,6 @@
 
              const cloneElement = fields.cloneNode(true);
 
-
              cloneElement.querySelectorAll('select').forEach(select => {
 
                  select.setAttribute('class', '')
@@ -914,7 +910,6 @@
 
              })
 
-
              const removeButton = document.createElement('div')
              removeButton.classList.add('shop-block__remove')
              removeButton.innerHTML = '<span class="remove-field" ></span>'
@@ -925,8 +920,16 @@
                  }
              })
 
-
              cloneElement.append(removeButton)
+
+             if (cloneElement.querySelector('.shop-block__params')) {
+                 cloneElement.querySelector('.shop-block__params').innerHTML = ''
+                 cloneElement.querySelector('.shop-block__more').innerHTML = 'Параметры доставки'
+             }
+
+             const shipParamsInstanse = new ShipingParams(cloneElement)
+
+
              fields.parentNode.insertBefore(cloneElement, elem.closest('.shop-block').querySelector('.shop-block__repeat'));
 
              numbering()
@@ -985,12 +988,250 @@
              })
 
              cloneElement.append(removeButton)
+
+             if (cloneElement.querySelector('.shop-block__params')) {
+                 cloneElement.querySelector('.shop-block__params').innerHTML = ''
+                 cloneElement.querySelector('.shop-block__more').innerHTML = 'Параметры самовывоза'
+             }
+
+             const shipParamsInstanse = new PickupParams(cloneElement)
+
              fields.parentNode.insertBefore(cloneElement, elem.closest('.shop-block').querySelector('.shop-block__repeat'));
 
              numbering()
          })
 
      }
+
+     /* =============================================
+     shiping params
+     =============================================*/
+
+     class ShipingParams {
+         constructor(el) {
+
+             this.formData = null
+             this.$el = el
+
+             this.init()
+         }
+
+         init() {
+
+             this.addEvent()
+
+             if (this.$el.querySelector('[name="params"]') && this.$el.querySelector('[name="params"]').value) {
+                 this.formData = this.$el.querySelector('[name="params"]').value
+             }
+         }
+
+         openPopup() {
+
+             if (this.formData) {
+                 console.log(this.formData)
+             }
+
+             const popup = new afLightbox({
+                 mobileInBottom: true
+             })
+
+             popup.open('<div class="af-spiner" ></div>', (instanse) => {
+                 window.ajax({
+                     type: 'GET',
+                     url: '/store/_shiping-params.html',
+                     responseType: 'html',
+                     data: {
+                         value: 0
+                     }
+                 }, (status, response) => {
+                     popup.changeContent(response)
+
+                     const form = popup.modal.querySelector('form')
+                     this.insertForm(form)
+
+                     form.addEventListener('submit', e => {
+                         e.preventDefault()
+
+                         let formData = new FormData(form)
+                         let object = {};
+                         formData.forEach(function (value, key) {
+                             object[key] = value;
+                         });
+
+                         this.formData = JSON.stringify(object);
+
+                         this.renderInfo()
+                         popup.close()
+                     })
+
+                 })
+             })
+         }
+
+         insertForm(form) {
+             if (this.formData) {
+
+                 const FD = JSON.parse(this.formData)
+
+                 form.querySelector('[name="type"]').value = FD['type'] || ''
+                 form.querySelector('[name="cost"]').value = FD['cost'] || ''
+                 form.querySelector('[name="days"]').value = FD['days'] || ''
+                 form.querySelector('[name="time"]').value = FD['time'] || ''
+             }
+         }
+
+         renderInfo() {
+             if (this.formData) {
+
+                 const FD = JSON.parse(this.formData)
+
+                 const str = `${FD['type']} ${FD['cost']} , ${FD['days']}, время перехода – ${FD['time']}`
+                 const template = `
+                    <label>Параметры доставки</label>
+                    <input type="hidden" value='${this.formData}' name="params"> 
+                    <div>${str}</div>
+                `;
+
+                 const html = document.createElement('div')
+                 html.innerHTML = template
+
+                 this.$el.querySelector('.shop-block__params').innerHTML = ''
+                 this.$el.querySelector('.shop-block__params').append(html)
+
+                 this.$el.querySelector('.shop-block__more').innerText = 'Изменить'
+
+             } else {
+                 this.$el.querySelector('.shop-block__params').innerHTML = ''
+             }
+         }
+
+         addEvent(elem) {
+
+             this.$el.querySelector('.shop-block__more').addEventListener('click', e => {
+                 this.openPopup()
+             })
+         }
+     }
+
+     document.querySelectorAll('.shop-block__row').forEach((item) => {
+         new ShipingParams(item)
+     })
+
+     /* =============================================
+     pickup params
+     =============================================*/
+
+     class PickupParams {
+         constructor(el) {
+
+             this.formData = null
+             this.$el = el
+
+             this.init()
+         }
+
+         init() {
+
+             this.addEvent()
+
+             if (this.$el.querySelector('[name="params"]') && this.$el.querySelector('[name="params"]').value) {
+                 this.formData = this.$el.querySelector('[name="params"]').value
+             }
+         }
+
+         openPopup() {
+
+             if (this.formData) {
+                 console.log(this.formData)
+             }
+
+             const popup = new afLightbox({
+                 mobileInBottom: true
+             })
+
+             popup.open('<div class="af-spiner" ></div>', (instanse) => {
+                 window.ajax({
+                     type: 'GET',
+                     url: '/store/_point-params.html',
+                     responseType: 'html',
+                     data: {
+                         value: 0
+                     }
+                 }, (status, response) => {
+                     popup.changeContent(response)
+
+                     const form = popup.modal.querySelector('form')
+                     this.insertForm(form)
+
+                     form.addEventListener('submit', e => {
+                         e.preventDefault()
+
+                         let formData = new FormData(form)
+                         let object = {};
+                         formData.forEach(function (value, key) {
+                             object[key] = value;
+                         });
+
+                         this.formData = JSON.stringify(object);
+
+                         this.renderInfo()
+                         popup.close()
+                     })
+
+                 })
+             })
+         }
+
+         insertForm(form) {
+             if (this.formData) {
+
+                 const FD = JSON.parse(this.formData)
+
+                 form.querySelector('[name="cost"]').value = FD['cost'] || ''
+                 form.querySelector('[name="days"]').value = FD['days'] || ''
+                 form.querySelector('[name="time"]').value = FD['time'] || ''
+             }
+         }
+
+         renderInfo() {
+             if (this.formData) {
+
+                 const FD = JSON.parse(this.formData)
+
+                 const str = `${FD['cost']} , ${FD['days']}, время перехода – ${FD['time']}`
+                 const template = `
+                   <label>Параметры доставки</label>
+                   <input type="hidden" value='${this.formData}' name="params"> 
+                   <div>${str}</div>
+               `;
+
+                 const html = document.createElement('div')
+                 html.innerHTML = template
+
+                 this.$el.querySelector('.shop-block__params').innerHTML = ''
+                 this.$el.querySelector('.shop-block__params').append(html)
+
+                 this.$el.querySelector('.shop-block__more').innerText = 'Изменить'
+
+             } else {
+                 this.$el.querySelector('.shop-block__params').innerHTML = ''
+             }
+         }
+
+         addEvent(elem) {
+
+             this.$el.querySelector('.shop-block__more').addEventListener('click', e => {
+                 this.openPopup()
+             })
+         }
+     }
+
+     document.querySelectorAll('.shop-block__point').forEach((item) => {
+         new PickupParams(item)
+     })
+
+
+
 
 
 

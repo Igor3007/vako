@@ -238,13 +238,8 @@ input {
     }
 
     &__label {
-
-        font-weight: 600;
-        font-size: 14px;
-        text-transform: uppercase;
-        color: $main;
-        padding-top: 25px;
-        padding-bottom: 15px;
+        padding-bottom: 5px;
+        width: 100%;
     }
 
     & fieldset {

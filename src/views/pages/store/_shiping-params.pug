@@ -1,0 +1,26 @@
+include ../../helpers/mixins.pug
+
+.login-partners
+    .login-partners__wrp
+        .login-partners__title Параметры доставки
+        .login-partners__form
+            form(action='home.html' method='POST') 
+                .form
+                    .form__item
+                        .form__subitem
+                            .form__label Стоимость доставки <span class="i-tooltip" data-tooltip="Стоимость доставки в рублях" ></span>
+                            div.radio-button-container
+                                +radio('Фиксированное значение', 'type', '', 'checked')
+                                +radio('Значение от', 'type', 'от')
+                            input(type="text" name="cost" placeholder="Введите стоимость в рублях" required)
+                    .form__item
+                        .form__subitem
+                            .form__label  Срок доставки <span class="i-tooltip" data-tooltip="Например: 5 дней" ></span>
+                            input(type="text" name="days" placeholder="Введите количество дней" required)
+                    .form__item
+                        .form__subitem
+                            .form__label  Время перехода <span class="i-tooltip" data-tooltip="Укажите время в формате ЧЧ:MM" ></span>
+                            input(type="text" name="time" placeholder="Например, 18:00" required)
+                    .form__item
+                        .form__subitem
+                            button.btn Сохранить 
