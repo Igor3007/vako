@@ -12,15 +12,15 @@ include ../../helpers/mixins.pug
                             div.radio-button-container
                                 +radio('Фиксированное значение', 'type', '', 'checked')
                                 +radio('Значение от', 'type', 'от')
-                            input(type="text" name="cost" placeholder="Введите стоимость в рублях" required)
+                            input(type="text" name="cost" placeholder="Введите стоимость в рублях" data-masked='number' required)
                     .form__item
                         .form__subitem
                             .form__label  Срок доставки <span class="i-tooltip" data-tooltip="Например: 5 дней" ></span>
-                            input(type="text" name="days" placeholder="Введите количество дней" required)
+                            input(type="text" name="days" placeholder="Введите количество дней" data-masked='days' required)
                     .form__item
                         .form__subitem
                             .form__label  Время перехода <span class="i-tooltip" data-tooltip="Укажите время в формате ЧЧ:MM" ></span>
-                            input(type="text" name="time" placeholder="Например, 18:00" required)
+                            input(type="text" name="time" placeholder="Например, 18:00" data-masked='time' required)
                     .form__item
                         .form__subitem
                             button.btn Сохранить 

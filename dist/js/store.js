@@ -188,26 +188,28 @@
          })
 
          new MaskInput("[data-input-mask='time']", {
-             mask: 'Hh:Mm',
-             tokens: {
-                 H: {
-                     pattern: /[0-9]/,
-                     transform: (chr) => {
-                         return Number(chr) > 2 ? '2' : chr
-                     }
-                 },
-                 h: {
-                     pattern: /[0-9]/
-                 },
-                 M: {
-                     pattern: /[0-9]/,
-                     transform: (chr) => {
-                         return Number(chr) > 5 ? '5' : chr
-                     }
-                 },
-                 m: {
-                     pattern: /[0-9]/,
-                 },
+             mask: (value) => {
+
+                 if (value[1] == ':' || value[1] == '-' || value[1] == '.') {
+                     return '#:##'
+                 }
+
+
+                 return '##:##'
+
+             },
+
+             postProcess: (value) => {
+
+                 let arr = [];
+
+                 value.split(':').forEach((num, index) => {
+                     if (index == 0) Number(num) > 23 ? arr.push(23) : arr.push(num)
+                     if (index == 1) Number(num) > 59 ? arr.push(59) : arr.push(num)
+                 })
+
+                 return arr.join(':')
+
              }
 
          })
@@ -1048,6 +1050,7 @@
 
                      const form = popup.modal.querySelector('form')
                      this.insertForm(form)
+                     this.initMask()
 
                      form.addEventListener('submit', e => {
                          e.preventDefault()
@@ -1065,6 +1068,62 @@
                      })
 
                  })
+             })
+         }
+
+         initMask() {
+
+             new MaskInput("[data-masked='days']", {
+                 mask: (value) => {
+
+                     if (value[1] == '-') {
+                         return '#-##'
+                     }
+
+
+                     return '##-##'
+
+                 },
+
+                 postProcess: (value) => {
+
+                     let arr = [];
+
+                     value.split('-').forEach(num => {
+                         Number(num) > 30 ? arr.push(30) : arr.push(num)
+                     })
+
+                     return arr.join('-')
+
+                 }
+             })
+
+
+
+             new MaskInput("[data-masked='time']", {
+                 mask: '##:##',
+
+
+                 postProcess: (value) => {
+
+                     let arr = [];
+
+                     value.split(':').forEach((num, index) => {
+                         if (index == 0) Number(num) > 23 ? arr.push(23) : arr.push(num)
+                         if (index == 1) Number(num) > 59 ? arr.push(59) : arr.push(num)
+                     })
+
+                     return arr.join(':')
+
+                 }
+
+             })
+
+
+
+             new MaskInput("[data-masked='number']", {
+                 mask: '####',
+
              })
          }
 
@@ -1122,6 +1181,7 @@
      =============================================*/
 
      class PickupParams {
+
          constructor(el) {
 
              this.formData = null
@@ -1137,6 +1197,62 @@
              if (this.$el.querySelector('[name="params"]') && this.$el.querySelector('[name="params"]').value) {
                  this.formData = this.$el.querySelector('[name="params"]').value
              }
+         }
+
+         initMask() {
+
+             new MaskInput("[data-masked='days']", {
+                 mask: (value) => {
+
+                     if (value[1] == '-') {
+                         return '#-##'
+                     }
+
+
+                     return '##-##'
+
+                 },
+
+                 postProcess: (value) => {
+
+                     let arr = [];
+
+                     value.split('-').forEach(num => {
+                         Number(num) > 30 ? arr.push(30) : arr.push(num)
+                     })
+
+                     return arr.join('-')
+
+                 }
+             })
+
+
+
+             new MaskInput("[data-masked='time']", {
+                 mask: '##:##',
+
+
+                 postProcess: (value) => {
+
+                     let arr = [];
+
+                     value.split(':').forEach((num, index) => {
+                         if (index == 0) Number(num) > 23 ? arr.push(23) : arr.push(num)
+                         if (index == 1) Number(num) > 59 ? arr.push(59) : arr.push(num)
+                     })
+
+                     return arr.join(':')
+
+                 }
+
+             })
+
+
+
+             new MaskInput("[data-masked='number']", {
+                 mask: '####',
+
+             })
          }
 
          openPopup() {
@@ -1162,6 +1278,7 @@
 
                      const form = popup.modal.querySelector('form')
                      this.insertForm(form)
+                     this.initMask()
 
                      form.addEventListener('submit', e => {
                          e.preventDefault()
@@ -1224,6 +1341,7 @@
                  this.openPopup()
              })
          }
+
      }
 
      document.querySelectorAll('.shop-block__point').forEach((item) => {
