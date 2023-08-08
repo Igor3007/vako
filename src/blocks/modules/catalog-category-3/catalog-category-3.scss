@@ -45,6 +45,19 @@
         height: calc((var(--vh, 1vh) * 100) - 64px - 48px);
         padding-bottom: 16px;
       }
+
+      &__send {
+        width: 50%;
+
+        & .btn {
+          width: 100%;
+        }
+      }
+
+      &__clear {
+        width: 50%;
+      }
+
     }
   }
 
@@ -123,6 +136,7 @@
     border-radius: 6px;
     margin-left: 12px;
 
+
     @media screen and (min-width: $w992) {
       height: 40px;
       margin-left: 0;
@@ -158,10 +172,14 @@
         opacity: 1;
       }
     }
+
+
   }
 
 
   &__send {
+
+
 
     @media screen and (min-width: $w992) {
       display: none;
@@ -170,6 +188,7 @@
     & button {
       display: flex;
       flex-direction: column;
+      width: 100%;
 
       & small {
         font-size: 12px;

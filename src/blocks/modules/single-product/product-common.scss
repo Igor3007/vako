@@ -423,13 +423,16 @@
         color: $gray-56;
         font-weight: 600;
 
+
+
         & svg {
-            fill: $gray-56;
+
             width: 20px;
             min-width: 20px;
             height: 20px;
-
-
+            stroke: $gray-56;
+            stroke-width: 2px;
+            fill: transparent;
         }
 
         & span {
@@ -454,6 +457,11 @@
             align-items: center;
             border-radius: 6px;
             justify-content: center;
+            position: relative;
+
+            &::before {
+                display: none !important;
+            }
 
             @media screen and (min-width: $w992) {
                 width: auto;
@@ -461,19 +469,24 @@
                 height: 36px;
             }
 
+
+
             &.active {
                 & svg {
                     fill: $accent-1-1;
+                    stroke: $accent-1-1;
                 }
+
+
             }
 
             &:hover {
                 background-color: $gray-96;
                 color: $accent-1-1;
 
-                // & svg {
-                //     fill: $accent-1-1;
-                // }
+                & svg {
+                    stroke: $accent-1-1;
+                }
 
                 & span {
                     color: $accent-1-1;
@@ -504,6 +517,23 @@
 
 
 
+}
+
+@keyframes effect_dylan {
+    50% {
+        transform: scale(1.9, 1.9);
+        opacity: 0;
+    }
+
+    99% {
+        transform: scale(0.001, 0.001);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(0.001, 0.001);
+        opacity: 1;
+    }
 }
 
 .fast-properties {
@@ -816,16 +846,17 @@
         display: flex;
         align-items: center;
         margin-left: 10px;
+        color: $gray-56;
         font-weight: 600;
 
-
         & svg {
-            fill: $gray-56;
+
             width: 20px;
             min-width: 20px;
             height: 20px;
-
-
+            stroke: $gray-56;
+            stroke-width: 2px;
+            fill: transparent;
         }
 
         & span {
@@ -833,6 +864,10 @@
             padding-left: 10px;
             font-size: 13px;
             color: $gray-56;
+
+            @media screen and (min-width: $w1440) {
+                font-size: 14px;
+            }
 
             @media screen and (min-width: $w992) {
                 display: inline-block;
@@ -846,30 +881,40 @@
             align-items: center;
             border-radius: 6px;
             justify-content: center;
+            position: relative;
 
             @media screen and (min-width: $w992) {
                 width: auto;
-                padding: 0 7px;
+                padding: 0 12px;
                 height: 36px;
+            }
+
+            &::before {
+                display: none !important;
             }
 
             &.active {
                 & svg {
                     fill: $accent-1-1;
+                    stroke: $accent-1-1;
                 }
+
+
             }
 
             &:hover {
                 background-color: $gray-96;
                 color: $accent-1-1;
 
-                // & svg {
-                //     fill: $accent-1-1;
-                // }
+                & svg {
+                    stroke: $accent-1-1;
+                }
 
                 & span {
                     color: $accent-1-1;
                 }
+
+
             }
         }
     }

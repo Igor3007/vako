@@ -288,13 +288,41 @@
       justify-content: center;
       margin-left: 4px;
 
+      &::after {
+        content: '';
+        background-color: $accent-1-1;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: scale(0.001, 0.001);
+        visibility: hidden;
+      }
+
+
       & svg {
-        fill: #8F8F8F;
+        fill: transparent;
+        stroke: #8F8F8F;
+        stroke-width: 2.1px;
+        transition: 0.4s ease;
+      }
+
+      & .ausvg-stroke {
+        opacity: 0
       }
 
       &.active {
         & svg {
           fill: $accent-1-1;
+          stroke: $accent-1-1;
+        }
+
+        &::after {
+          animation: effect_dylan 0.8s 0.08s ease-out;
+          visibility: visible;
         }
       }
 
@@ -303,9 +331,10 @@
         background-color: #f5f5f5;
         border-radius: 4px;
 
-        // & svg {
-        //   fill: $accent-1-1;
-        // }
+        & svg {
+          stroke: $accent-1-1;
+          stroke-width: 2px;
+        }
 
       }
     }
@@ -611,6 +640,8 @@
 
 
 }
+
+
 
 .shipping-item {
 

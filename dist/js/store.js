@@ -45,6 +45,8 @@
 
 
 
+
+
      /* ==============================================
      mobile menu
      ============================================== */
@@ -1129,7 +1131,6 @@
 
          insertForm(form) {
              if (this.formData) {
-
                  const FD = JSON.parse(this.formData)
 
                  form.querySelector('[name="type"]').value = FD['type'] || ''
@@ -1137,6 +1138,28 @@
                  form.querySelector('[name="days"]').value = FD['days'] || ''
                  form.querySelector('[name="time"]').value = FD['time'] || ''
              }
+
+             form.querySelectorAll('input').forEach((input) => {
+                 input.addEventListener('focus', e => {
+                     console.log(e.target)
+
+                     //  if (!input) return false;
+
+                     //  let element = input;
+                     //  let headerOffset = 0;
+                     //  let elementPosition = element.offsetTop
+                     //  let offsetPosition = elementPosition - headerOffset;
+
+                     //var offset = input.getBoundingClientRect();
+
+                     setTimeout(() => {
+                         document.querySelector('.af-popup').scrollTo({
+                             top: input.offsetTop,
+                             behavior: "smooth"
+                         });
+                     }, 300)
+                 })
+             })
          }
 
          renderInfo() {
@@ -1207,7 +1230,6 @@
                      if (value[1] == '-') {
                          return '#-##'
                      }
-
 
                      return '##-##'
 
@@ -1347,6 +1369,9 @@
      document.querySelectorAll('.shop-block__point').forEach((item) => {
          new PickupParams(item)
      })
+
+
+
 
 
 

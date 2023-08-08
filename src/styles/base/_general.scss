@@ -95,6 +95,10 @@ section {
     position: relative;
 }
 
+// svg path {
+//     fill: inherit;
+// }
+
 main {
     width: 100%;
     min-height: calc((var(--vh, 1vh) * 100) - 223px);

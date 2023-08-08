@@ -2680,6 +2680,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         if (arrayWishList.lastIndexOf(product_id) !== -1) {
             item.classList.add('active')
+            item.dataset.tooltip = 'В избранном'
         }
 
         item.addEventListener('click', function (event) {
@@ -2687,9 +2688,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (this.classList.contains('active')) {
                 WL.remove(product_id)
                 this.classList.remove('active')
+                this.dataset.tooltip = 'Добавить в избранное'
             } else {
                 WL.add(product_id)
                 this.classList.add('active')
+                this.dataset.tooltip = 'В избранном'
                 wishlistPopup(product_id, 'wishlist')
             }
         })
@@ -2718,6 +2721,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         if (arrayCompare.lastIndexOf(product_id) !== -1) {
             item.classList.add('active')
+            item.dataset.tooltip = 'В избранном'
         }
 
         item.addEventListener('click', function (event) {
@@ -2725,9 +2729,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (this.classList.contains('active')) {
                 CMP.remove(product_id)
                 this.classList.remove('active')
+                this.dataset.tooltip = 'Добавить в сравнение'
             } else {
                 CMP.add(product_id)
                 this.classList.add('active')
+                this.dataset.tooltip = 'В сравнении'
 
                 wishlistPopup(product_id, 'compare')
             }

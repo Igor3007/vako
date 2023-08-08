@@ -4993,6 +4993,18 @@ footer {
   padding-bottom: 16px;
 }
 
+.category-filter.is-open .category-filter__send {
+  width: 50%;
+}
+
+.category-filter.is-open .category-filter__send .btn {
+  width: 100%;
+}
+
+.category-filter.is-open .category-filter__clear {
+  width: 50%;
+}
+
 .category-filter__head {
   height: 48px;
   min-height: 48px;
@@ -5089,6 +5101,7 @@ footer {
 .category-filter__send button {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .category-filter__send button small {
@@ -5850,17 +5863,49 @@ footer {
   margin-left: 4px;
 }
 
+.minicard__action a::after {
+  content: '';
+  background-color: #DF1F26;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale(0.001, 0.001);
+  visibility: hidden;
+}
+
 .minicard__action a svg {
-  fill: #8F8F8F;
+  fill: transparent;
+  stroke: #8F8F8F;
+  stroke-width: 2.1px;
+  transition: 0.4s ease;
+}
+
+.minicard__action a .ausvg-stroke {
+  opacity: 0;
 }
 
 .minicard__action a.active svg {
   fill: #DF1F26;
+  stroke: #DF1F26;
+}
+
+.minicard__action a.active::after {
+  animation: effect_dylan 0.8s 0.08s ease-out;
+  visibility: visible;
 }
 
 .minicard__action a:hover {
   background-color: #f5f5f5;
   border-radius: 4px;
+}
+
+.minicard__action a:hover svg {
+  stroke: #DF1F26;
+  stroke-width: 2px;
 }
 
 .minicard__offers a {
@@ -6422,10 +6467,12 @@ footer {
 
 .product-details__compare svg,
 .product-details__fav svg {
-  fill: #8f8f8f;
   width: 20px;
   min-width: 20px;
   height: 20px;
+  stroke: #8f8f8f;
+  stroke-width: 2px;
+  fill: transparent;
 }
 
 .product-details__compare span,
@@ -6444,17 +6491,29 @@ footer {
   align-items: center;
   border-radius: 6px;
   justify-content: center;
+  position: relative;
+}
+
+.product-details__compare a::before,
+.product-details__fav a::before {
+  display: none !important;
 }
 
 .product-details__compare a.active svg,
 .product-details__fav a.active svg {
   fill: #DF1F26;
+  stroke: #DF1F26;
 }
 
 .product-details__compare a:hover,
 .product-details__fav a:hover {
   background-color: #f5f5f5;
   color: #DF1F26;
+}
+
+.product-details__compare a:hover svg,
+.product-details__fav a:hover svg {
+  stroke: #DF1F26;
 }
 
 .product-details__compare a:hover span,
@@ -6469,6 +6528,23 @@ footer {
 .product-details__properties-fast {
   border-bottom: 1px solid #eee;
   margin-bottom: 20px;
+}
+
+@keyframes effect_dylan {
+  50% {
+    transform: scale(1.9, 1.9);
+    opacity: 0;
+  }
+
+  99% {
+    transform: scale(0.001, 0.001);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(0.001, 0.001);
+    opacity: 1;
+  }
 }
 
 .fast-properties__title {
@@ -6710,15 +6786,18 @@ footer {
   display: flex;
   align-items: center;
   margin-left: 10px;
+  color: #8f8f8f;
   font-weight: 600;
 }
 
 .product-mini__compare svg,
 .product-mini__fav svg {
-  fill: #8f8f8f;
   width: 20px;
   min-width: 20px;
   height: 20px;
+  stroke: #8f8f8f;
+  stroke-width: 2px;
+  fill: transparent;
 }
 
 .product-mini__compare span,
@@ -6737,17 +6816,29 @@ footer {
   align-items: center;
   border-radius: 6px;
   justify-content: center;
+  position: relative;
+}
+
+.product-mini__compare a::before,
+.product-mini__fav a::before {
+  display: none !important;
 }
 
 .product-mini__compare a.active svg,
 .product-mini__fav a.active svg {
   fill: #DF1F26;
+  stroke: #DF1F26;
 }
 
 .product-mini__compare a:hover,
 .product-mini__fav a:hover {
   background-color: #f5f5f5;
   color: #DF1F26;
+}
+
+.product-mini__compare a:hover svg,
+.product-mini__fav a:hover svg {
+  stroke: #DF1F26;
 }
 
 .product-mini__compare a:hover span,
@@ -8541,6 +8632,10 @@ div[data-single-catalog]:not(.is-active) {
 
 .product-table__group.is-hide-group .table-group__head span::after {
   transform: rotate(-90deg);
+}
+
+.compare-product__action a[data-tooltip] {
+  background-color: transparent;
 }
 
 .compare-filter {
@@ -10418,7 +10513,7 @@ a[data-tooltip]:hover::before {
   .product-mini__compare a,
   .product-mini__fav a {
     width: auto;
-    padding: 0 7px;
+    padding: 0 12px;
     height: 36px;
   }
 
@@ -11126,6 +11221,11 @@ a[data-tooltip]:hover::before {
 
   .product-mini__review a {
     font-size: 13px;
+  }
+
+  .product-mini__compare span,
+  .product-mini__fav span {
+    font-size: 14px;
   }
 
   .product-prop__list {

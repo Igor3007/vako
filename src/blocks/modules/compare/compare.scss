@@ -355,6 +355,10 @@
     transform: rotate(-90deg)
 }
 
+.compare-product__action a[data-tooltip] {
+    background-color: transparent
+}
+
 .compare-filter {
     display: flex;
     flex-wrap: wrap;
