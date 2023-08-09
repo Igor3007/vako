@@ -94,7 +94,7 @@ section {
 
 main {
   width: 100%;
-  min-height: calc((var(--vh, 1vh) * 100) - 223px);
+  min-height: calc(100vh - 100px);
 }
 
 .page-store {
@@ -5476,7 +5476,7 @@ a[data-tooltip]:hover::before {
 
 @media screen and (min-width: 767px) {
   main {
-    min-height: calc((var(--vh, 1vh) * 100) - 175px);
+    min-height: calc(100vh - 175px);
   }
 
   .container {
@@ -5857,7 +5857,7 @@ a[data-tooltip]:hover::before {
   }
 
   main {
-    min-height: calc((var(--vh, 1vh) * 100) - 159px);
+    min-height: calc(100vh - 159px);
   }
 
   .container {
@@ -5928,7 +5928,7 @@ a[data-tooltip]:hover::before {
 
 @media screen and (min-width: 1440px) {
   main {
-    min-height: calc((var(--vh, 1vh) * 100) - 207px);
+    min-height: calc(100vh - 207px);
   }
 
   .container {

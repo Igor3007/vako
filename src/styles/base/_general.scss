@@ -101,20 +101,20 @@ section {
 
 main {
     width: 100%;
-    min-height: calc((var(--vh, 1vh) * 100) - 223px);
+    min-height: calc(100vh - 100px);
 
 
     @media screen and (min-width: $w1440) {
 
-        min-height: calc((var(--vh, 1vh) * 100) - 207px);
+        min-height: calc(100vh - 207px);
     }
 
     @media screen and (min-width: $w1200) {
-        min-height: calc((var(--vh, 1vh) * 100) - 159px);
+        min-height: calc(100vh - 159px);
     }
 
     @media screen and (min-width: $w760) {
-        min-height: calc((var(--vh, 1vh) * 100) - 175px);
+        min-height: calc(100vh - 175px);
     }
 }
 
