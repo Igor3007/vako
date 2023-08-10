@@ -1304,8 +1304,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     }
 
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    /* ===========================================
+    vh fix
+    ===========================================*/
+
+    function vh__fix() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 
     /* =========================================
     change view catalog
@@ -1329,15 +1335,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         }
 
+        //favorites
+
+        if (document.querySelector('.catalog-products--wishlist')) {
+
+            let currentBlock = document.querySelector('.catalog-products--wishlist')
+
+            if (document.body.clientWidth < 992) {
+                currentBlock.classList.remove('grid--view')
+            } else {
+                currentBlock.classList.add('grid--view')
+            }
+        }
+
 
     }
 
+    changeViewCatalog()
+    vh__fix()
 
     window.addEventListener('resize', () => {
-        // We execute the same script as before
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-
+        vh__fix()
         changeViewCatalog()
     });
 
@@ -1546,11 +1564,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     })
 
-    //compare
+    //single-shop
     window.tabsSingleProduct = new Tabs({
-        navElem: '[data-tab-nav="compare"]',
-        containerElem: '[data-tab-container="compare"]',
-        tabStart: '1',
+        navElem: '[data-tab-nav="store"]',
+        containerElem: '[data-tab-container="store"]',
+        tabStart: 'review',
 
         onChangeTab: function (tab) {
             //console.log('info', tab)
@@ -2236,6 +2254,42 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* ======================================
+    compare remove
+    ======================================*/
+
+    if (document.querySelector('[data-comare="remove"]')) {
+        const items = document.querySelectorAll('[data-comare="remove"]')
+
+        items.forEach(item => {
+            item.addEventListener('click', e => {
+                if (confirm('Удалить товар?')) {
+                    // ajax 
+                }
+            })
+        })
+
+    }
+
+    /* ======================================
+    compare table width
+    ======================================*/
+
+    if (document.querySelector('.compare-table')) {
+        const products = document.querySelectorAll('.compare-product');
+        let widthWrp = document.querySelector('.compare-table__wrp')
+        const widthUnit = 250;
+        const table = document.querySelector('.compare-table')
+
+        console.log(widthWrp.clientWidth)
+        console.log((products.length * widthUnit))
+
+        if (widthWrp.clientWidth > (products.length * widthUnit)) {
+            table.style.width = (products.length * widthUnit) + 'px'
+        }
+
+    }
+
     /* =============================================
     compare scroll
     =============================================*/
@@ -2247,6 +2301,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         let scrollerWrp = document.querySelector('.table-scroller__wrp')
         let scrollerContent = document.querySelector('.table-scroller__content')
         let scroller = document.querySelector('.table-scroller')
+        let groups = document.querySelectorAll('.product-table__group')
+
+        groups.forEach(item => {
+            item.style.width = widthTable.clientWidth + 'px'
+        })
 
 
         scrollerWrp.style.width = widthWrp.clientWidth + 'px'
@@ -2275,6 +2334,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     }
+
+
 
     /* =====================================
     compare slider
@@ -2551,8 +2612,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.getTotal = function () {
 
             if (this.getArray().length) {
-                this.elemTotal.classList.remove('hide');
                 this.elemTotal.innerText = this.getArray().length;
+            } else {
+                this.elemTotal.innerText = '';
             }
 
         }
@@ -2681,6 +2743,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (arrayWishList.lastIndexOf(product_id) !== -1) {
             item.classList.add('active')
             item.dataset.tooltip = 'В избранном'
+
+            if (item.querySelector('[data-wishlist-text]')) {
+                item.querySelector('[data-wishlist-text]').innerText = item.dataset.tooltip = 'В избранном'
+            }
         }
 
         item.addEventListener('click', function (event) {
@@ -2689,10 +2755,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 WL.remove(product_id)
                 this.classList.remove('active')
                 this.dataset.tooltip = 'Добавить в избранное'
+
+                if (item.querySelector('[data-wishlist-text]')) {
+                    item.querySelector('[data-wishlist-text]').innerText = item.dataset.tooltip = 'В избранное'
+                }
+
             } else {
                 WL.add(product_id)
                 this.classList.add('active')
                 this.dataset.tooltip = 'В избранном'
+
+                if (item.querySelector('[data-wishlist-text]')) {
+                    item.querySelector('[data-wishlist-text]').innerText = item.dataset.tooltip = 'В избранном'
+                }
+
                 wishlistPopup(product_id, 'wishlist')
             }
         })
@@ -2721,7 +2797,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         if (arrayCompare.lastIndexOf(product_id) !== -1) {
             item.classList.add('active')
-            item.dataset.tooltip = 'В избранном'
+            item.dataset.tooltip = 'В сравнении'
+
+            if (item.querySelector('[data-wishlist-text]')) {
+                item.querySelector('[data-wishlist-text]').innerText = item.dataset.tooltip = 'В сравнении'
+            }
         }
 
         item.addEventListener('click', function (event) {
@@ -2730,10 +2810,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 CMP.remove(product_id)
                 this.classList.remove('active')
                 this.dataset.tooltip = 'Добавить в сравнение'
+
+                if (item.querySelector('[data-wishlist-text]')) {
+                    item.querySelector('[data-wishlist-text]').innerText = item.dataset.tooltip = 'Сравнить'
+                }
+
             } else {
                 CMP.add(product_id)
                 this.classList.add('active')
                 this.dataset.tooltip = 'В сравнении'
+
+                if (item.querySelector('[data-wishlist-text]')) {
+                    item.querySelector('[data-wishlist-text]').innerText = item.dataset.tooltip = 'В сравнении'
+                }
 
                 wishlistPopup(product_id, 'compare')
             }
@@ -2744,12 +2833,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-    if (document.querySelector('.favourites')) {
-        if (document.body.clientWidth <= 576) {
-            let currentBlock = document.querySelector('.catalog-products--wishlist')
-            currentBlock.classList.remove('grid--view')
-        }
-    }
+
 
     /* ====================================
     help page category

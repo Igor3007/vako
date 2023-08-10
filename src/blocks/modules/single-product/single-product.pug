@@ -48,11 +48,11 @@ mixin single-shop
                 .single-product__h1.single-shop__h1: h1 Магазин Shop Local
                 +single-shop-head
                 .single-product__tabs
-                    ul(data-tab-nav="product")
+                    ul(data-tab-nav="store")
                         li: a(href='#review') Отзывы магазина
                         li: a(href='#common') Товары магазина
 
-                .single-product__content(data-tab-container="product")
+                .single-product__content(data-tab-container="store")
                     +shop-review
-                    +product-common-shop-items
+                    +product-common-shop-items('disabled-sort')
 

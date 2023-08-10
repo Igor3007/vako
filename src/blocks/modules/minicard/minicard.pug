@@ -195,5 +195,5 @@ mixin minicard-favourites(data)
                 .minicard__offers
                     a(href='#') 24 предложения
                 .minicard__action
-                    a(href='#' data-tooltip="Добавить в избранное"): +icons('#ic_heart-color', 20)
-                    a(href='#' data-tooltip="Добавить в сравнение"): +icons('#ic_compare-default', 20)
+                    a(href='#' data-wishlist=data.id data-tooltip="Добавить в избранное"): +icons('#ic_heart-default', 20) 
+                    a(href='#' data-compare=data.id data-tooltip="Добавить в сравнение"): +icons('#ic_compare', 20)

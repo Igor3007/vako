@@ -50,11 +50,11 @@ mixin product-common
                         .product-details__fav
                             a(href='#' data-wishlist="8778")
                                 +icons('#ic_heart-default', 20)
-                                span В избранное
+                                span(data-wishlist-text="fav") В избранное
                         .product-details__compare
                             a(href='#' data-compare="7852")
                                 +icons('#ic_compare-default', 20)
-                                span Сравнить
+                                span(data-wishlist-text="compare") Сравнить
                     .product-details__colors
 
                         span Цвет: Pine Grey
@@ -97,7 +97,7 @@ mixin product-common
                                 .min-properties__more
                                     a(href='#properties') Все характеристики
 
-    .product-mini(data-tab="properties,prices,review,video")
+    .product-mini(data-tab="properties,prices,review,video") 
         .product-mini
             .product-mini__image
                 +picture('/img/product/sp-1')
@@ -109,11 +109,11 @@ mixin product-common
                     .product-mini__fav
                         a(href='#' data-wishlist="8778")
                             +icons('#ic_heart-default', 20)
-                            span В избранное
+                            span(data-wishlist-text="fav") В избранное
                     .product-mini__compare
                         a(href='#' data-compare="7852")
                             +icons('#ic_compare-default', 20)
-                            span Сравнить
+                            span(data-wishlist-text="compare") Сравнить
 
     .product-offers(data-tab="common,prices")
         .product-offers__title: h2 Все предложения магазинов (27)
@@ -289,7 +289,7 @@ mixin product-common
 
 
 
-mixin product-common-shop-items
+mixin product-common-shop-items(disabledSort)
 
     .product-common(data-tab="common")
 
@@ -399,26 +399,34 @@ mixin product-common-shop-items
 
 
                     .catalog-category__main.shop-category
-                        .catalog-category__top
-                            .catalog-category__sort
-                                .sort-dropdown
-                                    .sort-dropdown__title Сначала популярные
-                                    .sort-dropdown__list
+
+                        if !disabledSort 
+                            .catalog-category__top
+
+                                if !disabledSort 
+                                    .catalog-category__sort
+                                        .sort-dropdown
+                                            .sort-dropdown__title Сначала популярные
+                                            .sort-dropdown__list
+                                                ul
+                                                    li: a(href='#' ) Сначала популярные
+                                                    li: a(href='#' class="is-active is-active--down") По цене
+                                                    li: a(href='#' class="is-active is-active--up") По рейтингу
+                                                    li: a(href='#') По отзывам
+                                
+
+                                
+                                if !disabledSort 
+                                    .catalog-category__mobile
+                                        button(data-filter="open" data-elem="prices")
+                                            +icons('#ic_filter', 17)
+                                            span Фильтры
+
+                                if !disabledSort 
+                                    .catalog-category__view
                                         ul
-                                            li: a(href='#' ) Сначала популярные
-                                            li: a(href='#' class="is-active is-active--down") По цене
-                                            li: a(href='#' class="is-active is-active--up") По рейтингу
-                                            li: a(href='#') По отзывам
-
-                            .catalog-category__mobile
-                                button(data-filter="open" data-elem="prices")
-                                    +icons('#ic_filter', 17)
-                                    span Фильтры
-
-                            .catalog-category__view
-                                ul
-                                    li: a(href='#list' data-single-view="list"): +icons('#ic_sort-list', 24)
-                                    li: a(href='#map'  data-single-view="map"): +icons('#ic_pin-default', 24)
+                                            li: a(href='#list' data-single-view="list"): +icons('#ic_sort-list', 24)
+                                            li: a(href='#map'  data-single-view="map"): +icons('#ic_pin-default', 24)
 
 
                         .catalog-category__products.is-active(data-single-catalog="list")

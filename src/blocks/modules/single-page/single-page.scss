@@ -171,8 +171,21 @@
     align-items: center;
 
     &:hover {
-      opacity: .7;
+
       transition: .3s ease;
+
+      & span {
+        color: #222;
+      }
+
+      & svg {
+        stroke: #222;
+      }
+    }
+
+    svg {
+      stroke: #8F8F8F;
+      stroke-width: 1px;
     }
 
     span {

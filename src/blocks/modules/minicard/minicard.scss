@@ -278,6 +278,11 @@
     & a[data-tooltip]::before {
       min-width: auto;
       white-space: nowrap;
+      display: none;
+
+      @media screen and (min-width: $w760) {
+        display: block;
+      }
     }
 
     & a {
@@ -757,59 +762,13 @@
 
 .minicard--favourites {
 
-  &:hover {
-    .minicard__action a[data-tooltip] {
-      opacity: 1 !important;
-    }
-  }
+  // &:hover {
+  //   .minicard__action a[data-tooltip] {
+  //     opacity: 1 !important;
+  //   }
+  // }
 
-  & .minicard {
-    &__action {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      @media screen and (min-width: $w1200) {
-        opacity: 1;
-        transition: 0.2s ease;
-      }
-
-
-      & a[data-tooltip]:last-child {
-        @media screen and (min-width: $w1200) {
-          opacity: 0;
-          transition: 0.2s ease;
-        }
-      }
-
-      & a[data-tooltip]::before {
-        min-width: auto;
-        white-space: nowrap;
-      }
-
-      & a {
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 4px;
-
-        & svg {
-          fill: #8F8F8F;
-        }
-
-        &:hover {
-          background-color: #f5f5f5;
-          border-radius: 4px;
-        }
-      }
-
-    }
-  }
+  & .minicard {}
 }
 
 .minicard--mini {
