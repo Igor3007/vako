@@ -2742,7 +2742,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 elem.classList.add('popup-top-tooltip')
 
                 elem.querySelector('[data-popup="close"]').addEventListener('click', e => {
-                    elem.remove()
+                    elem.classList.add('fadeout')
+
+                    setTimeout(() => {
+                        elem.remove()
+                    }, 1000)
                 })
 
                 //remove old

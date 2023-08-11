@@ -5265,6 +5265,11 @@ a[data-tooltip]:hover::before {
 }
 
 @keyframes out-fade-popup {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
   to {
     transform: translateY(-25px);
     opacity: 0;
@@ -5273,7 +5278,7 @@ a[data-tooltip]:hover::before {
 
 .popup-top-tooltip {
   position: fixed;
-  top: 70px;
+  top: 16px;
   right: 10px;
   max-width: 520px;
   border-radius: 6px;
@@ -5288,7 +5293,7 @@ a[data-tooltip]:hover::before {
 }
 
 .popup-top-tooltip.fadeout {
-  animation: out-fade-popup 0.3s ease forwards;
+  animation: out-fade-popup 0.5s ease forwards;
 }
 
 .popup-top-tooltip .product-mini {
@@ -5839,7 +5844,7 @@ a[data-tooltip]:hover::before {
   }
 
   .popup-top-tooltip {
-    top: 30px;
+    top: 16px;
     left: auto;
   }
 }
