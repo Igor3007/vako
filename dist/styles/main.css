@@ -7843,8 +7843,8 @@ div[data-single-catalog]:not(.is-active) {
   display: block;
 }
 
-.single-product__tabs ul[data-tab-nav="store"] {
-  padding-bottom: 30px;
+div.single-product__content[data-tab-container="store"] {
+  padding-top: 30px;
 }
 
 .product-video {
