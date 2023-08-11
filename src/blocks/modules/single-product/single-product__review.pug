@@ -98,6 +98,7 @@ mixin shop-review
                         .review-content__item: +card-review-with-date
                         .review-content__item: +card-review-reply-with-date
                         .review-content__item: +card-review-with-date
+                        .review-content__item: +card-review-with-date-min
                         .review-content__item: +card-review-with-date
                         .review-content__item: +card-review-reply-with-date
                         .review-content__item: +card-review-with-date
@@ -200,7 +201,38 @@ mixin card-review-with-date
                         span.like-count 2
                     .card-review__complaint
                         +icons('#ic_warning', 20)
-            .card-review__childs
+            .card-review__childs.card-review__childs--shop
+
+
+mixin card-review-with-date-min
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user6')
+        .card-review__main
+            .card-review__head
+                .card-review__name Кирил Джуба
+                .card-review__date.card-review__date-wrapper
+                    ul
+                        li 2 месяца назад, Москва
+                        li Доставка
+                        li Заказ №136559
+            .card-review__rating.rating--green
+                span 5
+                small Отлично
+            .card-review__text Компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья)
+            
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Комментировать
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                    .card-review__complaint
+                        +icons('#ic_warning', 20)
+            .card-review__childs.card-review__childs--shop
+
 
 mixin card-review-childs
     .card-review
@@ -229,13 +261,11 @@ mixin card-review-childs-shop-last
                 .card-review__date 2 месяца назад, Москва
             .card-review__text Относительная компактность -вид -удобное расположение АКБ -мощная АКБ -насос (спрятан в штыре сиденья) -передний свет от АКБ полная зарядка около 6 часов -удобная посадка (мой рост 184, можно было еще поднять) -АКБ на замке Классический мужской дизайн. Прочно и надёжно, что и свойственно для G-shok. Точность хода. Ни каких лишних функций.
             .card-review__action
-                .card-review__commets(data-review="show-comment") Все ответы
+                .card-review__add.card-review__add-shop(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Ответить
 
-            .card-review__childs
-                +card-review-shop-childs()
-                +card-review-last()
-                +card-review-last()
-                +card-review-last()
+             
 
 
 
@@ -263,6 +293,7 @@ mixin card-review-last--reply
             .card-review__text В частности: название товара, слово магазин, оплата онлайн и 24 предложения явно больше, чем на iOS и в дизайне.
             .card-review__action
                 .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
                     span Ответить
 
 
@@ -312,7 +343,7 @@ mixin card-review-reply-with-date
                         span.like-count 2
                     .card-review__complaint
                         +icons('#ic_warning', 20)
-            .card-review__childs
+            .card-review__childs.card-review__childs--shop
                 +card-review-shop-childs()
                 +card-review-childs-shop-last()
 
@@ -327,11 +358,6 @@ mixin card-review-shop-childs
                 .card-review__date 2 месяца назад, Москва
             .card-review__text Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.
             .card-review__action
-                .card-review__add.card-review__add-shop(data-review="add" data-id="123" data-parent="369")
-                    +icons('#ic_comment', 20)
-                    span Ответить
-
-            .card-review__childs
-
-                 
-
+                    .card-review__add.card-review__add-shop(data-review="add" data-id="123" data-parent="369")
+                        +icons('#ic_comment', 20)
+                        span Ответить

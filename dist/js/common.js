@@ -1859,6 +1859,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 this.ListComments = this.$el.querySelector('[data-review="list"]');
                 this.addEvents();
                 this.formInstanse = null;
+
+                this.showHideLongText()
             }
 
         }
@@ -1910,7 +1912,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
 
                 window.ajax({
-                    type: 'POST', //POST
+                    type: 'GET', //POST
                     url: '/_comment-reply.html',
                     responseType: 'html',
                     data: {
@@ -2068,6 +2070,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 })
             })
 
+
+        }
+
+        showHideLongText() {
+
+            let countChars = document.body.clientWidth > 576 ? 500 : 150
+
+            document.querySelectorAll('.card-review__text').forEach(item => {
+                if (item.innerText.length > countChars) {
+                    item.classList.add('crop--text')
+
+                    let showButton = document.createElement('div')
+                    showButton.classList.add('card-review__more')
+                    showButton.innerText = 'Читать полностью'
+
+                    showButton.addEventListener('click', e => {
+                        if (item.classList.contains('crop--text')) {
+                            item.classList.remove('crop--text')
+                            showButton.innerText = 'Cвернуть'
+                        } else {
+                            item.classList.add('crop--text')
+                            showButton.innerText = 'Читать полностью'
+                        }
+                    })
+
+                    item.after(showButton)
+                }
+            })
 
         }
 
@@ -2345,6 +2375,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.elem = elem
         this.container = this.elem.querySelector('.compare-table__wrp')
         this.items = this.container.querySelectorAll('.compare-product')
+
+        this.containerW = document.querySelector('.compare-table__wrp')
+        this.containerTable = document.querySelector('.compare-table__wrp table')
+        this.leftPX = 0
+
         this.nav = {
             next: this.elem.querySelector('[data-se-slider="next"]'),
             prev: this.elem.querySelector('[data-se-slider="prev"]'),
@@ -2380,10 +2415,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     left: rectContainer.left + document.body.scrollLeft
                 }
 
-                let leftPX = ((elem.offsetWidth + 24) * _this.activeSlide)
+                _this.leftPX = ((elem.offsetWidth + 20) * _this.activeSlide)
+
+                // console.log(elem, 'elem')
+                // console.log(elem.offsetLeft, 'eleem.offsetLeft')
+                // console.log(elemOffset.left, 'offsetLeft')
+                // console.log(leftPX, 'leftPX')
+
+
+
+                if (_this.leftPX > (_this.containerTable.clientWidth - _this.containerW.clientWidth)) {
+                    return false
+                }
 
                 container.scrollTo({
-                    left: leftPX,
+                    left: _this.leftPX,
                     behavior: 'smooth'
                 });
 
@@ -2404,8 +2450,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         this.nextSlide = function () {
             if (this.activeSlide < (this.items.length - 1)) {
-                this.activeSlide++
-                this.changeSlide()
+
+                if (this.leftPX < (this.containerTable.clientWidth - this.containerW.clientWidth) - 20) {
+                    this.activeSlide++
+                    this.changeSlide()
+                }
+
+
             }
 
         }

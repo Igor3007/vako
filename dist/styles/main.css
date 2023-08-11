@@ -7580,6 +7580,7 @@ div[data-single-catalog]:not(.is-active) {
 
 .card-review__main {
   padding-left: 10px;
+  width: 100%;
 }
 
 .card-review__name {
@@ -7663,7 +7664,27 @@ div[data-single-catalog]:not(.is-active) {
 .card-review__text {
   line-height: 143%;
   font-size: 15px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.card-review__text.crop--text {
+  letter-spacing: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-review__more {
+  color: #7B61FF;
+  font-size: 14px;
+  padding-bottom: 10px;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.card-review__more:hover {
+  text-decoration: underline;
 }
 
 .card-review__commets {
@@ -7764,6 +7785,7 @@ div[data-single-catalog]:not(.is-active) {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  line-height: 146%;
 }
 
 .card-review__date-wrapper ul li {
@@ -7772,7 +7794,7 @@ div[data-single-catalog]:not(.is-active) {
   white-space: nowrap;
 }
 
-.card-review__date-wrapper ul li:not(:last-child):after {
+.card-review__date-wrapper ul li:not(:first-child):before {
   content: '';
   width: 4px;
   height: 4px;
@@ -7780,6 +7802,7 @@ div[data-single-catalog]:not(.is-active) {
   border-radius: 50%;
   background: #8f8f8f;
   margin: 0 8px;
+  margin-top: 2px;
 }
 
 .review-form__textarea {
@@ -7810,6 +7833,18 @@ div[data-single-catalog]:not(.is-active) {
 .review-form textarea:focus {
   border-color: #222;
   outline: none;
+}
+
+.card-review__childs.card-review__childs--shop .card-review__action {
+  display: none;
+}
+
+.card-review__childs.card-review__childs--shop .card-review:last-child .card-review__action {
+  display: block;
+}
+
+.single-product__tabs ul[data-tab-nav="store"] {
+  padding-bottom: 30px;
 }
 
 .product-video {
@@ -8787,7 +8822,7 @@ div[data-single-catalog]:not(.is-active) {
 }
 
 div[data-state="0"] {
-  opacity: 0.5;
+  opacity: 0.3;
   pointer-events: none;
 }
 
@@ -10680,7 +10715,7 @@ a[data-tooltip]:hover::before {
   }
 
   .card-review__date {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .card-review__thesis {
