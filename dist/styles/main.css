@@ -8101,6 +8101,7 @@ div.single-product__content[data-tab-container="store"] {
 .single-shop-head__rating {
   display: flex;
   align-items: flex-start;
+  width: 100%;
 }
 
 .single-shop-head__rating-img {
@@ -8160,6 +8161,14 @@ div.single-product__content[data-tab-container="store"] {
   align-items: flex-start;
   flex-wrap: wrap;
   margin-top: 24px;
+}
+
+.single-shop-head__payment--delivery {
+  /*  flex-grow: 1; */
+}
+
+.single-shop-head__payment--pay {
+  flex-grow: 1;
 }
 
 .single-shop-head__payment ul:not(:last-child) {
@@ -8692,6 +8701,11 @@ div.single-product__content[data-tab-container="store"] {
   font-size: 15px;
   font-weight: 400;
   line-height: 140%;
+  letter-spacing: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .compare-product__title a:hover {
@@ -9627,7 +9641,7 @@ a[data-tooltip]:hover::before {
   opacity: 0;
   transform: translateY(-10px);
   animation: to-fade-popup 0.3s ease forwards;
-  z-index: 15;
+  z-index: 110;
   left: 10px;
 }
 
@@ -9926,11 +9940,6 @@ a[data-tooltip]:hover::before {
 
   .single-shop-head__rating-img {
     margin-right: 36px;
-  }
-
-  .single-shop-head__payment {
-    flex-wrap: nowrap;
-    margin-top: 0;
   }
 
   .icon-cross-show {
@@ -10771,6 +10780,19 @@ a[data-tooltip]:hover::before {
 
   .single-shop-head__content {
     margin: 24px 0;
+  }
+
+  .single-shop-head__rating {
+    width: auto;
+  }
+
+  .single-shop-head__payment--pay {
+    flex-grow: 0;
+  }
+
+  .single-shop-head__payment {
+    flex-wrap: nowrap;
+    margin-top: 0;
   }
 
   .single-shop-head__payment ul:not(:last-child) {

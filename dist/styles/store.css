@@ -5288,7 +5288,7 @@ a[data-tooltip]:hover::before {
   opacity: 0;
   transform: translateY(-10px);
   animation: to-fade-popup 0.3s ease forwards;
-  z-index: 15;
+  z-index: 110;
   left: 10px;
 }
 

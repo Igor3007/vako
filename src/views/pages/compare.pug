@@ -2,6 +2,8 @@ extends ../layouts/compare
 
 include ../../blocks/components/breadcrumb/breadcrumb.pug
 include ../../blocks/modules/compare/compare.pug
+include ../../blocks/modules/compare/compare-headphone.pug
+include ../../blocks/modules/compare/compare-laptop.pug
  
  
 block variables
@@ -25,13 +27,15 @@ block content
                   span Очистить список
 
               .single-page__tabs
-                    ul
-                        li.active: a(href='compare.html') Мониторы
-                        li: a(href='compare-headphones.html') Наушники
-                        li: a(href='compare-laptop.html') Ноутбуки
+                ul(data-tab-nav="compare")
+                  li.active: a(href='#1') Мониторы
+                  li: a(href='#2') Наушники
+                  li: a(href='#3') Ноутбуки
 
               .single-page__content(data-container="compare")
-                .single-page__item: +compare()
+                .single-page__item(data-tab="1"): +compare()
+                .single-page__item(data-tab="2"): +compare-laptop()
+                .single-page__item(data-tab="3"): +compare-headphone()
                  
 
 block scripts

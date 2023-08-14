@@ -51,6 +51,11 @@
   &__rating {
     display: flex;
     align-items: flex-start;
+    width: 100%;
+
+    @media screen and (min-width: $w992) {
+      width: auto;
+    }
 
   }
 
@@ -117,7 +122,19 @@
     flex-wrap: wrap;
     margin-top: 24px;
 
-    @media screen and (min-width: $w576) {
+    &--delivery {
+      /*  flex-grow: 1; */
+    }
+
+    &--pay {
+      flex-grow: 1;
+
+      @media screen and (min-width: $w992) {
+        flex-grow: 0;
+      }
+    }
+
+    @media screen and (min-width: $w992) {
       flex-wrap: nowrap;
       margin-top: 0;
     }

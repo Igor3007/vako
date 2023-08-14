@@ -390,6 +390,8 @@
             font-weight: 400;
             line-height: 140%;
 
+            @include line-clamp(5);
+
             @media screen and (min-width: $w480) {
                 font-weight: 600;
             }

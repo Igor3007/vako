@@ -1517,11 +1517,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 //scroll to elem
 
                 if (params.scroll) {
-                    window.scrollTo({
-                        top: (document.querySelector('header').clientHeight || 0),
-                        behavior: 'smooth'
 
-                    })
+                    function offset(el) {
+                        var rect = el.getBoundingClientRect(),
+                            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+                            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        return {
+                            top: rect.top + scrollTop,
+                            left: rect.left + scrollLeft
+                        }
+                    }
+
+                    switch (this.setting.scroll) {
+
+
+
+                        case 'container':
+                            window.scrollTo({
+                                top: ((offset(this.container).top - 50) || 0),
+                                behavior: 'smooth'
+                            })
+                            break;
+
+                        case 'top':
+                        default:
+
+                            window.scrollTo({
+                                top: (document.querySelector('header').clientHeight || 0),
+                                behavior: 'smooth'
+                            })
+                            break;
+
+                    }
+
+
                 }
             }
 
@@ -1558,6 +1587,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         navElem: '[data-tab-nav="product"]',
         containerElem: '[data-tab-container="product"]',
         tabStart: 'common',
+        scroll: 'top',
 
         onChangeTab: function (tab) {
             //console.log('info', tab)
@@ -1569,11 +1599,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         navElem: '[data-tab-nav="store"]',
         containerElem: '[data-tab-container="store"]',
         tabStart: 'review',
+        scroll: 'container',
 
         onChangeTab: function (tab) {
             //console.log('info', tab)
         }
     })
+
+
 
 
     /* ======================================
@@ -2326,40 +2359,56 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     if (document.querySelector('.compare-table__wrp')) {
 
-        let widthWrp = document.querySelector('.compare-table__wrp')
-        let widthTable = document.querySelector('.compare-table__wrp > table')
-        let scrollerWrp = document.querySelector('.table-scroller__wrp')
-        let scrollerContent = document.querySelector('.table-scroller__content')
-        let scroller = document.querySelector('.table-scroller')
-        let groups = document.querySelectorAll('.product-table__group')
+        window.InitScrollCompare = function ($el) {
+            let widthWrp = $el.querySelector('.compare-table__wrp')
+            let widthTable = $el.querySelector('.compare-table__wrp > table')
+            let scrollerWrp = $el.querySelector('.table-scroller__wrp')
+            let scrollerContent = $el.querySelector('.table-scroller__content')
+            let scroller = $el.querySelector('.table-scroller')
+            let groups = $el.querySelectorAll('.product-table__group')
 
-        groups.forEach(item => {
-            item.style.width = widthTable.clientWidth + 'px'
-        })
+            groups.forEach(item => {
+                item.style.width = widthTable.clientWidth + 'px'
+            })
 
 
-        scrollerWrp.style.width = widthWrp.clientWidth + 'px'
-        scrollerContent.style.width = widthTable.clientWidth + 'px'
+            scrollerWrp.style.width = widthWrp.clientWidth + 'px'
+            scrollerContent.style.width = widthTable.clientWidth + 'px'
 
-        scrollerWrp.addEventListener('scroll', e => {
+            scrollerWrp.addEventListener('scroll', e => {
 
-            if (scroller.classList.contains('is-hover-scroller')) {
-                widthWrp.scrollLeft = e.target.scrollLeft
+                if (scroller.classList.contains('is-hover-scroller')) {
+                    widthWrp.scrollLeft = e.target.scrollLeft
+                }
+
+            })
+
+            widthWrp.addEventListener('scroll', e => {
+                scrollerWrp.scrollLeft = e.target.scrollLeft
+            })
+
+            scroller.addEventListener('mouseenter', e => {
+                e.target.classList.add('is-hover-scroller')
+            })
+            scroller.addEventListener('mouseleave', e => {
+                e.target.classList.contains('is-hover-scroller') ? e.target.classList.remove('is-hover-scroller') : ''
+            })
+        }
+
+        //compare
+        window.tabsSingleProduct = new Tabs({
+            navElem: '[data-tab-nav="compare"]',
+            containerElem: '[data-container="compare"]',
+            tabStart: '1',
+            scroll: 'top',
+
+            onChangeTab: function (tab) {
+
+                console.log(tab)
+
+                window.InitScrollCompare(document.querySelector('.single-page__item.active'))
             }
-
         })
-
-        widthWrp.addEventListener('scroll', e => {
-            scrollerWrp.scrollLeft = e.target.scrollLeft
-        })
-
-        scroller.addEventListener('mouseenter', e => {
-            e.target.classList.add('is-hover-scroller')
-        })
-        scroller.addEventListener('mouseleave', e => {
-            e.target.classList.contains('is-hover-scroller') ? e.target.classList.remove('is-hover-scroller') : ''
-        })
-
 
 
 
@@ -2371,34 +2420,43 @@ document.addEventListener("DOMContentLoaded", function (event) {
     compare slider
     =====================================*/
 
-    function compareSlider(elem) {
-        this.elem = elem
-        this.container = this.elem.querySelector('.compare-table__wrp')
-        this.items = this.container.querySelectorAll('.compare-product')
+    class CompareSlider {
 
-        this.containerW = document.querySelector('.compare-table__wrp')
-        this.containerTable = document.querySelector('.compare-table__wrp table')
-        this.leftPX = 0
+        constructor(elem) {
+            this.elem = elem
+            this.container = this.elem.querySelector('.compare-table__wrp')
+            this.items = this.container.querySelectorAll('.compare-product')
 
-        this.nav = {
-            next: this.elem.querySelector('[data-se-slider="next"]'),
-            prev: this.elem.querySelector('[data-se-slider="prev"]'),
+            this.containerW = this.elem.querySelector('.compare-table__wrp')
+            this.containerTable = this.elem.querySelector('.compare-table__wrp table')
+            this.leftPX = 0
+
+            this.nav = {
+                next: this.elem.querySelector('[data-se-slider="next"]'),
+                prev: this.elem.querySelector('[data-se-slider="prev"]'),
+            }
+            this.activeSlide = 0
+
+            this.init();
+
         }
-        this.activeSlide = 0
 
-        this.init = function () {
+
+
+        init() {
             this.addEvent()
             this.changeSlide()
             this.nav.prev.dataset.state = '0'
-
-
 
             if (this.container.scrollWidth <= this.container.offsetWidth) {
                 this.nav.next.dataset.state = '0'
             }
         }
 
-        this.changeSlide = function () {
+        changeSlide() {
+
+            console.log(this.items)
+            console.log(this.container)
 
             function scrollElement(container, elem, _this) {
 
@@ -2417,16 +2475,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 _this.leftPX = ((elem.offsetWidth + 20) * _this.activeSlide)
 
-                // console.log(elem, 'elem')
-                // console.log(elem.offsetLeft, 'eleem.offsetLeft')
-                // console.log(elemOffset.left, 'offsetLeft')
-                // console.log(leftPX, 'leftPX')
+                console.log(elem, 'elem')
+                console.log(elem.offsetLeft, 'eleem.offsetLeft')
+                console.log(elemOffset.left, 'offsetLeft')
+                console.log(_this.leftPX, 'leftPX')
 
 
+                console.log(container, 'container PSX')
 
-                if (_this.leftPX > (_this.containerTable.clientWidth - _this.containerW.clientWidth)) {
-                    return false
-                }
+
+                // if (_this.leftPX > (_this.containerTable.clientWidth - _this.containerW.clientWidth)) {
+                //     return false
+                // }
+
+
 
                 container.scrollTo({
                     left: _this.leftPX,
@@ -2448,10 +2510,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         }
 
-        this.nextSlide = function () {
+        nextSlide() {
+
+            // console.log(this.activeSlide, 'activeSlide')
+            // console.log(this.leftPX, 'leftPX')
+            // console.log(this.containerTable.clientWidth, 'containerTable')
+            // console.log(this.containerW.clientWidth, 'containerW')
+
+
             if (this.activeSlide < (this.items.length - 1)) {
 
+
+
                 if (this.leftPX < (this.containerTable.clientWidth - this.containerW.clientWidth) - 20) {
+
+
+
                     this.activeSlide++
                     this.changeSlide()
                 }
@@ -2461,19 +2535,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         }
 
-        this.prevSlide = function () {
+        prevSlide() {
             if (this.activeSlide > 0) {
                 this.activeSlide--
                 this.changeSlide()
             }
         }
 
-        this.addEvent = function () {
+        addEvent() {
             this.nav.next.addEventListener('click', () => {
                 this.nextSlide()
+
+                console.log('next')
             })
             this.nav.prev.addEventListener('click', () => {
                 this.prevSlide()
+
+                console.log('prev')
             })
 
             this.container.addEventListener('scroll', (e) => {
@@ -2493,12 +2571,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
             })
         }
 
+
+
     }
 
     if (document.querySelector('[data-container="compare"]')) {
 
-        const instanseSeansSlider = new compareSlider(document.querySelector('[data-container="compare"]'))
-        instanseSeansSlider.init()
+
+
+        document.querySelectorAll('.compare-box').forEach(item => {
+            new CompareSlider(item)
+
+            window.InitScrollCompare(item)
+        })
 
     }
 
@@ -2585,20 +2670,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (document.querySelector('.product-table__prop')) {
 
 
-        const buttonShow = document.querySelector('[data-similar="show"]')
-        const buttonHide = document.querySelector('[data-similar="hide"]')
+        const buttonShow = document.querySelectorAll('[data-similar="show"]')
+        const buttonHide = document.querySelectorAll('[data-similar="hide"]')
         const props = document.querySelectorAll('.product-table__prop')
 
-
-        buttonShow.addEventListener('click', e => {
-            showSimilarProp()
-            changeActive('show')
+        buttonShow.forEach(item => {
+            item.addEventListener('click', e => {
+                showSimilarProp()
+                changeActive('show')
+            })
         })
 
-        buttonHide.addEventListener('click', e => {
-            hideSimilarProp()
-            changeActive('hide')
+        buttonHide.forEach(item => {
+            item.addEventListener('click', e => {
+                hideSimilarProp()
+                changeActive('hide')
+            })
         })
+
 
         function showSimilarProp() {
             props.forEach(prop => {

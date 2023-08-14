@@ -2,6 +2,7 @@ extends ../layouts/compare
 
 include ../../blocks/components/breadcrumb/breadcrumb.pug
 include ../../blocks/modules/compare/compare-laptop.pug
+
  
  
 block variables
@@ -13,7 +14,7 @@ block content
   section.single-page.favourites
       .container
           .single-page
-              .single-page__breadcrumbs
+              .single-page__breadcrumbs 
                   +breadcrumb([
                       'Главная',
                       'Сравнение товаров',
@@ -31,7 +32,7 @@ block content
                         li.active: a(href='compare-laptop.html') Ноутбуки
 
               .single-page__content(data-container="compare")
-                .single-page__item: +compare()
+                .single-page__item: +compare-laptop()
                  
 
 block scripts
