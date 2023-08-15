@@ -301,6 +301,10 @@
             min-width: auto;
             white-space: nowrap;
             display: none;
+            right: 5px;
+            left: auto;
+            transform: none;
+            top: 100%;
 
             @media screen and (min-width: $w760) {
                 display: block;

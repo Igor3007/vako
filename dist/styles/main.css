@@ -8631,6 +8631,10 @@ div.single-product__content[data-tab-container="store"] {
   min-width: auto;
   white-space: nowrap;
   display: none;
+  right: 5px;
+  left: auto;
+  transform: none;
+  top: 100%;
 }
 
 .compare-product__action a {
