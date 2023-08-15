@@ -3449,6 +3449,11 @@ input:focus {
   filter: grayscale(0) brightness(1);
 }
 
+.header.header-white .dropdown-icon__count,
+.header.header-white .tooltip-icon__count {
+  border-color: #fff;
+}
+
 .footer {
   padding: 24px 0;
   background-color: #222222;
