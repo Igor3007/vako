@@ -2338,20 +2338,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     compare table width
     ======================================*/
 
-    if (document.querySelector('.compare-table')) {
-        const products = document.querySelectorAll('.compare-product');
-        let widthWrp = document.querySelector('.compare-table__wrp')
-        const widthUnit = 250;
-        const table = document.querySelector('.compare-table')
 
-        console.log(widthWrp.clientWidth)
-        console.log((products.length * widthUnit))
-
-        if (widthWrp.clientWidth > (products.length * widthUnit)) {
-            table.style.width = (products.length * widthUnit) + 'px'
-        }
-
-    }
 
     /* =============================================
     compare scroll
@@ -2404,9 +2391,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             onChangeTab: function (tab) {
 
-                console.log(tab)
-
+                //init scroll
                 window.InitScrollCompare(document.querySelector('.single-page__item.active'))
+
+                //computed table width
+                if (document.querySelector('.compare-table')) {
+
+                    document.querySelectorAll('.compare-table').forEach(item => {
+                        const products = item.querySelectorAll('.compare-product');
+                        let widthWrp = item.querySelector('.compare-table__wrp')
+                        const widthUnit = 250;
+                        const table = item
+
+                        if (widthWrp.clientWidth > (products.length * widthUnit)) {
+                            table.style.width = (products.length * widthUnit) + 'px'
+                        }
+                    })
+
+                }
+
+                //reinit slider
+
+                if (document.querySelector('.single-page__item.active .compare-box').compareSlider) {
+                    document.querySelector('.single-page__item.active .compare-box').compareSlider.update()
+                }
+
             }
         })
 
@@ -2430,6 +2439,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.containerW = this.elem.querySelector('.compare-table__wrp')
             this.containerTable = this.elem.querySelector('.compare-table__wrp table')
             this.leftPX = 0
+            this.itemWidth = 230
 
             this.nav = {
                 next: this.elem.querySelector('[data-se-slider="next"]'),
@@ -2441,11 +2451,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         }
 
-
-
         init() {
             this.addEvent()
-            this.changeSlide()
             this.nav.prev.dataset.state = '0'
 
             if (this.container.scrollWidth <= this.container.offsetWidth) {
@@ -2453,51 +2460,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         }
 
-        changeSlide() {
+        update() {
 
-            console.log(this.items)
-            console.log(this.container)
-
-            function scrollElement(container, elem, _this) {
-
-                var rect = elem.getBoundingClientRect();
-                var rectContainer = container.getBoundingClientRect();
-
-                let elemOffset = {
-                    top: rect.top + document.body.scrollTop,
-                    left: rect.left + document.body.scrollLeft
-                }
-
-                let containerOffset = {
-                    top: rectContainer.top + document.body.scrollTop,
-                    left: rectContainer.left + document.body.scrollLeft
-                }
-
-                _this.leftPX = ((elem.offsetWidth + 20) * _this.activeSlide)
-
-                console.log(elem, 'elem')
-                console.log(elem.offsetLeft, 'eleem.offsetLeft')
-                console.log(elemOffset.left, 'offsetLeft')
-                console.log(_this.leftPX, 'leftPX')
-
-
-                console.log(container, 'container PSX')
-
-
-                // if (_this.leftPX > (_this.containerTable.clientWidth - _this.containerW.clientWidth)) {
-                //     return false
-                // }
-
-
-
-                container.scrollTo({
-                    left: _this.leftPX,
-                    behavior: 'smooth'
-                });
-
-
-
+            if (this.container.scrollWidth <= this.container.offsetWidth) {
+                this.nav.next.dataset.state = '0'
+            } else {
+                this.nav.next.dataset.state = '1'
             }
+
+
+
+        }
+
+        scrollElement(container, stepOffset, _this) {
+
+            _this.leftPX = this.container.scrollLeft + Number(stepOffset)
+
+            container.scrollTo({
+                left: _this.leftPX,
+                behavior: 'smooth'
+            });
+
+        }
+
+        changeSlide() {
 
             this.items.forEach(item => {
                 if (item.classList.contains('active'))
@@ -2506,40 +2492,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             if (this.items.length) {
                 this.items[this.activeSlide].classList.add('active')
-                scrollElement(this.container, this.items[this.activeSlide], this)
+                this.scrollElement(this.container, this.items[this.activeSlide], this)
             }
         }
 
         nextSlide() {
 
-            // console.log(this.activeSlide, 'activeSlide')
-            // console.log(this.leftPX, 'leftPX')
-            // console.log(this.containerTable.clientWidth, 'containerTable')
-            // console.log(this.containerW.clientWidth, 'containerW')
-
-
-            if (this.activeSlide < (this.items.length - 1)) {
-
-
-
-                if (this.leftPX < (this.containerTable.clientWidth - this.containerW.clientWidth) - 20) {
-
-
-
-                    this.activeSlide++
-                    this.changeSlide()
-                }
-
-
+            if (this.leftPX < (this.containerTable.clientWidth - this.containerW.clientWidth) - 20) {
+                this.scrollElement(this.container, this.itemWidth, this)
             }
 
         }
 
         prevSlide() {
-            if (this.activeSlide > 0) {
-                this.activeSlide--
-                this.changeSlide()
-            }
+            this.scrollElement(this.container, -this.itemWidth, this)
         }
 
         addEvent() {
@@ -2561,27 +2527,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 if (e.target.scrollLeft < 10) {
                     this.activeSlide = 0
                 }
-
-                // if ((e.target.scrollWidth - (this.container.offsetWidth + 50) <= e.target.scrollLeft)) {
-                //     this.activeSlide = (this.items.length - 2)
-
-                //     console.log(this.items.length)
-                // }
-
             })
         }
-
-
 
     }
 
     if (document.querySelector('[data-container="compare"]')) {
 
-
-
         document.querySelectorAll('.compare-box').forEach(item => {
-            new CompareSlider(item)
-
+            item['compareSlider'] = new CompareSlider(item)
             window.InitScrollCompare(item)
         })
 
@@ -2972,11 +2926,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         })
     })
-
-
-
-
-
 
 
     /* ====================================
