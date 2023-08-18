@@ -9699,6 +9699,92 @@ a[data-tooltip]:hover::before {
   font-size: 16px;
 }
 
+/* ============================================
+common.css
+============================================*/
+
+.minicard__content {
+  width: 100%;
+}
+
+.sort-dropdown__list ul a:not(.is-active):after {
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+.sort-dropdown__list ul a:not(.is-active):hover::after {
+  filter: grayscale(1) brightness(0);
+  opacity: 1;
+}
+
+.product-review {
+  padding-bottom: 50px;
+}
+
+.product-mini__image picture img {
+  object-fit: contain;
+}
+
+.catalog-products.grid--view .minicard__images picture {
+  padding-top: 80%;
+}
+
+.minicard__images .splide__pagination {
+  position: static;
+}
+
+.fast-properties {
+  break-inside: avoid;
+}
+
+.tooltip-box__title:empty {
+  display: none;
+}
+
+.header-bottom__menu {
+  overflow-x: auto;
+  padding-bottom: 7px;
+  margin-bottom: -7px;
+  scrollbar-color: #402f69 transparent;
+  scrollbar-width: thin !important;
+}
+
+.header-bottom__menu::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 4px;
+  height: 4px;
+}
+
+.header-bottom__menu::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.header-bottom__menu::-webkit-scrollbar-thumb {
+  background-color: #402f69;
+  border-radius: 4px;
+}
+
+.product-prop__list {
+  padding-bottom: 28px;
+}
+
+.catalog-pagination {
+  width: 100%;
+}
+
+.product-prop__item:last-child {
+  margin-bottom: 0;
+}
+
+.product-images__thumb .splide__track--nav .splide__slide.is-active {
+  margin: 2px 0;
+}
+
+.sort-dropdown__list ul a.is-active::after {
+  filter: none;
+}
+
 @media screen and (min-width: 400px) {
   .section-page-help {
     padding: 22px 0 60px 0;
@@ -11478,6 +11564,33 @@ a[data-tooltip]:hover::before {
   }
 }
 
+@media screen and (max-width: 992px) {
+  .product-images {
+    max-width: 360px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .minicard__action a::before {
+    display: none;
+  }
+
+  .product-main {
+    padding-bottom: 20px;
+  }
+
+  .single-product__content {
+    padding-top: 25px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product-images__large {
+    padding-bottom: 0px;
+  }
+}
+
 @media screen and (max-width: 576px) {
   .search-index__catalog .btn {
     font-size: 0;
@@ -11501,6 +11614,15 @@ a[data-tooltip]:hover::before {
   .product-video__item .video__button svg {
     width: 12px;
     margin-right: -2px;
+  }
+
+  .product-images picture {
+    padding-top: 63%;
+  }
+
+  .splide__pagination__page {
+    width: 4px;
+    height: 4px;
   }
 }
 
