@@ -83,16 +83,16 @@ mixin product-common
                                 .min-properties__list
                                     ul
                                         li
-                                            small Экран
+                                            small Экран:
                                             span 14" (1920x1080) IPS, 60 Гц
                                         li
-                                            small Процессор
+                                            small Процессор:
                                             span Intel Core i5 1135G7 (4x2.40 ГГц)
                                         li
-                                            small Память
+                                            small Память:
                                             span оперативная 8 ГБ (4266 МГц), SSD 512 ГБ, HDD отсутствует
                                         li
-                                            small Видеокарта
+                                            small Видеокарта:
                                             span Intel Iris Xe Graphics
                                 .min-properties__more
                                     a(href='#properties') Все характеристики
@@ -250,7 +250,7 @@ mixin product-common
 
                                    
                                     if item.type == 'store'
-                                        .catalog-products__item: +minicard--store(item)
+                                        .catalog-products__item: +minicard--store--offers(item)
 
                             .catalog-pagination
                                 .catalog-pagination__more

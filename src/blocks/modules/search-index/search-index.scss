@@ -147,7 +147,11 @@
     }
 
     &__catalog {
-        margin-right: 16px;
+        margin-right: 12px;
+
+        @media screen and (min-width: $w992) {
+            margin-right: 16px;
+        }
 
         & .btn {
             padding: 0.8em 1.5em 0.85em 1.5em;

@@ -1220,6 +1220,10 @@
                       <div class="pagination">
                         <div class="pagination__page">
                           <ul>
+                            <li class="prev"><a href="#2">
+                                <svg width="10" height="10">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_prev-pagination"></use>
+                                </svg><span>Назад </span></a></li>
                             <li class="active"><a href="#1">1</a></li>
                             <li><a href="#2">2</a></li>
                             <li><a href="#3">3</a></li>
@@ -1538,7 +1542,9 @@
                     <div class="form">
                       <div class="form__item">
                         <div class="form__subitem">
-                          <input type="text" placeholder="Укажите регион">
+                          <div class="input--suggest">
+                            <input type="text" placeholder="Укажите регион" data-url="/json/country.json">
+                          </div>
                         </div>
                       </div>
                       <div class="form__item">

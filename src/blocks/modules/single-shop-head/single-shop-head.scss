@@ -61,7 +61,7 @@
 
   &__rating-img {
     margin-right: 12px;
-    background: #8F8F8F;
+    background: transparent;
     border-radius: 8px;
     width: 180px;
     height: 120px;
@@ -306,16 +306,7 @@
   &__work-info {
     position: relative;
 
-    &:hover {
-      .single-shop-head__work-description {
-        opacity: 1;
-        overflow: visible;
-        height: auto;
-        transition: .7s ease;
-        transform: translateY(0);
 
-      }
-    }
 
     a {
       font-size: 14px;
@@ -326,9 +317,17 @@
       margin-left: 0 !important;
       padding-bottom: 8px;
 
+
+
       &:hover {
+
         text-decoration: underline;
 
+        &~.single-shop-head__work-description {
+          opacity: 1;
+          transform: translateY(0);
+          visibility: visible;
+        }
       }
     }
   }
@@ -336,8 +335,8 @@
   &__work-description {
     opacity: 0;
     overflow: hidden;
-    height: 0;
-    transform: translateY(10%);
+    visibility: hidden;
+    transform: translateY(10px);
     position: absolute;
     left: 0;
     z-index: 1;
@@ -346,11 +345,21 @@
     max-width: 320px;
     background: #FFFFFF;
     box-shadow: 0 2px 15px 0 #00000026;
+    transition: .4s ease;
+
+
+    &:hover {
+      opacity: 1;
+      overflow: visible;
+      height: auto;
+      transform: translateY(0);
+      visibility: visible;
+    }
 
   }
 
   &__work-description-wrapper {
-    padding: 6px 12px;
+    padding: 14px 16px;
   }
 
   &__work-description-title {

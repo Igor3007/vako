@@ -20,7 +20,9 @@ include ../../helpers/mixins.pug
                         .form__item
                             .form__subitem
                                 label Ваш город
-                                input(type="text" placeholder="Например, Санкт-Петербург" required)
+                                .input--suggest
+                                    input(type="text" placeholder="Например, Санкт-Петербург" required data-url="/json/country.json")
+                                     
 
                         .form__item
                             .form__subitem

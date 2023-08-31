@@ -508,8 +508,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 0 30px 0;
+    padding: 0 0 10px 0;
     margin-top: -5px;
+
+    @media screen and (min-width: $w992) {
+      padding: 0 0 30px 0;
+    }
   }
 
   &__view {

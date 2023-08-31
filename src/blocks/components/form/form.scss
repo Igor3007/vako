@@ -64,8 +64,13 @@ input {
     }
 
     & input[disabled] {
-        background-color: #eee;
+        background-color: #f7f7f7;
     }
+
+    & input[readonly] {
+        background-color: #f7f7f7;
+    }
+
 
     & select {
         height: 52px;
@@ -270,4 +275,61 @@ input {
 
 
 
+}
+
+.input--suggest {
+    // padding-right: 3em;
+    // background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNTI1MTY2IiB3aWR0aD0iMTciIGhlaWdodD0iMTciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE2LjgwNSAxNS44NjZMMTIuMDEgMTEuMDdjMi4xODUtMi42NTkgMi4wMzctNi42MDYtLjQ0Ni05LjA4OWE2Ljc4MyA2Ljc4MyAwIDAwLTkuNTgyIDAgNi43ODMgNi43ODMgMCAwMDAgOS41ODJjMi40ODMgMi40ODIgNi40MjkgMi42MzIgOS4wODkuNDQ2bDQuNzk2IDQuNzk2YS42NjQuNjY0IDAgMDAuOTQtLjkzOXptLTYuMTgyLTUuMjQzYTUuNDUzIDUuNDUzIDAgMDEtNy43MDIgMCA1LjQ1MyA1LjQ1MyAwIDAxMC03LjcwMyA1LjQ1MyA1LjQ1MyAwIDAxNy43MDIgMCA1LjQ1MyA1LjQ1MyAwIDAxMCA3LjcwM3oiLz48L3N2Zz4=);
+    // background-size: 1.2em auto;
+    // background-repeat: no-repeat;
+    // background-position: calc(100% - 1.25em) center;
+    // min-width: 165px;
+
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+
+    & input {
+        width: 100% !important;
+    }
+
+    & .suggest-list {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: auto;
+        left: 0;
+        z-index: 999;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: #e9e9e9;
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
+        color: #000;
+        min-width: 100%;
+        width: auto;
+        max-height: 300px;
+
+        @include scrollbar();
+
+        & li {
+            margin: 0;
+            padding: 0.75rem 15px;
+            border-top: 1px solid #e3e0ea;
+            transition: all 0.15s ease-in;
+            font-size: 14px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            &.active,
+            &:hover {
+                background-color: $gray-96;
+            }
+        }
+    }
 }

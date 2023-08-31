@@ -41,7 +41,7 @@
           <div class="header-min">
             <div class="header-min__main">
               <div class="header-min__logo"><a href="/store/home.html"><span class="bgimage" style="background-image: url('/img/common/logo_partners.svg')"></span></a></div>
-              <div class="header-min__status"><span class="icon-status--green"> <!--  icon-status--orange icon-status--red  -->  Предложения магазина показываются  </span></div>
+              <div class="header-min__status"><span class="icon-status--new"> <!-- icon-status--green  icon-status--orange icon-status--red icon-status--new  -->  Новый магазин  </span></div>
               <div class="header-min__bill">
                 <div class="header-min__mobile"><span class="ic-open-aside" data-aside="open"></span></div>
                 <div class="header-min__pay">
@@ -164,7 +164,9 @@
                             <div class="form__item">
                               <div class="form__subitem">
                                 <label>Город</label>
-                                <input type="text" placeholder="Укажите город"/>
+                                <div class="input--suggest">
+                                  <input type="text" data-suggest="input" placeholder="Укажите город" data-url="/json/country.json"/>
+                                </div>
                               </div>
                             </div>
                             <div class="form__item">
@@ -380,6 +382,7 @@
                                Адрес пункта выдачи/магазина<span class="point-number"></span></label>
                             <input type="text" placeholder="Укажите адрес"/>
                           </div>
+                          <div class="shop-block__in-map"> <span class="icon-add">Выбрать на карте</span></div>
                           <div class="shop-block__worktime shop-block__worktime--col2">
                             <label>
                               <input type="checkbox" value="ПН"/>

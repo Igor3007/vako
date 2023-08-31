@@ -1,0 +1,10 @@
+include ../../views/helpers/mixins.pug
+include ../../data/data.pug
+
+.popup-succes
+    .popup-succes__icon: +bgimage('/img/common/icon_warn_60.svg')
+    .popup-succes__title Внимание!
+    .popup-succes__desc Для того, чтобы оставить отзыв, войдите или  зарегистрируйтесь на сайте!
+    .popup-succes__btn
+        a(href='#'): button.btn Войти
+        a(href='#'): button.btn.btn-white.btn-white--accent Зарегистрироваться

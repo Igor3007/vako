@@ -515,6 +515,18 @@
                  //form
                  const form = document.querySelector('[data-store-form="registration"]')
 
+                 //init suggest
+
+                 new inputSuggest({
+                     elem: registerPopup.modal.querySelector('.input--suggest input'),
+                     maxHeightSuggestList: '220px',
+                     on: {
+                         change: function (text, value) {
+                             //change event
+                         }
+                     }
+                 });
+
                  if (steps.length) {
 
                      // enable first step
@@ -1369,6 +1381,169 @@
      document.querySelectorAll('.shop-block__point').forEach((item) => {
          new PickupParams(item)
      })
+
+     /* ==========================================
+       suggest input
+     ========================================== */
+
+     class inputSuggest {
+
+         constructor(option) {
+             this.option = option
+             this.elem = option.elem
+             this.maxHeightSuggestList = this.option.maxHeightSuggestList || false
+             this.list = document.createElement('ul');
+             this.init()
+
+
+         }
+
+
+         init() {
+             this.createSuggestList()
+             this.addEvent()
+
+             if (this.maxHeightSuggestList) {
+                 this.list.style.maxHeight = this.maxHeightSuggestList
+             }
+         }
+
+         createSuggestList() {
+
+
+             let _this = this
+
+             this.loadSuggestElem(this.elem.dataset.url, function (arr) {
+
+                 _this.list.querySelectorAll('li').forEach((removeItem) => {
+                     removeItem.remove()
+                 })
+
+                 // if (!arr.isArray()) {
+                 //     console.error('error: no json-data for suggest')
+                 //     return false;
+                 // }
+
+                 arr.forEach((item) => {
+                     let li = document.createElement('li')
+                     li.innerText = item.text
+                     li.setAttribute('rel', item.value)
+
+                     _this.eventListItem(li)
+                     _this.list.append(li)
+                 })
+             })
+
+             this.list.classList.add('suggest-list')
+
+             this.mountList()
+
+         }
+
+         mountList() {
+
+             if (this.elem.parentNode.querySelector('.suggest-list')) {
+                 this.elem.parentNode.querySelector('.suggest-list').remove()
+             }
+
+             this.elem.parentNode.append(this.list)
+
+         }
+
+         loadSuggestElem(url, callback) {
+             window.ajax({
+                 type: 'GET',
+                 responseType: 'json',
+                 url: url
+             }, function (status, response) {
+                 callback(response)
+             })
+         }
+
+         changeInput(event) {
+
+             let value = event.target.value.toLowerCase()
+
+             if (true) {
+
+                 this.list.style.display = 'initial'
+
+                 this.list.querySelectorAll('li').forEach(function (li) {
+
+                     if (li.classList.contains('hide')) {
+                         li.classList.remove('hide')
+                     }
+
+                     if (li.innerText.toLowerCase().indexOf(value) == -1 && value.length) {
+                         li.classList.add('hide')
+                     }
+                 })
+
+                 //update list
+                 this.mountList()
+             }
+         }
+
+         closeList() {
+             this.list.style.display = 'none'
+
+             if (!this.elem.value.length) {
+                 this.elem.removeAttribute('area-valid')
+                 this.option.on.change('', false)
+             }
+
+         }
+         openList() {
+             this.list.style.display = 'block'
+             this.elem.setAttribute('area-valid', true)
+             this.createSuggestList()
+         }
+
+         addEvent() {
+             this.elem.addEventListener('keyup', (event) => {
+                 this.changeInput(event)
+             })
+             this.elem.addEventListener('focus', (event) => {
+                 this.openList()
+             })
+
+             this.elem.addEventListener('click', (event) => {
+                 event.stopPropagation()
+             })
+             this.elem.addEventListener('blur', () => {
+                 setTimeout(() => {
+                     this.closeList()
+                 }, 100)
+             })
+         }
+
+         eventListItem(li) {
+             li.addEventListener('click', (event) => {
+                 this.elem.setAttribute('area-valid', true)
+                 this.elem.value = event.target.innerText
+                 this.closeList()
+                 this.option.on.change(event.target.innerText, event.target.getAttribute('rel'))
+             })
+         }
+
+     }
+
+     if (document.querySelector('[data-suggest="input"]')) {
+
+
+         document.querySelectorAll('[data-suggest="input"]').forEach(input => {
+             new inputSuggest({
+                 elem: input,
+                 on: {
+                     change: function (text, value) {
+                         //change event
+                     }
+                 }
+             });
+         })
+
+
+     }
 
 
 

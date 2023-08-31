@@ -211,6 +211,14 @@
     }
 }
 
+.popup-pointsnow-close {
+    color: #DF1F26;
+}
+
+.popup-pointsnow-close::before {
+    background-color: #DF1F26;
+}
+
 span[data-tooltip],
 a[data-tooltip] {
     position: relative;
@@ -245,9 +253,7 @@ a[data-tooltip]:hover::before {
 .splide__pagination {
     &__page {
 
-
-
-        @media screen and (max-width: $w480) {
+        @media screen and (max-width: $w760) {
             width: 4px;
             height: 4px;
         }
@@ -655,7 +661,7 @@ a[data-tooltip]:hover::before {
 
     &__desc {
         text-align: center;
-        max-width: 80%;
+        max-width: 90%;
         margin: 0 auto;
         padding-bottom: 25px;
         font-size: 16px;
@@ -682,6 +688,12 @@ a[data-tooltip]:hover::before {
 
         & .btn {
             width: 100%;
+        }
+
+        & .btn-white--accent {
+            margin-top: 10px;
+            color: $accent-2-1;
+            font-weight: 400;
         }
     }
 }
@@ -890,12 +902,65 @@ common.css
     filter: none
 }
 
+body {
+    & .fslightbox-container {
+        background: linear-gradient(rgba(255, 255, 255, 1), #fff 1810%);
+    }
+
+    & .fslightbox-svg-path {
+        fill: $gray-13;
+    }
+
+    & .fslightbox-slide-btn,
+    & .fslightbox-toolbar {
+        background: rgba(35, 35, 35, 0);
+    }
+
+    & .fslightbox-toolbar-button {
+        &:hover {
+            & .fslightbox-svg-path {
+                fill: $accent-2-1;
+            }
+        }
+    }
+
+    & .fslightbox-slide-btn-container {
+        &:hover {
+            & .fslightbox-svg-path {
+                fill: $accent-2-1;
+            }
+        }
+    }
+
+    & .fslightbox-slide-number-container {
+        color: #fff;
+        font-weight: 600;
+        max-width: 65px;
+
+        & .fslightbox-flex-centered {
+            background-color: $accent-2-1;
+            height: 24px;
+            padding: 0 10px;
+            border-radius: 12px;
+        }
+    }
+
+    & .fslightbox-slash {
+        background: #fff;
+        font-weight: 600;
+        width: 2px;
+
+    }
+
+}
+
+
 @media screen and (max-width: 1200px) {}
 
 @media screen and (max-width: 992px) {
     .product-images {
-        max-width: 360px;
-        margin-bottom: 30px;
+
+        margin-bottom: 25px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -909,25 +974,29 @@ common.css
     }
 
     .single-product__content {
-        padding-top: 25px;
+        padding-top: 12px;
     }
 
 
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 
     .product-images__large {
         padding-bottom: 0px;
     }
 
+    .product-images {
+        margin-bottom: 9px;
+    }
+
+
+
 }
 
 @media screen and (max-width: 576px) {
-    .product-images picture {
-        padding-top: 63%;
-    }
+
 
     .splide__pagination__page {
         width: 4px;

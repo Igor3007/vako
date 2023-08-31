@@ -118,6 +118,11 @@
             padding: 0px 43px;
             margin-top: -30px;
         }
+
+        @media screen and (min-width: $w576) {
+            padding: 25px 20px;
+            margin-top: -30px;
+        }
     }
 
     &__title {
@@ -142,6 +147,12 @@
         @media screen and (min-width: $w760) {
             display: flex;
             margin: 30px -35px;
+        }
+
+        @media screen and (min-width: $w576) {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px -25px;
         }
     }
 }

@@ -7,7 +7,8 @@ mixin popup-region
                 form(action='#' method='POST')
                     .form
                         .form__item
-                            .form__subitem: input(type="text" placeholder="Укажите регион")
+                            .form__subitem
+                                .input--suggest: input(type="text" placeholder="Укажите регион" data-url="/json/country.json")
                         .form__item
                             .form__subitem
                                 button.btn Сохранить

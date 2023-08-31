@@ -3,6 +3,10 @@ mixin pagination(data)
       .pagination
         .pagination__page
           ul
+            li.prev: a(href="#2")
+              +icons('#ic_prev-pagination', 10) 
+              span Назад 
+
             li.active: a(href="#1") 1
             li: a(href="#2") 2
             li: a(href="#3") 3

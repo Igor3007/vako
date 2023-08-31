@@ -1,7 +1,11 @@
 .breadcrumb {
 
     background-color: transparent;
-    padding: 0 0 rem(22) 0;
+    padding: 0 0 4px 0;
+
+    @media screen and (min-width: $w760) {
+        padding: 0 0 22px 0;
+    }
 
     & ul {
         display: flex;
@@ -33,6 +37,12 @@
 
     & li {
 
+        display: none;
+
+        @media screen and (min-width: $w760) {
+            display: block;
+        }
+
         & a {
             color: #000;
             font-size: 13px;
@@ -62,6 +72,7 @@
         }
 
         &:last-child {
+
             &::after {
                 display: none;
             }
@@ -71,6 +82,24 @@
                 color: $gray-56;
             }
         }
+
+
+
+        &:nth-last-child(2) {
+            @media screen and (max-width: $w760) {
+                display: block;
+
+                &::after {
+                    display: none;
+                }
+
+                & span,
+                & a {
+                    color: $accent-2-1;
+                }
+            }
+        }
+
 
     }
 

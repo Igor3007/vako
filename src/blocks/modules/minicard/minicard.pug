@@ -87,6 +87,57 @@ mixin minicard--store(data)
                 .minicard__action
                     a(href='#'  data-tooltip="Пожаловаться"): +icons('#ic_warning', 20) 
 
+mixin minicard--store--offers(data) 
+    .minicard.minicard--store.minicard--offers
+        .minicard__images
+            +picture('/img/product/minicard-2')
+        .minicard__content
+            .minicard__main
+                .minicard__title: a(href='#')= data.title
+
+                if(data.other)
+                    .minicard__other
+                        span(data-popup="more-offers" data-store="79268" data-store-name="PCPlanet.ru") Другие предложения
+                
+                .minicard__store
+                    .minicard__store-price.hide--desctop= data.price
+                    .minicard__store-detail
+                        .minicard__store-label Магазин:
+                        .minicard__store-wrp
+                            .minicard__store-name: a(href='#') PCPlanet.ru
+                            .minicard__store-phone(data-popup="number" data-store="12788")
+                                span Телефоны
+                                ul(data-numbers="store")
+                        
+                    .minicard__store-rating
+                        .minicard__store-label Рейтинг магазина:
+                        .minicard__rating(class=data.rating_color)
+                            span= data.rate
+                            a(href='#') 82 отзыва
+                
+                
+                .minicard__conditions
+                    .minicard__conditions-label Условия покупки:
+                    .minicard__conditions-text Оплата картой, цены не зависят от формы оплаты, гарантия
+                
+            .minicard__more
+                .minicard__price.hide--mobile= data.price
+                .minicard__shipping
+                    .shipping-item
+                        .shipping-item__icon: +bgimage('/img/svg/ic_truck.svg')
+                        .shipping-item__main
+                            .shipping-item__title Курьером, 26-27 мая – <strong>300 ₽</strong>
+                    .shipping-item
+                        .shipping-item__icon: +bgimage('/img/svg/ic_pin.svg') 
+                        .shipping-item__main
+                            .shipping-item__title Самовывоз, 27 сен – <small>бесплатно</small>
+                            .shipping-item__points: span(data-shop-points="178") Пункты выдачи
+                .minicard__note Оплата онлайн / наличными при получении
+                .minicard__in-store
+                    a(href='single-shop.html'): button.btn В магазин
+                .minicard__action
+                    a(href='#'  data-tooltip="Пожаловаться"): +icons('#ic_warning', 20) 
+
 mixin minicard--mini(data) 
     .minicard.minicard--store.minicard--mini
         .minicard__images

@@ -43,7 +43,8 @@ mixin shop-info
               .form__item
                 .form__subitem
                     label Город
-                    input(type="text" placeholder="Укажите город")
+                    .input--suggest
+                        input(type="text" data-suggest="input" placeholder="Укажите город" data-url="/json/country.json")
               .form__item
                 .form__subitem
                     label Сайт
@@ -113,6 +114,10 @@ mixin shop-points
                     span.point-number
 
                 input(type="text" placeholder="Укажите адрес")
+
+            .shop-block__in-map 
+                span.icon-add Выбрать на карте
+
             .shop-block__worktime.shop-block__worktime--col2
                 each item in ['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']
                     label

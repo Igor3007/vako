@@ -405,10 +405,10 @@
                             <div class="min-properties__title">Коротко о товаре</div>
                             <div class="min-properties__list">
                               <ul>
-                                <li><small>Экран</small><span>14" (1920x1080) IPS, 60 Гц</span></li>
-                                <li><small>Процессор</small><span>Intel Core i5 1135G7 (4x2.40 ГГц)</span></li>
-                                <li><small>Память</small><span>оперативная 8 ГБ (4266 МГц), SSD 512 ГБ, HDD отсутствует</span></li>
-                                <li><small>Видеокарта</small><span>Intel Iris Xe Graphics</span></li>
+                                <li><small>Экран:</small><span>14" (1920x1080) IPS, 60 Гц</span></li>
+                                <li><small>Процессор:</small><span>Intel Core i5 1135G7 (4x2.40 ГГц)</span></li>
+                                <li><small>Память:</small><span>оперативная 8 ГБ (4266 МГц), SSD 512 ГБ, HDD отсутствует</span></li>
+                                <li><small>Видеокарта:</small><span>Intel Iris Xe Graphics</span></li>
                               </ul>
                             </div>
                             <div class="min-properties__more"><a href="#properties">Все характеристики</a></div>
@@ -764,7 +764,7 @@
                         <div class="catalog-category__products is-active" data-single-catalog="list">
                           <div class="catalog-products" data-catalog="container">
                             <div class="catalog-products__item">
-                              <div class="minicard minicard--store">
+                              <div class="minicard minicard--store minicard--offers">
                                 <div class="minicard__images">
                                   <picture>
                                     <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
@@ -826,7 +826,7 @@
                               </div>
                             </div>
                             <div class="catalog-products__item">
-                              <div class="minicard minicard--store">
+                              <div class="minicard minicard--store minicard--offers">
                                 <div class="minicard__images">
                                   <picture>
                                     <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
@@ -888,7 +888,7 @@
                               </div>
                             </div>
                             <div class="catalog-products__item">
-                              <div class="minicard minicard--store">
+                              <div class="minicard minicard--store minicard--offers">
                                 <div class="minicard__images">
                                   <picture>
                                     <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
@@ -950,7 +950,7 @@
                               </div>
                             </div>
                             <div class="catalog-products__item">
-                              <div class="minicard minicard--store">
+                              <div class="minicard minicard--store minicard--offers">
                                 <div class="minicard__images">
                                   <picture>
                                     <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
@@ -1012,7 +1012,7 @@
                               </div>
                             </div>
                             <div class="catalog-products__item">
-                              <div class="minicard minicard--store">
+                              <div class="minicard minicard--store minicard--offers">
                                 <div class="minicard__images">
                                   <picture>
                                     <source srcset="/img/product/minicard-2.webp" type="image/webp"/><img src="/img/product/minicard-2.jpg" loading="lazy" alt="image"/>
@@ -2185,7 +2185,7 @@
                   </div>
                   <div class="product-review__aside">
                     <div class="product-review__add">
-                      <button class="btn" data-review="create">Оставить отзыв</button>
+                      <button class="btn" data-review="no-login">Оставить отзыв</button>
                     </div>
                     <div class="review-filter" data-filter-container="review"> 
                       <div class="review-filter__head">
@@ -2690,7 +2690,9 @@
                     <div class="form">
                       <div class="form__item">
                         <div class="form__subitem">
-                          <input type="text" placeholder="Укажите регион">
+                          <div class="input--suggest">
+                            <input type="text" placeholder="Укажите регион" data-url="/json/country.json">
+                          </div>
                         </div>
                       </div>
                       <div class="form__item">

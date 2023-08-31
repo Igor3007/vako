@@ -775,7 +775,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (document.querySelector('[data-popup="region"]')) {
 
         const selectRegionPopup = new afLightbox({
-            mobileInBottom: false
+            mobileInBottom: true
         })
 
         const formElement = document.querySelector('[data-popup="select-region"]')
@@ -784,13 +784,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
             e.preventDefault()
 
             selectRegionPopup.open(formElement.outerHTML, function (instanse) {
-                //selectCustom.reinit(instanse.querySelector('.af-popup select'))
+                if (instanse.querySelectorAll('.input--suggest')) {
+                    instanse.querySelectorAll('.input--suggest input').forEach(function (input) {
+
+                        new inputSuggest({
+                            elem: input,
+                            maxHeightSuggestList: '130px',
+                            on: {
+                                change: function (text, value) {
+                                    //change event
+                                }
+                            }
+                        });
+
+
+                    })
+                }
             })
 
         })
 
 
     }
+
+
 
     /*======================================
      minicard slider
@@ -1373,7 +1390,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             cover: true,
 
             breakpoints: {
-                640: {
+                768: {
                     pagination: true,
                     type: 'fade',
                 },
@@ -2287,6 +2304,35 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
+    /* =========================================
+    create review
+    =========================================*/
+
+    if (document.querySelector('[data-review="no-login"]')) {
+        const noLoginPopup = new afLightbox({
+            mobileInBottom: false
+        })
+
+        //click
+        document.querySelector('[data-review="no-login"]').addEventListener('click', e => {
+            window.ajax({
+                type: 'GET', //POST
+                url: '/_popup-no-login-review.html',
+                responseType: 'html',
+
+            }, (status, response) => {
+
+                noLoginPopup.open(response, (instance) => {
+                    //after open
+                })
+
+            })
+        })
+
+
+    }
+
+
     /* ========================================
     show more
     ========================================*/
@@ -2963,6 +3009,180 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
 
     }
+
+    /* ====================================
+    show-hide store details in mobile
+    ====================================*/
+
+    if (document.querySelector('.minicard__in-store')) {
+
+        const items = document.querySelectorAll('.minicard__in-store')
+
+        items.forEach(item => {
+            item.addEventListener('click', e => {
+
+                if (e.target.closest('a')) {
+                    e.stopPropagation()
+                    return false
+                }
+
+                if (e.target.closest('.minicard__more')) {
+                    e.target.closest('.minicard__more').classList.toggle('is-open')
+                }
+            })
+        })
+
+    }
+
+
+
+    /* ==========================================
+      suggest input
+    ========================================== */
+
+    class inputSuggest {
+
+        constructor(option) {
+            this.option = option
+            this.elem = option.elem
+            this.maxHeightSuggestList = this.option.maxHeightSuggestList || false
+            this.list = document.createElement('ul');
+            this.init()
+        }
+
+        init() {
+            this.createSuggestList()
+            this.addEvent()
+
+            if (this.maxHeightSuggestList) {
+                this.list.style.maxHeight = this.maxHeightSuggestList
+            }
+        }
+
+        createSuggestList() {
+
+            let _this = this
+
+            this.loadSuggestElem(this.elem.dataset.url, function (arr) {
+
+                _this.list.querySelectorAll('li').forEach((removeItem) => {
+                    removeItem.remove()
+                })
+
+                // if (!arr.isArray()) {
+                //     console.error('error: no json-data for suggest')
+                //     return false;
+                // }
+
+                arr.forEach((item) => {
+                    let li = document.createElement('li')
+                    li.innerText = item.text
+                    li.setAttribute('rel', item.value)
+
+                    _this.eventListItem(li)
+                    _this.list.append(li)
+                })
+            })
+
+            this.list.classList.add('suggest-list')
+
+            this.mountList()
+
+        }
+
+        mountList() {
+
+            if (this.elem.parentNode.querySelector('.suggest-list')) {
+                this.elem.parentNode.querySelector('.suggest-list').remove()
+            }
+
+            this.elem.parentNode.append(this.list)
+
+        }
+
+        loadSuggestElem(url, callback) {
+            window.ajax({
+                type: 'GET',
+                responseType: 'json',
+                url: url
+            }, function (status, response) {
+                callback(response)
+            })
+        }
+
+        changeInput(event) {
+
+            let value = event.target.value.toLowerCase()
+
+            if (true) {
+
+                this.list.style.display = 'initial'
+
+                this.list.querySelectorAll('li').forEach(function (li) {
+
+                    if (li.classList.contains('hide')) {
+                        li.classList.remove('hide')
+                    }
+
+                    if (li.innerText.toLowerCase().indexOf(value) == -1 && value.length) {
+                        li.classList.add('hide')
+                    }
+                })
+
+                //update list
+                this.mountList()
+            }
+        }
+
+        closeList() {
+            this.list.style.display = 'none'
+
+            if (!this.elem.value.length) {
+                this.elem.removeAttribute('area-valid')
+                this.option.on.change('', false)
+            }
+
+        }
+        openList() {
+            this.list.style.display = 'block'
+            this.elem.setAttribute('area-valid', true)
+            this.createSuggestList()
+        }
+
+        addEvent() {
+            this.elem.addEventListener('keyup', (event) => {
+                this.changeInput(event)
+            })
+            this.elem.addEventListener('focus', (event) => {
+                this.openList()
+            })
+
+            this.elem.addEventListener('click', (event) => {
+                event.stopPropagation()
+            })
+            this.elem.addEventListener('blur', () => {
+                setTimeout(() => {
+                    this.closeList()
+                }, 100)
+            })
+        }
+
+        eventListItem(li) {
+            li.addEventListener('click', (event) => {
+                this.elem.setAttribute('area-valid', true)
+                this.elem.value = event.target.innerText
+                this.closeList()
+                this.option.on.change(event.target.innerText, event.target.getAttribute('rel'))
+            })
+        }
+
+    }
+
+
+
+
+
+
 
 
 
