@@ -37,11 +37,11 @@
 
     & li {
 
-        display: none;
+        /* display: none;
 
         @media screen and (min-width: $w760) {
             display: block;
-        }
+        } */
 
         & a {
             color: #000;
@@ -83,9 +83,7 @@
             }
         }
 
-
-
-        &:nth-last-child(2) {
+        /*  &:nth-last-child(2) {
             @media screen and (max-width: $w760) {
                 display: block;
 
@@ -98,7 +96,7 @@
                     color: $accent-2-1;
                 }
             }
-        }
+        } */
 
 
     }

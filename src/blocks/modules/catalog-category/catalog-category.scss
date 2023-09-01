@@ -2,7 +2,12 @@
 
     &__h1 {
 
+        padding-top: 5px;
         padding-bottom: 35px;
+
+        @media screen and (min-width: $w760) {
+            padding-top: 5px;
+        }
 
         & h1 {
             @include font-h1-inners;
@@ -115,7 +120,8 @@
             padding-left: 33px;
         }
     }
-    .shop-category{
+
+    .shop-category {
         padding: 0;
     }
 

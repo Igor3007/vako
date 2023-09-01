@@ -44,6 +44,10 @@
   &__other {
     padding-bottom: 15px;
 
+    @media screen and (min-width: $w480) and (max-width: $w760) {
+      padding-bottom: 0px;
+    }
+
     & span {
       color: $accent-2-1;
       cursor: pointer;
@@ -107,7 +111,7 @@
       padding-left: 24px;
     }
 
-    @media screen and (min-width: $w576) and (max-width: $w992) {
+    @media screen and (min-width: $w760) and (max-width: $w992) {
       display: flex;
       padding-left: 24px;
     }
@@ -243,7 +247,7 @@
   &__price {
     @include minicard--price;
 
-    @media screen and (min-width: $w576) and (max-width: $w992) {
+    @media screen and (min-width: $w760) and (max-width: $w992) {
       display: block;
       padding-bottom: 16px;
     }
@@ -443,7 +447,7 @@
       padding-top: 8px;
       padding-bottom: 16px;
 
-      @media screen and (min-width: $w576) and (max-width: $w992) {
+      @media screen and (min-width: $w760) and (max-width: $w992) {
         display: none;
       }
     }
@@ -635,7 +639,7 @@
         padding: 8px 2em 10px 2em;
       }
 
-      @media screen and (min-width: $w576) and (max-width: $w992) {
+      @media screen and (min-width: $w760) and (max-width: $w992) {
         padding: 8px 2em 10px 2em;
         min-width: auto;
       }
@@ -659,7 +663,7 @@
       min-width: 241px;
     }
 
-    @media screen and (min-width: $w576) and (max-width: $w992) {
+    @media screen and (min-width: $w760) and (max-width: $w992) {
       width: 241px;
       min-width: 241px;
     }
@@ -679,8 +683,9 @@
 
     }
 
-    @media screen and (min-width: $w576) and (max-width: $w992) {
+    @media screen and (min-width: $w760) and (max-width: $w992) {
       padding-right: 12px;
+      width: 100%;
     }
   }
 
@@ -806,13 +811,6 @@
         font-size: 15px;
       }
     }
-
-
-
-
-
-
-
 
   }
 }
