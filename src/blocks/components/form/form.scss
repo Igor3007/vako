@@ -328,6 +328,10 @@ input {
             text-overflow: ellipsis;
             overflow: hidden;
 
+            &:first-child {
+                border-top: none;
+            }
+
             &.active,
             &:hover {
                 background-color: $gray-96;

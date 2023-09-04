@@ -2675,6 +2675,10 @@ input:focus {
   overflow: hidden;
 }
 
+.input--suggest .suggest-list li:first-child {
+  border-top: none;
+}
+
 .input--suggest .suggest-list li.active,
 .input--suggest .suggest-list li:hover {
   background-color: #f5f5f5;
@@ -9964,7 +9968,7 @@ body .fslightbox-slide-btn-container:hover .fslightbox-svg-path {
 
 body .fslightbox-slide-number-container {
   color: #222222;
-  font-weight: 600;
+  font-weight: 400;
   max-width: 65px;
 }
 
@@ -9978,7 +9982,7 @@ body .fslightbox-slide-number-container .fslightbox-flex-centered {
 body .fslightbox-slash {
   background: #222222;
   font-weight: 600;
-  width: 2px;
+  width: 1px;
 }
 
 @media screen and (min-width: 400px) {

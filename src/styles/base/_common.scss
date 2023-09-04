@@ -964,7 +964,7 @@ body {
 
     & .fslightbox-slide-number-container {
         color: $gray-13;
-        font-weight: 600;
+        font-weight: 400;
         max-width: 65px;
 
         & .fslightbox-flex-centered {
@@ -978,8 +978,7 @@ body {
     & .fslightbox-slash {
         background: $gray-13;
         font-weight: 600;
-        width: 2px;
-
+        width: 1px;
     }
 
     @media screen and (min-width: $w992) {
