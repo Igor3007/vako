@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vako - Панель управления магазином</title>
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="#{title}">
+    <meta name="keywords" content="#{title}">
+    <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
+    <link rel="stylesheet" href="https://use.typekit.net/kbc2isn.css">
+    <link rel="preload" href="fonts/lato/subset-Lato-Black.woff2" as="font" crossorigin>
+    <link rel="preload" href="fonts/lato/subset-Lato-Regular.woff2" as="font" crossorigin>
+    <link rel="preload" href="fonts/lato/subset-Lato-Bold.woff2" as="font" crossorigin>
+    <link rel="prefetch" href="/img/sprites/sprite.svg" as="image" crossorigin>
+    <style></style>
+    <link rel="stylesheet" href="/styles/main.css?v=1.0">
+  </head>
+  <body>
+    <header> 
+      <div class="header">
+        <div class="container">
+          <div class="header-top">
+            <div class="header-top__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo.svg')"></span></a></div>
+            <div class="header-top__find">
+              <div class="search-index" data-index-find="container">
+                <div class="search-index__find">
+                  <form action="#" method="POST">
+                    <div class="search-index__form" data-index-find="form">
+                      <div class="search-index__catalog">
+                        <button class="btn btn-catalog"><span class="icon-catalog"><i></i><i></i><i></i><i></i></span>Каталог</button>
+                      </div>
+                      <div class="search-index__field">
+                        <div class="search-index__input">
+                          <input type="text" placeholder="Искать на Vako" data-index-find="input">
+                        </div>
+                        <div class="search-index__btn">
+                          <button class="btn">Найти</button>
+                        </div>
+                        <div class="search-index__suggest" data-index-find="suggest">
+                                <div class="find-suggest">
+                                  <div class="find-suggest__list">
+                                    <ul>
+                                      <li><a href="#">клавиатура</a></li>
+                                      <li><a href="#">клавиатура с подсветкой</a></li>
+                                      <li><a href="#">клавиатура беспроводная</a></li>
+                                      <li><a href="#">клавиатура и мышь</a></li>
+                                    </ul>
+                                  </div>
+                                  <div class="find-suggest__category">
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="find-suggest__products">
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                  </div>
+                                </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="header-top__actions">
+              <div class="header-top__fav">
+                      <div class="tooltip-icon">
+                        <div class="tooltip-icon__elem"><a href="/wishlist.html">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                            </svg><span class="tooltip-icon__count" data-total="wishlist"></span></a></div>
+                        <div class="tooltip-icon__text"><span> Добавьте товары в избранное </span></div>
+                      </div>
+              </div>
+              <div class="header-top__compare">
+                      <div class="tooltip-icon">
+                        <div class="tooltip-icon__elem"><a href="/compare.html">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_compare-header"></use>
+                            </svg><span class="tooltip-icon__count" data-total="compare"></span></a></div>
+                        <div class="tooltip-icon__text"><span> Добавьте товары в сравнение </span></div>
+                      </div>
+              </div>
+              <div class="header-top__login">
+                      <div class="dropdown-icon">
+                        <div class="dropdown-icon__elem"><a href="#">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_login"></use>
+                            </svg></a></div>
+                        <div class="dropdown-icon__list">
+                          <div class="dropdown-button"><a href="#">
+                              <button class="btn btn-gray">Войти</button></a><a href="#">
+                              <button class="btn btn-gray">Зарегистрироваться</button></a><a href="#">
+                              <button class="btn btn-white">Вход для магазинов</button></a></div>
+                        </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-bottom">
+            <div class="header-bottom__location">
+              <div class="header-location">
+                <div class="header-location__wrp">
+                  <div class="header-location__icon">
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_pin"></use>
+                    </svg>
+                  </div>
+                  <div class="header-location__name" data-popup="region">Кременчуг-Константиновское </div>
+                </div>
+              </div>
+            </div>
+            <div class="header-bottom__menu">
+              <nav>
+                <ul>
+                  <li><a href="/category.html">Электроника</a></li>
+                  <li><a href="/category.html">Бытовая техника</a></li>
+                  <li><a href="/category.html">Авто</a></li>
+                  <li><a href="/category.html">Компьютеры</a></li>
+                  <li><a href="/category.html">Спорт и отдых</a></li>
+                  <li><a href="/category.html">Товары для дома</a></li>
+                  <li><a href="/category.html">Детские товары</a></li>
+                  <li><a href="/category.html">Дача и сад </a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="personal-page">
+          <div class="personal-page__title">Мой профиль</div>
+          <div class="personal-page__content">
+            <div class="personal-panel">
+              <div class="personal-panel__aside">
+                <div class="user-data">
+                  <div class="user-data__wrp">
+                    <div class="user-data__photo"><span class="bgimage lazyload" data-bg="/img/common/user6.webp"></span>
+                    </div>
+                    <div class="user-data__text">
+                      <div class="user-data__name">Михаил Длиннофамильный</div>
+                      <div class="user-data__email"><a href="mailto:makhail_dlinnofamilniy@gmail.com">makhail_dlinnofamilniy@gmail.com</a></div>
+                      <div class="user-data__reviws">Всего отзывов: 0</div>
+                    </div>
+                  </div>
+                </div>
+                <ul>
+                  <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="/">Отзывы</a>
+                  </li>
+                  <li><span class="bgimage lazyload" data-bg="/img/common/ic_config.svg"></span><a href="config.html">Настройки</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="personal-panel__content">
+                <div class="personal-review">
+                  <div class="personal-review__tabs">
+                    <ul data-tab-nav="product">
+                      <li class="active"><a href="#products">Отзывы о товарах</a></li>
+                      <li><a href="#stores">Отзывы о магазинах</a></li>
+                    </ul>
+                  </div>
+                  <div class="personal-review__content" data-tab-container="product">
+                    <div class="personal-review__item" data-tab="products">product</div>
+                    <div class="personal-review__item" data-tab="stores">stores</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/js/vendor.js"></script>
+    <script src="/js/store.js">  </script>
+  </body>
+</html>

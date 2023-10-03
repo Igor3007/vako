@@ -1,0 +1,31 @@
+mixin personal-aside(active) 
+
+    -
+        const menu = [
+            
+            {
+                icon: '/img/common/ic_message.svg',
+                text: 'Отзывы',
+                link: '/',
+            },
+            {
+                icon: '/img/common/ic_config.svg',
+                text: 'Настройки',
+                link: 'config.html',
+            },
+        ]
+
+    .user-data
+        .user-data__wrp
+            .user-data__photo: +bgimage('/img/common/user6.webp')
+            .user-data__text
+                .user-data__name Михаил Длиннофамильный
+                .user-data__email: a(href='mailto:makhail_dlinnofamilniy@gmail.com') makhail_dlinnofamilniy@gmail.com
+                .user-data__reviws Всего отзывов: 0
+
+    ul
+        each  item,index in menu
+            li(class = `${index == active ? 'is-active':''}`)
+                +bgimage(item.icon)
+                a(href=item.link  )= item.text 
+        

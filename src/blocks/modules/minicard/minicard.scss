@@ -459,7 +459,7 @@
     &-name {
       font-weight: 800;
       margin-right: 10px;
-      font-size: 14px;
+      font-size: 15px;
 
 
       @media screen and (min-width: $w1440) {
@@ -505,7 +505,7 @@
       &>span,
       &>a {
         color: $accent-2-1;
-        font-size: 14px;
+        font-size: 15px;
         cursor: pointer;
 
         &:hover {
@@ -617,7 +617,7 @@
 
   &__note {
     color: $gray-56;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     font-size: 13px;
   }
 

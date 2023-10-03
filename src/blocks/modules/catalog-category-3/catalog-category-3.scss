@@ -556,7 +556,7 @@
   &__mobile {
 
     margin-left: auto;
-    font-size: 14px;
+    font-size: 15px;
 
     @media screen and (min-width: $w992) {
       display: none;
@@ -566,7 +566,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 24px 8px 16px;
+      padding: 7px 24px 8px 16px;
       height: 36px;
       background-color: $gray-96;
       border-radius: 4px;
@@ -1035,5 +1035,19 @@
 
   &__page {
     padding-top: 30px;
+  }
+}
+
+
+.icon-cross.clear-color-filter {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-color: transparent;
+  opacity: 0.3;
+  display: none;
+
+  &:hover {
+    opacity: 1;
   }
 }

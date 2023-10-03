@@ -1134,6 +1134,38 @@
      }
 
      /* =========================================
+     color clear filter
+     =========================================*/
+
+     if (document.querySelector('.filter-properties__colors')) {
+         const checkboxes = document.querySelectorAll('.filter-properties__colors')
+         checkboxes.forEach(container => {
+
+             if (container.querySelector('input:checked')) {
+                 clearButton.style.setProperty('display', 'block')
+             }
+
+             container.querySelectorAll('input[type="checkbox"]').forEach(item => {
+
+                 const clearButton = container.querySelector('.clear-color-filter')
+
+                 item.addEventListener('change', e => {
+                     if (container.querySelector('input:checked')) {
+                         clearButton.style.setProperty('display', 'block')
+                     } else {
+                         clearButton.style.setProperty('display', 'none')
+                     }
+                 })
+
+                 clearButton.addEventListener('click', e => {
+                     container.querySelectorAll('input[type="checkbox"]:checked').forEach(item => item.checked = false)
+                     clearButton.style.setProperty('display', 'none')
+                 })
+             })
+         })
+     }
+
+     /* =========================================
      show / hide item filter
      =========================================*/
 
