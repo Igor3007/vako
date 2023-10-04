@@ -1,0 +1,75 @@
+mixin personal-config 
+
+    .personal-config
+        .personal-config__wrp
+            form(action='#' method='POST')
+                .personal-config__row
+                    .personal-config__col
+                        +personal-info()
+               
+                
+                .personal-config__submit
+                    .personal-config__col
+                        button.btn Сохранить изменения
+
+     
+mixin personal-info
+    .personal-block
+        .personal-block__logo
+            .personal-upload-logo
+                .personal-upload-logo__image
+                    +bgimage('/img/common/no-photo-user.svg')
+
+                .personal-upload-logo__action
+                    .personal-upload-logo__button
+                        label
+                            input(type="file" name="logo" data-upload="logo-store")
+                            span.btn.btn-small Добавить аватар
+                    .personal-upload-logo__note Загрузите jpg или png файл размером не более 5 MB
+                    
+        .personal-block__title  Личные данные
+        .personal-block__group
+            .form
+              .form__item
+                .form__subitem
+                    label Ваше имя
+                    input(type="text" placeholder="Ваше имя")
+
+              .form__item
+                .form__subitem
+                    label Ваша фамилия
+                    input(type="text"  placeholder="Ваша фамилия" )
+
+              .form__item
+                .form__subitem
+                    label Сайт
+                    input(type="text" placeholder="Ссылка на сайт")
+
+              .form__item
+                .form__subitem
+                    label Название юр. лица
+                    input(type="text" placeholder="Введите название")
+
+              .form__item
+                .form__subitem
+                    label ИНН/УНП
+                    input(type="text" placeholder="Введите данные" data-input-mask='number')
+
+              .form__item
+                .form__subitem
+                    label Адрес регистрацииай
+                    input(type="text" placeholder="Введите адрес")
+
+        .personal-block__title.personal-block__title--notification  Уведомления
+        .personal-block__group
+            .form
+              .form__item
+                .form__subitem
+                    label Получать на адрес
+                    input(type="email" placeholder="Email адрес")
+              .form__item
+                .form__subitem
+                    ul.checkbox-list
+                        li: +checkbox('Ответы магазинов на мои отзывы')
+                        li: +checkbox('Рассылки о скидках и акциях')
+                        li: +checkbox('Уведомления о товарах в избранном и сравнении')

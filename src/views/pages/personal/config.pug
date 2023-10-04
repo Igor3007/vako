@@ -1,0 +1,15 @@
+extends ../../layouts/personal
+
+include ../../../blocks/modules/personal/personal-aside/personal-aside.pug
+include ../../../blocks/modules/personal/personal-config/personal-config.pug
+ 
+block variables
+  include ../../../data/data.pug
+  - const title = "Vako - Панель управления магазином"
+
+block aside
+  +personal-aside(1)
+  
+
+block content
+   +personal-config()

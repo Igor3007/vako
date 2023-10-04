@@ -189,105 +189,115 @@
                   </div>
                 </div>
                 <ul>
-                  <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="/personal/">Отзывы</a>
+                  <li><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="/personal/">Отзывы</a>
                   </li>
-                  <li><span class="bgimage lazyload" data-bg="/img/common/ic_config.svg"></span><a href="config.html">Настройки</a>
+                  <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_config.svg"></span><a href="config.html">Настройки</a>
                   </li>
                 </ul>
               </div>
               <div class="personal-panel__content">
-                <div class="personal-review">
-                  <div class="personal-review__tabs">
-                    <ul data-tab-nav="product">
-                      <li class="active"><a href="#products">Отзывы о товарах</a></li>
-                      <li><a href="#stores">Отзывы о магазинах</a></li>
-                    </ul>
-                  </div>
-                  <div class="personal-review__content" data-tab-container="product">
-                    <div class="personal-review__item" data-tab="products">
-                      <div class="personal-pagereview">
-                        <div class="personal-pagereview__title">Отзывы о товарах (27)</div>
-                        <div class="personal-pagereview__list">
-                          <div class="personal-pagereview__item">
-                            <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                <div class="personal-config">
+                  <div class="personal-config__wrp">
+                    <form action="#" method="POST">
+                      <div class="personal-config__row">
+                        <div class="personal-config__col">
+                          <div class="personal-block">
+                            <div class="personal-block__logo">
+                              <div class="personal-upload-logo">
+                                <div class="personal-upload-logo__image"><span class="bgimage lazyload" data-bg="/img/common/no-photo-user.svg"></span>
+                                </div>
+                                <div class="personal-upload-logo__action">
+                                  <div class="personal-upload-logo__button">
+                                    <label>
+                                      <input type="file" name="logo" data-upload="logo-store"/><span class="btn btn-small">Добавить аватар</span>
+                                    </label>
+                                  </div>
+                                  <div class="personal-upload-logo__note">Загрузите jpg или png файл размером не более 5 MB</div>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                            <div class="personal-block__title"> Личные данные</div>
+                            <div class="personal-block__group">
+                              <div class="form">
+                                <div class="form__item">
+                                  <div class="form__subitem">
+                                    <label>Ваше имя</label>
+                                    <input type="text" placeholder="Ваше имя"/>
+                                  </div>
+                                </div>
+                                <div class="form__item">
+                                  <div class="form__subitem">
+                                    <label>Ваша фамилия</label>
+                                    <input type="text" placeholder="Ваша фамилия"/>
+                                  </div>
+                                </div>
+                                <div class="form__item">
+                                  <div class="form__subitem">
+                                    <label>Сайт</label>
+                                    <input type="text" placeholder="Ссылка на сайт"/>
+                                  </div>
+                                </div>
+                                <div class="form__item">
+                                  <div class="form__subitem">
+                                    <label>Название юр. лица</label>
+                                    <input type="text" placeholder="Введите название"/>
+                                  </div>
+                                </div>
+                                <div class="form__item">
+                                  <div class="form__subitem">
+                                    <label>ИНН/УНП</label>
+                                    <input type="text" placeholder="Введите данные" data-input-mask="number"/>
+                                  </div>
+                                </div>
+                                <div class="form__item">
+                                  <div class="form__subitem">
+                                    <label>Адрес регистрацииай</label>
+                                    <input type="text" placeholder="Введите адрес"/>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-product">
-                              <div class="review-product__img">review-product</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-product">
-                              <div class="review-product__img">review-product</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-product">
-                              <div class="review-product__img">review-product</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-product">
-                              <div class="review-product__img">review-product</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                            <div class="personal-block__title personal-block__title--notification"> Уведомления</div>
+                            <div class="personal-block__group">
+                              <div class="form">
+                                <div class="form__item">
+                                  <div class="form__subitem">
+                                    <label>Получать на адрес</label>
+                                    <input type="email" placeholder="Email адрес"/>
+                                  </div>
+                                </div>
+                                <div class="form__item">
+                                  <div class="form__subitem">
+                                    <ul class="checkbox-list">
+                                      <li>
+                                        <label class="checkbox">
+                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Ответы магазинов на мои отзывы</span>
+                                        </label>
+                                      </li>
+                                      <li>
+                                        <label class="checkbox">
+                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Рассылки о скидках и акциях</span>
+                                        </label>
+                                      </li>
+                                      <li>
+                                        <label class="checkbox">
+                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Уведомления о товарах в избранном и сравнении</span>
+                                        </label>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="personal-review__item" data-tab="stores">
-                      <div class="personal-pagereview">
-                        <div class="personal-pagereview__title">Отзывы о магазинах (27)</div>
-                        <div class="personal-pagereview__list">
-                          <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
-                            </div>
-                          </div>
-                          <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
-                            </div>
-                          </div>
+                      <div class="personal-config__submit">
+                        <div class="personal-config__col">
+                          <button class="btn">Сохранить изменения</button>
                         </div>
                       </div>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>

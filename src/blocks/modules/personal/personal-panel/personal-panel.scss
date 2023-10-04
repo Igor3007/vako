@@ -134,6 +134,7 @@
         font-size: 20px;
         font-weight: 800;
         padding-top: 35px;
+        padding-bottom: 6px;
 
         @media screen and (min-width: $w992) {
             font-size: 36px;
@@ -142,6 +143,15 @@
 }
 
 .personal-review {
+
+    &__item {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
     &__tabs {
         & ul {
             display: flex;

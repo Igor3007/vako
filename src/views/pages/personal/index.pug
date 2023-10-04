@@ -1,6 +1,7 @@
 extends ../../layouts/personal
 
 include ../../../blocks/modules/personal/personal-aside/personal-aside.pug
+include ../../../blocks/modules/personal/personal-review/personal-review.pug
  
 block variables
   include ../../../data/data.pug
@@ -16,5 +17,5 @@ block content
             li: a(href='#stores') Отзывы о магазинах
 
     .personal-review__content(data-tab-container="product")
-      .personal-review__item(data-tab="products") product
-      .personal-review__item(data-tab="stores") stores
+      .personal-review__item(data-tab="products"): +personal-review-product()
+      .personal-review__item(data-tab="stores"): +personal-review-store()

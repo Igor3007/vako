@@ -1,0 +1,22 @@
+mixin review-product
+    .review-product
+        .review-product__img review-product
+
+mixin review-store
+    .review-store
+        .review-store__img review-store
+
+mixin personal-review-product
+    .personal-pagereview
+        .personal-pagereview__title Отзывы о товарах (27)
+        .personal-pagereview__list
+            each iten in [1,1,1,1,1,1,1]
+                .personal-pagereview__item: +review-product
+
+
+mixin personal-review-store
+    .personal-pagereview
+        .personal-pagereview__title Отзывы о магазинах (27)
+        .personal-pagereview__list
+            each iten in [1,1,1,1,1,1,1]
+                .personal-pagereview__item: +review-store
