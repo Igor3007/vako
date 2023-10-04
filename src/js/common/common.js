@@ -188,6 +188,65 @@
          };
      }
 
+     /* ==========================================
+     mask
+     ==========================================*/
+
+     const {
+         MaskInput,
+     } = Maska
+
+     function initMask() {
+         new MaskInput("input[type='tel']", {
+             mask: '+7 (###) ###-##-##',
+
+         })
+
+         document.querySelectorAll("input[type='tel']").forEach(input => {
+             input.addEventListener('focus', e => input.value = (input.value.length ? input.value : '+7'))
+             input.addEventListener('blur', e => input.value = (input.value == '+7' ? '' : input.value))
+         })
+
+         new MaskInput("[data-input-mask='time']", {
+             mask: (value) => {
+
+                 if (value[1] == ':' || value[1] == '-' || value[1] == '.') {
+                     return '#:##'
+                 }
+
+
+                 return '##:##'
+
+             },
+
+             postProcess: (value) => {
+
+                 let arr = [];
+
+                 value.split(':').forEach((num, index) => {
+                     if (index == 0) Number(num) > 23 ? arr.push(23) : arr.push(num)
+                     if (index == 1) Number(num) > 59 ? arr.push(59) : arr.push(num)
+                 })
+
+                 return arr.join(':')
+
+             }
+
+         })
+
+         new MaskInput("[data-input-mask='number']", {
+             mask: '9',
+             tokens: {
+                 9: {
+                     pattern: /[0-9]/,
+                     repeated: true
+                 },
+             }
+         })
+     }
+
+     initMask();
+
      /* ==============================================
      mobile menu
      ============================================== */
@@ -1955,6 +2014,8 @@
          constructor(params) {
              this.$el = document.querySelector(params.container)
 
+
+
              if (this.$el) {
 
                  this.addSelector = '[data-review="add"]';
@@ -2070,7 +2131,6 @@
 
          showHideChilds(e) {
              const itemComment = e.target.closest('.card-review')
-
              itemComment.querySelector('.card-review__childs').classList.toggle('is-open')
          }
 
@@ -2218,6 +2278,8 @@
      new Reviews({
          container: '.review-content'
      });
+
+
 
      /* ==============================================
     view all photo
@@ -3242,6 +3304,251 @@
                  this.option.on.change(event.target.innerText, event.target.getAttribute('rel'))
              })
          }
+
+     }
+
+     /* ========================================
+     data-review="show-comment"
+     ========================================*/
+
+     if (document.querySelector('[data-review="show-comment"]')) {
+         document.querySelectorAll('[data-review="show-comment"]').forEach(item => {
+             item.addEventListener('click', e => {
+                 e.target.closest('.review-product').querySelector('.review-product__childs').classList.toggle('is-open')
+                 item.classList.toggle('is-open')
+
+                 if (item.classList.contains('is-open')) {
+                     item.innerText = 'Скрыть комментарии'
+                 } else {
+                     item.innerText = 'Показать комментарии'
+                 }
+             })
+         })
+     }
+
+     /* ===========================================
+      popup login
+      ============================================= */
+
+     function openLoginPartner() {
+         const loginPopup = new afLightbox({
+             mobileInBottom: true
+         })
+
+         loginPopup.open('<div class="af-spiner" ></div>', function (instanse) {
+             window.ajax({
+                 type: 'GET',
+                 url: '/store/_popup-login.html',
+                 responseType: 'html',
+                 data: {
+                     value: 0
+                 }
+             }, (status, response) => {
+                 loginPopup.changeContent(response)
+
+                 //add event click registration popup
+                 if (loginPopup.modal.querySelector('[data-popup="store-registration"]')) {
+                     loginPopup.modal.querySelector('[data-popup="store-registration"]').addEventListener('click', e => {
+
+                         loginPopup.close()
+                         setTimeout(() => {
+                             openRegistrationPartner()
+                         }, 200)
+                     })
+                 }
+
+                 //add event click pasword recovery popup
+                 if (loginPopup.modal.querySelector('[data-popup="store-recovery"]')) {
+                     loginPopup.modal.querySelector('[data-popup="store-recovery"]').addEventListener('click', e => {
+
+                         loginPopup.close()
+                         setTimeout(() => {
+                             openRecoveryPassword()
+                         }, 200)
+                     })
+                 }
+
+
+
+                 //
+
+             })
+         })
+     }
+
+     if (document.querySelector('[data-popup="login"]')) {
+
+         const buttons = document.querySelectorAll('[data-popup="login"]')
+
+         buttons.forEach(element => {
+             element.addEventListener('click', function (e) {
+                 e.preventDefault()
+                 openLoginPartner();
+             })
+         });
+
+
+     }
+
+     /* ===========================================
+     popup recovery password
+     ============================================= */
+
+     function openRecoveryPassword() {
+         const RecoveryPassword = new afLightbox({
+             mobileInBottom: true
+         })
+
+         RecoveryPassword.open('<div class="af-spiner" ></div>', function (instanse) {
+             window.ajax({
+                 type: 'GET',
+                 url: '/store/_popup-recovery.html',
+                 responseType: 'html',
+                 data: {
+                     value: 0
+                 }
+             }, (status, response) => {
+                 RecoveryPassword.changeContent(response)
+
+                 const form = RecoveryPassword.modal.querySelector('[data-store-form="recovery"]')
+                 form.addEventListener('submit', e => {
+                     e.preventDefault()
+
+
+                     //send success
+                     RecoveryPassword.close()
+                     openRecoveryCheckEmail()
+                 })
+
+             })
+         })
+     }
+
+     /* ==============================================
+       form recovery check email
+      ==============================================*/
+
+     function openRecoveryCheckEmail() {
+         const CHECKEMAILPOPUP = new afLightbox({
+             mobileInBottom: true
+         })
+
+         window.ajax({
+             type: 'GET',
+             url: '/store/_popup-check-email.html',
+             responseType: 'html',
+             data: {
+                 value: 0
+             }
+         }, (status, response) => {
+             CHECKEMAILPOPUP.open(response, (html) => {
+                 html.querySelector('.btn').addEventListener('click', e => CHECKEMAILPOPUP.close())
+             })
+         })
+
+     }
+
+     /* ===========================================
+     popup registration
+     ============================================= */
+
+     function openRegistrationPartner() {
+         const registerPopup = new afLightbox({
+             mobileInBottom: true
+         })
+
+         registerPopup.open('<div class="af-spiner" ></div>', function (instanse) {
+             window.ajax({
+                 type: 'GET',
+                 url: '/personal/_popup-registration.html',
+                 responseType: 'html',
+                 data: {
+                     value: 0
+                 }
+             }, (status, response) => {
+                 registerPopup.changeContent(response)
+
+                 // init mask
+                 initMask()
+
+                 //form
+                 const form = document.querySelector('[data-store-form="registration"]')
+
+                 //init suggest
+
+                 new inputSuggest({
+                     elem: registerPopup.modal.querySelector('.input--suggest input'),
+                     maxHeightSuggestList: '220px',
+                     on: {
+                         change: function (text, value) {
+                             //change event
+                         }
+                     }
+                 });
+
+                 // form submit
+
+                 form.addEventListener('submit', e => {
+
+                     let err = [];
+
+                     form.querySelectorAll('input').forEach(input => {
+                         if (!input.validity.valid) {
+                             e.target.querySelector('[data-step="1"]').classList.add('is-validate')
+                             window.STATUS.err('Заполните обязательные поля')
+                             err.push('err')
+                         }
+                     })
+
+                     if (!err.length) {
+                         //ajax send data
+                         registerPopup.close()
+                         openThanksPopup()
+                     }
+
+                     e.preventDefault()
+
+
+                 })
+
+
+             })
+         })
+     }
+
+     if (document.querySelector('[data-popup="registration"]')) {
+
+         const buttons = document.querySelectorAll('[data-popup="registration"]')
+
+         buttons.forEach(element => {
+             element.addEventListener('click', function (e) {
+                 e.preventDefault()
+                 openRegistrationPartner();
+             })
+         });
+     }
+
+     /* ==============================================
+      form thanks popup
+     ==============================================*/
+
+     function openThanksPopup() {
+         const CHECKEMAILPOPUP = new afLightbox({
+             mobileInBottom: true
+         })
+
+         window.ajax({
+             type: 'GET',
+             url: '/personal/_popup-thanks.html',
+             responseType: 'html',
+             data: {
+                 value: 0
+             }
+         }, (status, response) => {
+             CHECKEMAILPOPUP.open(response, (html) => {
+                 html.querySelector('.btn').addEventListener('click', e => CHECKEMAILPOPUP.close())
+             })
+         })
 
      }
 

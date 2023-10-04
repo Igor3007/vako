@@ -1,0 +1,31 @@
+include dropdown
+
+.header-home
+    .container
+        .header-min
+            .header-min__main
+                .header-min__logo
+                    a(href='/')
+                        span.bgimage(style="background-image: url('/img/common/logo-dark.svg')")
+                .header-min__actions
+                    .header-min__fav
+                        +tooltip-icon({
+                            icon: '#ic_heart',
+                            text: 'Добавьте товары в избранное ',
+                            attr: 'wishlist',
+                            link: '/wishlist.html',
+                        })
+                    .header-min__compare
+                        
+                        +tooltip-icon({
+                            icon: '#ic_compare-header',
+                            text: 'Добавьте товары в сравнение ',
+                            attr: 'compare',
+                            link: '/compare.html',
+                        })
+                    .header-min__login(data-popup="user-menu")
+                        +dropdown-icon-login
+        .header-location
+            .header-location__wrp
+                .header-location__icon: +icons('#ic_pin')
+                .header-location__name(data-popup="region") Кременчуг-Константиновское  

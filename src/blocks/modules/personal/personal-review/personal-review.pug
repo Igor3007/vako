@@ -1,22 +1,137 @@
-mixin review-product
-    .review-product
-        .review-product__img review-product
+include ../../single-product/single-product__review.pug
 
-mixin review-store
-    .review-store
-        .review-store__img review-store
+mixin review-product(data)
+    .review-product
+        .review-product__img: +bgimage('/img/product/minicard-2.jpg')
+        .review-product__main
+            .review-product__product 17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA
+            .review-product__date 2 месяца назад
+            .review-product__rating(class=data.ratingClass)
+                span= data.rating
+                a(href='#') Отлично
+            .review-product__text Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.
+            
+            .review-product__action
+                if data.child
+                    .review-product__comment(data-review="show-comment")
+                        span Показать комментарии
+                .review-product__button
+                    .review-product__complaint
+                        +icons('#ic_trash', 20)
+            if data.child
+                .review-product__childs
+                    +card-review-shop-childs
+                    
+mixin review-store(data)
+    .review-product.review-product--shop
+        .review-product__img: +bgimage('/img/product/shop-local-square.jpg')
+        .review-product__main
+            .review-product__product 17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA
+            .review-product__date 2 месяца назад
+            .review-product__rating(class=data.ratingClass)
+                span= data.rating
+                a(href='#') Отлично
+            .review-product__text Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.
+            
+            .review-product__action
+                if data.child
+                    .review-product__comment(data-review="show-comment")
+                        span Показать комментарии
+                .review-product__button
+                    .review-product__complaint
+                        +icons('#ic_trash', 20)
+            if data.child
+                .review-product__childs
+                    +card-review-shop-childs
 
 mixin personal-review-product
+
+    -
+        const rProduct = [
+            {
+                rating: 5,
+                ratingClass: 'rating--green',
+                child: true
+            },
+            {
+                rating: 2,
+                ratingClass: 'rating--red',
+            },
+            {
+                rating: 4,
+                ratingClass: 'rating--orange',
+            },
+            {
+                rating: 3,
+                ratingClass: 'rating--blue',
+            },
+            {
+                rating: 1,
+                ratingClass: 'rating--red',
+            },
+            {
+                rating: 5,
+                ratingClass: 'rating--green',
+            },
+            {
+                rating: 5,
+                ratingClass: 'rating--green',
+            },
+            {
+                rating: 5,
+                ratingClass: 'rating--green',
+            },
+            {
+                rating: 5,
+                ratingClass: 'rating--green',
+            },
+        ]
+
     .personal-pagereview
         .personal-pagereview__title Отзывы о товарах (27)
         .personal-pagereview__list
-            each iten in [1,1,1,1,1,1,1]
-                .personal-pagereview__item: +review-product
+            each item in rProduct
+                .personal-pagereview__item: +review-product(item)
 
 
 mixin personal-review-store
+
+    -
+        const rProduct = [
+            {
+                rating: 5,
+                ratingClass: 'rating--green',
+                child: true
+            },
+            {
+                rating: 2,
+                ratingClass: 'rating--red',
+            },
+            {
+                rating: 4,
+                ratingClass: 'rating--orange',
+            },
+            {
+                rating: 3,
+                ratingClass: 'rating--blue',
+            },
+            {
+                rating: 1,
+                ratingClass: 'rating--red',
+            },
+            {
+                rating: 5,
+                ratingClass: 'rating--green',
+            },
+            {
+                rating: 5,
+                ratingClass: 'rating--green',
+            },
+            
+        ]
+
     .personal-pagereview
-        .personal-pagereview__title Отзывы о магазинах (27)
+        .personal-pagereview__title Отзывы о магазинах (12)
         .personal-pagereview__list
-            each iten in [1,1,1,1,1,1,1]
-                .personal-pagereview__item: +review-store
+            each item in rProduct
+                .personal-pagereview__item: +review-store(item)

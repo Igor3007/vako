@@ -380,12 +380,14 @@
 }
 
 
+.user-menu-popup .dropdown-button span,
 .user-menu-popup .dropdown-button a {
     font-size: 15px;
     display: block;
     margin: 8px 0
 }
 
+.user-menu-popup .dropdown-button span button,
 .user-menu-popup .dropdown-button a button {
     width: 100%;
     height: 40px

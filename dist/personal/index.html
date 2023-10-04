@@ -130,9 +130,9 @@
                               <use xlink:href="/img/sprites/sprite.svg#ic_login"></use>
                             </svg></a></div>
                         <div class="dropdown-icon__list">
-                          <div class="dropdown-button"><a href="#">
-                              <button class="btn btn-gray">Войти</button></a><a href="#">
-                              <button class="btn btn-gray">Зарегистрироваться</button></a><a href="#">
+                          <div class="dropdown-button"><a href="#" data-popup="login">
+                              <button class="btn btn-gray">Войти</button></a><a href="#" data-popup="registration">
+                              <button class="btn btn-gray">Зарегистрироваться</button></a><a href="/store/">
                               <button class="btn btn-white">Вход для магазинов</button></a></div>
                         </div>
                       </div>
@@ -204,43 +204,221 @@
                     </ul>
                   </div>
                   <div class="personal-review__content" data-tab-container="product">
-                    <div class="personal-review__item" data-tab="products">
+                    <div class="personal-review__item active" data-tab="products">
                       <div class="personal-pagereview">
                         <div class="personal-pagereview__title">Отзывы о товарах (27)</div>
                         <div class="personal-pagereview__list">
                           <div class="personal-pagereview__item">
                             <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__comment" data-review="show-comment"><span>Показать комментарии</span></div>
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="review-product__childs">
+                                  <div class="card-review card-review-shop">
+                                    <div class="card-review__photo">
+                                      <picture>
+                                        <source srcset="/img/common/shop-user.webp" type="image/webp"/><img src="/img/common/shop-user.jpg" loading="lazy" alt="image"/>
+                                      </picture>
+                                    </div>
+                                    <div class="card-review__main">
+                                      <div class="card-review__head">
+                                        <div class="card-review__name">Shop Local</div>
+                                        <div class="card-review__date">2 месяца назад, Москва</div>
+                                      </div>
+                                      <div class="card-review__text">Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.</div>
+                                      <div class="card-review__action">
+                                        <div class="card-review__add card-review__add-shop" data-review="add" data-id="123" data-parent="369">
+                                          <svg width="20" height="20">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                          </svg><span>Ответить</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
                             <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--red"><span>2</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
                             <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--orange"><span>4</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
                             <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--blue"><span>3</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
                             <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--red"><span>1</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
                             <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
                             <div class="review-product">
-                              <div class="review-product__img">review-product</div>
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -248,41 +426,177 @@
                     </div>
                     <div class="personal-review__item" data-tab="stores">
                       <div class="personal-pagereview">
-                        <div class="personal-pagereview__title">Отзывы о магазинах (27)</div>
+                        <div class="personal-pagereview__title">Отзывы о магазинах (12)</div>
                         <div class="personal-pagereview__list">
                           <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__comment" data-review="show-comment"><span>Показать комментарии</span></div>
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="review-product__childs">
+                                  <div class="card-review card-review-shop">
+                                    <div class="card-review__photo">
+                                      <picture>
+                                        <source srcset="/img/common/shop-user.webp" type="image/webp"/><img src="/img/common/shop-user.jpg" loading="lazy" alt="image"/>
+                                      </picture>
+                                    </div>
+                                    <div class="card-review__main">
+                                      <div class="card-review__head">
+                                        <div class="card-review__name">Shop Local</div>
+                                        <div class="card-review__date">2 месяца назад, Москва</div>
+                                      </div>
+                                      <div class="card-review__text">Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.</div>
+                                      <div class="card-review__action">
+                                        <div class="card-review__add card-review__add-shop" data-review="add" data-id="123" data-parent="369">
+                                          <svg width="20" height="20">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                          </svg><span>Ответить</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--red"><span>2</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--orange"><span>4</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--blue"><span>3</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--red"><span>1</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="personal-pagereview__item">
-                            <div class="review-store">
-                              <div class="review-store__img">review-store</div>
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>

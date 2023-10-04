@@ -17,5 +17,5 @@ block content
             li: a(href='#stores') Отзывы о магазинах
 
     .personal-review__content(data-tab-container="product")
-      .personal-review__item(data-tab="products"): +personal-review-product()
+      .personal-review__item.active(data-tab="products"): +personal-review-product()
       .personal-review__item(data-tab="stores"): +personal-review-store()

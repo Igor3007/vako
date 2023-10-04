@@ -1,0 +1,22 @@
+extends ../layouts/catalog--login
+
+include ../../blocks/modules/catalog-category/catalog-category.pug
+ 
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Vako"
+ 
+
+block content
+  +catalog-category()
+
+
+
+
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js") 
+  
+
+ 

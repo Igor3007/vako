@@ -116,6 +116,8 @@
                 font-weight: 600;
             }
 
+
+            & span,
             & a {
                 display: block;
                 margin-bottom: 8px;
@@ -123,6 +125,12 @@
                 &:last-child {
                     margin-bottom: 0;
                 }
+            }
+
+            & span,
+            & span button {
+                cursor: default;
+
             }
 
         }
