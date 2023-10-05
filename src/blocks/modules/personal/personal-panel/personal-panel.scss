@@ -8,7 +8,7 @@
 
     &__aside {
 
-        display: none;
+
         transition: 0.3s ease;
 
         @media screen and (min-width: $w992) {
@@ -19,10 +19,8 @@
         &.slide-left-out {
             background-color: transparent !important;
 
-
             & ul {
                 animation: left-slide-out 0.3s ease forwards;
-
             }
         }
 
@@ -30,11 +28,13 @@
 
             animation: left-slide 0.3s ease forwards;
             transition: 0.3s ease;
+            display: none;
 
 
 
             @media screen and (min-width: $w992) {
                 animation: none;
+                display: block;
             }
 
             & li {

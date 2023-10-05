@@ -9320,7 +9320,6 @@ div[data-state="1"] {
 }
 
 .personal-panel__aside {
-  display: none;
   transition: 0.3s ease;
 }
 
@@ -9335,6 +9334,7 @@ div[data-state="1"] {
 .personal-panel__aside ul {
   animation: left-slide 0.3s ease forwards;
   transition: 0.3s ease;
+  display: none;
 }
 
 .personal-panel__aside ul li {
@@ -12466,6 +12466,7 @@ body .fslightbox-slash {
 
   .personal-panel__aside ul {
     animation: none;
+    display: block;
   }
 
   .personal-panel__aside ul li a {
