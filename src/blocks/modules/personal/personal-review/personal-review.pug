@@ -4,7 +4,8 @@ mixin review-product(data)
     .review-product
         .review-product__img: +bgimage('/img/product/minicard-2.jpg')
         .review-product__main
-            .review-product__product 17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA
+            .review-product__product
+                a(href='/single-product.html') 17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA
             .review-product__date 2 месяца назад
             .review-product__rating(class=data.ratingClass)
                 span= data.rating
@@ -14,19 +15,20 @@ mixin review-product(data)
             .review-product__action
                 if data.child
                     .review-product__comment(data-review="show-comment")
-                        span Показать комментарии
+                        span Все комментарии (1)
                 .review-product__button
                     .review-product__complaint
                         +icons('#ic_trash', 20)
             if data.child
                 .review-product__childs
-                    +card-review-shop-childs
+                    +card-review-personal-childs
                     
 mixin review-store(data)
     .review-product.review-product--shop
         .review-product__img: +bgimage('/img/product/shop-local-square.jpg')
         .review-product__main
-            .review-product__product 17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA
+            .review-product__product
+                a(href='/single-shop.html') Магазин Shop Local
             .review-product__date 2 месяца назад
             .review-product__rating(class=data.ratingClass)
                 span= data.rating
@@ -36,13 +38,13 @@ mixin review-store(data)
             .review-product__action
                 if data.child
                     .review-product__comment(data-review="show-comment")
-                        span Показать комментарии
+                        span Все комментарии (1)
                 .review-product__button
                     .review-product__complaint
                         +icons('#ic_trash', 20)
             if data.child
                 .review-product__childs
-                    +card-review-shop-childs
+                    +card-review-personal-childs
 
 mixin personal-review-product
 
@@ -92,6 +94,13 @@ mixin personal-review-product
         .personal-pagereview__list
             each item in rProduct
                 .personal-pagereview__item: +review-product(item)
+        .catalog-pagination
+            .catalog-pagination__more
+                button
+                    +icons('#ic_more', 14)
+                    span Показать ещё
+            .catalog-pagination__page
+                +pagination()
 
 
 mixin personal-review-store
@@ -135,3 +144,10 @@ mixin personal-review-store
         .personal-pagereview__list
             each item in rProduct
                 .personal-pagereview__item: +review-store(item)
+        .catalog-pagination
+            .catalog-pagination__more
+                button
+                    +icons('#ic_more', 14)
+                    span Показать ещё
+            .catalog-pagination__page
+                +pagination()

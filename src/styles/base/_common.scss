@@ -930,6 +930,10 @@ common.css
 body {
     & .fslightbox-container {
         background: linear-gradient(rgba(255, 255, 255, 1), #fff 1810%);
+
+        & div[title="Enter fullscreen"] {
+            display: none;
+        }
     }
 
     & .fslightbox-svg-path {
@@ -1028,4 +1032,25 @@ body {
         margin-bottom: 9px;
     }
 
+}
+
+.user-menu-popup .dropdown-button span,
+.user-menu-popup .dropdown-button a {
+    font-size: 15px;
+    display: block;
+    margin: 8px 0
+}
+
+.user-menu-popup .dropdown-button span button,
+.user-menu-popup .dropdown-button a button {
+    width: 100%;
+    height: 40px
+}
+
+.user-menu-popup .dropdown-button {
+    margin: -8px 0;
+}
+
+.user-menu-popup {
+    padding-top: 45px;
 }

@@ -139,8 +139,11 @@
     &:hover {
         & .dropdown-icon {
             &__list {
-                opacity: 1;
-                visibility: visible;
+
+                @media screen and (min-width: $w480) {
+                    opacity: 1;
+                    visibility: visible;
+                }
 
             }
         }

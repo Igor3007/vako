@@ -588,10 +588,7 @@
     &__title {
         font-weight: 700;
         padding-bottom: 11px;
-
-        @media screen and (min-width: $w1440) {
-            font-size: 15px;
-        }
+        font-size: 15px;
 
         @media screen and (min-width: $w480) {
             padding-bottom: 15px;

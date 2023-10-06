@@ -2014,8 +2014,6 @@
          constructor(params) {
              this.$el = document.querySelector(params.container)
 
-
-
              if (this.$el) {
 
                  this.addSelector = '[data-review="add"]';
@@ -3164,6 +3162,37 @@
      }
 
 
+     /* =========================================
+     show-hide
+     =========================================*/
+
+     if (document.querySelector('.personal-review')) {
+
+         let countChars = document.body.clientWidth > 576 ? 500 : 150
+
+         document.querySelectorAll('.review-product__text').forEach(item => {
+             if (item.innerText.length > countChars) {
+                 item.classList.add('crop--text')
+
+                 let showButton = document.createElement('div')
+                 showButton.classList.add('card-review__more')
+                 showButton.innerText = 'Читать полностью'
+
+                 showButton.addEventListener('click', e => {
+                     if (item.classList.contains('crop--text')) {
+                         item.classList.remove('crop--text')
+                         showButton.innerText = 'Cвернуть'
+                     } else {
+                         item.classList.add('crop--text')
+                         showButton.innerText = 'Читать полностью'
+                     }
+                 })
+
+                 item.after(showButton)
+             }
+         })
+     }
+
 
      /* ==========================================
        suggest input
@@ -3307,6 +3336,18 @@
 
      }
 
+     if (document.querySelector('[data-suggest="input"]')) {
+
+         document.querySelectorAll('[data-suggest="input"]').forEach(input => {
+             new inputSuggest({
+                 elem: input,
+                 maxHeightSuggestList: '220px',
+             });
+         })
+
+
+     }
+
      /* ========================================
      data-review="show-comment"
      ========================================*/
@@ -3318,9 +3359,9 @@
                  item.classList.toggle('is-open')
 
                  if (item.classList.contains('is-open')) {
-                     item.innerText = 'Скрыть комментарии'
+                     item.innerHTML = 'Скрыть комментарии'
                  } else {
-                     item.innerText = 'Показать комментарии'
+                     item.innerHTML = 'Все комментарии (1)'
                  }
              })
          })
@@ -3338,7 +3379,7 @@
          loginPopup.open('<div class="af-spiner" ></div>', function (instanse) {
              window.ajax({
                  type: 'GET',
-                 url: '/store/_popup-login.html',
+                 url: '/personal/_popup-login.html',
                  responseType: 'html',
                  data: {
                      value: 0
@@ -3402,13 +3443,22 @@
          RecoveryPassword.open('<div class="af-spiner" ></div>', function (instanse) {
              window.ajax({
                  type: 'GET',
-                 url: '/store/_popup-recovery.html',
+                 url: '/personal/_popup-recovery.html',
                  responseType: 'html',
                  data: {
                      value: 0
                  }
              }, (status, response) => {
                  RecoveryPassword.changeContent(response)
+
+
+                 if (RecoveryPassword.modal.querySelector('[data-back="login"]')) {
+                     RecoveryPassword.modal.querySelector('[data-back="login"]').addEventListener('click', e => {
+                         RecoveryPassword.close()
+                         openLoginPartner()
+                     })
+
+                 }
 
                  const form = RecoveryPassword.modal.querySelector('[data-store-form="recovery"]')
                  form.addEventListener('submit', e => {
@@ -3551,6 +3601,92 @@
          })
 
      }
+
+     /* =============================================
+      user menu
+      =============================================*/
+
+     if (document.querySelector('[data-popup="user-menu"]')) {
+
+         const button = document.querySelector('[data-popup="user-menu"]')
+
+         button.addEventListener('click', e => {
+
+             if (document.body.clientWidth <= 480) {
+                 const html = button.querySelector('.dropdown-button').outerHTML
+                 const userMenuPopup = new afLightbox({
+                     mobileInBottom: true
+                 })
+                 userMenuPopup.open('<div class="user-menu-popup" >' + html + '</div>')
+             }
+
+         })
+
+     }
+
+     /* ======================================
+     upload logo
+     ======================================*/
+
+     if (document.querySelector('[data-upload="logo-store"]')) {
+
+         document.querySelector('[data-upload="logo-store"]').addEventListener('change', function () {
+
+             const file = this.files[0];
+             const _this = this;
+
+             if (file.size / (1024 * 1024) > 5) { //5mb
+                 window.STATUS.err('Допустимы файлы не более 5 мб');
+                 return false;
+             }
+
+             if (file.type == 'image/jpeg' || file.type == 'image/png') {
+
+                 var reader = new FileReader();
+                 reader.readAsDataURL(file);
+                 reader.onload = function (e) {
+
+                     let removeButton = document.querySelector('.personal-upload-logo__button .btn.btn-white')
+                     let uploadButton = document.querySelector('.personal-upload-logo__button .btn')
+                     let imgElem = document.querySelector('.personal-upload-logo__image span')
+
+                     imgElem.style.backgroundImage = 'url(' + e.target.result + ')'
+                     uploadButton.innerText = 'Заменить аватар'
+                     removeButton.style.setProperty('display', 'block')
+
+                     removeButton.addEventListener('click', e => {
+                         _this.value = ''
+                         imgElem.style.setProperty('background-image', 'url(' + imgElem.dataset.bg + ')')
+                         uploadButton.innerText = 'Загрузить аватар'
+                         removeButton.style.setProperty('display', 'none')
+                     })
+                 }
+
+             } else {
+                 window.STATUS.err('Допустимы только jpeg/png файлы')
+             }
+
+
+         })
+
+
+
+     }
+
+     /* ============================================
+     review reply
+     ============================================*/
+
+     if (document.querySelector('[data-review="reply"]')) {
+         document.querySelectorAll('[data-review="reply"]').forEach(item => {
+
+             item.addEventListener('click', e => {
+                 e.target.closest('.card-review__main').querySelector('.card-review__form').classList.toggle('hide')
+             })
+
+         })
+     }
+
 
 
 

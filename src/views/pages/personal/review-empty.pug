@@ -1,0 +1,32 @@
+extends ../../layouts/personal
+
+include ../../../blocks/modules/personal/personal-aside/personal-aside.pug
+include ../../../blocks/modules/personal/personal-review/personal-review.pug
+ 
+block variables
+  include ../../../data/data.pug
+  - const title = "Vako - Панель управления магазином"
+
+block aside
+  +personal-aside(0)
+block content
+  .personal-review
+    .personal-review__tabs
+      ul(data-tab-nav="product")
+            li.active: a(href='#products') Отзывы о товарах
+            li: a(href='#stores') Отзывы о магазинах
+
+    .personal-review__content(data-tab-container="product")
+      .personal-review__item.active(data-tab="products")
+        .block-plug
+          .block-plug__icon
+              +bgimage('/img/common/icon_attention_60.svg')
+          .block-plug__title У вас ещё нет оставленных отзывов.
+          .block-plug__desc Если хотите поделиться своим опытом об использовании какого-либо товара, то можно зайти в его карточку на сайте, выбрать вкладку «Отзывы» и нажать кнопку «Оставить отзыв».
+
+      .personal-review__item(data-tab="stores")
+        .block-plug
+          .block-plug__icon
+              +bgimage('/img/common/icon_attention_60.svg')
+          .block-plug__title У вас ещё нет оставленных отзывов.
+          .block-plug__desc Если хотите поделиться своим опытом о покупке в каком-либо магазине, то достаточно перейти на его страницу на сайте и нажать кнопку «Оставить отзыв».

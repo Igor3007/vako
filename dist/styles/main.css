@@ -3397,11 +3397,6 @@ input:focus {
   cursor: default;
 }
 
-.dropdown-icon:hover .dropdown-icon__list {
-  opacity: 1;
-  visibility: visible;
-}
-
 .tooltip-icon {
   position: relative;
 }
@@ -6761,6 +6756,7 @@ footer {
 .fast-properties__title {
   font-weight: 700;
   padding-bottom: 11px;
+  font-size: 15px;
 }
 
 .fast-properties__items {
@@ -8108,6 +8104,10 @@ div[data-single-catalog]:not(.is-active) {
 
 div.single-product__content[data-tab-container="store"] {
   padding-top: 30px;
+}
+
+.card-review.card-review-shop .card-review__form {
+  padding-top: 16px;
 }
 
 .product-video {
@@ -9905,6 +9905,13 @@ div[data-state="1"] {
 
 .personal-upload-logo__button {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.personal-upload-logo__button .btn.btn-white {
+  margin-left: 10px;
+  display: none;
 }
 
 .personal-upload-logo__button label input {
@@ -10072,6 +10079,10 @@ div[data-state="1"] {
   padding-bottom: 12px;
 }
 
+.review-product__childs {
+  padding-bottom: 16px;
+}
+
 .review-product__childs:not(.is-open) {
   display: none;
 }
@@ -10141,6 +10152,14 @@ div[data-state="1"] {
   padding-bottom: 0.1em;
 }
 
+.review-product__product a {
+  color: #222222;
+}
+
+.review-product__product a:hover {
+  color: #7B61FF;
+}
+
 .review-product__date {
   color: #8f8f8f;
   font-size: 13px;
@@ -10184,7 +10203,6 @@ div[data-state="1"] {
 
 .review-product__like:hover,
 .review-product__complaint:hover {
-  background-color: #f5f5f5;
   border-radius: 4px;
 }
 
@@ -10239,6 +10257,25 @@ div[data-state="1"] {
 .review-product__comment {
   display: flex;
   align-items: center;
+}
+
+.review-product__comment::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background-position: center;
+  background-size: contain;
+  margin-left: 10px;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  transition: 0.3s ease;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMy4xNDYuMTQ2YS41LjUgMCAwMS43MDggMGwzIDNhLjUuNSAwIDExLS43MDguNzA4TDMuNSAxLjIwNy44NTQgMy44NTRhLjUuNSAwIDExLS43MDgtLjcwOGwzLTN6IiBmaWxsPSIjN0I2MUZGIi8+PC9zdmc+);
+}
+
+.review-product__comment.is-open::after {
+  transform: rotate(360deg);
+  transition: 0.3s ease;
 }
 
 .review-product__rating {
@@ -10312,6 +10349,16 @@ div[data-state="1"] {
   font-size: 20px;
   line-height: 121%;
   padding-bottom: 0.8em;
+}
+
+.card-review__complaint span[data-tooltip]::before,
+.card-review__complaint a[data-tooltip]::before {
+  min-width: auto;
+  transform: translateX(calc(-50% - -10px));
+}
+
+.card-review.card-review-shop .card-review__action {
+  padding-bottom: 0;
 }
 
 /* common styles */
@@ -11089,6 +11136,10 @@ body .fslightbox-container {
   background: linear-gradient(white, #fff 1810%);
 }
 
+body .fslightbox-container div[title="Enter fullscreen"] {
+  display: none;
+}
+
 body .fslightbox-svg-path {
   fill: #222222;
 }
@@ -11125,6 +11176,27 @@ body .fslightbox-slash {
   width: 1px;
 }
 
+.user-menu-popup .dropdown-button span,
+.user-menu-popup .dropdown-button a {
+  font-size: 15px;
+  display: block;
+  margin: 8px 0;
+}
+
+.user-menu-popup .dropdown-button span button,
+.user-menu-popup .dropdown-button a button {
+  width: 100%;
+  height: 40px;
+}
+
+.user-menu-popup .dropdown-button {
+  margin: -8px 0;
+}
+
+.user-menu-popup {
+  padding-top: 45px;
+}
+
 @media screen and (min-width: 400px) {
   .section-page-help {
     padding: 22px 0 60px 0;
@@ -11154,6 +11226,11 @@ body .fslightbox-slash {
 
   .header-top {
     padding: 16px 0;
+  }
+
+  .dropdown-icon:hover .dropdown-icon__list {
+    opacity: 1;
+    visibility: visible;
   }
 
   .footer {
@@ -12966,7 +13043,7 @@ body .fslightbox-slash {
   }
 
   .minicard__rating a {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .minicard__price {
@@ -12982,7 +13059,7 @@ body .fslightbox-slash {
   }
 
   .minicard__store-name {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .minicard__store-label {
@@ -13044,10 +13121,6 @@ body .fslightbox-slash {
   .product-details__compare span,
   .product-details__fav span {
     font-size: 14px;
-  }
-
-  .fast-properties__title {
-    font-size: 15px;
   }
 
   .popup-store-offers__items .minicard__title {

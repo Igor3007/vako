@@ -1,9 +1,9 @@
 
 <div class="login-partners">
   <div class="login-partners__wrp">
-    <div class="login-partners__title">Регистрация пользователя</div>
+    <div class="login-partners__title">Вход для пользователей</div>
     <div class="login-partners__form">
-      <form action="#" method="POST" data-store-form="registration"> 
+      <form action="/index-login.html" method="POST"> 
         <div class="form">
           <div class="form__item">
             <div class="form__subitem">
@@ -13,22 +13,17 @@
           </div>
           <div class="form__item">
             <div class="form__subitem">
-              <label>Ваш город</label>
-              <div class="input--suggest">
-                <input type="text" placeholder="Например, Санкт-Петербург" required="required" data-url="/json/country.json"/>
-              </div>
+              <label> <span>Пароль</span><a href="#" data-popup="store-recovery">Забыли пароль?</a></label>
+              <input type="password" placeholder="Введите пароль" required="required"/>
             </div>
           </div>
           <div class="form__item">
             <div class="form__subitem">
-              <label>Ваше имя</label>
-              <input type="text" placeholder="Введите имя" required="required"/>
+              <button class="btn">Войти</button>
             </div>
           </div>
           <div class="form__item">
-            <div class="form__subitem">
-              <button class="btn">Отправить</button>
-            </div>
+            <div class="form__note">Ещё не наш партнёр? <a href="#" data-popup="store-registration">Зарегистрироваться</a></div>
           </div>
         </div>
       </form>

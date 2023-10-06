@@ -1,0 +1,23 @@
+.login-partners
+    .login-partners__wrp
+        .login-partners__title Вход для пользователей
+        .login-partners__form
+            form(action='/index-login.html' method='POST') 
+                .form
+                    .form__item
+                        .form__subitem
+                            label E-mail
+                            input(type="email" placeholder="Введите e-mail" required)
+                    .form__item
+                        .form__subitem
+                            label 
+                                span Пароль
+                                a(href='#' data-popup="store-recovery") Забыли пароль?
+                            input(type="password" placeholder="Введите пароль" required)
+                    .form__item
+                        .form__subitem
+                            button.btn Войти
+                    .form__item
+                        .form__note
+                           | Ещё не наш партнёр? 
+                           a(href='#' data-popup="store-registration") Зарегистрироваться

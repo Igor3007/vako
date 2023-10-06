@@ -354,10 +354,40 @@ mixin card-review-shop-childs
             +picture('/img/common/shop-user')
         .card-review__main
             .card-review__head
-                .card-review__name Shop Local
+                .card-review__name Магазин Shop Local
                 .card-review__date 2 месяца назад, Москва
             .card-review__text Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.
             .card-review__action
                     .card-review__add.card-review__add-shop(data-review="add" data-id="123" data-parent="369")
                         +icons('#ic_comment', 20)
                         span Ответить
+                    .card-review__button
+                        .card-review__complaint
+                            a(href='#' data-tooltip="Пожаловаться"): +icons('#ic_warning', 20) 
+
+
+mixin card-review-personal-childs
+    .card-review.card-review-shop
+        .card-review__photo
+            +picture('/img/common/shop-user')
+        .card-review__main
+            .card-review__head
+                .card-review__name Магазин Shop Local
+                .card-review__date 2 месяца назад, Москва
+            .card-review__text Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.
+            .card-review__action
+                    .card-review__add.card-review__add-shop(data-review="reply" data-id="123" data-parent="369")
+                        +icons('#ic_comment', 20)
+                        span Ответить
+                    .card-review__button
+                        .card-review__complaint
+                            a(href='#' data-tooltip="Пожаловаться"): +icons('#ic_warning', 20)
+            .card-review__form.hide
+                form
+                    .review-form
+                        .review-form__textarea
+                            textarea(name='comment' placeholder='Введите...')
+                        .review-form__send
+                            button.btn.btn-small(type='submit') Отправить
+ 
+            

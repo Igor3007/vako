@@ -190,124 +190,37 @@
                   </div>
                 </div>
                 <ul>
-                  <li><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="/personal/">Отзывы</a>
+                  <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="/personal/">Отзывы</a>
                   </li>
-                  <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_config.svg"></span><a href="config.html">Настройки</a>
+                  <li><span class="bgimage lazyload" data-bg="/img/common/ic_config.svg"></span><a href="config.html">Настройки</a>
                   </li>
                 </ul>
               </div>
               <div class="personal-panel__content">
-                <div class="personal-config">
-                  <div class="personal-config__wrp">
-                    <form action="#" method="POST">
-                      <div class="personal-config__row">
-                        <div class="personal-config__col">
-                          <div class="personal-block">
-                            <div class="personal-block__logo">
-                              <div class="personal-upload-logo">
-                                <div class="personal-upload-logo__image"><span class="bgimage lazyload" data-bg="/img/common/no-photo-user.svg"></span>
-                                </div>
-                                <div class="personal-upload-logo__action">
-                                  <div class="personal-upload-logo__button">
-                                    <label>
-                                      <input type="file" name="logo" data-upload="logo-store"/><span class="btn btn-small">Добавить аватар</span>
-                                    </label>
-                                    <button class="btn btn-white btn-small" type="button">Удалить</button>
-                                  </div>
-                                  <div class="personal-upload-logo__note">Загрузите jpg или png файл размером не более 5 MB</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="personal-block__title"> Личные данные</div>
-                            <div class="personal-block__group">
-                              <div class="form">
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Ваше имя</label>
-                                    <input type="text" placeholder="Ваше имя"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Ваша фамилия</label>
-                                    <input type="text" placeholder="Ваша фамилия"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Город</label>
-                                    <div class="input--suggest">
-                                      <input type="text" data-suggest="input" placeholder="Укажите город" data-url="/json/country.json"/>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Почта (логин)</label>
-                                    <input type="text" placeholder="Email" disabled="disabled"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Текущий пароль</label>
-                                    <input type="password" placeholder="Введите текущий пароль"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Новый пароль</label>
-                                    <input type="password" placeholder="Введите новый пароль"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Повтор нового пароля</label>
-                                    <input type="password" placeholder="Введите новый пароль ещё раз"/>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="personal-block__title personal-block__title--notification"> Уведомления</div>
-                            <div class="personal-block__group">
-                              <div class="form">
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Получать на адрес</label>
-                                    <input type="email" placeholder="Email адрес"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <ul class="checkbox-list">
-                                      <li>
-                                        <label class="checkbox">
-                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Ответы магазинов на мои отзывы</span>
-                                        </label>
-                                      </li>
-                                      <li>
-                                        <label class="checkbox">
-                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Рассылки о скидках и акциях</span>
-                                        </label>
-                                      </li>
-                                      <li>
-                                        <label class="checkbox">
-                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Уведомления о товарах в избранном и сравнении</span>
-                                        </label>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                <div class="personal-review">
+                  <div class="personal-review__tabs">
+                    <ul data-tab-nav="product">
+                      <li class="active"><a href="#products">Отзывы о товарах</a></li>
+                      <li><a href="#stores">Отзывы о магазинах</a></li>
+                    </ul>
+                  </div>
+                  <div class="personal-review__content" data-tab-container="product">
+                    <div class="personal-review__item active" data-tab="products">
+                      <div class="block-plug">
+                        <div class="block-plug__icon"><span class="bgimage lazyload" data-bg="/img/common/icon_attention_60.svg"></span>
                         </div>
+                        <div class="block-plug__title">У вас ещё нет оставленных отзывов.</div>
+                        <div class="block-plug__desc">Если хотите поделиться своим опытом об использовании какого-либо товара, то можно зайти в его карточку на сайте, выбрать вкладку «Отзывы» и нажать кнопку «Оставить отзыв».</div>
                       </div>
-                      <div class="personal-config__submit">
-                        <div class="personal-config__col">
-                          <button class="btn">Сохранить изменения</button>
+                    </div>
+                    <div class="personal-review__item" data-tab="stores">
+                      <div class="block-plug">
+                        <div class="block-plug__icon"><span class="bgimage lazyload" data-bg="/img/common/icon_attention_60.svg"></span>
                         </div>
+                        <div class="block-plug__title">У вас ещё нет оставленных отзывов.</div>
+                        <div class="block-plug__desc">Если хотите поделиться своим опытом о покупке в каком-либо магазине, то достаточно перейти на его страницу на сайте и нажать кнопку «Оставить отзыв».</div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -3318,9 +3318,9 @@
                  item.classList.toggle('is-open')
 
                  if (item.classList.contains('is-open')) {
-                     item.innerText = 'Скрыть комментарии'
+                     item.innerHTML = 'Скрыть комментарии'
                  } else {
-                     item.innerText = 'Показать комментарии'
+                     item.innerHTML = 'Все комментарии (1)'
                  }
              })
          })
@@ -3338,7 +3338,7 @@
          loginPopup.open('<div class="af-spiner" ></div>', function (instanse) {
              window.ajax({
                  type: 'GET',
-                 url: '/store/_popup-login.html',
+                 url: '/personal/_popup-login.html',
                  responseType: 'html',
                  data: {
                      value: 0
@@ -3402,13 +3402,22 @@
          RecoveryPassword.open('<div class="af-spiner" ></div>', function (instanse) {
              window.ajax({
                  type: 'GET',
-                 url: '/store/_popup-recovery.html',
+                 url: '/personal/_popup-recovery.html',
                  responseType: 'html',
                  data: {
                      value: 0
                  }
              }, (status, response) => {
                  RecoveryPassword.changeContent(response)
+
+
+                 if (RecoveryPassword.modal.querySelector('[data-back="login"]')) {
+                     RecoveryPassword.modal.querySelector('[data-back="login"]').addEventListener('click', e => {
+                         RecoveryPassword.close()
+                         openLoginPartner()
+                     })
+
+                 }
 
                  const form = RecoveryPassword.modal.querySelector('[data-store-form="recovery"]')
                  form.addEventListener('submit', e => {
@@ -3549,6 +3558,65 @@
                  html.querySelector('.btn').addEventListener('click', e => CHECKEMAILPOPUP.close())
              })
          })
+
+     }
+
+     /* =============================================
+      user menu
+      =============================================*/
+
+     if (document.querySelector('[data-popup="user-menu"]')) {
+
+         const button = document.querySelector('[data-popup="user-menu"]')
+
+         button.addEventListener('click', e => {
+
+             if (document.body.clientWidth <= 480) {
+                 const html = button.querySelector('.dropdown-button').outerHTML
+                 const userMenuPopup = new afLightbox({
+                     mobileInBottom: true
+                 })
+                 userMenuPopup.open('<div class="user-menu-popup" >' + html + '</div>')
+             }
+
+         })
+
+     }
+
+     /* ======================================
+     upload logo
+     ======================================*/
+
+     if (document.querySelector('[data-upload="logo-store"]')) {
+
+         document.querySelector('[data-upload="logo-store"]').addEventListener('change', function () {
+
+             const file = this.files[0];
+
+             if (file.size / (1024 * 1024) > 5) { //5mb
+                 window.STATUS.err('Допустимы файлы не более 5 мб');
+                 return false;
+             }
+
+             if (file.type == 'image/jpeg' || file.type == 'image/png') {
+
+                 var reader = new FileReader();
+                 reader.readAsDataURL(file);
+                 reader.onload = function (e) {
+                     document.querySelector('.personal-upload-logo__image span').style.backgroundImage = 'url(' + e.target.result + ')'
+                     document.querySelector('.personal-upload-logo__button .btn').innerText = 'Заменить аватар'
+
+                     let remove
+                 }
+
+             } else {
+                 window.STATUS.err('Допустимы только jpeg/png файлы')
+             }
+
+
+         })
+
+
 
      }
 

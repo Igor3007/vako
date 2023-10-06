@@ -461,6 +461,13 @@
     &__button {
 
         margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+
+        & .btn.btn-white {
+            margin-left: 10px;
+            display: none;
+        }
 
 
         & label {

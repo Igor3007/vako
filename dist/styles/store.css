@@ -3292,11 +3292,6 @@ footer {
   cursor: default;
 }
 
-.dropdown-icon:hover .dropdown-icon__list {
-  opacity: 1;
-  visibility: visible;
-}
-
 .tooltip-icon {
   position: relative;
 }
@@ -5575,6 +5570,10 @@ body .fslightbox-container {
   background: linear-gradient(white, #fff 1810%);
 }
 
+body .fslightbox-container div[title="Enter fullscreen"] {
+  display: none;
+}
+
 body .fslightbox-svg-path {
   fill: #222222;
 }
@@ -5611,6 +5610,27 @@ body .fslightbox-slash {
   width: 1px;
 }
 
+.user-menu-popup .dropdown-button span,
+.user-menu-popup .dropdown-button a {
+  font-size: 15px;
+  display: block;
+  margin: 8px 0;
+}
+
+.user-menu-popup .dropdown-button span button,
+.user-menu-popup .dropdown-button a button {
+  width: 100%;
+  height: 40px;
+}
+
+.user-menu-popup .dropdown-button {
+  margin: -8px 0;
+}
+
+.user-menu-popup {
+  padding-top: 45px;
+}
+
 @media screen and (min-width: 480px) {
   .container {
     padding: 0 16px;
@@ -5619,6 +5639,11 @@ body .fslightbox-slash {
 
   .af-popup__container {
     max-width: 90%;
+  }
+
+  .dropdown-icon:hover .dropdown-icon__list {
+    opacity: 1;
+    visibility: visible;
   }
 
   .header-store .header-min__login .dropdown-icon__list .dropdown-button .btn {
