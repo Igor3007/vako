@@ -3619,8 +3619,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 })
                 userMenuPopup.open('<div class="user-menu-popup" >' + html + '</div>', (instance) => {
 
-                    instance.querySelector('[data-popup="registration"]').addEventListener('click', item => openRegistrationUser())
-                    instance.querySelector('[data-popup="login"]').addEventListener('click', item => openLoginUser())
+                    if (instance.querySelector('[data-popup="registration"]')) {
+                        instance.querySelector('[data-popup="registration"]').addEventListener('click', item => openRegistrationUser())
+                        instance.querySelector('[data-popup="login"]').addEventListener('click', item => openLoginUser())
+                    }
+
+
                 })
             }
 

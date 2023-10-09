@@ -1,15 +1,15 @@
 mixin dropdown-icon
     .dropdown-icon(data-popup="user-menu")
-        .dropdown-icon__elem: a(href='#' ): +icons('#ic_login', 24)
+        .dropdown-icon__elem: a: +icons('#ic_login', 24)
         .dropdown-icon__list
             .dropdown-button
                 a(href='#' data-popup="login"): button.btn.btn-gray Войти
                 a(href='#' data-popup="registration"): button.btn.btn-gray Зарегистрироваться
                 a(href='/store/'): button.btn.btn-white Вход для магазинов
 
-mixin dropdown-icon-login(data-popup="user-menu")
-    .dropdown-icon
-        .dropdown-icon__elem: a(href='#'): +icons('#ic_user-login', 24)
+mixin dropdown-icon-login
+    .dropdown-icon(data-popup="user-menu")
+        .dropdown-icon__elem: a: +icons('#ic_user-login', 24)
         .dropdown-icon__list
             .dropdown-button
                 span: button.btn.btn-white Михаил
@@ -19,7 +19,7 @@ mixin dropdown-icon-login(data-popup="user-menu")
 
 mixin dropdown-icon-store
     .dropdown-icon
-        .dropdown-icon__elem: a(href='#'): +icons('#ic_login', 24)
+        .dropdown-icon__elem: a: +icons('#ic_login', 24)
         .dropdown-icon__list
             .dropdown-button
                 a(href='#'): button.btn.btn-gray(data-popup="store-login") Войти
@@ -28,7 +28,7 @@ mixin dropdown-icon-store
 
 mixin dropdown-icon-store-login
     .dropdown-icon
-        .dropdown-icon__elem: a(href='#'): +icons('#ic_login', 24)
+        .dropdown-icon__elem: a: +icons('#ic_login', 24)
         .dropdown-icon__list
             .dropdown-button
                 a(href='#'): button.btn.btn-white PCPlanet.ru
