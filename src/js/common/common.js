@@ -3716,6 +3716,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* =======================================
+    review form scroll fix ios
+    =======================================*/
+
+    if (document.querySelector('.review-form__textarea')) {
+        const textareas = document.querySelectorAll('.review-form__textarea textarea')
+        let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+        textareas.forEach(item => {
+            if (true) {
+                item.addEventListener('focus', e => {
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: item.offsetTop - (window.innerHeight / 2) + item.clientHeight + 10,
+                            behavior: "smooth",
+                        });
+                    }, 200)
+                })
+            }
+
+        })
+    }
+
 
 
 

@@ -70,6 +70,7 @@
                 transition: 0.3 ease;
                 width: 20px;
                 height: 20px;
+                transform: translate3d(0, 0, 0);
 
                 @media screen and (min-width: $w760) {
                     width: 24px;
@@ -174,6 +175,7 @@
                 transition: 0.3 ease;
                 width: 20px;
                 height: 20px;
+                transform: translate3d(0, 0, 0);
 
                 @media screen and (min-width: $w760) {
                     width: 24px;

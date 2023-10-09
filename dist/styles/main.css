@@ -3347,6 +3347,7 @@ input:focus {
   transition: 0.3 ease;
   width: 20px;
   height: 20px;
+  transform: translate3d(0, 0, 0);
 }
 
 .dropdown-icon__elem:hover svg {
@@ -3415,6 +3416,7 @@ input:focus {
   transition: 0.3 ease;
   width: 20px;
   height: 20px;
+  transform: translate3d(0, 0, 0);
 }
 
 .tooltip-icon__elem:hover svg {
@@ -10077,6 +10079,7 @@ div[data-state="1"] {
 
 .review-product__childs {
   padding-bottom: 16px;
+  overflow: hidden;
 }
 
 .review-product__childs:not(.is-open) {

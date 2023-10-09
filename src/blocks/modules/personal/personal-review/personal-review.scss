@@ -6,6 +6,7 @@
 
     &__childs {
         padding-bottom: 16px;
+        overflow: hidden;
 
         &:not(.is-open) {
             display: none;

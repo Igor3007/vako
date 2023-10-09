@@ -3242,6 +3242,7 @@ footer {
   transition: 0.3 ease;
   width: 20px;
   height: 20px;
+  transform: translate3d(0, 0, 0);
 }
 
 .dropdown-icon__elem:hover svg {
@@ -3310,6 +3311,7 @@ footer {
   transition: 0.3 ease;
   width: 20px;
   height: 20px;
+  transform: translate3d(0, 0, 0);
 }
 
 .tooltip-icon__elem:hover svg {
