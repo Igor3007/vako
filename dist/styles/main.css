@@ -11362,11 +11362,6 @@ body .fslightbox-slash {
     width: calc(100% - 105px);
   }
 
-  .personal-upload-logo__button .btn span {
-    display: inline;
-    margin-left: 0.3em;
-  }
-
   .create-review {
     padding: 25px;
   }
@@ -11536,6 +11531,11 @@ body .fslightbox-slash {
 
   .personal-upload-logo__action {
     width: calc(100% - 120px);
+  }
+
+  .personal-upload-logo__button .btn span {
+    display: inline;
+    margin-left: 0.3em;
   }
 
   .create-review__title {

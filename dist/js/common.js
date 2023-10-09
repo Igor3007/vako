@@ -3620,8 +3620,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 userMenuPopup.open('<div class="user-menu-popup" >' + html + '</div>', (instance) => {
 
                     if (instance.querySelector('[data-popup="registration"]')) {
-                        instance.querySelector('[data-popup="registration"]').addEventListener('click', item => openRegistrationUser())
-                        instance.querySelector('[data-popup="login"]').addEventListener('click', item => openLoginUser())
+
+
+
+                        instance.querySelector('[data-popup="registration"]').addEventListener('click', item => {
+                            openRegistrationUser()
+                            userMenuPopup.close()
+                        })
+                        instance.querySelector('[data-popup="login"]').addEventListener('click', item => {
+                            openLoginUser()
+                            userMenuPopup.close()
+                        })
                     }
 
 
@@ -3659,13 +3668,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     let imgElem = document.querySelector('.personal-upload-logo__image span')
 
                     imgElem.style.backgroundImage = 'url(' + e.target.result + ')'
-                    uploadButton.innerText = 'Заменить аватар'
+                    uploadButton.innerHTML = 'Заменить <span>аватар</span>'
                     removeButton.style.setProperty('display', 'block')
 
                     removeButton.addEventListener('click', e => {
                         _this.value = ''
                         imgElem.style.setProperty('background-image', 'url(' + imgElem.dataset.bg + ')')
-                        uploadButton.innerText = 'Загрузить аватар'
+                        uploadButton.innerHTML = 'Загрузить аватар'
                         removeButton.style.setProperty('display', 'none')
                     })
                 }
@@ -3728,14 +3737,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const textareas = document.querySelectorAll('.review-form__textarea textarea')
         let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
         textareas.forEach(item => {
-            if (true) {
+            if (isIOS) {
                 item.addEventListener('focus', e => {
                     setTimeout(() => {
                         window.scrollTo({
                             top: item.offsetTop - (window.innerHeight / 2) + item.clientHeight + 10,
                             behavior: "smooth",
                         });
-                    }, 200)
+                    }, 100)
                 })
             }
 

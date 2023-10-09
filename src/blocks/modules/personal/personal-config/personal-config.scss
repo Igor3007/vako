@@ -475,7 +475,7 @@
             & span {
                 display: none;
 
-                @media screen and (min-width: $w480) {
+                @media screen and (min-width: $w576) {
                     display: inline;
                     margin-left: 0.3em;
                 }
