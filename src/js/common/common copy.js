@@ -2014,6 +2014,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         constructor(params) {
             this.$el = document.querySelector(params.container)
 
+
+
             if (this.$el) {
 
                 this.addSelector = '[data-review="add"]';
@@ -3162,37 +3164,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
-    /* =========================================
-    show-hide
-    =========================================*/
-
-    if (document.querySelector('.personal-review')) {
-
-        let countChars = document.body.clientWidth > 576 ? 500 : 150
-
-        document.querySelectorAll('.review-product__text').forEach(item => {
-            if (item.innerText.length > countChars) {
-                item.classList.add('crop--text')
-
-                let showButton = document.createElement('div')
-                showButton.classList.add('card-review__more')
-                showButton.innerText = 'Читать полностью'
-
-                showButton.addEventListener('click', e => {
-                    if (item.classList.contains('crop--text')) {
-                        item.classList.remove('crop--text')
-                        showButton.innerText = 'Cвернуть'
-                    } else {
-                        item.classList.add('crop--text')
-                        showButton.innerText = 'Читать полностью'
-                    }
-                })
-
-                item.after(showButton)
-            }
-        })
-    }
-
 
     /* ==========================================
       suggest input
@@ -3333,18 +3304,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 this.option.on.change(event.target.innerText, event.target.getAttribute('rel'))
             })
         }
-
-    }
-
-    if (document.querySelector('[data-suggest="input"]')) {
-
-        document.querySelectorAll('[data-suggest="input"]').forEach(input => {
-            new inputSuggest({
-                elem: input,
-                maxHeightSuggestList: '220px',
-            });
-        })
-
 
     }
 
@@ -3528,7 +3487,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 new inputSuggest({
                     elem: registerPopup.modal.querySelector('.input--suggest input'),
-                    maxHeightSuggestList: '220px',
+                    maxHeightSuggestList: '150px',
                     on: {
                         change: function (text, value) {
                             //change event
@@ -3655,13 +3614,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     let imgElem = document.querySelector('.personal-upload-logo__image span')
 
                     imgElem.style.backgroundImage = 'url(' + e.target.result + ')'
-                    uploadButton.innerText = 'Заменить аватар'
+                    uploadButton.innerHTML = 'Заменить <span>аватар</span>'
                     removeButton.style.setProperty('display', 'block')
 
                     removeButton.addEventListener('click', e => {
                         _this.value = ''
                         imgElem.style.setProperty('background-image', 'url(' + imgElem.dataset.bg + ')')
-                        uploadButton.innerText = 'Загрузить аватар'
+                        uploadButton.innerHTML = 'Загрузить <span>аватар</span>'
                         removeButton.style.setProperty('display', 'none')
                     })
                 }
@@ -3669,12 +3628,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             } else {
                 window.STATUS.err('Допустимы только jpeg/png файлы')
             }
-
-
         })
-
-
-
     }
 
     /* ============================================
@@ -3690,40 +3644,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         })
     }
-
-    /* =============================================
-    form personal config
-    =============================================*/
-
-    if (document.querySelector('[data-form="personal-config"]')) {
-
-        const form = document.querySelector('[data-form="personal-config"]')
-        const submitButton = form.querySelector('[type="submit"]')
-
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            submitButton.setAttribute('disabled', 'disabled')
-
-            //ajax request
-
-        })
-
-        form.querySelectorAll('input').forEach(input => {
-            input.addEventListener('change', e => {
-                submitButton.removeAttribute('disabled')
-            })
-        })
-
-    }
-
-
-
-
-
-
-
-
-
 
 
 

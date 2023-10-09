@@ -1,6 +1,6 @@
 mixin dropdown-icon
-    .dropdown-icon
-        .dropdown-icon__elem: a(href='#'): +icons('#ic_login', 24)
+    .dropdown-icon(data-popup="user-menu")
+        .dropdown-icon__elem: a(href='#' ): +icons('#ic_login', 24)
         .dropdown-icon__list
             .dropdown-button
                 a(href='#' data-popup="login"): button.btn.btn-gray Войти

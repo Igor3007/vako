@@ -1998,7 +1998,7 @@ select {
 }
 
 .btn:disabled:hover {
-  opacity: 0.9;
+  background-color: #a09f9f;
 }
 
 .btn svg {
@@ -3813,22 +3813,6 @@ footer {
   padding: 0;
   padding-top: 3px;
   padding-bottom: 10px;
-}
-
-.icon-back::before {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  content: '';
-  background-color: transparent;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
-  margin-right: 10px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto 90%;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNSIgaGVpZ2h0PSI4IiBmaWxsPSIjN0I2MUZGIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNC4zNTQuNjQ2YS41LjUgMCAwMTAgLjcwOEwxLjcwNyA0bDIuNjQ3IDIuNjQ2YS41LjUgMCAxMS0uNzA4LjcwOGwtMy0zYS41LjUgMCAwMTAtLjcwOGwzLTNhLjUuNSAwIDAxLjcwOCAweiIvPjwvc3ZnPg==);
 }
 
 .radio-button-container {

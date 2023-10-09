@@ -199,7 +199,7 @@
               <div class="personal-panel__content">
                 <div class="personal-config">
                   <div class="personal-config__wrp">
-                    <form action="#" method="POST">
+                    <form action="#" method="POST" data-form="personal-config">
                       <div class="personal-config__row">
                         <div class="personal-config__col">
                           <div class="personal-block">
@@ -210,7 +210,7 @@
                                 <div class="personal-upload-logo__action">
                                   <div class="personal-upload-logo__button">
                                     <label>
-                                      <input type="file" name="logo" data-upload="logo-store"/><span class="btn btn-small">Добавить аватар</span>
+                                      <input type="file" name="logo" data-upload="logo-store"/><span class="btn btn-small">Добавить <span>аватар</span></span>
                                     </label>
                                     <button class="btn btn-white btn-small" type="button">Удалить</button>
                                   </div>
@@ -304,7 +304,7 @@
                       </div>
                       <div class="personal-config__submit">
                         <div class="personal-config__col">
-                          <button class="btn">Сохранить изменения</button>
+                          <button class="btn" disabled="" type="submit">Сохранить изменения</button>
                         </div>
                       </div>
                     </form>
