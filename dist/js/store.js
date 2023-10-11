@@ -1544,6 +1544,460 @@
      }
 
 
+     /* ====================================
+     class revies
+     ====================================*/
+
+     class Reviews {
+         constructor(params) {
+             this.$el = document.querySelector(params.container)
+
+             if (this.$el) {
+
+                 this.addSelector = '[data-review="add"]';
+                 this.showSelector = '[data-review="show-comment"]';
+                 this.loadSelector = '[data-review="load"]';
+                 this.LikeSelector = '[data-like="add"]';
+
+                 this.buttonsAddComment = this.$el.querySelectorAll(this.addSelector);
+                 this.buttonsShowComment = this.$el.querySelectorAll(this.showSelector);
+                 this.buttonsLoadComment = this.$el.querySelectorAll(this.loadSelector);
+                 this.buttonsLikeComment = this.$el.querySelectorAll(this.LikeSelector);
+
+                 this.ListComments = this.$el.querySelector('[data-review="list"]');
+                 this.addEvents();
+                 this.formInstanse = null;
+
+                 this.showHideLongText()
+             }
+
+         }
+
+         getTemplateForm() {
+             const html = `
+               <form>
+                   <div class="review-form" >
+                       <div class="review-form__textarea" >
+                           <textarea name="comment" placeholder="Введите..." ></textarea>
+                       </div>
+                       <div class="review-form__send" >
+                           <button class="btn btn-small" type="submit" >Отправить</button>
+                       </div>
+                   </div>
+               </form>
+           `;
+
+             return html;
+         }
+
+         addForm(e) {
+             const parent = e.target.closest('.card-review__main')
+
+             if (this.formInstanse) {
+                 this.formInstanse.remove()
+             }
+
+             this.formInstanse = document.createElement('div')
+             this.formInstanse.classList.add('card-review__form')
+             this.formInstanse.innerHTML = this.getTemplateForm()
+
+             this.sendComment(this.formInstanse.querySelector('form'), e)
+
+             parent.querySelector('.card-review__action').after(this.formInstanse)
+         }
+
+         sendComment(form, eventClick) {
+
+             form.addEventListener('submit', e => {
+                 e.preventDefault()
+
+                 const formData = new FormData(form)
+                 const button = eventClick.target.closest('[data-review]')
+
+                 if (!formData.get('comment')) {
+                     window.STATUS.wrn('Нельзя отправить пустой комментарий')
+                     return false;
+                 }
+
+                 window.ajax({
+                     type: 'GET', //POST
+                     url: '/_comment-reply.html',
+                     responseType: 'html',
+                     data: {
+                         id: button.dataset.id || 0,
+                         parentId: button.dataset.parent || 0
+                     }
+                 }, (status, response) => {
+                     window.STATUS.msg('Комментарий добавлен!', '')
+
+                     this.renderReply(e, response)
+
+                 })
+
+
+             })
+
+         }
+
+         renderReply(e, response) {
+             const main = e.target.closest('.card-review__main');
+
+             const htmlComment = document.createElement('div')
+             htmlComment.innerHTML = response
+
+             this.updateEvent(htmlComment)
+
+             //если нету дочерних
+             if (!main.querySelector('.card-review__childs')) {
+
+                 this.formInstanse.closest('.card-review').after(htmlComment.lastChild)
+
+             } else {
+                 main.querySelector('.card-review__childs').classList.add('is-open')
+                 main.querySelector('.card-review__childs').append(htmlComment.lastChild)
+
+             }
+
+             //удалить форму
+             if (this.formInstanse) {
+                 this.formInstanse.remove()
+             }
+
+         }
+
+         showHideChilds(e) {
+             const itemComment = e.target.closest('.card-review')
+             itemComment.querySelector('.card-review__childs').classList.toggle('is-open')
+         }
+
+         renderLoadComments(response) {
+
+             const LoadComments = document.createElement('div')
+             LoadComments.innerHTML = response
+
+             LoadComments.querySelectorAll('.comment > .card-review').forEach(item => {
+
+                 this.updateEvent(item)
+
+                 const newComment = document.createElement('div')
+                 newComment.classList.add('review-content__item')
+                 newComment.append(item)
+
+                 this.ListComments.append(newComment)
+
+             })
+         }
+
+         loadMore(e) {
+             window.ajax({
+                 type: 'GET', //POST
+                 url: '/_comment-more.html',
+                 responseType: 'html',
+                 data: {
+                     id: e.target.dataset.id,
+                 }
+             }, (status, response) => {
+
+
+                 this.renderLoadComments(response)
+
+             })
+         }
+
+         changeLike(e) {
+             let item = e.target.closest('[data-like]')
+             let num = item.querySelector('.like-count')
+
+             item.classList.toggle('is-active')
+
+             if (item.classList.contains('is-active')) {
+                 num.innerText = (Number(item.querySelector('.like-count').innerText) + 1)
+             } else {
+                 num.innerText = (Number(item.querySelector('.like-count').innerText) - 1)
+             }
+
+             window.ajax({
+                 type: 'GET', //POST
+                 url: '/json/tooltips.json',
+                 responseType: 'json',
+                 data: {
+                     id: item.dataset.id,
+                 }
+             }, false)
+         }
+
+         updateEvent(comment) {
+             comment.querySelectorAll(this.addSelector).forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.addForm(e)
+                 })
+             })
+
+             comment.querySelectorAll(this.showSelector).forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.showHideChilds(e)
+                 })
+             })
+
+             comment.querySelectorAll(this.loadSelector).forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.loadMore(e)
+                 })
+             })
+             comment.querySelectorAll(this.LikeSelector).forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.changeLike(e)
+                 })
+             })
+         }
+
+
+         addEvents() {
+             this.buttonsAddComment.forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.addForm(e)
+                 })
+             })
+
+             this.buttonsShowComment.forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.showHideChilds(e)
+                 })
+             })
+
+             this.buttonsLoadComment.forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.loadMore(e)
+                 })
+             })
+
+             this.buttonsLikeComment.forEach(item => {
+                 item.addEventListener('click', e => {
+                     this.changeLike(e)
+                 })
+             })
+
+
+         }
+
+         showHideLongText() {
+
+             let countChars = document.body.clientWidth > 576 ? 500 : 150
+
+             document.querySelectorAll('.card-review__text').forEach(item => {
+                 if (item.innerText.length > countChars) {
+                     item.classList.add('crop--text')
+
+                     let showButton = document.createElement('div')
+                     showButton.classList.add('card-review__more')
+                     showButton.innerText = 'Читать полностью'
+
+                     showButton.addEventListener('click', e => {
+                         if (item.classList.contains('crop--text')) {
+                             item.classList.remove('crop--text')
+                             showButton.innerText = 'Cвернуть'
+                         } else {
+                             item.classList.add('crop--text')
+                             showButton.innerText = 'Читать полностью'
+                         }
+                     })
+
+                     item.after(showButton)
+                 }
+             })
+
+         }
+
+
+     }
+
+     new Reviews({
+         container: '.review-content'
+     });
+
+     /* =====================================
+    tabs single product
+    =====================================*/
+
+
+     class Tabs {
+
+         constructor(params) {
+             this.setting = params
+             this.nav = document.querySelector(this.setting.navElem)
+
+             if (this.nav) {
+                 this.container = document.querySelector(this.setting.containerElem)
+                 this.items = this.container.querySelectorAll('[data-tab]')
+                 this.init()
+             }
+
+         }
+
+
+         init() {
+
+             if (this.checkHash()) {
+                 this.changeTab(this.checkHash(), {
+                     scroll: false
+                 })
+             } else {
+                 this.changeTab(this.setting.tabStart, {
+                     scroll: false
+                 })
+             }
+
+             this.clickTab()
+
+
+         }
+
+         checkHash() {
+             if (window.location.hash == '') return false;
+             return window.location.hash.replace('#', '')
+         }
+
+         scrollToElem(elem, container) {
+             var rect = elem.getBoundingClientRect();
+             var rectContainer = container.getBoundingClientRect();
+
+             let elemOffset = {
+                 top: rect.top + document.body.scrollTop,
+                 left: rect.left + document.body.scrollLeft
+             }
+
+             let containerOffset = {
+                 top: rectContainer.top + document.body.scrollTop,
+                 left: rectContainer.left + document.body.scrollLeft
+             }
+
+             let leftPX = elemOffset.left - containerOffset.left + container.scrollLeft - (container.offsetWidth / 2) + (elem.offsetWidth / 2) + 5
+
+             container.scrollTo({
+                 left: leftPX,
+                 behavior: 'smooth'
+             });
+         }
+
+         changeTab(tab, params) {
+
+
+             // this.items[0].classList.add('active')
+
+             this.items.forEach(item => {
+
+                 if (item.dataset.tab.split(',').indexOf(tab) !== -1) {
+
+                     this.items.forEach(item => {
+
+                         if (item.dataset.tab.split(',').indexOf(tab) !== -1) {
+                             item.classList.add('active')
+
+                         } else {
+                             if (item.classList.contains('active')) {
+                                 item.classList.remove('active')
+                             }
+                         }
+
+                     })
+
+
+                 }
+
+
+             })
+
+             if (this.nav.querySelector('[href="#' + tab + '"]')) {
+
+                 //select active tab
+                 this.nav.querySelectorAll('a').forEach((item) => {
+                     if (item.getAttribute('href') == '#' + tab) {
+                         item.parentNode.classList.add('active')
+                         this.scrollToElem(item.parentNode, this.nav)
+                     } else {
+                         if (item.parentNode.classList.contains('active')) {
+                             item.parentNode.classList.remove('active')
+                         }
+                     }
+                 })
+
+                 //scroll to elem
+
+                 if (params.scroll) {
+
+                     function offset(el) {
+                         var rect = el.getBoundingClientRect(),
+                             scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+                             scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                         return {
+                             top: rect.top + scrollTop,
+                             left: rect.left + scrollLeft
+                         }
+                     }
+
+                     switch (this.setting.scroll) {
+
+
+
+                         case 'container':
+                             window.scrollTo({
+                                 top: ((offset(this.container).top - 50) || 0),
+                                 behavior: 'smooth'
+                             })
+                             break;
+
+                         case 'top':
+                         default:
+
+                             window.scrollTo({
+                                 top: (document.querySelector('header').clientHeight || 0),
+                                 behavior: 'smooth'
+                             })
+                             break;
+
+                     }
+
+
+                 }
+             }
+
+             if (this.setting.onChangeTab) this.setting.onChangeTab(tab)
+
+             if (document.querySelector('#my-slider')) {
+                 initPriceRange()
+             }
+
+         }
+
+         clickTab() {
+
+             //  this.nav.querySelectorAll('a').forEach(function (item) {
+             //      item.addEventListener('click', function (event) {
+             //          _this.changeTab((this.getAttribute('href').replace('#', '')))
+             //      })
+             //  })
+
+             const _this = this
+
+             window.addEventListener('hashchange', function () {
+                 _this.changeTab(window.location.hash.replace('#', ''), {
+                     scroll: true
+                 })
+             });
+         }
+
+
+     }
+
+
+     const reviewTabs = new Tabs({
+         navElem: '[data-tab-nav="review"]',
+         containerElem: '.shop-block__tabs-container',
+         tabStart: 'public',
+         scroll: 'top',
+     })
+
+
 
 
 

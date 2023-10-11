@@ -1,0 +1,214 @@
+include ../../single-product/single-product__review.pug
+
+mixin card-review--store
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Андрей Маяковский
+                .card-review__date.card-review__date-wrapper
+                  ul
+                      li 2 месяца назад, Москва
+                      li Доставка
+                      li Заказ №136559
+            .card-review__rating.rating--green
+                span 5
+                small Отлично
+            .card-review__text Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.
+             
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Ответить
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                    
+            .card-review__childs
+
+mixin card-review-shop-childs
+    .card-review.card-review-shop
+        .card-review__photo
+            +picture('/img/common/shop-user')
+        .card-review__main
+            .card-review__head
+                .card-review__name Магазин Shop Local
+                .card-review__date 2 месяца назад
+            .card-review__text Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.
+            .card-review__action
+              .card-review__button
+                  .card-review__complaint
+                      a(href='#' data-tooltip="Удалить"): +icons('#ic_trash', 20)             
+
+mixin card-review--store-user
+    .card-review.card-review--reply-user
+        .card-review__photo
+            +picture('/img/common/user3')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Иван Троцкий
+            .card-review__text Вам спасибо за работу!
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Ответить
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                    
+            .card-review__childs
+ 
+mixin card-review-reply--store
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user3')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Иван Троцкий
+                .card-review__date.card-review__date-wrapper
+                  ul
+                      li 2 месяца назад, Москва
+                      li Доставка
+                      li Заказ №136559
+                .card-review__rating.rating--green
+                  span 5
+                  small Отлично
+            .card-review__text Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.
+            
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Ответить
+                .card-review__commets(data-review="show-comment") Все ответы (2)
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                     
+            .card-review__childs
+              +card-review-shop-childs()
+              +card-review--store-user()
+
+
+
+mixin product-review-on-store--moderate
+    .product-review(data-tab="moderate")
+        .product-review__wrp
+            .product-review__content
+                .review-content
+                    .review-content__top
+                        .review-content__h3 На модерации (12)
+                        .review-content__action
+                            .review-content__mobile
+                                button(data-filter="open" data-elem="review") 
+                                    +icons('#ic_filter', 17)
+                                    span Фильтры
+
+                    .review-content__list(data-review="list")
+
+                        .review-content__item: +card-review--store
+                        .review-content__item: +card-review-reply--store
+                        .review-content__item: +card-review--store
+                        .review-content__item: +card-review--store
+                        .review-content__item: +card-review-reply--store
+                        .review-content__item: +card-review--store
+                        .review-content__item: +card-review--store
+
+                    .review-content__more
+                        button(data-review="load" data-id="289")
+                            +icons('#ic_more', 14)
+                            span Показать ещё
+
+            .product-review__aside
+                .review-filter(data-filter-container="review") 
+                    .review-filter__head
+                        .review-filter__head-title Фильтры и сортировка
+                        .review-filter__head-close: span.icon-cross(data-filter="open" data-elem="review")
+
+                    .review-filter__wrp
+                        
+                        .review-filter__form
+                            form(action='#' method='POST')
+                                .review-filter__props
+                                    .review-filter__item: +prop-checkbox({
+                                        title: 'Оценка покупателей',
+                                        checkbox: [
+                                            'Отлично (72)',
+                                            'Хорошо (5)',
+                                            'Средне (3)',
+                                            'Плохо (1)',
+                                            'Ужасно (1)',
+                                            'Без ответа магазина (12)',
+                                        ]
+                                    })
+
+                                .review-filter__submit
+                                    .review-filter__send(data-filter="submit")
+                                        button.btn
+                                            span Показать
+                                            small 72 отзыва
+                                    .review-filter__clear(data-filter="clear")
+                                        span.icon-cross 
+                                        small Очистить <span>все фильтры</span>
+
+
+mixin product-review-on-store--public
+    .product-review(data-tab="public")
+        .product-review__wrp
+            .product-review__content
+                .review-content
+                    .review-content__top
+                        .review-content__h3 Опубликованные (625)
+                            .review-content__mobile
+                                button(data-filter="open" data-elem="review") 
+                                    +icons('#ic_filter', 17)
+                                    span Фильтры
+
+                    .review-content__list(data-review="list")
+
+                        .review-content__item: +card-review--store
+                        .review-content__item: +card-review-reply--store
+                        .review-content__item: +card-review--store
+                        .review-content__item: +card-review--store
+                        .review-content__item: +card-review-reply--store
+                        .review-content__item: +card-review--store
+                        .review-content__item: +card-review--store
+
+                    .review-content__more
+                        button(data-review="load" data-id="289")
+                            +icons('#ic_more', 14)
+                            span Показать ещё
+
+            .product-review__aside
+                .review-filter(data-filter-container="review") 
+                    .review-filter__head
+                        .review-filter__head-title Фильтры и сортировка
+                        .review-filter__head-close: span.icon-cross(data-filter="open" data-elem="review")
+
+                    .review-filter__wrp
+                        
+                        .review-filter__form
+                            form(action='#' method='POST')
+                                .review-filter__props
+                                    .review-filter__item: +prop-checkbox({
+                                        title: 'Оценка покупателей',
+                                        checkbox: [
+                                            'Отлично (72)',
+                                            'Хорошо (5)',
+                                            'Средне (3)',
+                                            'Плохо (1)',
+                                            'Ужасно (1)',
+                                        ]
+                                    })
+
+                                .review-filter__submit
+                                    .review-filter__send(data-filter="submit")
+                                        button.btn
+                                            span Показать
+                                            small 72 отзыва
+                                    .review-filter__clear(data-filter="clear")
+                                        span.icon-cross 
+                                        small Очистить <span>все фильтры</span>

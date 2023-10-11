@@ -1,7 +1,7 @@
 extends ../../layouts/store-login
 
 include ../../../blocks/modules/store/store-aside/store-aside.pug
-include ../../../blocks/modules/store/store-config/store-config.pug
+include ../../../blocks/modules/store/store-review/store-review.pug
  
 block variables
   include ../../../data/data.pug
@@ -12,4 +12,18 @@ block aside
   
 
 block content
-   div review
+
+
+
+
+  .shop-block
+    .shop-block__title Отзывы о магазине 
+    .shop-block__tabs
+      ul(data-tab-nav="review")
+        li.active: a(href='#public') Опубликованные
+        li: a(href='#moderate') На модерации
+    .shop-block__tabs-container
+      .shop-block__tabs-item(data-tab="moderate")
+        +product-review-on-store--moderate() 
+      .shop-block__tabs-item.is-active(data-tab="public")
+        +product-review-on-store--public() 
