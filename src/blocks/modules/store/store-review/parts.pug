@@ -1,0 +1,143 @@
+mixin card-review--moderate
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Андрей Маяковский
+                .card-review__date.card-review__date-wrapper
+                  ul
+                      li 2 месяца назад, Москва
+                      li Доставка
+                      li Заказ №136559
+            .card-review__rating.rating--green
+                span 5
+                small Отлично
+            .card-review__text Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.
+             
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Ответить
+                .card-review__button
+                    .card-review__complaint
+                        +icons('#ic_warning', 20)
+            .card-review__childs
+
+mixin card-review--store
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Андрей Маяковский
+                .card-review__date.card-review__date-wrapper
+                  ul
+                      li 2 месяца назад, Москва
+                      li Доставка
+                      li Заказ №136559
+            .card-review__rating.rating--green
+                span 5
+                small Отлично
+            .card-review__text Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.
+             
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Ответить
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+            .card-review__childs
+
+mixin card-review-shop-childs
+    .card-review.card-review-shop
+        .card-review__photo
+            +picture('/img/common/shop-user')
+        .card-review__main
+            .card-review__head
+                .card-review__name Магазин Shop Local
+                .card-review__date 2 месяца назад
+            .card-review__text Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.
+            .card-review__action
+              .card-review__button
+                  .card-review__complaint
+                      a(href='#' data-tooltip="Удалить"): +icons('#ic_trash', 20)             
+
+mixin card-review--store-user
+    .card-review.card-review--reply-user
+        .card-review__photo
+            +picture('/img/common/user3')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Иван Троцкий
+            .card-review__text Вам спасибо за работу!
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Ответить
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                    
+            .card-review__childs
+ 
+mixin card-review-reply--store
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user3')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Иван Троцкий
+                .card-review__date.card-review__date-wrapper
+                  ul
+                      li 2 месяца назад, Москва
+                      li Доставка
+                      li Заказ №136559
+                .card-review__rating.rating--green
+                  span 5
+                  small Отлично
+            .card-review__text Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.
+            
+            .card-review__action
+                .card-review__add(data-review="add" data-id="123" data-parent="369")
+                    +icons('#ic_comment', 20)
+                    span Ответить
+                .card-review__commets(data-review="show-comment") Все ответы (2)
+                .card-review__button
+                    .card-review__like(data-like="add" data-id="789")
+                        +icons('#ic_heart-default', 20)
+                        span.like-count 2
+                     
+            .card-review__childs
+              +card-review-shop-childs()
+              +card-review--store-user()
+
+
+mixin card-review-reply--moderate
+    .card-review
+        .card-review__photo
+            +picture('/img/common/user3')
+        .card-review__main
+            .card-review__head 
+                .card-review__name Иван Троцкий
+                .card-review__date.card-review__date-wrapper
+                  ul
+                      li 2 месяца назад, Москва
+                      li Доставка
+                      li Заказ №136559
+                .card-review__rating.rating--green
+                  span 5
+                  small Отлично
+            .card-review__text Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.
+            
+            .card-review__action
+                .card-review__button
+                    .card-review__complaint
+                        +icons('#ic_warning', 20)
+                     
+            .card-review__childs
+              +card-review-shop-childs()
+              +card-review--store-user()

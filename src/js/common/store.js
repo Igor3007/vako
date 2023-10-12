@@ -1550,7 +1550,7 @@
 
      class Reviews {
          constructor(params) {
-             this.$el = document.querySelector(params.container)
+             this.$el = (typeof params.container == 'string' ? document.querySelector(params.container) : params.container)
 
              if (this.$el) {
 
@@ -1595,15 +1595,16 @@
 
              if (this.formInstanse) {
                  this.formInstanse.remove()
+                 this.formInstanse = false
+             } else {
+                 this.formInstanse = document.createElement('div')
+                 this.formInstanse.classList.add('card-review__form')
+                 this.formInstanse.innerHTML = this.getTemplateForm()
+                 this.sendComment(this.formInstanse.querySelector('form'), e)
+                 parent.querySelector('.card-review__action').after(this.formInstanse)
              }
 
-             this.formInstanse = document.createElement('div')
-             this.formInstanse.classList.add('card-review__form')
-             this.formInstanse.innerHTML = this.getTemplateForm()
 
-             this.sendComment(this.formInstanse.querySelector('form'), e)
-
-             parent.querySelector('.card-review__action').after(this.formInstanse)
          }
 
          sendComment(form, eventClick) {
@@ -1621,7 +1622,7 @@
 
                  window.ajax({
                      type: 'GET', //POST
-                     url: '/_comment-reply.html',
+                     url: '/_comment-reply--store.html',
                      responseType: 'html',
                      data: {
                          id: button.dataset.id || 0,
@@ -1629,7 +1630,6 @@
                      }
                  }, (status, response) => {
                      window.STATUS.msg('Комментарий добавлен!', '')
-
                      this.renderReply(e, response)
 
                  })
@@ -1661,6 +1661,7 @@
              //удалить форму
              if (this.formInstanse) {
                  this.formInstanse.remove()
+                 this.formInstanse = false;
              }
 
          }
@@ -1691,7 +1692,7 @@
          loadMore(e) {
              window.ajax({
                  type: 'GET', //POST
-                 url: '/_comment-more.html',
+                 url: '/_comment-more--store.html',
                  responseType: 'html',
                  data: {
                      id: e.target.dataset.id,
@@ -1784,7 +1785,7 @@
 
              let countChars = document.body.clientWidth > 576 ? 500 : 150
 
-             document.querySelectorAll('.card-review__text').forEach(item => {
+             this.$el.querySelectorAll('.card-review__text').forEach(item => {
                  if (item.innerText.length > countChars) {
                      item.classList.add('crop--text')
 
@@ -1811,9 +1812,52 @@
 
      }
 
-     new Reviews({
-         container: '.review-content'
-     });
+     if (document.querySelector('.review-content')) {
+         document.querySelectorAll('.review-content').forEach(item => new Reviews({
+             container: item
+         }))
+     }
+
+
+     /* =======================================
+     open filter
+     ======================================= */
+
+     if (document.querySelector('[data-filter="open"]')) {
+
+         const items = document.querySelectorAll('[data-filter="open"]')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+
+                 if (document.querySelector('[data-filter-container="' + item.dataset.elem + '"]')) {
+                     document.querySelector('[data-filter-container="' + item.dataset.elem + '"]').classList.toggle('is-open')
+                 }
+
+             })
+         })
+
+
+     }
+
+     /* ====================================
+     clear filter
+     ====================================*/
+
+     if (document.querySelector('[data-filter="clear"]')) {
+
+         const items = document.querySelectorAll('[data-filter="clear"]')
+
+         items.forEach(item => {
+             item.addEventListener('click', e => {
+                 e.target.closest('form').reset()
+             })
+         })
+
+
+     }
+
+
 
      /* =====================================
     tabs single product

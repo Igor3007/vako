@@ -3704,6 +3704,72 @@ footer {
   margin-left: auto;
 }
 
+.block-plug {
+  padding: 32px 32px;
+  background-color: #eeeeee;
+  border-radius: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.block-plug__icon {
+  padding-bottom: 15px;
+}
+
+.block-plug__icon .bgimage {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0 auto;
+}
+
+.block-plug__title {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 160%;
+  padding-bottom: 12px;
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+.block-plug__title a {
+  color: #7B61FF;
+}
+
+.block-plug__title strong {
+  font-weight: 800;
+}
+
+.block-plug__desc {
+  font-size: 15px;
+  line-height: 150%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.block-plug__desc a {
+  color: #7B61FF;
+}
+
+.block-plug__desc strong {
+  font-weight: 800;
+}
+
+.block-plug .ic_24 {
+  margin: 0 5px 3px 5px;
+}
+
+.ic_24 {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .store-index {
   background: radial-gradient(54.63% 54.63% at 50% 100%, #3D1F83 0%, #2D2148 100%);
   color: #fff;
@@ -5045,6 +5111,10 @@ footer {
   display: block;
 }
 
+.shop-block .product-review {
+  padding-bottom: 0;
+}
+
 .shop-block .product-review__wrp {
   flex-direction: column-reverse;
   display: flex;
@@ -5142,6 +5212,10 @@ footer {
   margin-left: -12px;
 }
 
+.shop-block .review-content__more {
+  padding-bottom: 30px;
+}
+
 .shop-block .filter-properties__cross {
   display: none;
 }
@@ -5159,6 +5233,10 @@ footer {
   background-color: rgba(123, 97, 255, 0.05);
   padding-top: 10px;
   padding-right: 10px;
+}
+
+.icon-cross {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0uMjkzLjI5M2ExIDEgMCAwMTEuNDE0IDBMNyA1LjU4NiAxMi4yOTMuMjkzYTEgMSAwIDExMS40MTQgMS40MTRMOC40MTQgN2w1LjI5MyA1LjI5M2ExIDEgMCAwMS0xLjQxNCAxLjQxNEw3IDguNDE0bC01LjI5MyA1LjI5M2ExIDEgMCAwMS0xLjQxNC0xLjQxNEw1LjU4NiA3IC4yOTMgMS43MDdhMSAxIDAgMDEwLTEuNDE0eiIgZmlsbD0iIzIyMiIvPjwvc3ZnPg==);
 }
 
 .review-filter {
@@ -6779,6 +6857,10 @@ body .fslightbox-slash {
     margin-top: -25px;
   }
 
+  .block-plug__title {
+    font-size: 20px;
+  }
+
   .widget-block__title {
     font-size: 20px;
   }
@@ -7603,6 +7685,16 @@ body .fslightbox-slash {
 @media screen and (max-width: 576px) {
   .store-user-data .btn {
     width: 100%;
+  }
+
+  .shop-block .review-content__mobile {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .shop-block .review-content__mobile button {
+    width: 100%;
+    height: 40px;
   }
 }
 

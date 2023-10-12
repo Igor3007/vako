@@ -1,0 +1,9 @@
+include ../../views/helpers/mixins.pug
+include ../../blocks/modules/store/store-review/store-review.pug
+include ../../data/data.pug
+
+each item in storeOoffers
+        .comment: +card-review--store
+        .comment: +card-review-reply--store
+        .comment: +card-review--store
+        .comment: +card-review--store
