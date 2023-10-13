@@ -749,7 +749,7 @@
 
          close() {
 
-             if (document.body.clientWidth > 992) {
+             if (document.body.clientWidth > 1200) {
                  return false
              }
 
@@ -1601,10 +1601,33 @@
                  this.formInstanse.classList.add('card-review__form')
                  this.formInstanse.innerHTML = this.getTemplateForm()
                  this.sendComment(this.formInstanse.querySelector('form'), e)
+                 this.fixScrollToFieldIOS(this.formInstanse)
                  parent.querySelector('.card-review__action').after(this.formInstanse)
              }
 
 
+         }
+
+         fixScrollToFieldIOS(form) {
+
+             console.log(form.querySelector('textarea'))
+
+
+             if (form.querySelector('textarea')) {
+                 let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+                 if (isIOS) {
+                     form.querySelector('textarea').addEventListener('focus', e => {
+                         setTimeout(() => {
+                             window.scrollTo({
+                                 top: item.offsetTop - (window.innerHeight / 2) + item.clientHeight + 10,
+                                 behavior: "smooth",
+                             });
+                         }, 100)
+                     })
+                 }
+
+
+             }
          }
 
          sendComment(form, eventClick) {
@@ -1669,6 +1692,7 @@
          showHideChilds(e) {
              const itemComment = e.target.closest('.card-review')
              itemComment.querySelector('.card-review__childs').classList.toggle('is-open')
+             e.target.classList.toggle('is-open')
          }
 
          renderLoadComments(response) {
@@ -2040,6 +2064,10 @@
          tabStart: 'public',
          scroll: 'top',
      })
+
+
+
+
 
 
 

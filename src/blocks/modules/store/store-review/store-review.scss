@@ -351,7 +351,7 @@
             flex-direction: column-reverse;
             display: flex;
 
-            @media screen and (min-width: $w1200) {
+            @media screen and (min-width: $w992) {
                 display: flex;
                 flex-direction: row;
             }
@@ -365,7 +365,7 @@
                 min-width: 190px;
             }
 
-            @media screen and (min-width: $w1200) {
+            @media screen and (min-width: $w992) {
                 min-width: 190px;
                 width: 190px;
                 display: block;
@@ -444,18 +444,57 @@
         &__content {
             width: 100%;
 
-            @media screen and (min-width: $w1200) {
+            @media screen and (min-width: $w992) {
                 padding-right: 30px;
             }
         }
 
     }
 
+    & .card-review {
+        &__complaint {
+
+            & span[data-tooltip]::before,
+            & a[data-tooltip]::before {
+                transform: translateX(calc(-50% - -12px));
+                min-width: auto;
+            }
+        }
+
+        &__commets {
+            display: flex;
+            align-items: center;
+
+
+
+            &::after {
+                content: '';
+                width: 8px;
+                height: 8px;
+                display: inline-block;
+                background-position: center;
+                background-size: contain;
+                margin-left: 10px;
+                background-repeat: no-repeat;
+                transform: rotate(180deg);
+                transition: 0.3s ease;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMy4xNDYuMTQ2YS41LjUgMCAwMS43MDggMGwzIDNhLjUuNSAwIDExLS43MDguNzA4TDMuNSAxLjIwNy44NTQgMy44NTRhLjUuNSAwIDExLS43MDgtLjcwOGwzLTN6IiBmaWxsPSIjN0I2MUZGIi8+PC9zdmc+);
+            }
+
+            &.is-open {
+                &::after {
+                    transform: rotate(360deg);
+                    transition: 0.3s ease;
+                }
+            }
+        }
+    }
+
     & .review-filter {
 
         display: none;
 
-        @media screen and (min-width: $w1200) {
+        @media screen and (min-width: $w992) {
             display: block;
         }
     }

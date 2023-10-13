@@ -38,7 +38,7 @@
         &__main {
             flex-wrap: wrap;
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: $w1200) {
                 flex-wrap: nowrap;
             }
         }
@@ -50,7 +50,7 @@
             width: 100%;
             margin-top: 8px;
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: $w1200) {
                 width: auto;
                 margin-top: 0;
                 order: initial;
@@ -59,7 +59,7 @@
 
         &__mobile {
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: $w1200) {
                 display: none;
             }
 
@@ -132,7 +132,7 @@
         font-weight: 800;
         font-size: 0;
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w1200) {
             margin-left: 20px;
             font-size: 14px;
         }

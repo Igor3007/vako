@@ -7762,7 +7762,6 @@ div[data-single-catalog]:not(.is-active) {
 
 .card-review__like:hover,
 .card-review__complaint:hover {
-  background-color: #f5f5f5;
   border-radius: 4px;
 }
 
@@ -13662,6 +13661,12 @@ body .fslightbox-slash {
 @media screen and (min-width: 1200px) and (max-width: 1440px) {
   .minicard--store .minicard__store {
     padding-bottom: 0.3em;
+  }
+}
+
+@media screen and (max-width: 992.98px) and (min-width: 576px) {
+  .review-content__action {
+    margin-top: -48px;
   }
 }
 
