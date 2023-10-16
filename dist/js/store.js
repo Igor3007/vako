@@ -1610,19 +1610,20 @@
 
          fixScrollToFieldIOS(form) {
 
-             console.log(form.querySelector('textarea'))
-
 
              if (form.querySelector('textarea')) {
+
+                 let item = form.querySelector('textarea');
+
                  let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-                 if (isIOS) {
-                     form.querySelector('textarea').addEventListener('focus', e => {
+                 if (true) {
+                     item.addEventListener('focus', e => {
                          setTimeout(() => {
                              window.scrollTo({
                                  top: item.offsetTop - (window.innerHeight / 2) + item.clientHeight + 10,
                                  behavior: "smooth",
                              });
-                         }, 100)
+                         }, 300)
                      })
                  }
 
