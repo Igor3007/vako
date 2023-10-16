@@ -7309,6 +7309,10 @@ div[data-single-catalog]:not(.is-active) {
   display: none;
 }
 
+.single-product__wrp-tabs {
+  min-height: 40px;
+}
+
 .product-prop {
   padding-bottom: 60px;
 }

@@ -1645,10 +1645,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     function offset(el) {
                         var rect = el.getBoundingClientRect(),
-                            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-                            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                            scrollLeft = window.scrollX || document.documentElement.scrollLeft,
+                            scrollTop = window.scrollY || document.documentElement.scrollTop;
                         return {
-                            top: rect.top + scrollTop - 5,
+                            top: rect.top + scrollTop,
                             left: rect.left + scrollLeft
                         }
                     }
@@ -1657,13 +1657,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                         case 'container':
                             window.scrollTo({
-                                top: ((offset(this.container).top - 50) || 0),
+                                top: ((offset(this.container).top - 80) || 0),
                                 behavior: 'smooth'
                             })
 
                             break;
-
-
 
                         case 'top':
                         default:
