@@ -1648,21 +1648,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
                             scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                         return {
-                            top: rect.top + scrollTop,
+                            top: rect.top + scrollTop - 5,
                             left: rect.left + scrollLeft
                         }
                     }
 
                     switch (this.setting.scroll) {
 
-
-
                         case 'container':
                             window.scrollTo({
                                 top: ((offset(this.container).top - 50) || 0),
                                 behavior: 'smooth'
                             })
+
                             break;
+
+
 
                         case 'top':
                         default:
@@ -1745,13 +1746,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const heihgtTabs = (topOffset - elemTabs.clientHeight)
 
         window.addEventListener('scroll', () => {
-
-
-            if (window.pageYOffset > heihgtTabs) {
-                document.querySelector('.single-product__tabs').classList.add('fixed-tabs')
+            if (window.scrollY > heihgtTabs) {
+                elemTabs.classList.add('fixed-tabs')
             } else {
-                if (document.querySelector('.single-product__tabs').classList.contains('fixed-tabs')) {
-                    document.querySelector('.single-product__tabs').classList.remove('fixed-tabs')
+                if (elemTabs.classList.contains('fixed-tabs')) {
+                    elemTabs.classList.remove('fixed-tabs')
                 }
             }
         })

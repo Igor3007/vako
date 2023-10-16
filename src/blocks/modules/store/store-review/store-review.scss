@@ -456,7 +456,7 @@
 
             & span[data-tooltip]::before,
             & a[data-tooltip]::before {
-                transform: translateX(calc(-50% - -12px));
+                transform: translateX(calc(-50% - -10px));
                 min-width: auto;
             }
         }
