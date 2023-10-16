@@ -458,6 +458,10 @@
             & a[data-tooltip]::before {
                 transform: translateX(calc(-50% - -10px));
                 min-width: auto;
+
+                @media screen and (max-width: $w576) {
+                    display: none;
+                }
             }
         }
 

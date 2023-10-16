@@ -7716,6 +7716,11 @@ body .fslightbox-slash {
     width: 100%;
   }
 
+  .shop-block .card-review__complaint span[data-tooltip]::before,
+  .shop-block .card-review__complaint a[data-tooltip]::before {
+    display: none;
+  }
+
   .shop-block .review-content__mobile {
     margin-left: 0;
     width: 100%;
