@@ -1620,7 +1620,7 @@
                      item.addEventListener('focus', e => {
                          setTimeout(() => {
                              window.scrollTo({
-                                 top: item.offsetTop - (window.innerHeight / 2) + item.clientHeight + 10,
+                                 top: item.offsetTop - (window.innerHeight / 2) + item.clientHeight + 40,
                                  behavior: "smooth",
                              });
                          }, 300)
