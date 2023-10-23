@@ -132,93 +132,125 @@ select {
         left: 0;
         right: 0;
         background-color: rgba(69, 62, 79, 0.69);
+        max-height: none;
     }
 }
 
-.select-options {
-    display: none;
-    position: absolute;
-    top: calc(100% + 10px);
-    right: auto;
-    left: 0;
-    z-index: 999;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    background-color: #e9e9e9;
-    max-height: 300px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
-    color: #000;
-    min-width: 100%;
-    width: auto;
-    max-height: 300px;
-
-    &.active {
-        display: block;
-    }
-
-
-    @media screen and (max-width: $w992) {
-        max-height: 30vh;
-    }
-
-    @media screen and (max-width: $w480) {
-        top: auto;
-        bottom: 0;
-        max-height: 50vh;
-        margin: auto;
-    }
-
-    // &::before {
-    //     content: '';
-    //     width: rem(12);
-    //     min-width: rem(12);
-    //     height: rem(12);
-    //     display: block;
-    //     background-color: #f00;
-    //     transform: rotate(45deg);
-    //     position: absolute;
-    //     left: rem(10);
-    //     top: -10px;
-    // }
-
-    & li {
+.af-select {
+    & .select-list {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: auto;
+        left: 0;
+        z-index: 999;
         margin: 0;
-        padding: 0.75rem rem(15);
-        border-top: 1px solid darken($select-background, 4);
-        transition: all 0.15s ease-in;
-        font-size: 14px;
-        white-space: nowrap;
-        max-width: 300px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        position: relative;
+        padding: 0;
+        list-style: none;
+        background-color: #e9e9e9;
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
+        color: #000;
+        min-width: 100%;
+        width: auto;
+        max-height: 300px;
 
-        @media screen and (max-width: $w1200) {
-            font-size: 13px;
+        &.active {
+            display: block;
+
+            @media screen and (max-width: $w480) {
+                padding-top: calc(50vh - 67px);
+            }
         }
 
-        @media screen and (max-width: $w480) {
-            font-size: 16px;
-            padding: 1.5em 1.5em;
-            max-width: 100%;
+        & input[type="text"] {
+            margin: 8px;
+            height: 42px;
+            width: calc(100% - 16px);
+            background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.93945 0.931641C4.98074 0.931641 0.941406 4.97096 0.941406 9.9297C0.941406 14.8884 4.98074 18.9356 9.93945 18.9356C12.0575 18.9356 14.0054 18.1933 15.5449 16.961L19.293 20.707C19.4821 20.8883 19.7347 20.9884 19.9967 20.9857C20.2587 20.983 20.5093 20.8779 20.6947 20.6927C20.8801 20.5076 20.9856 20.2572 20.9886 19.9953C20.9917 19.7333 20.892 19.4805 20.7109 19.2911L16.9629 15.5431C18.1963 14.0012 18.9395 12.0502 18.9395 9.9297C18.9395 4.97096 14.8982 0.931641 9.93945 0.931641ZM9.93945 2.93167C13.8173 2.93167 16.9375 6.05187 16.9375 9.9297C16.9375 13.8075 13.8173 16.9356 9.93945 16.9356C6.06162 16.9356 2.94141 13.8075 2.94141 9.9297C2.94141 6.05187 6.06162 2.93167 9.93945 2.93167Z' fill='%23111B29' fill-opacity='0.5'/%3E%3C/svg%3E ") !important;
+            background-repeat: no-repeat;
+            background-size: 17px auto;
+            background-position: 15px center;
+            padding-left: 45px;
+            background-color: #fff;
         }
 
-        &.active,
-        &:hover {
-            color: #000;
-            background: $select-background;
-            //box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+
+
+        // &::before {
+        //     content: '';
+        //     width: rem(12);
+        //     min-width: rem(12);
+        //     height: rem(12);
+        //     display: block;
+        //     background-color: #f00;
+        //     transform: rotate(45deg);
+        //     position: absolute;
+        //     left: rem(10);
+        //     top: -10px;
+        // }
+
+        & li {
+            margin: 0;
+            padding: 0.75rem rem(15);
+            border-top: 1px solid darken($select-background, 4);
+            transition: all 0.15s ease-in;
+            font-size: 14px;
+            white-space: nowrap;
+            max-width: 300px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            position: relative;
+            background-color: #fff;
+
+            @media screen and (max-width: $w1200) {
+                font-size: 13px;
+            }
+
+            @media screen and (max-width: $w480) {
+                font-size: 16px;
+                padding: 1.5em 1.5em;
+                max-width: 100%;
+            }
+
+            &.active,
+            &:hover {
+                color: #000;
+                background: $select-background;
+                //box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+            }
+
+            &[rel="hide"] {
+                display: none;
+            }
         }
 
-        &[rel="hide"] {
-            display: none;
+        & ul.select-options {
+            margin-bottom: 0;
+            background-color: #fff;
+
+            @media screen and (max-width: $w992) {
+                max-height: 30vh;
+            }
+
+            @media screen and (max-width: $w480) {
+                top: auto;
+                bottom: 0;
+                max-height: 50vh;
+                overflow: auto;
+                margin: 0 8px;
+                border-radius: 4px;
+            }
         }
     }
+
 }
+
+
 
 
 .select-list.active.select-list--load li {
@@ -382,7 +414,7 @@ select {
         }
 
         &::after {
-            background-color: #ccc;
+            background-color: #7b61ff;
             @include layer(1);
             content: '';
             border-radius: 3px;
@@ -409,6 +441,7 @@ select {
                 & .af-check-multiple {
                     &::before {
                         opacity: 1;
+                        filter: grayscale(1) brightness(300);
                     }
 
                     &::after {

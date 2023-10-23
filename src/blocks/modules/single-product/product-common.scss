@@ -716,6 +716,11 @@
         font-weight: 900;
         padding-bottom: 25px;
         padding-right: 60px;
+        text-align: center;
+
+        @media screen and (min-width: $w480) {
+            text-align: left;
+        }
 
         @media screen and (min-width: $w1200) {
             margin-top: -15px;
@@ -725,7 +730,7 @@
     }
 
     &__items {
-        max-height: calc(75vh - 100px);
+        //max-height: calc(75vh - 100px);
         overflow-y: auto;
         @include scrollbar;
 
@@ -824,7 +829,7 @@
         }
 
         & a {
-            font-size: 13px;
+            font-size: 14px;
             margin-left: 9px;
             display: inline-block;
             margin-top: -1px;
@@ -833,9 +838,7 @@
                 text-decoration: underline;
             }
 
-            @media screen and (min-width: $w1440) {
-                font-size: 14px;
-            }
+
         }
 
         &.rating {
@@ -918,14 +921,10 @@
         & span {
             display: none;
             padding-left: 10px;
-            font-size: 13px;
+            font-size: 14px;
             color: $gray-56;
 
-            @media screen and (min-width: $w1440) {
-                font-size: 14px;
-            }
-
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: $w760) {
                 display: inline-block;
             }
         }
@@ -939,7 +938,7 @@
             justify-content: center;
             position: relative;
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: $w760) {
                 width: auto;
                 padding: 0 12px;
                 height: 36px;

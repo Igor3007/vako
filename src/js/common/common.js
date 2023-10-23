@@ -1250,13 +1250,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
             item.addEventListener('click', e => {
 
 
-                if (document.querySelector('[data-filter-container="' + item.dataset.elem + '"]')) {
-                    document.querySelector('[data-filter-container="' + item.dataset.elem + '"]').classList.toggle('is-open')
+                const container = document.querySelector('[data-filter-container="' + item.dataset.elem + '"]')
+
+                if (!typeof container == 'undefined') {
+                    container.classList.toggle('is-open')
                 }
 
                 setTimeout(() => {
                     initPriceRange()
                     document.body.classList.toggle('page-hidden')
+
+
+
+                    if (container.classList.contains('is-open')) {
+                        if (typeof bodyScrollLock == 'undefined') {
+                            bodyScrollLock.disableBodyScroll(container)
+                        } else {
+                            bodyScrollLock.enableBodyScroll(container)
+                        }
+
+                    }
+
                 }, 50)
 
 
@@ -1359,7 +1373,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         subMenu.forEach(item => {
 
-            if (item.querySelectorAll('li').length > 8) {
+            if (item.querySelectorAll('li').length > 5) {
 
                 const elem = document.createElement('div')
                 elem.classList.add('sub-menu-toggle')
@@ -3747,6 +3761,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         })
     }
+
+
+
 
 
 

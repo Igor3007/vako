@@ -57,6 +57,14 @@ class afLightbox {
 
         setTimeout(() => {
             this.modal.querySelector(".af-popup").classList.add("af-popup--visible")
+
+            //body scroll disabled
+            bodyScrollLock.disableBodyScroll(this.modal.querySelector(".af-popup"));
+
+            if (this.modal.querySelector(".popup-points__items")) {
+                bodyScrollLock.disableBodyScroll(this.modal.querySelector(".popup-points__items"));
+            }
+
         }, 10)
 
         this.createEvent();
@@ -87,6 +95,13 @@ class afLightbox {
         }
 
         this.instanse.querySelector('.af-popup').classList.remove('af-popup--visible')
+
+        //body scroll enabled
+        bodyScrollLock.enableBodyScroll(this.instanse.querySelector('.af-popup'));
+
+        if (this.modal.querySelector(".popup-points__items")) {
+            bodyScrollLock.enableBodyScroll(this.modal.querySelector(".popup-points__items"));
+        }
 
         setTimeout(() => {
             this.instanse.remove()

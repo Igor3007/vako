@@ -806,7 +806,7 @@ select {
   transform: rotate(180deg);
 }
 
-.select-options {
+.af-select .select-list {
   display: none;
   position: absolute;
   top: calc(100% + 10px);
@@ -828,11 +828,23 @@ select {
   max-height: 300px;
 }
 
-.select-options.active {
+.af-select .select-list.active {
   display: block;
 }
 
-.select-options li {
+.af-select .select-list input[type="text"] {
+  margin: 8px;
+  height: 42px;
+  width: calc(100% - 16px);
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.93945 0.931641C4.98074 0.931641 0.941406 4.97096 0.941406 9.9297C0.941406 14.8884 4.98074 18.9356 9.93945 18.9356C12.0575 18.9356 14.0054 18.1933 15.5449 16.961L19.293 20.707C19.4821 20.8883 19.7347 20.9884 19.9967 20.9857C20.2587 20.983 20.5093 20.8779 20.6947 20.6927C20.8801 20.5076 20.9856 20.2572 20.9886 19.9953C20.9917 19.7333 20.892 19.4805 20.7109 19.2911L16.9629 15.5431C18.1963 14.0012 18.9395 12.0502 18.9395 9.9297C18.9395 4.97096 14.8982 0.931641 9.93945 0.931641ZM9.93945 2.93167C13.8173 2.93167 16.9375 6.05187 16.9375 9.9297C16.9375 13.8075 13.8173 16.9356 9.93945 16.9356C6.06162 16.9356 2.94141 13.8075 2.94141 9.9297C2.94141 6.05187 6.06162 2.93167 9.93945 2.93167Z' fill='%23111B29' fill-opacity='0.5'/%3E%3C/svg%3E ") !important;
+  background-repeat: no-repeat;
+  background-size: 17px auto;
+  background-position: 15px center;
+  padding-left: 45px;
+  background-color: #fff;
+}
+
+.af-select .select-list li {
   margin: 0;
   padding: 0.75rem 15px;
   border-top: 1px solid #e8e8e8;
@@ -843,16 +855,22 @@ select {
   text-overflow: ellipsis;
   overflow: hidden;
   position: relative;
+  background-color: #fff;
 }
 
-.select-options li.active,
-.select-options li:hover {
+.af-select .select-list li.active,
+.af-select .select-list li:hover {
   color: #000;
   background: #f2f2f2;
 }
 
-.select-options li[rel="hide"] {
+.af-select .select-list li[rel="hide"] {
   display: none;
+}
+
+.af-select .select-list ul.select-options {
+  margin-bottom: 0;
+  background-color: #fff;
 }
 
 .select-list.active.select-list--load li {
@@ -1017,7 +1035,7 @@ select {
 }
 
 .af-select--multiple .af-check-multiple::after {
-  background-color: #ccc;
+  background-color: #7b61ff;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -1039,6 +1057,7 @@ select {
 
 .af-select--multiple .select-options li.active .af-check-multiple::before {
   opacity: 1;
+  filter: grayscale(1) brightness(300);
 }
 
 .af-select--multiple .select-options li.active .af-check-multiple::after {
@@ -5502,7 +5521,7 @@ footer {
   display: none;
 }
 
-.filter-properties__list ul li:nth-child(-n+8) {
+.filter-properties__list ul li:nth-child(-n+5) {
   display: block;
 }
 
@@ -6834,10 +6853,10 @@ footer {
   font-weight: 900;
   padding-bottom: 25px;
   padding-right: 60px;
+  text-align: center;
 }
 
 .popup-store-offers__items {
-  max-height: calc(75vh - 100px);
   overflow-y: auto;
   scrollbar-color: #ccc #ebebeb;
   scrollbar-width: thin !important;
@@ -6922,7 +6941,7 @@ footer {
 }
 
 .product-mini__review a {
-  font-size: 13px;
+  font-size: 14px;
   margin-left: 9px;
   display: inline-block;
   margin-top: -1px;
@@ -6998,7 +7017,7 @@ footer {
 .product-mini__fav span {
   display: none;
   padding-left: 10px;
-  font-size: 13px;
+  font-size: 14px;
   color: #8f8f8f;
 }
 
@@ -10452,7 +10471,7 @@ div[data-state="1"] {
 }
 
 .popup-points__map #map {
-  height: 40vh;
+  height: 35vh;
   background-color: #ddd;
 }
 
@@ -10460,7 +10479,7 @@ div[data-state="1"] {
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  height: 40vh;
+  height: 35vh;
 }
 
 .popup-points__items {
@@ -11282,7 +11301,8 @@ body .fslightbox-slash {
 
   .minicard__store-phone.is-active ul a {
     display: block;
-    min-width: 180px;
+    min-width: none;
+    white-space: nowrap;
     padding: 8px 12px;
     color: #222;
     font-size: 14px;
@@ -11308,6 +11328,10 @@ body .fslightbox-slash {
 
   .fast-properties__items li a {
     font-size: 14px;
+  }
+
+  .popup-store-offers__title {
+    text-align: left;
   }
 
   .popup-tooltip-box {
@@ -11908,6 +11932,18 @@ body .fslightbox-slash {
     padding-left: 0;
   }
 
+  .product-mini__compare span,
+  .product-mini__fav span {
+    display: inline-block;
+  }
+
+  .product-mini__compare a,
+  .product-mini__fav a {
+    width: auto;
+    padding: 0 12px;
+    height: 36px;
+  }
+
   .product-prop__title {
     font-size: 28px;
   }
@@ -12311,18 +12347,6 @@ body .fslightbox-slash {
 
   .popup-store-offers__wrp {
     padding-right: 10px;
-  }
-
-  .product-mini__compare span,
-  .product-mini__fav span {
-    display: inline-block;
-  }
-
-  .product-mini__compare a,
-  .product-mini__fav a {
-    width: auto;
-    padding: 0 12px;
-    height: 36px;
   }
 
   .store-points {
@@ -13134,15 +13158,6 @@ body .fslightbox-slash {
     font-size: 18px;
   }
 
-  .product-mini__review a {
-    font-size: 14px;
-  }
-
-  .product-mini__compare span,
-  .product-mini__fav span {
-    font-size: 14px;
-  }
-
   .product-prop__list {
     gap: 64px;
   }
@@ -13233,7 +13248,7 @@ body .fslightbox-slash {
     font-size: 14px;
   }
 
-  .select-options li {
+  .af-select .select-list li {
     font-size: 13px;
   }
 
@@ -13253,7 +13268,7 @@ body .fslightbox-slash {
 }
 
 @media screen and (max-width: 992.98px) {
-  .select-options {
+  .af-select .select-list ul.select-options {
     max-height: 30vh;
   }
 
@@ -13439,19 +13454,26 @@ body .fslightbox-slash {
     left: 0;
     right: 0;
     background-color: rgba(69, 62, 79, 0.69);
+    max-height: none;
   }
 
-  .select-options {
-    top: auto;
-    bottom: 0;
-    max-height: 50vh;
-    margin: auto;
+  .af-select .select-list.active {
+    padding-top: calc(50vh - 67px);
   }
 
-  .select-options li {
+  .af-select .select-list li {
     font-size: 16px;
     padding: 1.5em 1.5em;
     max-width: 100%;
+  }
+
+  .af-select .select-list ul.select-options {
+    top: auto;
+    bottom: 0;
+    max-height: 50vh;
+    overflow: auto;
+    margin: 0 8px;
+    border-radius: 4px;
   }
 
   .af-select--multiple .select-options li {
