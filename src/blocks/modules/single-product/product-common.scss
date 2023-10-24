@@ -730,7 +730,7 @@
     }
 
     &__items {
-        //max-height: calc(75vh - 100px);
+        max-height: calc(75vh - 100px);
         overflow-y: auto;
         @include scrollbar;
 

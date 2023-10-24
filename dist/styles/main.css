@@ -6857,6 +6857,7 @@ footer {
 }
 
 .popup-store-offers__items {
+  max-height: calc(75vh - 100px);
   overflow-y: auto;
   scrollbar-color: #ccc #ebebeb;
   scrollbar-width: thin !important;

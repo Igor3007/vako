@@ -1045,7 +1045,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                        <div class="popup-points__head" >Пункты выдачи магазина PCPlanet.ru</div>
                        <div class="popup-points__wrp" >
                            <div class="popup-points__map" ><div id="map" ></div></div>
-                           <div class="popup-points__list" >
+                           <div class="popup-points__list js-disable-scrollblock" >
                                <div class="popup-points__stores" ></div>
                                <div class="popup-points__items" >
                                    <ul data-poits="list" ></ul>
@@ -1788,7 +1788,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             html.classList.add('popup-store-offers')
             html.innerHTML = `
                <div class="popup-store-offers__title" >Другие предложения магазина ${name}</div>
-               <div class="popup-store-offers__items" >
+               <div class="popup-store-offers__items js-disable-scrollblock" >
                    <div class="popup-store-offers__wrp" >${response}</div>
                </div>
            `

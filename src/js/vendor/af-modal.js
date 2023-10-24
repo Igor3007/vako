@@ -61,8 +61,8 @@ class afLightbox {
             //body scroll disabled
             bodyScrollLock.disableBodyScroll(this.modal.querySelector(".af-popup"));
 
-            if (this.modal.querySelector(".popup-points__items")) {
-                bodyScrollLock.disableBodyScroll(this.modal.querySelector(".popup-points__items"));
+            if (this.modal.querySelector(".js-disable-scrollblock")) {
+                bodyScrollLock.disableBodyScroll(this.modal.querySelector(".js-disable-scrollblock"));
             }
 
         }, 10)
@@ -99,8 +99,8 @@ class afLightbox {
         //body scroll enabled
         bodyScrollLock.enableBodyScroll(this.instanse.querySelector('.af-popup'));
 
-        if (this.modal.querySelector(".popup-points__items")) {
-            bodyScrollLock.enableBodyScroll(this.modal.querySelector(".popup-points__items"));
+        if (this.modal.querySelector(".js-disable-scrollblock")) {
+            bodyScrollLock.enableBodyScroll(this.modal.querySelector(".js-disable-scrollblock"));
         }
 
         setTimeout(() => {
