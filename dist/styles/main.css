@@ -336,6 +336,28 @@ table td:first-child {
   touch-action: pan-x;
 }
 
+.overflow--hidden {
+  overflow: hidden !important;
+}
+
+.overflow--hidden-fixed {
+  overflow: hidden !important;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.overflow--hidden-scrollBar {
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+}
+
+.safari-fixed {
+  height: calc(100vh - 1px);
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -2985,6 +3007,7 @@ input:focus {
   z-index: 100;
   opacity: 0;
   transition: 0.25s ease;
+  overscroll-behavior: contain;
 }
 
 .af-popup__bg {
@@ -4308,6 +4331,7 @@ footer {
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTguMTExIDE1LjIyMkE3LjExMSA3LjExMSAwIDEwOC4xMTEgMWE3LjExMSA3LjExMSAwIDAwMCAxNC4yMjJ6TTE3IDE3bC0zLjg2Ni0zLjg2NyIgc3Ryb2tlPSIjQ0NDIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==);
   background-position: 15px center;
   background-repeat: no-repeat;
+  transition: none;
 }
 
 .search-index__input input::placeholder {
@@ -6440,6 +6464,7 @@ footer {
   right: 0;
   filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.12));
   padding: 12px 0px 12px 0px;
+  animation: slite-nav-fixed 0.3s ease forwards;
 }
 
 .single-product__tabs.fixed-tabs ul {
@@ -7325,10 +7350,6 @@ div[data-single-catalog]:not(.is-active) {
   margin-top: 48px;
 }
 
-.page-hidden .single-product__tabs {
-  display: none;
-}
-
 .single-product__wrp-tabs {
   min-height: 40px;
 }
@@ -8171,6 +8192,16 @@ div.single-product__content[data-tab-container="store"] {
   width: 21%;
 }
 
+@keyframes slite-nav-fixed {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
 .single-page__breadcrumbs {
   padding: 20px 0 0 0;
 }
@@ -8246,6 +8277,7 @@ div.single-product__content[data-tab-container="store"] {
   right: 0;
   filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.12));
   padding: 12px 0px 12px 0px;
+  animation: slite-nav-fixed 0.3s ease forwards;
 }
 
 .single-page__tabs.fixed-tabs ul {

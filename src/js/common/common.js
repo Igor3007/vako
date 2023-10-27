@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
     const API_YMAPS = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+    window.isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
 
 
     /* =================================================
@@ -247,6 +248,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     initMask();
 
+
+    /* ==============================================
+    debounce
+    ==============================================*/
+
+    window.debounce = function (method, delay) {
+        clearTimeout(method._tId);
+        method._tId = setTimeout(function () {
+            method();
+        }, delay);
+    }
+
     /* ==============================================
     mobile menu
     ============================================== */
@@ -381,6 +394,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 this.$el = document.querySelector('[data-index-find="container"]')
                 this.input = this.$el.querySelector('[data-index-find="input"]')
                 this.form = this.$el.querySelector('[data-index-find="form"]')
+                this.elForm = this.$el.querySelector('form')
                 this.suggest = this.$el.querySelector('[data-index-find="suggest"]')
                 this.closeButton = null;
 
@@ -388,10 +402,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             lockScroll(val) {
-                document.querySelector('html').style.overflow = (val ? 'hidden' : 'visible')
-                document.body.style.overflow = (val ? 'hidden' : 'visible')
-                if (document.body.clientWidth > 1200 && window.location.pathname != '/') {
-                    document.body.style.marginRight = (val ? '0' : '0')
+                if (val) {
+                    //fix iOS body scroll
+                    if (this.isiOS) {
+                        document.documentElement.classList.add('safari-fixed')
+                        document.body.style.marginTop = `-${ window.scrollY }px`
+                    }
+                    document.body.classList.add('page-hidden')
+                } else {
+
+                    //fix iOS body scroll
+                    let documentBody = document.body
+
+                    if (this.isiOS) {
+                        if (document.documentElement.classList.contains('safari-fixed')) document.documentElement.classList.remove('safari-fixed')
+                        const bodyMarginTop = parseInt(documentBody.style.marginTop, 10)
+                        documentBody.style.marginTop = ''
+                        if (bodyMarginTop || bodyMarginTop === 0) window.scrollTo(0, -bodyMarginTop)
+                    }
+
+                    documentBody.classList.remove('page-hidden')
                 }
             }
 
@@ -400,7 +430,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 this.createCloseButton()
                 this.lockScroll(true)
 
-                window.scrollTo(0, 0)
+                setTimeout(function () {
+                    window.scrollTo(0, 0)
+                }, 100)
 
             }
 
@@ -430,16 +462,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             getRecentRequest() {
-                return [
-                    'galaxy s11',
-                    'askhome norman',
-                    'metta-su-bg-8',
-                    'askhome sirius',
-                    'gigabyte b560m',
-                    'tetchair mesh-4hr',
-                    'everprof polo',
-                    'asus m5',
-                ]
+                return localStorage.getItem('findRecent') ? JSON.parse(localStorage.getItem('findRecent')) : ''
+            }
+
+            setRecentRequest(val) {
+
+                if (!localStorage.getItem('findRecent') || localStorage.getItem('findRecent') == '[]') {
+                    let arr = []
+                    arr.push(val)
+                    localStorage.setItem('findRecent', JSON.stringify(arr))
+                } else {
+                    let array = JSON.parse(localStorage.getItem('findRecent'))
+                    array.unshift(val)
+                    localStorage.setItem('findRecent', JSON.stringify(array.slice(0, 8)))
+                }
 
             }
 
@@ -517,10 +553,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 const elemUl = document.createElement('ul')
                 elemUl.classList.add('recent-list')
 
-                recentList.forEach(li => {
+                recentList.forEach((li, index) => {
 
                     const elem = document.createElement('li')
                     elem.innerHTML = `<span>${li}</span>  <span class="icon-cross" ></span>`
+
+                    const elRemove = elem.querySelector('.icon-cross')
+
+                    elRemove.addEventListener('click', e => {
+
+                        e.stopPropagation(true)
+
+                        if (localStorage.getItem('findRecent')) {
+                            let words = JSON.parse(localStorage.getItem('findRecent'))
+
+                            if (Array.isArray(words)) {
+                                words.splice(index, 1)
+                                localStorage.setItem('findRecent', JSON.stringify(words))
+                                elem.remove()
+                            }
+                        }
+                    })
 
                     elemUl.append(elem)
                 })
@@ -533,7 +586,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             ajaxRequest(e) {
 
                 let _this = this
-
 
                 window.ajax({
                     type: 'GET',
@@ -569,6 +621,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         this.renderRecent()
                     }
 
+
+                })
+
+                this.elForm.addEventListener('submit', e => {
+
+                    e.preventDefault()
+                    this.setRecentRequest(e.target.querySelector('input[type="text"]').value)
 
                 })
 
@@ -858,9 +917,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                         //fix scroll to input in iOS 
 
-                        let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-
-                        if (input && isIOS) {
+                        if (input && window.isIOS) {
                             input.addEventListener('focus', e => {
                                 setTimeout(() => {
                                     window.scrollTo({
@@ -1244,36 +1301,75 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     if (document.querySelector('[data-filter="open"]')) {
 
-        const items = document.querySelectorAll('[data-filter="open"]')
+        class filterPopupMobile {
+            constructor(params) {
+                this.$el = params.el
+                this.isOpen = false;
+                this.container = document.querySelector('[data-filter-container="' + params.el.dataset.elem + '"]')
+                this.addEvents()
+            }
 
-        items.forEach(item => {
-            item.addEventListener('click', e => {
-
-
-                const container = document.querySelector('[data-filter-container="' + item.dataset.elem + '"]')
-
-                if (!typeof container == 'undefined') {
-                    container.classList.toggle('is-open')
-                }
+            open() {
+                this.container.classList.add('is-open')
+                document.body.classList.add('page-hidden')
 
                 setTimeout(() => {
-                    initPriceRange()
-                    document.body.classList.toggle('page-hidden')
+                    if (typeof initPriceRange !== undefined) initPriceRange()
 
-
-
-                    if (container.classList.contains('is-open')) {
-                        if (typeof bodyScrollLock == 'undefined') {
-                            bodyScrollLock.disableBodyScroll(container)
-                        } else {
-                            bodyScrollLock.enableBodyScroll(container)
-                        }
-
+                    //fix iOS body scroll
+                    if (this.isiOS) {
+                        document.documentElement.classList.add('safari-fixed')
+                        document.body.style.marginTop = `-${ window.scrollY }px`
                     }
 
+
                 }, 50)
+            }
+
+            close() {
+                this.container.classList.remove('is-open')
+                document.body.classList.remove('page-hidden')
+
+                //fix iOS body scroll
+
+                let documentBody = document.body
+
+                if (this.isiOS) {
+                    if (document.documentElement.classList.contains('safari-fixed')) document.documentElement.classList.remove('safari-fixed')
+                    const bodyMarginTop = parseInt(documentBody.style.marginTop, 10)
+                    documentBody.style.marginTop = ''
+                    if (bodyMarginTop || bodyMarginTop === 0) window.scrollTo(0, -bodyMarginTop)
+                }
+
+            }
+
+            toggleButton() {
+                this.isOpen = !this.isOpen
+                this.isOpen ? this.open() : this.close()
+            }
+
+            addEvents() {
+
+                if (typeof this.container === 'undefined') {
+                    console.error('error filterPopupMobile: not found container')
+                    return false;
+                }
+
+                this.$el.addEventListener('click', e => this.toggleButton(e))
+
+                this.container.querySelectorAll('[data-filter="open"]').forEach(item => {
+                    item.addEventListener('click', e => this.toggleButton(e))
+                })
+            }
 
 
+        }
+
+        const items = document.querySelectorAll('[data-filter="open"]:not(.icon-cross)')
+
+        items.forEach(item => {
+            new filterPopupMobile({
+                el: item
             })
         })
 
@@ -1754,17 +1850,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (document.querySelector('.single-product__tabs')) {
 
         const elemTabs = document.querySelector('.single-product__tabs')
-        const topOffset = elemTabs.getBoundingClientRect().top + document.body.scrollTop
-        const heihgtTabs = (topOffset - elemTabs.clientHeight)
+        const getOffsetTop = function (element) {
+            if (!element) return 0;
+            return getOffsetTop(element.offsetParent) + element.offsetTop;
+        };
 
-        window.addEventListener('scroll', () => {
+        const heihgtTabs = (getOffsetTop(elemTabs) + (elemTabs.clientHeight))
+
+        function handleScroll() {
+
             if (window.scrollY > heihgtTabs) {
                 elemTabs.classList.add('fixed-tabs')
             } else {
-                if (elemTabs.classList.contains('fixed-tabs')) {
+
+                if (elemTabs.classList.contains('fixed-tabs') && !document.documentElement.classList.contains('safari-fixed')) {
                     elemTabs.classList.remove('fixed-tabs')
                 }
+
             }
+        }
+
+        let fnDedounce = window.debounce
+
+        window.addEventListener('scroll', () => {
+            fnDedounce(handleScroll, 10);
         })
 
     }
@@ -3746,9 +3855,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     if (document.querySelector('.review-form__textarea')) {
         const textareas = document.querySelectorAll('.review-form__textarea textarea')
-        let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
         textareas.forEach(item => {
-            if (isIOS) {
+            if (window.isIOS) {
                 item.addEventListener('focus', e => {
                     setTimeout(() => {
                         window.scrollTo({

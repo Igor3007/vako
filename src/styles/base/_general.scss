@@ -622,3 +622,25 @@ table {
     background-color: $violet-1-1;
     touch-action: pan-x;
 }
+
+.overflow--hidden {
+    overflow: hidden !important;
+}
+
+.overflow--hidden-fixed {
+    overflow: hidden !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.overflow--hidden-scrollBar {
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+}
+
+.safari-fixed {
+    height: calc(100vh - 1px);
+}

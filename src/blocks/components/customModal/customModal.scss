@@ -37,6 +37,7 @@
     z-index: 100;
     opacity: 0;
     transition: 0.25s ease;
+    overscroll-behavior: contain;
 
     &__bg {
         position: fixed;
