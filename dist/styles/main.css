@@ -356,6 +356,12 @@ table td:first-child {
 
 .safari-fixed {
   height: calc(100vh - 1px);
+  overflow: hidden !important;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -3008,6 +3014,8 @@ input:focus {
   opacity: 0;
   transition: 0.25s ease;
   overscroll-behavior: contain;
+  pointer-events: none;
+  touch-action: none;
 }
 
 .af-popup__bg {
@@ -3038,6 +3046,8 @@ input:focus {
 
 .af-popup--visible {
   opacity: 1;
+  pointer-events: all;
+  touch-action: all;
 }
 
 .af-popup--mobile .af-popup__content {
@@ -11251,6 +11261,10 @@ body .fslightbox-slash {
   padding-top: 45px;
 }
 
+.is-open-filter .fixed-tabs {
+  visibility: hidden;
+}
+
 @media screen and (min-width: 400px) {
   .section-page-help {
     padding: 22px 0 60px 0;
@@ -12122,6 +12136,10 @@ body .fslightbox-slash {
 
   .login-partners .form__item {
     padding-bottom: 14px;
+  }
+
+  .search-index__form.is-focus .search-index__suggest {
+    height: auto;
   }
 
   .search-index__catalog {

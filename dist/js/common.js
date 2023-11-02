@@ -462,7 +462,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             getRecentRequest() {
-                return localStorage.getItem('findRecent') ? JSON.parse(localStorage.getItem('findRecent')) : ''
+                return localStorage.getItem('findRecent') ? JSON.parse(localStorage.getItem('findRecent')) : []
             }
 
             setRecentRequest(val) {
@@ -806,7 +806,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     this.close()
                 })
 
-                window.addEventListener('resize', e => this.close())
+                // window.addEventListener('resize', e => this.close())
 
 
             }
@@ -1310,6 +1310,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             open() {
+                document.body.classList.add('is-open-filter')
                 this.container.classList.add('is-open')
                 document.body.classList.add('page-hidden')
 
@@ -1318,8 +1319,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     //fix iOS body scroll
                     if (this.isiOS) {
+                        document.body.style.marginTop = `-${ (window.scrollY ) }px`
                         document.documentElement.classList.add('safari-fixed')
-                        document.body.style.marginTop = `-${ window.scrollY }px`
                     }
 
 
@@ -1327,6 +1328,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             close() {
+                document.body.classList.remove('is-open-filter')
                 this.container.classList.remove('is-open')
                 document.body.classList.remove('page-hidden')
 

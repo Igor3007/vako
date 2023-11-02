@@ -643,4 +643,11 @@ table {
 
 .safari-fixed {
     height: calc(100vh - 1px);
+
+    overflow: hidden !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }

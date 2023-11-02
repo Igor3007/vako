@@ -32,12 +32,13 @@
     left: 0;
     bottom: 0;
     right: 0;
-
     overflow-x: auto;
     z-index: 100;
     opacity: 0;
     transition: 0.25s ease;
     overscroll-behavior: contain;
+    pointer-events: none;
+    touch-action: none;
 
     &__bg {
         position: fixed;
@@ -68,6 +69,8 @@
 
 .af-popup--visible {
     opacity: 1;
+    pointer-events: all;
+    touch-action: all;
 }
 
 .af-popup--mobile {

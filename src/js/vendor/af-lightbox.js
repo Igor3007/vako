@@ -45,9 +45,9 @@ class afLightbox {
             this.modal.querySelector(".af-popup").classList.add("af-popup--mobile")
         }
 
-        if (window.innerWidth <= 480) {
-            document.body.classList.add('page-hidden')
-        }
+        // if (window.innerWidth <= 480) {
+        //     document.body.classList.add('page-hidden')
+        // }
 
         this.modal.querySelector('.af-popup__content').innerHTML = content
         this.modal.querySelector('.af-popup__close').addEventListener('click', function () {
@@ -60,12 +60,14 @@ class afLightbox {
             this.modal.querySelector(".af-popup").classList.add("af-popup--visible")
 
 
+            //fix iOS body scroll
             if (this.isiOS) {
+                //document.body.setAttribute('val', '123')
+                document.body.style.marginTop = `-${ (window.scrollY ) }px`
                 document.documentElement.classList.add('safari-fixed')
-                document.body.style.marginTop = `-${ window.scrollY }px`
             }
 
-            documentBody.classList.add('page-hidden')
+            document.body.classList.add('page-hidden')
 
 
         }, 10)
@@ -92,30 +94,22 @@ class afLightbox {
     close() {
 
 
+
         if (window.innerWidth <= 480 && document.body.classList.contains('page-hidden')) {
             document.body.classList.remove('page-hidden')
         }
 
         this.instanse.querySelector('.af-popup').classList.remove('af-popup--visible')
 
-        /*  bodyScrollLock.clearAllBodyScrollLocks(); */
-
         let documentBody = document.body
-
-        const bodyMarginTop = parseInt(documentBody.style.marginTop, 10)
 
         if (this.isiOS) {
             if (document.documentElement.classList.contains('safari-fixed')) document.documentElement.classList.remove('safari-fixed')
+            const bodyMarginTop = parseInt(documentBody.style.marginTop, 10)
+            documentBody.style.marginTop = ''
+            if (bodyMarginTop || bodyMarginTop === 0) window.scrollTo(0, -bodyMarginTop)
         }
 
-
-
-        documentBody.classList.remove('page-hidden')
-        documentBody.style.marginTop = ''
-
-        if (bodyMarginTop || bodyMarginTop === 0) {
-            window.scrollTo(0, -bodyMarginTop)
-        }
 
         setTimeout(() => {
             this.instanse.remove()
