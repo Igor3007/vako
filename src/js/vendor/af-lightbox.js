@@ -2,6 +2,7 @@ class afLightbox {
     constructor(opion) {
 
         this.modal = '';
+        this.widthScrollbar = typeof window.getScrollBarWidth == 'undefined' ? 0 : window.getScrollBarWidth()
         this.isiOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
         if (opion) {
             this.mobileBottom = (opion.mobileInBottom ? opion.mobileInBottom : false)
@@ -69,6 +70,9 @@ class afLightbox {
 
             document.body.classList.add('page-hidden')
 
+            //compensate scrollbar
+            if (this.widthScrollbar > 0) document.body.style.setProperty('margin-right', this.widthScrollbar + 'px')
+
 
         }, 10)
 
@@ -95,9 +99,7 @@ class afLightbox {
 
 
 
-        if (window.innerWidth <= 480 && document.body.classList.contains('page-hidden')) {
-            document.body.classList.remove('page-hidden')
-        }
+
 
         this.instanse.querySelector('.af-popup').classList.remove('af-popup--visible')
 
@@ -109,6 +111,10 @@ class afLightbox {
             documentBody.style.marginTop = ''
             if (bodyMarginTop || bodyMarginTop === 0) window.scrollTo(0, -bodyMarginTop)
         }
+
+        //compensate scrollbar
+        document.body.classList.remove('page-hidden')
+        document.body.style.removeProperty('margin-right', this.widthScrollbar + 'px')
 
 
         setTimeout(() => {

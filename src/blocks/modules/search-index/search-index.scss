@@ -58,6 +58,10 @@
                     border-top-left-radius: 6px;
                     border-top-right-radius: 6px;
                     margin: -8px;
+
+                    @media screen and (min-width: $w992) {
+                        border-radius: 6px;
+                    }
                 }
 
                 &__suggest {
@@ -68,10 +72,20 @@
                     left: 0;
                     right: 0;
                     padding: 16px;
-                    height: 100vh;
+                    height: calc((var(--vh, 1vh) * 100) - 56px);
+                    overflow-y: auto;
+
+                    @media screen and (min-width: $w760) {
+                        height: 100vh;
+                    }
+
+
+
 
                     @media screen and (min-width: $w992) {
                         height: auto;
+                        margin-top: -3px;
+
                     }
                 }
 

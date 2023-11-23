@@ -1525,6 +1525,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     document.querySelector('.category-filter').classList.remove('is-open')
                     document.body.classList.contains('page-hidden') ? document.body.classList.remove('page-hidden') : ''
                 }
+
+
+
             }, 1000)
         })
     }
@@ -3871,6 +3874,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
         })
+    }
+
+    /* =======================================
+    confirm cookie
+    =======================================*/
+
+    if (!Cookies.get('policy')) {
+        document.querySelector('.bottom-popup').classList.add('open')
+
+        document.querySelector('.bottom-popup__btn .btn').addEventListener('click', function () {
+            Cookies.set('policy', 'true')
+            document.querySelector('.bottom-popup').classList.remove('open')
+        })
+
     }
 
 

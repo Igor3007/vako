@@ -1,33 +1,75 @@
 .bottom-popup {
     position: fixed;
-    z-index: 10000000000000;
+    z-index: 20;
     left: 0;
-    right: 0;
     bottom: 0;
-    display: flex;
-    justify-content: center;
-    transition: 0.3s ease;
+    right: 0;
     display: none;
-    animation: slide-up 0.3s ease forwards;
-    text-align: left;
-    background-color: #121212;
-    transition: 0.8s ease;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0px 0 11px -2px #919191;
+    border-radius: 15px 15px 0px 0px;
+    animation: fade-drop-filter 0.3s ease forwards;
+
+    @media screen and (min-width: $w576) {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        top: auto;
+        justify-content: center;
+        transition: 0.3s ease;
+        animation: slide-up 0.3s ease forwards;
+        text-align: left;
+
+        transition: 0.8s ease;
+        border-radius: 6px;
+
+    }
 
 }
 
+.bottom-popup__icons {
+    padding-right: 18px;
+
+    @media screen and (min-width: $w576) {
+        padding-right: 24px;
+    }
+}
+
 .bottom-popup__wrp {
-    padding: 35px 45px;
-    max-width: 1400px;
+    padding: 24px 32px;
     display: flex;
     margin: 0 auto;
     align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+
+    @media screen and (min-width: $w576) {
+        border-radius: 6px;
+    }
+
 }
 
 .bottom-popup__title {
     font-size: 24px;
     line-height: 28px;
-    color: #fff;
+
     margin-bottom: 15px;
+}
+
+.bottom-popup__desktop {
+    display: none;
+
+    @media screen and (min-width: $w992) {
+        display: block;
+    }
+}
+
+.bottom-popup__mobile {
+    @media screen and (min-width: $w992) {
+        display: none;
+    }
 }
 
 .bottom-popup__desc {
@@ -35,17 +77,41 @@
     font-weight: normal;
     font-size: 15px;
     line-height: 150%;
-    color: #f5f5f5;
+    text-align: left;
+    padding-bottom: 4px;
+
+    & a {
+        white-space: nowrap;
+    }
+
+
+    @media screen and (min-width: $w576) {
+        font-size: 16px;
+        line-height: 155%;
+
+    }
+
+    @media screen and (min-width: $w1440) {
+        font-size: 18px;
+
+    }
+
+    & span {
+        font-weight: bold;
+    }
+
 }
 
 .bottom-popup__btn {
     margin-left: auto;
 
-    & button.btn-line {
+    & button {
         white-space: nowrap;
-        border-color: $main;
-        height: 50px;
-        padding: 0 47px;
+
+
+        @media screen and (min-width: $w1440) {
+            width: 280px;
+        }
 
         &:hover {
             background-color: $main;
@@ -56,7 +122,7 @@
 
 .bottom-popup.open {
     transform: translateY(0);
-    display: block;
+    display: flex;
 }
 
 .bottom-popup.open.hide-fade {
@@ -65,15 +131,25 @@
 }
 
 .bottom-popup__main {
-    padding-right: 35px;
+    padding-right: 24px;
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+
+    @media screen and (min-width: $w576) {}
 }
 
 .bottom-popup__desc a {
-    color: $main;
-    text-decoration: underline;
+    color: $accent-2-1;
+    font-style: normal;
+    font-weight: 700;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: $w992) {
     .bottom-popup {
         bottom: 0;
     }
@@ -84,7 +160,7 @@
     }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: $w576) {
 
     .bottom-popup__main {
         padding-right: 0;
@@ -100,7 +176,7 @@
 
 
     .bottom-popup__btn {
-        padding-top: 25px;
+        padding-top: 16px;
         width: 100%;
     }
 
@@ -110,7 +186,7 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: $w576) {
     .bottom-popup__wrp {
         padding: 20px 20px;
     }
