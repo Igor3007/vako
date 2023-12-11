@@ -32,7 +32,11 @@
 
 .store-panel {
 
-    padding: 30px 0;
+    padding: 16px 0;
+
+    @media screen and (min-width: $w576) {
+        padding: 30px 0;
+    }
 
     @media screen and (min-width: $w1200) {
         display: flex;

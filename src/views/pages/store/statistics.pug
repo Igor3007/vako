@@ -1,0 +1,14 @@
+extends ../../layouts/store-login
+
+include ../../../blocks/modules/store/store-aside/store-aside.pug
+include ../../../blocks/modules/store/store-statistics/store-statistics.pug
+ 
+block variables
+  include ../../../data/data.pug
+  - const title = "Vako - Статистика - Панель управления магазином"
+
+block aside
+  +store-aside(4)
+
+block content 
+  +store-statistics() 

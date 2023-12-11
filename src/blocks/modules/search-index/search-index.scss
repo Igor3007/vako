@@ -27,6 +27,8 @@
             top: 0;
             z-index: 10;
 
+            bottom: 0;
+
             @media screen and (min-width: $w760) {
                 position: static;
                 left: auto;
@@ -58,16 +60,23 @@
                     border-top-left-radius: 6px;
                     border-top-right-radius: 6px;
                     margin: -8px;
+                    flex-direction: column;
+                    min-height: auto;
 
                     @media screen and (min-width: $w992) {
                         border-radius: 6px;
                     }
                 }
 
+                &__input {
+                    flex-grow: 0;
+                    min-height: auto;
+                }
+
                 &__suggest {
                     display: block;
-                    position: absolute;
-                    top: 99%;
+                    position: relative;
+                    top: 0;
                     background-color: #fff;
                     left: 0;
                     right: 0;

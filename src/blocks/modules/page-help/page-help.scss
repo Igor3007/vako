@@ -13,6 +13,10 @@
         display: flex;
     }
 
+    &__breadcrumb {
+        padding-bottom: 10px;
+    }
+
     &__aside {
 
         background-color: #fff;
@@ -39,6 +43,11 @@
                     &-mobile {
                         margin-bottom: 0;
                         margin: 0;
+
+                        & span {
+                            position: relative;
+                            top: -2px;
+                        }
                     }
 
                 }
@@ -190,7 +199,7 @@
 
     &__article {
         & img {
-            max-width: 690px;
+
             border-radius: 6px;
         }
 

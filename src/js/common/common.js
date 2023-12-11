@@ -397,6 +397,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 this.elForm = this.$el.querySelector('form')
                 this.suggest = this.$el.querySelector('[data-index-find="suggest"]')
                 this.closeButton = null;
+                this.isiOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
 
                 this.events()
             }
@@ -426,23 +427,32 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             open() {
-                this.form.classList.add('is-focus')
-                this.createCloseButton()
-                this.lockScroll(true)
 
-                setTimeout(function () {
-                    window.scrollTo(0, 0)
-                }, 100)
+                if (!this.form.classList.contains('is-focus')) {
+                    this.input.blur()
+                }
+
+                this.form.classList.add('is-focus')
+                this.lockScroll(true)
+                this.createCloseButton()
+
+                this.input.focus()
 
             }
 
             close() {
-                this.form.classList.remove('is-focus')
+
                 this.input.blur()
                 this.lockScroll(false)
                 if (this.closeButton) {
                     this.closeButton.remove()
                 }
+
+                setTimeout(() => {
+                    this.form.classList.remove('is-focus')
+                }, 100)
+
+                // this.input.setAttribute('readonly', 'on')
             }
 
             createCloseButton() {
@@ -601,7 +611,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             events() {
 
-                this.input.addEventListener('focus', e => {
+                this.input.addEventListener('click', e => {
+
+
 
                     this.open()
 
@@ -3889,19 +3901,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });

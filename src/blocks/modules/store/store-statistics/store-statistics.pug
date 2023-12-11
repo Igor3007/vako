@@ -1,0 +1,83 @@
+mixin store-statistics
+    .statistics
+        .store-statistics
+            .store-statistics__wrp
+                .store-statistics__title Сводная статистика
+                .store-statistics__subtitle Выбор периода
+                .store-statistics__tabs
+                    ul(data-statistics="tabs-sv")
+                        li(id="yesterday").is-active: span Вчера
+                        li(id="week"): span За неделю
+                        li(id="month"): span За месяц
+
+                    .store-statistics__date
+                        +icons('#ic_calendar', 20)
+                        span 6 декабря
+                
+                .store-statistics__sv
+                    .table
+                        .table__tr
+                            .table__th Тип клика
+                            .table__th Кликов
+                            .table__th Расходы (руб.)
+
+                        .table__tbody(data-statistics="table-summary")
+                            .table__tr
+                                .table__td(data-title="Тип клика") Кнопка «В магазин»
+                                .table__td(data-title="Кликов") 73
+                                .table__td(data-title="Расходы (руб.)") 1 340,4
+                            .table__tr
+                                .table__td(data-title="Тип клика") Кнопка «Телефоны»
+                                .table__td(data-title="Кликов") 128
+                                .table__td(data-title="Расходы (руб.)") 2 578,5
+                            .table__tr
+                                .table__td(data-title="Тип клика") Всего (за период)
+                                .table__td(data-title="Кликов") 201
+                                .table__td(data-title="Расходы (руб.)") 3 917,9
+
+                .store-statistics__subtitle.sub-title--group Тип статистики
+
+
+                .store-statistics__group
+                    ul(data-statistics="type")
+                        li: +radio('По товарам', 'type', 'type1')
+                        li: +radio('По категориям', 'type', 'type2')
+                        li: +radio('По модельному ряду', 'type', 'type3')
+
+
+        .store-statistics.store-statistics--click
+            .store-statistics__wrp
+                .store-statistics__title Клики и расходы
+                .store-statistics__tabs
+                    ul
+                        li.is-active: span Показы
+                        li: span Кнопка «В магазин»
+                        li: span Кнопка «Телефоны»
+                        li: span Расходы (руб.)
+                .store-statistics__topbar
+                    .store-statistics__find: input(type="text" placeholder="Начните вводить название...")
+                    .store-statistics__count
+                        span Показывать по:
+                        select
+                            option(value="10") 10
+                            option(value="10") 25
+                            option(value="10") 50
+                            option(value="10") 100
+                
+                .store-statistics__table
+                    .table
+                        .table__tr
+                            .table__th Товары
+                            .table__th Показы
+                            .table__th Кнопка <br> «В магазин»
+                            .table__th Кнопка <br> «Телефоны»
+                            .table__th Расходы <br> (руб.)
+
+                        each item in [1,1,1,1,1,1,1]
+
+                            .table__tr
+                                .table__td(data-title="Товары") Ноутбук Apple MacBook Pro 16 Late 2019
+                                .table__td(data-title="Показы") 160
+                                .table__td(data-title="Кнопка «В магазин»") 48
+                                .table__td(data-title="Кнопка «Телефоны»") 73
+                                .table__td(data-title="Расходы (руб.)") 1 340,4

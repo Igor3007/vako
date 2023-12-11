@@ -1283,7 +1283,6 @@
 
              new MaskInput("[data-masked='number']", {
                  mask: '####',
-
              })
          }
 
@@ -2065,6 +2064,91 @@
          tabStart: 'public',
          scroll: 'top',
      })
+
+     /* ====================================
+     store statistics
+     ====================================*/
+
+     class StoreStatistics {
+         constructor(params) {
+             this.$el = document.querySelector('.store-statistics')
+             this.tabsSummary = this.$el.querySelectorAll('[data-statistics="tabs-sv"] li')
+             this.typeSummary = this.$el.querySelectorAll('[data-statistics="type"] input')
+             this.tablSummary = this.$el.querySelector('[data-statistics="table-summary"]')
+
+             this.range = false
+             this.typeStatistics = false
+
+             this.addEvent()
+             this.init()
+         }
+
+         init() {
+             this.typeSummary[0] ? this.typeSummary[0].checked = true : ''
+         }
+
+         changeTabsSummary(el) {
+
+             this.tabsSummary.forEach(item => {
+                 !item.classList.contains('is-active') || item.classList.remove('is-active')
+
+                 if (item.getAttribute('id') == el.getAttribute('id')) {
+                     item.classList.add('is-active')
+
+                     this.range = item.getAttribute('id')
+                     this.ajaxLoadDataClick()
+                 }
+             })
+         }
+
+         getTemplateSummary(data) {
+             return `
+                <div class="table__th">${data.type}</div>
+                <div class="table__th">${data.total}</div>
+                <div class="table__th">${data.cost}</div>
+            `
+         }
+
+         renderTableSummary(response) {
+
+             this.tablSummary.innerHTML = ''
+
+             JSON.parse(JSON.stringify(response)).forEach(item => {
+                 let el = document.createElement('div')
+                 el.classList.add('table__tr')
+                 el.innerHTML = this.getTemplateSummary(item)
+
+                 this.tablSummary.append(el)
+             })
+
+
+         }
+
+         ajaxLoadDataClick() {
+             window.ajax({
+                 type: 'GET',
+                 url: '/json/statistics.json?range=' + this.range + '&type=' + this.typeStatistics,
+                 responseType: 'json',
+             }, (status, response) => this.renderTableSummary(response))
+         }
+
+         changeTypeSummary(item) {
+             this.typeStatistics = item.value
+             this.ajaxLoadDataClick()
+         }
+
+         addEvent() {
+             this.tabsSummary.forEach(item => {
+                 item.addEventListener('click', e => this.changeTabsSummary(item))
+             })
+
+             this.typeSummary.forEach(item => {
+                 item.addEventListener('change', e => this.changeTypeSummary(item))
+             })
+         }
+     }
+
+     new StoreStatistics()
 
 
 

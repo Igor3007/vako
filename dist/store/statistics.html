@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vako - Панель управления магазином</title>
+    <title>Vako - Статистика - Панель управления магазином</title>
     <meta name="theme-color" content="#fff">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui">
@@ -119,37 +119,163 @@
               </li>
               <li><span class="bgimage lazyload" data-bg="/img/common/ic_bill.svg"></span><a href="price.html">Прайс-листы</a>
               </li>
-              <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="review.html">Отзывы</a>
+              <li><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="review.html">Отзывы</a>
               </li>
               <li><span class="bgimage lazyload" data-bg="/img/common/ic_config.svg"></span><a href="config.html">Настройки</a>
               </li>
-              <li><span class="bgimage lazyload" data-bg="/img/common/ic_statistics.svg"></span><a href="statistics.html">Статистика</a>
+              <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_statistics.svg"></span><a href="statistics.html">Статистика</a>
               </li>
             </ul>
           </div>
           <div class="store-panel__content">
-            <div class="shop-block">
-              <div class="shop-block__title">Отзывы о магазине </div>
-              <div class="shop-block__tabs">
-                <ul data-tab-nav="review">
-                  <li class="active"><a href="#public">Опубликованные</a></li>
-                  <li><a href="#moderate">На модерации</a></li>
-                </ul>
-              </div>
-              <div class="shop-block__tabs-container">
-                <div class="shop-block__tabs-item active" data-tab="public">
-                  <div class="block-plug">
-                    <div class="block-plug__icon"><span class="bgimage lazyload" data-bg="/img/common/icon_attention_60.svg"></span>
+            <div class="statistics">
+              <div class="store-statistics">
+                <div class="store-statistics__wrp">
+                  <div class="store-statistics__title">Сводная статистика</div>
+                  <div class="store-statistics__subtitle">Выбор периода</div>
+                  <div class="store-statistics__tabs">
+                    <ul data-statistics="tabs-sv">
+                      <li class="is-active" id="yesterday"><span>Вчера</span></li>
+                      <li id="week"><span>За неделю</span></li>
+                      <li id="month"><span>За месяц</span></li>
+                    </ul>
+                    <div class="store-statistics__date">
+                      <svg width="20" height="20">
+                        <use xlink:href="/img/sprites/sprite.svg#ic_calendar"></use>
+                      </svg><span>6 декабря</span>
                     </div>
-                    <div class="block-plug__title">У вас ещё нет опубликованных отзывов.</div>
-                    <div class="block-plug__desc">Как только покупатели поделятся своим мнением о покупке в магазине, то оно обязательно появится тут (после прохождения модерации).</div>
+                  </div>
+                  <div class="store-statistics__sv">
+                    <div class="table">
+                      <div class="table__tr">
+                        <div class="table__th">Тип клика</div>
+                        <div class="table__th">Кликов</div>
+                        <div class="table__th">Расходы (руб.)</div>
+                      </div>
+                      <div class="table__tbody" data-statistics="table-summary">
+                        <div class="table__tr">
+                          <div class="table__td" data-title="Тип клика">Кнопка «В магазин»</div>
+                          <div class="table__td" data-title="Кликов">73</div>
+                          <div class="table__td" data-title="Расходы (руб.)">1 340,4</div>
+                        </div>
+                        <div class="table__tr">
+                          <div class="table__td" data-title="Тип клика">Кнопка «Телефоны»</div>
+                          <div class="table__td" data-title="Кликов">128</div>
+                          <div class="table__td" data-title="Расходы (руб.)">2 578,5</div>
+                        </div>
+                        <div class="table__tr">
+                          <div class="table__td" data-title="Тип клика">Всего (за период)</div>
+                          <div class="table__td" data-title="Кликов">201</div>
+                          <div class="table__td" data-title="Расходы (руб.)">3 917,9</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="store-statistics__subtitle sub-title--group">Тип статистики</div>
+                  <div class="store-statistics__group">
+                    <ul data-statistics="type">
+                      <li>
+                        <label class="radio">
+                          <input type="radio" name="type" value="type1"/><span class="radio__elem"></span><span class="radio__text">По товарам</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="radio">
+                          <input type="radio" name="type" value="type2"/><span class="radio__elem"></span><span class="radio__text">По категориям</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="radio">
+                          <input type="radio" name="type" value="type3"/><span class="radio__elem"></span><span class="radio__text">По модельному ряду</span>
+                        </label>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div class="shop-block__tabs-item" data-tab="moderate">
-                  <div class="block-plug">
-                    <div class="block-plug__icon"><span class="bgimage lazyload" data-bg="/img/common/icon_attention_60.svg"></span>
+              </div>
+              <div class="store-statistics store-statistics--click">
+                <div class="store-statistics__wrp">
+                  <div class="store-statistics__title">Клики и расходы</div>
+                  <div class="store-statistics__tabs">
+                    <ul>
+                      <li class="is-active"><span>Показы</span></li>
+                      <li><span>Кнопка «В магазин»</span></li>
+                      <li><span>Кнопка «Телефоны»</span></li>
+                      <li><span>Расходы (руб.)</span></li>
+                    </ul>
+                  </div>
+                  <div class="store-statistics__topbar">
+                    <div class="store-statistics__find">
+                      <input type="text" placeholder="Начните вводить название..."/>
                     </div>
-                    <div class="block-plug__title">У вас нет отзывов, проходящих модерацию.</div>
+                    <div class="store-statistics__count"><span>Показывать по:</span>
+                      <select>
+                        <option value="10">10</option>
+                        <option value="10">25</option>
+                        <option value="10">50</option>
+                        <option value="10">100</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="store-statistics__table">
+                    <div class="table">
+                      <div class="table__tr">
+                        <div class="table__th">Товары</div>
+                        <div class="table__th">Показы</div>
+                        <div class="table__th">Кнопка <br> «В магазин»</div>
+                        <div class="table__th">Кнопка <br> «Телефоны»</div>
+                        <div class="table__th">Расходы <br> (руб.)</div>
+                      </div>
+                      <div class="table__tr">
+                        <div class="table__td" data-title="Товары">Ноутбук Apple MacBook Pro 16 Late 2019</div>
+                        <div class="table__td" data-title="Показы">160</div>
+                        <div class="table__td" data-title="Кнопка «В магазин»">48</div>
+                        <div class="table__td" data-title="Кнопка «Телефоны»">73</div>
+                        <div class="table__td" data-title="Расходы (руб.)">1 340,4</div>
+                      </div>
+                      <div class="table__tr">
+                        <div class="table__td" data-title="Товары">Ноутбук Apple MacBook Pro 16 Late 2019</div>
+                        <div class="table__td" data-title="Показы">160</div>
+                        <div class="table__td" data-title="Кнопка «В магазин»">48</div>
+                        <div class="table__td" data-title="Кнопка «Телефоны»">73</div>
+                        <div class="table__td" data-title="Расходы (руб.)">1 340,4</div>
+                      </div>
+                      <div class="table__tr">
+                        <div class="table__td" data-title="Товары">Ноутбук Apple MacBook Pro 16 Late 2019</div>
+                        <div class="table__td" data-title="Показы">160</div>
+                        <div class="table__td" data-title="Кнопка «В магазин»">48</div>
+                        <div class="table__td" data-title="Кнопка «Телефоны»">73</div>
+                        <div class="table__td" data-title="Расходы (руб.)">1 340,4</div>
+                      </div>
+                      <div class="table__tr">
+                        <div class="table__td" data-title="Товары">Ноутбук Apple MacBook Pro 16 Late 2019</div>
+                        <div class="table__td" data-title="Показы">160</div>
+                        <div class="table__td" data-title="Кнопка «В магазин»">48</div>
+                        <div class="table__td" data-title="Кнопка «Телефоны»">73</div>
+                        <div class="table__td" data-title="Расходы (руб.)">1 340,4</div>
+                      </div>
+                      <div class="table__tr">
+                        <div class="table__td" data-title="Товары">Ноутбук Apple MacBook Pro 16 Late 2019</div>
+                        <div class="table__td" data-title="Показы">160</div>
+                        <div class="table__td" data-title="Кнопка «В магазин»">48</div>
+                        <div class="table__td" data-title="Кнопка «Телефоны»">73</div>
+                        <div class="table__td" data-title="Расходы (руб.)">1 340,4</div>
+                      </div>
+                      <div class="table__tr">
+                        <div class="table__td" data-title="Товары">Ноутбук Apple MacBook Pro 16 Late 2019</div>
+                        <div class="table__td" data-title="Показы">160</div>
+                        <div class="table__td" data-title="Кнопка «В магазин»">48</div>
+                        <div class="table__td" data-title="Кнопка «Телефоны»">73</div>
+                        <div class="table__td" data-title="Расходы (руб.)">1 340,4</div>
+                      </div>
+                      <div class="table__tr">
+                        <div class="table__td" data-title="Товары">Ноутбук Apple MacBook Pro 16 Late 2019</div>
+                        <div class="table__td" data-title="Показы">160</div>
+                        <div class="table__td" data-title="Кнопка «В магазин»">48</div>
+                        <div class="table__td" data-title="Кнопка «Телефоны»">73</div>
+                        <div class="table__td" data-title="Расходы (руб.)">1 340,4</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
