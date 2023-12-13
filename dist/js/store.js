@@ -2287,7 +2287,11 @@
          }
      }
 
-     new StoreStatistics()
+     if (document.querySelector('.statistics')) {
+         new StoreStatistics()
+     }
+
+
 
 
 
