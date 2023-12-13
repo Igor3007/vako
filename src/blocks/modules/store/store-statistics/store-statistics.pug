@@ -22,7 +22,7 @@ mixin store-statistics
                         .table__tr
                             .table__th Тип клика
                             .table__th Кликов
-                            .table__th Расходы (руб.)
+                            .table__th Расходы(руб.)
 
                         .table__tbody(data-statistics="table-summary")
                             .empty Загрузка...
@@ -47,23 +47,29 @@ mixin store-statistics
                         li: span Кнопка «Телефоны»
                         li: span Расходы (руб.)
                 .store-statistics__topbar
-                    .store-statistics__find: input(type="text" placeholder="Начните вводить название...")
+                    .store-statistics__find
+                        input(type="text" data-statistics="input-find" placeholder="Начните вводить название...")
+                        span(data-statistics="clear-find").icon-cross
                     .store-statistics__count
                         span Показывать по:
                         select
-                            option(value="10") 10
                             option(value="25") 25
                             option(value="50") 50
                             option(value="100") 100
+                            option(value="100") 200
                 
                 .store-statistics__table
                     .table
                         .table__tr
                             .table__th Товары
-                            .table__th(data-title="Показы") Показы
-                            .table__th(data-title="Кнопка «В магазин»") Кнопка <br> «В магазин»
-                            .table__th(data-title="Кнопка «Телефоны»") Кнопка <br> «Телефоны»
-                            .table__th(data-title="Расходы (руб.)") Расходы <br> (руб.)
+                            .table__th
+                                .table-sort( data-sort="view" data-title="Показы") Показы
+                            .table__th
+                                .table-sort( data-sort="inshop" data-title="Кнопка «В магазин»") Кнопка <br> «В магазин»
+                            .table__th
+                                .table-sort( data-sort="phone" data-title="Кнопка «Телефоны»") Кнопка <br> «Телефоны»
+                            .table__th
+                                .table-sort( data-sort="cost" data-title="Расходы (руб.)") Расходы <br> (руб.)
 
                         each item in [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 

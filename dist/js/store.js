@@ -2075,6 +2075,9 @@
              this.tabsSummary = this.$el.querySelectorAll('[data-statistics="tabs-sv"] li')
              this.typeSummary = this.$el.querySelectorAll('[data-statistics="type"] input')
              this.tablSummary = this.$el.querySelector('[data-statistics="table-summary"]')
+             this.elSortable = this.$el.querySelectorAll('[data-sort]')
+             this.elClearFind = this.$el.querySelector('[data-statistics="clear-find"]')
+             this.elInputFind = this.$el.querySelector('[data-statistics="input-find"]')
 
              this.elDatepickerStart = this.$el.querySelector('[data-statistics="date-start"] input')
              this.elDatepickerEnd = this.$el.querySelector('[data-statistics="date-end"] input')
@@ -2260,9 +2263,36 @@
              })
          }
 
+         ajaxLoadDataTableClicks() {
+
+         }
+
          changeTypeSummary(item) {
              this.typeStatistics = item.value
              this.ajaxLoadDataSummary()
+         }
+
+
+
+         tableSortable(item) {
+
+             this.elSortable.forEach(el => {
+                 if (el.innerText != item.innerText) {
+                     el.setAttribute('class', 'table-sort')
+                 }
+             })
+
+             if (item.classList.contains('table-sort--up')) {
+                 item.classList.remove('table-sort--up')
+                 item.classList.add('table-sort--down')
+             } else {
+                 if (item.classList.contains('table-sort--down')) {
+                     item.classList.remove('table-sort--down')
+                     item.classList.add('table-sort--up')
+                 } else {
+                     item.classList.add('table-sort--up')
+                 }
+             }
          }
 
          addEvent() {
@@ -2279,10 +2309,13 @@
                  item.addEventListener('click', e => this.changeTableClick(item))
              })
 
-             this.tabsClick.forEach(item => {
-                 item.addEventListener('click', e => this.changeTableClick(item))
+             this.elSortable.forEach(item => {
+                 item.addEventListener('click', e => this.tableSortable(item))
              })
 
+             this.elInputFind.addEventListener('keyup', e => {
+                 this.elClearFind.style.display = e.target.value ? 'block' : 'none'
+             })
 
          }
      }
