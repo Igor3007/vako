@@ -1,3 +1,5 @@
+include ../../../components/pagination/pagination.pug
+
 mixin store-statistics
     .statistics
         .store-statistics
@@ -10,9 +12,10 @@ mixin store-statistics
                         li(id="week"): span За неделю
                         li(id="month"): span За месяц
 
-                    .store-statistics__date
+                    .store-statistics__date(data-statistics="date")
                         +icons('#ic_calendar', 20)
-                        span 6 декабря
+                        span(data-statistics="date-start"): input(type="text"  )
+                        span(data-statistics="date-end"): input(type="text"  )
                 
                 .store-statistics__sv
                     .table
@@ -22,18 +25,7 @@ mixin store-statistics
                             .table__th Расходы (руб.)
 
                         .table__tbody(data-statistics="table-summary")
-                            .table__tr
-                                .table__td(data-title="Тип клика") Кнопка «В магазин»
-                                .table__td(data-title="Кликов") 73
-                                .table__td(data-title="Расходы (руб.)") 1 340,4
-                            .table__tr
-                                .table__td(data-title="Тип клика") Кнопка «Телефоны»
-                                .table__td(data-title="Кликов") 128
-                                .table__td(data-title="Расходы (руб.)") 2 578,5
-                            .table__tr
-                                .table__td(data-title="Тип клика") Всего (за период)
-                                .table__td(data-title="Кликов") 201
-                                .table__td(data-title="Расходы (руб.)") 3 917,9
+                            .empty Загрузка...
 
                 .store-statistics__subtitle.sub-title--group Тип статистики
 
@@ -49,7 +41,7 @@ mixin store-statistics
             .store-statistics__wrp
                 .store-statistics__title Клики и расходы
                 .store-statistics__tabs
-                    ul
+                    ul(data-statistics="tabs-click")
                         li.is-active: span Показы
                         li: span Кнопка «В магазин»
                         li: span Кнопка «Телефоны»
@@ -60,24 +52,32 @@ mixin store-statistics
                         span Показывать по:
                         select
                             option(value="10") 10
-                            option(value="10") 25
-                            option(value="10") 50
-                            option(value="10") 100
+                            option(value="25") 25
+                            option(value="50") 50
+                            option(value="100") 100
                 
                 .store-statistics__table
                     .table
                         .table__tr
                             .table__th Товары
-                            .table__th Показы
-                            .table__th Кнопка <br> «В магазин»
-                            .table__th Кнопка <br> «Телефоны»
-                            .table__th Расходы <br> (руб.)
+                            .table__th(data-title="Показы") Показы
+                            .table__th(data-title="Кнопка «В магазин»") Кнопка <br> «В магазин»
+                            .table__th(data-title="Кнопка «Телефоны»") Кнопка <br> «Телефоны»
+                            .table__th(data-title="Расходы (руб.)") Расходы <br> (руб.)
 
-                        each item in [1,1,1,1,1,1,1]
+                        each item in [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
                             .table__tr
-                                .table__td(data-title="Товары") Ноутбук Apple MacBook Pro 16 Late 2019
+                                .table__td Ноутбук Apple MacBook Pro 16 Late 2019
                                 .table__td(data-title="Показы") 160
                                 .table__td(data-title="Кнопка «В магазин»") 48
                                 .table__td(data-title="Кнопка «Телефоны»") 73
                                 .table__td(data-title="Расходы (руб.)") 1 340,4
+                        .table__tr
+                            .table__td Ноутбук Apple MacBook Pro 16 Late 2019 (/16”/ 3072x1920/) супер длинное название на несколько строк
+                            .table__td(data-title="Показы") 160
+                            .table__td(data-title="Кнопка «В магазин»") 48
+                            .table__td(data-title="Кнопка «Телефоны»") 73
+                            .table__td(data-title="Расходы (руб.)") 1 340,4
+                .store-statistics__pagination
+                    +pagination()

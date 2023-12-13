@@ -2057,7 +2057,6 @@
 
      }
 
-
      const reviewTabs = new Tabs({
          navElem: '[data-tab-nav="review"]',
          containerElem: '.shop-block__tabs-container',
@@ -2071,10 +2070,18 @@
 
      class StoreStatistics {
          constructor(params) {
-             this.$el = document.querySelector('.store-statistics')
+             this.$el = document.querySelector('.statistics')
+             this.tabsClick = this.$el.querySelectorAll('[data-statistics="tabs-click"] li')
              this.tabsSummary = this.$el.querySelectorAll('[data-statistics="tabs-sv"] li')
              this.typeSummary = this.$el.querySelectorAll('[data-statistics="type"] input')
              this.tablSummary = this.$el.querySelector('[data-statistics="table-summary"]')
+
+             this.elDatepickerStart = this.$el.querySelector('[data-statistics="date-start"] input')
+             this.elDatepickerEnd = this.$el.querySelector('[data-statistics="date-end"] input')
+             this.datepickerButton = this.$el.querySelector('[data-statistics="date"]')
+
+             this.datepickerStart = null
+             this.datepickerEnd = null
 
              this.range = false
              this.typeStatistics = false
@@ -2084,10 +2091,96 @@
          }
 
          init() {
-             this.typeSummary[0] ? this.typeSummary[0].checked = true : ''
+
+             if (this.typeSummary[0]) {
+                 this.typeSummary[0].checked = true;
+                 this.typeStatistics = this.typeSummary[0].value
+             }
+
+             if (this.tabsSummary[0]) {
+                 this.changeTabsSummary(this.tabsSummary[0])
+             }
+
+             if (this.tabsClick[0]) {
+                 this.changeTableClick(this.tabsClick[0])
+             }
+
+             this.initDatepicker()
+
+         }
+
+         initDatepicker() {
+
+             (function () {
+                 Datepicker.locales.ru = {
+                     days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+                     daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб"],
+                     daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                     months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                     monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                     today: "Сегодня",
+                     clear: "Очистить",
+                     format: "dd.mm.yyyy",
+                     weekStart: 1,
+                     monthsTitle: 'Месяцы'
+                 }
+             })();
+
+             this.datepickerStart = new Datepicker(this.elDatepickerStart, {
+                 format: 'd MM',
+                 language: 'ru',
+                 autoHide: true
+             });
+
+             this.datepickerEnd = new Datepicker(this.elDatepickerEnd, {
+                 format: 'd MM',
+                 language: 'ru',
+                 autoHide: true,
+                 defaultViewDate: new Date()
+             });
+
+             this.elDatepickerEnd.parentNode.style.display = 'none'
+
+             this.elDatepickerStart.addEventListener('changeDate', e => {
+                 this.elDatepickerEnd.parentNode.style.removeProperty('display')
+
+                 this.datepickerEnd.setOptions({
+                     minDate: e.detail.date,
+                 })
+
+                 this.datepickerEnd.setDate(e.detail.date)
+
+                 this.selectDate(e)
+             })
+
+             this.elDatepickerEnd.addEventListener('changeDate', e => {
+                 this.selectDate(e)
+             })
+
+             this.elDatepickerStart.value = Datepicker.formatDate(new Date(), 'd MM', 'ru')
+
+         }
+
+         selectDate(e) {
+             this.datepickerButton.classList.add('is-active')
+
+             this.tabsSummary.forEach(item => {
+                 !item.classList.contains('is-active') || item.classList.remove('is-active')
+             })
+
+             this.range = this.datepickerStart.getDate('dd.m.yyyy')
+
+
+             if (typeof this.datepickerEnd.getDate('dd.m.yyyy') != 'undefined') {
+                 this.range += '-' + this.datepickerEnd.getDate('dd.m.yyyy')
+             }
+
+             this.ajaxLoadDataSummary()
          }
 
          changeTabsSummary(el) {
+
+             !this.datepickerButton.classList.contains('is-active') || this.datepickerButton.classList.remove('is-active')
 
              this.tabsSummary.forEach(item => {
                  !item.classList.contains('is-active') || item.classList.remove('is-active')
@@ -2095,17 +2188,51 @@
                  if (item.getAttribute('id') == el.getAttribute('id')) {
                      item.classList.add('is-active')
 
-                     this.range = item.getAttribute('id')
-                     this.ajaxLoadDataClick()
+                     let currentDate = new Date()
+
+                     switch (item.getAttribute('id')) {
+                         case 'yesterday':
+                             this.range = Datepicker.formatDate(currentDate.setDate(currentDate.getDay() - 1), 'dd.m.yyyy', 'ru')
+                             break;
+                         case 'week':
+                             this.range = Datepicker.formatDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay() + 1), 'dd.m.yyyy', 'ru')
+                             break;
+                         case 'month':
+                             this.range = Datepicker.formatDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), 1), 'dd.m.yyyy', 'ru')
+                             break;
+                     }
+
+                     this.ajaxLoadDataSummary()
                  }
+             })
+         }
+
+         changeTableClick(el) {
+
+             this.tabsClick.forEach(item => {
+                 !item.classList.contains('is-active') || item.classList.remove('is-active')
+             })
+
+             el.classList.add('is-active')
+
+
+
+             this.$el.querySelectorAll('.store-statistics__table [data-title]').forEach(item => {
+
+                 if (item.dataset.title != el.innerText) {
+                     item.classList.add('hide')
+                 } else {
+                     !item.classList.contains('hide') || item.classList.remove('hide')
+                 }
+
              })
          }
 
          getTemplateSummary(data) {
              return `
-                <div class="table__th">${data.type}</div>
-                <div class="table__th">${data.total}</div>
-                <div class="table__th">${data.cost}</div>
+                <div class="table__td" data-title="Тип клика" >${data.type}</div>
+                <div class="table__td" data-title="Кликов" >${data.total}</div>
+                <div class="table__td" data-title="Расходы (руб.)" >${data.cost}</div>
             `
          }
 
@@ -2121,23 +2248,25 @@
                  this.tablSummary.append(el)
              })
 
-
          }
 
-         ajaxLoadDataClick() {
+         ajaxLoadDataSummary() {
              window.ajax({
                  type: 'GET',
                  url: '/json/statistics.json?range=' + this.range + '&type=' + this.typeStatistics,
                  responseType: 'json',
-             }, (status, response) => this.renderTableSummary(response))
+             }, (status, response) => {
+                 if (status == 200) this.renderTableSummary(response)
+             })
          }
 
          changeTypeSummary(item) {
              this.typeStatistics = item.value
-             this.ajaxLoadDataClick()
+             this.ajaxLoadDataSummary()
          }
 
          addEvent() {
+
              this.tabsSummary.forEach(item => {
                  item.addEventListener('click', e => this.changeTabsSummary(item))
              })
@@ -2145,6 +2274,16 @@
              this.typeSummary.forEach(item => {
                  item.addEventListener('change', e => this.changeTypeSummary(item))
              })
+
+             this.tabsClick.forEach(item => {
+                 item.addEventListener('click', e => this.changeTableClick(item))
+             })
+
+             this.tabsClick.forEach(item => {
+                 item.addEventListener('click', e => this.changeTableClick(item))
+             })
+
+
          }
      }
 

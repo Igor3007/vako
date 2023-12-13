@@ -76,7 +76,7 @@
                      }
 
                      &>span {
-                         @media screen and (max-width: $w480) {
+                         @media screen and (max-width: $w576) {
                              display: none !important;
                          }
                      }

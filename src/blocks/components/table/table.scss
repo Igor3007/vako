@@ -11,7 +11,7 @@
     border-collapse: collapse;
     margin: -1px 0;
 
-    @media screen and (min-width: $w992) {
+    @media screen and (min-width: $w576) {
         display: table;
     }
 
@@ -25,7 +25,7 @@
         flex-wrap: wrap;
         border-bottom: 1px solid #EBEBEB;
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w576) {
             display: table-row;
             border: none;
         }
@@ -41,7 +41,7 @@
     }
 
     &__td {
-        @media screen and (max-width: $w992) {
+        @media screen and (max-width: $w576) {
             &::before {
                 content: attr(data-title);
                 display: block;
@@ -64,7 +64,7 @@
 
 
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w576) {
             display: table-cell;
             //width: 500px;
             border: 1px solid #EBEBEB;
@@ -83,24 +83,26 @@
             //     width: 100px;
             // }
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: $w576) {
                 padding-right: 24px;
             }
         }
 
         &:first-child {
 
-            font-weight: 600;
+
             width: 100%;
 
 
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: $w576) {
                 width: auto;
                 padding-left: 24px;
 
             }
         }
+
+
 
     }
 
@@ -110,10 +112,10 @@
         padding-top: 16px;
         padding-bottom: 16px;
         display: none;
-        color: var(--text-02);
+        color: #8F8F8F;
         font-weight: 500;
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w576) {
             display: table-cell;
         }
 
@@ -245,7 +247,7 @@
     max-width: 100px;
 
 
-    @media screen and (min-width: $w992) {
+    @media screen and (min-width: $w576) {
         display: inline-flex;
         left: 8px;
 

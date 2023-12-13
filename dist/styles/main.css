@@ -1099,6 +1099,311 @@ select {
   color: #000;
 }
 
+.datepicker {
+  display: none;
+}
+
+.datepicker.active {
+  display: block;
+}
+
+.datepicker-dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  padding-top: 4px;
+}
+
+.datepicker-dropdown.datepicker-orient-top {
+  padding-top: 0;
+  padding-bottom: 4px;
+}
+
+.datepicker-picker {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.datepicker-dropdown .datepicker-picker {
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+
+.datepicker-picker span {
+  display: block;
+  flex: 1;
+  border: 0;
+  border-radius: 4px;
+  cursor: default;
+  text-align: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.datepicker-main {
+  padding: 2px;
+}
+
+.datepicker-footer {
+  box-shadow: inset 0 1px 1px rgba(10, 10, 10, 0.1);
+  background-color: whitesmoke;
+}
+
+.datepicker-grid,
+.datepicker-view .days-of-week,
+.datepicker-view,
+.datepicker-controls {
+  display: flex;
+}
+
+.datepicker-grid {
+  flex-wrap: wrap;
+}
+
+.datepicker-view .days .datepicker-cell,
+.datepicker-view .dow {
+  flex-basis: 14.2857142857%;
+}
+
+.datepicker-view.datepicker-grid .datepicker-cell {
+  flex-basis: 25%;
+}
+
+.datepicker-cell,
+.datepicker-view .week {
+  height: 2.25rem;
+  line-height: 2.25rem;
+}
+
+.datepicker-title {
+  box-shadow: inset 0 -1px 1px rgba(10, 10, 10, 0.1);
+  background-color: whitesmoke;
+  padding: 0.375rem 0.75rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.datepicker-header .datepicker-controls {
+  padding: 2px 2px 0;
+}
+
+.datepicker-controls .button {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  box-shadow: none;
+  background-color: white;
+  cursor: pointer;
+  padding: calc(0.375em - 1px) 0.75em;
+  height: 2.25em;
+  vertical-align: top;
+  text-align: center;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: #363636;
+  font-size: 1rem;
+}
+
+.datepicker-controls .button:focus,
+.datepicker-controls .button:active {
+  outline: none;
+}
+
+.datepicker-controls .button:hover {
+  border-color: #b5b5b5;
+  color: #363636;
+}
+
+.datepicker-controls .button:focus {
+  border-color: #DF1F26;
+  color: #363636;
+}
+
+.datepicker-controls .button:active {
+  border-color: #4a4a4a;
+  color: #363636;
+}
+
+.datepicker-controls .button[disabled] {
+  cursor: not-allowed;
+}
+
+.datepicker-header .datepicker-controls .button {
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.datepicker-header .datepicker-controls .button:hover {
+  background-color: #f9f9f9;
+}
+
+.datepicker-header .datepicker-controls .button:active {
+  background-color: #f2f2f2;
+}
+
+.datepicker-header .datepicker-controls .button[disabled] {
+  box-shadow: none;
+}
+
+.datepicker-footer .datepicker-controls .button {
+  margin: calc(0.375rem - 1px) 0.375rem;
+  border-radius: 2px;
+  width: 100%;
+  font-size: 0.75rem;
+}
+
+.datepicker-controls .view-switch {
+  flex: auto;
+}
+
+.datepicker-controls .prev-btn,
+.datepicker-controls .next-btn {
+  padding-right: 0.375rem;
+  padding-left: 0.375rem;
+  width: 2.25rem;
+}
+
+.datepicker-controls .prev-btn.disabled,
+.datepicker-controls .next-btn.disabled {
+  visibility: hidden;
+}
+
+.datepicker-view .dow {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.datepicker-view .week {
+  width: 2.25rem;
+  color: #b5b5b5;
+  font-size: 0.75rem;
+}
+
+.datepicker-grid {
+  width: 15.75rem;
+}
+
+.datepicker-cell:not(.disabled):hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.datepicker-cell.focused:not(.selected) {
+  background-color: #e8e8e8;
+}
+
+.datepicker-cell.selected,
+.datepicker-cell.selected:hover {
+  background-color: #DF1F26;
+  color: #fff;
+  font-weight: 600;
+}
+
+.datepicker-cell.disabled {
+  color: #dbdbdb;
+}
+
+.datepicker-cell.prev:not(.disabled),
+.datepicker-cell.next:not(.disabled) {
+  color: #7a7a7a;
+}
+
+.datepicker-cell.prev.selected,
+.datepicker-cell.next.selected {
+  color: #e6e6e6;
+}
+
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today) {
+  border-radius: 0;
+  background-color: whitesmoke;
+}
+
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today):not(.disabled):hover {
+  background-color: #eeeeee;
+}
+
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today).focused {
+  background-color: #e8e8e8;
+}
+
+.datepicker-cell.today:not(.selected) {
+  background-color: #37A735;
+}
+
+.datepicker-cell.today:not(.selected):not(.disabled) {
+  color: #fff;
+}
+
+.datepicker-cell.today.focused:not(.selected) {
+  background-color: #37A735;
+}
+
+.datepicker-cell.range-end:not(.selected),
+.datepicker-cell.range-start:not(.selected) {
+  background-color: #b5b5b5;
+  color: #fff;
+}
+
+.datepicker-cell.range-end.focused:not(.selected),
+.datepicker-cell.range-start.focused:not(.selected) {
+  background-color: #afafaf;
+}
+
+.datepicker-cell.range-start {
+  border-radius: 4px 0 0 4px;
+}
+
+.datepicker-cell.range-end {
+  border-radius: 0 4px 4px 0;
+}
+
+.datepicker-cell.range {
+  border-radius: 0;
+  background-color: #dbdbdb;
+}
+
+.datepicker-cell.range:not(.disabled):not(.focused):not(.today):hover {
+  background-color: #d5d5d5;
+}
+
+.datepicker-cell.range.disabled {
+  color: #c2c2c2;
+}
+
+.datepicker-cell.range.focused {
+  background-color: #cfcfcf;
+}
+
+.datepicker-view.datepicker-grid .datepicker-cell {
+  height: 4.5rem;
+  line-height: 4.5rem;
+}
+
+.datepicker-input.in-edit {
+  border-color: #DF1F26;
+}
+
+.input-material .datepicker-orient-left.datepicker-orient-bottom.picker-custom-offset {
+  left: 0 !important;
+  top: 52px !important;
+}
+
+.input-material .datepicker-orient-left.datepicker-orient-top.picker-custom-offset {
+  left: 0 !important;
+  bottom: calc(100% + 5px) !important;
+  top: auto !important;
+}
+
 @keyframes splide-loading {
   0% {
     transform: rotate(0);
@@ -3349,7 +3654,6 @@ input:focus {
 
 .table__th:first-child,
 .table__td:first-child {
-  font-weight: 600;
   width: 100%;
 }
 
@@ -3358,7 +3662,7 @@ input:focus {
   padding-top: 16px;
   padding-bottom: 16px;
   display: none;
-  color: var(--text-02);
+  color: #8F8F8F;
   font-weight: 500;
 }
 
@@ -4618,10 +4922,7 @@ footer {
 .search-index__form.is-focus .search-index__suggest {
   display: block;
   position: relative;
-  top: 0;
   background-color: #fff;
-  left: 0;
-  right: 0;
   padding: 16px;
   height: calc((var(--vh, 1vh) * 100) - 56px);
   overflow-y: auto;
@@ -4667,6 +4968,7 @@ footer {
   flex-grow: 1;
   min-height: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .search-index__input {
@@ -11848,6 +12150,46 @@ body .fslightbox-slash {
     line-height: 155%;
   }
 
+  .table {
+    display: table;
+  }
+
+  .table__tr {
+    display: table-row;
+    border: none;
+  }
+
+  .table__th,
+  .table__td {
+    display: table-cell;
+    border: 1px solid #EBEBEB;
+    padding: 20px 12px;
+    border-left: none;
+    border-right: none;
+    max-width: 360px;
+  }
+
+  .table__th:last-child,
+  .table__td:last-child {
+    padding-right: 24px;
+  }
+
+  .table__th:first-child,
+  .table__td:first-child {
+    width: auto;
+    padding-left: 24px;
+  }
+
+  .table__th {
+    display: table-cell;
+  }
+
+  .share-list,
+  .devices-access {
+    display: inline-flex;
+    left: 8px;
+  }
+
   .footer__item {
     padding: 25px 20px;
     margin-top: -30px;
@@ -12223,6 +12565,7 @@ body .fslightbox-slash {
   .search-index__input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    width: calc(100% - 90px);
   }
 
   .search-index__input input {
@@ -12500,46 +12843,6 @@ body .fslightbox-slash {
     display: none;
   }
 
-  .table {
-    display: table;
-  }
-
-  .table__tr {
-    display: table-row;
-    border: none;
-  }
-
-  .table__th,
-  .table__td {
-    display: table-cell;
-    border: 1px solid #EBEBEB;
-    padding: 20px 12px;
-    border-left: none;
-    border-right: none;
-    max-width: 360px;
-  }
-
-  .table__th:last-child,
-  .table__td:last-child {
-    padding-right: 24px;
-  }
-
-  .table__th:first-child,
-  .table__td:first-child {
-    width: auto;
-    padding-left: 24px;
-  }
-
-  .table__th {
-    display: table-cell;
-  }
-
-  .share-list,
-  .devices-access {
-    display: inline-flex;
-    left: 8px;
-  }
-
   .header-top {
     flex-wrap: nowrap;
   }
@@ -12577,11 +12880,17 @@ body .fslightbox-slash {
 
   .search-index__form.is-focus .search-index__field {
     border-radius: 6px;
+    flex-direction: row;
   }
 
   .search-index__form.is-focus .search-index__suggest {
     height: auto;
-    margin-top: -3px;
+    width: 100%;
+    position: absolute;
+    top: calc(100%);
+    left: 0;
+    right: 0;
+    margin-top: -5px;
   }
 
   .search-index__catalog {
@@ -13782,14 +14091,6 @@ body .fslightbox-slash {
     position: relative;
   }
 
-  .table__td::before {
-    content: attr(data-title);
-    display: block;
-    font-size: 13px;
-    font-weight: 400;
-    color: #a8a8a8;
-  }
-
   .main-menu {
     padding: 12px 25px 0 25px;
   }
@@ -13933,6 +14234,11 @@ body .fslightbox-slash {
 }
 
 @media screen and (max-width: 576px) {
+  .pagination__page ul li span > span,
+  .pagination__page ul li a > span {
+    display: none !important;
+  }
+
   .bottom-popup__main {
     padding-right: 0;
   }
@@ -13966,6 +14272,14 @@ body .fslightbox-slash {
 
   .bottom-popup__desc {
     font-size: 14px;
+  }
+
+  .table__td::before {
+    content: attr(data-title);
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #a8a8a8;
   }
 
   .search-index__catalog .btn {
@@ -14042,11 +14356,6 @@ body .fslightbox-slash {
 
   .af-popup__close {
     right: 10px;
-  }
-
-  .pagination__page ul li span > span,
-  .pagination__page ul li a > span {
-    display: none !important;
   }
 
   .login-partners .form-step label:not(.checkbox) {
@@ -14179,6 +14488,16 @@ body .fslightbox-slash {
 @media screen and (max-width: 346px) {
   .single-shop-head__payment-days {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 22.5rem) {
+  .datepicker-view .week {
+    width: 1.96875rem;
+  }
+
+  .calendar-weeks + .days .datepicker-grid {
+    width: 13.78125rem;
   }
 }
 
