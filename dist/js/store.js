@@ -2075,9 +2075,12 @@
              this.tabsSummary = this.$el.querySelectorAll('[data-statistics="tabs-sv"] li')
              this.typeSummary = this.$el.querySelectorAll('[data-statistics="type"] input')
              this.tablSummary = this.$el.querySelector('[data-statistics="table-summary"]')
+             this.tablClicks = this.$el.querySelector('[data-statistics="table-clicks"]')
              this.elSortable = this.$el.querySelectorAll('[data-sort]')
              this.elClearFind = this.$el.querySelector('[data-statistics="clear-find"]')
              this.elInputFind = this.$el.querySelector('[data-statistics="input-find"]')
+             this.elSelectCount = this.$el.querySelector('[data-statistics="select"]')
+
 
              this.elDatepickerStart = this.$el.querySelector('[data-statistics="date-start"] input')
              this.elDatepickerEnd = this.$el.querySelector('[data-statistics="date-end"] input')
@@ -2088,6 +2091,7 @@
 
              this.range = false
              this.typeStatistics = false
+             this.pageCount = 25
 
              this.addEvent()
              this.init()
@@ -2239,6 +2243,16 @@
             `
          }
 
+         getTemplateClicks(data) {
+             return `
+                <div class="table__td">${data.name}</div>
+                <div class="table__td" data-title="Показы">${data.hits}</div>
+                <div class="table__td hide" data-title="Кнопка «В магазин»">${data.toshop}</div>
+                <div class="table__td hide" data-title="Кнопка «Телефоны»">${data.phone}</div>
+                <div class="table__td hide" data-title="Расходы (руб.)">${data.cost}</div>
+            `
+         }
+
          renderTableSummary(response) {
 
              this.tablSummary.innerHTML = ''
@@ -2253,6 +2267,18 @@
 
          }
 
+         renderTableClick(response) {
+             this.tablClicks.innerHTML = ''
+
+             JSON.parse(JSON.stringify(response)).forEach(item => {
+                 let el = document.createElement('div')
+                 el.classList.add('table__tr')
+                 el.innerHTML = this.getTemplateClicks(item)
+
+                 this.tablClicks.append(el)
+             })
+         }
+
          ajaxLoadDataSummary() {
              window.ajax({
                  type: 'GET',
@@ -2264,7 +2290,13 @@
          }
 
          ajaxLoadDataTableClicks() {
-
+             window.ajax({
+                 type: 'GET',
+                 url: '/json/statistics-click.json?limit=' + this.pageCount,
+                 responseType: 'json',
+             }, (status, response) => {
+                 if (status == 200) this.renderTableClick(response)
+             })
          }
 
          changeTypeSummary(item) {
@@ -2315,6 +2347,19 @@
 
              this.elInputFind.addEventListener('keyup', e => {
                  this.elClearFind.style.display = e.target.value ? 'block' : 'none'
+
+                 this.ajaxLoadDataTableClicks()
+             })
+
+             this.elClearFind.addEventListener('click', e => {
+                 this.elInputFind.value = ''
+                 e.target.style.removeProperty('display')
+             })
+
+             this.elSelectCount.addEventListener('change', e => {
+                 this.pageCount = e.target.value
+
+                 this.ajaxLoadDataTableClicks()
              })
 
          }

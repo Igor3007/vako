@@ -52,11 +52,11 @@ mixin store-statistics
                         span(data-statistics="clear-find").icon-cross
                     .store-statistics__count
                         span Показывать по:
-                        select
+                        select(data-statistics="select")
                             option(value="25") 25
                             option(value="50") 50
                             option(value="100") 100
-                            option(value="100") 200
+                            option(value="150") 150
                 
                 .store-statistics__table
                     .table
@@ -71,19 +71,20 @@ mixin store-statistics
                             .table__th
                                 .table-sort( data-sort="cost" data-title="Расходы (руб.)") Расходы <br> (руб.)
 
-                        each item in [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+                        .table__tbody(data-statistics="table-clicks")
+                            each item in [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
+                                .table__tr
+                                    .table__td Ноутбук Apple MacBook Pro 16 Late 2019
+                                    .table__td(data-title="Показы") 160
+                                    .table__td(data-title="Кнопка «В магазин»") 48
+                                    .table__td(data-title="Кнопка «Телефоны»") 73
+                                    .table__td(data-title="Расходы (руб.)") 1 340,4
                             .table__tr
-                                .table__td Ноутбук Apple MacBook Pro 16 Late 2019
+                                .table__td Ноутбук Apple MacBook Pro 16 Late 2019 (/16”/ 3072x1920/) супер длинное название на несколько строк
                                 .table__td(data-title="Показы") 160
                                 .table__td(data-title="Кнопка «В магазин»") 48
                                 .table__td(data-title="Кнопка «Телефоны»") 73
                                 .table__td(data-title="Расходы (руб.)") 1 340,4
-                        .table__tr
-                            .table__td Ноутбук Apple MacBook Pro 16 Late 2019 (/16”/ 3072x1920/) супер длинное название на несколько строк
-                            .table__td(data-title="Показы") 160
-                            .table__td(data-title="Кнопка «В магазин»") 48
-                            .table__td(data-title="Кнопка «Телефоны»") 73
-                            .table__td(data-title="Расходы (руб.)") 1 340,4
                 .store-statistics__pagination
                     +pagination()
