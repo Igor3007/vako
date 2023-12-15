@@ -130,6 +130,23 @@
             overflow-x: auto;
             overflow-y: hidden;
 
+            scrollbar-color: transparent transparent;
+            scrollbar-width: thin !important;
+
+
+            &::-webkit-scrollbar {
+                width: 0px;
+                height: 0px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+            }
+
             & li {
                 padding: 4px;
 
@@ -223,8 +240,7 @@
                     padding-left: 0;
                 }
 
-
-                @media screen and (max-width: $w576) {
+                @media screen and (max-width: 575.98px) {
                     width: 100%;
                     padding: 5px 0;
                     font-size: 15px;
@@ -260,7 +276,7 @@
             }
 
             &__tr {
-                @media screen and (max-width: $w576) {
+                @media screen and (max-width: 576.98px) {
                     padding: 10px 0;
                 }
             }
@@ -443,12 +459,7 @@
         }
 
         & .table {
-            &__th {
-                &:hover {
-                    color: $accent-2-1;
-                    cursor: pointer;
-                }
-            }
+            &__th {}
 
             &__th,
             &__td {
@@ -524,6 +535,11 @@ span[data-statistics="date-end"] {
         & br {
             display: none;
         }
+    }
+
+    &:hover {
+        color: $accent-2-1;
+        cursor: pointer;
     }
 
     &::after {

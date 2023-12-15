@@ -2226,7 +2226,11 @@
 
              this.$el.querySelectorAll('.store-statistics__table [data-title]').forEach(item => {
 
-                 if (item.dataset.title != el.innerText) {
+                 console.log(item.dataset.title, '1')
+                 console.log(el.innerText, '2')
+                 console.log('============================')
+
+                 if (item.dataset.title.trim().toLowerCase() != el.innerText.trim().toLowerCase()) {
                      item.classList.add('hide')
                  } else {
                      !item.classList.contains('hide') || item.classList.remove('hide')

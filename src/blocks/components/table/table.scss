@@ -41,7 +41,7 @@
     }
 
     &__td {
-        @media screen and (max-width: $w576) {
+        @media screen and (max-width: 575.98px) {
             &::before {
                 content: attr(data-title);
                 display: block;
