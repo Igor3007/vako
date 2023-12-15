@@ -22,7 +22,7 @@ mixin store-statistics
                         .table__tr
                             .table__th Тип клика
                             .table__th Кликов
-                            .table__th Расходы(руб.)
+                            .table__th.no-wrap Расходы (руб.)
 
                         .table__tbody(data-statistics="table-summary")
                             .empty Загрузка...
@@ -62,14 +62,14 @@ mixin store-statistics
                     .table
                         .table__tr
                             .table__th Товары
-                            .table__th
-                                .table-sort( data-sort="view" data-title="Показы") Показы
-                            .table__th
-                                .table-sort( data-sort="inshop" data-title="Кнопка «В магазин»") Кнопка <br> «В магазин»
-                            .table__th
-                                .table-sort( data-sort="phone" data-title="Кнопка «Телефоны»") Кнопка <br> «Телефоны»
-                            .table__th
-                                .table-sort( data-sort="cost" data-title="Расходы (руб.)") Расходы <br> (руб.)
+                            .table__th(data-title="Показы")
+                                .table-sort( data-sort="view" ) Показы
+                            .table__th(data-title="Кнопка «В магазин»")
+                                .table-sort( data-sort="inshop" ) Кнопка <br> «В магазин»
+                            .table__th(data-title="Кнопка «Телефоны»")
+                                .table-sort( data-sort="phone" ) Кнопка <br> «Телефоны»
+                            .table__th(data-title="Расходы (руб.)")
+                                .table-sort( data-sort="cost" ) Расходы <br> (руб.)
 
                         .table__tbody(data-statistics="table-clicks")
                             each item in [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]

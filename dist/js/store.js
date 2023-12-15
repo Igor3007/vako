@@ -2366,7 +2366,6 @@
 
              this.elSelectCount.addEventListener('change', e => {
                  this.pageCount = e.target.value
-
                  this.ajaxLoadDataTableClicks()
              })
 

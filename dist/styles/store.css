@@ -6900,6 +6900,12 @@ div.single-product__content[data-tab-container="store"] {
   cursor: pointer;
 }
 
+.store-statistics__table .table__th:not(:first-child),
+.store-statistics__table .table__td:not(:first-child) {
+  text-align: center;
+  margin-left: auto;
+}
+
 .store-statistics__pagination {
   display: flex;
   justify-content: center;
@@ -6915,6 +6921,10 @@ div.single-product__content[data-tab-container="store"] {
 
 .store-statistics .radio__elem {
   margin-top: 3px;
+}
+
+.store-statistics .no-wrap {
+  white-space: nowrap;
 }
 
 .empty {
@@ -6935,6 +6945,8 @@ span[data-statistics="date-end"]::before {
 .table-sort {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-right: -10px;
 }
 
 .table-sort::after {
@@ -8049,6 +8061,11 @@ body .fslightbox-slash {
     flex-wrap: wrap;
   }
 
+  .store-statistics__sv .table__th:not(:first-child),
+  .store-statistics__sv .table__td:not(:first-child) {
+    text-align: center;
+  }
+
   .store-statistics__date {
     display: inline-flex;
   }
@@ -8827,6 +8844,10 @@ body .fslightbox-slash {
     z-index: 1000;
     position: relative;
   }
+
+  .table-sort br {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -8889,6 +8910,14 @@ body .fslightbox-slash {
 
   .store-statistics__table .table__td:not(:first-child) {
     text-align: right;
+  }
+
+  .table-sort {
+    justify-content: flex-end;
+  }
+
+  .table-sort.hide {
+    display: none;
   }
 
   .splide__pagination__page {
@@ -8987,6 +9016,10 @@ body .fslightbox-slash {
   .store-statistics__sv .table__td {
     width: 100%;
     padding: 5px 0;
+    font-size: 15px;
+  }
+
+  .store-statistics__sv .table__td::before {
     font-size: 14px;
   }
 
@@ -9069,6 +9102,24 @@ body .fslightbox-slash {
 
   .login-partners .form-step label:not(.checkbox) {
     padding-bottom: 4px;
+  }
+
+  .store-statistics__count .af-select .select-list.active {
+    position: absolute;
+    left: 0;
+    padding-top: 0;
+    bottom: auto;
+    top: calc(100% + 10px);
+    background-color: #fff;
+  }
+
+  .store-statistics__count .af-select .select-list.active .select-options {
+    margin: 0;
+  }
+
+  .store-statistics__count .af-select .select-list.active .select-options li {
+    padding: 0.75rem 15px;
+    font-size: 13px;
   }
 
   body .fslightbox-slide-btn-container {
