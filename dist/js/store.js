@@ -854,7 +854,15 @@
                  const userMenuPopup = new afLightbox({
                      mobileInBottom: true
                  })
-                 userMenuPopup.open('<div class="user-menu-popup" >' + html + '</div>')
+                 userMenuPopup.open('<div class="user-menu-popup" >' + html + '</div>', (popup) => {
+
+                     if (popup.querySelector('[data-popup="store-login"]')) {
+                         popup.querySelector('[data-popup="store-login"]').addEventListener('click', e => {
+                             openLoginPartner();
+                             userMenuPopup.close()
+                         })
+                     }
+                 })
              }
 
          })
