@@ -365,12 +365,27 @@
             }
 
             & span {
-                width: 24px;
-                height: 24px;
+                width: 26px;
+                height: 26px;
                 background-color: #eee;
                 border-radius: 50%;
                 display: inline-block;
                 cursor: pointer;
+                position: relative;
+
+
+                & svg {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                }
+
+                &.multi-color {
+                    background-color: transparent;
+                }
             }
         }
     }

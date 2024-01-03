@@ -72,6 +72,25 @@ mixin product-common
                                 label
                                     input(type="radio" name="color-product")
                                     span.color--border(data-tooltip="Графитовый" style="background-color: #fff")
+                            li  
+                                label
+                                    input(type="radio" name="color-product")
+                                    span.multi-color(data-tooltip="Красный/Зеленый/Синий")
+                                        svg(width='24' height='24' viewBox="0 0 125 125" fill='none' xmlns='http://www.w3.org/2000/svg')
+                                            path(d='M63.002 63h63C121.502 2.004 62-10.495 32 8l31.002 55z' fill='#E81E1E')
+                                            path(d='M62.995 62.998L32.002 117c55.074 26.6 95.008-18.776 93.99-54.005l-62.997.003z' fill='#A71EE8')
+                                            path(d='M63 63.001L32 8c-50.776 34.094-30.915 92.083.002 109L63 63.001z' fill='#0CE97F')
+
+                            li  
+                                label
+                                    input(type="radio" name="color-product")
+                                    span.multi-color(data-tooltip="Розовый/Голубой")
+                                        svg(width='125' height='125' viewBox="0 0 125 125" fill='none' xmlns='http://www.w3.org/2000/svg')
+                                            path(d='M106.694 18.306a62.5 62.5 0 10-88.388 88.388l88.388-88.388z' fill='#E31CAC')
+                                            path(d='M18.306 106.694a62.5 62.5 0 1088.388-88.388l-88.388 88.388z' fill='#1C9CE3')
+
+
+
 
                     .product-details__properties
                         .product-details__properties-fast
