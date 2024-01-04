@@ -1265,31 +1265,87 @@ document.addEventListener("DOMContentLoaded", function (event) {
     color clear filter
     =========================================*/
 
-    if (document.querySelector('.filter-properties__colors')) {
-        const checkboxes = document.querySelectorAll('.filter-properties__colors')
+    // if (document.querySelector('.filter-properties__colors')) {
+    //     const checkboxes = document.querySelectorAll('.filter-properties__colors')
+    //     checkboxes.forEach(container => {
+
+    //         if (container.querySelector('input:checked')) {
+    //             clearButton.style.setProperty('display', 'block')
+    //         }
+
+    //         container.querySelectorAll('input[type="checkbox"]').forEach(item => {
+
+    //             const clearButton = container.querySelector('.clear-color-filter')
+
+    //             item.addEventListener('change', e => {
+    //                 if (container.querySelector('input:checked')) {
+    //                     clearButton.style.setProperty('display', 'block')
+    //                 } else {
+    //                     clearButton.style.setProperty('display', 'none')
+    //                 }
+    //             })
+
+    //             clearButton.addEventListener('click', e => {
+    //                 container.querySelectorAll('input[type="checkbox"]:checked').forEach(item => item.checked = false)
+    //                 clearButton.style.setProperty('display', 'none')
+    //             })
+    //         })
+    //     })
+    // }
+
+
+    /* =========================================
+     color clear filter 1
+    =========================================*/
+
+    if (document.querySelector('.product-details__colors')) {
+        const checkboxes = document.querySelectorAll('.product-details__colors')
         checkboxes.forEach(container => {
 
-            if (container.querySelector('input:checked')) {
-                clearButton.style.setProperty('display', 'block')
-            }
+            let lis = container.querySelectorAll('li');
 
-            container.querySelectorAll('input[type="checkbox"]').forEach(item => {
-
-                const clearButton = container.querySelector('.clear-color-filter')
-
-                item.addEventListener('change', e => {
-                    if (container.querySelector('input:checked')) {
-                        clearButton.style.setProperty('display', 'block')
-                    } else {
-                        clearButton.style.setProperty('display', 'none')
-                    }
-                })
+            if (lis.length > 1) {
+                const clearButton = document.createElement('span')
+                clearButton.classList.add('icon-cross')
+                clearButton.classList.add('clear-color-filter')
 
                 clearButton.addEventListener('click', e => {
-                    container.querySelectorAll('input[type="checkbox"]:checked').forEach(item => item.checked = false)
-                    clearButton.style.setProperty('display', 'none')
+                    container.querySelectorAll('input:checked').forEach(item => item.checked = false)
+                    e.target.style.setProperty('display', 'none')
+
+
+                    // if (container.classList.contains('filter-properties__colors')) {
+                    //     //filter send
+                    //     window.Filter.items.submit()
+                    // }
+                    // if (container.classList.contains('product-details__colors')) {
+                    //     //filter send
+                    //     window.location.href = window.location.protocol + '//' + window.location.host + window.location.pathname
+                    // }
+
+
                 })
-            })
+
+                container.querySelector('ul').append(clearButton)
+
+                if (container.querySelector('input:checked')) {
+                    clearButton.style.setProperty('display', 'block')
+                }
+
+                container.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(item => {
+
+                    item.addEventListener('change', e => {
+                        if (container.querySelector('input:checked')) {
+                            clearButton.style.setProperty('display', 'block')
+                        } else {
+                            clearButton.style.setProperty('display', 'none')
+                        }
+                    })
+
+
+                })
+            }
+
         })
     }
 
