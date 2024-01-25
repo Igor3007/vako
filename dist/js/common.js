@@ -710,7 +710,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             openSubMobile(item) {
 
-
                 if (item.querySelector('.sub-menu')) {
 
                     const template = `
@@ -750,19 +749,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     document.createElement('ul'),
                 ];
 
-                console.log(items)
+                let column = 0;
 
-                let flag = 0;
-
-                for (let key in items) {
-                    result[flag].append(items[key])
-
-                    //console.log(li)
-
-                    flag <= 1 ? flag++ : flag = 0
-                }
-
-                console.log(result)
+                Array.from(items).forEach(li => {
+                    result[column].append(li)
+                    column <= 1 ? column++ : column = 0
+                })
 
                 return result[0].outerHTML + result[1].outerHTML + result[2].outerHTML
             }
@@ -779,19 +771,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
                        <div class="catalog-popup__list" >${this.getColumnMenu(item.cloneNode(true))}</div>
                       `;
 
-
                     const layer = document.createElement('div')
                     layer.classList.add('catalog-popup__submenu')
                     layer.innerHTML = template
 
                     const subMenu = layer.querySelectorAll('.sub-menu')
-
                     subMenu.forEach(item => {
 
                         if (item.querySelectorAll('li').length > 5) {
 
                             item.classList.add('is-slice-list')
-
                             const elem = document.createElement('div')
                             elem.classList.add('sub-menu-toggle')
                             elem.innerText = 'Ещё'

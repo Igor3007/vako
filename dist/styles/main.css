@@ -5195,6 +5195,8 @@ footer {
   scrollbar-width: thin !important;
   overflow-y: auto;
   height: calc(100% - 80px);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .catalog-popup__list::-webkit-scrollbar {
@@ -5214,16 +5216,19 @@ footer {
 }
 
 .catalog-popup__list > ul {
-  display: block;
-  column-count: 2;
-  column-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding-right: 16px;
+  flex-grow: 1;
+  flex-basis: 280px;
 }
 
 .catalog-popup__list > ul > li {
   break-inside: avoid;
   padding-bottom: 30px;
-  display: grid;
-  grid-template-rows: 1fr auto;
+  flex-basis: 280px;
+  flex-grow: 1;
 }
 
 .catalog-popup__list > ul > li > a {
@@ -13413,11 +13418,6 @@ body .fslightbox-slash {
   .min-banner__subtitle {
     font-size: 18px;
     line-height: 156%;
-  }
-
-  .catalog-popup__list > ul {
-    column-count: 3;
-    column-gap: 10px;
   }
 
   .catalog-category__h1 h1 {
