@@ -207,6 +207,10 @@
     &__thumb {
         display: none;
 
+        @media screen and (min-width: $w992) {
+            display: flex;
+        }
+
         & .splide {
 
             &__track {
@@ -228,12 +232,29 @@
                 }
             }
 
+            &:not(.is-initialized) {
+
+                visibility: visible;
+
+                & .splide {
+                    &__slide {
+
+                        display: none;
+
+                        &:nth-child(-n+5) {
+                            display: block;
+                            margin-right: 10px;
+                            width: calc(25% - 7.5px);
+                            padding: 5px;
+                        }
+                    }
+                }
+            }
 
         }
 
-        @media screen and (min-width: $w992) {
-            display: flex;
-        }
+
+
     }
 
     &__slider {
@@ -257,6 +278,27 @@
 
     &__large {
         padding-bottom: 30px;
+
+        & .splide {
+            &:not(.is-initialized) {
+
+                visibility: visible;
+
+                & .splide {
+                    &__slide {
+
+                        display: none;
+
+                        &:first-child {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+
+        }
     }
 
     & .splide {

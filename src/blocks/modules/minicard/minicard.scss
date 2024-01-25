@@ -43,6 +43,7 @@
 
   &__other {
     padding-bottom: 15px;
+    font-size: 15px;
 
     @media screen and (min-width: $w480) and (max-width: $w760) {
       padding-bottom: 0px;

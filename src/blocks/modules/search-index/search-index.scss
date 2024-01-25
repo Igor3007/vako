@@ -1050,16 +1050,20 @@ $w991: 991px;
 
         &>ul {
             display: block;
-            columns: 2;
+            column-count: 2;
+            column-gap: 10px;
 
             @media screen and (min-width: $w1200) {
-                columns: 3;
+                column-count: 3;
+                column-gap: 10px;
             }
 
             &>li {
 
                 break-inside: avoid;
                 padding-bottom: 30px;
+                display: grid;
+                grid-template-rows: 1fr auto;
 
                 &>a {
                     font-weight: 700;

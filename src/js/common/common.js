@@ -742,6 +742,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             }
 
+            getColumnMenu(menu) {
+                let items = menu.querySelector('.sub-menu').children
+                let result = [
+                    document.createElement('ul'),
+                    document.createElement('ul'),
+                    document.createElement('ul'),
+                ];
+
+                console.log(items)
+
+                let flag = 0;
+
+                for (let key in items) {
+                    result[flag].append(items[key])
+
+                    //console.log(li)
+
+                    flag <= 1 ? flag++ : flag = 0
+                }
+
+                console.log(result)
+
+                return result[0].outerHTML + result[1].outerHTML + result[2].outerHTML
+            }
+
 
             openSubDesctop(item) {
 
@@ -751,7 +776,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     const template = `
                        <div class="catalog-popup__catig" >${item.querySelector('a').innerText}</div>
-                       <div class="catalog-popup__list" ><ul>${item.querySelector('.sub-menu').innerHTML}</ul></div>
+                       <div class="catalog-popup__list" >${this.getColumnMenu(item.cloneNode(true))}</div>
                       `;
 
 
@@ -2487,6 +2512,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             })
 
             const instance = new FsLightbox();
+            instance.props.dots = true;
             instance.props.type = "image";
             instance.props.sources = arrImage;
             instance.open(index)
