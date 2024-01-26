@@ -7423,6 +7423,7 @@ fslightbox
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 5;
 }
 
 .fslightbox-pagination ul {
@@ -7436,6 +7437,7 @@ fslightbox
 .fslightbox-pagination li {
   font-size: 0;
   padding: 4px;
+  height: 16px;
 }
 
 .fslightbox-pagination li::before {
@@ -8710,6 +8712,10 @@ body .fslightbox-slash {
     width: 100%;
     height: 40px;
   }
+
+  body .fslightbox-slide-btn-container {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 576.98px) {
@@ -8830,10 +8836,6 @@ body .fslightbox-slash {
   .store-statistics__count .af-select .select-list.active .select-options li {
     padding: 0.75rem 15px;
     font-size: 13px;
-  }
-
-  body .fslightbox-slide-btn-container {
-    display: none;
   }
 }
 

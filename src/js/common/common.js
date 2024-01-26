@@ -799,6 +799,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     })
 
+                    // закрывать при переходе на другую страницу
+                    layer.querySelectorAll('a').forEach(link => {
+                        link.addEventListener('click', e => this.close())
+                    })
+
                     this.$el.querySelector('.catalog-popup__main').innerHTML = '';
                     this.$el.querySelector('.catalog-popup__main').append(layer)
 
