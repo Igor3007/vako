@@ -717,6 +717,24 @@ $w991: 991px;
     }
 }
 
+@keyframes bg-fade-out {
+
+    from {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes zoomOutDown {
+    to {
+        transform: scale(0.97) translate3d(0, 0, 0);
+        opacity: 0
+    }
+}
+
 .catalog-popup {
     display: none;
     position: fixed;
@@ -730,13 +748,23 @@ $w991: 991px;
     overflow-x: hidden;
 
     @media screen and (min-width: $w992) {
-        background-color: rgba(0, 0, 0, 0.0);
+        background-color: rgba(0, 0, 0, 0);
         animation: bg-fade-in 0.6s ease forwards;
         padding: 30px;
     }
 
     &.open {
         display: block;
+    }
+
+    &.fade-close-animation {
+        animation: .9s ease both bg-fade-out;
+
+        & .catalog-popup__wrp {
+            animation: .5s ease both zoomOutDown
+        }
+
+
     }
 
     &__wrp {

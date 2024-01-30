@@ -43,7 +43,11 @@
 
   &__other {
     padding-bottom: 15px;
-    font-size: 15px;
+    font-size: 14px;
+
+    @media screen and (min-width: $w1200) {
+      font-size: 15px;
+    }
 
     @media screen and (min-width: $w480) and (max-width: $w760) {
       padding-bottom: 0px;
@@ -135,10 +139,14 @@
   }
 
   &__title {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 123%;
     color: $gray-13;
     padding-bottom: 0.5em;
+
+    @media screen and (min-width: $w992) {
+      font-size: 16px;
+    }
 
     @media screen and (min-width: $w1200) {
       font-weight: 600;

@@ -694,7 +694,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             close() {
-                this.$el.classList.remove('open')
+
+                this.$el.classList.add('fade-close-animation')
+
+                setTimeout(() => {
+                    this.$el.classList.remove('open')
+                    this.$el.classList.remove('fade-close-animation')
+
+                }, 400)
+
                 this.lockScroll(false)
             }
 
@@ -801,7 +809,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     // закрывать при переходе на другую страницу
                     layer.querySelectorAll('a').forEach(link => {
-                        link.addEventListener('click', e => this.close())
+                        link.addEventListener('click', e => {
+                            setTimeout(() => {
+                                this.close()
+                            }, 200)
+                        })
                     })
 
                     this.$el.querySelector('.catalog-popup__main').innerHTML = '';
