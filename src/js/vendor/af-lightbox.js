@@ -119,6 +119,6 @@ class afLightbox {
 
         setTimeout(() => {
             this.instanse.remove()
-        }, 300)
+        }, 500)
     }
 }

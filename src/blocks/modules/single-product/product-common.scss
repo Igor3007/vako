@@ -333,10 +333,9 @@
             font-weight: 700;
             display: block;
             padding-bottom: 18px;
+            font-size: 15px;
 
-            @media screen and (min-width: $w1440) {
-                font-size: 15px;
-            }
+
         }
 
         &:hover {
