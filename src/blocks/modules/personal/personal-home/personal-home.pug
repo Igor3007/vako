@@ -1,0 +1,58 @@
+include ../../../modules/personal/personal-review/personal-review.pug
+
+mixin widget__sm(data)
+    .widget-small
+        .widget-small__title= data.title
+        .widget-small__content= data.content
+        .widget-small__link
+            a(href=data.link) Смотреть все
+
+mixin widget__lg(data)
+    .widget-large
+        .widget-large__top
+            .widget-large__data
+                .widget-large__title Мои отзывы
+                .widget-large__link: a(href='/personal/review.html') Перейти к отзывам
+            .widget-large__metrics
+                ul
+                    li
+                        strong 39
+                        small отзывов всего
+                    li
+                        strong 27
+                        small о товарах
+                    li
+                        strong 12
+                        small о магазинах
+        .widget-large__content
+            .widget-large__lastcomment
+                .last-comment
+                    .last-comment__title Последний опубликованный отзыв
+                    .last-comment__comment
+                        +review-product({
+                            rating: 5,
+                            ratingClass: 'rating--green',
+                            child: true
+                        })
+
+mixin personal-home
+    .personal-home
+        .personal-home__list
+            .personal-home__item.personal-home__item--col2 
+                +widget__sm({
+                    title: 'Избранное',
+                    content: 'В Избранном 12 товаров.',
+                    link: 'wishlist.html'
+                })
+            .personal-home__item.personal-home__item--col2 
+                +widget__sm({
+                    title: 'Сравнение',
+                    content: 'В Сравнении 7 товаров.',
+                    link: 'compare.html'
+                })
+            .personal-home__item 
+                +widget__lg({
+                    title: 'Сравнение',
+                    content: 'В Сравнении 7 товаров.',
+                    link: 'compare.html'
+                })

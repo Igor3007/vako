@@ -10775,7 +10775,7 @@ div[data-state="1"] {
 
 .review-product__rating span {
   display: inline-flex;
-  width: 32px;
+  width: 28px;
   height: 26px;
   background-color: #eee;
   align-items: center;
@@ -10847,6 +10847,110 @@ div[data-state="1"] {
 
 .card-review.card-review-shop .card-review__action {
   padding-bottom: 0;
+}
+
+.personal-home__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -6px;
+}
+
+.personal-home__item {
+  padding: 6px;
+}
+
+.personal-home__item--col2 {
+  width: 50%;
+}
+
+.widget-large,
+.widget-small {
+  padding: 12px 16px 16px 16px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.widget-large:hover,
+.widget-small:hover {
+  background-color: #f1f1f1;
+}
+
+.widget-large__title,
+.widget-small__title {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 121%;
+  padding-bottom: 14px;
+}
+
+.widget-large__link a,
+.widget-small__link a {
+  font-size: 15px;
+  font-weight: 600;
+  color: #7B61FF;
+}
+
+.widget-large__link a:hover,
+.widget-small__link a:hover {
+  text-decoration: underline;
+}
+
+.widget-small__title {
+  padding-bottom: 26px;
+}
+
+.widget-small__content {
+  padding-bottom: 20px;
+}
+
+.widget-small__content {
+  font-size: 16px;
+}
+
+.widget-large__top {
+  padding-bottom: 22px;
+}
+
+.widget-large__metrics ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -12px -16px;
+}
+
+.widget-large__metrics ul li {
+  padding: 16px;
+}
+
+.widget-large__metrics ul li small,
+.widget-large__metrics ul li strong {
+  display: block;
+}
+
+.widget-large__metrics ul li strong {
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 14px;
+}
+
+.widget-large__metrics ul li small {
+  font-size: 15px;
+  color: #8f8f8f;
+}
+
+.widget-large__link {
+  padding-bottom: 22px;
+}
+
+.last-comment__title {
+  font-weight: 800;
+  padding-bottom: 22px;
+  font-size: 20px;
+}
+
+.last-comment .review-product__complaint,
+.last-comment .card-review__complaint {
+  display: none;
 }
 
 /* common styles */
@@ -12154,6 +12258,19 @@ body .fslightbox-slash {
     margin-left: 0.3em;
   }
 
+  .personal-home__list {
+    margin: -12px;
+  }
+
+  .personal-home__item {
+    padding: 12px;
+  }
+
+  .widget-large,
+  .widget-small {
+    padding: 24px 32px 32px 32px;
+  }
+
   .create-review__title {
     font-size: 20px;
   }
@@ -12622,6 +12739,15 @@ body .fslightbox-slash {
 
   .personal-pagereview__title {
     font-size: 28px;
+  }
+
+  .widget-large__title,
+  .widget-small__title {
+    font-size: 28px;
+  }
+
+  .widget-small__content {
+    font-size: 18px;
   }
 
   .qi-review span {
@@ -13616,6 +13742,24 @@ body .fslightbox-slash {
 
   .personal-block__group {
     margin-bottom: -8px;
+  }
+
+  .widget-large__top {
+    display: flex;
+    padding-bottom: 30px;
+  }
+
+  .widget-large__metrics,
+  .widget-large__data {
+    width: 50%;
+  }
+
+  .widget-large__metrics ul {
+    margin: -12px -6px;
+  }
+
+  .widget-large__link {
+    padding-bottom: 0;
   }
 
   .hide--desctop {

@@ -190,126 +190,517 @@
                   </div>
                 </div>
                 <ul>
-                  <li><span class="bgimage lazyload" data-bg="/img/common/ic_home.svg"></span><a href="/personal/">Главная</a>
+                  <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_home.svg"></span><a href="/personal/">Главная</a>
                   </li>
-                  <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="/personal/review.html">Отзывы</a>
+                  <li><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="/personal/review.html">Отзывы</a>
                   </li>
                   <li><span class="bgimage lazyload" data-bg="/img/common/ic_config.svg"></span><a href="/personal/config.html">Настройки</a>
                   </li>
                 </ul>
               </div>
               <div class="personal-panel__content">
-                <div class="personal-config">
-                  <div class="personal-config__wrp">
-                    <form action="#" method="POST" data-form="personal-config">
-                      <div class="personal-config__row">
-                        <div class="personal-config__col">
-                          <div class="personal-block">
-                            <div class="personal-block__logo">
-                              <div class="personal-upload-logo">
-                                <div class="personal-upload-logo__image"><span class="bgimage lazyload" data-bg="/img/common/no-photo-user.svg"></span>
-                                </div>
-                                <div class="personal-upload-logo__action">
-                                  <div class="personal-upload-logo__button">
-                                    <label>
-                                      <input type="file" name="logo" data-upload="logo-store"/><span class="btn btn-small">Добавить аватар</span>
-                                    </label>
-                                    <button class="btn btn-white btn-small" type="button">Удалить</button>
-                                  </div>
-                                  <div class="personal-upload-logo__note">Загрузите jpg или png файл размером не более 5 MB</div>
-                                </div>
+                <div class="personal-review">
+                  <div class="personal-review__tabs">
+                    <ul data-tab-nav="product">
+                      <li class="active"><a href="#products">Отзывы о товарах</a></li>
+                      <li><a href="#stores">Отзывы о магазинах</a></li>
+                    </ul>
+                  </div>
+                  <div class="personal-review__content" data-tab-container="product">
+                    <div class="personal-review__item active" data-tab="products">
+                      <div class="personal-pagereview">
+                        <div class="personal-pagereview__title">Отзывы о товарах (27)</div>
+                        <div class="personal-pagereview__list">
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
                               </div>
-                            </div>
-                            <div class="personal-block__title"> Личные данные</div>
-                            <div class="personal-block__group">
-                              <div class="form">
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Ваше имя</label>
-                                    <input type="text" placeholder="Ваше имя"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Ваша фамилия</label>
-                                    <input type="text" placeholder="Ваша фамилия"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Город</label>
-                                    <div class="input--suggest">
-                                      <input type="text" data-suggest="input" placeholder="Укажите город" data-url="/json/country.json"/>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__comment" data-review="show-comment"><span>Все комментарии (1)</span></div>
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Почта (логин)</label>
-                                    <input type="text" placeholder="Email" disabled="disabled"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Текущий пароль</label>
-                                    <input type="password" placeholder="Введите текущий пароль"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Новый пароль</label>
-                                    <input type="password" placeholder="Введите новый пароль"/>
-                                  </div>
-                                </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Повтор нового пароля</label>
-                                    <input type="password" placeholder="Введите новый пароль ещё раз"/>
+                                <div class="review-product__childs">
+                                  <div class="card-review card-review-shop">
+                                    <div class="card-review__photo">
+                                      <picture>
+                                        <source srcset="/img/common/shop-user.webp" type="image/webp"/><img src="/img/common/shop-user.jpg" loading="lazy" alt="image"/>
+                                      </picture>
+                                    </div>
+                                    <div class="card-review__main">
+                                      <div class="card-review__head">
+                                        <div class="card-review__name">Магазин Shop Local</div>
+                                        <div class="card-review__date">2 месяца назад, Москва</div>
+                                      </div>
+                                      <div class="card-review__text">Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.</div>
+                                      <div class="card-review__action">
+                                        <div class="card-review__add card-review__add-shop" data-review="reply" data-id="123" data-parent="369">
+                                          <svg width="20" height="20">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                          </svg><span>Ответить</span>
+                                        </div>
+                                        <div class="card-review__button">
+                                          <div class="card-review__complaint"><a href="#" data-tooltip="Пожаловаться">
+                                              <svg width="20" height="20">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                              </svg></a></div>
+                                        </div>
+                                      </div>
+                                      <div class="card-review__form hide">
+                                        <form>
+                                          <div class="review-form">
+                                            <div class="review-form__textarea">
+                                              <textarea name="comment" placeholder="Введите..."></textarea>
+                                            </div>
+                                            <div class="review-form__send">
+                                              <button class="btn btn-small" type="submit">Отправить</button>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div class="personal-block__title personal-block__title--notification"> Уведомления</div>
-                            <div class="personal-block__group">
-                              <div class="form">
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <label>Получать на адрес</label>
-                                    <input type="email" placeholder="Email адрес"/>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--red"><span>2</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="form__item">
-                                  <div class="form__subitem">
-                                    <ul class="checkbox-list">
-                                      <li>
-                                        <label class="checkbox">
-                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Ответы магазинов на мои отзывы</span>
-                                        </label>
-                                      </li>
-                                      <li>
-                                        <label class="checkbox">
-                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Рассылки о скидках и акциях</span>
-                                        </label>
-                                      </li>
-                                      <li>
-                                        <label class="checkbox">
-                                          <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Уведомления о товарах в избранном и сравнении</span>
-                                        </label>
-                                      </li>
-                                    </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--orange"><span>4</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--blue"><span>3</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--red"><span>1</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="personal-config__submit">
-                        <div class="personal-config__col">
-                          <button class="btn" disabled="" type="submit">Сохранить изменения</button>
+                        <div class="catalog-pagination">
+                          <div class="catalog-pagination__more">
+                            <button>
+                              <svg width="14" height="14">
+                                <use xlink:href="/img/sprites/sprite.svg#ic_more"></use>
+                              </svg><span>Показать ещё</span>
+                            </button>
+                          </div>
+                          <div class="catalog-pagination__page">
+                            <div class="pagination">
+                              <div class="pagination__page">
+                                <ul>
+                                  <li class="prev"><a href="#2">
+                                      <svg width="10" height="10">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_prev-pagination"></use>
+                                      </svg><span>Назад </span></a></li>
+                                  <li><a href="#1">1</a></li>
+                                  <li class="active"><a href="#2">2</a></li>
+                                  <li><a href="#3">3</a></li>
+                                  <li><a href="#4">...</a></li>
+                                  <li><a href="#10">10</a></li>
+                                  <li class="next"><a href="#2"><span>Вперед </span>
+                                      <svg width="10" height="10">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_next-pagination"></use>
+                                      </svg></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </form>
+                    </div>
+                    <div class="personal-review__item" data-tab="stores">
+                      <div class="personal-pagereview">
+                        <div class="personal-pagereview__title">Отзывы о магазинах (12)</div>
+                        <div class="personal-pagereview__list">
+                          <div class="personal-pagereview__item">
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-shop.html">Магазин Shop Local</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__comment" data-review="show-comment"><span>Все комментарии (1)</span></div>
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="review-product__childs">
+                                  <div class="card-review card-review-shop">
+                                    <div class="card-review__photo">
+                                      <picture>
+                                        <source srcset="/img/common/shop-user.webp" type="image/webp"/><img src="/img/common/shop-user.jpg" loading="lazy" alt="image"/>
+                                      </picture>
+                                    </div>
+                                    <div class="card-review__main">
+                                      <div class="card-review__head">
+                                        <div class="card-review__name">Магазин Shop Local</div>
+                                        <div class="card-review__date">2 месяца назад, Москва</div>
+                                      </div>
+                                      <div class="card-review__text">Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.</div>
+                                      <div class="card-review__action">
+                                        <div class="card-review__add card-review__add-shop" data-review="reply" data-id="123" data-parent="369">
+                                          <svg width="20" height="20">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
+                                          </svg><span>Ответить</span>
+                                        </div>
+                                        <div class="card-review__button">
+                                          <div class="card-review__complaint"><a href="#" data-tooltip="Пожаловаться">
+                                              <svg width="20" height="20">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
+                                              </svg></a></div>
+                                        </div>
+                                      </div>
+                                      <div class="card-review__form hide">
+                                        <form>
+                                          <div class="review-form">
+                                            <div class="review-form__textarea">
+                                              <textarea name="comment" placeholder="Введите..."></textarea>
+                                            </div>
+                                            <div class="review-form__send">
+                                              <button class="btn btn-small" type="submit">Отправить</button>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-shop.html">Магазин Shop Local</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--red"><span>2</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-shop.html">Магазин Shop Local</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--orange"><span>4</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-shop.html">Магазин Shop Local</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--blue"><span>3</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-shop.html">Магазин Shop Local</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--red"><span>1</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-shop.html">Магазин Shop Local</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="personal-pagereview__item">
+                            <div class="review-product review-product--shop">
+                              <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/shop-local-square.jpg"></span>
+                              </div>
+                              <div class="review-product__main">
+                                <div class="review-product__product"><a href="/single-shop.html">Магазин Shop Local</a></div>
+                                <div class="review-product__date">2 месяца назад</div>
+                                <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
+                                <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
+                                <div class="review-product__action">
+                                  <div class="review-product__button">
+                                    <div class="review-product__complaint">
+                                      <svg width="20" height="20">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="catalog-pagination">
+                          <div class="catalog-pagination__more">
+                            <button>
+                              <svg width="14" height="14">
+                                <use xlink:href="/img/sprites/sprite.svg#ic_more"></use>
+                              </svg><span>Показать ещё</span>
+                            </button>
+                          </div>
+                          <div class="catalog-pagination__page">
+                            <div class="pagination">
+                              <div class="pagination__page">
+                                <ul>
+                                  <li class="prev"><a href="#2">
+                                      <svg width="10" height="10">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_prev-pagination"></use>
+                                      </svg><span>Назад </span></a></li>
+                                  <li><a href="#1">1</a></li>
+                                  <li class="active"><a href="#2">2</a></li>
+                                  <li><a href="#3">3</a></li>
+                                  <li><a href="#4">...</a></li>
+                                  <li><a href="#10">10</a></li>
+                                  <li class="next"><a href="#2"><span>Вперед </span>
+                                      <svg width="10" height="10">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_next-pagination"></use>
+                                      </svg></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

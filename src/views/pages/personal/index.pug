@@ -1,21 +1,13 @@
 extends ../../layouts/personal
 
 include ../../../blocks/modules/personal/personal-aside/personal-aside.pug
-include ../../../blocks/modules/personal/personal-review/personal-review.pug
+include ../../../blocks/modules/personal/personal-home/personal-home.pug
  
 block variables
   include ../../../data/data.pug
-  - const title = "Vako - Панель управления магазином"
+  - const title = "Vako - Личный кабинет"
 
 block aside
   +personal-aside(0)
 block content
-  .personal-review
-    .personal-review__tabs
-      ul(data-tab-nav="product")
-            li.active: a(href='#products') Отзывы о товарах
-            li: a(href='#stores') Отзывы о магазинах
-
-    .personal-review__content(data-tab-container="product")
-      .personal-review__item.active(data-tab="products"): +personal-review-product()
-      .personal-review__item(data-tab="stores"): +personal-review-store()
+  +personal-home
