@@ -1,0 +1,13 @@
+extends ../../layouts/personal
+
+include ../../../blocks/modules/personal/personal-aside/personal-aside.pug
+include ../../../blocks/modules/personal/personal-home/personal-home.pug
+ 
+block variables
+  include ../../../data/data.pug
+  - const title = "Vako - Личный кабинет"
+
+block aside
+  +personal-aside(0)
+block content
+  +personal-home--empty

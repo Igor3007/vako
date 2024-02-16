@@ -5,7 +5,7 @@ mixin widget__sm(data)
         .widget-small__title= data.title
         .widget-small__content= data.content
         .widget-small__link
-            a(href=data.link) Смотреть все
+            a(href=data.link)= data.text
 
 mixin widget__lg(data)
     .widget-large
@@ -35,6 +35,20 @@ mixin widget__lg(data)
                             child: true
                         })
 
+mixin widget__lg--empty(data)
+    .widget-large
+        .widget-large__top
+            .widget-large__data
+                .widget-large__title Мои отзывы
+                .widget-large__link: a(href='/personal/review.html') Перейти к отзывам
+           
+        .widget-large__content
+            .widget-large__lastcomment
+                .last-comment
+                    .last-comment__title У вас ещё нет оставленных отзывов.
+                    .last-comment__desc Если хотите поделиться своим опытом об использовании какого-либо товара или о магазине, то можно зайти в его карточку на сайте, выбрать вкладку «Отзывы» и нажать кнопку «Оставить отзыв».
+                        
+
 mixin personal-home
     .personal-home
         .personal-home__list
@@ -42,17 +56,40 @@ mixin personal-home
                 +widget__sm({
                     title: 'Избранное',
                     content: 'В Избранном 12 товаров.',
-                    link: 'wishlist.html'
+                    link: 'wishlist.html',
+                    text: 'Смотреть все'
                 })
             .personal-home__item.personal-home__item--col2 
                 +widget__sm({
                     title: 'Сравнение',
                     content: 'В Сравнении 7 товаров.',
-                    link: 'compare.html'
+                    link: 'compare.html',
+                    text: 'Смотреть все'
                 })
             .personal-home__item 
                 +widget__lg({
                     title: 'Сравнение',
                     content: 'В Сравнении 7 товаров.',
-                    link: 'compare.html'
+                    link: 'compare.html' 
                 })
+
+
+mixin personal-home--empty
+    .personal-home
+        .personal-home__list
+            .personal-home__item.personal-home__item--col2 
+                +widget__sm({
+                    title: 'Избранное',
+                    content: 'В Избранном нет товаров.',
+                    link: 'wishlist.html',
+                    text: 'Перейти в каталог для добавления'
+                })
+            .personal-home__item.personal-home__item--col2 
+                +widget__sm({
+                    title: 'Сравнение',
+                    content: 'В Сравнении нет товаров.',
+                    link: 'compare.html',
+                    text: 'Перейти в каталог для добавления'
+                })
+            .personal-home__item 
+                +widget__lg--empty()

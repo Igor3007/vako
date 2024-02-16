@@ -10852,20 +10852,17 @@ div[data-state="1"] {
 .personal-home__list {
   display: flex;
   flex-wrap: wrap;
-  margin: -6px;
+  margin: -8px;
 }
 
 .personal-home__item {
-  padding: 6px;
-}
-
-.personal-home__item--col2 {
-  width: 50%;
+  width: 100%;
+  padding: 8px;
 }
 
 .widget-large,
 .widget-small {
-  padding: 12px 16px 16px 16px;
+  padding: 16px 16px 16px 16px;
   background-color: #f5f5f5;
   border-radius: 6px;
   transition: background 0.3s ease;
@@ -10909,7 +10906,7 @@ div[data-state="1"] {
 }
 
 .widget-large__top {
-  padding-bottom: 22px;
+  padding-bottom: 0px;
 }
 
 .widget-large__metrics ul {
@@ -10945,12 +10942,17 @@ div[data-state="1"] {
 .last-comment__title {
   font-weight: 800;
   padding-bottom: 22px;
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 155%;
 }
 
 .last-comment .review-product__complaint,
 .last-comment .card-review__complaint {
   display: none;
+}
+
+.last-comment__desc {
+  line-height: 160%;
 }
 
 /* common styles */
@@ -11839,6 +11841,12 @@ body .fslightbox-slash {
   visibility: hidden;
 }
 
+@media screen and (min-width: 375.98px) {
+  .personal-home__item--col2 {
+    width: 50%;
+  }
+}
+
 @media screen and (min-width: 400px) {
   .section-page-help {
     padding: 22px 0 60px 0;
@@ -12014,6 +12022,10 @@ body .fslightbox-slash {
 
   .personal-upload-logo__action {
     width: calc(100% - 105px);
+  }
+
+  .widget-large__top {
+    padding-bottom: 22px;
   }
 
   .create-review {
@@ -12748,6 +12760,10 @@ body .fslightbox-slash {
 
   .widget-small__content {
     font-size: 18px;
+  }
+
+  .last-comment__title {
+    font-size: 20px;
   }
 
   .qi-review span {
