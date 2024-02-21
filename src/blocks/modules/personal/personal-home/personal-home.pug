@@ -55,23 +55,19 @@ mixin personal-home
             .personal-home__item.personal-home__item--col2 
                 +widget__sm({
                     title: 'Избранное',
-                    content: 'В Избранном 12 товаров.',
+                    content: 'в избранном 12 товаров.',
                     link: 'wishlist.html',
                     text: 'Смотреть все'
                 })
             .personal-home__item.personal-home__item--col2 
                 +widget__sm({
                     title: 'Сравнение',
-                    content: 'В Сравнении 7 товаров.',
+                    content: 'в сравнении 7 товаров.',
                     link: 'compare.html',
                     text: 'Смотреть все'
                 })
             .personal-home__item 
-                +widget__lg({
-                    title: 'Сравнение',
-                    content: 'В Сравнении 7 товаров.',
-                    link: 'compare.html' 
-                })
+                +widget__lg()
 
 
 mixin personal-home--empty
@@ -82,14 +78,14 @@ mixin personal-home--empty
                     title: 'Избранное',
                     content: 'В Избранном нет товаров.',
                     link: 'wishlist.html',
-                    text: 'Перейти в каталог для добавления'
+                    text: 'Перейти в каталог'
                 })
             .personal-home__item.personal-home__item--col2 
                 +widget__sm({
                     title: 'Сравнение',
                     content: 'В Сравнении нет товаров.',
                     link: 'compare.html',
-                    text: 'Перейти в каталог для добавления'
+                    text: 'Перейти в каталог'
                 })
             .personal-home__item 
                 +widget__lg--empty()

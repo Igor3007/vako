@@ -1,0 +1,22 @@
+extends ../layouts/home
+
+include ../../blocks/modules/search-index/search-index.pug
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Vako"
+ 
+
+block content 
+
+
+ +search-index()
+ +catalog-popup()
+
+
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js") 
+  
+
+ 

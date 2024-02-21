@@ -3896,6 +3896,30 @@ input:focus {
   border-color: #fff;
 }
 
+.header.header-white .header-bottom a {
+  color: #8f8f8f;
+}
+
+.header.header-white .header-bottom a:hover {
+  color: #7B61FF;
+}
+
+.header.header-white .header-location__icon svg {
+  fill: #222;
+}
+
+.header.header-white .header-location__name {
+  color: #222;
+}
+
+.header.header-white .header-location:hover .header-location__name {
+  color: #DF1F26;
+}
+
+.header.header-white .header-location:hover .header-location__icon svg {
+  fill: #DF1F26;
+}
+
 .footer {
   padding: 24px 0;
   background-color: #222222;
@@ -10875,6 +10899,7 @@ div[data-state="1"] {
 
 .widget-large__title,
 .widget-small__title {
+  padding-bottom: 14px;
   font-weight: 900;
   font-size: 20px;
   line-height: 121%;
@@ -10953,6 +10978,39 @@ div[data-state="1"] {
 
 .last-comment__desc {
   line-height: 160%;
+  font-size: 15px;
+}
+
+.last-comment .card-review-shop {
+  border-left: 2px solid #7B61FF;
+  background-color: #ebebeb;
+}
+
+.section-banner-slider {
+  padding: 30px 0;
+}
+
+.banner-slider .splide__slide picture {
+  position: relative;
+  display: block;
+  padding-top: 44%;
+}
+
+.banner-slider .splide__slide picture img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.banner-slider .splide:not(.is-iniit) .splide__slide {
+  display: none;
+}
+
+.banner-slider .splide:not(.is-iniit) .splide__slide:first-child {
+  display: block;
 }
 
 /* common styles */
@@ -12283,6 +12341,10 @@ body .fslightbox-slash {
     padding: 24px 32px 32px 32px;
   }
 
+  .banner-slider .splide__slide picture {
+    padding-top: 20%;
+  }
+
   .create-review__title {
     font-size: 20px;
   }
@@ -12755,11 +12817,7 @@ body .fslightbox-slash {
 
   .widget-large__title,
   .widget-small__title {
-    font-size: 28px;
-  }
-
-  .widget-small__content {
-    font-size: 18px;
+    font-size: 26px;
   }
 
   .last-comment__title {

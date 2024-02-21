@@ -3990,5 +3990,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /*======================================
+     banner slider
+    ======================================*/
+
+    if (document.querySelector('[data-slider="main-banner"]')) {
+        const items = document.querySelectorAll('[data-slider="main-banner"]')
+
+        items.forEach(item => {
+            const sliderBanner = new Splide(item, {
+                perPage: 1,
+                arrows: false
+            })
+
+            sliderBanner.mount()
+        })
+
+    }
+
 
 });

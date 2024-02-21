@@ -1,0 +1,14 @@
+mixin banner-slider
+    section.section-banner-slider
+        .container
+            .banner-slider
+                .splide(data-slider="main-banner")
+                    .splide__track
+                        .splide__list
+                            .splide__slide
+                                a(href='/catalog.html')
+                                    picture 
+                                        source(srcset="/img/other/Banner.webp" type="image/webp" media="(min-width: 576px)")
+                                        source(srcset="/img/other/Banner.jpg" type="image/jpeg" media="(min-width: 576px)")
+                                        source(srcset="/img/other/Banner_760.jpg" type="image/webp" )
+                                        img(src="/img/other/Banner_760.jpg" alt="vako banner")

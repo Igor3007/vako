@@ -39,6 +39,42 @@
 
     }
 
+    & .header-bottom {
+        & a {
+            color: $gray-56;
+
+            &:hover {
+                color: $accent-2-1;
+            }
+        }
+    }
+
+    & .header-location {
 
 
+
+        &__icon {
+            & svg {
+                fill: #222;
+            }
+        }
+
+        &__name {
+            color: #222;
+        }
+
+        &:hover {
+            & .header-location {
+                &__name {
+                    color: $accent-1-1;
+                }
+
+                &__icon {
+                    & svg {
+                        fill: $accent-1-1;
+                    }
+                }
+            }
+        }
+    }
 }

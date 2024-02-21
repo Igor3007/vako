@@ -1,6 +1,11 @@
 extends layouts/home
 
 include ../blocks/modules/search-index/search-index.pug
+include ../blocks/modules/banner-slider/banner-slider.pug
+include ../blocks/modules/top-categories/top-categories.pug
+include ../blocks/modules/top-article/top-article.pug
+
+
  
 block variables
   include ../data/data.pug
@@ -9,8 +14,10 @@ block variables
 
 block content 
 
+ +banner-slider
+ +top-categories
+ +top-article
 
- +search-index()
  +catalog-popup()
 
 

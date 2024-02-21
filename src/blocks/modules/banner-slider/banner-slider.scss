@@ -1,0 +1,30 @@
+.section-banner-slider {
+    padding: 30px 0;
+}
+
+.banner-slider {
+    & .splide {
+        &__slide {
+            & picture {
+                @include picture(44%, contain);
+
+                @media screen and (min-width: $w576) {
+                    padding-top: 20%;
+                }
+            }
+        }
+
+        &:not(.is-iniit) {
+            & .splide {
+                &__slide {
+                    display: none;
+
+                    &:first-child {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+    }
+}

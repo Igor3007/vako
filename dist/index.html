@@ -33,350 +33,441 @@
   </head>
   <body class="perf-no-animation">
     <header> 
-      <div class="header-home">
+      <div class="header header-white">
         <div class="container">
-          <div class="header-min">
-            <div class="header-min__main">
-              <div class="header-min__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo-dark.svg')"></span></a></div>
-              <div class="header-min__actions">
-                <div class="header-min__fav">
-                        <div class="tooltip-icon">
-                          <div class="tooltip-icon__elem"><a href="/wishlist.html">
-                              <svg width="24" height="24">
-                                <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                              </svg><span class="tooltip-icon__count" data-total="wishlist"></span></a></div>
-                          <div class="tooltip-icon__text"><span> Добавьте товары в избранное </span></div>
+          <div class="header-top">
+            <div class="header-top__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo-dark.svg')"></span></a></div>
+            <div class="header-top__find">
+              <div class="search-index" data-index-find="container">
+                <div class="search-index__find">
+                  <form action="#" method="POST">
+                    <div class="search-index__form" data-index-find="form">
+                      <div class="search-index__catalog">
+                        <button class="btn btn-catalog" type="button"><span class="icon-catalog"><i></i><i></i><i></i><i></i></span>Каталог</button>
+                      </div>
+                      <div class="search-index__field">
+                        <div class="search-index__input">
+                          <input type="text" placeholder="Искать на Vako" data-index-find="input">
                         </div>
-                </div>
-                <div class="header-min__compare">
-                        <div class="tooltip-icon">
-                          <div class="tooltip-icon__elem"><a href="/compare.html">
-                              <svg width="24" height="24">
-                                <use xlink:href="/img/sprites/sprite.svg#ic_compare-header"></use>
-                              </svg><span class="tooltip-icon__count" data-total="compare"></span></a></div>
-                          <div class="tooltip-icon__text"><span> Добавьте товары в сравнение </span></div>
+                        <div class="search-index__btn">
+                          <button class="btn">Найти</button>
                         </div>
-                </div>
-                <div class="header-min__login" data-popup="user-menu">
-                        <div class="dropdown-icon" data-popup="user-menu">
-                          <div class="dropdown-icon__elem"><a>
-                              <svg width="24" height="24">
-                                <use xlink:href="/img/sprites/sprite.svg#ic_login"></use>
-                              </svg></a></div>
-                          <div class="dropdown-icon__list">
-                            <div class="dropdown-button"><a href="#" data-popup="login">
-                                <button class="btn btn-gray">Войти</button></a><a href="#" data-popup="registration">
-                                <button class="btn btn-gray">Зарегистрироваться</button></a><a href="/store/">
-                                <button class="btn btn-white">Вход для магазинов</button></a></div>
-                          </div>
+                        <div class="search-index__suggest" data-index-find="suggest">
+                                <div class="find-suggest">
+                                  <div class="find-suggest__list">
+                                    <ul>
+                                      <li><a href="#">клавиатура</a></li>
+                                      <li><a href="#">клавиатура с подсветкой</a></li>
+                                      <li><a href="#">клавиатура беспроводная</a></li>
+                                      <li><a href="#">клавиатура и мышь</a></li>
+                                    </ul>
+                                  </div>
+                                  <div class="find-suggest__category">
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="find-suggest__products">
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                          <div class="item-sugest">
+                                            <div class="item-sugest__image">
+                                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                            </div>
+                                            <div class="item-sugest__main">
+                                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                              <div class="item-sugest__desc">Компьютеры</div>
+                                            </div>
+                                          </div>
+                                  </div>
+                                </div>
                         </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="header-location">
-            <div class="header-location__wrp">
-              <div class="header-location__icon">
-                <svg width="25" height="25">
-                  <use xlink:href="/img/sprites/sprite.svg#ic_pin"></use>
-                </svg>
+            <div class="header-top__actions">
+              <div class="header-top__fav">
+                      <div class="tooltip-icon">
+                        <div class="tooltip-icon__elem"><a href="/wishlist.html">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                            </svg><span class="tooltip-icon__count" data-total="wishlist"></span></a></div>
+                        <div class="tooltip-icon__text"><span> Добавьте товары в избранное </span></div>
+                      </div>
               </div>
-              <div class="header-location__name" data-popup="region">Кременчуг-Константиновское  </div>
+              <div class="header-top__compare">
+                      <div class="tooltip-icon">
+                        <div class="tooltip-icon__elem"><a href="/compare.html">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_compare-header"></use>
+                            </svg><span class="tooltip-icon__count" data-total="compare"></span></a></div>
+                        <div class="tooltip-icon__text"><span> Добавьте товары в сравнение </span></div>
+                      </div>
+              </div>
+              <div class="header-top__login">
+                      <div class="dropdown-icon" data-popup="user-menu">
+                        <div class="dropdown-icon__elem"><a>
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_login"></use>
+                            </svg></a></div>
+                        <div class="dropdown-icon__list">
+                          <div class="dropdown-button"><a href="#" data-popup="login">
+                              <button class="btn btn-gray">Войти</button></a><a href="#" data-popup="registration">
+                              <button class="btn btn-gray">Зарегистрироваться</button></a><a href="/store/">
+                              <button class="btn btn-white">Вход для магазинов</button></a></div>
+                        </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-bottom">
+            <div class="header-bottom__location">
+              <div class="header-location">
+                <div class="header-location__wrp">
+                  <div class="header-location__icon">
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_pin"></use>
+                    </svg>
+                  </div>
+                  <div class="header-location__name" data-popup="region">Кременчуг-Константиновское </div>
+                </div>
+              </div>
+            </div>
+            <div class="header-bottom__menu">
+              <nav>
+                <ul>
+                  <li><a href="/category.html">Электроника</a></li>
+                  <li><a href="/category.html">Бытовая техника</a></li>
+                  <li><a href="/category.html">Авто</a></li>
+                  <li><a href="/category.html">Компьютеры</a></li>
+                  <li><a href="/category.html">Спорт и отдых</a></li>
+                  <li><a href="/category.html">Товары для дома</a></li>
+                  <li><a href="/category.html">Детские товары</a></li>
+                  <li><a href="/category.html">Дача и сад </a></li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
       </div>
     </header>
     <main> 
-      <section class="section-search-index">
+      <section class="section-banner-slider">
         <div class="container">
-          <div class="search-index" data-index-find="container">
-            <div class="search-index__find">
-              <form action="#" method="POST">
-                <div class="search-index__form" data-index-find="form">
-                  <div class="search-index__catalog">
-                    <button class="btn btn-catalog" type="button"><span class="icon-catalog"><i></i><i></i><i></i><i></i></span>Каталог</button>
-                  </div>
-                  <div class="search-index__field">
-                    <div class="search-index__input">
-                      <input type="text" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Искать на Vako" data-index-find="input"/>
-                    </div>
-                    <div class="search-index__btn">
-                      <button class="btn">Найти</button>
-                    </div>
-                    <div class="search-index__suggest" data-index-find="suggest">
-                      <div class="find-suggest">
-                        <div class="find-suggest__list">
-                          <ul>
-                            <li><a href="#">клавиатура</a></li>
-                            <li><a href="#">клавиатура с подсветкой</a></li>
-                            <li><a href="#">клавиатура беспроводная</a></li>
-                            <li><a href="#">клавиатура и мышь</a></li>
-                          </ul>
-                        </div>
-                        <div class="find-suggest__category">
-                          <div class="item-sugest">
-                            <div class="item-sugest__image">
-                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""/></picture>
-                            </div>
-                            <div class="item-sugest__main">
-                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
-                              <div class="item-sugest__desc">Компьютеры</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="find-suggest__products">
-                          <div class="item-sugest">
-                            <div class="item-sugest__image">
-                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""/></picture>
-                            </div>
-                            <div class="item-sugest__main">
-                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
-                              <div class="item-sugest__desc">Компьютеры</div>
-                            </div>
-                          </div>
-                          <div class="item-sugest">
-                            <div class="item-sugest__image">
-                              <picture><img src="/img/product/catalog-icon/01.svg" alt=""/></picture>
-                            </div>
-                            <div class="item-sugest__main">
-                              <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
-                              <div class="item-sugest__desc">Компьютеры</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="banner-slider">
+            <div class="splide" data-slider="main-banner">
+              <div class="splide__track">
+                <div class="splide__list">
+                  <div class="splide__slide"><a href="/catalog.html">
+                      <picture> 
+                        <source srcset="/img/other/Banner.webp" type="image/webp" media="(min-width: 576px)"/>
+                        <source srcset="/img/other/Banner.jpg" type="image/jpeg" media="(min-width: 576px)"/>
+                        <source srcset="/img/other/Banner_760.jpg" type="image/webp"/><img src="/img/other/Banner_760.jpg" alt="vako banner"/>
+                      </picture></a></div>
                 </div>
-              </form>
-            </div>
-            <div class="search-index__banner">
-              <div class="image-banner"> 
-                <div class="image-banner__image"><a href="#banner">
-                    <picture> 
-                      <source srcset="/img/other/Banner.webp" type="image/webp" media="(min-width: 576px)"/>
-                      <source srcset="/img/other/Banner.jpg" type="image/jpeg" media="(min-width: 576px)"/>
-                      <source srcset="/img/other/Banner_760.jpg" type="image/webp"/><img src="/img/other/Banner_760.jpg" alt="Image"/>
-                    </picture></a></div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <div class="catalog-popup">
-        <div class="catalog-popup__wrp">
-          <div class="catalog-popup__content">
-            <div class="catalog-popup__close" data-catalog-popup="close"><span class="icon-cross"></span></div>
-            <div class="catalog-popup__aside">
-              <div class="catalog-popup__title">Каталог товаров</div>
-              <div class="catalog-popup__nav">
-                <nav>
-                  <ul>
-                    <li class="isset-sub"><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/01.svg)"></span><a href="category.html">Электроника</a>
-                      <ul class="sub-menu">
-                        <li class="isset-sub"><a href="category.html">Наушники</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Настольные ПК и моноблоки</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Комплектующие для ПК</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Мониторы и аксессуары</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Гейминг</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Периферийные устройства</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Оргтехника и расходные материалы</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Сетевое оборудование</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Накопители данных</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/02.svg)"></span><a href="category.html">Бытовая техника</a>
-                    </li>
-                    <li><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/03.svg)"></span><a href="category.html">Авто</a>
-                    </li>
-                    <li class="isset-sub"><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/04.svg)"></span><a href="category.html">Компьютеры</a>
-                      <ul class="sub-menu">
-                        <li class="isset-sub"><a href="category.html">Ноутбуки и планшеты</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Настольные ПК и моноблоки</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Комплектующие для ПК</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Мониторы и аксессуары</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Гейминг</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Периферийные устройства</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Оргтехника и расходные материалы</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Сетевое оборудование</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                        <li class="isset-sub"><a href="category.html">Накопители данных</a>
-                          <ul class="sub-menu">
-                            <li><a href="category.html">Ноутбуки</a></li>
-                            <li><a href="category.html">Аксессуары для ноутбуков</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                            <li><a href="category.html">Аксессуары для планшетов</a></li>
-                            <li><a href="category.html">Графические планшеты</a></li>
-                            <li><a href="category.html">Планшеты</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </nav>
+      <section class="section-top-categories">
+        <div class="container">
+          <div class="top-categories">
+            <div class="top-categories__title">Популярные категории</div>
+            <div class="top-categories__list">
+              <div class="top-categories__item">
+                <div class="card-topcategory">
+                  <div class="card-topcategory__name"></div>
+                  <div class="card-topcategory__image">
+                    <picture>
+                      <source srcset="undefined.webp" type="image/webp"/><img src="undefined.jpg" loading="lazy" alt="image"/>
+                    </picture>
+                  </div>
+                  <div class="card-topcategory__link"><a href="#"> </a></div>
+                </div>
+              </div>
+              <div class="top-categories__item">
+                <div class="card-topcategory">
+                  <div class="card-topcategory__name"></div>
+                  <div class="card-topcategory__image">
+                    <picture>
+                      <source srcset="undefined.webp" type="image/webp"/><img src="undefined.jpg" loading="lazy" alt="image"/>
+                    </picture>
+                  </div>
+                  <div class="card-topcategory__link"><a href="#"> </a></div>
+                </div>
+              </div>
+              <div class="top-categories__item">
+                <div class="card-topcategory">
+                  <div class="card-topcategory__name"></div>
+                  <div class="card-topcategory__image">
+                    <picture>
+                      <source srcset="undefined.webp" type="image/webp"/><img src="undefined.jpg" loading="lazy" alt="image"/>
+                    </picture>
+                  </div>
+                  <div class="card-topcategory__link"><a href="#"> </a></div>
+                </div>
+              </div>
+              <div class="top-categories__item">
+                <div class="card-topcategory">
+                  <div class="card-topcategory__name"></div>
+                  <div class="card-topcategory__image">
+                    <picture>
+                      <source srcset="undefined.webp" type="image/webp"/><img src="undefined.jpg" loading="lazy" alt="image"/>
+                    </picture>
+                  </div>
+                  <div class="card-topcategory__link"><a href="#"> </a></div>
+                </div>
+              </div>
+              <div class="top-categories__item">
+                <div class="card-topcategory">
+                  <div class="card-topcategory__name"></div>
+                  <div class="card-topcategory__image">
+                    <picture>
+                      <source srcset="undefined.webp" type="image/webp"/><img src="undefined.jpg" loading="lazy" alt="image"/>
+                    </picture>
+                  </div>
+                  <div class="card-topcategory__link"><a href="#"> </a></div>
+                </div>
               </div>
             </div>
-            <div class="catalog-popup__main"></div>
           </div>
         </div>
-      </div>
+      </section>
+      <section class="section-top-article">
+        <div class="container">
+          <div class="top-article">top-article</div>
+        </div>
+      </section>
+            <div class="catalog-popup">
+              <div class="catalog-popup__wrp">
+                <div class="catalog-popup__content">
+                  <div class="catalog-popup__close" data-catalog-popup="close"><span class="icon-cross"></span></div>
+                  <div class="catalog-popup__aside">
+                    <div class="catalog-popup__title">Каталог товаров</div>
+                    <div class="catalog-popup__nav">
+                      <nav>
+                        <ul>
+                          <li class="isset-sub"><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/01.svg)"></span><a href="category.html">Электроника</a>
+                            <ul class="sub-menu">
+                              <li class="isset-sub"><a href="category.html">Наушники</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Настольные ПК и моноблоки</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Комплектующие для ПК</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Мониторы и аксессуары</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Гейминг</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Периферийные устройства</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Оргтехника и расходные материалы</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Сетевое оборудование</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Накопители данных</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/02.svg)"></span><a href="category.html">Бытовая техника</a>
+                          </li>
+                          <li><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/03.svg)"></span><a href="category.html">Авто</a>
+                          </li>
+                          <li class="isset-sub"><span class="ic-catalog lazyload" style="background-image: url(/img/product/catalog-icon/04.svg)"></span><a href="category.html">Компьютеры</a>
+                            <ul class="sub-menu">
+                              <li class="isset-sub"><a href="category.html">Ноутбуки и планшеты</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Настольные ПК и моноблоки</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Комплектующие для ПК</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Мониторы и аксессуары</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Гейминг</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Периферийные устройства</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Оргтехника и расходные материалы</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Сетевое оборудование</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                              <li class="isset-sub"><a href="category.html">Накопители данных</a>
+                                <ul class="sub-menu">
+                                  <li><a href="category.html">Ноутбуки</a></li>
+                                  <li><a href="category.html">Аксессуары для ноутбуков</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                  <li><a href="category.html">Аксессуары для планшетов</a></li>
+                                  <li><a href="category.html">Графические планшеты</a></li>
+                                  <li><a href="category.html">Планшеты</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="catalog-popup__main"></div>
+                </div>
+              </div>
+            </div>
     </main>
     <footer>
       <div class="container">

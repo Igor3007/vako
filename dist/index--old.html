@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vako - Личный кабинет</title>
+    <title>Vako</title>
     <meta name="theme-color" content="#fff">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="#{title}">
     <meta name="keywords" content="#{title}">
@@ -27,19 +27,16 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
     <link rel="stylesheet" href="https://use.typekit.net/kbc2isn.css">
-    <link rel="preload" href="fonts/lato/subset-Lato-Black.woff2" as="font" crossorigin>
-    <link rel="preload" href="fonts/lato/subset-Lato-Regular.woff2" as="font" crossorigin>
-    <link rel="preload" href="fonts/lato/subset-Lato-Bold.woff2" as="font" crossorigin>
     <link rel="prefetch" href="/img/sprites/sprite.svg" as="image" crossorigin>
     <style></style>
-    <link rel="stylesheet" href="/styles/main.css?v=1.0">
+    <link rel="stylesheet" href="styles/main.css?v=1.0">
   </head>
-  <body>
+  <body class="perf-no-animation">
     <header> 
-      <div class="header">
+      <div class="header header-white">
         <div class="container">
           <div class="header-top">
-            <div class="header-top__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo.svg')"></span></a></div>
+            <div class="header-top__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo-dark.svg')"></span></a></div>
             <div class="header-top__find">
               <div class="search-index" data-index-find="container">
                 <div class="search-index__find">
@@ -127,14 +124,13 @@
                       <div class="dropdown-icon" data-popup="user-menu">
                         <div class="dropdown-icon__elem"><a>
                             <svg width="24" height="24">
-                              <use xlink:href="/img/sprites/sprite.svg#ic_user-login"></use>
+                              <use xlink:href="/img/sprites/sprite.svg#ic_login"></use>
                             </svg></a></div>
                         <div class="dropdown-icon__list">
-                          <div class="dropdown-button"><a href="/personal/">
-                              <button class="btn btn-white">Михаил</button></a><a href="/personal/review.html">
-                              <button class="btn btn-gray">Отзывы</button></a><a href="/personal/config.html">
-                              <button class="btn btn-gray">Настройки</button></a><a href="/#logout">
-                              <button class="btn btn-white">Выход</button></a></div>
+                          <div class="dropdown-button"><a href="#" data-popup="login">
+                              <button class="btn btn-gray">Войти</button></a><a href="#" data-popup="registration">
+                              <button class="btn btn-gray">Зарегистрироваться</button></a><a href="/store/">
+                              <button class="btn btn-white">Вход для магазинов</button></a></div>
                         </div>
                       </div>
               </div>
@@ -171,219 +167,83 @@
         </div>
       </div>
     </header>
-    <main>
-      <div class="container">
-        <div class="personal-page">
-          <div class="personal-page__title">Мой профиль</div>
-          <div class="personal-page__content">
-            <div class="personal-panel">
-              <div class="personal-panel__aside">
-                <div class="user-data">
-                  <div class="user-data__wrp">
-                    <div class="user-data__photo"><span class="bgimage lazyload" data-bg="/img/common/user6.webp"></span>
-                    </div>
-                    <div class="user-data__text">
-                      <div class="user-data__name">Михаил Длиннофамильный</div>
-                      <div class="user-data__email"><a href="mailto:makhail_dlinnofamilniy@gmail.com">makhail_dlinnofamilniy@gmail.com</a></div>
-                      <div class="user-data__reviews">Всего отзывов: 0</div>
-                    </div>
-                  </div>
-                </div>
-                <ul>
-                  <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_home.svg"></span><a href="/personal/">Главная</a>
-                  </li>
-                  <li><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="/personal/review.html">Отзывы</a>
-                  </li>
-                  <li><span class="bgimage lazyload" data-bg="/img/common/ic_config.svg"></span><a href="/personal/config.html">Настройки</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="personal-panel__content">
-                <div class="personal-home">
-                  <div class="personal-home__list">
-                    <div class="personal-home__item personal-home__item--col2"> 
-                      <div class="widget-small">
-                        <div class="widget-small__title">Избранное</div>
-                        <div class="widget-small__content">В Избранном 12 товаров.</div>
-                        <div class="widget-small__link"><a href="wishlist.html">Смотреть все</a></div>
-                      </div>
-                    </div>
-                    <div class="personal-home__item personal-home__item--col2"> 
-                      <div class="widget-small">
-                        <div class="widget-small__title">Сравнение</div>
-                        <div class="widget-small__content">В Сравнении 7 товаров.</div>
-                        <div class="widget-small__link"><a href="compare.html">Смотреть все</a></div>
-                      </div>
-                    </div>
-                    <div class="personal-home__item"> 
-                      <div class="widget-large">
-                        <div class="widget-large__top">
-                          <div class="widget-large__data">
-                            <div class="widget-large__title">Мои отзывы</div>
-                            <div class="widget-large__link"><a href="/personal/review.html">Перейти к отзывам</a></div>
-                          </div>
-                          <div class="widget-large__metrics">
-                            <ul>
-                              <li><strong>39</strong><small>отзывов всего</small></li>
-                              <li><strong>27</strong><small>о товарах</small></li>
-                              <li><strong>12</strong><small>о магазинах</small></li>
-                            </ul>
-                          </div>
+    <main> 
+            <section class="section-search-index">
+              <div class="container">
+                <div class="search-index" data-index-find="container">
+                  <div class="search-index__find">
+                    <form action="#" method="POST">
+                      <div class="search-index__form" data-index-find="form">
+                        <div class="search-index__catalog">
+                          <button class="btn btn-catalog" type="button"><span class="icon-catalog"><i></i><i></i><i></i><i></i></span>Каталог</button>
                         </div>
-                        <div class="widget-large__content">
-                          <div class="widget-large__lastcomment">
-                            <div class="last-comment">
-                              <div class="last-comment__title">Последний опубликованный отзыв</div>
-                              <div class="last-comment__comment">
-                                <div class="review-product">
-                                  <div class="review-product__img"><span class="bgimage lazyload" data-bg="/img/product/minicard-2.jpg"></span>
-                                  </div>
-                                  <div class="review-product__main">
-                                    <div class="review-product__product"><a href="/single-product.html">17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA</a></div>
-                                    <div class="review-product__date">2 месяца назад</div>
-                                    <div class="review-product__rating rating--green"><span>5</span><a href="#">Отлично</a></div>
-                                    <div class="review-product__text">Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.</div>
-                                    <div class="review-product__action">
-                                      <div class="review-product__comment" data-review="show-comment"><span>Все комментарии (1)</span></div>
-                                      <div class="review-product__button">
-                                        <div class="review-product__complaint">
-                                          <svg width="20" height="20">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
-                                          </svg>
-                                        </div>
-                                      </div>
+                        <div class="search-index__field">
+                          <div class="search-index__input">
+                            <input type="text" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Искать на Vako" data-index-find="input">
+                          </div>
+                          <div class="search-index__btn">
+                            <button class="btn">Найти</button>
+                          </div>
+                          <div class="search-index__suggest" data-index-find="suggest">
+                                  <div class="find-suggest">
+                                    <div class="find-suggest__list">
+                                      <ul>
+                                        <li><a href="#">клавиатура</a></li>
+                                        <li><a href="#">клавиатура с подсветкой</a></li>
+                                        <li><a href="#">клавиатура беспроводная</a></li>
+                                        <li><a href="#">клавиатура и мышь</a></li>
+                                      </ul>
                                     </div>
-                                    <div class="review-product__childs">
-                                      <div class="card-review card-review-shop">
-                                        <div class="card-review__photo">
-                                          <picture>
-                                            <source srcset="/img/common/shop-user.webp" type="image/webp"/><img src="/img/common/shop-user.jpg" loading="lazy" alt="image"/>
-                                          </picture>
-                                        </div>
-                                        <div class="card-review__main">
-                                          <div class="card-review__head">
-                                            <div class="card-review__name">Магазин Shop Local</div>
-                                            <div class="card-review__date">2 месяца назад, Москва</div>
-                                          </div>
-                                          <div class="card-review__text">Приветствуем вас! Выражаем признательность в высокой оценке нашей работы. Мы будем рады видеть вас снова.</div>
-                                          <div class="card-review__action">
-                                            <div class="card-review__add card-review__add-shop" data-review="reply" data-id="123" data-parent="369">
-                                              <svg width="20" height="20">
-                                                <use xlink:href="/img/sprites/sprite.svg#ic_comment"></use>
-                                              </svg><span>Ответить</span>
-                                            </div>
-                                            <div class="card-review__button">
-                                              <div class="card-review__complaint"><a href="#" data-tooltip="Пожаловаться">
-                                                  <svg width="20" height="20">
-                                                    <use xlink:href="/img/sprites/sprite.svg#ic_warning"></use>
-                                                  </svg></a></div>
-                                            </div>
-                                          </div>
-                                          <div class="card-review__form hide">
-                                            <form>
-                                              <div class="review-form">
-                                                <div class="review-form__textarea">
-                                                  <textarea name="comment" placeholder="Введите..."></textarea>
-                                                </div>
-                                                <div class="review-form__send">
-                                                  <button class="btn btn-small" type="submit">Отправить</button>
-                                                </div>
+                                    <div class="find-suggest__category">
+                                            <div class="item-sugest">
+                                              <div class="item-sugest__image">
+                                                <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
                                               </div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
+                                              <div class="item-sugest__main">
+                                                <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                                <div class="item-sugest__desc">Компьютеры</div>
+                                              </div>
+                                            </div>
+                                    </div>
+                                    <div class="find-suggest__products">
+                                            <div class="item-sugest">
+                                              <div class="item-sugest__image">
+                                                <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                              </div>
+                                              <div class="item-sugest__main">
+                                                <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                                <div class="item-sugest__desc">Компьютеры</div>
+                                              </div>
+                                            </div>
+                                            <div class="item-sugest">
+                                              <div class="item-sugest__image">
+                                                <picture><img src="/img/product/catalog-icon/01.svg" alt=""></picture>
+                                              </div>
+                                              <div class="item-sugest__main">
+                                                <div class="item-sugest__title"><a href="#">Клавиатуры</a></div>
+                                                <div class="item-sugest__desc">Компьютеры</div>
+                                              </div>
+                                            </div>
                                     </div>
                                   </div>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </form>
+                  </div>
+                  <div class="search-index__banner">
+                          <div class="image-banner"> 
+                            <div class="image-banner__image"><a href="#banner">
+                                <picture> 
+                                  <source srcset="/img/other/Banner.webp" type="image/webp" media="(min-width: 576px)">
+                                  <source srcset="/img/other/Banner.jpg" type="image/jpeg" media="(min-width: 576px)">
+                                  <source srcset="/img/other/Banner_760.jpg" type="image/webp"><img src="/img/other/Banner_760.jpg" alt="Image">
+                                </picture></a></div>
+                          </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <div class="container">
-        <div class="footer">
-          <div class="footer__left">
-            <div class="footer__logo"><a href="/"><span class="bgimage" style="background-image: url('/img/common/logo-footer.svg')"></span></a></div>
-            <div class="footer__desc">Уникальная платформа, где ты можешь видеть и выбирать самые выгодные предложения от всех магазинов!</div>
-            <div class="footer__social">
-              <ul>
-                <li><a href="#">
-                    <svg width="25" height="25">
-                      <use xlink:href="/img/sprites/sprite.svg#ic_vk"></use>
-                    </svg></a></li>
-                <li><a href="#">
-                    <svg width="25" height="25">
-                      <use xlink:href="/img/sprites/sprite.svg#ic_inst"></use>
-                    </svg></a></li>
-                <li><a href="#">
-                    <svg width="25" height="25">
-                      <use xlink:href="/img/sprites/sprite.svg#ic_tg"></use>
-                    </svg></a></li>
-                <li><a href="#">
-                    <svg width="25" height="25">
-                      <use xlink:href="/img/sprites/sprite.svg#ic_fb"></use>
-                    </svg></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer__right">
-            <div class="footer__item"> 
-              <div class="footer__title">Покупателям</div>
-              <div class="footer__list">
-                <ul>
-                  <li><a href="#">Обзоры</a></li>
-                  <li><a href="#">Как выбрать товар</a></li>
-                  <li><a href="#">Права потребителей</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="footer__item"> 
-              <div class="footer__title">Продавцам</div>
-              <div class="footer__list">
-                <ul>
-                  <li><a href="#">Личный кабинет магазина</a></li>
-                  <li><a href="#">Подключение магазина</a></li>
-                  <li><a href="#">Справка для магазинов</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="footer__item"> 
-              <div class="footer__title">Компания Vako</div>
-              <div class="footer__list">
-                <ul>
-                  <li><a href="#">О проекте</a></li>
-                  <li><a href="#">Обратная связь</a></li>
-                  <li><a href="#">Вопрос-ответ</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="container">
-          <div class="footer-min">
-            <div class="footer-min__copyright">© ООО «Vako.Market». Все права защищены</div>
-            <div class="footer-min__links">
-              <ul>
-                <li><a href="#">Политика конфиденциальности</a></li>
-                <li><a href="#">Пользовательское соглашение</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+            </section>
             <div class="catalog-popup">
               <div class="catalog-popup__wrp">
                 <div class="catalog-popup__content">
@@ -597,6 +457,19 @@
                 </div>
               </div>
             </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="footer-min">
+          <div class="footer-min__copyright">© ООО «Vako.Market». Все права защищены</div>
+          <div class="footer-min__links">
+            <ul>
+              <li><a href="#">Политика конфиденциальности</a></li>
+              <li><a href="#">Пользовательское соглашение</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
             <div class="select-region" data-popup="select-region">
               <div class="select-region__wrp">
                 <div class="select-region__icon"><span class="bgimage lazyload" data-bg="/img/common/icon_pin_60.svg"></span>
@@ -645,7 +518,7 @@
               </div>
             </div>
     </footer>
-    <script src="/js/vendor.js"></script>
-    <script src="/js/common.js">   </script>
+    <script src="/js/vendor.js"> </script>
+    <script src="/js/common.js"> </script>
   </body>
 </html>
