@@ -60,6 +60,16 @@
         }
     }
 
+    &.btn-accent {
+        background-color: $accent-2-1;
+        color: #fff;
+
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
     &.btn-full {
         width: 100%;
     }

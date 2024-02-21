@@ -1,10 +1,10 @@
 mixin card-topcategory(data)
     .card-topcategory
-        .card-topcategory__name= data.name
+        .card-topcategory__name: span= data.name
         .card-topcategory__image
-            +picture(data.image)
+            +picturePngLazy(data.img)
         .card-topcategory__link
-            a(href='#') 
+            a(href='/category.html') 
 
 mixin top-categories
     section.section-top-categories
@@ -12,6 +12,6 @@ mixin top-categories
             .top-categories
                 .top-categories__title Популярные категории
                 .top-categories__list
-                    each item in [1,1,1,1,1]
+                    each item in top_categories
                         .top-categories__item: +card-topcategory(item)
 

@@ -7,7 +7,7 @@ html {
     background: #fff;
     color: #000;
     letter-spacing: normal;
-
+    scrollbar-gutter: stable;
     height: -webkit-fill-available;
 
 }
@@ -15,7 +15,7 @@ html {
 html * {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-
+    scrollbar-gutter: stable;
     text-size-adjust: none;
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;

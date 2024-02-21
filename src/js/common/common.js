@@ -3999,6 +3999,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         items.forEach(item => {
             const sliderBanner = new Splide(item, {
+                type: 'fade',
                 perPage: 1,
                 arrows: false
             })

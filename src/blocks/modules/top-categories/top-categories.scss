@@ -1,0 +1,136 @@
+.section-top-categories {
+    padding: 28px 0;
+
+    @media screen and (min-width: $w760) {
+        padding: 12px 0
+    }
+}
+
+.top-categories {
+    &__title {
+        @include font-h2;
+        padding-bottom: 1em;
+    }
+
+    &__list {
+        margin: -4px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        padding: 4px;
+        width: 50%;
+
+        @media screen and (min-width: $w576) {
+            width: 33.33%;
+        }
+
+        @media screen and (min-width: $w760) {
+            width: 25%;
+        }
+
+        @media screen and (min-width: $w992) {
+            width: 20%;
+        }
+
+        @media screen and (min-width: $w1200) {
+            width: 16.6%;
+        }
+
+        @media screen and (min-width: $w1440) {
+            width: 12.5%;
+        }
+    }
+}
+
+.card-topcategory {
+    background-color: $gray-96;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    transition: 0.3s ease;
+
+    &__name {
+        font-size: 16px;
+        line-height: 125%;
+        font-weight: 600;
+        padding: 16px 16px 0 16px;
+        color: $gray-13;
+        transition: 0.3s ease;
+        min-height: 40px;
+
+        & span {
+            @include line-clamp(2);
+        }
+    }
+
+    &__image {
+        overflow: hidden;
+        margin-top: auto;
+
+        & picture {
+
+
+            position: relative;
+            display: block;
+            padding-top: 100%;
+            object-position: bottom right;
+            margin-bottom: -68px;
+            margin-right: -24px;
+            transition: 0.3s ease;
+
+
+
+            @media screen and (min-width: $w992) {
+                padding-top: 85%;
+                margin-bottom: -32px;
+                margin-right: -16px;
+            }
+
+            & img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                transition: 0.3s cubic-bezier(.39, -0.32, 0, 1.02);
+                transform: translateY(0.001px);
+            }
+        }
+
+
+    }
+
+    &__link {
+        & a {
+            @include layer(2);
+        }
+    }
+
+    &:hover {
+
+        background-color: #eee;
+
+        & .card-topcategory {
+            &__name {
+                color: $accent-2-1;
+            }
+
+            &__image {
+                & picture {
+                    & img {
+                        @media screen and (min-width: $w992) {
+                            transform: translateY(-6px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}

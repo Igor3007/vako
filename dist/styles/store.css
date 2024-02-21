@@ -13,12 +13,14 @@ html {
   background: #fff;
   color: #000;
   letter-spacing: normal;
+  scrollbar-gutter: stable;
   height: -webkit-fill-available;
 }
 
 html * {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  scrollbar-gutter: stable;
   text-size-adjust: none;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
@@ -2025,6 +2027,15 @@ select {
   background-color: #ebebeb;
 }
 
+.btn.btn-accent {
+  background-color: #7B61FF;
+  color: #fff;
+}
+
+.btn.btn-accent:hover {
+  opacity: 0.9;
+}
+
 .btn.btn-full {
   width: 100%;
 }
@@ -3502,6 +3513,7 @@ input:focus {
 
 footer {
   background-color: #222;
+  margin-top: 73px;
 }
 
 .footer-min {
@@ -3704,7 +3716,7 @@ footer {
   top: 5px;
   transition: 0.3s ease;
   line-height: 14px;
-  padding: 0 4px;
+  padding: 0 3px 0 4px;
 }
 
 .tooltip-icon:hover .tooltip-icon__text {

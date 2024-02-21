@@ -18,10 +18,21 @@ mixin picture(url)
   picture
     source(srcset=''+url+'.webp' type="image/webp" )
     img(src=''+url+'.jpg' loading='lazy' alt='image')
+
+mixin pictureLazy(url)
+  picture
+    source(srcset=''+url+'.webp' type="image/webp" )
+    img( class="lazyload" data-src=''+url+'.jpg' loading='lazy' alt='image')
+
 mixin picturePng(url)
   picture
     source(srcset=''+url+'.webp' type="image/webp" )
     img(src=''+url+'.png' loading='lazy' alt='image')
+
+mixin picturePngLazy(url)
+  picture
+    source(srcset=''+url+'.webp' type="image/webp" )
+    img( class="lazyload" src=''+url+'.png' loading='lazy' alt='image')
 mixin pictureResp(url)
   picture
 
