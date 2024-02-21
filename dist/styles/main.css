@@ -11131,6 +11131,7 @@ div[data-state="1"] {
 .card-topcategory__image {
   overflow: hidden;
   margin-top: auto;
+  padding-top: 2px;
 }
 
 .card-topcategory__image picture {
@@ -11267,6 +11268,12 @@ div[data-state="1"] {
   color: #fff;
 }
 
+.card-article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .card-article__image {
   padding-bottom: 4px;
 }
@@ -11293,6 +11300,10 @@ div[data-state="1"] {
   transition: 0.4s ease;
   background-color: #f5f5f5;
   color: transparent;
+}
+
+.card-article__image a {
+  display: block;
 }
 
 .card-article__title {
@@ -13908,7 +13919,7 @@ body .fslightbox-slash {
   }
 
   .card-topcategory:hover .card-topcategory__image picture img {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
   }
 
   .section-top-article {

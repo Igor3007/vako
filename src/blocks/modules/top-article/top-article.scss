@@ -146,9 +146,15 @@
 }
 
 .card-article {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
     &__image {
 
         padding-bottom: 4px;
+
 
         @media screen and (min-width: $w576) {
             padding-bottom: 12px;
@@ -158,6 +164,7 @@
             @include picture(53.3%, cover);
             background-color: $gray-96;
             border-radius: 6px;
+
         }
 
         & img {
@@ -165,7 +172,16 @@
             transition: 0.4s ease;
             background-color: $gray-96;
             color: transparent;
+
+
         }
+
+
+        & a {
+            display: block;
+
+        }
+
     }
 
     &__title {

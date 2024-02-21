@@ -70,6 +70,7 @@
     &__image {
         overflow: hidden;
         margin-top: auto;
+        padding-top: 2px;
 
         & picture {
 
@@ -124,7 +125,7 @@
                 & picture {
                     & img {
                         @media screen and (min-width: $w992) {
-                            transform: translateY(-6px);
+                            transform: translateY(-4px);
                         }
                     }
                 }
