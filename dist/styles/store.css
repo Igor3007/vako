@@ -20,7 +20,6 @@ html {
 html * {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  scrollbar-gutter: stable;
   text-size-adjust: none;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
@@ -8868,8 +8867,13 @@ body .fslightbox-slash {
 }
 
 @media screen and (max-width: 992.98px) and (min-width: 576px) {
+  .review-content__mobile {
+    margin-left: 12px;
+  }
+
   .review-content__action {
     margin-top: -48px;
+    justify-content: flex-end;
   }
 }
 

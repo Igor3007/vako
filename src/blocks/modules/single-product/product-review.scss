@@ -399,6 +399,10 @@
       display: none;
     }
 
+    @media screen and (max-width: $w992) and (min-width: $w576) {
+      margin-left: 12px;
+    }
+
     & button {
       display: flex;
       align-items: center;
@@ -446,6 +450,7 @@
 
     @media screen and (max-width: $w992) and (min-width: $w576) {
       margin-top: -48px;
+      justify-content: flex-end;
     }
 
   }
