@@ -43,9 +43,10 @@
             padding-bottom: 24px;
         }
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w576) {
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
     }
 
@@ -77,8 +78,17 @@
 
     &__tags {
 
+        @media screen and (min-width: $w576) {
+            width: calc(100% - 168px);
+            padding-right: 4px;
+        }
+
         @media screen and (max-width: $w480) {
             margin-right: -16px;
+
+            & li:last-child {
+                padding-right: 16px;
+            }
         }
 
         & ul {

@@ -12741,12 +12741,23 @@ body .fslightbox-slash {
     padding-bottom: 24px;
   }
 
+  .top-article__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .top-article__all {
     display: block;
   }
 
   .top-article__all-mobile {
     display: none;
+  }
+
+  .top-article__tags {
+    width: calc(100% - 168px);
+    padding-right: 4px;
   }
 
   .top-article__tags ul li a {
@@ -13936,11 +13947,6 @@ body .fslightbox-slash {
     padding: 12px;
   }
 
-  .top-article__head {
-    display: flex;
-    justify-content: space-between;
-  }
-
   .popup-points {
     width: 60vw;
     max-width: 1070px;
@@ -14989,6 +14995,10 @@ body .fslightbox-slash {
 
   .top-article__tags {
     margin-right: -16px;
+  }
+
+  .top-article__tags li:last-child {
+    padding-right: 16px;
   }
 }
 
