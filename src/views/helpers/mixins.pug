@@ -79,6 +79,15 @@ mixin checkbox(label, name,  check)
     span.checkbox__elem
     span.checkbox__text!= label
 
+mixin checkbox-required(label, name,  check)
+  label.checkbox
+    if check
+      input(type="checkbox" required="" name=""+name+"" checked="" )
+    else
+      input(type="checkbox" required="" name=""+name+"" )
+    span.checkbox__elem
+    span.checkbox__text!= label
+
 mixin checkbox-card(label, count, name, check)
   label.checkbox-card
     if check

@@ -21,6 +21,11 @@ input {
     &.is-validate {
         & input:invalid {
             border: 1px solid $red;
+
+            &~.checkbox__elem {
+                border-color: #f00;
+                box-shadow: 0 0 5px 0 #ff00007a;
+            }
         }
     }
 
@@ -169,6 +174,12 @@ input {
 
             @media screen and (min-width: $w760) {
                 flex-direction: row;
+            }
+        }
+
+        & .checkbox {
+            &__text {
+                text-align: left;
             }
         }
     }

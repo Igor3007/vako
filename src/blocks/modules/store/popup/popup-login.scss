@@ -67,6 +67,14 @@
         }
     }
 
+    & .form__subitem .checkbox {
+        padding-bottom: 16px;
+    }
+
+    & .form__subitem .checkbox:last-child {
+        padding-bottom: 0;
+    }
+
     // & .icon-back::before {
     //     width: 1em;
     //     height: 1em;

@@ -2104,7 +2104,8 @@ select {
   cursor: pointer;
   height: 0;
   width: 0;
-  display: none;
+  left: 18px;
+  top: 0;
 }
 
 .checkbox__text {
@@ -2416,6 +2417,11 @@ input:focus {
   border: 1px solid #DF1F26;
 }
 
+.form.is-validate input:invalid ~ .checkbox__elem {
+  border-color: #f00;
+  box-shadow: 0 0 5px 0 #ff00007a;
+}
+
 .form input[type="text"],
 .form input[type="date"],
 .form input[type="number"],
@@ -2555,6 +2561,10 @@ input:focus {
 .form__note--col2 > span {
   cursor: pointer;
   padding-bottom: 10px;
+}
+
+.form__note .checkbox__text {
+  text-align: left;
 }
 
 .form__submit {
@@ -4223,6 +4233,14 @@ footer {
   text-align: center;
   padding: 20px 0;
   font-size: 14px;
+}
+
+.login-partners .form__subitem .checkbox {
+  padding-bottom: 16px;
+}
+
+.login-partners .form__subitem .checkbox:last-child {
+  padding-bottom: 0;
 }
 
 .login-partners .form-step {
