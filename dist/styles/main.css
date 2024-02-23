@@ -11170,7 +11170,7 @@ div[data-state="1"] {
 }
 
 .top-categories__list .splide:not(.is-initialized.is-active) .splide__slide {
-  padding: 0 4px;
+  padding: 4px 4px;
   width: 50%;
 }
 
@@ -14006,6 +14006,8 @@ body .fslightbox-slash {
 
   .top-categories__list .splide:not(.is-initialized.is-active) .splide__slide {
     width: 20%;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .card-topcategory__image picture {
@@ -15178,6 +15180,12 @@ body .fslightbox-slash {
   .review-content__action {
     margin-top: -48px;
     justify-content: flex-end;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768.98px) {
+  .top-categories__list .splide:not(.is-initialized.is-active) .splide__slide:not(:nth-child(-n+6)) {
+    display: none;
   }
 }
 

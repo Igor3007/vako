@@ -95,11 +95,13 @@
 
                     &__slide {
 
-                        padding: 0 4px;
+                        padding: 4px 4px;
                         width: 50%;
 
                         @media screen and (min-width: $w576) {
                             width: 33.33%;
+
+
                         }
 
                         @media screen and (min-width: $w760) {
@@ -108,6 +110,8 @@
 
                         @media screen and (min-width: $w992) {
                             width: 20%;
+                            padding-top: 0;
+                            padding-bottom: 0;
                         }
 
                         @media screen and (min-width: $w1200) {
@@ -117,6 +121,16 @@
                         @media screen and (min-width: $w1440) {
                             width: 12.5%;
                         }
+
+                        @media screen and (min-width: $w576) and (max-width: $w760) {
+
+
+                            &:not(:nth-child(-n+6)) {
+                                display: none;
+                            }
+                        }
+
+
 
                     }
 
