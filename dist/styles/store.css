@@ -2565,6 +2565,7 @@ input:focus {
 
 .form__note .checkbox__text {
   text-align: left;
+  font-size: 14px;
 }
 
 .form__submit {
