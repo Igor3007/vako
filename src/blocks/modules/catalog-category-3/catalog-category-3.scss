@@ -621,6 +621,7 @@
 
   position: relative;
   cursor: pointer;
+  display: inline-block;
 
   &__list {
     display: none;
@@ -638,6 +639,7 @@
 
       & li {
         padding: 8px;
+        white-space: nowrap;
       }
 
       & a {
@@ -747,8 +749,9 @@
 
         &__title {
           box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
-          border-top-left-radius: 6px;
-          border-top-right-radius: 6px;
+          // border-top-left-radius: 6px;
+          // border-top-right-radius: 6px;
+          border-radius: 6px;
 
           &::after {
             transform: rotate(180deg);
@@ -759,18 +762,23 @@
           display: block;
           position: absolute;
           left: 0;
-          top: 0;
+
           z-index: 5;
           background-color: #fff;
-          top: 100%;
+          top: calc(100% + 2px);
           box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-          border-bottom-left-radius: 6px;
-          border-bottom-right-radius: 6px;
-          right: 0;
-          border-top: 1px solid $gray-92;
+          // border-bottom-left-radius: 6px;
+          // border-bottom-right-radius: 6px;
+
+          border-radius: 6px;
+
+          right: auto;
+          //border-top: 1px solid $gray-92;
           opacity: 1;
           transform: translateY(0);
           animation: fade-drop-down 0.3s ease forwards;
+
+          min-width: 100%;
 
           & ul {
             flex-direction: column;
