@@ -4009,5 +4009,68 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /*======================================
+     top-categories slider
+    ======================================*/
+
+    if (document.querySelector('[data-slider="topcategories"]')) {
+        const items = document.querySelectorAll('[data-slider="topcategories"]')
+
+        items.forEach(item => {
+            const topCategories = new Splide(item, {
+                perPage: 8,
+                perMove: 1,
+                arrows: true,
+                gap: 8,
+                arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
+                breakpoints: {
+                    1440: {
+                        perPage: 6,
+                    },
+
+                    1200: {
+                        perPage: 5,
+                    },
+
+                    992: {
+                        destroy: true,
+                    },
+                }
+            })
+
+            topCategories.mount()
+
+
+
+            const watchWidth = () => {
+
+                const sliderWidth = item.classList.contains('is-offset-pagination') ? (item.clientWidth + 100) : item.clientWidth
+                const frameWidth = document.documentElement.clientWidth
+
+                //is-pagination offset
+                if ((frameWidth - 100) <= sliderWidth) {
+                    item.classList.add('is-offset-pagination')
+                } else {
+                    !item.classList.contains('is-offset-pagination') || item.classList.remove('is-offset-pagination')
+                }
+
+                // is-pagination
+                if (topCategories.length > topCategories.options.perPage) {
+                    item.classList.add('is-pagination')
+                } else {
+                    !item.classList.contains('is-pagination') || item.classList.remove('is-pagination')
+                }
+            }
+
+            let fnDedounce = window.debounce
+            watchWidth()
+
+            window.addEventListener('resize', () => {
+                fnDedounce(watchWidth, 50);
+            })
+        })
+
+    }
+
 
 });

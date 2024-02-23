@@ -6882,12 +6882,18 @@ a[data-tooltip]:hover::before {
   opacity: 1;
 }
 
+.splide.is-active.is-offset-pagination.is-pagination {
+  width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
 .splide__pagination__page {
   margin: 3px 4px;
   height: 6px;
   width: 6px;
   max-width: 6px;
   min-width: 6px;
+  top: 0;
 }
 
 .splide__pagination__page.is-active {

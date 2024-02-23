@@ -16,32 +16,144 @@
         margin: -4px;
         display: flex;
         flex-wrap: wrap;
+
+        & .splide {
+            width: 100%;
+
+            &__arrow {
+                opacity: 1;
+
+
+                &:hover {
+                    opacity: 0.9;
+                }
+
+                & svg {
+                    fill: $accent-2-1;
+                    height: 20px;
+                    width: 20px;
+                }
+
+
+            }
+
+            &__track {
+                padding-top: 12px;
+                padding-bottom: 24px;
+            }
+
+            &__pagination {
+                bottom: 0;
+            }
+
+            &__arrow {
+                &--prev {
+                    left: -45px;
+                }
+
+                &--next {
+                    right: -45px;
+                }
+
+                &--prev,
+                &--next {
+                    background-color: transparent;
+
+                    &:disabled {
+                        opacity: 0;
+                    }
+                }
+            }
+
+            &.is-pagination {
+                & .splide {
+                    &__arrow {
+
+                        &--prev,
+                        &--next {
+                            &:disabled {
+                                opacity: 0.3;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:not(.is-initialized.is-active) {
+
+                visibility: visible;
+                // margin-bottom: 26px;
+
+                & .splide {
+
+                    &__list {
+                        @media screen and (max-width: $w992) {
+                            flex-wrap: wrap;
+                            display: flex;
+                        }
+                    }
+
+                    &__slide {
+
+                        padding: 0 4px;
+                        width: 50%;
+
+                        @media screen and (min-width: $w576) {
+                            width: 33.33%;
+                        }
+
+                        @media screen and (min-width: $w760) {
+                            width: 25%;
+                        }
+
+                        @media screen and (min-width: $w992) {
+                            width: 20%;
+                        }
+
+                        @media screen and (min-width: $w1200) {
+                            width: 16.6%;
+                        }
+
+                        @media screen and (min-width: $w1440) {
+                            width: 12.5%;
+                        }
+
+                    }
+
+
+                    &__track {
+                        padding-top: 13px;
+                    }
+
+                }
+            }
+        }
     }
 
-    &__item {
-        padding: 4px;
-        width: 50%;
+    // &__item {
+    //     padding: 4px;
+    //     width: 50%;
 
-        @media screen and (min-width: $w576) {
-            width: 33.33%;
-        }
+    //     @media screen and (min-width: $w576) {
+    //         width: 33.33%;
+    //     }
 
-        @media screen and (min-width: $w760) {
-            width: 25%;
-        }
+    //     @media screen and (min-width: $w760) {
+    //         width: 25%;
+    //     }
 
-        @media screen and (min-width: $w992) {
-            width: 20%;
-        }
+    //     @media screen and (min-width: $w992) {
+    //         width: 20%;
+    //     }
 
-        @media screen and (min-width: $w1200) {
-            width: 16.6%;
-        }
+    //     @media screen and (min-width: $w1200) {
+    //         width: 16.6%;
+    //     }
 
-        @media screen and (min-width: $w1440) {
-            width: 12.5%;
-        }
-    }
+    //     @media screen and (min-width: $w1440) {
+    //         width: 12.5%;
+    //     }
+    // }
 }
 
 .card-topcategory {
@@ -71,23 +183,24 @@
         overflow: hidden;
         margin-top: auto;
         padding-top: 2px;
+        padding-left: 12px;
 
         & picture {
 
 
             position: relative;
             display: block;
-            padding-top: 100%;
+            padding-top: 70%;
             object-position: bottom right;
-            margin-bottom: -68px;
+            margin-bottom: -16px;
             margin-right: -24px;
             transition: 0.3s ease;
 
 
 
             @media screen and (min-width: $w992) {
-                padding-top: 85%;
-                margin-bottom: -32px;
+                padding-top: 80%;
+                margin-bottom: -7px;
                 margin-right: -16px;
             }
 

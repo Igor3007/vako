@@ -250,36 +250,50 @@ a[data-tooltip]:hover::before {
     opacity: 1;
 }
 
-.splide__pagination {
-    &__page {
-
-        margin: 3px 4px;
-        height: 6px;
-        width: 6px;
-        max-width: 6px;
-        min-width: 6px;
 
 
 
-        @media screen and (max-width: $w760) {
-            min-width: 4px;
-            width: 4px;
-            height: 4px;
-        }
+.splide {
 
-        &.is-active {
-            background: $accent-2-1;
-            transform: scale(1);
-            width: 8px;
-            height: 8px;
-            min-width: 8px;
-            position: relative;
-            top: 1px;
+    &.is-active.is-offset-pagination.is-pagination {
+        width: calc(100% - 100px);
+        margin: 0 auto;
+    }
+
+    &__pagination {
+        &__page {
+
+            margin: 3px 4px;
+            height: 6px;
+            width: 6px;
+            max-width: 6px;
+            min-width: 6px;
+            top: 0;
+
+
+
+
 
             @media screen and (max-width: $w760) {
-                width: 6px;
-                height: 6px;
-                min-width: 6px;
+                min-width: 4px;
+                width: 4px;
+                height: 4px;
+            }
+
+            &.is-active {
+                background: $accent-2-1;
+                transform: scale(1);
+                width: 8px;
+                height: 8px;
+                min-width: 8px;
+                position: relative;
+                top: 1px;
+
+                @media screen and (max-width: $w760) {
+                    width: 6px;
+                    height: 6px;
+                    min-width: 6px;
+                }
             }
         }
     }

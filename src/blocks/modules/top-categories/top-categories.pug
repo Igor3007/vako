@@ -12,6 +12,9 @@ mixin top-categories
             .top-categories
                 .top-categories__title Популярные категории
                 .top-categories__list
-                    each item in top_categories
-                        .top-categories__item: +card-topcategory(item)
+                    .splide(data-slider="topcategories")
+                        .splide__track
+                            .splide__list
+                                each item in top_categories
+                                    .splide__slide: +card-topcategory(item)
 
