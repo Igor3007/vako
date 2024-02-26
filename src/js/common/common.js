@@ -4027,11 +4027,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     1440: {
                         perPage: 6,
                     },
-
                     1200: {
                         perPage: 5,
                     },
-
                     992: {
                         destroy: true,
                     },
@@ -4039,8 +4037,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             })
 
             topCategories.mount()
-
-
 
             const watchWidth = () => {
 

@@ -168,6 +168,12 @@
         display: none;
     }
 
+
+    & .card-review__photo picture,
+    & .review-product__img .bgimage {
+        background-color: #fff;
+    }
+
     &__desc {
         line-height: 160%;
         font-size: 15px;
