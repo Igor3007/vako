@@ -928,6 +928,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     }
 
+    if (document.querySelectorAll('[data-catalog="nav"] li').length > 5) {
+        document.querySelector('[data-all-catid="show"]').classList.add('is-visible')
+    }
+
     /*========================================
     select
     ========================================*/
@@ -1700,13 +1704,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     /* ======================================
-    slider sigle product
+    slider single product
     ======================================*/
 
     if (document.querySelector('[data-slider="product"]')) {
 
         let main = new Splide('[data-slider="product"]', {
-            type: 'fade',
+            type: 'slide',
             pagination: false,
             arrows: false,
             cover: true,
@@ -1714,7 +1718,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             breakpoints: {
                 992: {
                     pagination: true,
-                    type: 'fade',
+                    type: 'slide',
                 },
             },
         });
@@ -4067,6 +4071,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
 
     }
+
+
+
 
 
 });

@@ -160,6 +160,14 @@
             width: 20%;
         }
     }
+
+    &__all {
+        &.sub-menu-toggle {
+            &:not(.is-visible) {
+                display: none;
+            }
+        }
+    }
 }
 
 .card-category {

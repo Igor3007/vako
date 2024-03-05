@@ -335,7 +335,13 @@ input[type="date"] {
 
             position: relative;
             padding-left: 20px;
-            padding-bottom: 15px;
+            padding-bottom: 8px;
+
+
+            & p {
+                margin: 0
+            }
+
 
             @media screen and (min-width: $w760) {
                 padding-left: 25px;

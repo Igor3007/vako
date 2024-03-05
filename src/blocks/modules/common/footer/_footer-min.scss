@@ -10,17 +10,17 @@ footer {
     color: #fff;
     font-size: 14px;
 
-    @media screen and (min-width: $w1200) {
-        display: flex;
-    }
+
 
     @media screen and (min-width: $w760) {
         font-size: 16px;
+        display: flex;
+        align-items: center;
     }
 
     &__copyright {
-        opacity: 0.9;
-        padding: 0.8em 0;
+        opacity: 0.7;
+        padding: 0 0 0.8em 0;
         font-size: 14px;
 
         @media screen and (min-width: $w760) {
@@ -57,6 +57,33 @@ footer {
             & li {
                 padding: 0.4em;
             }
+        }
+    }
+
+    &__support {
+        color: #fff;
+        display: flex;
+        align-items: center;
+
+        @media screen and (min-width: $w760) {
+            margin-left: auto;
+        }
+
+        & a {
+            color: inherit;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &-title {
+            opacity: 0.7;
+            padding-right: 12px;
+        }
+
+        &-phone {
+            font-weight: 600;
         }
     }
 }

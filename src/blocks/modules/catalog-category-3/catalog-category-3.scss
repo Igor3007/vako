@@ -413,13 +413,19 @@
 
   &__list {
 
-    max-height: 600px;
+
     transition: 0.3s ease;
     overflow: hidden;
 
     & ul {
 
       &.is-open {
+
+        overflow-y: auto;
+        max-height: 50vh;
+
+        @include scrollbar;
+
         & li {
           display: block;
         }
