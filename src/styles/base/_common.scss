@@ -1,5 +1,9 @@
 /* common styles */
 
+.dragscroll.dragging {
+    pointer-events: none;
+}
+
 .page-hidden {
     overflow: hidden !important;
     touch-action: none;

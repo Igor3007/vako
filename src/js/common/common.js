@@ -4072,6 +4072,43 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* =====================================
+    scroll tags
+    =====================================*/
+
+    if (document.querySelector('.catalog-category__tags')) {
+
+        let container = document.querySelector('.catalog-category__tags ul');
+        let elem = container.querySelector('.is-active')
+
+        function scrollToElem(elem, container) {
+            var rect = elem.getBoundingClientRect();
+            var rectContainer = container.getBoundingClientRect();
+
+            let elemOffset = {
+                top: rect.top + document.body.scrollTop,
+                left: rect.left + document.body.scrollLeft
+            }
+
+            let containerOffset = {
+                top: rectContainer.top + document.body.scrollTop,
+                left: rectContainer.left + document.body.scrollLeft
+            }
+
+            let leftPX = elemOffset.left - containerOffset.left + container.scrollLeft - (container.offsetWidth / 2) + (elem.offsetWidth / 2) + 5
+
+            container.scrollTo({
+                left: leftPX,
+                behavior: 'smooth'
+            });
+        }
+
+        setTimeout(() => {
+            scrollToElem(elem, container);
+        }, 300)
+
+    }
+
 
 
 
