@@ -3641,11 +3641,17 @@ input:focus {
 
 .header-bottom__menu ul li {
   flex-grow: 1;
-  padding: 0 10px;
+  padding: 0 9px;
 }
 
 .header-bottom__menu ul li:hover a {
   color: #fff;
+}
+
+.header-bottom__location .header-location {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: -1px;
 }
 
 .header-bottom__location .header-location svg {
