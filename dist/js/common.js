@@ -2673,7 +2673,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector('[data-review="no-login"]').addEventListener('click', e => {
             window.ajax({
                 type: 'GET', //POST
-                url: '/_popup-no-login-review.html',
+                url: '/_popup-create-review.html',
                 responseType: 'html',
 
             }, (status, response) => {

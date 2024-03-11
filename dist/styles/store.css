@@ -3025,7 +3025,7 @@ input:focus {
 .af-popup--visible {
   opacity: 1;
   pointer-events: all;
-  touch-action: all;
+  touch-action: auto;
 }
 
 .af-popup--mobile .af-popup__content {
@@ -7029,6 +7029,7 @@ a[data-tooltip]:hover::before {
 
 .create-review {
   max-width: 665px;
+  padding: 6px;
 }
 
 .create-review__title {

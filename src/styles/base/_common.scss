@@ -401,6 +401,7 @@ a[data-tooltip]:hover::before {
 
 .create-review {
     max-width: 665px;
+    padding: 6px;
 
     @media screen and (min-width: $w480) {
         padding: 25px;
