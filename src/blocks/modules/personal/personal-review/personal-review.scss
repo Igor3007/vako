@@ -51,6 +51,7 @@
             background-color: #eee;
             color: transparent;
             @include bgimage-contain;
+            border-radius: 5px;
         }
     }
 
