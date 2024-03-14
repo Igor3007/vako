@@ -15,6 +15,94 @@
         }
     }
 
+    &__tags {
+
+        padding-bottom: 24px;
+
+        @media screen and (min-width: $w576) {
+            width: calc(100%);
+            padding-right: 4px;
+        }
+
+        @media screen and (max-width: $w480) {
+            margin-right: -16px;
+
+            & li:last-child {
+                padding-right: 16px;
+            }
+        }
+
+        & ul {
+            display: flex;
+            flex-wrap: nowrap;
+            margin: -4px;
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            scrollbar-color: transparent transparent;
+            scrollbar-width: none !important;
+
+
+            &::-webkit-scrollbar {
+                width: 0;
+                border-radius: 0;
+                height: 0;
+                display: none;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+                border-radius: 0;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border-radius: 0;
+            }
+
+            & li {
+
+                padding: 4px;
+                position: relative;
+                font-size: 15px;
+                line-height: 125%;
+                color: $accent-2-1;
+
+                &.is-active {
+                    & a {
+                        background-color: $accent-2-1;
+                        color: #fff;
+                    }
+                }
+
+                & a {
+                    color: inherit;
+                    display: flex;
+
+                    height: 36px;
+                    border-radius: 4px;
+                    background-color: $gray-96;
+                    color: $gray-13;
+                    padding: 7px 0.9em;
+                    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+                    white-space: nowrap;
+
+
+                    @media screen and (min-width: $w576) {
+                        padding: 7px 1.2em;
+                    }
+
+                    &:hover {
+                        background-color: $gray-92;
+                        color: $accent-2-1;
+                    }
+
+
+                }
+            }
+        }
+    }
+
     &__aside {
 
         display: none;
@@ -158,6 +246,14 @@
 
         @media screen and (min-width: $w1440) {
             width: 20%;
+        }
+    }
+
+    &__all {
+        &.sub-menu-toggle {
+            &:not(.is-visible) {
+                display: none;
+            }
         }
     }
 }

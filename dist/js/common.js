@@ -928,6 +928,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     }
 
+    if (document.querySelectorAll('[data-catalog="nav"] li').length > 5) {
+        document.querySelector('[data-all-catid="show"]').classList.add('is-visible')
+    }
+
     /*========================================
     select
     ========================================*/
@@ -1700,13 +1704,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     /* ======================================
-    slider sigle product
+    slider single product
     ======================================*/
 
     if (document.querySelector('[data-slider="product"]')) {
 
         let main = new Splide('[data-slider="product"]', {
-            type: 'fade',
+            type: 'slide',
             pagination: false,
             arrows: false,
             cover: true,
@@ -1714,7 +1718,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             breakpoints: {
                 992: {
                     pagination: true,
-                    type: 'fade',
+                    type: 'slide',
                 },
             },
         });
@@ -2669,7 +2673,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector('[data-review="no-login"]').addEventListener('click', e => {
             window.ajax({
                 type: 'GET', //POST
-                url: '/_popup-no-login-review.html',
+                url: '/_popup-create-review.html',
                 responseType: 'html',
 
             }, (status, response) => {
@@ -4027,11 +4031,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     1440: {
                         perPage: 6,
                     },
-
                     1200: {
                         perPage: 5,
                     },
-
                     992: {
                         destroy: true,
                     },
@@ -4039,8 +4041,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             })
 
             topCategories.mount()
-
-
 
             const watchWidth = () => {
 
@@ -4071,6 +4071,46 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
 
     }
+
+    /* =====================================
+    scroll tags
+    =====================================*/
+
+    if (document.querySelector('.catalog-category__tags')) {
+
+        let container = document.querySelector('.catalog-category__tags ul');
+        let elem = container.querySelector('.is-active')
+
+        function scrollToElem(elem, container) {
+            var rect = elem.getBoundingClientRect();
+            var rectContainer = container.getBoundingClientRect();
+
+            let elemOffset = {
+                top: rect.top + document.body.scrollTop,
+                left: rect.left + document.body.scrollLeft
+            }
+
+            let containerOffset = {
+                top: rectContainer.top + document.body.scrollTop,
+                left: rectContainer.left + document.body.scrollLeft
+            }
+
+            let leftPX = elemOffset.left - containerOffset.left + container.scrollLeft - (container.offsetWidth / 2) + (elem.offsetWidth / 2) + 5
+
+            container.scrollTo({
+                left: leftPX,
+                behavior: 'smooth'
+            });
+        }
+
+        setTimeout(() => {
+            scrollToElem(elem, container);
+        }, 300)
+
+    }
+
+
+
 
 
 });

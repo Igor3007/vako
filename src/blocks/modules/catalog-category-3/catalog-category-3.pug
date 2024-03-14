@@ -14,6 +14,27 @@ mixin catalog-category-3
                     ]) 
                 .catalog-category__h1: h1 Ноутбуки в Кременчуг-Константиновское 
 
+                .catalog-category__tags
+                    ul.dragscroll
+                        li: a(href='tag.html') 13,3 дюйма
+                        li: a(href='tag.html') 14,0 дюймов
+                        li: a(href='tag.html') 15,0 дюймов
+                        li: a(href='tag.html') 15,6 дюймов
+                        li: a(href='tag.html') 16,0 дюймов
+                        li: a(href='tag.html') 17,3 дюйма
+                        li: a(href='tag.html') 18,4 дюйма
+                        li: a(href='tag.html') Серебристые
+                        li: a(href='tag.html') Чёрные
+                        li: a(href='tag.html') Белые
+                        li: a(href='tag.html') Игровые
+                        li: a(href='tag.html') Лёгкие
+                        li: a(href='tag.html') 18,4 дюйма
+                        li.is-active: a(href='tag.html') Серебристые
+                        li: a(href='tag.html') Чёрные
+                        li: a(href='tag.html') Белые
+                        li: a(href='tag.html') Игровые
+                        li: a(href='tag.html') Лёгкие
+
                 .catalog-category__content
                     .catalog-category__aside(style="display:block")
                         .current-category
@@ -56,14 +77,45 @@ mixin catalog-category-3
                                         })
 
                                         .category-filter__item: +prop-checkbox({
-                                            title: 'Тип акустики',
+                                            title: 'Модельный ряд',
                                             checkbox: [
                                                 'Dolby Atmos',
                                                 'Harman Kardon',
                                                 'Dolby Digital',
+                                                'Google Pixel 8',
+                                                'Google Pixel 8 Pro',
+                                                'Google Pixel Fold',
+                                                'Nothing Phone (2)',
+                                                'OnePlus 11',
+                                                'Poco M5',
+                                                'Poco M5s',
+                                                'Poco X5',
+                                                'Poco X5 Pro',
+                                                'Poco X6',
+                                                'Poco X6 Pro',
+                                                'Redmi Note 12',
+                                                'Redmi Note 12 Pro+',
+                                                'Samsung Galaxy A15',
+                                                'Samsung Galaxy A34',
+                                                'Samsung Galaxy A54',
+                                                'Samsung Galaxy S23',
+                                                'Samsung Galaxy S23 FE',
+                                                'Samsung Galaxy S23 Ultra',
+                                                'Samsung Galaxy S23+',
+                                                'Poco X5 Pro',
+                                                'Poco X6',
+                                                'Poco X6 Pro',
+                                                'Redmi Note 12',
+                                                'Redmi Note 12 Pro+',
+                                                'Samsung Galaxy A15',
+                                                'Samsung Galaxy A34',
+                                                'Samsung Galaxy A54',
                                             ]
                                         })
 
+ 
+
+ 
                                         .category-filter__item: +prop-checkbox-single('Bluetooth')
                                         .category-filter__item: +prop-color({
                                             title: 'Цвет',

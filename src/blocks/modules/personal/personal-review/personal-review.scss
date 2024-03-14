@@ -44,13 +44,14 @@
         width: 40px;
         min-width: 40px;
         overflow: hidden;
-        border-radius: 50%;
+
 
         & .bgimage {
             @include picture(100%, cover);
             background-color: #eee;
             color: transparent;
             @include bgimage-contain;
+            border-radius: 5px;
         }
     }
 
@@ -299,6 +300,11 @@
     &__title {
         @include font-h2;
         padding-bottom: 0.8em;
+    }
+
+    & .card-review__photo picture,
+    & .review-product__img .bgimage {
+        background-color: #fff;
     }
 }
 

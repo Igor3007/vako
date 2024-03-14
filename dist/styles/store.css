@@ -13,7 +13,6 @@ html {
   background: #fff;
   color: #000;
   letter-spacing: normal;
-  scrollbar-gutter: stable;
   height: -webkit-fill-available;
 }
 
@@ -233,7 +232,11 @@ input[type="date"] {
 .formated-text ul li {
   position: relative;
   padding-left: 20px;
-  padding-bottom: 15px;
+  padding-bottom: 8px;
+}
+
+.formated-text ul li p {
+  margin: 0;
 }
 
 .formated-text ul li:last-child {
@@ -3022,7 +3025,7 @@ input:focus {
 .af-popup--visible {
   opacity: 1;
   pointer-events: all;
-  touch-action: all;
+  touch-action: auto;
 }
 
 .af-popup--mobile .af-popup__content {
@@ -3533,8 +3536,8 @@ footer {
 }
 
 .footer-min__copyright {
-  opacity: 0.9;
-  padding: 0.8em 0;
+  opacity: 0.7;
+  padding: 0 0 0.8em 0;
   font-size: 14px;
 }
 
@@ -3557,6 +3560,29 @@ footer {
 
 .footer-min__links ul li {
   padding: 0.4em;
+}
+
+.footer-min__support {
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.footer-min__support a {
+  color: inherit;
+}
+
+.footer-min__support a:hover {
+  text-decoration: underline;
+}
+
+.footer-min__support-title {
+  opacity: 0.7;
+  padding-right: 12px;
+}
+
+.footer-min__support-phone {
+  font-weight: 600;
 }
 
 .header-min {
@@ -6674,6 +6700,10 @@ span[data-statistics="date-end"]::before {
 
 /* common styles */
 
+.dragscroll.dragging {
+  pointer-events: none;
+}
+
 .page-hidden {
   overflow: hidden !important;
   touch-action: none;
@@ -6999,6 +7029,7 @@ a[data-tooltip]:hover::before {
 
 .create-review {
   max-width: 665px;
+  padding: 6px;
 }
 
 .create-review__title {
@@ -7431,10 +7462,6 @@ common.css
 
 .product-prop__item:last-child {
   margin-bottom: 0;
-}
-
-.product-images__thumb .splide__track--nav .splide__slide.is-active {
-  margin: 2px 0;
 }
 
 .sort-dropdown__list ul a.is-active::after {
@@ -7914,6 +7941,8 @@ body .fslightbox-slash {
 
   .footer-min {
     font-size: 16px;
+    display: flex;
+    align-items: center;
   }
 
   .footer-min__copyright {
@@ -7922,6 +7951,11 @@ body .fslightbox-slash {
 
   .footer-min__links ul {
     display: flex;
+  }
+
+  .footer-min__support {
+    margin-left: auto;
+    font-size: 15px;
   }
 
   .header-min__actions > div {
@@ -8376,10 +8410,6 @@ body .fslightbox-slash {
 
   .formated-text h6 {
     font-size: 14px;
-  }
-
-  .footer-min {
-    display: flex;
   }
 
   .footer-min__links {

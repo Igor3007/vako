@@ -1,5 +1,9 @@
 /* common styles */
 
+.dragscroll.dragging {
+    pointer-events: none;
+}
+
 .page-hidden {
     overflow: hidden !important;
     touch-action: none;
@@ -397,6 +401,7 @@ a[data-tooltip]:hover::before {
 
 .create-review {
     max-width: 665px;
+    padding: 6px;
 
     @media screen and (min-width: $w480) {
         padding: 25px;
@@ -934,9 +939,6 @@ common.css
     margin-bottom: 0;
 }
 
-.product-images__thumb .splide__track--nav .splide__slide.is-active {
-    margin: 2px 0;
-}
 
 .sort-dropdown__list ul a.is-active::after {
     filter: none

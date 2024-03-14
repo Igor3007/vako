@@ -3,34 +3,34 @@
     padding-bottom: 60px;
 
     &__desc {
-        margin-bottom: 15px;
+        margin-bottom: 45px;
 
         &.is-open {
             line-clamp: unset;
             display: block
         }
 
-        & p {
-            font-size: 14px
-        }
-
     }
 
     &__title {
         @include font-h2;
-        padding-bottom: 0.6em;
+        padding-bottom: 10px;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 15px;
+        }
     }
 
     &__list {
 
-        padding-top: 20px;
+        padding-top: 15px;
         border-bottom: 1px solid #e0e0e0;
         padding-bottom: 10px;
         margin-bottom: 30px;
 
         @media screen and (min-width: $w992) {
             columns: 2;
-            padding-top: 40px;
+            padding-top: 15px;
             gap: 40px
         }
 

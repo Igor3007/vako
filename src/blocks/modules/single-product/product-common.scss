@@ -222,6 +222,7 @@
                             border-radius: 6px;
                             overflow: hidden;
                             padding: 5px;
+                            margin: 1px 0;
 
                             &.is-active {
                                 border: 1px solid $accent-2-1;
@@ -320,7 +321,7 @@
 
     &__colors {
 
-        max-height: 600px;
+        max-height: 60vh;
         transition: 0.3s ease;
         overflow: hidden;
         padding-bottom: 15px;

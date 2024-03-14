@@ -204,10 +204,9 @@
 
             position: relative;
             display: block;
-            padding-top: 70%;
+            padding-top: 91%;
             object-position: bottom right;
             margin-bottom: -16px;
-            margin-right: -24px;
             transition: 0.3s ease;
 
 
@@ -215,7 +214,7 @@
             @media screen and (min-width: $w992) {
                 padding-top: 80%;
                 margin-bottom: -7px;
-                margin-right: -16px;
+
             }
 
             & img {
