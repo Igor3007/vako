@@ -13878,22 +13878,22 @@ body .fslightbox-slash {
     padding: 0 1.2em;
   }
 
-  .page-news__content--line .page-news__item {
+  .page-news__content--list .page-news__item {
     width: 100%;
   }
 
-  .page-news__content--line .card-article {
+  .page-news__content--list .card-article {
     display: flex;
     flex-direction: row;
   }
 
-  .page-news__content--line .card-article__image {
+  .page-news__content--list .card-article__image {
     width: 210px;
     min-width: 210px;
     padding-bottom: 0;
   }
 
-  .page-news__content--line .card-article__main {
+  .page-news__content--list .card-article__main {
     padding-left: 24px;
     width: calc(100% - 210px);
   }

@@ -1,9 +1,9 @@
 mixin card-article(data)
     .card-article
         .card-article__image
-            a(href='card-article.html'): +pictureLazy(data.image)
+            a(href='news-article.html'): +pictureLazy(data.image)
         .card-article__main
-            .card-article__title: a(href='card-article.html')= data.title
+            .card-article__title: a(href='news-article.html')= data.title
             .card-article__tags 
                 ul
                     li: a(href='news-tag.html')= data.tag1
@@ -13,9 +13,9 @@ mixin card-article(data)
 mixin card-article-2(data)
     .card-article
         .card-article__image
-            a(href='card-article.html'): +pictureLazy(data.image)
+            a(href='news-article.html'): +pictureLazy(data.image)
         .card-article__main
-            .card-article__title: a(href='card-article.html')= data.title
+            .card-article__title: a(href='news-article.html')= data.title
             .card-article__details
                 .card-article__category: a(href='#')= data.category
                 .card-article__date: span= data.date
