@@ -1,13 +1,4 @@
-mixin card-article(data)
-    .card-article
-        .card-article__image
-            a(href='#'): +pictureLazy(data.image)
-        .card-article__title: a(href='#')= data.title
-        .card-article__tags 
-            ul
-                li: a(href='#')= data.tag1
-                li: a(href='#')= data.tag2
-                li.card-article__date: a(href='#')= data.tag3
+include ../news/card-article/card-article.pug
 
 mixin top-article
     section.section-top-article
@@ -27,9 +18,9 @@ mixin top-article
                             li: a(href='#') #watch9
                             li: a(href='#') #galaxys24ultra
                     .top-article__all
-                        a(href='#'): button.btn.btn-accent.btn-small Смотреть все 
+                        a(href='/news.html'): button.btn.btn-accent.btn-small Смотреть все 
                 .top-article__list
                     each item in homepage_article
                         .top-article__item: +card-article(item)
                 .top-article__all-mobile
-                    a(href='#'): button.btn.btn-accent.btn-small Смотреть все
+                    a(href='/news.html'): button.btn.btn-accent.btn-small Смотреть все

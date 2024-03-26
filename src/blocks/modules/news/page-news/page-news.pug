@@ -1,0 +1,167 @@
+include ../card-article/card-article.pug
+include ../../../components/breadcrumb/breadcrumb.pug
+include ../../../components/pagination/pagination.pug
+include parts
+
+mixin  page-news
+    section.section-page-news
+        .container
+            .page-news(data-news="el")
+                .page-news__breadcrumbs
+                    +breadcrumb([
+                        'Главная',
+                        'Блог',
+                    ])
+
+                .page-news__row
+                    .page-news__aside
+                        .news-aside
+                            .news-aside__header: h1 Блог
+                            .news-aside__find
+                                .news-aside__input
+                                    .input--find
+                                        input(type="text" placeholder="Искать статьи"  name="find")
+
+                                        span.icon-cross.clear-field
+                                .news-aside__menu
+                                    .btn-burger(data-news="open-menu")
+                                        i
+                                        i
+                                        i
+                            .news-aside__wrp
+                                .news-aside__taxonomy: +type-taxonomy
+                                .news-aside__taxonomy: +collections-taxonomy
+                                .news-aside__taxonomy: +tags-taxonomy
+                    .page-news__content
+                        .page-news__list
+                            each item in news
+                                if item.type == 'banner'
+                                    .page-news__item.page-news__item--banner: +banner-article(item)
+                                else
+                                    .page-news__item: +card-article(item)
+
+                        .page-news__pagination
+                            +pagination()
+
+
+mixin  page-news--result
+    section.section-page-news
+        .container
+            .page-news(data-news="el")
+                .page-news__breadcrumbs
+                    +breadcrumb([
+                        'Главная',
+                        'Блог',
+                        'Поиск',
+                    ])
+
+                .page-news__row
+                    .page-news__aside
+                        .news-aside
+                            .news-aside__header: h1 Поиск в блоге
+                            .news-aside__find
+                                .news-aside__input
+                                    .input--find
+                                        input(type="text" value="Технологии"  placeholder="Искать статьи"  name="find")
+                                        span.icon-cross.clear-field
+                                .news-aside__menu
+                                    .btn-burger(data-news="open-menu")
+                                        i
+                                        i
+                                        i
+                            .news-aside__wrp
+                                .news-aside__taxonomy: +type-taxonomy
+                                .news-aside__taxonomy: +collections-taxonomy
+                                .news-aside__taxonomy: +tags-taxonomy
+                    .page-news__content.page-news__content--list
+                        .page-news__list
+                            each item in news
+                                if item.type == 'banner'
+                                    .page-news__item.page-news__item--banner: +banner-article(item)
+                                else
+                                    .page-news__item: +card-article(item)
+
+                        .page-news__pagination
+                            +pagination()
+
+mixin  page-news--category
+    section.section-page-news
+        .container
+            .page-news(data-news="el")
+                .page-news__breadcrumbs
+                    +breadcrumb([
+                        'Главная',
+                        'Блог',
+                        'Новости',
+                    ])
+
+                .page-news__row
+                    .page-news__aside
+                        .news-aside
+                            .news-aside__header: h1 Новости в блоге
+                            .news-aside__find
+                                .news-aside__input
+                                    .input--find
+                                        input(type="text" placeholder="Искать статьи"  name="find")
+
+                                        span.icon-cross.clear-field
+                                .news-aside__menu
+                                    .btn-burger(data-news="open-menu")
+                                        i
+                                        i
+                                        i
+                            .news-aside__wrp
+                                .news-aside__taxonomy: +type-taxonomy
+                                .news-aside__taxonomy: +collections-taxonomy
+                                .news-aside__taxonomy: +tags-taxonomy
+                    .page-news__content.page-news__content--col2
+                        .page-news__list
+                            each item in news
+                                if item.type == 'banner'
+                                    .page-news__item.page-news__item--banner: +banner-article(item)
+                                else
+                                    .page-news__item: +card-article(item)
+
+                        .page-news__pagination
+                            +pagination()
+
+mixin  page-news--tag
+    section.section-page-news
+        .container
+            .page-news(data-news="el")
+                .page-news__breadcrumbs
+                    +breadcrumb([
+                        'Главная',
+                        'Блог',
+                        '#iphone15pro',
+                    ])
+
+                .page-news__row
+                    .page-news__aside
+                        .news-aside
+                            .news-aside__header: h1 #iphone15pro
+                            .news-aside__find
+                                .news-aside__input
+                                    .input--find
+                                        input(type="text" placeholder="Искать статьи"  name="find")
+
+                                        span.icon-cross.clear-field
+                                .news-aside__menu
+                                    .btn-burger(data-news="open-menu")
+                                        i
+                                        i
+                                        i
+                            .news-aside__wrp
+                                .news-aside__taxonomy: +type-taxonomy
+                                .news-aside__taxonomy: +collections-taxonomy
+                                .news-aside__taxonomy: +tags-taxonomy
+                    .page-news__content.page-news__content--col2
+                        .page-news__list
+                            each item in news
+                                if item.type == 'banner'
+                                    .page-news__item.page-news__item--banner: +banner-article(item)
+                                else
+                                    .page-news__item: +card-article(item)
+
+                        .page-news__pagination
+                            +pagination()

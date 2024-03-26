@@ -40,8 +40,6 @@ class afLightbox {
         let _this = this;
         this.modal = this.createTemplate();
 
-
-
         if (window.innerWidth <= 480 && this.mobileBottom) {
             this.modal.querySelector(".af-popup").classList.add("af-popup--mobile")
         }
@@ -63,7 +61,6 @@ class afLightbox {
 
             //fix iOS body scroll
             if (this.isiOS) {
-                //document.body.setAttribute('val', '123')
                 document.body.style.marginTop = `-${ (window.scrollY ) }px`
                 document.documentElement.classList.add('safari-fixed')
             }
@@ -86,20 +83,33 @@ class afLightbox {
 
     createEvent() {
 
-        let _this = this
-        this.instanse.querySelector('.af-popup').addEventListener('click', function () {
-            _this.close()
+
+        let container = this.instanse.querySelector('.af-popup')
+        let state = null
+
+        container.addEventListener('click', (e) => {
+            if (!e.target.closest('.af-popup__container') && !container.classList.contains('is-moving')) {
+                this.close()
+            }
         })
-        this.instanse.querySelector('.af-popup__container').addEventListener('click', function (event) {
-            event.stopPropagation(true)
+
+        container.addEventListener('mousedown', (e) => {
+            state = true;
+        })
+
+        container.addEventListener('mousemove', (e) => {
+            if (state) container.classList.add('is-moving')
+        })
+
+        container.addEventListener('mouseup', (e) => {
+            state = false;
+            setTimeout(() => {
+                if (container.classList.contains('is-moving')) container.classList.remove('is-moving')
+            }, 100)
         })
     }
 
     close() {
-
-
-
-
 
         this.instanse.querySelector('.af-popup').classList.remove('af-popup--visible')
 
@@ -114,7 +124,7 @@ class afLightbox {
 
         //compensate scrollbar
         document.body.classList.remove('page-hidden')
-        document.body.style.removeProperty('margin-right', this.widthScrollbar + 'px')
+        document.body.style.removeProperty('margin-right')
 
 
         setTimeout(() => {

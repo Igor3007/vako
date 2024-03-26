@@ -351,3 +351,28 @@ input {
         }
     }
 }
+
+.input--find {
+
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    width: 100%;
+
+    & input[type] {
+        width: 100% !important;
+        padding-left: 3em;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik02LjMzMyAyYTQuMzMzIDQuMzMzIDAgMTAyLjk5MyA3LjQ2OCAxLjAxNCAxLjAxNCAwIDAxLjE0Mi0uMTQzQTQuMzMzIDQuMzMzIDAgMDA2LjMzMyAyem01LjEzIDguMDQ5YTYuMzMzIDYuMzMzIDAgMTAtMS40MTQgMS40MTRsMi4yNDQgMi4yNDRhMSAxIDAgMDAxLjQxNS0xLjQxNGwtMi4yNDUtMi4yNDR6IiBmaWxsPSIjQ0NDIi8+PC9zdmc+);
+        background-size: 16px auto;
+        background-repeat: no-repeat;
+        background-position: calc(1.2em) center;
+        border-radius: 6px;
+
+        &::placeholder {
+            opacity: 1;
+            color: $gray-56;
+        }
+    }
+
+
+}

@@ -1,0 +1,24 @@
+mixin card-article(data)
+    .card-article
+        .card-article__image
+            a(href='card-article.html'): +pictureLazy(data.image)
+        .card-article__main
+            .card-article__title: a(href='card-article.html')= data.title
+            .card-article__tags 
+                ul
+                    li: a(href='news-tag.html')= data.tag1
+                    li: a(href='news-tag.html')= data.tag2
+                    li.card-article__date: a(href='news-tag.html')= data.tag3
+
+mixin card-article-2(data)
+    .card-article
+        .card-article__image
+            a(href='card-article.html'): +pictureLazy(data.image)
+        .card-article__main
+            .card-article__title: a(href='card-article.html')= data.title
+            .card-article__details
+                .card-article__category: a(href='#')= data.category
+                .card-article__date: span= data.date
+                .card-article__views
+                    +icons('#ic_eye2', 15)
+                    span= data.views

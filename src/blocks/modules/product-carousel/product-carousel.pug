@@ -1,0 +1,29 @@
+include ../news/card-article/card-article.pug
+
+mixin product-article(data)
+    .product-article
+        .product-article__image
+            a(href='#'): +picture(data.image)
+        .product-article__title
+            a(href='#')= data.title
+        .product-article__price
+            span=data.price
+        .product-article__offers
+            span 24 предложения
+        
+
+mixin product-carousel
+    .product-carousel
+        .product-carousel__top
+            .product-carousel__title Товары из статьи
+            .product-carousel__nav
+                .product-carousel__nav-prev(data-slider="product-carousel-next"): +icons('#ic_arrow-left')
+                .product-carousel__nav-next(data-slider="product-carousel-prev"): +icons('#ic_arrow-right')
+
+        .product-carousel__slider
+            .splide(data-slider="product-carousel")
+                .splide__track
+                    .splide__list
+                        each item,index in product_article
+                            
+                            .splide__slide: +product-article(item)

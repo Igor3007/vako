@@ -1,0 +1,26 @@
+include ../card-article/card-article.pug
+
+mixin news-carousel
+    .news-carousel
+        .news-carousel__top
+            .news-carousel__title Интересно почитать ещё
+            .news-carousel__nav
+                .news-carousel__nav-prev(data-slider="news-carousel-next"): +icons('#ic_arrow-left')
+                .news-carousel__nav-next(data-slider="news-carousel-prev"): +icons('#ic_arrow-right')
+
+        .news-carousel__slider
+            .splide(data-slider="news-carousel")
+                .splide__track
+                    .splide__list
+                        each item,index in similar_article
+                            
+                            .splide__slide: +card-article-2(item)
+
+mixin news-carousel--list
+    .news-carousel
+        .news-carousel__top
+            .news-carousel__title Интересно почитать 
+
+        .news-carousel__list
+            each item,index in [...similar_article, ...homepage_article,]
+                .news-carousel__item: +card-article-2(item)

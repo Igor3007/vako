@@ -1,11 +1,15 @@
 include ../../components/video/video.pug
+include ../../modules/news/news-carousel/news-carousel.pug
 
 mixin product-video
     .product-video(data-tab="video")
-        .product-video
+         
             .product-video__list
                 each item in ['',2,3,4,5,6,'',4,3]
                     .product-video__item: +video({
                         'preview': '/img/other/video_preview' + item,
                         'link': 'youtu.be'
                     })
+
+    .product-articles: +news-carousel--list
+        

@@ -1,0 +1,90 @@
+.news-carousel {
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 24px;
+    }
+
+    &__title {
+        @include font-h3;
+    }
+
+    &__nav {
+        display: none;
+
+        @media screen and (min-width: $w480) {
+            display: flex;
+            align-items: center;
+        }
+
+        &-next,
+        &-prev {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+
+            & svg {
+                width: 20px;
+                cursor: pointer;
+            }
+
+            &:hover {
+                & svg {
+                    fill: $accent-2-1;
+                }
+            }
+        }
+
+    }
+
+    &__slider {
+        margin-right: -16px;
+
+        @media screen and (min-width: $w480) {
+            margin-right: 0;
+        }
+
+        @media screen and (max-width: $w480) {
+            & .splide {
+                &__slide {
+                    &:last-child {
+                        padding-right: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__list {
+        margin: -4px;
+        display: flex;
+        flex-wrap: wrap;
+
+        @media screen and (min-width: $w576) {
+            margin: -12px;
+        }
+    }
+
+    &__item {
+        padding: 4px;
+        width: 100%;
+
+        @media screen and (min-width: $w576) {
+            padding: 12px;
+            width: 50%;
+        }
+
+
+
+        @media screen and (min-width: $w760) {
+            width: 33, 33%;
+        }
+
+
+        @media screen and (min-width: $w1440) {
+            width: 25%;
+        }
+    }
+}

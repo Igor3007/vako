@@ -4013,6 +4013,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+
+
     /*======================================
      top-categories slider
     ======================================*/
@@ -4028,7 +4030,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 gap: 8,
                 arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
                 breakpoints: {
-                    1440: {
+                    1439: {
                         perPage: 6,
                     },
                     1200: {
@@ -4106,6 +4108,324 @@ document.addEventListener("DOMContentLoaded", function (event) {
         setTimeout(() => {
             scrollToElem(elem, container);
         }, 300)
+
+    }
+
+    /* ====================================================================
+    News
+    ====================================================================*/
+
+    if (document.querySelector('[data-news="el"]')) {
+
+        const el = document.querySelector('[data-news="open-menu"]')
+        // const container = document.querySelector('.news-aside__wrp')
+
+        el.addEventListener('click', () => {
+            el.classList.toggle('open')
+            // container.classList.toggle('is-open')
+        })
+
+
+        class News {
+            constructor(params) {
+                this.$el = document.querySelector(params.el)
+                this.elAllCollection = this.$el.querySelector('[data-news="all-collections"]')
+                this.elAllTags = this.$el.querySelector('[data-news="all-tags"]')
+                this.elMenu = this.$el.querySelector('[data-news="open-menu"]')
+                this.mobilePopup = null;
+
+                this.isiOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+                this.addEvent()
+                this.init()
+            }
+
+            init() {
+                this.initShowAllCollections()
+                this.initShowAllTags()
+            }
+
+            initShowAllCollections() {
+                this.$el.querySelectorAll('.collections-taxonomy__list li').length <= 10 || this.elAllCollection.style.setProperty('display', 'block')
+            }
+
+            lockedScrollIOS(state) {
+                //fix iOS body scroll
+                if (this.isiOS && state) {
+                    document.body.style.marginTop = `-${ (window.scrollY ) }px`
+                    document.documentElement.classList.add('safari-fixed')
+                }
+
+                if (this.isiOS && !state) {
+                    if (document.documentElement.classList.contains('safari-fixed')) document.documentElement.classList.remove('safari-fixed')
+                    const bodyMarginTop = parseInt(document.body.style.marginTop, 10)
+                    document.body.style.marginTop = ''
+                    if (bodyMarginTop || bodyMarginTop === 0) window.scrollTo(0, -bodyMarginTop)
+                }
+
+                if (state) document.body.classList.add('page-hidden')
+                if (!state) !document.body.classList.contains('page-hidden') || document.body.classList.remove('page-hidden')
+
+
+            }
+
+            initShowAllTags() {
+                this.$el.querySelectorAll('.tags-taxonomy__list li').length <= 6 || this.elAllTags.style.setProperty('display', 'block')
+            }
+
+            showAllCollections() {
+
+                let html = this.$el.querySelector('.collections-taxonomy').cloneNode(true)
+                html.querySelector('[data-news="all-collections"]').remove()
+
+                if (document.body.clientWidth > 992) {
+                    const popup = new afLightbox({
+                        mobileInBottom: true
+                    })
+
+                    popup.open(html.outerHTML, false)
+
+                } else {
+                    this.openWindowMobilePopup({
+                        title: 'Все подборки',
+                        content: html.outerHTML,
+                        classes: 'fullscreen-popup__window--all'
+                    })
+                }
+
+            }
+
+            showAllTags() {
+
+                let html = this.$el.querySelector('.tags-taxonomy').cloneNode(true)
+                html.querySelector('[data-news="all-tags"]').remove()
+
+                if (document.body.clientWidth > 992) {
+                    const popup = new afLightbox({
+                        mobileInBottom: true
+                    })
+
+                    popup.open(html.outerHTML, false)
+                } else {
+                    this.openWindowMobilePopup({
+                        title: 'Все подборки',
+                        content: html.outerHTML,
+                        classes: 'fullscreen-popup__window--all'
+                    })
+                }
+
+            }
+
+            getTemplateMobilePopup(data) {
+                return `
+
+                <div class="fullscreen-popup__window ${!data.classes ? data.classes : ''}" >
+                    <div class="fullscreen-popup__head" >
+                        <div class="fullscreen-popup__back" ><span class="icon-arrow-back" ></span></div>
+                        <div class="fullscreen-popup__title" >${data.title}</div>
+                        <div class="fullscreen-popup__close" ><span class="icon-cross" ></span></div>
+                    </div>
+                    <div class="fullscreen-popup__main" >${data.content}</div>
+                </div>
+                `
+            }
+
+            openWindowMobilePopup(data) {
+
+                if (!this.mobilePopup) return false;
+
+
+
+                let el = document.createElement('div')
+                el.innerHTML = this.getTemplateMobilePopup(data)
+
+                //back button 
+                el.querySelector('.fullscreen-popup__back').addEventListener('click', e => {
+                    e.target.closest('.fullscreen-popup__window').classList.add('is-hide-left-window')
+                    setTimeout(() => {
+                        e.target.closest('.fullscreen-popup__window').remove()
+                    }, 200)
+                })
+
+                //close button 
+                el.querySelector('.fullscreen-popup__close').addEventListener('click', e => {
+                    e.target.closest('.fullscreen-popup').classList.add('is-hide-top-window')
+                    setTimeout(() => {
+                        e.target.closest('.fullscreen-popup').remove()
+                    }, 300)
+
+                    this.elMenu.classList.remove('open')
+                    this.lockedScrollIOS(false)
+                })
+
+                this.mobilePopup.append(el.children[0])
+            }
+
+            openMobilePopup() {
+
+                this.lockedScrollIOS('lock')
+
+                this.mobilePopup = document.createElement('div')
+                this.mobilePopup.classList.add('fullscreen-popup')
+
+                this.openWindowMobilePopup({
+                    title: 'Типы статей, подборки, теги',
+                    content: this.$el.querySelector('.news-aside__wrp').cloneNode(true).innerHTML,
+                })
+
+                this.mobilePopup.querySelector('[data-news="all-collections"]').addEventListener('click', e => this.showAllCollections())
+                this.mobilePopup.querySelector('[data-news="all-tags"]').addEventListener('click', e => this.showAllTags())
+
+                document.body.append(this.mobilePopup)
+
+                this.mobilePopup.scrollTo({
+                    top: 0
+                })
+            }
+
+            addEvent() {
+                this.elAllCollection.addEventListener('click', e => this.showAllCollections())
+                this.elAllTags.addEventListener('click', e => this.showAllTags())
+
+                this.elMenu.addEventListener('click', e => this.openMobilePopup())
+            }
+        }
+
+        new News({
+            el: '[data-news="el"]'
+        })
+
+    }
+
+    /* =================================
+    clear field
+    =================================*/
+
+
+
+    class ClearField {
+        constructor(params) {
+            this.$el = params.el
+            this.init()
+            this.addEvent()
+        }
+
+        init() {
+            this.input = this.$el.querySelector('input')
+            this.clearButton = this.$el.querySelector('.clear-field')
+
+            this.changeInput(this.input.value)
+        }
+
+        showCross() {
+            this.clearButton.style.setProperty('display', 'block')
+        }
+
+        closeCross() {
+            this.clearButton.style.removeProperty('display')
+        }
+
+        changeInput(val) {
+            if (val) {
+                this.showCross();
+                return false
+            }
+
+            this.closeCross();
+        }
+
+        addEvent() {
+            this.input.addEventListener('keyup', e => {
+                this.changeInput(e.target.value)
+            })
+            this.input.addEventListener('paste', e => {
+                this.changeInput(e.target.value)
+            })
+
+            this.clearButton.addEventListener('click', e => {
+                this.input.value = ''
+                this.closeCross();
+            })
+        }
+    }
+
+    if (document.querySelector('.input--find')) {
+        document.querySelectorAll('.input--find').forEach(el => new ClearField({
+            el
+        }))
+    }
+
+    /*======================================
+     mews carousel
+    ======================================*/
+
+    if (document.querySelector('[data-slider="news-carousel"]')) {
+        const items = document.querySelectorAll('[data-slider="news-carousel"]')
+
+        items.forEach(item => {
+            const sliderCarousel = new Splide(item, {
+
+                arrows: false,
+                fixedWidth: 330,
+                gap: 24,
+                pagination: false,
+
+                breakpoints: {
+                    992: {
+
+                        fixedWidth: 292,
+                    },
+                },
+            })
+
+            const next = item.closest('.news-carousel').querySelector('[data-slider="news-carousel-next"]')
+            const prev = item.closest('.news-carousel').querySelector('[data-slider="news-carousel-prev"]')
+
+            sliderCarousel.mount()
+
+            next.addEventListener('click', e => sliderCarousel.go('<'))
+            prev.addEventListener('click', e => sliderCarousel.go('>'))
+        })
+
+    }
+
+
+    /*======================================
+     product carousel
+    ======================================*/
+
+    if (document.querySelector('[data-slider="product-carousel"]')) {
+        const items = document.querySelectorAll('[data-slider="product-carousel"]')
+
+        items.forEach(item => {
+            const sliderCarousel = new Splide(item, {
+
+                arrows: false,
+                fixedWidth: 249,
+                gap: 12,
+                pagination: false,
+
+                breakpoints: {
+                    1439: {
+                        gap: 16,
+                    },
+
+                    992: {
+                        gap: 12,
+                        fixedWidth: 230,
+                        pagination: true,
+                    },
+                },
+            })
+
+            const next = item.closest('.product-carousel').querySelector('[data-slider="product-carousel-next"]')
+            const prev = item.closest('.product-carousel').querySelector('[data-slider="product-carousel-prev"]')
+
+            sliderCarousel.mount()
+
+            next.addEventListener('click', e => sliderCarousel.go('<'))
+            prev.addEventListener('click', e => sliderCarousel.go('>'))
+        })
 
     }
 

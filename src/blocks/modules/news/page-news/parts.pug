@@ -1,0 +1,118 @@
+
+mixin type-taxonomy
+    .type-taxonomy
+        .type-taxonomy__title Типы статей
+        .type-taxonomy__list
+            ul
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/01-news.svg')
+                        | Новости
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/02-articles.svg')
+                        | Статьи
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/03-reviews.svg')
+                        | Обзоры
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/04-video.svg')
+                        | Видео
+
+
+
+
+mixin collections-taxonomy
+    .collections-taxonomy
+        .collections-taxonomy__title Подборки
+        .collections-taxonomy__list
+            ul
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157.svg')
+                        | Технологии
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-1.svg')
+                        | Девайсы
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-2.svg')
+                        | Безопасность
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-3.svg')
+                        | Для кухни
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-4.svg')
+                        | Спорт
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-5.svg')
+                        | Технологии
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-6.svg')
+                        | Девайсы
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-7.svg')
+                        | Безопасность
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-8.svg')
+                        | Для кухни
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-9.svg')
+                        | Спорт
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157.svg')
+                        | Технологии
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-1.svg')
+                        | Девайсы
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-2.svg')
+                        | Безопасность
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-3.svg')
+                        | Для кухни
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-4.svg')
+                        | Спорт
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-5.svg')
+                        | Технологии
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-6.svg')
+                        | Девайсы
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-7.svg')
+                        | Безопасность
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-8.svg')
+                        | Для кухни
+                li: a(href='news-category.html')
+                        +bgimage('/img/icon/icon-157-9.svg')
+                        | Спорт
+               
+        .collections-taxonomy__all
+            span(data-news="all-collections") Смотреть все
+        
+
+mixin tags-taxonomy
+    .tags-taxonomy   
+        .tags-taxonomy__title Теги
+        .tags-taxonomy__list
+            ul
+                li: a(href='news-tag.html') #iphone15
+                li: a(href='news-tag.html') #applewatch
+                li: a(href='news-tag.html') #galaxys24
+                li: a(href='news-tag.html') #airpods
+                li: a(href='news-tag.html') #macbook
+                li: a(href='news-tag.html') #13,3 дюйма
+                li: a(href='news-tag.html') #14,0 дюймов
+                li: a(href='news-tag.html') #15,0 дюймов
+                li: a(href='news-tag.html') #15,6 дюймов
+                li: a(href='news-tag.html') #16,0 дюймов
+                li: a(href='news-tag.html') #17,3 дюйма
+
+
+
+        .tags-taxonomy__all
+            span(data-news="all-tags") Смотреть все
+
+mixin banner-article(data)
+    .banner-article
+        a(href='news-category.html')
+            +picture(data.image)
