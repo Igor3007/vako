@@ -75,11 +75,11 @@ mixin  page-news--result
                                 .news-aside__taxonomy: +tags-taxonomy
                     .page-news__content.page-news__content--list
                         .page-news__list
-                            each item in news
+                            each item,index in news
                                 if item.type == 'banner'
-                                    .page-news__item.page-news__item--banner: +banner-article(item)
                                 else
-                                    .page-news__item: +card-article(item)
+                                    if index <= 10
+                                        .page-news__item: +card-article(item)
 
                         .page-news__pagination
                             +pagination()

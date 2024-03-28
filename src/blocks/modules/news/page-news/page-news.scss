@@ -50,6 +50,11 @@
                         width: 210px;
                         min-width: 210px;
                         padding-bottom: 0;
+
+                        @media screen and (min-width: $w992) {
+                            width: 305px;
+                            min-width: 305px;
+                        }
                     }
 
                     &__main {

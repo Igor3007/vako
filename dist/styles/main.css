@@ -13988,6 +13988,13 @@ body .fslightbox-slash {
   }
 }
 
+@media screen and (min-width: 576px) and (min-width: 992.98px) {
+  .page-news__content--list .card-article__image {
+    width: 305px;
+    min-width: 305px;
+  }
+}
+
 @media screen and (min-width: 768.98px) {
   main {
     min-height: calc(100vh - 175px);
