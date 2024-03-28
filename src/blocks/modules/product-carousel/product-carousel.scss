@@ -15,7 +15,7 @@
     &__nav {
         display: none;
 
-        @media screen and (min-width: $w480) {
+        @media screen and (min-width: $w576) {
             display: flex;
             align-items: center;
         }
@@ -28,7 +28,7 @@
             align-items: center;
 
             & svg {
-                width: 20px;
+                width: 24px;
                 cursor: pointer;
             }
 
@@ -51,10 +51,8 @@
         @media screen and (max-width: $w480) {
             & .splide {
                 &__slide {
-                    &:last-child {
-                        padding-right: 16px;
-
-                    }
+                    padding-right: 16px;
+                    margin-right: 0 !important;
                 }
             }
         }

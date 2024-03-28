@@ -122,7 +122,6 @@ input[type="date"] {
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
-  max-width: 400px;
   padding: 0 16px;
   min-width: 316px;
 }
@@ -231,7 +230,7 @@ input[type="date"] {
 
 .formated-text ul li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 1em;
   padding-bottom: 8px;
 }
 
@@ -250,7 +249,7 @@ input[type="date"] {
   display: block;
   position: absolute;
   left: 0;
-  top: 0.65em;
+  top: 0.75em;
   border-radius: 50%;
   background-color: #7B61FF;
 }
@@ -5511,7 +5510,6 @@ footer {
 .shop-block__tabs.fixed-tabs ul {
   margin: 0 auto;
   border: none;
-  max-width: 400px;
   padding: 0 16px;
   min-width: 316px;
 }
@@ -7615,7 +7613,7 @@ body .fslightbox-slash {
 @media screen and (min-width: 480px) {
   .container {
     padding: 0 16px;
-    max-width: 400px;
+    max-width: 480px;
   }
 
   .af-popup__container {
@@ -7675,7 +7673,7 @@ body .fslightbox-slash {
 
   .shop-block__tabs.fixed-tabs ul {
     padding: 0 16px;
-    max-width: 400px;
+    max-width: 480px;
   }
 
   .store-statistics {
@@ -7910,10 +7908,6 @@ body .fslightbox-slash {
     padding-top: 20px;
   }
 
-  .formated-text ul li {
-    padding-left: 25px;
-  }
-
   .formated-text ol > li {
     font-size: 15px;
     padding-left: 30px;
@@ -8134,6 +8128,11 @@ body .fslightbox-slash {
   .container {
     padding: 0 30px;
     max-width: 990px;
+  }
+
+  .formated-text ul li::before {
+    width: 6px;
+    height: 6px;
   }
 
   .toggle {

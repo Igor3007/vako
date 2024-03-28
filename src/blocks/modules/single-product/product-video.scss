@@ -10,11 +10,33 @@
         border-bottom: 1px solid #eee;
     }
 
+    &__title {
+
+        padding-bottom: 24px;
+
+        & h2 {
+            @include font-h2;
+        }
+    }
+
+    &__media {
+        padding-bottom: 50px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #eee;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 60px;
+            margin-bottom: 50px;
+        }
+    }
+
 
     &__list {
         grid-template-columns: repeat(2, 1fr);
         display: grid;
         margin: -3px;
+
+
 
 
         @media screen and (min-width: $w992) {

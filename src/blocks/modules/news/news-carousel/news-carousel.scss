@@ -12,21 +12,23 @@
 
     &__nav {
         display: none;
+        margin: 0 -4px;
 
-        @media screen and (min-width: $w480) {
+        @media screen and (min-width: $w576) {
             display: flex;
             align-items: center;
         }
 
         &-next,
         &-prev {
+            margin: 0 4px;
             width: 24px;
             height: 24px;
             display: flex;
             align-items: center;
 
             & svg {
-                width: 20px;
+                width: 24px;
                 cursor: pointer;
             }
 
@@ -49,9 +51,8 @@
         @media screen and (max-width: $w480) {
             & .splide {
                 &__slide {
-                    &:last-child {
-                        padding-right: 16px;
-                    }
+                    padding-right: 16px;
+                    margin-right: 0 !important;
                 }
             }
         }
@@ -76,10 +77,8 @@
             width: 50%;
         }
 
-
-
-        @media screen and (min-width: $w760) {
-            width: 33, 33%;
+        @media screen and (min-width: $w1200) {
+            width: 33.33%;
         }
 
 

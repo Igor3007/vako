@@ -202,11 +202,17 @@
     }
 
     &__main {
-        width: 100%;
+        @media screen and (min-width: $w1440) {
+            min-width: calc(100% - 320px);
+            width: calc(100% - 320px);
+        }
 
         @media screen and (min-width: $w992) {
+            min-width: calc(100% - 270px);
+            width: calc(100% - 270px);
             padding-left: 33px;
         }
+
     }
 
     .shop-category {
@@ -260,6 +266,17 @@
     &__article {
         max-width: 1040px;
         padding-top: 55px;
+    }
+
+    &__bottom-info {
+        color: $gray-56;
+        font-size: 14px;
+        line-height: 140%;
+        padding-top: 30px;
+
+        @media screen and (min-width: $w576) {
+            font-size: 16px;
+        }
     }
 }
 

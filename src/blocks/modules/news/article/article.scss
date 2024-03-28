@@ -2,15 +2,31 @@
     &__image {
 
         padding-bottom: 8px;
+        margin: 0 -16px;
+
+        @media screen and (min-width: $w480) {
+            margin: 0;
+        }
 
         & picture {
-            @include picture(38%, cover);
+            @include picture(54%, cover);
             max-height: 400px;
             background-color: #eee;
-            border-radius: 8px;
+            min-height: 200px;
+
+            @media screen and (min-width: $w760) {
+                @include picture(38%, cover);
+            }
+
+            @media screen and (min-width: $w480) {
+                border-radius: 8px;
+            }
+
 
             & img {
-                border-radius: 8px;
+                @media screen and (min-width: $w480) {
+                    border-radius: 8px;
+                }
             }
         }
     }
@@ -20,8 +36,12 @@
         margin-bottom: -5px;
 
         & h1 {
-            font-size: 36px;
+            font-size: 20px;
             font-weight: 800;
+
+            @media screen and (min-width: $w760) {
+                font-size: 30px;
+            }
         }
     }
 
@@ -32,7 +52,7 @@
         color: $gray-56;
 
         & div {
-            padding-right: 10px;
+            padding-right: 16px;
             font-size: 15px;
         }
     }
@@ -54,6 +74,8 @@
 
         & svg {
             fill: $gray-56;
+            margin-right: 5px;
+            margin-bottom: -2px;
         }
     }
 
@@ -111,6 +133,12 @@
 
     & .formated-text {
 
+        font-size: 16px;
+
+        @media screen and (min-width: $w992) {
+            font-size: 17px;
+        }
+
         & h1,
         & h2,
         & h3,
@@ -133,8 +161,11 @@
         }
 
         & p {
+
+            font-size: 16px;
+
             @media screen and (min-width: $w992) {
-                font-size: 16px;
+                font-size: 17px;
                 line-height: 145%;
             }
         }
@@ -142,6 +173,17 @@
         & blockquote {
             & :first-child {
                 margin-top: 0;
+            }
+        }
+
+        & img {
+
+            border-radius: 6px;
+
+            @media screen and (max-width: $w480) {
+                min-height: 200px;
+                object-fit: cover;
+                object-position: center;
             }
         }
     }
@@ -157,9 +199,14 @@
     display: flex;
     margin: 26px -6px;
     overflow-x: auto;
+    scrollbar-width: none;
 
     @media screen and (min-width: $w576) {
         flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: $w480) {
+        margin-right: -16px;
     }
 
     & a {

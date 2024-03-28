@@ -4369,10 +4369,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 fixedWidth: 330,
                 gap: 24,
                 pagination: false,
+                perMove: 1,
+                focus: 'left',
+                flickMaxPages: 1,
+                flickPower: 150,
+                dragMinThreshold: {
+                    mouse: 4,
+                    touch: 15,
+                },
 
                 breakpoints: {
                     992: {
-
                         fixedWidth: 292,
                     },
                 },
@@ -4404,6 +4411,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 fixedWidth: 249,
                 gap: 12,
                 pagination: false,
+                perMove: 1,
+                focus: 'left',
+                flickMaxPages: 1,
+                flickPower: 150,
+                dragMinThreshold: {
+                    mouse: 4,
+                    touch: 15,
+                },
 
                 breakpoints: {
                     1439: {
