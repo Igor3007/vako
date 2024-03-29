@@ -4208,7 +4208,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     popup.open(html.outerHTML, false)
                 } else {
                     this.openWindowMobilePopup({
-                        title: 'Все подборки',
+                        title: 'Все теги',
                         content: html.outerHTML,
                         classes: 'fullscreen-popup__window--all'
                     })
@@ -4219,7 +4219,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             getTemplateMobilePopup(data) {
                 return `
 
-                <div class="fullscreen-popup__window ${!data.classes ? data.classes : ''}" >
+                <div class="fullscreen-popup__window ${data.classes ? data.classes : ''}" >
                     <div class="fullscreen-popup__head" >
                         <div class="fullscreen-popup__back" ><span class="icon-arrow-back" ></span></div>
                         <div class="fullscreen-popup__title" >${data.title}</div>
@@ -4382,6 +4382,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     992: {
                         fixedWidth: 292,
                     },
+                    575: {
+                        destroy: true,
+                    }
                 },
             })
 
@@ -4430,6 +4433,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         fixedWidth: 230,
                         pagination: true,
                     },
+
+                    575: {
+                        destroy: true,
+                    }
                 },
             })
 

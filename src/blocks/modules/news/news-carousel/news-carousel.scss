@@ -86,4 +86,34 @@
             width: 25%;
         }
     }
+
+    & .splide {
+
+        @media screen and (max-width: $w576) {
+
+            &.is-initialized:not(.is-active) {
+                & .splide {
+                    &__list {
+                        display: flex;
+                    }
+
+                    &__slide {
+                        margin-right: 16px;
+                        width: 85%;
+                        min-width: 290px;
+                        max-width: 320px;
+                    }
+
+                    &__track {
+                        overflow-x: auto;
+                        scrollbar-width: none;
+                    }
+                }
+            }
+
+
+        }
+
+
+    }
 }

@@ -26,6 +26,7 @@
             height: 24px;
             display: flex;
             align-items: center;
+            margin: 4px;
 
             & svg {
                 width: 24px;
@@ -67,6 +68,7 @@
     }
 
     & .splide {
+
         &__pagination {
 
             position: static;
@@ -80,6 +82,34 @@
                 }
             }
         }
+
+
+        @media screen and (max-width: $w576) {
+
+            &.is-initialized:not(.is-active) {
+                & .splide {
+                    &__list {
+                        display: flex;
+                    }
+
+                    &__slide {
+                        margin-right: 16px;
+                        width: 70%;
+                        min-width: 240px;
+                        max-width: 280px;
+                    }
+
+                    &__track {
+                        overflow-x: auto;
+                        scrollbar-width: none;
+                    }
+                }
+            }
+
+
+        }
+
+
     }
 
 
@@ -104,11 +134,15 @@
 
         & picture {
             @include picture(100%, contain);
+
+            & img {
+                color: transparent;
+                min-height: auto !important;
+                object-fit: contain !important;
+            }
         }
 
-        & img {
-            color: transparent;
-        }
+
     }
 
     &__title {
@@ -130,13 +164,17 @@
         color: $gray-56;
 
         & span {
-            cursor: pointer;
+
 
             &:hover {
                 color: $accent-2-1;
             }
         }
+
+        font-size: 13px;
     }
+
+
 
 
 }
