@@ -130,5 +130,7 @@ mixin tags-taxonomy
 
 mixin banner-article(data)
     .banner-article
-        a(href='news-category.html')
-            +picture(data.image)
+        picture 
+            source(srcset=""+data.image type="image/jpeg" media="(min-width: 1200px)")
+            source(srcset=""+data.image_tablet type="image/jpeg" media="(min-width: 576px)")
+            img(src=""+data.image_mobile alt="vako banner")

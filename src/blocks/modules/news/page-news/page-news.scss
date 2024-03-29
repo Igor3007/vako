@@ -113,11 +113,11 @@
 
         &.page-news__item--banner {
             width: 100%;
-            display: none;
+            // display: none;
 
-            @media screen and (min-width: $w576) {
-                display: block;
-            }
+            // @media screen and (min-width: $w576) {
+            //     display: block;
+            // }
         }
     }
 
@@ -215,8 +215,23 @@
     border-radius: 6px;
     overflow: hidden;
 
+    @media screen and (max-width: $w480) {
+        margin: 0 -16px;
+        border-radius: 0;
+    }
+
     & picture {
-        @include picture (11.5%, cover);
+        @include picture (33%, cover);
+
+        @media screen and (min-width: $w1200) {
+            padding-top: 11.5%;
+        }
+
+        @media screen and (min-width: $w576) {
+            padding-top: 16.5%;
+        }
+
+
     }
 }
 
