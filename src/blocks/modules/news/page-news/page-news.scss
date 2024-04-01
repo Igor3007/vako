@@ -81,6 +81,8 @@
                     }
                 }
             }
+
+
         }
     }
 
@@ -113,11 +115,14 @@
 
         &.page-news__item--banner {
             width: 100%;
-            // display: none;
+            padding-top: 20px;
+            padding-bottom: 20px;
 
-            // @media screen and (min-width: $w576) {
-            //     display: block;
-            // }
+            @media screen and (min-width: $w1440) {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
         }
     }
 

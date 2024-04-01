@@ -11542,6 +11542,8 @@ div[data-state="1"] {
 
 .page-news__item.page-news__item--banner {
   width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .page-news__pagination {
@@ -15981,6 +15983,11 @@ body .fslightbox-slash {
 
   .page-news__item {
     padding: 12px;
+  }
+
+  .page-news__item.page-news__item--banner {
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   .card-article__title {
