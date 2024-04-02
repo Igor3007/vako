@@ -200,6 +200,16 @@
     }
   }
 
+  &__check {
+    padding-bottom: 18px;
+
+    & .checkbox__text {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 125%;
+    }
+  }
+
 
 }
 

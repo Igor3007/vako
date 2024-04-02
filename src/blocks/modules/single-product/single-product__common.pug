@@ -150,6 +150,8 @@ mixin product-common
 
                             .category-filter__wrp
                                 form(action='#' method='POST')
+                                    .category-filter__check
+                                        +checkbox('Сначала мой регион')
                                     .category-filter__props
                                         .category-filter__item: +prop-range()
 
@@ -271,6 +273,10 @@ mixin product-common
                                    
                                     if item.type == 'store'
                                         .catalog-products__item: +minicard--store--offers(item)
+
+                                    if item.type == 'separator'
+                                        .catalog-products__item 
+                                            .separator-minicard: span!= item.text
 
                             .catalog-pagination
                                 .catalog-pagination__more

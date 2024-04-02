@@ -1160,6 +1160,29 @@ div[data-single-catalog] {
     }
 }
 
+.separator-minicard {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    min-height: 110px;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: $gray-56;
+    line-height: 160%;
+
+    & br {
+        @media screen and (max-width: $w576) {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: $w760) {
+        font-size: 20px;
+    }
+}
+
 .point-store {
 
     padding: 5px 5px;
