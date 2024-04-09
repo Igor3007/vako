@@ -20,6 +20,8 @@
             align-items: center;
         }
 
+
+
         &-next,
         &-prev {
             width: 24px;
@@ -27,6 +29,10 @@
             display: flex;
             align-items: center;
             margin: 4px;
+
+            &[disabled] {
+                visibility: hidden;
+            }
 
             & svg {
                 width: 24px;

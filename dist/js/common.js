@@ -4391,6 +4391,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
             const next = item.closest('.news-carousel').querySelector('[data-slider="news-carousel-next"]')
             const prev = item.closest('.news-carousel').querySelector('[data-slider="news-carousel-prev"]')
 
+            const checkNavButton = () => {
+
+                let slidesWidth = 0
+                let containerWidth = sliderCarousel.root.querySelector('.splide__track').clientWidth
+
+                sliderCarousel.root.querySelectorAll('.splide__slide').forEach(item => {
+                    slidesWidth += (item.clientWidth - 3) + sliderCarousel.options.gap
+                })
+
+                next.style.display = (slidesWidth <= containerWidth ? 'none' : 'block')
+                prev.style.display = (slidesWidth <= containerWidth ? 'none' : 'block')
+
+            }
+
+            sliderCarousel.on('ready', (e) => {
+                checkNavButton()
+            })
+            sliderCarousel.on('resized', (e) => {
+                checkNavButton()
+            })
+
             sliderCarousel.mount()
 
             next.addEventListener('click', e => sliderCarousel.go('<'))
@@ -4442,6 +4463,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             const next = item.closest('.product-carousel').querySelector('[data-slider="product-carousel-next"]')
             const prev = item.closest('.product-carousel').querySelector('[data-slider="product-carousel-prev"]')
+
+            const checkNavButton = () => {
+
+                let slidesWidth = 0
+                let containerWidth = sliderCarousel.root.querySelector('.splide__track').clientWidth
+
+                sliderCarousel.root.querySelectorAll('.splide__slide').forEach(item => {
+                    slidesWidth += (item.clientWidth - 3) + sliderCarousel.options.gap
+                })
+
+                next.style.display = (slidesWidth <= containerWidth ? 'none' : 'block')
+                prev.style.display = (slidesWidth <= containerWidth ? 'none' : 'block')
+
+            }
+
+            sliderCarousel.on('ready', (e) => {
+                checkNavButton()
+            })
+            sliderCarousel.on('resized', (e) => {
+                checkNavButton()
+            })
 
             sliderCarousel.mount()
 

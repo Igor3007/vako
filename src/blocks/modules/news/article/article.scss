@@ -15,7 +15,7 @@
             min-height: 200px;
 
             @media screen and (min-width: $w760) {
-                @include picture(38%, cover);
+                @include picture(46.1%, cover);
             }
 
             @media screen and (min-width: $w480) {
@@ -147,8 +147,8 @@
         & h4,
         & h5,
         & h6 {
-            margin-bottom: 20px;
-            margin-top: 1.6em;
+            margin-bottom: 1em;
+            margin-top: 1em;
         }
 
         & h1 {
@@ -280,11 +280,11 @@
     overflow-x: auto;
     scrollbar-width: none;
 
-    @media screen and (min-width: $w576) {
+    @media screen and (min-width: $w375) {
         flex-wrap: wrap;
     }
 
-    @media screen and (max-width: $w480) {
+    @media screen and (max-width: $w375) {
         margin-right: -16px;
     }
 
@@ -294,7 +294,7 @@
         width: 100%;
         min-width: 80%;
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w375) {
             min-width: auto;
         }
     }
@@ -325,11 +325,16 @@
         @include picture(70%, cover);
         background-color: #eee;
         border-radius: 8px;
+
+        & img {
+            min-height: auto !important;
+        }
     }
 
     & img {
         margin: 0;
         border-radius: 8px;
         transition: 0.3s ease;
+
     }
 }
