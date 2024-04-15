@@ -4493,7 +4493,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* ======================================
+    article__context
+    ======================================*/
 
+    if (document.querySelector('.news-article__context img')) {
+
+        const items = document.querySelectorAll('.news-article__context article > img')
+
+        function openGalleryProduct(index, items) {
+            const arrImage = [];
+
+            items.forEach(image => {
+                arrImage.push(image.getAttribute('src'))
+            })
+
+            const instance = new FsLightbox();
+            instance.props.dots = true;
+            instance.props.type = "image";
+            instance.props.sources = arrImage;
+            instance.open(index)
+
+        }
+
+        items.forEach((item, index) => {
+            item.addEventListener('click', () => openGalleryProduct(index, items))
+        })
+
+    }
 
 
 
