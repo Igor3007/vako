@@ -194,7 +194,7 @@
 
     &__content {
 
-        padding-bottom: 60px;
+        padding-bottom: 50px;
 
         @media screen and (min-width: $w992) {
             display: flex;
@@ -264,8 +264,19 @@
     }
 
     &__article {
-        max-width: 1040px;
-        padding-top: 55px;
+
+        margin-left: auto;
+
+        @media screen and (min-width: $w1440) {
+            min-width: calc(100% - 320px);
+            width: calc(100% - 320px);
+        }
+
+        @media screen and (min-width: $w992) {
+            min-width: calc(100% - 270px);
+            width: calc(100% - 270px);
+            padding-left: 33px;
+        }
     }
 
     &__bottom-info {
