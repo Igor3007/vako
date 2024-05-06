@@ -3221,6 +3221,8 @@ input:focus {
   box-shadow: 0px 0 11px -2px #919191;
   border-radius: 15px 15px 0px 0px;
   animation: fade-drop-filter 0.3s ease forwards;
+  max-width: 1390px;
+  margin: 0 auto;
 }
 
 .bottom-popup__icons {
@@ -8527,10 +8529,6 @@ body .fslightbox-slash {
 
   .form__item > .form__item {
     flex-direction: row;
-  }
-
-  .bottom-popup__desc {
-    font-size: 18px;
   }
 
   .bottom-popup__btn button {

@@ -4522,6 +4522,60 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* ======================================
+    share
+    ======================================*/
+
+    const shareData = {
+        title: document.title,
+        text: document.querySelector('meta[name="description"]').getAttribute('content'),
+        url: window.location.href,
+    };
+
+    const btn = document.querySelector("[data-share='btn']");
+
+
+    btn.addEventListener("click", async () => {
+        try {
+            await navigator.share(shareData);
+        } catch (err) {
+
+            const sharePopup = new afLightbox({
+                mobileInBottom: true
+            })
+
+            const html = `
+             <div class="popup-confirm" data-form-success="remove">
+               <div class="popup-confirm__title">Поделиться ссылкой</div>
+               <div class="popup-confirm__desc">Скопируйте ссылку и отправте друзьям!</div>
+               <div class="popup-confirm__form form">
+                    <textarea cols="40" >${shareData.url}</textarea>
+               </div>
+               <div class="popup-confirm__btns">
+                    <button class="btn btn-small" data-copy="link" >Скопировать в буфер</button>
+               </div>
+           </div>
+             `
+
+            sharePopup.open(html, function (instanse) {
+                instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
+                    navigator.clipboard.writeText(shareData.url)
+                        .then(() => {
+                            window.STATUS.msg('Ссылка скопирована в буфер обмена!')
+                            sharePopup.close()
+                        })
+                        .catch(err => {
+                            console.log('Something went wrong', err);
+                        });
+
+                })
+            })
+        }
+    });
+
+
+
+
 
 
 });

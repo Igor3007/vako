@@ -112,7 +112,6 @@ class afLightbox {
     close() {
 
         this.instanse.querySelector('.af-popup').classList.remove('af-popup--visible')
-
         let documentBody = document.body
 
         if (this.isiOS) {

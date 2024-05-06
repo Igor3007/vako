@@ -521,6 +521,9 @@
         padding-bottom: 20px;
     }
 
+
+
+    &__share,
     &__compare,
     &__fav {
         display: flex;
@@ -564,6 +567,7 @@
             border-radius: 6px;
             justify-content: center;
             position: relative;
+            cursor: pointer;
 
             &::before {
                 display: none !important;
@@ -601,6 +605,27 @@
 
             }
         }
+    }
+
+    &__share {
+        margin-left: auto;
+
+        & svg {
+            stroke: none;
+            fill: $gray-56;
+        }
+
+        & a {
+            &:hover {
+                & svg {
+                    stroke: none;
+                    fill: $red;
+                }
+            }
+        }
+
+
+
     }
 
     &__properties-min {
@@ -1383,4 +1408,81 @@ div[data-single-catalog] {
 
 .single-product__wrp-tabs {
     min-height: 40px;
+}
+
+.popup-confirm {
+
+    padding: 20px 10px;
+
+    @media screen and (min-width: $w576) {
+        padding: 30px 40px;
+    }
+
+    &__icons {
+        padding-bottom: 25px;
+
+        display: flex;
+        justify-content: center;
+
+    }
+
+    &__title {
+        font-size: 24px;
+        font-weight: 800;
+        text-align: center;
+        padding-bottom: 15px;
+        line-height: 133%;
+    }
+
+    &__desc {
+        padding-bottom: 25px;
+        text-align: center;
+        color: rgba(17, 27, 41, 0.5);
+
+
+    }
+
+    &__btn {
+        & .btn {
+            margin: 0 auto;
+        }
+    }
+
+    &__btns {
+
+
+        margin: -10px;
+
+        @media screen and (min-width: $w480) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        & .btn {
+            margin: 10px;
+            width: calc(100% - 20px);
+        }
+    }
+
+    &__form {
+        padding-bottom: 15px;
+
+        & textarea {
+            max-height: 90px;
+            min-height: 90px;
+            height: 90px !important;
+        }
+    }
+
+    &__close {
+
+        padding-top: 20px;
+        text-align: center;
+
+        & span {
+            color: $blue;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
 }
