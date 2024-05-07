@@ -4535,17 +4535,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const btn = document.querySelector("[data-share='btn']");
 
 
-    btn.addEventListener("click", async () => {
-        try {
-            await navigator.share(shareData);
-        } catch (err) {
+    btn.addEventListener("click", () => {
+
+        if (navigator.share) {
+            const shareButton = document.getElementById('shareButton');
+
+            navigator.share(shareData)
+                .then(() => console.log('Shared successfully'))
+                .catch((error) => console.error('Sharing failed:', error));
+
+        } else {
 
             const sharePopup = new afLightbox({
                 mobileInBottom: true
             })
 
             const html = `
-             <div class="popup-confirm" data-form-success="remove">
+            <div class="popup-confirm" data-form-success="remove">
                <div class="popup-confirm__title">Поделиться ссылкой</div>
                <div class="popup-confirm__desc">Скопируйте ссылку и отправте друзьям!</div>
                <div class="popup-confirm__form form">
@@ -4554,7 +4560,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                <div class="popup-confirm__btns">
                     <button class="btn btn-small" data-copy="link" >Скопировать в буфер</button>
                </div>
-           </div>
+            </div>
              `
 
             sharePopup.open(html, function (instanse) {
@@ -4570,7 +4576,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 })
             })
+
         }
+
+
     });
 
 

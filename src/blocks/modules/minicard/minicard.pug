@@ -33,6 +33,14 @@ mixin minicard(data)
                 .minicard__rating(class=data.rating_color)
                     span= data.rate
                     a(href='#') 82 отзыва
+
+                if(data.sticker_color == 'sticker--orange')
+                    .minicard__stickers(class=data.sticker_color)
+                        span Хит
+                if(data.sticker_color == 'sticker--blue')
+                    .minicard__stickers(class=data.sticker_color)
+                        span Новинка
+                        
                 .minicard__props
                     ul
                         li <span>звук:</span> моно

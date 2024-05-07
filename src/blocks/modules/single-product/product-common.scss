@@ -177,6 +177,10 @@
         }
 
     }
+
+    &__images {
+        position: relative;
+    }
 }
 
 .product-images {
@@ -1485,4 +1489,43 @@ div[data-single-catalog] {
             cursor: pointer;
         }
     }
+}
+
+.product-sticker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+
+    & span {
+        font-size: 13px;
+        font-weight: 700;
+        background-color: #ddd;
+        height: 26px;
+        display: inline-flex;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        line-height: 100%;
+        padding-bottom: 2px;
+        border-radius: 5px 0 5px 0;
+
+
+    }
+
+    &.sticker--blue {
+        & span {
+            background-color: #45B9F5;
+            color: #fff;
+        }
+    }
+
+    &.sticker--orange {
+        & span {
+            background-color: $orange;
+            color: #fff;
+        }
+    }
+
+
 }

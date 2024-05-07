@@ -6536,6 +6536,36 @@ footer {
   text-decoration: underline;
 }
 
+.minicard__stickers {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -36px;
+}
+
+.minicard__stickers span {
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #ddd;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 100%;
+  padding-bottom: 2px;
+  border-radius: 5px 0 5px 0;
+}
+
+.minicard__stickers.sticker--blue span {
+  background-color: #45B9F5;
+  color: #fff;
+}
+
+.minicard__stickers.sticker--orange span {
+  background-color: #EB7D00;
+  color: #fff;
+}
+
 .minicard__images {
   width: 68px;
   min-width: 68px;
@@ -7085,6 +7115,10 @@ footer {
 
 .product-main {
   padding-bottom: 50px;
+}
+
+.product-main__images {
+  position: relative;
 }
 
 .product-images picture {
@@ -8084,6 +8118,37 @@ div[data-single-catalog]:not(.is-active) {
   color: #367fbd;
   font-weight: bold;
   cursor: pointer;
+}
+
+.product-sticker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-top: 0;
+}
+
+.product-sticker span {
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #ddd;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 100%;
+  padding-bottom: 2px;
+  border-radius: 5px 0 5px 0;
+}
+
+.product-sticker.sticker--blue span {
+  background-color: #45B9F5;
+  color: #fff;
+}
+
+.product-sticker.sticker--orange span {
+  background-color: #EB7D00;
+  color: #fff;
 }
 
 .product-prop {
@@ -14516,6 +14581,10 @@ body .fslightbox-slash {
     width: 33.33%;
   }
 
+  .minicard__stickers span {
+    height: 26px;
+  }
+
   .minicard__action a[data-tooltip]::before {
     display: block;
   }
@@ -14977,6 +15046,13 @@ body .fslightbox-slash {
 
   .minicard:hover {
     border-color: #7B61FF;
+  }
+
+  .minicard__stickers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 0;
   }
 
   .minicard__images {
@@ -16336,6 +16412,10 @@ body .fslightbox-slash {
 }
 
 @media screen and (max-width: 768.98px) {
+  .minicard__stickers {
+    padding-bottom: 12px;
+  }
+
   .splide__pagination__page {
     min-width: 4px;
     width: 4px;
