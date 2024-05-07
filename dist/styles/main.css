@@ -16341,6 +16341,11 @@ body .fslightbox-slash {
     background-color: #f5f5f5;
   }
 
+  .product-details__share svg {
+    width: 24px;
+    height: 24px;
+  }
+
   .personal-panel__aside.is-open {
     display: block;
     position: fixed;

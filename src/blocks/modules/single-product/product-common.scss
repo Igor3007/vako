@@ -617,6 +617,11 @@
         & svg {
             stroke: none;
             fill: $gray-56;
+
+            @media screen and (max-width: $w992) {
+                width: 24px;
+                height: 24px;
+            }
         }
 
         & a {
