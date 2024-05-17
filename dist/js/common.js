@@ -4568,8 +4568,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
                         navigator.clipboard.writeText(shareData.url)
                             .then(() => {
-                                window.STATUS.msg('Ссылка скопирована в буфер обмена!')
+                                //window.STATUS.msg('Ссылка скопирована в буфер обмена!')
                                 sharePopup.close()
+
+                                document.querySelector('.product-details__share a').classList.add('is-view')
+
+                                setTimeout(() => {
+                                    document.querySelector('.product-details__share a').classList.remove('is-view')
+                                }, 1500)
+
                             })
                             .catch(err => {
                                 console.log('Something went wrong', err);

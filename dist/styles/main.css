@@ -7447,6 +7447,27 @@ footer {
   fill: #8f8f8f;
 }
 
+.product-details__share a {
+  position: relative;
+}
+
+.product-details__share a::after {
+  content: attr(data-title);
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 4px 0 #0000002f;
+  padding: 12px 24px;
+  white-space: nowrap;
+  border-radius: 6px;
+  opacity: 0;
+}
+
+.product-details__share a.is-view::after {
+  opacity: 1;
+}
+
 .product-details__share a:hover svg {
   stroke: none;
   fill: #DF1F26;

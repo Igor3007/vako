@@ -525,8 +525,6 @@
         padding-bottom: 20px;
     }
 
-
-
     &__share,
     &__compare,
     &__fav {
@@ -625,12 +623,36 @@
         }
 
         & a {
+            position: relative;
+
+
+            &::after {
+                content: attr(data-title);
+                display: inline-block;
+                position: absolute;
+                top: 100%;
+                background-color: #fff;
+                box-shadow: 0 0 4px 0 #0000002f;
+                padding: 12px 24px;
+                white-space: nowrap;
+                border-radius: 6px;
+                opacity: 0;
+            }
+
+            &.is-view {
+                &::after {
+                    opacity: 1;
+                }
+            }
+
             &:hover {
                 & svg {
                     stroke: none;
                     fill: $red;
                 }
             }
+
+
         }
 
 
