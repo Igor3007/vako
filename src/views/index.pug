@@ -4,6 +4,8 @@ include ../blocks/modules/search-index/search-index.pug
 include ../blocks/modules/banner-slider/banner-slider.pug
 include ../blocks/modules/top-categories/top-categories.pug
 include ../blocks/modules/top-article/top-article.pug
+include ../blocks/modules/collections-block/collections-block.pug
+include ../blocks/modules/home-products/home-products.pug
 
 
  
@@ -15,10 +17,12 @@ block variables
 block content 
 
  +banner-slider
+ +collections-block
  +top-categories
+ +home-products
  +top-article
-
  +catalog-popup()
+
 
 
 block scripts

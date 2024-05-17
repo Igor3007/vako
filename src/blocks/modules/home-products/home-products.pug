@@ -1,0 +1,14 @@
+include ../../modules/product-carousel/product-carousel.pug
+include ../../modules/minicard/minicard.pug
+
+mixin home-products
+    section.section-home-products
+        .container
+            .home-products
+                .home-products__title Хиты продаж
+                .home-products__slider
+                    .splide(data-slider="homeproducts")
+                        .splide__track
+                            .splide__list
+                                each item in home_products
+                                    .splide__slide: +minicard--home(item)

@@ -4526,31 +4526,32 @@ document.addEventListener("DOMContentLoaded", function (event) {
     share
     ======================================*/
 
-    const shareData = {
-        title: document.title,
-        text: document.querySelector('meta[name="description"]').getAttribute('content'),
-        url: window.location.href,
-    };
+    if (document.querySelector("[data-share='btn']")) {
 
-    const btn = document.querySelector("[data-share='btn']");
+        const shareData = {
+            title: document.title,
+            text: document.querySelector('meta[name="description"]').getAttribute('content'),
+            url: window.location.href,
+        };
 
+        const btn = document.querySelector("[data-share='btn']");
 
-    btn.addEventListener("click", () => {
+        btn.addEventListener("click", () => {
 
-        if (navigator.share) {
-            const shareButton = document.getElementById('shareButton');
+            if (navigator.share) {
+                const shareButton = document.getElementById('shareButton');
 
-            navigator.share(shareData)
-                .then(() => console.log('Shared successfully'))
-                .catch((error) => console.error('Sharing failed:', error));
+                navigator.share(shareData)
+                    .then(() => console.log('Shared successfully'))
+                    .catch((error) => console.error('Sharing failed:', error));
 
-        } else {
+            } else {
 
-            const sharePopup = new afLightbox({
-                mobileInBottom: true
-            })
+                const sharePopup = new afLightbox({
+                    mobileInBottom: true
+                })
 
-            const html = `
+                const html = `
             <div class="popup-confirm" data-form-success="remove">
                <div class="popup-confirm__title">Поделиться ссылкой</div>
                <div class="popup-confirm__desc">Скопируйте ссылку и отправте друзьям!</div>
@@ -4563,24 +4564,187 @@ document.addEventListener("DOMContentLoaded", function (event) {
             </div>
              `
 
-            sharePopup.open(html, function (instanse) {
-                instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
-                    navigator.clipboard.writeText(shareData.url)
-                        .then(() => {
-                            window.STATUS.msg('Ссылка скопирована в буфер обмена!')
-                            sharePopup.close()
-                        })
-                        .catch(err => {
-                            console.log('Something went wrong', err);
-                        });
+                sharePopup.open(html, function (instanse) {
+                    instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
+                        navigator.clipboard.writeText(shareData.url)
+                            .then(() => {
+                                window.STATUS.msg('Ссылка скопирована в буфер обмена!')
+                                sharePopup.close()
+                            })
+                            .catch(err => {
+                                console.log('Something went wrong', err);
+                            });
 
+                    })
                 })
-            })
+
+            }
+
+
+        });
+    }
+
+
+    /* ========================================
+    dfdf
+    ========================================*/
+
+    class FlexTags {
+        constructor(params) {
+            this.params = params
+            this.$el = document.querySelector(params.el) || document
+            this.widthButtonShowMore = 110;
+            this.container = document.querySelector(this.params.container) || document
+            this.showMoreBotton = this.container.querySelector('.collections-block__more')
+            this.init()
+        }
+
+        init() {
+            this.addEvent()
+            this.render()
 
         }
 
+        heightItems() {
+            return this.$el.clientHeight;
+        }
 
-    });
+        heightContainer() {
+
+            let heightItem = this.$el.querySelector('li').offsetHeight
+
+            if (document.body.clientWidth > 576) {
+                return heightItem * 2
+            } else {
+                return heightItem * 3
+            }
+
+        }
+
+        render() {
+
+            if (this.$el.closest(this.params.container).classList.contains('is-open')) {
+                return false;
+            }
+
+            this.$el.querySelectorAll('li.is-hide').forEach(li => li.classList.remove('is-hide'))
+
+            this.showMoreBotton.style.display = (this.heightItems() > this.heightContainer() ? 'flex' : 'none')
+
+            while (this.heightItems() > this.heightContainer()) {
+                let visibleElements = this.$el.querySelectorAll('li:not(.is-hide)')
+                if (visibleElements[(visibleElements.length - 1)]) {
+                    visibleElements[(visibleElements.length - 1)].classList.add('is-hide')
+                }
+
+            }
+
+            this.container.classList.contains('is-init') || this.container.classList.add('is-init')
+
+        }
+
+        debounce(method, delay, e) {
+            clearTimeout(method._tId);
+            method._tId = setTimeout(function () {
+                method(e);
+            }, delay);
+        }
+
+
+        addEvent() {
+            const resizeHahdler = (e) => {
+                this.render()
+            }
+
+            const observer = new ResizeObserver((entries) => {
+                this.debounce(resizeHahdler, 30, entries)
+            });
+
+            observer.observe(document.querySelector(this.params.container));
+
+            this.showMoreBotton.addEventListener('click', e => {
+                this.container.classList.toggle('is-open');
+
+                this.showMoreBotton.querySelector('span').innerText = this.container.classList.contains('is-open') ? 'Свернуть' : 'Показать все'
+
+            })
+        }
+
+    }
+
+    if (document.querySelector('.collections-block')) {
+        window.flextags = new FlexTags({
+            el: '.collections-block__tags ul',
+            container: '.collections-block'
+        })
+    }
+
+
+
+
+
+    /*======================================
+     top home-products slider
+    ======================================*/
+
+    if (document.querySelector('[data-slider="homeproducts"]')) {
+        const items = document.querySelectorAll('[data-slider="homeproducts"]')
+
+        items.forEach(item => {
+            const topCategories = new Splide(item, {
+                perPage: 5,
+                perMove: 1,
+                arrows: true,
+                gap: 12,
+                arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
+                breakpoints: {
+                    1439: {
+                        perPage: 4,
+                    },
+                    992: {
+                        perPage: 3,
+                    },
+                    766: {
+                        perPage: 2,
+                    },
+                    576: {
+                        destroy: true,
+                    },
+                }
+            })
+
+            topCategories.mount()
+
+            const watchWidth = () => {
+
+                const sliderWidth = item.classList.contains('is-offset-pagination') ? (item.clientWidth + 100) : item.clientWidth
+                const frameWidth = document.documentElement.clientWidth
+
+                //is-pagination offset
+                if ((frameWidth - 100) <= sliderWidth) {
+                    item.classList.add('is-offset-pagination')
+                } else {
+                    !item.classList.contains('is-offset-pagination') || item.classList.remove('is-offset-pagination')
+                }
+
+                // is-pagination
+                if (topCategories.length > topCategories.options.perPage) {
+                    item.classList.add('is-pagination')
+                } else {
+                    !item.classList.contains('is-pagination') || item.classList.remove('is-pagination')
+                }
+            }
+
+            let fnDedounce = window.debounce
+            watchWidth()
+
+            window.addEventListener('resize', () => {
+                fnDedounce(watchWidth, 50);
+            })
+        })
+
+    }
+
 
 
 

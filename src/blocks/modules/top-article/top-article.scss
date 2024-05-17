@@ -63,6 +63,12 @@
 
         & .btn {
             font-weight: 700;
+
+            &:hover {
+                background-color: #5442AD;
+                opacity: 1;
+            }
+
         }
     }
 

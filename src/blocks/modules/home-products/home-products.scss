@@ -1,0 +1,314 @@
+ .section-home-products {
+     padding: 20px 0 0 0;
+ }
+
+ .home-products {
+     &__title {
+         @include font-h2;
+         padding-bottom: 0.8em;
+
+         @media screen and (min-width: $w576) {
+             padding-bottom: 0.6em;
+         }
+     }
+
+     & .minicard {
+         flex-direction: column;
+         height: 100%;
+         padding: 16px;
+         border: 1px solid #ebebeb;
+
+         &--store {
+             & .minicard {
+                 &__rating {
+                     & a {
+                         display: none;
+                     }
+                 }
+
+                 &__store {
+                     &-phone {
+                         display: none;
+                     }
+
+                     &-label {
+                         font-size: 13px;
+                     }
+                 }
+             }
+         }
+
+         &__images {
+             padding-bottom: 30px;
+             width: 100%;
+             min-width: 100%;
+
+             & .splide {
+                 &__pagination {
+                     bottom: 0;
+                 }
+
+                 &__list {
+                     display: flex !important;
+                 }
+             }
+
+             & picture {
+                 padding-top: 77%;
+
+             }
+         }
+
+         &__rating {
+             & a {
+                 font-size: 13px;
+             }
+         }
+
+         &__title {
+             font-size: 15px;
+             line-height: 134%;
+         }
+
+         &__content {
+             display: flex;
+             flex-direction: column;
+             padding-left: 0;
+             margin-top: auto;
+         }
+
+         &__more {
+             width: 100%;
+             min-width: 100%;
+         }
+
+         &__main {
+             padding-right: 0;
+         }
+
+         &__note,
+         &__props,
+         &__conditions,
+         &__shipping {
+             display: none;
+         }
+
+         &__store {
+
+             display: flex;
+             flex-wrap: wrap;
+             padding-bottom: 6px;
+
+             &-rating {
+
+                 display: flex;
+                 align-items: flex-end;
+                 padding-bottom: 5px;
+
+                 & .minicard__store-label {
+                     display: none;
+                 }
+
+                 & .minicard__rating {
+                     padding-bottom: 0;
+                 }
+             }
+
+             &-price {
+                 display: block;
+                 padding-top: 0;
+                 width: 100%;
+                 font-size: 18px;
+             }
+
+
+         }
+
+         &__action {
+             display: flex;
+             flex-direction: column;
+             bottom: auto;
+             top: 7px;
+             right: 7px;
+
+             & a[data-tooltip]::before {
+                 @media screen and (max-width: $w480) {
+                     left: auto;
+                     right: 0;
+                     transform: none;
+                 }
+             }
+
+             & a {
+                 // &:hover {
+                 //   background-color: transparent;
+                 // }
+
+
+             }
+         }
+
+         &__more {
+             position: static;
+         }
+
+         &__in-store {
+             & .btn {
+                 width: 100%;
+             }
+         }
+
+         &__price {
+
+             font-size: 16px;
+             padding-bottom: 7px;
+
+             &.hide--mobile {
+                 display: none;
+             }
+         }
+
+         &__stickers {
+             position: absolute;
+             left: 0;
+             top: 0;
+             margin-top: 0;
+         }
+
+     }
+
+     &__slider {
+
+         margin-right: -16px;
+
+         @media screen and (min-width: $w480) {
+             margin-right: 0;
+         }
+
+         &>.splide {
+             width: 100%;
+
+             &>.splide__arrows .splide__arrow {
+                 opacity: 1;
+
+
+                 &:hover {
+                     opacity: 0.9;
+                 }
+
+                 & svg {
+                     fill: $accent-2-1;
+                     height: 20px;
+                     width: 20px;
+                 }
+
+
+             }
+
+             &>.splide__track {
+                 padding-top: 12px;
+                 padding-bottom: 24px;
+             }
+
+             &>.splide__pagination {
+                 bottom: 0;
+             }
+
+             &>.splide__arrows .splide__arrow {
+                 &--prev {
+                     left: -45px;
+                 }
+
+                 &--next {
+                     right: -45px;
+                 }
+
+                 &--prev,
+                 &--next {
+                     background-color: transparent;
+
+                     &:disabled {
+                         opacity: 0;
+                     }
+                 }
+             }
+
+             &.is-pagination {
+                 & .splide {
+                     &__arrow {
+
+                         &--prev,
+                         &--next {
+                             &:disabled {
+                                 opacity: 0.3;
+                             }
+                         }
+                     }
+                 }
+             }
+
+             &:not(.is-initialized.is-active) {
+
+                 visibility: visible;
+                 // margin-bottom: 26px;
+
+
+
+
+
+                 &>.splide__track {
+                     padding-top: 13px;
+
+                     &>.splide__list {
+                         @media screen and (max-width: $w576) {
+
+                             display: flex;
+                             overflow-x: auto;
+                             overflow-y: hidden;
+                         }
+
+                         &>.splide__slide {
+
+                             padding: 4px 4px;
+                             width: 270px;
+                             min-width: 270px;
+
+                             @media screen and (min-width: $w576) {
+                                 width: 50%;
+                             }
+
+                             @media screen and (min-width: $w760) {
+                                 width: 33.33%;
+                             }
+
+                             @media screen and (min-width: $w992) {
+                                 width: 33.33%;
+                                 padding-top: 0;
+                                 padding-bottom: 0;
+                             }
+
+                             @media screen and (min-width: $w1440) {
+                                 width: 20%;
+                             }
+
+                             @media screen and (min-width: $w576) and (max-width: $w760) {
+                                 &:not(:nth-child(-n+6)) {
+                                     display: none;
+                                 }
+                             }
+
+                         }
+                     }
+
+
+
+
+                 }
+
+
+             }
+         }
+     }
+
+
+ }
