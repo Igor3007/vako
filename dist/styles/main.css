@@ -13057,14 +13057,126 @@ div[data-state="1"] {
   min-width: 270px;
 }
 
+.contacts-block {
+  padding: 16px;
+  background-color: #F9F7FF;
+  border-radius: 8px;
+}
+
+.contacts-block__info {
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 40px;
+  border-radius: 6px;
+}
+
+.contacts-block__info p {
+  margin-bottom: 0;
+  line-height: 170%;
+  margin-top: 0;
+}
+
+.contacts-block__info strong {
+  padding-left: 65px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 47px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.contacts-block__items {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-block__item {
+  padding-bottom: 24px;
+}
+
+.contacts-item {
+  display: flex;
+}
+
+.contacts-item__icon span {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.contacts-item__main {
+  padding-left: 16px;
+  width: 100%;
+}
+
+.contacts-item__title {
+  font-size: 13px;
+  line-height: 160%;
+  max-width: 95%;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.contacts-item__link a {
+  font-size: 16px;
+  font-weight: 700;
+  color: #7B61FF;
+}
+
+.contacts-item__link ul {
+  display: flex;
+}
+
+.contacts-item__link ul li {
+  width: 24px;
+  height: 24px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contacts-item__link ul li a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.contacts-item__link ul li:hover {
+  background-color: transparent;
+}
+
+.contacts-item__link ul li:hover svg {
+  opacity: 1;
+}
+
+.contacts-item__link ul li svg {
+  width: 20px;
+  height: 20px;
+  fill: #7B61FF;
+}
+
 .section-page-default {
-  padding: 30px 0;
+  padding: 16px 0;
+}
+
+.page-default__h1 {
+  padding-bottom: 18px;
 }
 
 .page-default__h1 h1 {
+  margin: 0;
+  font-size: 24px;
   font-weight: 900;
-  font-size: 20px;
-  line-height: 121%;
+}
+
+.page-default__breadcrumb {
+  padding-bottom: 8px;
 }
 
 /* common styles */
@@ -14184,6 +14296,14 @@ body .fslightbox-slash {
     margin-right: 0;
   }
 
+  .contacts-block {
+    padding: 40px;
+  }
+
+  .page-default__h1 {
+    padding-bottom: 50px;
+  }
+
   .create-review {
     padding: 25px;
   }
@@ -14624,6 +14744,24 @@ body .fslightbox-slash {
 
   .home-products__slider > .splide:not(.is-initialized.is-active) > .splide__track > .splide__list > .splide__slide {
     width: 50%;
+  }
+
+  .contacts-block__item {
+    padding-bottom: 18px;
+  }
+
+  .contacts-item__icon span {
+    width: 56px;
+    height: 56px;
+  }
+
+  .contacts-item__title {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .section-page-default {
+    padding: 22px 0;
   }
 
   .create-review__title {
@@ -15182,8 +15320,12 @@ body .fslightbox-slash {
     width: 33.33%;
   }
 
-  .page-default__h1 h1 {
-    font-size: 28px;
+  .page-default__breadcrumb {
+    padding-bottom: 0;
+  }
+
+  .page-default__breadcrumb .breadcrumb {
+    padding-bottom: 14px;
   }
 
   .qi-review span {
@@ -15970,6 +16112,36 @@ body .fslightbox-slash {
     padding-bottom: 0;
   }
 
+  .contacts-block__info {
+    padding: 24px;
+    padding-left: 90px;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-position: 24px 24px;
+  }
+
+  .contacts-block__info p {
+    font-size: 16px;
+  }
+
+  .contacts-block__info strong {
+    font-size: 18px;
+    background-image: none !important;
+    padding-left: 0;
+    min-height: auto;
+  }
+
+  .contacts-block__items {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: -12px;
+  }
+
+  .contacts-block__item {
+    width: 50%;
+    padding: 12px;
+  }
+
   .popup-points {
     width: 60vw;
     max-width: 1070px;
@@ -16370,8 +16542,17 @@ body .fslightbox-slash {
     width: 33.33%;
   }
 
+  .contacts-block__items {
+    margin: -10px -20px;
+  }
+
+  .contacts-block__item {
+    width: 33.33%;
+    padding: 10px 20px;
+  }
+
   .page-default__h1 h1 {
-    font-size: 44px;
+    font-size: 36px;
   }
 
   .hide--desctop {
@@ -16653,6 +16834,14 @@ body .fslightbox-slash {
 
   .home-products__slider > .splide:not(.is-initialized.is-active) > .splide__track > .splide__list > .splide__slide {
     width: 20%;
+  }
+
+  .contacts-item__title {
+    font-size: 16px;
+  }
+
+  .contacts-item__link a {
+    font-size: 18px;
   }
 
   .qi-review small {
@@ -17183,6 +17372,10 @@ body .fslightbox-slash {
     left: auto;
     right: 0;
     transform: none;
+  }
+
+  .contacts-block__item--social {
+    order: 10;
   }
 }
 

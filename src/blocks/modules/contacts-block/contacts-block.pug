@@ -1,3 +1,47 @@
 mixin contacts-block
-    .contacts-block
+     
         .contacts-block
+            .contacts-block__info(style="background-image: url('/img/common/icon_warn_60.svg')")
+                strong(style="background-image: url('/img/common/icon_warn_60.svg')"): span Уважаемые покупатели!
+                p Наша площадка не является маркетплейсом, покупка товаров и их гарантийное обслуживание осуществляется исключительно у магазинов-партнёров.
+            
+            .contacts-block__items
+                .contacts-block__item
+                    .contacts-item
+                        .contacts-item__icon: +bgimage('/img/icon/01-phone.svg')
+                        .contacts-item__main
+                            .contacts-item__title Телефон для магазинов и рекламных агентств
+                            .contacts-item__link: a(href='#') 8 (800) 234-87-50
+                .contacts-block__item
+                    .contacts-item
+                        .contacts-item__icon: +bgimage('/img/icon/02-email.svg')
+                        .contacts-item__main
+                            .contacts-item__title Email для коммерческих предложений
+                            .contacts-item__link: a(href='mailto:info@vako.market') info@vako.market
+                .contacts-block__item.contacts-block__item--social
+                    .contacts-item
+                        .contacts-item__icon: +bgimage('/img/icon/03-support.svg')
+                        .contacts-item__main
+                            .contacts-item__title Соцсети и мессенджеры
+                            .contacts-item__link
+                                ul
+                                    li: a(href='#'): +icons('#ic_yt-large') 
+                                    li: a(href='#'): +icons('#ic_vk-large') 
+                                    li: a(href='#'): +icons('#ic_tg') 
+
+                .contacts-block__item
+                    .contacts-item
+                        .contacts-item__icon: +bgimage('/img/icon/04-socials.svg')
+                        .contacts-item__main
+                            .contacts-item__title Тех. поддержка (Telegram) 
+                            .contacts-item__link: a(href='https://t.me/vako_support') @vako_support 
+                .contacts-block__item
+                    .contacts-item
+                        .contacts-item__icon: +bgimage('/img/icon/05-address.svg')
+                        .contacts-item__main
+                            .contacts-item__title Юридический адрес 
+                            .contacts-item__link: a(href='https://yandex.by/maps/-/CDbXFB6Q') Москва, ул. Горбунова д. 2, стр. 2, этаж 8, ком. 827
+
+
+ 
+

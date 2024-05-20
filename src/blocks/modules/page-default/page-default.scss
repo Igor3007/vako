@@ -1,11 +1,43 @@
 .section-page-default {
-    padding: 30px 0;
+    padding: 16px 0;
+
+    @media screen and (min-width: $w576) {
+        padding: 22px 0;
+    }
 }
 
 .page-default {
     &__h1 {
+
+        padding-bottom: 18px;
+
+        @media screen and (min-width: $w480) {
+            padding-bottom: 50px;
+        }
+
         & h1 {
-            @include font-h1;
+            margin: 0;
+
+            font-size: 24px;
+            font-weight: 900;
+
+            @media screen and (min-width: $w1200) {
+                font-size: 36px;
+            }
         }
     }
+
+    &__breadcrumb {
+        padding-bottom: 8px;
+
+        @media screen and (min-width: $w760) {
+            padding-bottom: 0;
+
+            & .breadcrumb {
+                padding-bottom: 14px;
+            }
+        }
+    }
+
+
 }

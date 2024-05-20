@@ -1,0 +1,184 @@
+.contacts-block {
+    padding: 16px;
+    background-color: $accent-2-3;
+    border-radius: 8px;
+
+    @media screen and (min-width: $w480) {
+        padding: 40px;
+    }
+
+    &__info {
+        padding: 20px;
+        background-color: #fff;
+        margin-bottom: 40px;
+        border-radius: 6px;
+
+        @media screen and (min-width: $w992) {
+            padding: 24px;
+            padding-left: 90px;
+            background-position: left top;
+            background-repeat: no-repeat;
+            background-position: 24px 24px;
+        }
+
+        & p {
+            margin-bottom: 0;
+            line-height: 170%;
+            margin-top: 0;
+
+
+
+            @media screen and (min-width: $w992) {
+                font-size: 16px;
+            }
+        }
+
+        & strong {
+            padding-left: 65px;
+            background-position: left top;
+            background-repeat: no-repeat;
+            min-height: 47px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+
+            @media screen and (min-width: $w992) {
+                font-size: 18px;
+                background-image: none !important;
+                padding-left: 0;
+                min-height: auto;
+
+            }
+        }
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (min-width: $w992) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: -12px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            margin: -10px -20px;
+        }
+    }
+
+    &__item {
+        padding-bottom: 24px;
+
+        @media screen and (min-width: $w576) {
+            padding-bottom: 18px;
+        }
+
+        @media screen and (min-width: $w992) {
+            width: 50%;
+            padding: 12px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            width: 33.33%;
+            padding: 10px 20px;
+
+        }
+
+        &--social {
+            @media screen and (max-width: $w480) {
+                order: 10;
+            }
+        }
+    }
+
+
+}
+
+.contacts-item {
+    display: flex;
+
+    &__icon {
+
+
+        & span {
+            width: 50px;
+            height: 50px;
+
+            @include bgimage-contain;
+
+            @media screen and (min-width: $w576) {
+                width: 56px;
+                height: 56px;
+            }
+        }
+    }
+
+    &__main {
+        padding-left: 16px;
+        width: 100%;
+    }
+
+    &__title {
+        font-size: 13px;
+        line-height: 160%;
+        max-width: 95%;
+        padding-bottom: 5px;
+        width: 100%;
+
+        @media screen and (min-width: $w576) {
+            font-size: 14px;
+            max-width: 100%;
+        }
+
+        @media screen and (min-width: $w1440) {
+            font-size: 16px;
+        }
+    }
+
+    &__link {
+        & a {
+            font-size: 16px;
+            font-weight: 700;
+            color: $accent-2-1;
+
+            @media screen and (min-width: $w1440) {
+                font-size: 18px;
+            }
+        }
+
+        & ul {
+            display: flex;
+
+            & li {
+                width: 24px;
+                height: 24px;
+                margin: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                & a {
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                &:hover {
+                    background-color: transparent;
+
+                    & svg {
+                        opacity: 1;
+                    }
+                }
+
+                & svg {
+                    width: 20px;
+                    height: 20px;
+                    fill: $accent-2-1;
+
+                }
+            }
+        }
+    }
+}
