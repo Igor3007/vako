@@ -13,6 +13,10 @@
                 @include picture(49%, cover);
 
                 @media screen and (min-width: $w576) {
+                    padding-top: 31.3%;
+                }
+
+                @media screen and (min-width: $w992) {
                     padding-top: 23%;
                 }
 

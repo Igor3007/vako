@@ -1,0 +1,34 @@
+extends ../layouts/header-white-max
+
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+include ../../blocks/modules/contacts-block/contacts-block.pug
+include ../../blocks/modules/dark-banner/dark-banner.pug
+
+block variables
+  include ../../data/data.pug
+  -
+    title = 'Vako - Контакты'
+
+
+block content
+  section.section-page-default
+    .container
+      .page-default
+        .page-default__breadcrumb: +breadcrumb([
+          'Главная',
+          'Контакты',
+        ])
+
+        .page-default__h1
+          h1 Контакты
+
+        .page-default__content: +contacts-block
+
+  +dark-banner
+
+
+
+
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js") 

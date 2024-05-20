@@ -4748,6 +4748,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
             window.addEventListener('resize', () => {
                 fnDedounce(watchWidth, 50);
             })
+
+            /* ============================== */
+
+            item.querySelectorAll('.minicard__gallery').forEach(gallery => {
+                gallery.addEventListener('mouseenter', () => {
+                    topCategories.options = {
+                        drag: false,
+                    };
+                })
+                gallery.addEventListener('mouseleave', () => {
+                    topCategories.options = {
+                        drag: true,
+                    };
+                })
+            })
+
         })
 
     }

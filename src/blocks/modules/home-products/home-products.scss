@@ -17,6 +17,7 @@
          height: 100%;
          padding: 16px;
          border: 1px solid #ebebeb;
+         border-radius: 6px;
 
          &--store {
              & .minicard {
@@ -173,6 +174,30 @@
              left: 0;
              top: 0;
              margin-top: 0;
+         }
+
+         &__gallery {
+
+             & .is-overflow {
+                 & .splide__pagination {
+
+                     display: flex;
+
+                     @media screen and (min-width: $w992) {
+                         opacity: 0;
+                     }
+                 }
+             }
+
+
+         }
+
+         &:hover {
+             & .minicard__gallery {
+                 & .splide__pagination {
+                     opacity: 1;
+                 }
+             }
          }
 
      }
