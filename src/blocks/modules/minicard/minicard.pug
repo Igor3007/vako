@@ -34,12 +34,16 @@ mixin minicard(data)
                     span= data.rate
                     a(href='#') 82 отзыва
 
-                if(data.sticker_color == 'sticker--orange')
-                    .minicard__stickers(class=data.sticker_color)
-                        span Хит
-                if(data.sticker_color == 'sticker--blue')
-                    .minicard__stickers(class=data.sticker_color)
-                        span Новинка
+                .minicard__stickers
+                    ul
+                        if(data.sticker_color == 'sticker--orange')
+                            li(class=data.sticker_color)
+                                span Хит
+                            li.sticker--blue
+                                span Новинка
+                        if(data.sticker_color == 'sticker--blue')
+                            li(class=data.sticker_color)
+                                span Новинка
                         
                 .minicard__props
                     ul
@@ -300,12 +304,18 @@ mixin minicard--home(data)
                         li: span(title="Темный" style="background-color: #808080")
                         li: span(title="Серый" style="background-color: #C0C0C0")
 
-                if(data.sticker_color == 'sticker--orange')
-                    .minicard__stickers(class=data.sticker_color)
-                        span Хит
-                if(data.sticker_color == 'sticker--blue')
-                    .minicard__stickers(class=data.sticker_color)
-                        span Новинка
+                .minicard__stickers
+                    ul
+                        if(data.sticker_color == 'sticker--orange')
+                            li(class=data.sticker_color)
+                                span Хит
+                            li.sticker--blue
+                                span Новинка
+                        if(data.sticker_color == 'sticker--blue')
+                            li(class=data.sticker_color)
+                                span Новинка
+
+                 
                         
             .minicard__more
                 .minicard__price= data.price

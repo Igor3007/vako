@@ -1,9 +1,9 @@
 .contacts-block {
     padding: 16px;
     background-color: $accent-2-3;
-    border-radius: 8px;
+    border-radius: 12px;
 
-    @media screen and (min-width: $w480) {
+    @media screen and (min-width: $w576) {
         padding: 40px;
     }
 
@@ -12,6 +12,10 @@
         background-color: #fff;
         margin-bottom: 40px;
         border-radius: 6px;
+
+        @media screen and (max-width: $w992) {
+            background-image: none !important;
+        }
 
         @media screen and (min-width: $w992) {
             padding: 24px;
@@ -143,7 +147,7 @@
             color: $accent-2-1;
 
             @media screen and (min-width: $w1440) {
-                font-size: 18px;
+                font-size: 17px;
             }
         }
 

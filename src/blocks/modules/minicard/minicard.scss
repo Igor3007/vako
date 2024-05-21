@@ -69,6 +69,7 @@
     display: flex;
     justify-content: flex-end;
     margin-top: -36px;
+    min-height: 36px;
 
     @media screen and (max-width: $w760) {
       padding-bottom: 12px;
@@ -83,7 +84,6 @@
 
     & span {
       font-size: 13px;
-      font-weight: 700;
       background-color: #ddd;
       height: 20px;
       display: inline-flex;
@@ -96,22 +96,32 @@
 
       @media screen and (min-width: $w760) {
         height: 26px;
+        font-weight: 700;
       }
     }
 
-    &.sticker--blue {
-      & span {
-        background-color: #45B9F5;
-        color: #fff;
+    & ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    & li {
+      &.sticker--blue {
+        & span {
+          background-color: #45B9F5;
+          color: #fff;
+        }
+      }
+
+      &.sticker--orange {
+        & span {
+          background-color: #FFBB00;
+          color: #fff;
+        }
       }
     }
 
-    &.sticker--orange {
-      & span {
-        background-color: #FFBB00;
-        color: #fff;
-      }
-    }
+
 
 
   }

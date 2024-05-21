@@ -6540,11 +6540,11 @@ footer {
   display: flex;
   justify-content: flex-end;
   margin-top: -36px;
+  min-height: 36px;
 }
 
 .minicard__stickers span {
   font-size: 13px;
-  font-weight: 700;
   background-color: #ddd;
   height: 20px;
   display: inline-flex;
@@ -6556,12 +6556,17 @@ footer {
   border-radius: 5px 0 5px 0;
 }
 
-.minicard__stickers.sticker--blue span {
+.minicard__stickers ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.minicard__stickers li.sticker--blue span {
   background-color: #45B9F5;
   color: #fff;
 }
 
-.minicard__stickers.sticker--orange span {
+.minicard__stickers li.sticker--orange span {
   background-color: #FFBB00;
   color: #fff;
 }
@@ -13060,7 +13065,7 @@ div[data-state="1"] {
 .contacts-block {
   padding: 16px;
   background-color: #F9F7FF;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .contacts-block__info {
@@ -13159,6 +13164,40 @@ div[data-state="1"] {
   width: 20px;
   height: 20px;
   fill: #7B61FF;
+}
+
+.section-dark-banner {
+  padding: 20px 0;
+}
+
+.dark-banner {
+  background-color: #2D2149;
+  color: #fff;
+  border-radius: 12px;
+}
+
+.dark-banner__wrp {
+  background-size: 100% auto;
+  padding: 24px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.dark-banner__title {
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 160%;
+  padding-bottom: 0.4em;
+}
+
+.dark-banner__desc {
+  font-size: 16px;
+  line-height: 150%;
+  padding-bottom: 1.4em;
+}
+
+.dark-banner__btn .btn {
+  font-size: 16px;
 }
 
 .section-page-default {
@@ -14296,10 +14335,6 @@ body .fslightbox-slash {
     margin-right: 0;
   }
 
-  .contacts-block {
-    padding: 40px;
-  }
-
   .page-default__h1 {
     padding-bottom: 50px;
   }
@@ -14746,6 +14781,10 @@ body .fslightbox-slash {
     width: 50%;
   }
 
+  .contacts-block {
+    padding: 40px;
+  }
+
   .contacts-block__item {
     padding-bottom: 18px;
   }
@@ -14758,6 +14797,15 @@ body .fslightbox-slash {
   .contacts-item__title {
     font-size: 14px;
     max-width: 100%;
+  }
+
+  .dark-banner__wrp {
+    background-size: auto 100%;
+    background-position: 100% bottom;
+  }
+
+  .dark-banner__wrp {
+    padding: 40px;
   }
 
   .section-page-default {
@@ -15102,6 +15150,7 @@ body .fslightbox-slash {
 
   .minicard__stickers span {
     height: 26px;
+    font-weight: 700;
   }
 
   .minicard__action a[data-tooltip]::before {
@@ -16142,6 +16191,21 @@ body .fslightbox-slash {
     padding: 12px;
   }
 
+  .section-dark-banner {
+    padding: 24px 0;
+  }
+
+  .dark-banner__title {
+    font-size: 30px;
+    max-width: 65%;
+    line-height: 120%;
+  }
+
+  .dark-banner__desc {
+    max-width: 60%;
+    font-size: 18px;
+  }
+
   .popup-points {
     width: 60vw;
     max-width: 1070px;
@@ -16841,7 +16905,15 @@ body .fslightbox-slash {
   }
 
   .contacts-item__link a {
-    font-size: 18px;
+    font-size: 17px;
+  }
+
+  .dark-banner__wrp {
+    padding: 55px 62px;
+  }
+
+  .dark-banner__title {
+    font-size: 36px;
   }
 
   .qi-review small {
@@ -16997,6 +17069,10 @@ body .fslightbox-slash {
 
   .news-aside__wrp:not(.is-open) {
     display: none;
+  }
+
+  .contacts-block__info {
+    background-image: none !important;
   }
 }
 
@@ -17376,6 +17452,10 @@ body .fslightbox-slash {
 
   .contacts-block__item--social {
     order: 10;
+  }
+
+  .dark-banner__btn .btn {
+    width: 100%;
   }
 }
 
