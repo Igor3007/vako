@@ -6,13 +6,13 @@ mixin contacts-block
                 p Наша площадка не является маркетплейсом, покупка товаров и их гарантийное обслуживание осуществляется исключительно у магазинов-партнёров.
             
             .contacts-block__items
-                .contacts-block__item
+                .contacts-block__item.contacts-block__item--phone
                     .contacts-item
                         .contacts-item__icon: +bgimage('/img/icon/01-phone.svg')
                         .contacts-item__main
                             .contacts-item__title Телефон для магазинов и рекламных агентств
                             .contacts-item__link: a(href='#') 8 (800) 234-87-50
-                .contacts-block__item
+                .contacts-block__item.contacts-block__item--email
                     .contacts-item
                         .contacts-item__icon: +bgimage('/img/icon/02-email.svg')
                         .contacts-item__main
@@ -29,18 +29,18 @@ mixin contacts-block
                                     li: a(href='#'): +icons('#ic_vk-large') 
                                     li: a(href='#'): +icons('#ic_tg') 
 
-                .contacts-block__item
+                .contacts-block__item.contacts-block__item--support
                     .contacts-item
                         .contacts-item__icon: +bgimage('/img/icon/04-socials.svg')
                         .contacts-item__main
                             .contacts-item__title Тех. поддержка (Telegram) 
                             .contacts-item__link: a(href='https://t.me/vako_support') @vako_support 
-                .contacts-block__item
+                .contacts-block__item.contacts-block__item--address
                     .contacts-item
                         .contacts-item__icon: +bgimage('/img/icon/05-address.svg')
                         .contacts-item__main
                             .contacts-item__title Юридический адрес 
-                            .contacts-item__link: a(href='https://yandex.by/maps/-/CDbXFB6Q') Москва, ул. Горбунова д. 2, стр. 2, этаж 8, ком. 827
+                            .contacts-item__link  Москва, ул. Горбунова д. 2, стр. 2, этаж 8, ком. 827
 
 
  

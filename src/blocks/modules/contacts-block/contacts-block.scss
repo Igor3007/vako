@@ -94,6 +94,30 @@
                 order: 10;
             }
         }
+
+        &--support {
+            @media screen and (max-width: $w480) {
+                order: 2;
+            }
+        }
+
+        &--phone {
+            @media screen and (max-width: $w480) {
+                order: 1;
+            }
+        }
+
+        &--email {
+            @media screen and (max-width: $w480) {
+                order: 3;
+            }
+        }
+
+        &--address {
+            @media screen and (max-width: $w480) {
+                order: 3;
+            }
+        }
     }
 
 
@@ -141,14 +165,18 @@
     }
 
     &__link {
-        & a {
-            font-size: 16px;
-            font-weight: 700;
-            color: $accent-2-1;
 
-            @media screen and (min-width: $w1440) {
-                font-size: 17px;
-            }
+        font-size: 16px;
+        font-weight: 700;
+        color: $accent-2-1;
+
+        @media screen and (min-width: $w1440) {
+            font-size: 17px;
+        }
+
+        & a {
+            font-size: inherit;
+            color: inherit;
         }
 
         & ul {

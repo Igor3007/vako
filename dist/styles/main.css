@@ -13127,10 +13127,15 @@ div[data-state="1"] {
   width: 100%;
 }
 
-.contacts-item__link a {
+.contacts-item__link {
   font-size: 16px;
   font-weight: 700;
   color: #7B61FF;
+}
+
+.contacts-item__link a {
+  font-size: inherit;
+  color: inherit;
 }
 
 .contacts-item__link ul {
@@ -16904,7 +16909,7 @@ body .fslightbox-slash {
     font-size: 16px;
   }
 
-  .contacts-item__link a {
+  .contacts-item__link {
     font-size: 17px;
   }
 
@@ -17452,6 +17457,22 @@ body .fslightbox-slash {
 
   .contacts-block__item--social {
     order: 10;
+  }
+
+  .contacts-block__item--support {
+    order: 2;
+  }
+
+  .contacts-block__item--phone {
+    order: 1;
+  }
+
+  .contacts-block__item--email {
+    order: 3;
+  }
+
+  .contacts-block__item--address {
+    order: 3;
   }
 
   .dark-banner__btn .btn {
