@@ -51,6 +51,7 @@
 
     &__details {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         padding-bottom: 24px;
         color: $gray-56;
@@ -58,6 +59,8 @@
         & div {
             padding-right: 16px;
             font-size: 15px;
+            padding-top: 6px;
+            padding-bottom: 2px;
         }
     }
 

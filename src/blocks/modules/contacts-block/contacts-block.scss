@@ -25,6 +25,7 @@
             background-position: 24px 24px;
         }
 
+        & div,
         & p {
             margin-bottom: 0;
             line-height: 170%;
@@ -148,14 +149,13 @@
     }
 
     &__title {
-        font-size: 13px;
+        font-size: 15px;
         line-height: 160%;
         max-width: 95%;
         padding-bottom: 5px;
         width: 100%;
 
         @media screen and (min-width: $w576) {
-            font-size: 14px;
             max-width: 100%;
         }
 
