@@ -38,6 +38,7 @@
           width: 125px;
           min-width: 125px;
         }
+
       }
     }
   }
@@ -272,6 +273,11 @@
     display: flex;
     align-items: center;
 
+    @media screen and (min-width: 768.98px) and (max-width: 992.98px) {
+      top: 2px;
+      position: relative;
+    }
+
     @media screen and (min-width: $w1440) {
       padding-bottom: 14px;
 
@@ -399,6 +405,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    @media screen and (min-width: 768.98px) and (max-width: 992.98px) {
+      bottom: 4px;
+    }
 
     @media screen and (min-width: $w1200) {
       opacity: 0;

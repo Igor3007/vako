@@ -17547,9 +17547,18 @@ body .fslightbox-slash {
     padding-left: 24px;
   }
 
+  .minicard__rating {
+    top: 2px;
+    position: relative;
+  }
+
   .minicard__price {
     display: block;
     padding-bottom: 16px;
+  }
+
+  .minicard__action {
+    bottom: 4px;
   }
 
   .minicard__store-price {
