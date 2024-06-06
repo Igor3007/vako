@@ -28,6 +28,20 @@
     border-radius: 6px;
   }
 
+  &:not(.minicard--store) {
+    & .minicard {
+
+      &__more {
+
+        @media screen and (min-width: 768.98px) and (max-width: 992.98px) {
+
+          width: 125px;
+          min-width: 125px;
+        }
+      }
+    }
+  }
+
   &:hover {
     @media screen and (min-width: $w992) {
       border-color: $accent-2-1;
@@ -766,8 +780,8 @@
     }
 
     @media screen and (min-width: $w760) and (max-width: $w992) {
-      width: 241px;
-      min-width: 241px;
+      width: 180px;
+      min-width: 180px;
     }
 
   }

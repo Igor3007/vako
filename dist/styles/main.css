@@ -17533,13 +17533,12 @@ body .fslightbox-slash {
   }
 }
 
-@media screen and (min-width: 480px) and (max-width: 768.98px) {
-  .minicard__other {
-    padding-bottom: 0px;
-  }
-}
-
 @media screen and (min-width: 768.98px) and (max-width: 992.98px) {
+  .minicard:not(.minicard--store) .minicard__more {
+    width: 125px;
+    min-width: 125px;
+  }
+
   .minicard__content {
     display: flex;
     padding-left: 24px;
@@ -17560,13 +17559,19 @@ body .fslightbox-slash {
   }
 
   .minicard__more {
-    width: 241px;
-    min-width: 241px;
+    width: 180px;
+    min-width: 180px;
   }
 
   .minicard__main {
     padding-right: 12px;
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768.98px) {
+  .minicard__other {
+    padding-bottom: 0px;
   }
 }
 
