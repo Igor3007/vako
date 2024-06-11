@@ -1,0 +1,18 @@
+extends ../../layouts/store-login
+
+include ../../../blocks/modules/store/store-widgets/store-widgets.pug
+include ../../../blocks/modules/store/store-aside/store-aside.pug
+ 
+block variables
+  include ../../../data/data.pug
+  - const title = "Vako - Виджеты"
+
+block aside
+  +store-aside(4)
+
+block content
+  +store-widgets()
+
+
+ 
+  

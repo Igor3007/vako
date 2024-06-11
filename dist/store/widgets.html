@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vako - Панель управления магазином</title>
+    <title>Vako - Виджеты</title>
     <meta name="theme-color" content="#fff">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui">
@@ -117,34 +117,138 @@
             <ul>
               <li><span class="bgimage lazyload" data-bg="/img/common/ic_home.svg"></span><a href="home.html">Главная</a>
               </li>
-              <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_bill.svg"></span><a href="price.html">Прайс-листы</a>
+              <li><span class="bgimage lazyload" data-bg="/img/common/ic_bill.svg"></span><a href="price.html">Прайс-листы</a>
               </li>
               <li><span class="bgimage lazyload" data-bg="/img/common/ic_message.svg"></span><a href="review.html">Отзывы</a>
               </li>
               <li><span class="bgimage lazyload" data-bg="/img/common/ic_statistics.svg"></span><a href="statistics.html">Статистика</a>
               </li>
-              <li><span class="bgimage lazyload" data-bg="/img/common/ic_widget.svg"></span><a href="widgets.html">Виджеты</a>
+              <li class="is-active"><span class="bgimage lazyload" data-bg="/img/common/ic_widget.svg"></span><a href="widgets.html">Виджеты</a>
               </li>
               <li><span class="bgimage lazyload" data-bg="/img/common/ic_config.svg"></span><a href="config.html">Настройки</a>
               </li>
             </ul>
           </div>
           <div class="store-panel__content">
-            <div class="widget-block widget-block--price"> 
-              <div class="widget-block__h2">Текущий прайс-лист</div>
-              <div class="widget-block__subtitle"><a href="#">testpricelist.xml</a></div>
-              <div class="widget-block__status"><span class="price-list-status--green">Опубликован</span><span class="price-list-status--orange">На рассмотрении</span><span class="price-list-status--red">Не опубликован</span></div>
-              <div class="widget-block__props widget-block__props--col2">
-                <ul> 
-                  <li><small>Всего товаров в файле:</small><strong>451</strong></li>
-                  <li><small>Товары, привязанные к карточкам: </small><strong>336</strong></li>
-                  <li><small>Товары в категориях: </small><strong>110</strong></li>
-                  <li><small>Нераспознанные предложения:</small><strong>5</strong></li>
-                </ul>
+            <div class="store-widgets">
+              <div class="shop-block">
+                <div class="shop-block__title">Виджеты для сайта</div>
+                <div class="shop-block__desc">Добавьте на страницу своего сайта блок с рейтингом магазина для повышения доверия со стороны покупателей.</div>
+                <div class="shop-block__widgets">
+                  <div class="create-widget">
+                    <div class="create-widget__label">Тип виджета</div>
+                    <div class="create-widget__size">
+                      <ul>
+                        <li>
+                          <label>
+                            <input type="radio" name="type" value="1"/><span>240x160</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label>
+                            <input type="radio" name="type" value="1"/><span>240x104</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label>
+                            <input type="radio" name="type" value="1"/><span>200x40</span>
+                          </label>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li>
+                          <label>
+                            <input type="radio" name="color" value="2"/><span>Светлый</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label>
+                            <input type="radio" name="color" value="2"/><span>Тёмный</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="create-widget__label">Код для сайта </div>
+                    <div class="create-widget__fields">
+                      <form action="#" method="POST">
+                        <div class="form">
+                          <div class="form__item">
+                            <div class="form__subitem">
+                              <input type="text" placeholder="Код виджета"/>
+                            </div>
+                            <div class="form__subitem">
+                              <button class="btn btn-gray">
+                                <svg width="25" height="25">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_copy"></use>
+                                </svg><span>Скопировать в буфер</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="create-widget__label">Пример размера и оформления выбранного виджета: </div>
+                    <div class="create-widget__preview">
+                      <div class="widget-rating widget-rating--small">
+                        <div class="widget-rating__logo-small"><img src="/img/common/vako-logo-gradient.svg"/></div>
+                        <div class="widget-rating__num">4.5</div>
+                        <div class="widget-rating__bar widget-rating__bar--green"><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w50"></span></div>
+                        <div class="widget-rating__link"><a href="https://vako.market/shop/8415"></a></div>
+                      </div>
+                      <div class="widget-rating widget-rating--middle">
+                        <div class="widget-rating__title">Рейтинг магазина</div>
+                        <div class="widget-rating__total">
+                          <div class="widget-rating__bar widget-rating__bar--green"><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w50"></span></div>
+                          <div class="widget-rating__num">4.5</div>
+                          <div class="widget-rating__bar widget-rating__bar--green"><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w50"></span></div>
+                        </div>
+                        <div class="widget-rating__logo"><img src="/img/common/logo-vako.svg"/></div>
+                        <div class="widget-rating__link"><a href="https://vako.market/shop/8415"></a></div>
+                      </div>
+                      <div class="widget-rating widget-rating--large">
+                        <div class="widget-rating__title">Рейтинг магазина</div>
+                        <div class="widget-rating__total">
+                          <div class="widget-rating__bar widget-rating__bar--green"><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w50"></span></div>
+                          <div class="widget-rating__num">4.5</div>
+                          <div class="widget-rating__bar widget-rating__bar--green"><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w50"></span></div>
+                        </div>
+                        <div class="widget-rating__button"><a href="#">Показать 80 отзывов</a></div>
+                        <div class="widget-rating__logo"><img src="/img/common/logo-vako.svg"/></div>
+                      </div>
+                      <div class="widget-rating">
+                        <div class="widget-rating__title">Рейтинг магазина</div>
+                        <div class="widget-rating__total">
+                          <div class="widget-rating__bar widget-rating__bar--blue"><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w20"></span><span></span></div>
+                          <div class="widget-rating__num">4.2</div>
+                          <div class="widget-rating__bar widget-rating__bar--blue"><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w20"></span><span></span></div>
+                        </div>
+                        <div class="widget-rating__button"><a href="#">Показать 80 отзывов</a></div>
+                        <div class="widget-rating__logo"><img src="/img/common/logo-vako.svg"/></div>
+                      </div>
+                      <div class="widget-rating">
+                        <div class="widget-rating__title">Рейтинг магазина</div>
+                        <div class="widget-rating__total">
+                          <div class="widget-rating__bar widget-rating__bar--red"><span class="w100"></span><span class="w100"></span><span></span><span></span><span></span></div>
+                          <div class="widget-rating__num">2.0</div>
+                          <div class="widget-rating__bar widget-rating__bar--red"><span class="w100"></span><span class="w100"></span><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="widget-rating__button"><a href="#">Показать 80 отзывов</a></div>
+                        <div class="widget-rating__logo"><img src="/img/common/logo-vako.svg"/></div>
+                      </div>
+                      <div class="widget-rating">
+                        <div class="widget-rating__title">Рейтинг магазина</div>
+                        <div class="widget-rating__total">
+                          <div class="widget-rating__bar widget-rating__bar--orange"><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w60"></span><span></span></div>
+                          <div class="widget-rating__num">3.6</div>
+                          <div class="widget-rating__bar widget-rating__bar--orange"><span class="w100"></span><span class="w100"></span><span class="w100"></span><span class="w60"></span><span></span></div>
+                        </div>
+                        <div class="widget-rating__button"><a href="#">Показать 80 отзывов</a></div>
+                        <div class="widget-rating__logo"><img src="/img/common/logo-vako.svg"/></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="widget-block__action"><a href="/store/price-upload.html">
-                  <button class="btn">Заменить прайс-лист</button></a><a href="#">
-                  <button class="btn btn-white">Скачать отчёт</button></a></div>
             </div>
           </div>
         </div>

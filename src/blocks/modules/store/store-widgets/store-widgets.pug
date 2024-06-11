@@ -1,0 +1,50 @@
+mixin store-widgets
+    .store-widgets
+        .shop-block
+            .shop-block__title Виджеты для сайта
+            .shop-block__desc Добавьте на страницу своего сайта блок с рейтингом магазина для повышения доверия со стороны покупателей.
+            .shop-block__widgets
+                .create-widget
+                    .create-widget__label Тип виджета
+                    .create-widget__size
+                        ul
+                            li
+                                label
+                                    input(type="radio" name="type" value="1")
+                                    span 240x160
+                            li
+                                label
+                                    input(type="radio" name="type" value="1")
+                                    span 240x104
+                            li
+                                label
+                                    input(type="radio" name="type" value="1")
+                                    span 200x40
+                     
+                        ul
+                            li
+                                label
+                                    input(type="radio" name="color" value="2")
+                                    span Светлый
+                            li
+                                label
+                                    input(type="radio" name="color" value="2")
+                                    span Тёмный
+                           
+                           
+                         
+                    .create-widget__label Код для сайта 
+                    .create-widget__fields
+                        form(action='#' method='POST')
+                            .form
+                                .form__item
+                                    .form__subitem: input(type="text" placeholder="Код виджета")
+                                    .form__subitem
+                                        button.btn.btn-gray
+                                            +icons('#ic_copy')
+                                            span Скопировать в буфер
+                    .create-widget__label Пример размера и оформления выбранного виджета: 
+                    .create-widget__preview
+                        include ../../../../views/pages/widgets/rating-small.pug 
+                        include ../../../../views/pages/widgets/rating-middle.pug 
+                        include ../../../../views/pages/widgets/rating-large.pug 
