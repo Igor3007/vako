@@ -5,20 +5,7 @@ include ../../blocks/components/headers/headers
 doctype html
 html(lang="ru")
   head
-    include parts/head.pug
-
-
-    link(rel="preload" href="fonts/lato/subset-Lato-Black.woff2" as="font" crossorigin)
-    link(rel="preload" href="fonts/lato/subset-Lato-Regular.woff2" as="font" crossorigin)
-    link(rel="preload" href="fonts/lato/subset-Lato-Bold.woff2" as="font" crossorigin)
-    link(rel="prefetch" href="/img/sprites/sprite.svg" as="image" crossorigin)
-
-    style
-      include ../../styles/base/_critical-fonts.scss 
-
-    link(rel="stylesheet" href="/styles/store.css?v=1.0")
-
-
+    include parts/head-store.pug
 
   body.body-store-home
     header 

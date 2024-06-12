@@ -38,11 +38,11 @@ mixin store-widgets
                         form(action='#' method='POST')
                             .form
                                 .form__item
-                                    .form__subitem: textarea(type="text" placeholder="Код виджета" data-widgetRating="code")
+                                    .form__subitem: textarea(type="text" readonly="" placeholder="Код виджета" data-widgetRating="code")
                                 .form__item
                                     .form__subitem
                                         button.btn.btn-gray(data-widgetRating="copy" type="button")
                                             +icons('#ic_copy')
                                             span Скопировать в буфер
                     .create-widget__label Пример размера и оформления выбранного виджета: 
-                    .create-widget__preview(data-widgetRating="preview")
+                    .create-widget__preview(data-widgetRating="preview") 
