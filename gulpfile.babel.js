@@ -21,6 +21,7 @@ const requireDir = require("require-dir"),
             src: [
                 "./src/styles/main.{scss,sass}",
                 "./src/styles/store.{scss,sass}",
+                "./src/styles/widgets.{scss,sass}",
                 "./src/styles/critical.{scss,sass}",
             ],
             dist: "./dist/styles/",

@@ -2440,11 +2440,10 @@
          createEmbedCode() {
              let iframe = document.createElement('iframe')
              let widget = this.preview.querySelector('.widget-rating')
-
-             iframe.src = location.protocol + '//' + window.location.hostname + this.getUrl()
-
+             iframe.src = location.protocol + '//' + window.location.hostname + '/embed' + this.getUrl()
              iframe.setAttribute('frameborder', '0')
              iframe.setAttribute('scrolling', 'no')
+             iframe.setAttribute('title', 'Рейтинг магазина на vako.market!')
              iframe.setAttribute('width', Math.ceil(widget.offsetWidth))
              iframe.setAttribute('height', Math.ceil(widget.offsetHeight))
 
