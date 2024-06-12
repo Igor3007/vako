@@ -1,19 +1,9 @@
-.widget-rating.widget-rating--middle.widget-rating--dark
-    .widget-rating__title Рейтинг магазина
-    .widget-rating__total
-        .widget-rating__bar.widget-rating__bar--green
-            span.w100
-            span.w100
-            span.w100
-            span.w100
-            span.w50
-        .widget-rating__num 4.5
-        .widget-rating__bar.widget-rating__bar--green
-            span.w100
-            span.w100
-            span.w100
-            span.w100
-            span.w50
-    .widget-rating__logo: img(src="/img/common/logo-vako.svg")
-    .widget-rating__link
-        a(href='https://vako.market/shop/8415')
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    link(rel="stylesheet" href="/styles/widgets.css?v=1.1")
+    link(rel="stylesheet" href="https://use.typekit.net/kbc2isn.css")
+  body
+    include ../../../widgets/rating-middle.pug

@@ -1,5 +1,15 @@
 @import "helpers/variables";
 @import "helpers/mixins";
 @import "helpers/functions";
+@import "vendor/import/normalize";
 @import "base/general";
-@import "../blocks/modules/store/store-widgets/store-widgets.scss";
+
+body,
+html {
+    background-color: transparent;
+    min-height: auto;
+    height: auto;
+    margin: 0;
+}
+
+@import "../blocks/modules/store/store-widgets/widget-rating.scss";

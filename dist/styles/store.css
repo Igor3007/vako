@@ -6728,9 +6728,9 @@ span[data-statistics="date-end"]::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
   position: relative;
   transition: 0.3s ease;
+  background-color: #fff;
 }
 
 .widget-rating--small {

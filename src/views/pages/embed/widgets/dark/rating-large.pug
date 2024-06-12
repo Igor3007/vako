@@ -1,19 +1,9 @@
-.widget-rating.widget-rating--large.widget-rating--dark
-    .widget-rating__title Рейтинг магазина
-    .widget-rating__total
-        .widget-rating__bar.widget-rating__bar--green
-            span.w100
-            span.w100
-            span.w100
-            span.w100
-            span.w50
-        .widget-rating__num 4.5
-        .widget-rating__bar.widget-rating__bar--green
-            span.w100
-            span.w100
-            span.w100
-            span.w100
-            span.w50
-    .widget-rating__button
-        a(href='#') Показать 80 отзывов
-    .widget-rating__logo: img(src="/img/common/logo-vako.svg")
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    link(rel="stylesheet" href="/styles/widgets.css?v=1.1")
+    link(rel="stylesheet" href="https://use.typekit.net/kbc2isn.css")
+  body
+    include ../../../widgets/rating-large.pug
