@@ -2371,6 +2371,118 @@
          new StoreStatistics()
      }
 
+     class RatingWidget {
+         constructor(params) {
+             this.$el = document.querySelector(params.el)
+
+             this.size = this.$el.querySelector('[data-widgetRating="size"]')
+             this.color = this.$el.querySelector('[data-widgetRating="color"]')
+             this.preview = this.$el.querySelector('[data-widgetRating="preview"]')
+             this.inputCode = this.$el.querySelector('[data-widgetRating="code"]')
+             this.copyCode = this.$el.querySelector('[data-widgetRating="copy"]')
+
+             this.options = {
+                 color: '',
+                 size: 'rating-large',
+             }
+
+             this.init()
+         }
+
+         init() {
+             this.addEvent()
+
+             if (this.size.querySelector('input:checked')) {
+                 this.options.size = this.size.querySelector('input:checked').value
+             }
+
+             if (this.color.querySelector('input:checked')) {
+                 this.options.color = this.color.querySelector('input:checked').value
+             }
+
+             this.loadPreview()
+         }
+
+         changeSize(item) {
+             this.options.size = item.value
+             this.loadPreview()
+         }
+
+         changeColor(item) {
+             this.options.color = item.value
+             this.loadPreview()
+         }
+
+         getUrl() {
+             const url = [
+                 '/widgets'
+             ];
+
+             for (let key in this.options) {
+                 if (this.options[key]) url.push('/' + this.options[key])
+             }
+
+             url.push('.html')
+
+             return url.join('')
+         }
+
+         loadPreview() {
+             window.ajax({
+                 type: 'GET',
+                 url: this.getUrl()
+             }, (status, response) => {
+                 this.preview.innerHTML = response
+                 this.inputCode.value = this.createEmbedCode()
+             })
+         }
+
+         createEmbedCode() {
+             let iframe = document.createElement('iframe')
+             let widget = this.preview.querySelector('.widget-rating')
+
+             iframe.src = location.protocol + '//' + window.location.hostname + this.getUrl()
+
+             iframe.setAttribute('frameborder', '0')
+             iframe.setAttribute('scrolling', 'no')
+             iframe.setAttribute('width', Math.ceil(widget.offsetWidth))
+             iframe.setAttribute('height', Math.ceil(widget.offsetHeight))
+
+             return '<!-- vako widget start -->' + iframe.outerHTML + '<!-- vako widget end -->'
+         }
+
+         addEvent() {
+             this.size.querySelectorAll('input').forEach(item => {
+                 item.addEventListener('click', () => {
+                     this.changeSize(item)
+                 })
+             })
+
+             this.color.querySelectorAll('input').forEach(item => {
+                 item.addEventListener('click', () => {
+                     this.changeColor(item)
+                 })
+             })
+
+             this.copyCode.addEventListener('click', e => {
+                 navigator.clipboard.writeText(this.createEmbedCode())
+                     .then(() => {
+                         window.STATUS.msg('Код виджета скопирован в буфер обмена!')
+                     })
+                     .catch(err => {
+                         window.STATUS.err('Не удалось скопировать в буфер обмена')
+                     });
+             })
+         }
+
+
+     }
+
+     if (document.querySelector('[data-widgetrating="el"]')) {
+         new RatingWidget({
+             el: '[data-widgetrating="el"]'
+         })
+     }
 
 
 
@@ -2383,13 +2495,4 @@
 
 
 
-
-
-
-
-
-
-
-
-
- });
+ }); //dcl

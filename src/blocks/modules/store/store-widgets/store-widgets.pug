@@ -1,5 +1,5 @@
 mixin store-widgets
-    .store-widgets
+    .store-widgets(data-widgetRating="el")
         .shop-block
             .shop-block__title Виджеты для сайта
             .shop-block__desc Добавьте на страницу своего сайта блок с рейтингом магазина для повышения доверия со стороны покупателей.
@@ -7,28 +7,28 @@ mixin store-widgets
                 .create-widget
                     .create-widget__label Тип виджета
                     .create-widget__size
-                        ul
+                        ul(data-widgetRating="size")
                             li
                                 label
-                                    input(type="radio" name="type" value="1")
+                                    input(type="radio" checked name="type" value="rating-large")
                                     span 240x160
                             li
                                 label
-                                    input(type="radio" name="type" value="1")
+                                    input(type="radio" name="type" value="rating-middle")
                                     span 240x104
                             li
                                 label
-                                    input(type="radio" name="type" value="1")
+                                    input(type="radio" name="type" value="rating-small")
                                     span 200x40
                      
-                        ul
+                        ul(data-widgetRating="color")
                             li
                                 label
-                                    input(type="radio" name="color" value="2")
+                                    input(type="radio" checked name="color" value="")
                                     span Светлый
                             li
                                 label
-                                    input(type="radio" name="color" value="2")
+                                    input(type="radio" name="color" value="dark")
                                     span Тёмный
                            
                            
@@ -38,13 +38,11 @@ mixin store-widgets
                         form(action='#' method='POST')
                             .form
                                 .form__item
-                                    .form__subitem: input(type="text" placeholder="Код виджета")
+                                    .form__subitem: textarea(type="text" placeholder="Код виджета" data-widgetRating="code")
+                                .form__item
                                     .form__subitem
-                                        button.btn.btn-gray
+                                        button.btn.btn-gray(data-widgetRating="copy" type="button")
                                             +icons('#ic_copy')
                                             span Скопировать в буфер
                     .create-widget__label Пример размера и оформления выбранного виджета: 
-                    .create-widget__preview
-                        include ../../../../views/pages/widgets/rating-small.pug 
-                        include ../../../../views/pages/widgets/rating-middle.pug 
-                        include ../../../../views/pages/widgets/rating-large.pug 
+                    .create-widget__preview(data-widgetRating="preview")

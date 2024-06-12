@@ -6789,9 +6789,14 @@ span[data-statistics="date-end"]::before {
   height: 40px;
 }
 
-.create-widget__fields .form__subitem {
-  flex-grow: 0;
-  width: auto;
+.create-widget__fields .form {
+  max-width: 500px;
+}
+
+.create-widget__fields .form__subitem textarea {
+  max-height: 220px;
+  min-height: 96px;
+  height: 96px;
 }
 
 .widget-rating {
@@ -6818,11 +6823,23 @@ span[data-statistics="date-end"]::before {
 .widget-rating--small .widget-rating__num {
   font-size: 15px;
   line-height: 15px;
+  margin-top: -2px;
 }
 
 .widget-rating--middle .widget-rating__num {
   font-size: 17px;
   line-height: 17px;
+}
+
+.widget-rating--dark {
+  background-color: #2D2148;
+  color: #fff;
+  border-color: #2D2148;
+}
+
+.widget-rating--dark .widget-rating__logo-small img,
+.widget-rating--dark .widget-rating__logo img {
+  filter: grayscale(1) brightness(200);
 }
 
 .widget-rating:hover {
@@ -6931,7 +6948,7 @@ span[data-statistics="date-end"]::before {
 }
 
 .widget-rating__bar span.w100::before {
-  width: 90%;
+  width: 100%;
 }
 
 .widget-rating__bar span.w10 ~ span:not([class])::before,
@@ -7979,6 +7996,10 @@ body .fslightbox-slash {
 
   .store-statistics__count > span {
     padding-left: 20px;
+  }
+
+  .create-widget__fields .form__subitem .btn {
+    width: 250px;
   }
 
   .create-review {
