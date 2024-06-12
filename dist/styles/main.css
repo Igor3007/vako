@@ -28,17 +28,6 @@ body {
   min-height: -webkit-fill-available;
 }
 
-:root {
-  --fancybox-accent-color: $main;
-  --carousel-button-width: 48px;
-  --carousel-button-height: 48px;
-  --carousel-button-svg-width: 27px;
-  --carousel-button-svg-height: 27px;
-  --fancybox-bg: rgba(24, 24, 27, 0.92);
-  --fancybox-thumbs-width: 96px;
-  --fancybox-thumbs-border-radius: 0px;
-}
-
 button:active,
 button:hover,
 input:active,
@@ -6706,6 +6695,7 @@ footer {
   font-size: 16px;
   color: #222222;
   padding-bottom: 4px;
+  font-family: 'lato', 'Trebuchet MS';
 }
 
 .minicard__props {
@@ -6850,6 +6840,7 @@ footer {
   font-size: 16px;
   color: #222222;
   padding-bottom: 4px;
+  font-family: 'lato', 'Trebuchet MS';
   padding-top: 8px;
   padding-bottom: 16px;
 }
@@ -6970,7 +6961,8 @@ footer {
 
 .shipping-item__title strong {
   font-size: inherit;
-  font-weight: 800;
+  font-weight: bold;
+  font-family: 'lato', 'Trebuchet MS';
 }
 
 .shipping-item__title small {
@@ -9773,6 +9765,7 @@ div.single-product__content[data-tab-container="store"] {
   font-size: 16px;
   color: #222222;
   padding-bottom: 4px;
+  font-family: 'lato', 'Trebuchet MS';
 }
 
 .compare-product__action a[data-tooltip]::before {

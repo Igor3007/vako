@@ -30,17 +30,6 @@ body {
   min-height: -webkit-fill-available;
 }
 
-:root {
-  --fancybox-accent-color: $main;
-  --carousel-button-width: 48px;
-  --carousel-button-height: 48px;
-  --carousel-button-svg-width: 27px;
-  --carousel-button-svg-height: 27px;
-  --fancybox-bg: rgba(24, 24, 27, 0.92);
-  --fancybox-thumbs-width: 96px;
-  --fancybox-thumbs-border-radius: 0px;
-}
-
 button:active,
 button:hover,
 input:active,

@@ -3,6 +3,7 @@
   font-size: 16px;
   color: #222222;
   padding-bottom: 4px;
+  font-family: 'lato', 'Trebuchet MS';
 
   @media screen and (min-width: $w1200) {
     font-size: 18px;
@@ -832,6 +833,7 @@
   display: flex;
   padding-bottom: 11px;
 
+
   &:last-child {
     padding-bottom: 0;
   }
@@ -855,7 +857,8 @@
 
     & strong {
       font-size: inherit;
-      font-weight: 800;
+      font-weight: bold;
+      font-family: 'lato', 'Trebuchet MS';
     }
 
     & small {
