@@ -6748,7 +6748,7 @@ span[data-statistics="date-end"]::before {
 
 .widget-rating--dark .widget-rating__logo-small img,
 .widget-rating--dark .widget-rating__logo img {
-  filter: grayscale(1) brightness(200);
+  filter: grayscale(1) brightness(300);
 }
 
 .widget-rating:hover {
