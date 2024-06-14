@@ -6731,13 +6731,17 @@ span[data-statistics="date-end"]::before {
 
 .widget-rating--small .widget-rating__num {
   font-size: 16px;
-  line-height: 15px;
-  margin-top: -2px;
+  line-height: 13px;
+  margin-top: -1px;
 }
 
 .widget-rating--middle .widget-rating__num {
   font-size: 17px;
   line-height: 17px;
+}
+
+.widget-rating--middle .widget-rating__title {
+  margin-top: -3px;
 }
 
 .widget-rating--dark {
@@ -6907,7 +6911,7 @@ span[data-statistics="date-end"]::before {
 }
 
 .widget-rating__button {
-  padding-bottom: 16px;
+  padding-bottom: 17px;
 }
 
 .widget-rating__button a {
