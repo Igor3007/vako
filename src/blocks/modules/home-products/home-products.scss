@@ -71,7 +71,7 @@
              line-height: 134%;
 
              & a {
-                 -webkit-line-clamp: 2;
+                 @include line-clamp(2);
              }
          }
 

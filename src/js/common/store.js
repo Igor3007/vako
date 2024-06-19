@@ -702,12 +702,19 @@
                  reader.readAsDataURL(file);
                  reader.onload = function (e) {
                      document.querySelector('.shop-upload-logo__image span').style.backgroundImage = 'url(' + e.target.result + ')'
+                     document.querySelector('.remove-logo').style.removeProperty('display')
                  }
              } else {
                  window.STATUS.err('Допустимы только jpeg/png файлы')
              }
 
 
+         })
+
+         document.querySelector('.remove-logo').addEventListener('click', (e) => {
+             document.querySelector('[data-upload="logo-store"]').value = ''
+             document.querySelector('.shop-upload-logo__image span').style.backgroundImage = 'url(/img/common/no-photo.svg)'
+             e.target.style.display = 'none'
          })
 
 

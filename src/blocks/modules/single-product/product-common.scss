@@ -38,6 +38,9 @@
 
 
     &__tabs {
+
+
+
         & ul {
             display: flex;
             opacity: auto;
@@ -158,6 +161,10 @@
             }
         }
     }
+}
+
+.fixed-tabs {
+    transition: 0.3s ease;
 }
 
 .product-main {

@@ -6814,9 +6814,9 @@ footer {
 }
 
 .minicard__colors ul li span {
-  width: 10px;
-  min-width: 10px;
-  height: 10px;
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
   display: inline-block;
   border-radius: 50%;
   position: relative;
@@ -7111,6 +7111,10 @@ footer {
 .single-product__content [data-tab].is-active {
   display: block;
   animation: fade-in 0.3s ease forwards;
+}
+
+.fixed-tabs {
+  transition: 0.3s ease;
 }
 
 .product-main {
@@ -8966,8 +8970,9 @@ div.single-product__content[data-tab-container="store"] {
   padding-bottom: 60px;
 }
 
-.product-video.active {
+.product-video__articles {
   border-bottom: 1px solid #eee;
+  padding-bottom: 50px;
 }
 
 .product-video__title {
@@ -8984,6 +8989,10 @@ div.single-product__content[data-tab-container="store"] {
   padding-bottom: 50px;
   margin-bottom: 40px;
   border-bottom: 1px solid #eee;
+}
+
+.product-video__media:last-child {
+  margin-bottom: 0;
 }
 
 .product-video__list {
@@ -12904,7 +12913,11 @@ div[data-state="1"] {
 }
 
 .home-products .minicard__title a {
+  letter-spacing: normal;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .home-products .minicard__content {

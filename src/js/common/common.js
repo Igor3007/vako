@@ -1976,6 +1976,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
 
             }
+
+            //disable on footer
+            elemTabs.style.opacity = (((window.scrollY + elemTabs.clientHeight) > document.querySelector('footer').offsetTop) ? '0' : '1')
         }
 
         let fnDedounce = window.debounce
@@ -2508,8 +2511,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     /* ==============================================
-   view all photo
-  ============================================== */
+       view all photo
+      ============================================== */
 
     if (document.querySelector('.product-images__all')) {
 

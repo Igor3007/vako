@@ -6,8 +6,9 @@
 
     padding-bottom: 60px;
 
-    &.active {
+    &__articles {
         border-bottom: 1px solid #eee;
+        padding-bottom: 50px;
     }
 
     &__title {
@@ -27,6 +28,10 @@
         @media screen and (min-width: $w992) {
             padding-bottom: 60px;
             margin-bottom: 50px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 

@@ -145,13 +145,13 @@
                         </div>
                         <div class="shop-block__logo">
                           <div class="shop-upload-logo">
-                            <div class="shop-upload-logo__image"><span class="bgimage lazyload" data-bg="/img/common/no-photo.svg"></span>
+                            <div class="shop-upload-logo__image"><span class="bgimage lazyload" data-bg="/img/other/photo_placeholder.png"></span>
                             </div>
                             <div class="shop-upload-logo__action">
                               <div class="shop-upload-logo__button">
                                 <label>
-                                  <input type="file" name="logo" data-upload="logo-store"/><span class="btn btn-small">Добавить логотип</span>
-                                </label>
+                                  <input type="file" name="logo" data-upload="logo-store"/><span class="btn btn-small">Заменить</span>
+                                </label><span class="remove-logo icon-cross"> </span>
                               </div>
                               <div class="shop-upload-logo__note">Загрузите jpg или png файл размером не более 5 MB</div>
                             </div>
@@ -162,21 +162,21 @@
                             <div class="form__item">
                               <div class="form__subitem">
                                 <label>Название магазина на Vako</label>
-                                <input type="text" placeholder="Укажите название"/>
+                                <input type="text" placeholder="Укажите название" value="ProInside"/>
                               </div>
                             </div>
                             <div class="form__item">
                               <div class="form__subitem">
                                 <label>Город</label>
                                 <div class="input--suggest">
-                                  <input type="text" data-suggest="input" placeholder="Укажите город" data-url="/json/country.json"/>
+                                  <input type="text" data-suggest="input" value="Москва" placeholder="Укажите город" data-url="/json/country.json"/>
                                 </div>
                               </div>
                             </div>
                             <div class="form__item">
                               <div class="form__subitem">
                                 <label>Сайт</label>
-                                <input type="text" placeholder="Ссылка на сайт"/>
+                                <input type="text" placeholder="Ссылка на сайт" value="ProInside.shop"/>
                               </div>
                             </div>
                             <div class="form__item">
@@ -186,7 +186,7 @@
                                   <select placeholder="Выберите тип">
                                     <option value="">ООО</option>
                                     <option value="">ОАО</option>
-                                    <option value="">Индивидуальный предприниматель</option>
+                                    <option value="" selected="selected">Индивидуальный предприниматель</option>
                                   </select>
                                 </div>
                               </div>
@@ -194,19 +194,19 @@
                             <div class="form__item">
                               <div class="form__subitem">
                                 <label>Название юр. лица</label>
-                                <input type="text" placeholder="Введите название"/>
+                                <input type="text" placeholder="Введите название" value="OOO ProInside Inc"/>
                               </div>
                             </div>
                             <div class="form__item">
                               <div class="form__subitem">
                                 <label>ИНН/УНП</label>
-                                <input type="text" placeholder="Введите данные" data-input-mask="number"/>
+                                <input type="text" placeholder="Введите данные" value="872227972" data-input-mask="number"/>
                               </div>
                             </div>
                             <div class="form__item">
                               <div class="form__subitem">
                                 <label>Адрес регистрацииай</label>
-                                <input type="text" placeholder="Введите адрес"/>
+                                <input type="text" placeholder="Введите адрес" value="Малая Бронная улица, 22с1, Москва, 123104"/>
                               </div>
                             </div>
                           </div>

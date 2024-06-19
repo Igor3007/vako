@@ -16,25 +16,27 @@ mixin store-config
                     .store-config__col
                         button.btn Сохранить изменения
 
-     
-mixin shop-info
-    .shop-block
-        .shop-block__title 
-            .shop-block__h2 Информация о магазине
-            .shop-block__toggle
-                +toggle('Предложения показываются','Показ предложений отключен')
-        .shop-block__logo
-            .shop-upload-logo
-                .shop-upload-logo__image
-                    +bgimage('/img/common/no-photo.svg')
+mixin store-config--edit
 
-                .shop-upload-logo__action
-                    .shop-upload-logo__button
-                        label
-                            input(type="file" name="logo" data-upload="logo-store")
-                            span.btn.btn-small Добавить логотип
-                    .shop-upload-logo__note Загрузите jpg или png файл размером не более 5 MB
-        .shop-block__group
+    .store-config
+        .store-config__wrp
+            form(action='#' method='POST')
+                .store-config__row
+                    .store-config__col
+                        +shop-info--edit()
+                .store-config__row
+                    .store-config__col: +shop-phones()
+                    .store-config__col: +shop-shiping()
+                .store-config__row
+                    .store-config__col: +shop-points()
+                
+                .store-config__submit
+                    .store-config__col
+                        button.btn Сохранить изменения
+
+
+mixin shop-form
+    .shop-block__group
             .form
               .form__item
                 .form__subitem
@@ -69,6 +71,80 @@ mixin shop-info
                 .form__subitem
                     label Адрес регистрацииай
                     input(type="text" placeholder="Введите адрес")
+     
+mixin shop-info
+    .shop-block
+        .shop-block__title 
+            .shop-block__h2 Информация о магазине
+            .shop-block__toggle
+                +toggle('Предложения показываются','Показ предложений отключен')
+        .shop-block__logo
+            .shop-upload-logo
+                .shop-upload-logo__image
+                    +bgimage('/img/common/no-photo.svg')
+
+                .shop-upload-logo__action
+                    .shop-upload-logo__button
+                        label
+                            input(type="file" name="logo" data-upload="logo-store")
+                            span.btn.btn-small Добавить логотип
+                    .shop-upload-logo__note Загрузите jpg или png файл размером не более 5 MB
+        +shop-form
+
+mixin shop-info--edit
+    .shop-block
+        .shop-block__title 
+            .shop-block__h2 Информация о магазине
+            .shop-block__toggle
+                +toggle('Предложения показываются','Показ предложений отключен')
+        .shop-block__logo
+            .shop-upload-logo
+                .shop-upload-logo__image
+                    +bgimage('/img/other/photo_placeholder.png')
+
+                .shop-upload-logo__action
+                    .shop-upload-logo__button
+                        label
+                            input(type="file" name="logo" data-upload="logo-store")
+                            span.btn.btn-small Заменить
+                        span.remove-logo.icon-cross 
+                    .shop-upload-logo__note Загрузите jpg или png файл размером не более 5 MB
+        .shop-block__group
+            .form
+              .form__item
+                .form__subitem
+                    label Название магазина на Vako
+                    input(type="text" placeholder="Укажите название" value="ProInside")
+              .form__item
+                .form__subitem
+                    label Город
+                    .input--suggest
+                        input(type="text" data-suggest="input" value="Москва" placeholder="Укажите город" data-url="/json/country.json")
+              .form__item
+                .form__subitem
+                    label Сайт
+                    input(type="text" placeholder="Ссылка на сайт" value="ProInside.shop")
+              .form__item
+                .form__subitem
+                    label Тип юр. лица
+                    .form__group
+                        select(placeholder="Выберите тип")
+                            option(value="") ООО
+                            option(value="") ОАО
+                            option(value="" selected) Индивидуальный предприниматель
+              .form__item
+                .form__subitem
+                    label Название юр. лица
+                    input(type="text" placeholder="Введите название" value="OOO ProInside Inc")
+              .form__item
+                .form__subitem
+                    label ИНН/УНП
+                    input(type="text" placeholder="Введите данные" value="872227972" data-input-mask='number')
+              .form__item
+                .form__subitem
+                    label Адрес регистрацииай
+                    input(type="text" placeholder="Введите адрес" value="Малая Бронная улица, 22с1, Москва, 123104")
+        
 
 mixin shop-shiping
     .shop-block
