@@ -468,6 +468,8 @@
     &__button {
 
         margin-bottom: 10px;
+        display: flex;
+        align-items: center;
 
 
         & label {
@@ -592,6 +594,7 @@
 
 
 .remove-logo.icon-cross {
+    min-width: 40px;
     width: 40px;
     height: 40px;
     display: inline-block;
