@@ -4612,7 +4612,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         init() {
             this.addEvent()
             this.render()
-
         }
 
         heightItems() {
@@ -4638,7 +4637,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             this.$el.querySelectorAll('li.is-hide').forEach(li => li.classList.remove('is-hide'))
-
             this.showMoreBotton.style.display = (this.heightItems() > this.heightContainer() ? 'flex' : 'none')
 
             while (this.heightItems() > this.heightContainer()) {
@@ -4660,7 +4658,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }, delay);
         }
 
-
         addEvent() {
             const resizeHahdler = (e) => {
                 this.render()
@@ -4674,12 +4671,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             this.showMoreBotton.addEventListener('click', e => {
                 this.container.classList.toggle('is-open');
-
                 this.showMoreBotton.querySelector('span').innerText = this.container.classList.contains('is-open') ? 'Свернуть' : 'Показать все'
-
             })
         }
-
     }
 
     if (document.querySelector('.collections-block')) {
@@ -4688,10 +4682,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             container: '.collections-block'
         })
     }
-
-
-
-
 
     /*======================================
      top home-products slider

@@ -7113,6 +7113,11 @@ footer {
   animation: fade-in 0.3s ease forwards;
 }
 
+.single-product__content .news-carousel {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 35px;
+}
+
 .fixed-tabs {
   transition: 0.3s ease;
 }
