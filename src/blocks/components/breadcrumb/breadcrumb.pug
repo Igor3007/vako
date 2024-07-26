@@ -9,3 +9,18 @@ mixin breadcrumb(data, modify, active)
             li: span!= item
           else
             li: a(href="#" class=(active == index ? 'active':''))!= item
+
+mixin breadcrumb-sub(data, modify, active)
+  .breadcrumb.breadcrumb--sub(class=""+(modify ? modify : '')+"")
+    ul
+      each item, index in data
+         li(class=item.sub ? 'breadcrumb-is-sub':'')
+            if(item.link)
+              a(href=item.link)= item.title
+
+              if(item.sub) 
+                ul
+                  each subitem in item.sub
+                    li: a(href='/catalog.html')= subitem
+            else
+              span= item.title

@@ -4762,9 +4762,99 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
+    /* ==============================
+    Breadcrumbs sub
+    ==============================*/
+
+    class BreadcrumbSub {
+        constructor(params) {
+            this.$el = params.el
+            this.items = null
+            this.offset = {
+                top: 24
+            }
+
+            this.init()
+            this.tooltip = null;
+            this.timmer = null
+        }
+
+        init() {
+            this.items = this.$el.querySelectorAll('.breadcrumb-is-sub')
+            this.addEvents()
+        }
+
+        hoverHandler(el) {
+
+            clearTimeout(this.timmer)
+
+            this.$el.querySelectorAll('ul').forEach(ul => {
+                !ul.classList.contains('is-visible') || ul.classList.remove('is-visible')
+            })
+
+            let rect = el.getBoundingClientRect()
+            this.tooltip = el.querySelector('ul')
+            this.tooltip.style.setProperty('position', 'fixed')
+            this.tooltip.style.setProperty('left', rect.left + 'px')
+            this.tooltip.style.setProperty('top', rect.top + (this.offset.top) + 'px')
+
+            if ((window.innerWidth - (rect.left)) < this.tooltip.clientWidth) {
+                this.tooltip.style.setProperty('left', rect.left - (this.tooltip.clientWidth) + rect.width + 'px')
+            }
+
+            this.tooltip.classList.add('is-visible')
+            this.tooltip.addEventListener('mouseenter', e => {
+                clearTimeout(this.timmer)
+            })
 
 
+        }
 
+        close() {
+            this.timmer = setTimeout(() => {
+                !this.tooltip.classList.contains('is-visible') || this.tooltip.classList.remove('is-visible')
+            }, 50)
+        }
 
+        getTemplatePopup(item) {
+            return `
+                <div class="breadcrumb-popup" >
+                    <div class="breadcrumb-popup__title" >Подкатегории</div>
+                    <div class="breadcrumb-popup__content" >${item.querySelector('ul').outerHTML}</div>
+                </div>
+            `;
+        }
+
+        openPopup(item) {
+            const popup = new afLightbox({
+                mobileInBottom: true
+            })
+
+            popup.open(this.getTemplatePopup(item), false)
+        }
+
+        addEvents() {
+            if (document.body.clientWidth > 576) {
+                this.items.forEach(item => {
+                    item.addEventListener('mouseenter', () => this.hoverHandler(item))
+                    item.addEventListener('mouseleave', () => this.close(item))
+                })
+
+                window.addEventListener('scroll', e => this.close())
+                window.addEventListener('resize', e => this.close())
+            } else {
+                this.items.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault()
+                        this.openPopup(item)
+                    })
+                })
+            }
+        }
+    }
+
+    document.querySelectorAll('.breadcrumb--sub').forEach(el => new BreadcrumbSub({
+        el
+    }))
 
 });

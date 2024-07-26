@@ -12,11 +12,44 @@ mixin single-product
         .container
             .single-product
                 .single-product__breadcrumbs
-                    +breadcrumb([
-                        'Главная',
-                        'Компьютеры',
-                        'Ноутбуки',
-                        'Ноутбуки ASUS'
+                    +breadcrumb-sub([
+                        {
+                            title: 'Главная',
+                            link: '/',
+                            sub: false
+                        },
+                        {
+                            title: 'Ноутбуки и аксессуары',
+                            link: '/cat.html',
+                            sub: [
+                                'Ноутбуки',
+                                'Аксессуары для ноутбуков',
+                                'Запчасти и комплектующие для ноутбуков',
+                            ]
+                        },
+                        {
+                            title: 'Ноутбуки',
+                            link: '/subcat.html',
+                            sub: [
+                                'Ноутбуки игоровые',
+                                'Для работы',
+                            ]
+                        },
+                        {
+                            title: 'Ноутбуки ASUS',
+                            link: '/',
+                            sub: [
+                                'Ноутбуки Dell',
+                                'Ноутбуки HP',
+                                'Ноутбуки Sony',
+                            ]
+                        },
+                        {
+                            title: 'Ноутбук ASUS Zenbook 14 UX425EA-KI421T 1920x1080, Intel Core i3 1115G4 3 ГГц, RAM 8 ГБ, SSD 256 ГБ, Intel UHD Graphics',
+                            link: false,
+                            sub: false
+                        },
+                        
                     ]) 
                 .single-product__h1: h1 14" Ноутбук ASUS ZenBook 14 UX425EA-KI421T 1920x1080, Intel Core i3 1115G4 3 ГГц, RAM 8 ГБ, SSD 256 ГБ, Intel UHD Graphics, Windows 10 Home, 90NB0SM1-M08850, Pine Grey
                 .single-product__tabs
