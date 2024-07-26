@@ -164,7 +164,9 @@
         transition-property: transform, opacity;
         opacity: 0;
         white-space: wrap;
-        min-width: 216px;
+        max-width: 216px;
+
+
 
         & li {
 
