@@ -1,5 +1,7 @@
 include ../catalog-category-3/catalog-category-3.pug
 include ../news/news-carousel/news-carousel.pug
+include ../product-carousel/product-carousel.pug
+include ../collections-block/collections-block.pug
 
 mixin fast-properties(data)
     .fast-properties
@@ -319,9 +321,28 @@ mixin product-common
             +news-carousel({
                 title: 'Интересно почитать'
             })
-            .catalog-category__bottom-info Информация о ценах, сроках и стоимости доставки носит исключительно справочный характер. Более детальную информацию необходимо уточнять на сайте интернет-магазина или по указанным телефонам.
             
+        
+        .catalog-category__similar
+            +product-carousel--single(
+                {
+                    title: 'Похожие товары',
+                    obj: [...product_similar, ...product_similar, ...product_article]
+                }
+            )
 
+        .catalog-category__accessories
+            +product-carousel--single(
+                {
+                    title: 'Аксессуары',
+                    obj: [...product_article, ...product_article, ...product_article]
+                }
+            )
+
+        .catalog-category__collections
+            +collections-block--single
+
+    .catalog-category__bottom-info Информация о ценах, сроках и стоимости доставки носит исключительно справочный характер. Более детальную информацию необходимо уточнять на сайте интернет-магазина или по указанным телефонам.
 
 
 

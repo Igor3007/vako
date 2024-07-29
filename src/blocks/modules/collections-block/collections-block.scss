@@ -15,6 +15,11 @@
         }
     }
 
+    &__title {
+        @include font-h3;
+        padding-bottom: 24px;
+    }
+
     &__tags {
 
         padding-bottom: 24px;

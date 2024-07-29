@@ -26,3 +26,17 @@ mixin product-carousel
                     .splide__list
                         each item,index in product_article
                             .splide__slide: +product-article(item)
+
+
+
+mixin product-carousel--single(data)
+    .product-carousel
+        .product-carousel__top
+            .product-carousel__title= data.title
+
+        .product-carousel__slider
+            .splide(data-slider="similar-slider")
+                .splide__track
+                    .splide__list
+                        each item,index in data.obj
+                            .splide__slide: +product-article(item)

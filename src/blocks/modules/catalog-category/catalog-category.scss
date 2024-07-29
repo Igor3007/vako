@@ -265,18 +265,18 @@
 
     &__article {
 
-        margin-left: auto;
+        // margin-left: auto;
 
-        @media screen and (min-width: $w1440) {
-            min-width: calc(100% - 320px);
-            width: calc(100% - 320px);
-        }
+        // @media screen and (min-width: $w1440) {
+        //     min-width: calc(100% - 320px);
+        //     width: calc(100% - 320px);
+        // }
 
-        @media screen and (min-width: $w992) {
-            min-width: calc(100% - 270px);
-            width: calc(100% - 270px);
-            padding-left: 33px;
-        }
+        // @media screen and (min-width: $w992) {
+        //     min-width: calc(100% - 270px);
+        //     width: calc(100% - 270px);
+        //     padding-left: 33px;
+        // }
     }
 
     &__bottom-info {
@@ -288,6 +288,18 @@
         @media screen and (min-width: $w576) {
             font-size: 15px;
         }
+    }
+
+    &__similar {
+        padding-top: 24px;
+    }
+
+    &__accessories {
+        padding-top: 1px;
+    }
+
+    &__collections {
+        padding-top: 16px;
     }
 }
 
