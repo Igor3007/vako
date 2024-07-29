@@ -12829,6 +12829,7 @@ div[data-state="1"] {
 
 .product-carousel__slider .splide > .splide__arrows .splide__arrow--prev {
   left: -65px;
+  top: calc(50% - 20px);
 }
 
 .product-carousel__slider .splide > .splide__arrows .splide__arrow--prev svg {
@@ -12837,6 +12838,7 @@ div[data-state="1"] {
 
 .product-carousel__slider .splide > .splide__arrows .splide__arrow--next {
   right: -65px;
+  top: calc(50% - 20px);
 }
 
 .product-carousel__slider .splide > .splide__arrows .splide__arrow--next svg {

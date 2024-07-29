@@ -87,6 +87,7 @@
             &>.splide__arrows .splide__arrow {
                 &--prev {
                     left: -65px;
+                    top: calc(50% - 20px);
 
                     & svg {
                         margin-right: 10px;
@@ -95,6 +96,7 @@
 
                 &--next {
                     right: -65px;
+                    top: calc(50% - 20px);
 
                     & svg {
                         margin-left: 8px;
