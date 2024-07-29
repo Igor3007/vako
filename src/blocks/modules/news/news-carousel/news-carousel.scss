@@ -56,6 +56,78 @@
                 }
             }
         }
+
+        & .splide {
+
+            &>.splide__arrows .splide__arrow {
+                opacity: 1;
+
+
+
+                &:hover {
+                    opacity: 0.9;
+                }
+
+                & svg {
+                    fill: $accent-2-1;
+                    height: 18px;
+                    width: 18px;
+                }
+
+
+            }
+
+            &>.splide__arrows .splide__arrow {
+                &--prev {
+                    left: -65px;
+
+                    & svg {
+                        margin-right: 10px;
+                    }
+                }
+
+                &--next {
+                    right: -65px;
+
+                    & svg {
+                        margin-left: 8px;
+                    }
+                }
+
+                &--prev,
+                &--next {
+                    background-color: transparent;
+                    border-radius: 6px;
+                    width: 40px;
+                    height: 40px;
+
+
+
+                    &:hover {
+                        background-color: #F9F7FF;
+                    }
+
+                    &:disabled {
+                        opacity: 0;
+                    }
+                }
+            }
+
+            &.is-pagination {
+                & .splide {
+                    &__arrow {
+
+                        &--prev,
+                        &--next {
+                            &:disabled {
+                                opacity: 0.3;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
     }
 
     &__list {

@@ -4,9 +4,7 @@ mixin news-carousel(data)
     .news-carousel
         .news-carousel__top
             .news-carousel__title= data.title
-            .news-carousel__nav
-                .news-carousel__nav-prev(data-slider="news-carousel-next"): +icons('#ic_arrow-left')
-                .news-carousel__nav-next(data-slider="news-carousel-prev"): +icons('#ic_arrow-right')
+          
 
         .news-carousel__slider
             .splide(data-slider="news-carousel")

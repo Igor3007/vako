@@ -12700,6 +12700,59 @@ div[data-state="1"] {
   margin-right: -16px;
 }
 
+.news-carousel__slider .splide > .splide__arrows .splide__arrow {
+  opacity: 1;
+}
+
+.news-carousel__slider .splide > .splide__arrows .splide__arrow:hover {
+  opacity: 0.9;
+}
+
+.news-carousel__slider .splide > .splide__arrows .splide__arrow svg {
+  fill: #7B61FF;
+  height: 18px;
+  width: 18px;
+}
+
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--prev {
+  left: -65px;
+}
+
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--prev svg {
+  margin-right: 10px;
+}
+
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--next {
+  right: -65px;
+}
+
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--next svg {
+  margin-left: 8px;
+}
+
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--prev,
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--next {
+  background-color: transparent;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+}
+
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--prev:hover,
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--next:hover {
+  background-color: #F9F7FF;
+}
+
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--prev:disabled,
+.news-carousel__slider .splide > .splide__arrows .splide__arrow--next:disabled {
+  opacity: 0;
+}
+
+.news-carousel__slider .splide.is-pagination .splide__arrow--prev:disabled,
+.news-carousel__slider .splide.is-pagination .splide__arrow--next:disabled {
+  opacity: 0.3;
+}
+
 .news-carousel__list {
   margin: -4px;
   display: flex;
@@ -12775,7 +12828,7 @@ div[data-state="1"] {
 }
 
 .product-carousel__slider .splide > .splide__arrows .splide__arrow--prev {
-  left: -45px;
+  left: -65px;
 }
 
 .product-carousel__slider .splide > .splide__arrows .splide__arrow--prev svg {
@@ -12783,7 +12836,7 @@ div[data-state="1"] {
 }
 
 .product-carousel__slider .splide > .splide__arrows .splide__arrow--next {
-  right: -45px;
+  right: -65px;
 }
 
 .product-carousel__slider .splide > .splide__arrows .splide__arrow--next svg {

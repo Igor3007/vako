@@ -4368,14 +4368,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
         items.forEach(item => {
             const sliderCarousel = new Splide(item, {
 
-                arrows: false,
-                fixedWidth: 330,
+                arrows: true,
+                fixedWidth: 329,
                 gap: 24,
                 pagination: false,
                 perMove: 1,
                 focus: 'left',
                 flickMaxPages: 1,
                 flickPower: 150,
+                arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
                 dragMinThreshold: {
                     mouse: 4,
                     touch: 15,
@@ -4391,34 +4392,46 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 },
             })
 
-            const next = item.closest('.news-carousel').querySelector('[data-slider="news-carousel-next"]')
-            const prev = item.closest('.news-carousel').querySelector('[data-slider="news-carousel-prev"]')
-
-            const checkNavButton = () => {
-
-                let slidesWidth = 0
-                let containerWidth = sliderCarousel.root.querySelector('.splide__track').clientWidth
-
-                sliderCarousel.root.querySelectorAll('.splide__slide').forEach(item => {
-                    slidesWidth += (item.clientWidth - 3) + sliderCarousel.options.gap
-                })
-
-                next.style.display = (slidesWidth <= containerWidth ? 'none' : 'block')
-                prev.style.display = (slidesWidth <= containerWidth ? 'none' : 'block')
-
-            }
-
-            sliderCarousel.on('ready', (e) => {
-                checkNavButton()
-            })
-            sliderCarousel.on('resized', (e) => {
-                checkNavButton()
-            })
 
             sliderCarousel.mount()
 
-            next.addEventListener('click', e => sliderCarousel.go('<'))
-            prev.addEventListener('click', e => sliderCarousel.go('>'))
+            const watchWidth = () => {
+
+                const sliderWidth = item.classList.contains('is-offset-pagination') ? (item.clientWidth + 100) : item.clientWidth
+                const frameWidth = document.documentElement.clientWidth
+
+                //is-pagination offset
+                if ((frameWidth - 100) <= sliderWidth) {
+                    item.classList.add('is-offset-pagination')
+                } else {
+                    !item.classList.contains('is-offset-pagination') || item.classList.remove('is-offset-pagination')
+                }
+
+                // is-pagination
+                if (sliderCarousel.length > sliderCarousel.options.perPage) {
+                    item.classList.add('is-pagination')
+                } else {
+                    !item.classList.contains('is-pagination') || item.classList.remove('is-pagination')
+                }
+            }
+
+            let fnDedounce = window.debounce
+            watchWidth()
+
+            window.addEventListener('resize', () => {
+                fnDedounce(watchWidth, 50);
+            })
+
+            //auto perMove
+            const getPerMove = () => {
+                return Math.floor((sliderCarousel.root.clientWidth / sliderCarousel.root.querySelector('.splide__slide').clientWidth)) || 1
+            }
+
+            sliderCarousel.options = {
+                perMove: getPerMove(),
+            };
+
+
         })
 
     }
@@ -4596,7 +4609,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     /* ========================================
-    dfdf
+    FlexTags
     ========================================*/
 
     class FlexTags {
@@ -4812,7 +4825,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         close() {
             this.timmer = setTimeout(() => {
-                !this.tooltip.classList.contains('is-visible') || this.tooltip.classList.remove('is-visible')
+
+                if (this.tooltip) {
+                    !this.tooltip.classList.contains('is-visible') || this.tooltip.classList.remove('is-visible')
+                }
+
+
             }, 50)
         }
 
@@ -4868,11 +4886,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             const sliderCarousel = new Splide(item, {
 
                 arrows: true,
-                fixedWidth: 220,
                 gap: 12,
-                pagination: false,
-                perMove: 1,
-                focus: 'left',
+                pagination: true,
+                perPage: 6,
                 flickMaxPages: 1,
                 flickPower: 150,
                 arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
@@ -4884,14 +4900,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 breakpoints: {
                     1439: {
                         gap: 16,
+                    },
 
+                    1376: {
+                        perPage: 5
+                    },
+
+                    1200: {
+                        perPage: 4
                     },
 
                     992: {
                         gap: 12,
-                        fixedWidth: 230,
-                        pagination: true,
+                        perPage: 3
+                    },
 
+                    767: {
+
+                        perPage: 2
                     },
 
                     575: {
@@ -4930,8 +4956,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             window.addEventListener('resize', () => {
                 fnDedounce(watchWidth, 50);
             })
-
-            /* ==== */
 
             //auto perMove
             const getPerMove = () => {
