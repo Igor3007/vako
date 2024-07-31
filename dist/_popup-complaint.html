@@ -1,0 +1,93 @@
+
+<div class="complaint">
+  <div class="complaint__wrp">
+    <div class="complaint__title">Сообщить о проблеме</div>
+    <div class="complaint__desc">Магазин <span>Proinside.ru</span></div>
+    <div class="complaint__form">
+      <form action="#" method="POST">
+        <div class="complaint__steps">
+          <div class="complaint__step is-active" data-step="data-step">
+            <div class="complaint__label">1. Укажите проблему:</div>
+            <div class="complaint__content">
+              <label class="radio">
+                <input type="radio" name="type" checked="" value="1"/><span class="radio__elem"></span><span class="radio__text">Товара нет в наличии</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="type" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Неправильная цена</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="type" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Неверные сроки/стоимость доставки</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="type" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Продажа не новых товаров</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="type" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Продажа поддельных товаров</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="type" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Подозрение в мошенничестве</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="type" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Накрутка отзывов</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="type" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Другое</span>
+              </label>
+            </div>
+            <div class="complaint__nav">
+              <div class="complaint__next">
+                <button class="btn" type="button" data-to="1">Далее</button>
+              </div>
+            </div>
+          </div>
+          <div class="complaint__step" data-step="data-step">
+            <div class="complaint__label">2. Детально опишите возникшую проблему:</div>
+            <div class="complaint__content">
+              <div class="form">
+                <textarea name="text" placeholder="Введите текст"></textarea>
+              </div>
+            </div>
+            <div class="complaint__nav">
+              <div class="complaint__next">
+                <button class="btn" type="button" data-to="2">Далее</button>
+              </div>
+              <div class="complaint__back"><span data-to="0">Вернуться назад</span></div>
+            </div>
+          </div>
+          <div class="complaint__step" data-step="data-step">
+            <div class="complaint__label">3. Контактные данные:</div>
+            <div class="complaint__content">
+              <div class="form">
+                <div class="form__item">
+                  <div class="form__subitem">
+                    <div class="form__label">Ваше имя</div>
+                    <input type="text" required="required" placeholder="Введите имя"/>
+                  </div>
+                </div>
+                <div class="form__item">
+                  <div class="form__subitem">
+                    <div class="form__label">Email</div>
+                    <input type="email" required="required" placeholder="Введите email"/>
+                  </div>
+                </div>
+                <div class="form__item">
+                  <div class="form__note">
+                    <label class="checkbox">
+                      <input type="checkbox" required="" name="policy" checked=""/><span class="checkbox__elem"></span><span class="checkbox__text">Даю согласие на обработку своих персональных данных в соответствии с <a href="/policy.html" >Политикой конфиденциальности</a> и <a href="#">Согласием на обработку персональных данных</a>.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="complaint__nav">
+              <div class="complaint__next">
+                <button class="btn" type="submit">Отправить</button>
+              </div>
+              <div class="complaint__back"><span data-to="1">Вернуться назад</span></div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

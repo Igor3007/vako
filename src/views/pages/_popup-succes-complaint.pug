@@ -1,0 +1,10 @@
+include ../../views/helpers/mixins.pug
+include ../../data/data.pug
+
+.popup-succes
+    .popup-succes__icon: +bgimage('/img/common/icon_thank_60.svg')
+    .popup-succes__title Сообщение отправлено!
+    .popup-succes__desc Информация будет передана в отдел качества для проверки. При необходимости в дополнительных данных наши сотрудники свяжутся с вами по контактам, оставленным в обращении.
+    .popup-succes__btn
+        button.btn(data-popup="close") Понятно
+        

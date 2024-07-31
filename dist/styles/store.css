@@ -1901,6 +1901,16 @@ select {
   top: 0;
 }
 
+@keyframes loadingrotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes slide-Y {
   from {
     transform: translateY(100%);

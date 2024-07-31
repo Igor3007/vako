@@ -4969,4 +4969,96 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* ====================================
+    Пожаловаться
+    ====================================*/
+
+    if (document.querySelector('[data-complaint]')) {
+
+        class Complaint {
+            constructor(params) {
+                this.$el = params.el
+                this.currentStep = 0
+                this.popup = params.popup
+                this.submitButton = this.$el.querySelector('[type=submit]')
+
+                this.init()
+            }
+
+            init() {
+                this.addEvents()
+            }
+
+            toStep(num) {
+                this.$el.querySelectorAll('[data-step]').forEach((step, index) => {
+                    !step.classList.contains('is-active') || !step.classList.remove('is-active')
+
+                    if (index == num) step.classList.add('is-active')
+                })
+            }
+
+            submitForm(form) {
+
+
+
+                window.ajax({
+                    type: 'GET', //POST
+                    url: '/_popup-succes-complaint.html',
+                    responseType: 'html',
+                    data: new FormData(form)
+
+                }, (status, response) => {
+
+
+                    setTimeout(() => {
+                        this.submitButton.classList.remove('btn-loading')
+                        this.popup.modal.querySelector('.af-popup__content').innerHTML = response
+                        this.popup.modal.querySelector('[data-popup="close"]').addEventListener('click', () => this.popup.close())
+                    }, 1000)
+
+                })
+            }
+
+            addEvents() {
+                this.$el.querySelectorAll('[data-to]').forEach(item => {
+                    item.addEventListener('click', () => this.toStep(item.dataset.to))
+                })
+
+                this.$el.querySelector('form').addEventListener('submit', (e) => {
+                    e.preventDefault()
+                    this.submitButton.classList.add('btn-loading')
+                    this.submitForm(e.target)
+                })
+            }
+        }
+
+        const items = document.querySelectorAll('[data-complaint]')
+
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const popup = new afLightbox({
+                    mobileInBottom: true
+                })
+
+                popup.open('<div class="af-spiner" ></div>', function (instanse) {
+                    window.ajax({
+                        type: 'GET', //POST
+                        url: '/_popup-complaint.html',
+                        responseType: 'html',
+
+
+                    }, (status, response) => {
+                        instanse.querySelector('.af-popup__content').innerHTML = response
+
+                        new Complaint({
+                            el: popup.modal,
+                            popup
+                        })
+                    })
+                })
+            })
+        })
+
+    }
+
 });

@@ -1,0 +1,59 @@
+.complaint
+    .complaint__wrp
+        .complaint__title Сообщить о проблеме
+        .complaint__desc Магазин <span>Proinside.ru</span>
+        .complaint__form
+            form(action='#' method='POST')
+                .complaint__steps
+
+                    //- step 1
+
+                    .complaint__step(data-step).is-active
+                        .complaint__label 1. Укажите проблему:
+                        .complaint__content
+                            +radio('Товара нет в наличии', 'type', '1', true)
+                            +radio('Неправильная цена', 'type')
+                            +radio('Неверные сроки/стоимость доставки', 'type')
+                            +radio('Продажа не новых товаров', 'type')
+                            +radio('Продажа поддельных товаров', 'type')
+                            +radio('Подозрение в мошенничестве', 'type')
+                            +radio('Накрутка отзывов', 'type')
+                            +radio('Другое', 'type')
+                        .complaint__nav
+                            .complaint__next: button.btn(type="button" data-to="1") Далее
+
+                    //- step 2
+                            
+                    .complaint__step(data-step)
+                        .complaint__label 2. Детально опишите возникшую проблему:
+                        .complaint__content
+                            .form
+                                textarea(name="text" placeholder="Введите текст")
+                        .complaint__nav
+                            .complaint__next: button.btn(type="button" data-to="2") Далее
+                            .complaint__back
+                                span(data-to="0") Вернуться назад
+
+                    //- step 3
+                            
+                    .complaint__step(data-step)
+                        .complaint__label 3. Контактные данные:
+                        .complaint__content
+                            .form
+                                .form__item
+                                    .form__subitem
+                                        .form__label Ваше имя
+                                        input(type="text" required placeholder="Введите имя")
+                                .form__item
+                                    .form__subitem
+                                        .form__label Email
+                                        input(type="email" required placeholder="Введите email")
+                                .form__item
+                                    .form__note
+                                        +checkbox-required('Даю согласие на обработку своих персональных данных в соответствии с <a href="/policy.html" >Политикой конфиденциальности</a> и <a href="#">Согласием на обработку персональных данных</a>.', 'policy', true)
+
+                        .complaint__nav
+                            .complaint__next: button.btn(type="submit") Отправить
+                            .complaint__back
+                                span(data-to="1") Вернуться назад
+                        

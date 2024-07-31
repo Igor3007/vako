@@ -1,0 +1,136 @@
+.complaint {
+
+    padding: 12px;
+    font-size: 15px;
+
+    @media screen and (min-width: $w576) {
+        padding: 30px;
+        width: 460px;
+    }
+
+    &__step {
+        display: none;
+
+        &.is-active {
+            display: block;
+            animation: fade-in 0.4s ease forwards;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 26px;
+
+        & .radio {
+            margin-bottom: 14px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &__text {
+                font-size: 15px;
+                color: $gray-13
+            }
+
+            &__elem {
+                top: 5px
+            }
+        }
+    }
+
+    &__title {
+        @include font-h2;
+        padding-bottom: 12px
+    }
+
+    &__desc {
+        padding-bottom: 30px;
+
+        color: $gray-56;
+
+        & a,
+        & span {
+            color: $accent-2-1;
+            font-weight: 600
+        }
+    }
+
+    &__label {
+        @include font-h3;
+        padding-bottom: 12px
+    }
+
+    &__nav {
+        & .btn {
+            width: 100%;
+        }
+    }
+
+    &__back {
+
+        display: flex;
+        justify-content: center;
+        padding-top: 12px;
+
+        & span {
+            color: $accent-2-1;
+            height: 36px;
+            padding: 0 12px;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+
+            &::before {
+                content: '';
+                width: 14px;
+                height: 13px;
+                margin-right: 6px;
+                margin-top: 2px;
+                display: inline-block;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNSIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNC41IDlsLTQtNCA0LTQiIHN0cm9rZT0iIzdCNjFGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
+            }
+        }
+    }
+
+
+
+    & .form {
+
+        &__label {
+            font-weight: bold;
+            padding-bottom: 12px;
+
+        }
+
+        &__note {
+
+            @media screen and (min-width: $w480) {
+                padding: 20px 10px;
+
+            }
+
+            & .checkbox {
+                &__text {
+                    color: $gray-13;
+                    font-size: 14px;
+
+                    & a {
+                        color: $accent-2-1;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}
