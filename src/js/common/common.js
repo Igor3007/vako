@@ -5035,7 +5035,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const items = document.querySelectorAll('[data-complaint]')
 
         items.forEach(item => {
-            item.addEventListener('click', () => {
+            item.addEventListener('click', (e) => {
+
+                e.preventDefault()
+
                 const popup = new afLightbox({
                     mobileInBottom: true
                 })
