@@ -4838,7 +4838,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             return `
                 <div class="breadcrumb-popup" >
                     <div class="breadcrumb-popup__title" >Подкатегории</div>
-                    <div class="breadcrumb-popup__content" >${item.querySelector('ul').outerHTML}</div>
+                    <div class="breadcrumb-popup__content"> 
+                        <ul> ${ '<li>'+item.querySelector('a').outerHTML+'</li>' + item.querySelector('ul').innerHTML}</ul>
+                    </div>
                 </div>
             `;
         }
