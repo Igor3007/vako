@@ -235,6 +235,8 @@
             margin-right: 30px;
         }
 
+        position: relative;
+
 
 
         & .header-location {
@@ -242,6 +244,8 @@
             display: flex;
             align-items: flex-end;
             margin-bottom: -1px;
+
+
 
 
             & svg {
@@ -265,4 +269,48 @@
 
 .tooltip-icon__count:empty {
     display: none;
+}
+
+.region-tooltip {
+    border-radius: 6px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    color: #222;
+    position: absolute;
+    top: calc(100% + 10px);
+    z-index: 5;
+    display: none;
+    animation: slide-down 0.3s ease forwards;
+
+    &.is-open {
+        display: block;
+    }
+
+
+    &__text {
+        padding-bottom: 16px;
+        font-size: 16px;
+        line-height: 150%;
+        font-weight: 600;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 16px;
+
+        & .btn {
+            font-weight: 700;
+            font-size: 15px;
+
+            &-white {
+                color: $gray-56;
+
+                &:hover {
+                    background-color: #F9F7FF;
+                    color: #333;
+                }
+            }
+        }
+    }
 }
