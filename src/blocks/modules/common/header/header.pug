@@ -44,12 +44,13 @@ include dropdown
                 .header-top__login
                     +dropdown-icon
 
-        .header-bottom
+        .header-bottom 
             .header-bottom__location
                 .header-location
                     .header-location__wrp
                         .header-location__icon: +icons('#ic_pin')
-                        .header-location__name(data-popup="region") Кременчуг-Константиновское 
+                        .header-location__name(data-popup="region") Кременчуг-Константиновское
+                +region-tooltip
             .header-bottom__menu
                 nav
                     ul

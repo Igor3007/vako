@@ -199,7 +199,7 @@
               </div>
             </div>
           </div>
-          <div class="header-bottom">
+          <div class="header-bottom"> 
             <div class="header-bottom__location">
               <div class="header-location">
                 <div class="header-location__wrp">
@@ -208,9 +208,22 @@
                       <use xlink:href="/img/sprites/sprite.svg#ic_pin"></use>
                     </svg>
                   </div>
-                  <div class="header-location__name" data-popup="region">Кременчуг-Константиновское </div>
+                  <div class="header-location__name" data-popup="region">Кременчуг-Константиновское</div>
                 </div>
               </div>
+                    <div class="region-tooltip">
+                      <div class="region-tooltip__wrp">
+                        <div class="region-tooltip__text">Вам показаны предложения <br> по г. Кременчуг-Константиновское</div>
+                        <div class="region-tooltip__buttons">
+                          <div class="region-tooltip__btn">
+                            <button class="btn btn-red btn-small">Отлично</button>
+                          </div>
+                          <div class="region-tooltip__btn">
+                            <button class="btn btn-white btn-small" data-popup="region">Изменить</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
             </div>
             <div class="header-bottom__menu">
               <nav>
@@ -748,28 +761,32 @@
             </div>
             <div class="select-region" data-popup="select-region">
               <div class="select-region__wrp">
-                <div class="select-region__icon"><span class="bgimage lazyload" data-bg="/img/common/icon_pin_60.svg"></span>
+                <div class="select-region__head">
+                  <div class="select-region__icon"><span class="bgimage lazyload" data-bg="/img/common/icon_pin_60.svg"></span>
+                  </div>
+                  <div class="select-region__title">Ваш текущий город: <strong>Москва</strong></div>
                 </div>
-                <div class="select-region__title">Вам показаны товары <br> в Кременчуг-Константиновское</div>
                 <div class="select-region__form">
                   <form action="#" method="POST">
-                    <div class="form">
-                      <div class="form__item">
-                        <div class="form__subitem">
-                          <div class="input--suggest">
-                            <input type="text" placeholder="Укажите регион" data-url="/json/country.json">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form__item">
-                        <div class="form__subitem">
-                          <button class="btn">Сохранить</button>
-                        </div>
-                      </div>
-                    </div>
+                    <input type="text" placeholder="Найти другой город или населённый пункт" data-url="/json/country.json">
                   </form>
                 </div>
-                <div class="select-region__auto"><a href="#auto">Определять автоматически</a></div>
+                <div class="select-region__suggest">
+                  <ul data-popup="suggest">
+                    <li><a href="#">Москва</a></li>
+                    <li><a href="#">Санкт-Петербург</a></li>
+                    <li><a href="#">Новосибирск</a></li>
+                    <li><a href="#">Екатеринбург</a></li>
+                    <li><a href="#">Нижний Новгород</a></li>
+                    <li><a href="#">Самара</a></li>
+                    <li><a href="#">Омск</a></li>
+                    <li><a href="#">Казань</a></li>
+                    <li><a href="#">Челябинск</a></li>
+                    <li><a href="#">Ростов-на-Дону</a></li>
+                    <li><a href="#">Уфа</a></li>
+                    <li><a href="#">Волгоград</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="bottom-popup">

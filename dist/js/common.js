@@ -932,60 +932,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector('[data-all-catid="show"]').classList.add('is-visible')
     }
 
-    /*========================================
-    select
-    ========================================*/
 
-
-    if (document.querySelector('[data-popup="region"]')) {
-
-        const selectRegionPopup = new afLightbox({
-            mobileInBottom: true
-        })
-
-        const formElement = document.querySelector('[data-popup="select-region"]')
-
-        document.querySelector('[data-popup="region"]').addEventListener('click', function (e) {
-            e.preventDefault()
-
-            selectRegionPopup.open(formElement.outerHTML, function (instanse) {
-                if (instanse.querySelectorAll('.input--suggest')) {
-                    instanse.querySelectorAll('.input--suggest input').forEach(function (input) {
-
-                        new inputSuggest({
-                            elem: input,
-                            maxHeightSuggestList: '130px',
-                            on: {
-                                change: function (text, value) {
-                                    //change event
-                                }
-                            }
-                        });
-
-                        //fix scroll to input in iOS 
-
-                        if (input && window.isIOS) {
-                            input.addEventListener('focus', e => {
-                                setTimeout(() => {
-                                    window.scrollTo({
-                                        top: 300,
-                                        behavior: "smooth",
-                                    });
-                                }, 50)
-                            })
-                        }
-
-
-
-
-                    })
-                }
-            })
-
-        })
-
-
-    }
 
 
 
@@ -5065,5 +5012,207 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
 
     }
+
+
+    /* ==========================================
+      Select Region
+    ========================================== */
+
+    class SelectRegion {
+
+        constructor(option) {
+            this.option = option
+            this.elem = option.elem
+            this.input = this.elem.querySelector('input')
+            this.form = this.elem.querySelector('form')
+            this.elSuggest = this.elem.querySelector('[data-popup="suggest"]')
+            this.defaultCity = []
+            this.cityList = null
+            this.init()
+        }
+
+        init() {
+            this.addEvent()
+            this.saveDefaultCity()
+        }
+
+        saveDefaultCity() {
+            this.elSuggest.querySelectorAll('li').forEach((item, index) => {
+                this.defaultCity.push({
+                    text: item.innerText,
+                    value: index,
+                })
+            })
+
+            this.renderResult(this.defaultCity)
+        }
+
+
+        loadSuggestElem(url, callback) {
+            window.ajax({
+                type: 'GET',
+                responseType: 'json',
+                url: url
+            }, function (status, response) {
+                callback(response)
+            })
+        }
+
+        changeInput(event) {
+
+            if (!event.target.value.length) {
+                this.renderResult(this.defaultCity)
+            }
+
+            if (!this.cityList.length || event.target.value.length < 2) return false
+
+            let result = this.cityList.filter(item => {
+                return item.text.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
+            })
+
+
+            this.renderResult(result)
+
+        }
+
+        renderResult(arr) {
+            this.elSuggest.innerHTML = ''
+
+            if (!arr.length) {
+                this.elSuggest.innerHTML = '<div class="empty-query" >По вашему запросу ничего не нашлось <span>=(</span></div>'
+                return false
+            }
+
+            arr.forEach(item => {
+                const listItem = document.createElement('li')
+                listItem.innerHTML = `<a>${item.text}</a>`
+                listItem.addEventListener('click', () => this.selectedCity(item))
+                this.elSuggest.append(listItem)
+            })
+
+        }
+
+        selectedCity(city) {
+            this.input.value = city.text
+            this.form.submit()
+            this.option.popup.close()
+        }
+
+        addEvent() {
+            this.input.addEventListener('keyup', (event) => {
+                this.changeInput(event)
+            })
+
+            this.input.addEventListener('focus', (event) => {
+                if (!this.cityList) {
+                    this.loadSuggestElem(event.target.dataset.url, (data) => {
+                        this.cityList = data
+                    })
+                }
+            })
+        }
+    }
+
+    /*========================================
+    Select Region popup
+    ========================================*/
+
+
+    if (document.querySelector('[data-popup="region"]')) {
+
+        const selectRegionPopup = new afLightbox({
+            mobileInBottom: true
+        })
+
+        const formElement = document.querySelector('[data-popup="select-region"]')
+
+        document.querySelectorAll('[data-popup="region"]').forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault()
+
+                selectRegionPopup.open(formElement.outerHTML, function (instanse) {
+                    instanse.querySelectorAll('input').forEach(function (input) {
+
+                        //fix scroll to input in iOS 
+                        if (input && window.isIOS) {
+                            input.addEventListener('focus', e => {
+                                setTimeout(() => {
+                                    window.scrollTo({
+                                        top: 300,
+                                        behavior: "smooth",
+                                    });
+                                }, 50)
+                            })
+                        }
+
+                    })
+
+                    new SelectRegion({
+                        elem: instanse,
+                        popup: selectRegionPopup
+                    })
+                })
+
+            })
+        })
+
+
+    }
+
+    /* =======================================
+    Region Tooltip
+    =======================================*/
+
+    if (document.querySelector('.region-tooltip')) {
+
+        class RegionTooltip {
+            constructor(elem) {
+                this.elem = elem
+                this.btnChange = elem.querySelector('.btn-white')
+                this.btnApply = elem.querySelector('.btn-red')
+
+                this.init()
+            }
+
+            init() {
+
+                if (!localStorage.getItem('region-tooltip')) {
+                    this.show()
+                }
+
+                this.addEvent()
+            }
+
+            show() {
+                this.elem.classList.add('is-open')
+            }
+            close() {
+                !this.elem.classList.contains('is-open') || this.elem.classList.remove('is-open')
+            }
+
+            addEvent() {
+                this.btnApply.addEventListener('click', e => {
+                    this.close()
+                    localStorage.setItem('region-tooltip', 1)
+                })
+                this.btnChange.addEventListener('click', e => this.close())
+            }
+
+        }
+
+        new RegionTooltip(document.querySelector('.region-tooltip'))
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 });

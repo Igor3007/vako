@@ -56,3 +56,12 @@ mixin tooltip-icon-active(data)
                 span.tooltip-icon__count(data-total=data.attr)= data.count
         .tooltip-icon__text
             span!= data.text
+
+
+mixin region-tooltip
+    .region-tooltip
+        .region-tooltip__wrp
+            .region-tooltip__text Вам показаны предложения <br> по г. Кременчуг-Константиновское
+            .region-tooltip__buttons
+                .region-tooltip__btn: button.btn.btn-red.btn-small Отлично
+                .region-tooltip__btn: button.btn.btn-white.btn-small(data-popup="region") Изменить

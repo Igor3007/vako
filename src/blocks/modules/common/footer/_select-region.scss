@@ -1,0 +1,138 @@
+.select-region {
+    display: none;
+    padding: 14px;
+    width: 100vw;
+    max-width: 100%;
+
+
+
+    @media screen and (min-width: $w992) {
+        padding: 32px;
+        max-width: 710px;
+    }
+
+    &__icon {
+
+        padding-right: 12px;
+
+        & .bgimage {
+            width: 30px;
+            height: 30px;
+            @include bgimage-contain;
+            margin: 0 auto;
+
+            @media screen and (min-width: $w576) {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+
+    &__head {
+        display: flex;
+        align-items: center;
+        padding-bottom: 24px;
+
+        @media screen and (min-width: $w576) {
+            padding-bottom: 28px;
+        }
+
+
+    }
+
+    &__title {
+        font-size: 14px;
+        color: #222;
+
+        @media screen and (min-width: $w576) {
+            font-size: 16px;
+        }
+    }
+
+    &__form {
+        padding-bottom: 18px;
+
+        @media screen and (min-width: $w576) {
+            padding-bottom: 32px;
+        }
+
+        & input {
+
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDBDNS44NjQgMCAyLjUgMy4zNjUgMi41IDcuNWMwIDUuNTMzIDYuOTIgMTIuMTEgNy4yMTQgMTIuMzg3YS40MTguNDE4IDAgMDAuNTcyIDBDMTAuNTggMTkuNjA5IDE3LjUgMTMuMDMzIDE3LjUgNy41IDE3LjUgMy4zNjUgMTQuMTM2IDAgMTAgMHptMCAxMS42NjdBNC4xNzIgNC4xNzIgMCAwMTUuODMzIDcuNSA0LjE3MiA0LjE3MiAwIDAxMTAgMy4zMzMgNC4xNzIgNC4xNzIgMCAwMTE0LjE2NyA3LjUgNC4xNzIgNC4xNzIgMCAwMTEwIDExLjY2N3oiIGZpbGw9IiNDQ0MiLz48L3N2Zz4=);
+            background-position: calc(100% - 12px) center;
+            padding-right: 48px;
+            background-repeat: no-repeat;
+            font-size: 15px;
+
+            &::placeholder {
+                color: $gray-56;
+                opacity: 1;
+                font-size: 15px;
+            }
+        }
+    }
+
+    &__suggest {
+
+        min-height: 147px;
+
+
+
+        & ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -9px -5px;
+
+
+            & li {
+                padding: 7px 5px;
+
+                @media screen and (min-width: $w576) {
+                    padding: 9px 5px;
+                }
+
+                width: 50%;
+
+                @media screen and (min-width: $w760) {
+                    width: 33.33%;
+
+                }
+
+                & a {
+                    font-size: 14px;
+                    color: #222;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $accent-2-1;
+                    }
+
+                    @media screen and (min-width: $w576) {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+}
+
+.empty-query {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #777;
+
+    & span {
+        color: $accent-2-1;
+        margin-left: 4px;
+    }
+}
+
+.af-popup__content .select-region {
+    display: block;
+}
