@@ -50,7 +50,14 @@ gulp.task("libs", () => {
 
 gulp.task('vendor', function () {
     return gulp.src('./src/js/vendor/*.js')
-        .pipe(concat('vendor.js'))
+        .pipe(concat('vendor.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/js/'));
+});
+
+gulp.task('vendor-lk', function () {
+    return gulp.src('./src/js/vendor-lk/*.js')
+        .pipe(concat('vendor-lk.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./dist/js/'));
 });

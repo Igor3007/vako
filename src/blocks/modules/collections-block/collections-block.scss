@@ -2,18 +2,7 @@
 
     padding: 14px 0 23px 0;
 
-    &:not(.is-init) {
 
-        & ul {
-            height: 132px;
-            opacity: 0;
-            overflow: hidden;
-
-            @media screen and (min-width: $w576) {
-                height: 88px;
-            }
-        }
-    }
 
     &__title {
         @include font-h3;
@@ -119,6 +108,19 @@
             }
 
 
+        }
+    }
+
+    &:not(.is-init) {
+
+        & .collections-block__tags {
+            height: 191px;
+            opacity: 0;
+            overflow: hidden;
+
+            @media screen and (min-width: $w576) {
+                height: 108px;
+            }
         }
     }
 

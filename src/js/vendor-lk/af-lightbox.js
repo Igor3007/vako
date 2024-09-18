@@ -15,9 +15,23 @@ class afLightbox {
 
     createTemplate() {
         let template = document.createElement('div')
-        template.innerHTML = `<div class="af-popup"><div class="af-popup__bg"></div><div class="af-popup__wrp"><div class="af-popup__container"><div class="af-popup__close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M20 20L4 4m16 0L4 20"></path></svg></div><div class="af-popup__content"></div></div></div></div>`;
+        template.innerHTML = `
+                <div class="af-popup">
+                    <div class="af-popup__bg"></div>
+                    <div class="af-popup__wrp">
+                        <div class="af-popup__container">
+                            <div class="af-popup__close">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M20 20L4 4m16 0L4 20"></path></svg>
+                            </div>
+                            <div class="af-popup__content"></div>
+                        </div>
+                    </div>
+                </div>
+                `
+
         document.body.append(template)
         this.instanse = template;
+
         return template;
     }
 
@@ -30,6 +44,10 @@ class afLightbox {
             this.modal.querySelector(".af-popup").classList.add("af-popup--mobile")
         }
 
+        // if (window.innerWidth <= 480) {
+        //     document.body.classList.add('page-hidden')
+        // }
+
         this.modal.querySelector('.af-popup__content').innerHTML = content
         this.modal.querySelector('.af-popup__close').addEventListener('click', function () {
             _this.close()
@@ -39,6 +57,7 @@ class afLightbox {
 
         setTimeout(() => {
             this.modal.querySelector(".af-popup").classList.add("af-popup--visible")
+
 
             //fix iOS body scroll
             if (this.isiOS) {
