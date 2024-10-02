@@ -4030,34 +4030,91 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     if (document.querySelector('.catalog-category__tags')) {
 
-        let container = document.querySelector('.catalog-category__tags ul');
-        let elem = container.querySelector('.is-active')
 
-        function scrollToElem(elem, container) {
-            var rect = elem.getBoundingClientRect();
-            var rectContainer = container.getBoundingClientRect();
+        class ScrollTags {
 
-            let elemOffset = {
-                top: rect.top + document.body.scrollTop,
-                left: rect.left + document.body.scrollLeft
+            constructor(params) {
+                this.$el = params.el
+                this.nextButton = this.$el.querySelector('[data-st="next"]')
+                this.prevButton = this.$el.querySelector('[data-st="prev"]')
+                this.container = this.$el.querySelector('ul');
+
+                this.init()
             }
 
-            let containerOffset = {
-                top: rectContainer.top + document.body.scrollTop,
-                left: rectContainer.left + document.body.scrollLeft
+            init() {
+
+                this.addEvents()
+
+                if (this.$el.querySelector('.is-active')) {
+                    setTimeout(() => {
+                        this.scrollToElem(this.$el.querySelector('.is-active'), this.container);
+                    }, 300)
+                }
+
+                this.checkButton()
+
+
             }
 
-            let leftPX = elemOffset.left - containerOffset.left + container.scrollLeft - (container.offsetWidth / 2) + (elem.offsetWidth / 2) + 5
+            scrollToElem(elem, container) {
+                var rect = elem.getBoundingClientRect();
+                var rectContainer = container.getBoundingClientRect();
 
-            container.scrollTo({
-                left: leftPX,
-                behavior: 'smooth'
-            });
+                let elemOffset = {
+                    top: rect.top + document.body.scrollTop,
+                    left: rect.left + document.body.scrollLeft
+                }
+
+                let containerOffset = {
+                    top: rectContainer.top + document.body.scrollTop,
+                    left: rectContainer.left + document.body.scrollLeft
+                }
+
+                let leftPX = elemOffset.left - containerOffset.left + container.scrollLeft - (container.offsetWidth / 2) + (elem.offsetWidth / 2) + 5
+
+                container.scrollTo({
+                    left: leftPX,
+                    behavior: 'smooth'
+                });
+            }
+
+            scrollContainer(leftPX) {
+                this.container.scrollTo({
+                    left: leftPX,
+                    behavior: 'smooth'
+                });
+            }
+
+            next() {
+                const leftPX = (this.container.scrollLeft + this.$el.clientWidth)
+                this.scrollContainer(leftPX)
+
+            }
+
+            prev() {
+                const leftPX = (this.container.scrollLeft - this.$el.clientWidth)
+                this.scrollContainer(leftPX)
+            }
+
+            checkButton() {
+                this.prevButton.setAttribute('disabled', this.container.scrollLeft == 0)
+                this.nextButton.setAttribute('disabled', (this.container.offsetWidth + this.container.scrollLeft) == this.container.scrollWidth)
+            }
+
+            addEvents() {
+                this.nextButton.addEventListener('click', e => this.next())
+                this.prevButton.addEventListener('click', e => this.prev())
+                this.container.addEventListener('scroll', e => this.checkButton())
+            }
+
         }
 
-        setTimeout(() => {
-            scrollToElem(elem, container);
-        }, 300)
+        document.querySelectorAll('.catalog-category__tags').forEach(el => {
+            new ScrollTags({
+                el
+            })
+        })
 
     }
 

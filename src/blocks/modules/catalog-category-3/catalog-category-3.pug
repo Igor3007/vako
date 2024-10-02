@@ -15,6 +15,7 @@ mixin catalog-category-3
                 .catalog-category__h1: h1 Ноутбуки в Кременчуг-Константиновское 
 
                 .catalog-category__tags
+                    .catalog-category__tags-prev(data-st="prev"): +icons('#ic_arr-back')
                     ul.dragscroll
                         li: a(href='category.html') 13,3 дюйма
                         li: a(href='category.html') 14,0 дюймов
@@ -34,6 +35,7 @@ mixin catalog-category-3
                         li: a(href='category.html') Белые
                         li: a(href='category.html') Игровые
                         li: a(href='category.html') Лёгкие
+                    .catalog-category__tags-next(data-st="next"): +icons('#ic_arr-next')
 
                 .catalog-category__content
                     .catalog-category__aside(style="display:block")
@@ -202,6 +204,21 @@ mixin catalog-category-3
                                  
 
                     .catalog-category__main 
+                        .catalog-category__selected-filter
+                            ul
+                                li: span 
+                                    | Asus
+                                    i.ic_remove
+                                li: span 
+                                    | Oled
+                                    i.ic_remove
+                                li: span 
+                                    | 13.3”
+                                    i.ic_remove
+                                li: span 
+                                    | Больше за ту же цену
+                                    i.ic_remove
+
                         .catalog-category__top
                             .catalog-category__sort
                                 .sort-dropdown
@@ -242,6 +259,50 @@ mixin catalog-category-3
                                 .catalog-pagination__page
                                     +pagination()
 
+                
+                .catalog-category__h3 Бренды
+                .catalog-category__tags.catalog-category__tags--brands
+                    .catalog-category__tags-prev(data-st="prev"): +icons('#ic_arr-back')
+                    ul.dragscroll
+                        li: a(href='category.html') Acer
+                        li: a(href='category.html') Apple
+                        li: a(href='category.html') Asus
+                        li: a(href='category.html') BenQ
+                        li: a(href='category.html') Blackview
+                        li: a(href='category.html') Dell
+                        li: a(href='category.html') Digma
+                        li: a(href='category.html') HONOR
+                        li: a(href='category.html') HP
+                        li: a(href='category.html') Huawei
+                        li: a(href='category.html') Lenovo
+                        li: a(href='category.html') Maibenben
+                        li: a(href='category.html') MSI
+                        li: a(href='category.html') Techo
+                        li: a(href='category.html') Thunderobot
+                        li: a(href='category.html') Xiaomi
+                        li: a(href='category.html') Maibenben
+
+                       
+                    .catalog-category__tags-next(data-st="next"): +icons('#ic_arr-next')
+
+                .catalog-category__h3 Подборки
+                .catalog-category__tags
+                    .catalog-category__tags-prev(data-st="prev"): +icons('#ic_arr-back')
+                    ul.dragscroll
+                        li: a(href='category.html') 13,3 дюйма
+                        li: a(href='category.html') 14,0 дюйма
+                        li: a(href='category.html') 15,0 дюйма
+                        li: a(href='category.html') 15,6 дюйма
+                        li: a(href='category.html') 16,0 дюйма
+                        li: a(href='category.html') 17,3 дюйма
+                        li: a(href='category.html') Серебристые
+                        li: a(href='category.html') Чёрные
+                        li: a(href='category.html') Белые
+                        li: a(href='category.html') Игровые
+                        li: a(href='category.html') Для офиса
+                        li: a(href='category.html') Для офиса
+                        li: a(href='category.html') Для офиса
+                    .catalog-category__tags-next(data-st="next"): +icons('#ic_arr-next')
 
 
 mixin prop-range()

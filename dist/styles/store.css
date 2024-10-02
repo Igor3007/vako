@@ -7904,10 +7904,6 @@ common.css
   padding-top: 80%;
 }
 
-.minicard__images .splide__pagination {
-  position: static;
-}
-
 .fast-properties {
   break-inside: avoid;
 }

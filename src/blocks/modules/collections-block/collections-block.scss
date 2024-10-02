@@ -13,6 +13,8 @@
 
         padding-bottom: 24px;
 
+
+
         & ul {
             display: flex;
             flex-wrap: wrap;
@@ -114,7 +116,7 @@
     &:not(.is-init) {
 
         & .collections-block__tags {
-            height: 191px;
+            height: 154px;
             opacity: 0;
             overflow: hidden;
 
