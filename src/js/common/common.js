@@ -5261,6 +5261,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* =======================================
+    remove filter tag
+    =======================================*/
+
+    if (document.querySelector('.catalog-category__selected-filter')) {
+        const items = document.querySelectorAll('.catalog-category__selected-filter .ic_remove')
+
+        items.forEach(item => {
+            item.addEventListener('click', e => {
+
+            })
+        });
+
+    }
+
 
 
 

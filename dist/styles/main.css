@@ -5483,7 +5483,8 @@ footer {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  display: none
+  display: none;
+  border-radius: 6px
 }
 
 .catalog-category__tags-next[disabled=true],
@@ -5497,6 +5498,11 @@ footer {
   width: 16px;
   height: 16px;
   fill: #7b61ff
+}
+
+.catalog-category__tags-next:hover,
+.catalog-category__tags-prev:hover {
+  background-color: #faf8ff
 }
 
 .catalog-category__tags ul {
@@ -5726,7 +5732,7 @@ footer {
 }
 
 .catalog-category__selected-filter ul li i:hover {
-  opacity: .5
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTExIDFMMSAxMU0xIDFsMTAgMTAiIHN0cm9rZT0iI0RGMUYyNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+)
 }
 
 .catalog-category__item {

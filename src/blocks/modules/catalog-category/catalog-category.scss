@@ -55,6 +55,7 @@
             justify-content: center;
             cursor: pointer;
             display: none;
+            border-radius: 6px;
 
             @media screen and (min-width: $w576) {
                 display: flex;
@@ -69,6 +70,10 @@
                 width: 16px;
                 height: 16px;
                 fill: $accent-2-1;
+            }
+
+            &:hover {
+                background-color: #faf8ff;
             }
         }
 
@@ -383,7 +388,7 @@
                     }
 
                     &:hover {
-                        opacity: 0.5;
+                        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTExIDFMMSAxMU0xIDFsMTAgMTAiIHN0cm9rZT0iI0RGMUYyNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
                     }
                 }
             }
