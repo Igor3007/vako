@@ -5270,7 +5270,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         items.forEach(item => {
             item.addEventListener('click', e => {
-
+                item.closest('li').remove()
             })
         });
 
