@@ -355,14 +355,15 @@
                     border-radius: 50px;
                     background-color: #f5f3ff;
                     color: #222;
-                    padding: 5px 0.9em;
+                    padding: 7px 0.9em 7px 0.9em;
                     transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
                     white-space: nowrap;
                     font-size: 14px;
+                    line-height: 14px;
                     border: 1px solid #f5f3ff;
 
                     @media screen and (min-width: $w576) {
-                        padding: 4px 1.2em;
+                        padding: 7px 1.2em 7px 1.2em;
                     }
 
                     &:hover {}
@@ -377,7 +378,7 @@
                     background-repeat: no-repeat;
                     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjYiIGZpbGw9IiM3YjYxZmYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0uOTQuOTRhMS41IDEuNSAwIDAxMi4xMiAwTDEzIDEwLjg3OGw5Ljk0LTkuOTRhMS41IDEuNSAwIDAxMi4xMiAyLjEyMkwxNS4xMjIgMTNsOS45NCA5Ljk0YTEuNSAxLjUgMCAwMS0yLjEyMiAyLjEyTDEzIDE1LjEyMmwtOS45NCA5Ljk0QTEuNSAxLjUgMCAwMS45NCAyMi45NEwxMC44NzggMTMgLjkzOSAzLjA2YTEuNSAxLjUgMCAwMTAtMi4xMnoiLz48L3N2Zz4=);
                     margin-left: 12px;
-                    margin-top: 5px;
+                    margin-top: 2px;
                     margin-right: -1px;
                     cursor: pointer;
                     transition: opacity 0.3s ease;
