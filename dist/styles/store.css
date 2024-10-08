@@ -3346,6 +3346,7 @@ input:focus {
   animation: fade-drop-filter 0.3s ease forwards;
   max-width: 710px;
   margin: 0 auto;
+  min-width: 304px;
 }
 
 .bottom-popup__icons {
@@ -3386,8 +3387,7 @@ input:focus {
 
 .bottom-popup__desc a {
   white-space: nowrap;
-  margin: 0 5px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .bottom-popup__desc span {
@@ -8446,6 +8446,12 @@ body .fslightbox-slash {
     right: 15px;
   }
 
+  .bottom-popup__btn button {
+    min-width: 100px;
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
   .footer-min {
     font-size: 16px;
     display: flex;
@@ -8647,6 +8653,10 @@ body .fslightbox-slash {
 
   .bottom-popup__mobile {
     display: none;
+  }
+
+  .bottom-popup__desc a {
+    margin: 0 5px;
   }
 
   .store-index .container {
@@ -9019,12 +9029,6 @@ body .fslightbox-slash {
 
   .form__item > .form__item {
     flex-direction: row;
-  }
-
-  .bottom-popup__btn button {
-    min-width: 100px;
-    padding-left: 26px;
-    padding-right: 26px;
   }
 
   .header-home .container {
