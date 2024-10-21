@@ -45,6 +45,8 @@
         }
 
 
+
+
         &-next,
         &-prev {
 
@@ -151,6 +153,20 @@
 
         &--brands {
             padding-bottom: 65px;
+
+
+
+
+
+        }
+
+        &.is-hide-nav {
+
+            & .catalog-category__tags-prev,
+            & .catalog-category__tags-next {
+                opacity: 0;
+                pointer-events: none;
+            }
         }
     }
 

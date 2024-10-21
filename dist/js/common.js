@@ -4100,6 +4100,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
             checkButton() {
                 this.prevButton.setAttribute('disabled', this.container.scrollLeft == 0)
                 this.nextButton.setAttribute('disabled', (this.container.offsetWidth + this.container.scrollLeft) == this.container.scrollWidth)
+
+                let elemWidth = 0
+                this.container.querySelectorAll('li').forEach(item => {
+                    elemWidth += item.offsetWidth
+                })
+
+                if (this.container.clientWidth > elemWidth) {
+                    this.$el.classList.add('is-hide-nav')
+                } else {
+                    !this.$el.classList.contains('is-hide-nav') || this.$el.classList.remove('is-hide-nav')
+                }
+
             }
 
             addEvents() {
