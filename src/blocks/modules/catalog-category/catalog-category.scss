@@ -571,3 +571,37 @@
     }
 
 }
+
+
+.crop-long-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow: hidden;
+}
+
+.toggle-long-text {
+    padding-top: 24px;
+}
+
+.toggle-long-text span {
+    color: $accent-2-1;
+    cursor: pointer;
+}
+
+.toggle-long-text span::after {
+    content: '';
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSAxbDQgNCA0LTQiIHN0cm9rZT0iIzdCNjFGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
+    width: 12px;
+    height: 10px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 7px;
+    transition: 0.3s ease;
+}
+
+.toggle-long-text.is-open span::after {
+    transform: rotate(180deg);
+}

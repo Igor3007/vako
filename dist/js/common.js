@@ -5288,6 +5288,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* ======================================
+    long seotext
+    ====================================== */
+
+    if (document.querySelector('[data-long-text]')) {
+        const items = document.querySelectorAll('[data-long-text]')
+
+        items.forEach(item => {
+            if (item.clientHeight > 180) {
+                item.classList.add('crop-long-text')
+
+                let button = document.createElement('div')
+                button.innerHTML = '<span>Показать всё</span>'
+                button.classList.add('toggle-long-text')
+
+                button.addEventListener('click', e => {
+                    item.classList.toggle('crop-long-text')
+                    button.classList.toggle('is-open')
+                    button.querySelector('span').innerText = button.classList.contains('is-open') ? 'Свернуть всё' : 'Показать всё'
+                })
+
+                item.after(button)
+            }
+        })
+
+    }
+
 
 
 
