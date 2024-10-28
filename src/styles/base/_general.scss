@@ -243,7 +243,7 @@ input[type="date"] {
         min-width: 600px;
 
         & th {
-            padding: 13px 25px;
+            padding: 5px 15px;
             background-color: #EFEFEF;
             color: #000;
             text-decoration: transparent;
@@ -259,7 +259,7 @@ input[type="date"] {
             }
 
             @media screen and (min-width: $w760) {
-                padding: 15px 25px;
+                padding: 5px 15px;
 
             }
 
@@ -267,7 +267,7 @@ input[type="date"] {
         }
 
         & td {
-            padding: 20px 25px;
+            padding: 5px 15px;
             border: 1px solid #CACACA;
             font-size: 14px;
             font-weight: normal;
@@ -279,13 +279,13 @@ input[type="date"] {
             }
 
             @media screen and (min-width: $w760) {
-                padding: 35px 25px;
+                padding: 5px 15px;
 
             }
 
             & strong {
                 display: block;
-                margin-bottom: 10px;
+               
             }
 
             &:first-child {

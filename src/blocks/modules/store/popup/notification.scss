@@ -1,0 +1,105 @@
+.notification {
+	position: fixed;
+	left: 0;
+	top: 64px;
+	right: 0;
+	bottom: 0;
+	background-color: #00000042;
+    z-index: 15;
+
+    &__wrp{
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 463px;
+        min-height: 100%;
+    }
+
+    &__asnoread{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+
+        & svg {
+            stroke: $gray-56;
+            width: 10px; 
+        } 
+    }
+}
+
+
+.notification{
+    &__head {
+        padding: 20px 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__close{
+        margin-left: auto;
+
+        & .ic_24 {
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    &__item {
+        border-top: 1px solid $gray-92;
+
+        &:nth-child(odd) {
+            background-color: $accent-2-3;
+        }
+    }
+
+    &__title{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    &__list{
+    display: none;
+    }
+}
+
+.notification-msg {
+	padding: 27px 24px;
+
+    &__title {
+
+        padding-bottom: 12px;
+        font-size: 15px;
+
+        & a {
+            font-weight: bold;
+        }
+    }
+
+    &__date{
+        padding-bottom: 8px;
+        color: $gray-56;
+        font-size: 13px;
+
+        & span {
+            margin-right: 12px;
+        }
+    }
+
+    &__text{
+        @include line-clamp(4);
+        line-height: 140%;
+    }
+}
+
+.notification-post {
+
+    &__main{
+        padding: 24px;
+    }
+
+    &__title{
+    
+    }
+}

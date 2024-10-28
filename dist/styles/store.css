@@ -165,7 +165,7 @@ input[type="date"] {
 }
 
 .formated-text table th {
-  padding: 13px 25px;
+  padding: 5px 15px;
   background-color: #EFEFEF;
   color: #000;
   text-decoration: transparent;
@@ -182,7 +182,7 @@ input[type="date"] {
 }
 
 .formated-text table td {
-  padding: 20px 25px;
+  padding: 5px 15px;
   border: 1px solid #CACACA;
   font-size: 14px;
   font-weight: normal;
@@ -196,7 +196,6 @@ input[type="date"] {
 
 .formated-text table td strong {
   display: block;
-  margin-bottom: 10px;
 }
 
 .formated-text table td:first-child {
@@ -4478,6 +4477,24 @@ footer {
   background-repeat: no-repeat;
 }
 
+.notification {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000042;
+  z-index: 15;
+}
+
+.notification__wrp {
+  background-color: #fff;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 480px;
+}
+
 .body-gray {
   background-color: #f5f5f5;
 }
@@ -8389,11 +8406,11 @@ body .fslightbox-slash {
   }
 
   .formated-text table th {
-    padding: 15px 25px;
+    padding: 5px 15px;
   }
 
   .formated-text table td {
-    padding: 35px 25px;
+    padding: 5px 15px;
   }
 
   .formated-text ul {

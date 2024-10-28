@@ -543,7 +543,7 @@ input[type="date"] {
 }
 
 .formated-text table th {
-  padding: 13px 25px;
+  padding: 5px 15px;
   background-color: #EFEFEF;
   color: #000;
   text-decoration: transparent;
@@ -560,7 +560,7 @@ input[type="date"] {
 }
 
 .formated-text table td {
-  padding: 20px 25px;
+  padding: 5px 15px;
   border: 1px solid #CACACA;
   font-size: 14px;
   font-weight: normal;
@@ -574,7 +574,6 @@ input[type="date"] {
 
 .formated-text table td strong {
   display: block;
-  margin-bottom: 10px;
 }
 
 .formated-text table td:first-child {
@@ -995,11 +994,11 @@ html {
   }
 
   .formated-text table th {
-    padding: 15px 25px;
+    padding: 5px 15px;
   }
 
   .formated-text table td {
-    padding: 35px 25px;
+    padding: 5px 15px;
   }
 
   .formated-text ul {

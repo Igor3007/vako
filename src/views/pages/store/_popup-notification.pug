@@ -1,0 +1,35 @@
+include ../../helpers/mixins.pug
+
+.notification
+    .notification__wrp
+        .notification__content
+            .notification__pane
+                .notification__list
+                    .notification__head
+                        .notification__title Уведомления
+                        .notification__close
+                            span.icon-cross.ic_24
+                    .notification__main
+                        each item in [1,1,1,1,1,1,1,1,1]
+                            .notification-msg 
+                                .notification-msg__title: a(href='#') Профиль в TenChat — это блог
+                                .notification-msg__date 
+                                    span 16.10.2024
+                                    span Прочитано
+                                .notification-msg__text Текст уведомления. Нашел более 100 партнеров — адвокатов, юристов, бухгалтеров, аудиторов, маркетологов и многих других. К тому же мой профиль — первый в поисковой выдаче: нужно ввести только имя и фамилию. Ни одна соцсеть или сайт неwewqewq
+
+                .notification__details
+                    .notification__head
+                        .notification__back back 
+                        .notification__asnoread
+                            +icons('ic_eye')
+                            span Отметить как непрочитанное
+                        .notification__close
+                            span.icon-cross.ic_24
+                    .notification__main
+                        .notification-post
+                            .notification-post__title Профиль в TenChat — это блог
+                            .notification-post__date 16.10.2024
+                            .notification-post__poster
+                                +picture('/img/common/notific-img.jpg')
+                            .notification-post__text
