@@ -4569,14 +4569,24 @@ footer {
   display: block;
 }
 
-@keyframes fade-out-ntfc {
+@keyframes slide-out-y-ntfc {
   to {
+    transform: translateY(20%) translateX(100%);
     opacity: 0;
   }
 }
 
-.notification.is-hide {
-  animation: fade-out-ntfc 0.3s ease forwards;
+@keyframes slide-out-x-ntfc {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fade-out-ntfc {
+  to {
+    opacity: 0;
+  }
 }
 
 .notification__head {
@@ -4710,6 +4720,11 @@ footer {
   flex-direction: column;
   height: 100%;
   max-height: 100%;
+}
+
+.notification.is-hide {
+  opacity: 0;
+  transition: 0.3s ease 0.15s;
 }
 
 @keyframes to-hide-pane {
@@ -8564,6 +8579,12 @@ body .fslightbox-slash {
     animation: to-slide-x-ntfc 0.5s ease forwards;
   }
 
+  .notification.is-hide .notification__wrp {
+    transform: translateX(100%) !important;
+    transition: 0.3s ease;
+    animation: none;
+  }
+
   .show-animate {
     animation: to-show-pane 0.5s forwards;
   }
@@ -9861,6 +9882,13 @@ body .fslightbox-slash {
 
   .login-partners .form-step label:not(.checkbox) {
     padding-bottom: 4px;
+  }
+
+  .notification.is-hide .notification__wrp {
+    transition: 0.3s ease;
+    transform: translateY(20%) translateX(0) !important;
+    opacity: 0 !important;
+    animation: none;
   }
 
   .store-statistics__count .af-select .select-list.active {

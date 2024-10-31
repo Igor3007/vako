@@ -2606,6 +2606,8 @@
 
          openDetails(data) {
 
+
+
              this.listPane.classList.add('hide-animate');
              !this.listPane.classList.contains('show-animate') || this.listPane.classList.remove('show-animate')
 
@@ -2615,6 +2617,7 @@
                  this.detailsPane.classList.add('show-animate')
                  this.detailsPane.classList.remove('hide-pane')
                  this.detailsContainer.innerHTML = this.getTemplateDetails(data)
+                 this.detailsContainer.scrollTop = 0;
              }, 300)
 
 
@@ -2623,6 +2626,7 @@
              setTimeout(() => {
                  this.setAsReaded(data.id)
              }, 300)
+
 
          }
 
