@@ -1,37 +1,24 @@
 include ../../helpers/mixins.pug
 
-.notification
+.notification(data-ntfc="el")
     .notification__wrp
         .notification__content
             .notification__pane
-                .notification__list
+                .notification__list(data-ntfc="list-pane")
                     .notification__head
                         .notification__title Уведомления
-                        .notification__close
+                        .notification__close(data-ntfc="close")
                             span.icon-cross.ic_24
-                    .notification__main
-                        each item in [1,1,1,1,1,1,1,1,1]
-                            .notification__item
-                                .notification-msg 
-                                    .notification-msg__title: a(href='#') Профиль в TenChat — это блог
-                                    .notification-msg__date 
-                                        span 16.10.2024
-                                        span Прочитано
-                                    .notification-msg__text Текст уведомления. Нашел более 100 партнеров — адвокатов, юристов, бухгалтеров, аудиторов, маркетологов и многих других. К тому же мой профиль — первый в поисковой выдаче: нужно ввести только имя и фамилию. Ни одна соцсеть или сайт неwewqewq
-
-                .notification__details
+                    .notification__main(data-ntfc="list")
+                        
+                .notification__details(data-ntfc="post-pane")
                     .notification__head
-                        .notification__back
-                            +icons('#ic_back')
+                        .notification__back(data-ntfc="back")
+                            +icons('#ic_arr-back')
                         .notification__asnoread
-                            +icons('#ic_eye')
-                            span Отметить как непрочитанное
-                        .notification__close
+                            +icons('#ic_eye2')
+                            span(data-ntfc="as-noreaded") Отметить как непрочитанное
+                        .notification__close(data-ntfc="close")
                             span.icon-cross.ic_24
-                    .notification__main
-                        .notification-post
-                            .notification-post__title Профиль в TenChat — это блог
-                            .notification-post__date 16.10.2024
-                            .notification-post__poster
-                                +picture('/img/common/notific-img')
-                            .notification-post__text
+                    .notification__main(data-ntfc="post")
+                       

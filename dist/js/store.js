@@ -2492,6 +2492,222 @@
 
 
 
+     /* ==============================================
+     notification
+     ==============================================*/
+
+     class Notification {
+         constructor(params) {
+             this.$el = params.el
+             this.isOpen = false;
+             this.activeID = null;
+             this.btnOpen = document.querySelectorAll('[data-ntfc="open"]')
+             this.btnClose = this.$el.querySelectorAll('[data-ntfc="close"]')
+             this.btnBack = this.$el.querySelectorAll('[data-ntfc="back"]')
+             this.btnAsNoread = this.$el.querySelectorAll('[data-ntfc="as-noreaded"]')
+             this.listContainer = this.$el.querySelector('[data-ntfc="list"]')
+             this.detailsContainer = this.$el.querySelector('[data-ntfc="post"]')
+             this.listPane = this.$el.querySelector('[data-ntfc="list-pane"]')
+             this.detailsPane = this.$el.querySelector('[data-ntfc="post-pane"]')
+             this.init()
+         }
+
+         init() {
+             this.addEvents()
+             document.documentElement.style.setProperty('scrollbar-gutter', 'stable')
+         }
+
+         loading() {
+             this.listContainer.innerHTML = '<span class="ntfc-spiner" ></span>'
+         }
+
+         emptyMsg() {
+             this.listContainer.innerHTML = `
+            <div class="ntfc-empty" >
+                <div class="ntfc-empty__ic" ></div>
+                <div class="ntfc-empty__msg" >Полковнику никто не пишет...</div>
+            </div>
+            `
+         }
+
+         fetchNotification(callback) {
+
+             this.loading()
+
+             window.ajax({
+                 type: 'GET',
+                 responseType: 'json',
+                 url: '/json/notification.json'
+             }, (status, response) => {
+
+
+                 if (response.length) {
+                     callback(response)
+                 } else {
+                     this.emptyMsg()
+                 }
+
+             })
+         }
+
+         open() {
+             this.$el.classList.add('is-open')
+             this.isOpen = true
+             window.scrollTo({
+                 top: 0
+             })
+             document.body.classList.add('page-hidden')
+
+             this.renderList()
+         }
+
+         close() {
+
+             this.$el.classList.add('is-hide');
+
+             setTimeout(() => {
+                 this.$el.classList.remove('is-hide');
+                 !this.isOpen || this.$el.classList.remove('is-open');
+                 !this.isOpen || document.body.classList.remove('page-hidden');
+             }, 500)
+
+         }
+
+         clearTags(html) {
+             let doc = new DOMParser().parseFromString(html, 'text/html');
+             return doc.body.innerText;
+         }
+
+         getTemplateListItem(data) {
+             return `
+                <div class="notification__item">
+                    <div class="notification-msg ${data.readed == '1' ? 'is-readed' : '' }"> 
+                      <div class="notification-msg__title"><a href="#">${data.title}</a></div>
+                      <div class="notification-msg__date"> <span>${data.date}</span>${data.readed == '1' ? '<span>Прочитано</span>' : '' }</div>
+                      <div class="notification-msg__text">${this.clearTags(data.text)}</div>
+                    </div>
+                </div>
+             `
+         }
+         getTemplateDetails(data) {
+             return `
+                <div class="notification-post">
+                    <div class="notification-post__title">${data.title}</div>
+                    <div class="notification-post__date">${data.date}</div>
+                    <div class="notification-post__poster">
+                        <picture> <img src="${data.poster}" loading="lazy" alt="image">  </picture>
+                    </div>
+                    <div class="notification-post__text">
+                        <div class="formated-text">${data.text}</div>
+                    </div>
+                </div>
+             `
+         }
+
+         openDetails(data) {
+
+             this.listPane.classList.add('hide-animate');
+             !this.listPane.classList.contains('show-animate') || this.listPane.classList.remove('show-animate')
+
+             setTimeout(() => {
+                 this.listPane.classList.add('hide-pane')
+                 this.listPane.classList.remove('hide-animate')
+                 this.detailsPane.classList.add('show-animate')
+                 this.detailsPane.classList.remove('hide-pane')
+                 this.detailsContainer.innerHTML = this.getTemplateDetails(data)
+             }, 300)
+
+
+             this.activeID = data.id
+
+             setTimeout(() => {
+                 this.setAsReaded(data.id)
+             }, 300)
+
+         }
+
+         setAsReaded(id) {
+             window.ajax({
+                 type: 'GET',
+                 responseType: 'json',
+                 url: '/path-to-action/as-read/' + id
+             }, (status, response) => {
+                 this.renderList()
+             })
+         }
+
+         setAsNoreaded(id) {
+
+             this.backToList()
+
+             window.ajax({
+                 type: 'GET',
+                 responseType: 'json',
+                 url: '/path-to-action/as-no-read/' + id
+             }, (status, response) => {
+                 this.renderList()
+             })
+         }
+
+         backToList() {
+             this.detailsPane.classList.add('hide-animate-right')
+
+             setTimeout(() => {
+                 this.detailsPane.classList.add('hide-pane')
+                 this.detailsPane.classList.remove('hide-animate-right')
+                 this.listPane.classList.add('show-animate')
+                 this.listPane.classList.remove('hide-pane')
+             }, 300)
+         }
+
+         renderList() {
+             this.fetchNotification((data) => {
+
+                 this.listContainer.innerHTML = '';
+
+                 data.forEach(item => {
+                     let elem = document.createElement('div')
+                     elem.innerHTML = this.getTemplateListItem(item)
+                     elem.children[0].addEventListener('click', () => this.openDetails(item))
+                     this.listContainer.append(elem.children[0])
+                 })
+
+             })
+         }
+
+         addEvents() {
+             this.btnOpen.forEach(item => {
+                 item.addEventListener('click', () => this.open())
+             })
+
+             this.$el.addEventListener('click', (e) => {
+                 if (!e.target.closest('.notification__wrp')) {
+                     this.close()
+                 }
+             })
+
+             this.btnClose.forEach(item => {
+                 item.addEventListener('click', () => this.close())
+             })
+             this.btnBack.forEach(item => {
+                 item.addEventListener('click', () => this.backToList())
+             })
+             this.btnAsNoread.forEach(item => {
+                 item.addEventListener('click', () => this.setAsNoreaded(this.activeID))
+             })
+         }
+     }
+
+
+     document.querySelectorAll('[data-ntfc="el"]').forEach(el => {
+         new Notification({
+             el
+         })
+     });
+
+
+
+
 
 
 
