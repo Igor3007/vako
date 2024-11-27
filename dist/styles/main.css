@@ -13914,6 +13914,64 @@ div[data-state="1"] {
   padding-bottom: 8px;
 }
 
+.section-about-video {
+  padding: 28px 0;
+}
+
+.about-video__title {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.about-video__desc p {
+  font-size: 15px;
+  line-height: 160%;
+  margin-bottom: 25px;
+}
+
+.about-video__wrp {
+  background-color: #F9F7FF;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.about-video__media .video {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.about-video__media .video__preview picture {
+  padding-top: 53%;
+}
+
+.about-video__media .video__button {
+  padding: 8px 20px;
+  border-radius: 6px;
+}
+
+.about-video__media .video__button svg {
+  width: 18px;
+}
+
+.about-video__link {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #7B61FF;
+  font-weight: bold;
+}
+
+.about-video__link svg {
+  fill: #7B61FF;
+  margin-right: 10px;
+  width: 28px;
+  height: 28px;
+}
+
 /* common styles */
 
 .dragscroll.dragging {
@@ -15570,6 +15628,24 @@ body .fslightbox-slash {
     padding: 22px 0;
   }
 
+  .about-video__title {
+    font-size: 28px;
+    padding-bottom: 2px;
+  }
+
+  .about-video__desc p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .about-video__wrp {
+    padding: 24px;
+  }
+
+  .about-video__media {
+    margin-bottom: 8px;
+  }
+
   .create-review__title {
     font-size: 20px;
   }
@@ -16987,6 +17063,24 @@ body .fslightbox-slash {
     font-size: 18px;
   }
 
+  .section-about-video {
+    padding: 5px 0;
+  }
+
+  .about-video__title {
+    font-size: 31px;
+    padding-bottom: 5px;
+  }
+
+  .about-video__wrp {
+    padding: 48px;
+    gap: 48px;
+  }
+
+  .about-video__media .video__preview picture {
+    padding-top: 56%;
+  }
+
   .popup-points {
     width: 60vw;
     max-width: 1070px;
@@ -17400,6 +17494,23 @@ body .fslightbox-slash {
     font-size: 36px;
   }
 
+  .about-video__desc p {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .about-video__wrp {
+    flex-direction: row;
+  }
+
+  .about-video__media {
+    width: calc(64% - 24px);
+  }
+
+  .about-video__main {
+    width: calc(36% - 24px);
+  }
+
   .hide--desctop {
     display: none;
   }
@@ -17686,6 +17797,19 @@ body .fslightbox-slash {
 
   .dark-banner__title {
     font-size: 36px;
+  }
+
+  .about-video__title {
+    font-size: 36px;
+    padding-bottom: 14px;
+  }
+
+  .about-video__desc p {
+    font-size: 18px;
+  }
+
+  .about-video__link {
+    font-size: 18px;
   }
 
   .qi-review small {

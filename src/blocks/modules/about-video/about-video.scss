@@ -1,0 +1,143 @@
+.section-about-video {
+    padding: 28px 0;
+
+    @media screen and (min-width: $w992) {
+        padding: 5px 0;
+    }
+}
+
+.about-video {
+
+    &__title {
+        font-size: 20px;
+        font-weight: 800;
+
+        @media screen and (min-width: $w576) {
+            font-size: 28px;
+            padding-bottom: 2px;
+        }
+
+        @media screen and (min-width: $w992) {
+            font-size: 31px;
+            padding-bottom: 5px;
+        }
+
+        @media screen and (min-width: $w1440) {
+            font-size: 36px;
+            padding-bottom: 14px;
+        }
+
+    }
+
+    &__desc {
+        & p {
+            font-size: 15px;
+            line-height: 160%;
+            margin-bottom: 25px;
+
+            @media screen and (min-width: $w576) {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            @media screen and (min-width: $w1200) {
+                font-size: 15px;
+                margin-bottom: 12px;
+            }
+
+            @media screen and (min-width: $w1440) {
+                font-size: 18px;
+            }
+
+        }
+    }
+
+    &__wrp {
+        background-color: $accent-2-3;
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+
+
+
+
+        @media screen and (min-width: $w1200) {
+            flex-direction: row;
+        }
+
+        @media screen and (min-width: $w992) {
+            padding: 48px;
+            gap: 48px;
+        }
+
+        @media screen and (min-width: $w576) {
+            padding: 24px;
+        }
+    }
+
+    &__media {
+
+        @media screen and (min-width: $w576) {
+            margin-bottom: 8px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            width: calc(64% - 24px);
+        }
+
+        & .video {
+
+            border-radius: 12px;
+            overflow: hidden;
+
+            &__preview {
+                & picture {
+                    padding-top: 53%;
+
+                    @media screen and (min-width: $w992) {
+                        padding-top: 56%;
+                    }
+                }
+            }
+
+            &__button {
+                padding: 8px 20px;
+                border-radius: 6px;
+
+                & svg {
+                    width: 18px;
+                }
+            }
+        }
+    }
+
+    &__main {
+        @media screen and (min-width: $w1200) {
+            width: calc(36% - 24px);
+        }
+    }
+
+    &__link {
+
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 16px;
+        color: $accent-2-1;
+        font-weight: bold;
+
+        @media screen and (min-width: $w1440) {
+            font-size: 18px;
+        }
+
+
+        & svg {
+            fill: $accent-2-1;
+            margin-right: 10px;
+            width: 28px;
+            height: 28px;
+        }
+    }
+}

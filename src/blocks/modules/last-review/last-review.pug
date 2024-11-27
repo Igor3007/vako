@@ -33,6 +33,26 @@ mixin last-review
                 userCity: 'Москва',
                 comment: 'Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.',
             },
+            {
+                name: '17.3" Ноутбук HP 17-by1016ur 1600x900, Intel Pentium Gold 6405U 2.4 ГГц, RAM 4 ГБ, SSD 256 ГБ, Intel UHD Graphics, DOS, 22Q61EA',
+                image: '/img/product/notebook/img-block-1.jpg',
+                rating: '4.9',
+                ratingCount: '27',
+                rating_color: 'rating--green',
+                userName: 'Михаил Длиннофамильный',
+                userCity: 'Санкт-Петербург',
+                comment: 'Два раза покупал ноутбуки здесь, для себя и для ребенка. Оба раза консультровал Сергей. Отличный спец — рассказал всё подробно, четко, посоветовал ноуты именно под те задачи, что мы поставили. Я своим ноутом доволен, сын со своей машины просто в восторге. Большое вам спасибо) дочь подрастает, смотрит на...',
+            },
+            {
+                name: 'Беспроводные наушники Apple AirPods Pro 2 MTJV3 (USB-C case)',
+                image: '/img/product/headphones/hp1.png',
+                rating: '4.3',
+                ratingCount: '21',
+                rating_color: 'rating--blue',
+                userName: 'Екатерина Пирожкова',
+                userCity: 'Москва',
+                comment: 'Мне понравилось. Быстро, удобно, без хлопот и нервотрёпки. Товар пришёл за исправной упаковкой. Курьер вежливый. Если придётся ещё что-то приобрести, то обязательно повторю заказ через ваш сервис. Спасибо.',
+            },
         ] 
 
     section.section-last-review
@@ -40,9 +60,8 @@ mixin last-review
             .last-review
                 .last-review__title Отзывы о товарах
                 .last-review__slider
-                    .splide
+                    .splide(data-slider="last-review")
                         .splide__track
                             .splide__list
-                                each item in card-product-review
-                                    .splide__slide
-                                        +card-product-review(item)
+                                each item in homeReviewProduct
+                                    .splide__slide: +card-product-review(item)
