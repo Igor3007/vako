@@ -7,6 +7,9 @@ include ../blocks/modules/top-article/top-article.pug
 include ../blocks/modules/collections-block/collections-block.pug
 include ../blocks/modules/home-products/home-products.pug
 
+include ../blocks/modules/about-video/about-video
+include ../blocks/modules/last-review/last-review
+
 
  
 block variables
@@ -16,14 +19,15 @@ block variables
 
 block content 
 
- +banner-slider
- +collections-block
- +top-categories
- +home-products
- +top-article
- +catalog-popup()
+  +banner-slider
+  +collections-block
+  +top-categories
+  +home-products
+  +top-article
+  +catalog-popup()
 
-
+  +about-video
+  +last-review
 
 block scripts
   script(src="/js/vendor.min.js") 

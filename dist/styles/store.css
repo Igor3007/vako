@@ -2349,8 +2349,13 @@ select {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  scrollbar-color: transparent transparent;
-  scrollbar-width: thin !important;
+}
+
+@-moz-document url-prefix()  {
+  .breadcrumb > ul {
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin !important;
+  }
 }
 
 .breadcrumb > ul::-webkit-scrollbar {
@@ -2460,10 +2465,37 @@ select {
   opacity: 0;
   white-space: wrap;
   max-width: 216px;
+  max-height: calc(80vh - 200px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@-moz-document url-prefix()  {
+  .breadcrumb-is-sub > ul {
+    scrollbar-color: #d3cfe0 transparent;
+    scrollbar-width: thin !important;
+  }
+}
+
+.breadcrumb-is-sub > ul::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  border-radius: 4px;
+}
+
+.breadcrumb-is-sub > ul::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.breadcrumb-is-sub > ul::-webkit-scrollbar-thumb {
+  background-color: #d3cfe0;
+  border-radius: 4px;
 }
 
 .breadcrumb-is-sub > ul li {
   padding: 3px 0;
+  width: calc(100% + 10px);
 }
 
 .breadcrumb-is-sub > ul li a {
