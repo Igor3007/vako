@@ -5325,10 +5325,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const items = document.querySelectorAll('[data-slider="last-review"]')
 
         items.forEach(item => {
-            const topCategories = new Splide(item, {
+            const LastReview = new Splide(item, {
                 perPage: 2,
                 perMove: 1,
                 arrows: true,
+                pagination: false,
                 gap: 12,
                 arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
                 breakpoints: {
@@ -5338,11 +5339,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     992: {
                         perPage: 1,
                     },
+                    767: {
+                        destroy: true
+                    },
+
+
 
                 }
             })
 
-            topCategories.mount()
+            LastReview.mount()
 
             const watchWidth = () => {
 
@@ -5357,7 +5363,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
 
                 // is-pagination
-                if (topCategories.length > topCategories.options.perPage) {
+                if (LastReview.length > LastReview.options.perPage) {
                     item.classList.add('is-pagination')
                 } else {
                     !item.classList.contains('is-pagination') || item.classList.remove('is-pagination')
