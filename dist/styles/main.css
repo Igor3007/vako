@@ -4208,6 +4208,11 @@ input:focus {
   opacity: 0.7;
   padding-bottom: 18px;
   line-height: 143%;
+  max-width: 300px;
+}
+
+.footer__desc span {
+  color: #7B61FF;
 }
 
 .footer__social {
@@ -15150,6 +15155,10 @@ body .fslightbox-slash {
 
   .footer {
     padding: 45px 0 20px 0;
+  }
+
+  .footer__desc {
+    max-width: none;
   }
 
   .footer__desc {

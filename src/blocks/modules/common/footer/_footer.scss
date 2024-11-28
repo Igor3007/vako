@@ -49,6 +49,15 @@
         opacity: 0.7;
         padding-bottom: 18px;
         line-height: 143%;
+        max-width: 300px;
+
+        @media screen and (min-width: $w480) {
+            max-width: none;
+        }
+
+        & span {
+            color: $accent-2-1;
+        }
 
         @media screen and (min-width: $w480) {
             font-size: 15px;
