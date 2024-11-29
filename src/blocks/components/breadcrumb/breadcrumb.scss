@@ -250,7 +250,7 @@
         & ul {
             list-style-type: none;
             padding: 12px;
-            max-height: 80vh;
+            max-height: calc((var(--vh, 1vh) * 80));
             overflow-x: hidden;
             overflow-y: auto;
             padding-top: 0;
