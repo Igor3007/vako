@@ -20,22 +20,22 @@
         & .splide {
             width: 100%;
 
-            &__arrow {
-                opacity: 1;
+            // &__arrow {
+            //     opacity: 1;
 
 
-                &:hover {
-                    opacity: 0.9;
-                }
+            //     &:hover {
+            //         opacity: 0.9;
+            //     }
 
-                & svg {
-                    fill: $accent-2-1;
-                    height: 20px;
-                    width: 20px;
-                }
+            //     & svg {
+            //         fill: $accent-2-1;
+            //         height: 20px;
+            //         width: 20px;
+            //     }
 
 
-            }
+            // }
 
             &__track {
                 padding-top: 12px;
@@ -48,20 +48,43 @@
 
             &__arrow {
                 &--prev {
-                    left: -45px;
+                    left: -50px;
+                    top: calc(50%);
+
+                    & svg {
+                        margin-right: 10px;
+                    }
                 }
 
                 &--next {
-                    right: -45px;
+                    right: -50px;
+                    top: calc(50%);
+
+                    & svg {
+                        margin-left: 8px;
+                    }
                 }
 
                 &--prev,
                 &--next {
                     background-color: transparent;
+                    border-radius: 6px;
+                    width: 40px;
+                    height: 40px;
+
+
+
+                    &:hover {
+                        background-color: #F9F7FF;
+                    }
 
                     &:disabled {
                         opacity: 0;
                     }
+                }
+
+                & svg {
+                    fill: $accent-2-1;
                 }
             }
 

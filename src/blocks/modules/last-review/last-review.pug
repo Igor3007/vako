@@ -7,7 +7,7 @@ mixin card-product-review(data)
                 .card-product-review__name: a(href='/single-product.html')= data.name
                 .card-product-review__rating(class=data.rating_color)
                     span= data.rating
-                    a(href='#')= data.ratingCount + ' отзыва'
+                    a(href='#')= data.ratingCount
 
         .card-product-review__comment
             .user-comment
