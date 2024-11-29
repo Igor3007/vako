@@ -242,7 +242,7 @@
         font-weight: 700;
         text-align: center;
         padding-top: 4px;
-        padding-bottom: 4px;
+        padding-bottom: 16px;
     }
 
     &__content {
@@ -250,6 +250,10 @@
         & ul {
             list-style-type: none;
             padding: 12px;
+            max-height: 80vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-top: 0;
         }
 
         & li {
