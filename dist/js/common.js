@@ -5385,8 +5385,84 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
- 
+    /* ======================================
+    scroll gallery dotted
+    ====================================== */
 
+    class ScrollGallery {
+        constructor(params) {
+            this.$el = params.el
+            this.slides = this.$el.querySelectorAll('a')
+            this.dots = null
+            this.timer = null
+            this.init()
+        }
+
+        init() {
+            this.addEvents()
+            this.createDots()
+            this.changeActiveDot(0)
+        }
+
+        createDots() {
+            this.dots = document.createElement('ul')
+            this.dots.classList.add('article-gallery-pagination')
+            this.$el.after(this.dots)
+        }
+
+        changeActiveDot(i) {
+
+            this.dots.innerHTML = ''
+            this.slides.forEach((sl, index) => {
+                if (i == index) {
+                    this.dots.innerHTML += '<li class="active" ></li>'
+                } else {
+                    this.dots.innerHTML += '<li></li>'
+                }
+            })
+        }
+
+        addEvents() {
+            this.$el.addEventListener('scroll', () => {
+                clearTimeout(this.timer)
+                this.timer = setTimeout(() => {
+                    this.slides.forEach((sl, i) => {
+
+                        let rectLeft = sl.getBoundingClientRect().left
+                        let w = sl.getBoundingClientRect().width
+
+                        if (rectLeft > -(w / 2) && rectLeft < (w / 2)) {
+                            this.changeActiveDot(i)
+                        }
+                    })
+
+                }, 5)
+            })
+        }
+    }
+
+    document.querySelectorAll('.article-gallery').forEach(el => {
+        new ScrollGallery({
+            el
+        })
+    })
+
+    /* =======================================
+    delivery popup
+    =======================================*/
+
+
+    if (!Cookies.get('lgdelivery')) {
+        setTimeout(() => {
+            document.querySelector('.pl-delivery').classList.add('is-open')
+        }, 3000)
+
+        document.querySelector('.pl-delivery__btn .btn').addEventListener('click', function () {
+            Cookies.set('lgdelivery', 'true')
+            document.querySelector('.pl-delivery').classList.remove('is-open')
+        })
+
+    }
 
 
 

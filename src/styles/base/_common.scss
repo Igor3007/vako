@@ -954,7 +954,20 @@ common.css
 fslightbox
 ======================================*/
 
+.fslightbox-container {
+    & figcaption {
+        color: #8f8f8f;
+        font-style: italic;
+        margin-top: 10px;
+        display: block;
+        font-size: 15px;
+        padding-left: 12px;
+    }
+}
 
+.fslightbox-source:not(.fslightbox-opacity-1)~figcaption {
+    display: none
+}
 
 .fslightbox-pagination {
     height: 45px;
