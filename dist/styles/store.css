@@ -151,7 +151,6 @@ input[type="date"] {
 }
 
 .formated-text blockquote strong {
-  display: block;
   width: 100%;
   padding-bottom: 6px;
 }
@@ -4681,6 +4680,10 @@ footer {
   background-color: #fff;
 }
 
+.notification__item .notification-msg.is-readed:hover {
+  background-color: #eee;
+}
+
 .notification__item .notification-msg.is-readed .notification-msg__title a {
   color: #000;
 }
@@ -4729,6 +4732,7 @@ footer {
 .notification__main {
   max-height: calc(100% - 61px);
   overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-color: #ccc #ebebeb;
   scrollbar-width: thin !important;
   padding-bottom: 30px;
@@ -4836,6 +4840,11 @@ footer {
 
 .notification-msg {
   padding: 27px 24px;
+  transition: background 0.3s ease;
+}
+
+.notification-msg:hover {
+  background-color: #eee;
 }
 
 .notification-msg__title {
