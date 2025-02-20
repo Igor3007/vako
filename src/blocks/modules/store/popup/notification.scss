@@ -188,6 +188,10 @@
             &.is-readed {
                 background-color: #fff;
 
+                &:hover {
+                    background-color: #eee ;
+                }
+
                 & .notification-msg {
                     &__title {
                         & a {
@@ -259,7 +263,7 @@
     &__main {
         max-height: calc(100% - 61px);
         overflow-y: auto;
-
+        overflow-x: hidden;
         @include scrollbar();
         padding-bottom: 30px;
     }
@@ -379,6 +383,11 @@
 
 .notification-msg {
     padding: 27px 24px;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background-color: #eee ;
+    }
 
     &__title {
 

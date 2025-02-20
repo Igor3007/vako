@@ -529,7 +529,6 @@ input[type="date"] {
 }
 
 .formated-text blockquote strong {
-  display: block;
   width: 100%;
   padding-bottom: 6px;
 }

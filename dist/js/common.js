@@ -5385,15 +5385,121 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* ======================================
+    scroll gallery dotted
+    ====================================== */
+
+    class ScrollGallery {
+        constructor(params) {
+            this.$el = params.el
+            this.slides = this.$el.querySelectorAll('a')
+            this.dots = null
+            this.timer = null
+            this.init()
+        }
+
+        init() {
+            this.addEvents()
+
+            if (this.isScroll()) {
+                this.createDots()
+                this.changeActiveDot(0)
+            }
+
+        }
+
+        resizeHahdler() {
+
+            if (!this.isScroll() && this.dots) {
+                this.dots.remove();
+                this.dots = null;
+                return false
+            }
+
+            if (this.isScroll() && !this.dots) {
+                this.createDots()
+            }
+
+            this.getActiveSlide()
+        }
+
+        isScroll() {
+            return this.$el.scrollWidth > this.$el.clientWidth
+        }
+
+        createDots() {
+            this.dots = document.createElement('ul')
+            this.dots.classList.add('article-gallery-pagination')
+            this.$el.after(this.dots)
+        }
+
+        changeActiveDot(i) {
+
+            this.dots.innerHTML = ''
+            this.slides.forEach((sl, index) => {
+                if (i == index) {
+                    this.dots.innerHTML += '<li class="active" ></li>'
+                } else {
+                    this.dots.innerHTML += '<li></li>'
+                }
+            })
+
+        }
+
+        getActiveSlide() {
+            this.slides.forEach((sl, i) => {
+
+                let rectLeft = sl.getBoundingClientRect().left
+                let w = sl.getBoundingClientRect().width
+
+                if (rectLeft > -(w / 2) && rectLeft < (w / 2)) {
+                    this.changeActiveDot(i)
+                }
+            })
+        }
+
+        addEvents() {
+            this.$el.addEventListener('scroll', () => {
+                clearTimeout(this.timer)
+                this.timer = setTimeout(() => {
+                    this.getActiveSlide()
+                }, 5)
+            })
+
+            window.addEventListener('resize', () => {
+                this.resizeHahdler()
+            })
+        }
+    }
+
+    document.querySelectorAll('.article-gallery').forEach(el => {
+        new ScrollGallery({
+            el
+        })
+    })
+
+    /* =======================================
+    delivery popup
+    =======================================*/
 
 
+    if (!Cookies.get('lgdelivery')) {
+        setTimeout(() => {
+            document.querySelector('.pl-delivery').classList.add('is-open')
+        }, 10000)
 
+        document.querySelector('.pl-delivery__btn .btn').addEventListener('click', function () {
+            Cookies.set('lgdelivery', 'true', {
+                expires: (1 / 48)
+            })
+            document.querySelector('.pl-delivery').classList.remove('is-open')
+        })
 
-
-
-
-
-
+    } else {
+        Cookies.set('lgdelivery', 'true', {
+            expires: (1 / 48)
+        })
+    }
 
 
 
