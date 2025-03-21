@@ -168,12 +168,63 @@
             <div class="blocks-staistic">
               <div class="blocks-staistic__row">
                 <div class="blocks-staistic__col">
+                  <div class="widget-block widget-block--ballance">
+                    <div class="widget-block__wrp">
+                      <div class="widget-block__title">Текущий баланс</div>
+                      <div class="widget-block__bill"><strong>24 390.17 ₽</strong><small>Хватит ~ 10 дней</small></div>
+                      <div class="widget-block__onday">
+                        <div class="widget-block__onday-label">Лимит на расходы в сутки:</div>
+                        <div class="widget-block__onday-current"><strong>2 000.00 ₽</strong><span class="onday-edit">
+                            <svg width="14" height="14">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_pencil"></use>
+                            </svg></span></div>
+                        <div class="widget-block__onday-edit">
+                          <form action="#" method="POST">
+                            <div class="onday-edit-form">
+                              <div class="onday-edit-form__input">
+                                <input type="text" placeholder="Сумма" value="2000.00"/>
+                              </div>
+                              <div class="onday-edit-form__save">
+                                <svg width="25" height="25">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_check"></use>
+                                </svg>
+                              </div>
+                              <div class="onday-edit-form__close">
+                                <svg width="25" height="25">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_close"></use>
+                                </svg>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="blocks-staistic__col">
                   <div class="widget-block">
+                    <div class="widget-block__wrp">
+                      <div class="widget-block__title">Рейтинг и отзывы</div>
+                      <div class="widget-block__rate"><span class="rate--green">4.9</span></div>
+                      <div class="widget-block__props">
+                        <ul> 
+                          <li><small>Всего отзывов:</small><strong>28</strong></li>
+                          <li><small>Без ответа:</small><strong>12 <a href='#'>Ответить</a></strong></li>
+                          <li><small>На модерации:</small><strong>2</strong></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="blocks-staistic__row">
+                <div class="blocks-staistic__col">
+                  <div class="widget-block widget-block--click">
                     <div class="widget-block__wrp">
                       <div class="widget-block__title">Статистика по кликам</div>
                       <div class="widget-block__tabs" data-widget="tabs">
                         <ul> 
-                          <li class="is-active"><span>Вчера</span></li>
+                          <li class="is-active"><span>Сегодня</span></li>
                           <li><span>За неделю</span></li>
                           <li><span>За месяц</span></li>
                         </ul>
@@ -214,31 +265,15 @@
                   </div>
                 </div>
                 <div class="blocks-staistic__col">
-                  <div class="widget-block">
-                    <div class="widget-block__wrp">
-                      <div class="widget-block__title">Рейтинг и отзывы</div>
-                      <div class="widget-block__rate"><span class="rate--green">4.9</span></div>
-                      <div class="widget-block__props">
-                        <ul> 
-                          <li><small>Всего отзывов:</small><strong>28</strong></li>
-                          <li><small>Без ответа:</small><strong>12 <a href='#'>Ответить</a></strong></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="blocks-staistic__row">
-                <div class="blocks-staistic__col">
                   <div class="widget-block widget-block--xml">
                     <div class="widget-block__wrp">
-                      <div class="widget-block__title">Данные о XML-файле</div>
+                      <div class="widget-block__title">Данные об XML-файле</div>
                       <div class="widget-block__subtitle"> <a href="price.html">Перейти к прайс-листу</a></div>
                       <div class="widget-block__props widget-block__props--col2">
                         <ul> 
-                          <li><small>Всего товаров в файле:</small><strong>451</strong></li>
+                          <li><small>Всего товаров <br> в файле:</small><strong>451</strong></li>
                           <li><small>Товары, привязанные к карточкам: </small><strong>336</strong></li>
-                          <li><small>Товары в категориях: </small><strong>110</strong></li>
+                          <li><small>Товары <br> в категориях: </small><strong>110</strong></li>
                           <li><small>Нераспознанные предложения:</small><strong>5</strong></li>
                         </ul>
                       </div>

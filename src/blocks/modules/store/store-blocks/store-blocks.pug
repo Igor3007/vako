@@ -1,10 +1,10 @@
 mixin staistic-on-click
-    .widget-block
+    .widget-block.widget-block--click
         .widget-block__wrp
             .widget-block__title Статистика по кликам
             .widget-block__tabs(data-widget="tabs")
                 ul 
-                    li.is-active: span Вчера
+                    li.is-active: span Сегодня
                     li: span За неделю
                     li: span За месяц
             .widget-block__tabs-content
@@ -71,23 +71,26 @@ mixin staistic-on-rate
                     li
                         small Без ответа:
                         strong 12 <a href='#'>Ответить</a>
+                    li
+                        small На модерации:
+                        strong 2
 
 mixin staistic-on-xml
     .widget-block.widget-block--xml
         .widget-block__wrp
-            .widget-block__title Данные о XML-файле
+            .widget-block__title Данные об XML-файле
             .widget-block__subtitle 
                 a(href='price.html') Перейти к прайс-листу
             .widget-block__props.widget-block__props--col2
                 ul 
                     li
-                        small Всего товаров в файле:
+                        small Всего товаров <br> в файле:
                         strong 451
                     li
                         small Товары, привязанные к карточкам: 
                         strong 336
                     li
-                        small Товары в категориях: 
+                        small Товары <br> в категориях: 
                         strong 110
                     li
                         small Нераспознанные предложения:
@@ -141,10 +144,25 @@ mixin my-price
             a(href='/store/price-upload.html'): button.btn Заменить прайс-лист
             a(href='#'): button.btn.btn-white Скачать отчёт
 
-         
-
-
-
+mixin staistic-on-ballance    
+    .widget-block.widget-block--ballance
+        .widget-block__wrp
+            .widget-block__title Текущий баланс
+            .widget-block__bill
+                strong 24 390.17 ₽
+                small Хватит ~ 10 дней
+            .widget-block__onday
+                .widget-block__onday-label Лимит на расходы в сутки:
+                .widget-block__onday-current
+                    strong 2 000.00 ₽
+                    span.onday-edit: +icons('#ic_pencil', 14)
+                .widget-block__onday-edit
+                    form(action='#' method='POST')
+                        .onday-edit-form
+                            .onday-edit-form__input
+                                input(type="text" placeholder="Сумма" value="2000.00")
+                            .onday-edit-form__save: +icons('#ic_check')
+                            .onday-edit-form__close: +icons('#ic_close')
              
                      
             

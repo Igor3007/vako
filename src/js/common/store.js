@@ -2490,8 +2490,6 @@
          })
      }
 
-
-
      /* ==============================================
      notification
      ==============================================*/
@@ -2702,7 +2700,6 @@
          }
      }
 
-
      document.querySelectorAll('[data-ntfc="el"]').forEach(el => {
          new Notification({
              el
@@ -2710,6 +2707,118 @@
      });
 
 
+     /* ===========================================
+     store ballance
+     ===========================================*/
+
+
+     class Ballance {
+         constructor(el) {
+             this.$el = el
+             this.editButton = this.$el.querySelector('.onday-edit')
+             this.closeButton = this.$el.querySelector('.onday-edit-form__close')
+             this.saveButton = this.$el.querySelector('.onday-edit-form__save')
+             this.container = this.$el.querySelector('.widget-block__onday')
+             this.input = this.$el.querySelector('.onday-edit-form__input input')
+             this.elCurrentBill = this.$el.querySelector('.widget-block__bill strong')
+             this.elOnDayCost = this.$el.querySelector('.widget-block__onday-current strong')
+
+             this.init()
+         }
+
+         init() {
+             this.addEvents()
+             this.calcBallance()
+         }
+
+         calcBallance() {
+             let currentBill = Number(this.getOnlyDigits(this.elCurrentBill.innerText));
+             let onDay = Number(this.input.value);
+
+             function declension(count) {
+                 const cases = [2, 0, 1, 1, 1, 2];
+                 const words = ['день', 'дня', 'дней'];
+
+                 return count + ' ' + words[
+                     (count % 100 > 4 && count % 100 < 20) ?
+                     2 :
+                     cases[(count % 10 < 5) ? count % 10 : 5]
+                 ];
+             }
+
+             console.log(onDay)
+             console.log(currentBill)
+
+             if (onDay > currentBill) {
+                 window.STATUS.wrn('Недостаточно средств на балансе')
+                 return false
+             }
+
+             let days = Math.trunc(currentBill / onDay);
+
+             this.elOnDayCost.innerText = this.input.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+             this.$el.querySelector('.widget-block__bill small').innerText = `Хватит ~ ${declension(days)}`
+
+             return true
+         }
+
+         sendAjax() {
+
+             this.container.classList.add('is-load')
+
+             /* window.ajax({
+                 type: 'POST',
+                 url: '/',
+                 responseType: 'html',
+                 data: {
+                     value: this.input.value
+                 }
+             }, (status, response) => {
+                 this.container.classList.toggle('is-load', false)
+                 if (this.calcBallance()) {
+
+                     this.close()
+                 }
+             }) */
+
+             setTimeout(() => {
+                 this.container.classList.toggle('is-load', false)
+                 if (this.calcBallance()) {
+
+                     this.close()
+                 }
+             }, 2000)
+         }
+
+         open() {
+             this.container.classList.toggle('is-edit', true)
+         }
+
+         close() {
+             this.container.classList.toggle('is-edit', false)
+         }
+
+         getOnlyDigits(value) {
+             return value.replace(/[^.\d]+/g, "").replace(/^([^\.]*\.)|\./g, '$1')
+         }
+
+         addEvents() {
+             this.editButton.addEventListener('click', () => this.open())
+             this.closeButton.addEventListener('click', () => this.close())
+
+             this.saveButton.addEventListener('click', () => {
+                 this.sendAjax()
+             })
+
+             this.input.addEventListener('input', (e) => {
+                 e.target.value = this.getOnlyDigits(e.target.value)
+             })
+         }
+     }
+
+     if (document.querySelector('.onday-edit')) {
+         document.querySelectorAll('.widget-block--ballance').forEach(el => window.Ballance = new Ballance(el))
+     }
 
 
 

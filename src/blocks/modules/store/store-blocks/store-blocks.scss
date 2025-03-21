@@ -27,6 +27,9 @@
     padding: 16px 16px 24px 16px;
     height: 100%;
 
+    @media screen and (min-width: $w576) {
+        padding: 24px 30px;
+    }
 
     &__title {
         @include font-h3;
@@ -37,6 +40,78 @@
     &__h2 {
         @include font-h2;
         padding-bottom: 0.8em;
+    }
+
+    &__bill {
+
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        padding-top: 10px;
+        padding-bottom: 28px;
+
+        & strong {
+            font-size: 28px;
+            font-weight: 800;
+            font-family: lato, Verdana;
+        }
+
+        & small {
+            font-size: 15px;
+            opacity: 0.7;
+        }
+    }
+
+    &__onday {
+        &-label {
+            font-size: 15px;
+            opacity: 0.7;
+            padding-bottom: 12px;
+        }
+
+        &-current {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: lato, Verdana;
+        }
+
+        & .onday-edit {
+            margin-left: 8px;
+            cursor: pointer;
+            fill: #fff;
+        }
+
+        &.is-edit {
+            & .widget-block__onday-current {
+                display: none;
+            }
+
+            & .onday-edit-form {
+                display: flex;
+            }
+        }
+
+        &.is-load {
+
+            & .onday-edit-form__save {
+                & svg {
+                    display: none;
+                }
+
+                &::before {
+                    content: '';
+                    width: 10px;
+                    height: 10px;
+                    border: 2px solid #fff;
+                    border-radius: 50%;
+                    border-top-color: transparent;
+                    animation: load 0.5s linear infinite;
+                    pointer-events: none;
+                }
+            }
+
+        }
     }
 
     &__tabs {
@@ -99,7 +174,6 @@
             & li {
                 display: flex;
                 flex-direction: column;
-
                 padding: 8px 12px;
 
                 @media screen and (min-width: $w992) {
@@ -110,7 +184,7 @@
                 & small {
                     color: $gray-56;
                     font-size: 15px;
-                    white-space: nowrap;
+                    line-height: 140%;
                     padding-bottom: 0.7em;
                 }
 
@@ -395,4 +469,57 @@
 
 .user-menu-popup .dropdown-button {
     margin: -8px 0;
+}
+
+.widget-block.widget-block--ballance {
+    background: $accent-2-1;
+    color: #fff;
+}
+
+.onday-edit-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    display: none;
+
+    &__input {
+        & input {
+            height: 28px;
+            border-radius: 4px;
+            padding: 4px 6px;
+            max-width: 80px;
+
+            &::placeholder {
+                color: #999;
+                opacity: 1;
+            }
+
+        }
+    }
+
+    &__close,
+    &__save {
+        width: 28px;
+        height: 28px;
+        background-color: #8870ff;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover {
+            background-color: #907eec;
+        }
+
+        & svg {
+            width: 14px;
+            height: 12px;
+        }
+    }
+}
+
+.widget-block.widget-block--click {
+    height: auto;
 }

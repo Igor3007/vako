@@ -5116,6 +5116,67 @@ footer {
   padding-bottom: 0.8em;
 }
 
+.widget-block__bill {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 10px;
+  padding-bottom: 28px;
+}
+
+.widget-block__bill strong {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: lato, Verdana;
+}
+
+.widget-block__bill small {
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+.widget-block__onday-label {
+  font-size: 15px;
+  opacity: 0.7;
+  padding-bottom: 12px;
+}
+
+.widget-block__onday-current {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: lato, Verdana;
+}
+
+.widget-block__onday .onday-edit {
+  margin-left: 8px;
+  cursor: pointer;
+  fill: #fff;
+}
+
+.widget-block__onday.is-edit .widget-block__onday-current {
+  display: none;
+}
+
+.widget-block__onday.is-edit .onday-edit-form {
+  display: flex;
+}
+
+.widget-block__onday.is-load .onday-edit-form__save svg {
+  display: none;
+}
+
+.widget-block__onday.is-load .onday-edit-form__save::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: load 0.5s linear infinite;
+  pointer-events: none;
+}
+
 .widget-block__tabs {
   padding-bottom: 29px;
 }
@@ -5174,7 +5235,7 @@ footer {
 .widget-block__props ul li small {
   color: #8f8f8f;
   font-size: 15px;
-  white-space: nowrap;
+  line-height: 140%;
   padding-bottom: 0.7em;
 }
 
@@ -5390,6 +5451,58 @@ footer {
 
 .user-menu-popup .dropdown-button {
   margin: -8px 0;
+}
+
+.widget-block.widget-block--ballance {
+  background: #7B61FF;
+  color: #fff;
+}
+
+.onday-edit-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  display: none;
+}
+
+.onday-edit-form__input input {
+  height: 28px;
+  border-radius: 4px;
+  padding: 4px 6px;
+  max-width: 80px;
+}
+
+.onday-edit-form__input input::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+.onday-edit-form__close,
+.onday-edit-form__save {
+  width: 28px;
+  height: 28px;
+  background-color: #8870ff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.onday-edit-form__close:hover,
+.onday-edit-form__save:hover {
+  background-color: #907eec;
+}
+
+.onday-edit-form__close svg,
+.onday-edit-form__save svg {
+  width: 14px;
+  height: 12px;
+}
+
+.widget-block.widget-block--click {
+  height: auto;
 }
 
 .store-user-data {
@@ -8818,6 +8931,10 @@ body .fslightbox-slash {
 
   .store-panel {
     padding: 30px 0;
+  }
+
+  .widget-block {
+    padding: 24px 30px;
   }
 
   .widget-block__title {
