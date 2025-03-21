@@ -14,6 +14,7 @@
         flex-grow: 1;
         padding: 8px;
         flex-basis: 300px;
+        width: 100%;
 
         @media screen and (min-width: $w992) {
             padding: 12px;
@@ -118,9 +119,14 @@
 
         padding-bottom: 29px;
 
+
         & ul {
             display: flex;
             margin: -4px;
+            overflow-x: auto;
+            width: 100%;
+            padding-bottom: 5px;
+            margin-bottom: -5px;
 
             & li {
                 padding: 4px;
@@ -135,6 +141,7 @@
                     padding: 0 1em 3px 1em;
                     font-size: 14px;
                     cursor: pointer;
+                    white-space: nowrap;
                 }
 
                 &:hover {
@@ -148,6 +155,7 @@
                     & span {
                         background-color: $accent-2-1;
                         color: #fff;
+
                     }
                 }
 
