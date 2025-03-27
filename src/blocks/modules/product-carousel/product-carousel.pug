@@ -3,7 +3,7 @@ include ../news/card-article/card-article.pug
 mixin product-article(data)
     .product-article
         .product-article__image
-            a(href='#'): +picture(data.image)
+            a(href='#'): +pictureLazy(data.image)
         .product-article__title
             a(href='#')= data.title
         .product-article__price

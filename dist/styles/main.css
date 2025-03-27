@@ -13501,6 +13501,7 @@ article .article-gallery img {
   color: transparent;
   min-height: auto !important;
   object-fit: contain !important;
+  transition: 0.3s ease;
 }
 
 .product-article__title {
