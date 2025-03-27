@@ -4462,29 +4462,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         items.forEach(item => {
             const sliderCarousel = new Splide(item, {
-
-                arrows: false,
-                fixedWidth: 249,
+                arrows: true,
+                arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
+                fixedWidth: 252,
                 gap: 12,
-                pagination: false,
+                pagination: true,
+                perPage: 4,
                 perMove: 1,
-                focus: 'left',
-                flickMaxPages: 1,
-                flickPower: 150,
-                dragMinThreshold: {
-                    mouse: 4,
-                    touch: 15,
-                },
 
                 breakpoints: {
                     1439: {
-                        gap: 16,
+                        perPage: 4,
                     },
 
                     992: {
                         gap: 12,
-                        fixedWidth: 230,
-                        pagination: true,
                     },
 
                     575: {
@@ -4493,34 +4485,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 },
             })
 
-            const next = item.closest('.product-carousel').querySelector('[data-slider="product-carousel-next"]')
-            const prev = item.closest('.product-carousel').querySelector('[data-slider="product-carousel-prev"]')
 
-            const checkNavButton = () => {
 
-                let slidesWidth = 0
-                let containerWidth = sliderCarousel.root.querySelector('.splide__track').clientWidth
-
-                sliderCarousel.root.querySelectorAll('.splide__slide').forEach(item => {
-                    slidesWidth += (item.clientWidth - 3) + sliderCarousel.options.gap
-                })
-
-                next.style.display = (slidesWidth <= containerWidth ? 'none' : 'block')
-                prev.style.display = (slidesWidth <= containerWidth ? 'none' : 'block')
-
-            }
-
-            sliderCarousel.on('ready', (e) => {
-                checkNavButton()
-            })
-            sliderCarousel.on('resized', (e) => {
-                checkNavButton()
-            })
 
             sliderCarousel.mount()
 
-            next.addEventListener('click', e => sliderCarousel.go('<'))
-            prev.addEventListener('click', e => sliderCarousel.go('>'))
         })
 
     }
@@ -5483,23 +5452,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
     =======================================*/
 
 
-    if (!Cookies.get('lgdelivery')) {
-        setTimeout(() => {
-            document.querySelector('.pl-delivery').classList.add('is-open')
-        }, 10000)
+    /*     if (!Cookies.get('lgdelivery')) {
+            setTimeout(() => {
+                document.querySelector('.pl-delivery').classList.add('is-open')
+            }, 10000)
 
-        document.querySelector('.pl-delivery__btn .btn').addEventListener('click', function () {
+            document.querySelector('.pl-delivery__btn .btn').addEventListener('click', function () {
+                Cookies.set('lgdelivery', 'true', {
+                    expires: (1 / 48)
+                })
+                document.querySelector('.pl-delivery').classList.remove('is-open')
+            })
+
+        } else {
             Cookies.set('lgdelivery', 'true', {
                 expires: (1 / 48)
             })
-            document.querySelector('.pl-delivery').classList.remove('is-open')
-        })
+        } */
 
-    } else {
-        Cookies.set('lgdelivery', 'true', {
-            expires: (1 / 48)
-        })
-    }
+    /* ===================================
+    table responsive
+    ===================================*/
+
+    const tables = document.querySelectorAll('table');
+    tables.forEach(table => {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('table-responsive');
+        wrapper.classList.add('dragscroll');
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+    });
+    dragscroll.reset()
+
+
+
 
 
 

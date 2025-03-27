@@ -13,12 +13,10 @@ mixin product-article(data)
         
 
 mixin product-carousel
-    .product-carousel
+    .product-carousel.product-carousel--article
         .product-carousel__top
-            .product-carousel__title Товары из статьи
-            .product-carousel__nav
-                .product-carousel__nav-prev(data-slider="product-carousel-next"): +icons('#ic_arrow-left')
-                .product-carousel__nav-next(data-slider="product-carousel-prev"): +icons('#ic_arrow-right')
+            .product-carousel__title Товары из статьи 
+             
 
         .product-carousel__slider
             .splide(data-slider="product-carousel")

@@ -19,13 +19,17 @@
             }
 
             @media screen and (min-width: $w480) {
-                border-radius: 8px;
+                border-radius: 12px;
             }
 
 
             & img {
+
+                color: transparent;
+                transition: 0.3s ease;
+
                 @media screen and (min-width: $w480) {
-                    border-radius: 8px;
+                    border-radius: 12px;
                 }
             }
         }
@@ -44,7 +48,7 @@
             }
 
             @media screen and (min-width: $w992) {
-                font-size: 30px;
+                font-size: 36px;
             }
         }
     }
@@ -240,6 +244,7 @@
 
             & h3 {
                 font-size: 20px;
+                margin-bottom: 2em;
             }
 
             & h4 {
@@ -272,7 +277,7 @@
 
             @media screen and (min-width: $w992) {
                 font-size: 17px;
-                line-height: 175%;
+                line-height: 165%;
             }
         }
 
@@ -284,7 +289,7 @@
 
         & img {
 
-            border-radius: 6px;
+            border-radius: 12px;
 
             @media screen and (max-width: $w360) {
                 min-height: 200px;
@@ -295,13 +300,29 @@
     }
 
     & .product-carousel {
-        @media screen and (min-width: $w1440) {
-            margin-right: -110px;
+
+        padding: 25px 16px 50px;
+
+        @media screen and (min-width: $w1660) {
+            margin-right: -185px;
+
+        }
+
+        @media screen and (min-width: $w992) {
+            margin-left: -65px;
+            margin-right: -65px;
+        }
+
+        @media screen and (min-width: $w576) {
+            padding: 40px 65px 5px;
+
         }
     }
+
+
 }
 
-.article-gallery {
+article .article-gallery {
     display: flex;
     margin: 26px -6px;
     overflow-x: auto;
@@ -351,7 +372,7 @@
     & picture {
         @include picture(70%, cover);
         background-color: #eee;
-        border-radius: 8px;
+        border-radius: 12px;
 
         & img {
             min-height: auto !important;
@@ -360,7 +381,7 @@
 
     & img {
         margin: 0;
-        border-radius: 8px;
+        border-radius: 12px;
         transition: 0.3s ease;
 
     }
@@ -393,4 +414,31 @@
 
 .article-gallery-pagination li.active {
     background-color: $accent-2-1
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.product-carousel.product-carousel--article {
+    background-color: #F2F6FC;
+    margin-left: -16px;
+    margin-right: -16px;
+
+    $offset: calc(((448px - 100vw))/2);
+
+    @media screen and (min-width: $w480) and (max-width: $w576) {
+        margin-left: $offset;
+        margin-right: $offset;
+
+    }
+
+    @media screen and (min-width: $w576) {
+        border-radius: 12px;
+    }
+
+    & .product-article {
+        background-color: #fff;
+        border-color: transparent;
+    }
 }
