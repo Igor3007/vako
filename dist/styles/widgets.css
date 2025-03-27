@@ -583,10 +583,6 @@ input[type="date"] {
   font-weight: normal;
 }
 
-.formated-text table tr:first-child th:first-child {
-  border-top-left-radius: 8px;
-}
-
 .formated-text table tr:hover td {
   background-color: #f5f5f5;
 }
