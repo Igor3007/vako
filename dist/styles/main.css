@@ -164,6 +164,8 @@ input[type="date"] {
   width: 100%;
   min-width: 600px;
   border-radius: 8px;
+  border-collapse: initial;
+  border-spacing: 0;
 }
 
 .formated-text table th {
@@ -177,11 +179,13 @@ input[type="date"] {
   text-align: left;
   border: 1px solid #E0E0E0;
   border-bottom-color: transparent;
+  border-left-color: transparent;
   font-weight: 700;
 }
 
 .formated-text table th:first-child {
   text-align: left;
+  border-left: 1px solid #E0E0E0;
 }
 
 .formated-text table td {
@@ -191,6 +195,8 @@ input[type="date"] {
   font-weight: normal;
   text-align: left;
   min-width: 150px;
+  border-top: none;
+  border-left: none;
 }
 
 .formated-text table td:first-child {
@@ -203,10 +209,29 @@ input[type="date"] {
 
 .formated-text table td:first-child {
   font-weight: normal;
+  border-left: 1px solid #E0E0E0;
 }
 
 .formated-text table tr:hover td {
-  background-color: #f5f5f5;
+  background-color: #ededed;
+}
+
+.formated-text table tr:first-child td:first-child,
+.formated-text table tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.formated-text table tr:first-child td:last-child,
+.formated-text table tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.formated-text table tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+.formated-text table tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
 }
 
 .formated-text a {
@@ -13228,6 +13253,11 @@ article .article-gallery img {
   border-color: transparent;
 }
 
+.product-carousel.product-carousel--article .splide > .splide__arrows .splide__arrow--prev:hover,
+.product-carousel.product-carousel--article .splide > .splide__arrows .splide__arrow--next:hover {
+  background-color: #E3E9F3;
+}
+
 .news-carousel__top {
   display: flex;
   justify-content: space-between;
@@ -15967,7 +15997,7 @@ body .fslightbox-slash {
   }
 
   .news-article .product-carousel {
-    padding: 40px 65px 5px;
+    padding: 26px 56px 5px;
   }
 
   .product-carousel.product-carousel--article {
@@ -17464,11 +17494,6 @@ body .fslightbox-slash {
     line-height: 165%;
   }
 
-  .news-article .product-carousel {
-    margin-left: -65px;
-    margin-right: -65px;
-  }
-
   .home-products .minicard__gallery .is-overflow .splide__pagination {
     opacity: 0;
   }
@@ -17989,6 +18014,17 @@ body .fslightbox-slash {
 
   .hide--desctop {
     display: none;
+  }
+}
+
+@media screen and (min-width: 1376px) {
+  .news-article .product-carousel {
+    margin-left: -65px;
+    margin-right: -65px;
+  }
+
+  .news-article .product-carousel {
+    padding: 30px 65px 5px;
   }
 }
 

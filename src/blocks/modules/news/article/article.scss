@@ -308,13 +308,17 @@
 
         }
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w1376) {
             margin-left: -65px;
             margin-right: -65px;
         }
 
+        @media screen and (min-width: $w1376) {
+            padding: 30px 65px 5px;
+
+        }
         @media screen and (min-width: $w576) {
-            padding: 40px 65px 5px;
+            padding: 26px 56px 5px;
 
         }
     }
@@ -440,5 +444,10 @@ article .article-gallery {
     & .product-article {
         background-color: #fff;
         border-color: transparent;
+    }
+
+    & .splide > .splide__arrows .splide__arrow--prev:hover, 
+    & .splide > .splide__arrows .splide__arrow--next:hover {
+        background-color: #E3E9F3;
     }
 }

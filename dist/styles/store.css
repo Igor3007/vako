@@ -164,6 +164,8 @@ input[type="date"] {
   width: 100%;
   min-width: 600px;
   border-radius: 8px;
+  border-collapse: initial;
+  border-spacing: 0;
 }
 
 .formated-text table th {
@@ -177,11 +179,13 @@ input[type="date"] {
   text-align: left;
   border: 1px solid #E0E0E0;
   border-bottom-color: transparent;
+  border-left-color: transparent;
   font-weight: 700;
 }
 
 .formated-text table th:first-child {
   text-align: left;
+  border-left: 1px solid #E0E0E0;
 }
 
 .formated-text table td {
@@ -191,6 +195,8 @@ input[type="date"] {
   font-weight: normal;
   text-align: left;
   min-width: 150px;
+  border-top: none;
+  border-left: none;
 }
 
 .formated-text table td:first-child {
@@ -203,10 +209,29 @@ input[type="date"] {
 
 .formated-text table td:first-child {
   font-weight: normal;
+  border-left: 1px solid #E0E0E0;
 }
 
 .formated-text table tr:hover td {
-  background-color: #f5f5f5;
+  background-color: #ededed;
+}
+
+.formated-text table tr:first-child td:first-child,
+.formated-text table tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.formated-text table tr:first-child td:last-child,
+.formated-text table tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.formated-text table tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+.formated-text table tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
 }
 
 .formated-text a {
