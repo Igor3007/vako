@@ -218,20 +218,20 @@ input[type="date"] {
 
 .formated-text table tr:first-child td:first-child,
 .formated-text table tr:first-child th:first-child {
-  border-top-left-radius: 12px;
+  border-top-left-radius: 8px;
 }
 
 .formated-text table tr:first-child td:last-child,
 .formated-text table tr:first-child th:last-child {
-  border-top-right-radius: 12px;
+  border-top-right-radius: 8px;
 }
 
 .formated-text table tr:last-child td:first-child {
-  border-bottom-left-radius: 12px;
+  border-bottom-left-radius: 8px;
 }
 
 .formated-text table tr:last-child td:last-child {
-  border-bottom-right-radius: 12px;
+  border-bottom-right-radius: 8px;
 }
 
 .formated-text a {
