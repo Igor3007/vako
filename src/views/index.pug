@@ -10,6 +10,11 @@ include ../blocks/modules/home-products/home-products.pug
 include ../blocks/modules/about-video/about-video
 include ../blocks/modules/last-review/last-review
 
+include ../blocks/modules/about-platform/about-platform
+include ../blocks/modules/grid-products/grid-products
+include ../blocks/modules/banner-connect/banner-connect
+include ../blocks/modules/yt-blockvideo/yt-blockvideo
+
 
  
 block variables
@@ -21,12 +26,13 @@ block content
 
   +banner-slider
   +collections-block
+  +about-platform
   +top-categories
-  +home-products
+  +grid-products
   +top-article
+  +banner-connect
   +catalog-popup()
-
-  +about-video
+  +yt-blockvideo
   +last-review
 
 block scripts

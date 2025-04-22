@@ -2,7 +2,7 @@
     padding: 23px 0 30px;
 
     @media screen and (min-width: $w760) {
-        padding: 48px 0 30px;
+        padding: 25px 0 50px;
     }
 
     & .splide {
@@ -305,7 +305,7 @@
             @media screen and (min-width: $w576) {
                 -webkit-line-clamp: 5;
                 font-size: 15px;
-                line-height: 150%;
+                line-height: 160%;
             }
 
             @media screen and (min-width: $w992) {

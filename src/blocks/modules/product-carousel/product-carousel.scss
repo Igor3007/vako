@@ -149,6 +149,12 @@
 
     & .splide {
 
+        &:not(.is-overflow) {
+            @media screen and (min-width: $w576) {
+                padding-bottom: 44px;
+            }
+        }
+
         &__pagination {
 
             position: static;
@@ -204,6 +210,8 @@
 
 }
 
+
+
 .product-article {
 
     border: 1px solid #ddd;
@@ -236,8 +244,8 @@
     }
 
     &__title {
-        padding-bottom: 8px;
-        min-height: 85px;
+        padding-bottom: 5px;
+        min-height: 52px;
 
         & a {
             @include line-clamp(2);

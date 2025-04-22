@@ -1,0 +1,15 @@
+mixin grid-banner(data)
+    .grid-banner
+        a( target="_blank" href='/category.html'): +bgimage(data.image)
+
+mixin grid-products
+    section.section-grid-products
+        .container
+            .grid-products
+                .grid-products__title Хиты продаж
+                .grid-products__list
+                    each item in grid_products
+                        if item.type == 'banner'
+                            .grid-products__item.grid-products__item--banner: +grid-banner(item)
+                        else
+                            .grid-products__item: +minicard--home(item)

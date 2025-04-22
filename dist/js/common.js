@@ -4375,7 +4375,86 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     /*======================================
-     mews carousel
+     top-article carousel
+    ======================================*/
+
+    if (document.querySelector('[data-slider="top-article"]')) {
+        const items = document.querySelectorAll('[data-slider="top-article"]')
+
+        items.forEach(item => {
+            const sliderCarousel = new Splide(item, {
+
+                arrows: true,
+                fixedWidth: 450,
+                gap: 24,
+                pagination: false,
+                perMove: 1,
+                focus: 'left',
+                flickMaxPages: 1,
+                flickPower: 150,
+                arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
+                dragMinThreshold: {
+                    mouse: 4,
+                    touch: 15,
+                },
+
+                breakpoints: {
+                    992: {
+                        fixedWidth: 292,
+                    },
+                    575: {
+                        destroy: true,
+                    }
+                },
+            })
+
+
+            sliderCarousel.mount()
+
+            const watchWidth = () => {
+
+                const sliderWidth = item.classList.contains('is-offset-pagination') ? (item.clientWidth + 100) : item.clientWidth
+                const frameWidth = document.documentElement.clientWidth
+
+                //is-pagination offset
+                if ((frameWidth - 100) <= sliderWidth) {
+                    item.classList.add('is-offset-pagination')
+                } else {
+                    !item.classList.contains('is-offset-pagination') || item.classList.remove('is-offset-pagination')
+                }
+
+                // is-pagination
+                if (sliderCarousel.length > sliderCarousel.options.perPage) {
+                    item.classList.add('is-pagination')
+                } else {
+                    !item.classList.contains('is-pagination') || item.classList.remove('is-pagination')
+                }
+            }
+
+            let fnDedounce = window.debounce
+            watchWidth()
+
+            window.addEventListener('resize', () => {
+                fnDedounce(watchWidth, 50);
+            })
+
+            //auto perMove
+            const getPerMove = () => {
+                return Math.floor((sliderCarousel.root.clientWidth / sliderCarousel.root.querySelector('.splide__slide').clientWidth)) || 1
+            }
+
+            sliderCarousel.options = {
+                perMove: getPerMove(),
+            };
+
+
+        })
+
+    }
+
+
+    /*======================================
+     news carousel
     ======================================*/
 
     if (document.querySelector('[data-slider="news-carousel"]')) {
@@ -4484,9 +4563,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     }
                 },
             })
-
-
-
 
             sliderCarousel.mount()
 

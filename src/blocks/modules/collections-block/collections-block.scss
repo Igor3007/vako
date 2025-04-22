@@ -1,6 +1,6 @@
 .collections-block {
 
-    padding: 14px 0 23px 0;
+    padding: 10px 0 23px 0;
 
 
 
@@ -13,7 +13,9 @@
 
         padding-bottom: 24px;
 
-
+        @media screen and (min-width: $w1200) {
+            padding-bottom: 18px;
+        }
 
         & ul {
             display: flex;

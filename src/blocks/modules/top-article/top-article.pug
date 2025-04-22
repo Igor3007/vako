@@ -1,4 +1,5 @@
 include ../news/card-article/card-article.pug
+include ../../modules/news/news-carousel/news-carousel.pug
 
 mixin top-article
     section.section-top-article
@@ -9,8 +10,11 @@ mixin top-article
                     .top-article__title Статьи, новости и обзоры
                     .top-article__all
                         a(href='/news.html'): button.btn.btn-accent.btn-small Смотреть все 
-                .top-article__list
-                    each item in homepage_article
-                        .top-article__item: +card-article(item)
+                .top-article__slider
+                    .splide(data-slider="top-article")
+                        .splide__track
+                            .splide__list
+                                each item,index in similar_article
+                                    .splide__slide: +card-article(item)
                 .top-article__all-mobile
                     a(href='/news.html'): button.btn.btn-accent.btn-small Смотреть все

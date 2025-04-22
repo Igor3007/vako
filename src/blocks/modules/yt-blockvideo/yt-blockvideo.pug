@@ -1,0 +1,21 @@
+mixin yt-blockvideo
+    section.section-yt-blockvideo
+        .container
+            .yt-blockvideo
+                .yt-blockvideo__title Мы на YouTube
+                .yt-blockvideo__list
+                    .yt-blockvideo__item
+                        +video({
+                            'preview': '/img/other/video_preview',
+                            'link': 'https://youtu.be/G7KNmW9a75Y'
+                        })
+                    .yt-blockvideo__item
+                        +video({
+                            'preview': '/img/other/video_preview2',
+                            'link': 'https://youtu.be/G7KNmW9a75Y'
+                        })
+                    .yt-blockvideo__item
+                        +video({
+                            'preview': '/img/other/video_preview3',
+                            'link': 'https://youtu.be/G7KNmW9a75Y'
+                        })
