@@ -32,9 +32,13 @@
             }
 
             & img {
-                border-radius: 6px;
+
                 background-color: $gray-96;
                 color: transparent;
+
+                @media screen and (min-width: $w480) {
+                    border-radius: 6px;
+                }
 
                 @media screen and (min-width: $w992) {
                     border-radius: 12px;

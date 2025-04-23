@@ -12043,7 +12043,6 @@ div[data-state="1"] {
 }
 
 .banner-slider .splide__slide img {
-  border-radius: 6px;
   background-color: #f5f5f5;
   color: transparent;
 }
@@ -13686,7 +13685,7 @@ article .article-gallery img {
   display: flex;
   height: 32px;
   border-radius: 4px;
-  background-color: #F9F7FF;
+  background-color: #f5f5f5;
   color: #222222;
   padding: 7px 0.9em;
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -13696,6 +13695,7 @@ article .article-gallery img {
 
 .collections-block__tags ul li a:hover {
   color: #7B61FF;
+  background-color: #F9F7FF;
 }
 
 .collections-block__more {
@@ -13720,6 +13720,14 @@ article .article-gallery img {
   margin-left: 7px;
   transition: 0.25s ease 0.2s;
   transform: translateX(0);
+}
+
+.collections-block__more span:hover {
+  color: #7B61FF;
+}
+
+.collections-block__more span:hover::after {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNLjI5My4yOTNhMSAxIDAgMDExLjQxNCAwTDQgMi41ODYgNi4yOTMuMjkzYTEgMSAwIDAxMS40MTQgMS40MTRsLTMgM2ExIDEgMCAwMS0xLjQxNCAwbC0zLTNhMSAxIDAgMDEwLTEuNDE0eiIgZmlsbD0iIzdCNjFGRiIvPjwvc3ZnPg==);
 }
 
 .collections-block:not(.is-init) .collections-block__tags {
@@ -14275,17 +14283,9 @@ article .article-gallery img {
 }
 
 .grid-products .minicard__title {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 160%;
   padding-bottom: 0.6em;
-}
-
-.grid-products .minicard__title a {
-  letter-spacing: normal;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .grid-products .minicard__content {
@@ -15598,6 +15598,10 @@ body .fslightbox-slash {
     padding-bottom: 22px;
   }
 
+  .banner-slider .splide__slide img {
+    border-radius: 6px;
+  }
+
   .top-categories__title {
     padding-bottom: 1em;
   }
@@ -15644,6 +15648,18 @@ body .fslightbox-slash {
 
   .section-last-review .splide:not(.is-active) .splide__slide:last-child {
     margin-right: 24px;
+  }
+
+  .grid-products .minicard__title {
+    font-size: 15px;
+  }
+
+  .grid-products .minicard__title a {
+    letter-spacing: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .banner-connect {
@@ -19114,6 +19130,14 @@ body .fslightbox-slash {
 
   .dark-banner__btn .btn {
     width: 100%;
+  }
+
+  .grid-products .minicard__title a {
+    letter-spacing: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .grid-products .minicard__action a[data-tooltip]::before {
