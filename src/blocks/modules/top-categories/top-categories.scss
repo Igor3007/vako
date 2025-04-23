@@ -9,7 +9,11 @@
 .top-categories {
     &__title {
         @include font-h2;
-        padding-bottom: 1em;
+        padding-bottom: 0.4em;
+
+        @media screen and (min-width: $w480) {
+            padding-bottom: 1em;
+        }
 
         @media screen and (min-width: $w1200) {
             padding-bottom: 0.7em;

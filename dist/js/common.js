@@ -4408,8 +4408,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 },
             })
 
-
             sliderCarousel.mount()
+
+            const getTopArrowButtons = () => {
+
+                if (item) {
+                    let heigthEl = item.querySelector('picture').clientHeight
+                    item.querySelectorAll('.splide__arrow').forEach(btn => {
+                        btn.style.top = (heigthEl / 2) + 'px'
+                        console.log(btn)
+                    })
+                }
+            }
 
             const watchWidth = () => {
 
@@ -4436,6 +4446,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             window.addEventListener('resize', () => {
                 fnDedounce(watchWidth, 50);
+                getTopArrowButtons()
             })
 
             //auto perMove
@@ -4447,6 +4458,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 perMove: getPerMove(),
             };
 
+            // init nav button position
+            getTopArrowButtons()
 
         })
 

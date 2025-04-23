@@ -1,6 +1,6 @@
 .collections-block {
 
-    padding: 10px 0 23px 0;
+    padding: 12px 0 23px 0;
 
 
 
@@ -11,7 +11,7 @@
 
     &__tags {
 
-        padding-bottom: 24px;
+        padding-bottom: 21px;
 
         @media screen and (min-width: $w1200) {
             padding-bottom: 18px;
@@ -67,16 +67,22 @@
                 & a {
                     color: inherit;
                     display: flex;
-                    height: 36px;
+                    height: 32px;
                     border-radius: 4px;
                     background-color: #F9F7FF;
                     color: $gray-13;
                     padding: 7px 0.9em;
                     transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
                     white-space: nowrap;
+                    font-size: 14px;
+
+                    @media screen and (min-width: $w480) {
+                        font-size: 15px;
+                    }
 
                     @media screen and (min-width: $w576) {
                         padding: 7px 1.05em;
+                        height: 36px;
                     }
 
                     &:hover {

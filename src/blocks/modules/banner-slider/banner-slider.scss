@@ -1,8 +1,15 @@
 .section-banner-slider {
-    padding: 16px 0;
+    padding: 18px 0;
 
     @media screen and (min-width: $w576) {
         padding: 36px 0;
+    }
+
+    & .container {
+        @media screen and (max-width: $w480) {
+            padding-left: 0;
+            padding-right: 0
+        }
     }
 }
 
@@ -10,7 +17,7 @@
     & .splide {
         &__slide {
             & picture {
-                @include picture(49%, cover);
+                @include picture(52.3%, cover);
 
                 @media screen and (min-width: $w576) {
                     padding-top: 31.3%;

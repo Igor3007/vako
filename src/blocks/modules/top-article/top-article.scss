@@ -1,5 +1,5 @@
 .section-top-article {
-    padding: 24px 0;
+    padding: 52px 0 30px;
 
     @media screen and (min-width: $w992) {
         padding: 30px 0 24px;
@@ -9,7 +9,7 @@
 .top-article {
     &__title {
         @include font-h2;
-        padding-bottom: 1em;
+        padding-bottom: 0.2em;
 
         @media screen and (min-width: $w576) {
             padding-bottom: 0em;
@@ -26,7 +26,110 @@
         }
     }
 
-    &__slider {}
+    &__slider {
+        & .splide {
+
+            &>.splide__arrows .splide__arrow {
+                opacity: 1;
+
+
+
+                &:hover {
+                    opacity: 0.9;
+                }
+
+                & svg {
+                    fill: $accent-2-1;
+                    height: 18px;
+                    width: 18px;
+                }
+
+
+            }
+
+            &>.splide__arrows .splide__arrow {
+                &--prev {
+                    left: -50px;
+
+                    & svg {
+                        margin-right: 10px;
+                    }
+                }
+
+                &--next {
+                    right: -50px;
+
+                    & svg {
+                        margin-left: 8px;
+                    }
+                }
+
+                &--prev,
+                &--next {
+                    background-color: transparent;
+                    border-radius: 6px;
+                    width: 40px;
+                    height: 40px;
+
+
+
+                    &:hover {
+                        background-color: #F9F7FF;
+                    }
+
+                    &:disabled {
+                        opacity: 0 !important;
+                        pointer-events: none;
+                    }
+                }
+            }
+
+            &.is-pagination {
+                & .splide {
+                    &__arrow {
+
+                        &--prev,
+                        &--next {
+                            &:disabled {
+                                opacity: 0.3;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        & .splide {
+
+            @media screen and (max-width: $w576) {
+
+                &.is-initialized:not(.is-active) {
+                    & .splide {
+                        &__list {
+                            display: flex;
+                        }
+
+                        &__slide {
+                            margin-right: 16px;
+                            width: 85%;
+                            min-width: 290px;
+                            max-width: 320px;
+                        }
+
+                        &__track {
+                            overflow-x: auto;
+                            scrollbar-width: none;
+                        }
+                    }
+                }
+
+
+            }
+
+
+        }
+    }
 
     &__item {
         padding: 6px;
