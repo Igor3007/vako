@@ -3,7 +3,7 @@
     padding: 24px 0;
 
     & .container {
-        @media screen and (max-width: $w480) {
+        @media screen and (max-width: 479px) {
             padding: 0;
         }
     }

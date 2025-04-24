@@ -5604,11 +5604,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 },
                 {
                     minWidth: 992,
-                    pos: 1
+                    pos: 5
                 },
                 {
                     minWidth: 576,
-                    pos: 2
+                    pos: 5
                 },
             ]
 

@@ -19147,13 +19147,15 @@ body .fslightbox-slash {
     transform: none;
   }
 
-  .section-banner-connect .container {
-    padding: 0;
-  }
-
   .banner-connect__btn .btn {
     width: 100%;
     height: 40px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .section-banner-connect .container {
+    padding: 0;
   }
 }
 
