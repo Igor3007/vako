@@ -14375,7 +14375,6 @@ article .article-gallery img {
 
 .grid-products .minicard__colors {
   margin-top: auto;
-  margin-bottom: auto;
 }
 
 .grid-products .minicard__gallery .is-overflow .splide__pagination {
@@ -19255,6 +19254,18 @@ body .fslightbox-slash {
 
   .grid-products__item--banner {
     width: calc(20% * 2);
+  }
+
+  .grid-products__item {
+    display: none;
+  }
+
+  .grid-products__item:nth-child(-n+10) {
+    display: block;
+  }
+
+  .grid-products__list:has(.grid-products__item--banner) .grid-products__item:nth-child(10) {
+    display: none;
   }
 }
 
