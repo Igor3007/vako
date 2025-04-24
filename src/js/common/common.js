@@ -5587,21 +5587,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.$el = document.querySelector(params.container)
             this.banner = this.$el.querySelector(params.banner)
             this.items = Array.from(this.$el.children)
-            this.width = document.body.clientWidth
             this.timer = null,
-
-            this.breakpoints = [
-                1920,
-                1440,
-                1200,
-                992,
-                576, 
-            ]
 
             this.breakpoints = [
                 {
                     minWidth: 1920,
-                    pos: 4
+                    pos: 5
                 },
                 {
                     minWidth: 1440,
@@ -5650,7 +5641,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             this.timer = setTimeout(() => {
                 this.render(this.getCurrentBreakpoint())
-                console.log(1)
             }, 20)
 
         }
