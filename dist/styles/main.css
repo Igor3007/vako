@@ -14304,6 +14304,7 @@ article .article-gallery img {
   padding-right: 0;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .grid-products .minicard__note,
@@ -19252,7 +19253,6 @@ body .fslightbox-slash {
 
   .grid-products__item--banner {
     width: calc(20% * 2);
-    display: none;
   }
 }
 

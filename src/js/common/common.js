@@ -4374,96 +4374,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }))
     }
 
-    /*======================================
-     top-article carousel
-    ======================================*/
 
-    if (document.querySelector('[data-slider="top-article"]')) {
-        const items = document.querySelectorAll('[data-slider="top-article"]')
-
-        items.forEach(item => {
-            const sliderCarousel = new Splide(item, {
-
-                arrows: true,
-                fixedWidth: 450,
-                gap: 24,
-                pagination: false,
-                perMove: 1,
-                focus: 'left',
-                flickMaxPages: 1,
-                flickPower: 150,
-                arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
-                dragMinThreshold: {
-                    mouse: 4,
-                    touch: 15,
-                },
-
-                breakpoints: {
-                    992: {
-                        fixedWidth: 292,
-                    },
-                    575: {
-                        destroy: true,
-                    }
-                },
-            })
-
-            sliderCarousel.mount()
-
-            const getTopArrowButtons = () => {
-
-                if (item) {
-                    let heigthEl = item.querySelector('picture').clientHeight
-                    item.querySelectorAll('.splide__arrow').forEach(btn => {
-                        btn.style.top = (heigthEl / 2) + 'px'
-                        console.log(btn)
-                    })
-                }
-            }
-
-            const watchWidth = () => {
-
-                const sliderWidth = item.classList.contains('is-offset-pagination') ? (item.clientWidth + 100) : item.clientWidth
-                const frameWidth = document.documentElement.clientWidth
-
-                //is-pagination offset
-                if ((frameWidth - 100) <= sliderWidth) {
-                    item.classList.add('is-offset-pagination')
-                } else {
-                    !item.classList.contains('is-offset-pagination') || item.classList.remove('is-offset-pagination')
-                }
-
-                // is-pagination
-                if (sliderCarousel.length > sliderCarousel.options.perPage) {
-                    item.classList.add('is-pagination')
-                } else {
-                    !item.classList.contains('is-pagination') || item.classList.remove('is-pagination')
-                }
-            }
-
-            let fnDedounce = window.debounce
-            watchWidth()
-
-            window.addEventListener('resize', () => {
-                fnDedounce(watchWidth, 50);
-                getTopArrowButtons()
-            })
-
-            //auto perMove
-            const getPerMove = () => {
-                return Math.floor((sliderCarousel.root.clientWidth / sliderCarousel.root.querySelector('.splide__slide').clientWidth)) || 1
-            }
-
-            sliderCarousel.options = {
-                perMove: getPerMove(),
-            };
-
-            // init nav button position
-            getTopArrowButtons()
-
-        })
-
-    }
 
 
     /*======================================
@@ -5575,7 +5486,184 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+    /*======================================
+     top-article carousel
+    ======================================*/
 
+    if (document.querySelector('[data-slider="top-article"]')) {
+        const items = document.querySelectorAll('[data-slider="top-article"]')
+
+        items.forEach(item => {
+            const sliderCarousel = new Splide(item, {
+
+                arrows: true,
+                fixedWidth: 450,
+                gap: 24,
+                pagination: false,
+                perMove: 1,
+                focus: 'left',
+                flickMaxPages: 1,
+                flickPower: 150,
+                arrowPath: 'M.586.635a1.893 1.893 0 012.828 0l16 17.333c.781.846.781 2.218 0 3.064l-16 17.333a1.893 1.893 0 01-2.828 0c-.781-.846-.781-2.218 0-3.064L15.172 19.5.586 3.699c-.781-.846-.781-2.218 0-3.064z',
+                dragMinThreshold: {
+                    mouse: 4,
+                    touch: 15,
+                },
+
+                breakpoints: {
+                    992: {
+                        fixedWidth: 292,
+                    },
+                    575: {
+                        destroy: true,
+                    }
+                },
+            })
+
+            sliderCarousel.mount()
+
+            const getTopArrowButtons = () => {
+
+                if (item) {
+                    let heigthEl = item.querySelector('picture').clientHeight
+                    item.querySelectorAll('.splide__arrow').forEach(btn => {
+                        btn.style.top = (heigthEl / 2) + 'px'
+                    })
+                }
+            }
+
+            const watchWidth = () => {
+
+                const sliderWidth = item.classList.contains('is-offset-pagination') ? (item.clientWidth + 100) : item.clientWidth
+                const frameWidth = document.documentElement.clientWidth
+
+                //is-pagination offset
+                if ((frameWidth - 100) <= sliderWidth) {
+                    item.classList.add('is-offset-pagination')
+                } else {
+                    !item.classList.contains('is-offset-pagination') || item.classList.remove('is-offset-pagination')
+                }
+
+                // is-pagination
+                if (sliderCarousel.length > sliderCarousel.options.perPage) {
+                    item.classList.add('is-pagination')
+                } else {
+                    !item.classList.contains('is-pagination') || item.classList.remove('is-pagination')
+                }
+            }
+
+            let fnDedounce = window.debounce
+            watchWidth()
+
+            window.addEventListener('resize', () => {
+                fnDedounce(watchWidth, 50);
+                getTopArrowButtons()
+            })
+
+            //auto perMove
+            const getPerMove = () => {
+                return Math.floor((sliderCarousel.root.clientWidth / sliderCarousel.root.querySelector('.splide__slide').clientWidth)) || 1
+            }
+
+            sliderCarousel.options = {
+                perMove: getPerMove(),
+            };
+
+            // init nav button position
+            getTopArrowButtons()
+
+        })
+
+    }
+
+
+    /* ======================================
+    banner hit product grid-products__item--banner
+    ======================================*/
+
+
+    class BannerPosition {
+        constructor(params) {
+            this.$el = document.querySelector(params.container)
+            this.banner = this.$el.querySelector(params.banner)
+            this.items = Array.from(this.$el.children)
+            this.width = document.body.clientWidth
+            this.timer = null,
+
+            this.breakpoints = [
+                1920,
+                1440,
+                1200,
+                992,
+                576, 
+            ]
+
+            this.breakpoints = [
+                {
+                    minWidth: 1920,
+                    pos: 4
+                },
+                {
+                    minWidth: 1440,
+                    pos: 3
+                },
+                {
+                    minWidth: 1200,
+                    pos: 2
+                },
+                {
+                    minWidth: 992,
+                    pos: 1
+                },
+                {
+                    minWidth: 576,
+                    pos: 2
+                },
+            ]
+
+            this.init()
+        }
+
+        init() {
+            this.checkPosition()
+            this.addEvents()
+        }
+
+        render(index) {
+            this.$el.insertBefore(this.banner, this.items[index]);
+        }
+
+        getCurrentBreakpoint() {
+            const sorted = [...this.breakpoints].sort((a, b) => a.minWidth - b.minWidth);
+        
+            for (let i = 0; i < sorted.length; i++) {
+                if (window.innerWidth <= sorted[i].minWidth) {
+                    return i === 0 ? sorted[0].pos : sorted[i].pos;
+                }
+            }
+            return sorted[sorted.length-1].pos;
+        }
+
+        checkPosition() {
+
+            clearTimeout(this.timer)
+
+            this.timer = setTimeout(() => {
+                this.render(this.getCurrentBreakpoint())
+                console.log(1)
+            }, 20)
+
+        }
+
+        addEvents() {
+            window.addEventListener('resize', () => this.checkPosition())
+        }
+    }
+
+    new BannerPosition({
+        container: '.grid-products__list',
+        banner: '.grid-products__item--banner'
+    })
 
 
 });
