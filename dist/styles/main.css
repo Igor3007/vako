@@ -6908,6 +6908,14 @@ footer {
   font-size: 13px;
 }
 
+.catalog-products.grid--view .minicard__allprice {
+  padding-top: 0;
+}
+
+.catalog-products.grid--view .minicard__allprice .btn {
+  width: 100%;
+}
+
 .catalog-products.grid--view .minicard__images {
   padding-bottom: 9px;
   width: 100%;
@@ -6927,6 +6935,7 @@ footer {
   display: flex;
   flex-direction: column;
   padding-left: 0;
+  flex-grow: 1;
 }
 
 .catalog-products.grid--view .minicard__more {
