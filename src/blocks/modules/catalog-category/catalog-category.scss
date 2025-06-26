@@ -1,3 +1,5 @@
+@import "product-descr-min.scss";
+
 .catalog-category {
 
     &__h1 {
@@ -160,11 +162,6 @@
 
         &--brands {
             padding-bottom: 65px;
-
-
-
-
-
         }
 
         &.is-hide-nav {
@@ -491,6 +488,10 @@
 
     &__collections {
         padding-top: 16px;
+    }
+
+    &__news {
+        padding-bottom: 65px;
     }
 }
 

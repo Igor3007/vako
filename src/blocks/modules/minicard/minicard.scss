@@ -155,8 +155,8 @@
 
   &__images {
 
-    width: 68px;
-    min-width: 68px;
+    width: 74px;
+    min-width: 74px;
 
     @media screen and (min-width: $w992) {
       width: 120px;
@@ -497,12 +497,37 @@
 
   &__offers {
 
+    padding-bottom: 16px;
+
+
+    & span {
+      color: $gray-56;
+      font-size: 13px;
+    }
 
     & a {
       color: $gray-56;
       font-size: 13px;
 
       &:hover {
+        color: $accent-2-1;
+      }
+    }
+  }
+
+  &__allprice {
+    padding-top: 12px;
+
+    & .btn {
+
+      font-weight: 700;
+
+      @media screen and (min-width: $w760) {
+        font-size: 15px;
+      }
+
+      &:not(:hover) {
+        background-color: $accent-2-3;
         color: $accent-2-1;
       }
     }

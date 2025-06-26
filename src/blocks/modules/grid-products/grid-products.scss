@@ -22,7 +22,7 @@
         flex-wrap: wrap;
         margin: -6px;
 
-        
+
 
     }
 
@@ -70,20 +70,20 @@
         }
 
         @media screen and (min-width: $w1200) and (max-width: $w1440) {
-           display: none;
+            display: none;
 
-           &:nth-child(-n+10) {
-            display: block;
-           }
+            &:nth-child(-n+10) {
+                display: block;
+            }
         }
     }
 
-    &__list{
+    &__list {
         &:has(.grid-products__item--banner) .grid-products__item:nth-child(10) {
             @media screen and (min-width: $w1200) and (max-width: $w1440) {
                 display: none;
             }
-        } 
+        }
     }
 
     & .minicard {
@@ -172,7 +172,7 @@
         &__more {
             width: 100%;
             min-width: 100%;
-             
+
         }
 
         &__main {
@@ -273,7 +273,7 @@
 
         &__colors {
             margin-top: auto;
-            
+
         }
 
         &__gallery {
@@ -320,6 +320,10 @@
         height: 100%;
         @include bgimage-cover;
         background-position: left center;
+
+        &:hover {
+            transform: scale(1.03);
+        }
     }
 
     & span {

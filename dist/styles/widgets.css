@@ -594,6 +594,11 @@ input[type="date"] {
   background-color: #ededed;
 }
 
+.formated-text table tr:first-child td,
+.formated-text table tr:first-child th {
+  border: 1px solid #E0E0E0;
+}
+
 .formated-text table tr:first-child td:first-child,
 .formated-text table tr:first-child th:first-child {
   border-top-left-radius: 8px;

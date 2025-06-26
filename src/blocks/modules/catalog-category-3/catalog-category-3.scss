@@ -485,7 +485,7 @@
 
   &__parent {
 
-    padding: 12px 0;
+    padding: 9px 0;
 
     & svg {
       width: 10px;
@@ -495,7 +495,7 @@
 
     & span {
       color: $gray-56;
-      padding-left: 10px;
+      padding-left: 6px;
 
 
     }
@@ -516,15 +516,15 @@
   }
 
   &__link {
-    font-weight: 14px;
     font-weight: 600;
     background-color: $gray-96;
     border-radius: 4px;
-    height: 36px;
+    height: 31px;
     display: flex;
     align-items: center;
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 5px;
   }
 
 }

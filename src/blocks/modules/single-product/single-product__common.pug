@@ -194,7 +194,15 @@ mixin product-common
                                         })
 
                                         
-
+                                        .category-filter__item: +prop-radio({
+                                            title: 'Срок доставки',
+                                            radio: [
+                                                'Любой',
+                                                'Сегодня',
+                                                'Завтра',
+                                                'До 3-х дней',
+                                            ],
+                                        })
                                             
                                         
                                         .category-filter__item: +prop-radio({
@@ -321,6 +329,14 @@ mixin product-common
             +news-carousel({
                 title: 'Интересно почитать'
             })
+            
+        .catalog-category__descr
+            .product-descr-min
+                .product-descr-min__title Описание
+                .product-descr-min__text 
+                    span Игровой ноутбук Lenovo LOQ 15IAX9 83GS00R9RK — это мощное решение для геймеров, которые ценят производительность и качество. Оснащённый процессором Intel Core i5 12450HX, он обеспечивает отличную скорость работы и многозадачность благодаря 12 потокам и 8 ядрам. С дисплеем диагональю 15.6 дюймов с разрешением 1920 x 1080 и частотой обновления 144 Гц, вы сможете наслаждаться плавной графикой и яркими цветами. Матовая поверхность экрана и поддержка 100% sRGB делают его идеальным для игр и мультимедиа. Ноутбук имеет 512 ГБ SSD...
+                .product-descr-min__link
+                    a(href='#properties') Читать полностью
             
         
         .catalog-category__similar

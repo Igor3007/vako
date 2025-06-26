@@ -49,7 +49,7 @@
     }
 
     &__slider {
-        margin-right: -16px;
+        margin-right: -8px;
 
         @media screen and (min-width: $w480) {
             margin-right: 0;
@@ -58,7 +58,7 @@
         @media screen and (max-width: $w480) {
             & .splide {
                 &__slide {
-                    padding-right: 16px;
+                    padding-right: 8px;
                     margin-right: 0 !important;
                 }
             }
@@ -189,8 +189,8 @@
 
                     &__slide {
                         margin-right: 16px;
-                        width: 70%;
-                        min-width: 240px;
+                        width: 52%;
+                        min-width: 180px;
                         max-width: 280px;
                     }
 

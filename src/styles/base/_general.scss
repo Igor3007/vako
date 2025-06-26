@@ -247,7 +247,7 @@ input[type="date"] {
         border-radius: 8px;
         border-collapse: initial;
         border-spacing: 0;
-        
+
 
         & th {
             padding: 8px 15px;
@@ -316,32 +316,39 @@ input[type="date"] {
         & tr {
             &:hover {
                 & td {
-                    background-color: #ededed ;
+                    background-color: #ededed;
                 }
             }
 
             &:first-child {
+
                 & td,
                 & th {
+
+                    border: 1px solid #E0E0E0;
+
                     &:first-child {
-                        border-top-left-radius: 8px ;                        
+                        border-top-left-radius: 8px;
                     }
+
                     &:last-child {
-                        border-top-right-radius: 8px ;                        
+                        border-top-right-radius: 8px;
                     }
                 }
             }
+
             &:last-child {
-                & td{
+                & td {
                     &:first-child {
-                        border-bottom-left-radius: 8px ;                        
+                        border-bottom-left-radius: 8px;
                     }
+
                     &:last-child {
-                        border-bottom-right-radius: 8px ;                        
+                        border-bottom-right-radius: 8px;
                     }
                 }
             }
-            
+
         }
 
     }

@@ -407,7 +407,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     //fix iOS body scroll
                     if (this.isiOS) {
                         document.documentElement.classList.add('safari-fixed')
-                        document.body.style.marginTop = `-${ window.scrollY }px`
+                        document.body.style.marginTop = `-${window.scrollY}px`
                     }
                     document.body.classList.add('page-hidden')
                 } else {
@@ -1369,7 +1369,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     //fix iOS body scroll
                     if (this.isiOS) {
-                        document.body.style.marginTop = `-${ (window.scrollY ) }px`
+                        document.body.style.marginTop = `-${(window.scrollY)}px`
                         document.documentElement.classList.add('safari-fixed')
                     }
 
@@ -1487,7 +1487,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                              <ul>${numbers}</ul>
                          </div>`
 
-                        callPopup.open(html, function (instanse) {})
+                        callPopup.open(html, function (instanse) { })
 
                     } else {
                         item.classList.toggle('is-active')
@@ -4171,7 +4171,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             lockedScrollIOS(state) {
                 //fix iOS body scroll
                 if (this.isiOS && state) {
-                    document.body.style.marginTop = `-${ (window.scrollY ) }px`
+                    document.body.style.marginTop = `-${(window.scrollY)}px`
                     document.documentElement.classList.add('safari-fixed')
                 }
 
@@ -4824,7 +4824,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 <div class="breadcrumb-popup" >
                     <div class="breadcrumb-popup__title" >Подкатегории</div>
                     <div class="breadcrumb-popup__content"> 
-                        <ul> ${ '<li>'+item.querySelector('a').outerHTML+'</li>' + item.querySelector('ul').innerHTML}</ul>
+                        <ul> ${'<li>' + item.querySelector('a').outerHTML + '</li>' + item.querySelector('ul').innerHTML}</ul>
                     </div>
                 </div>
             `;
@@ -5589,28 +5589,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.items = Array.from(this.$el.children)
             this.timer = null,
 
-            this.breakpoints = [
-                {
-                    minWidth: 1920,
-                    pos: 5
-                },
-                {
-                    minWidth: 1440,
-                    pos: 3
-                },
-                {
-                    minWidth: 1200,
-                    pos: 2
-                },
-                {
-                    minWidth: 992,
-                    pos: 5
-                },
-                {
-                    minWidth: 576,
-                    pos: 5
-                },
-            ]
+                this.breakpoints = [
+                    {
+                        minWidth: 1920,
+                        pos: 5
+                    },
+                    {
+                        minWidth: 1440,
+                        pos: 3
+                    },
+                    {
+                        minWidth: 1200,
+                        pos: 2
+                    },
+                    {
+                        minWidth: 992,
+                        pos: 5
+                    },
+                    {
+                        minWidth: 576,
+                        pos: 5
+                    },
+                ]
 
             this.init()
         }
@@ -5626,13 +5626,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         getCurrentBreakpoint() {
             const sorted = [...this.breakpoints].sort((a, b) => a.minWidth - b.minWidth);
-        
+
             for (let i = 0; i < sorted.length; i++) {
                 if (window.innerWidth <= sorted[i].minWidth) {
                     return i === 0 ? sorted[0].pos : sorted[i].pos;
                 }
             }
-            return sorted[sorted.length-1].pos;
+            return sorted[sorted.length - 1].pos;
         }
 
         checkPosition() {
@@ -5650,10 +5650,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 
-    new BannerPosition({
-        container: '.grid-products__list',
-        banner: '.grid-products__item--banner'
-    })
+    if (document.querySelector('.grid-products__list')) {
+        new BannerPosition({
+            container: '.grid-products__list',
+            banner: '.grid-products__item--banner'
+        })
+    }
+
 
 
 });

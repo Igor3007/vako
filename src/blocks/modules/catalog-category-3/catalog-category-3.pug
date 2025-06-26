@@ -1,6 +1,7 @@
 include  ../../components/breadcrumb/breadcrumb.pug
 include  ../minicard/minicard.pug 
 include  ../../components/pagination/pagination.pug
+include ../news/news-carousel/news-carousel.pug
 
 mixin catalog-category-3
     section.section-catalog-category
@@ -44,7 +45,15 @@ mixin catalog-category-3
                             .current-category__parent
                                 a(href='#')
                                     +icons('#ic_link-back', 6)
-                                    span Компьютеры
+                                    span Верхняя категория
+                            .current-category__parent
+                                a(href='#')
+                                    +icons('#ic_link-back', 6)
+                                    span Подкатегория(1 вложенность)
+                            .current-category__parent
+                                a(href='#')
+                                    +icons('#ic_link-back', 6)
+                                    span Подкатегория(2 вложенность)
                             .current-category__link Ноутбуки (124)
 
                         .category-filter(data-filter-container="catalog")
@@ -200,8 +209,6 @@ mixin catalog-category-3
                                         .category-filter__clear(data-filter="clear")
                                             span.icon-cross 
                                             small Очистить <span>все фильтры</span>
-                                    
-                                 
 
                     .catalog-category__main 
                         .catalog-category__selected-filter
@@ -260,20 +267,7 @@ mixin catalog-category-3
                                     +pagination()
 
                 
-                .catalog-category__h3 Бренды
-                .catalog-category__tags.catalog-category__tags--brands
-                    .catalog-category__tags-prev(data-st="prev"): +icons('#ic_arr-back')
-                    ul.dragscroll
-                        li: a(href='category.html') Acer
-                        li: a(href='category.html') Apple
-                        li: a(href='category.html') Asus
-                        li: a(href='category.html') BenQ
-                        li: a(href='category.html') Blackview
-                        li: a(href='category.html') Dell
-                        li: a(href='category.html') Digma
-                        
-                       
-                    .catalog-category__tags-next(data-st="next"): +icons('#ic_arr-next')
+            
 
                 .catalog-category__h3 Подборки
                 .catalog-category__tags.catalog-category__tags--brands
@@ -293,6 +287,26 @@ mixin catalog-category-3
                         li: a(href='category.html') Для офиса
                         li: a(href='category.html') Для офиса
                     .catalog-category__tags-next(data-st="next"): +icons('#ic_arr-next')
+
+                .catalog-category__h3 Бренды
+                .catalog-category__tags.catalog-category__tags--brands
+                    .catalog-category__tags-prev(data-st="prev"): +icons('#ic_arr-back')
+                    ul.dragscroll
+                        li: a(href='category.html') Acer
+                        li: a(href='category.html') Apple
+                        li: a(href='category.html') Asus
+                        li: a(href='category.html') BenQ
+                        li: a(href='category.html') Blackview
+                        li: a(href='category.html') Dell
+                        li: a(href='category.html') Digma
+                        
+                       
+                    .catalog-category__tags-next(data-st="next"): +icons('#ic_arr-next')
+
+                .catalog-category__news
+                    +news-carousel({
+                        title: 'Интересно почитать'
+                    })
 
                 .catalog-category__h2 Ноутбуки в Кременчуг-Константиновское
                 .catalog-category__pageseo(data-long-text="")

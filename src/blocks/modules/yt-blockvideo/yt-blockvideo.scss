@@ -63,13 +63,21 @@
             &__button {
                 transition: 0.3s ease;
             }
-        }
 
-        &:not(:first-child) {
-            & .video {
+            @media screen and (min-width: $w576) and (max-width: $w760) {
+                &__button {
+                    padding: 16px 24px !important;
+                    border-radius: 8px;
 
 
+                    & svg {
+                        width: 18px !important;
+                        height: 17px !important;
+                    }
+                }
+            }
 
+            @media (max-width: $w576) {
                 &__button {
                     padding: 13px 20px;
                     border-radius: 8px;
@@ -82,6 +90,23 @@
                 }
             }
         }
+
+        &:not(:first-child) {
+            & .video {
+                &__button {
+                    padding: 13px 20px;
+                    border-radius: 8px;
+
+
+                    & svg {
+                        width: 16px;
+                        height: 14px;
+                    }
+                }
+            }
+        }
+
+
 
 
     }
