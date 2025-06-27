@@ -5816,7 +5816,7 @@ footer {
 .product-descr-min__text span {
   letter-spacing: normal;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -6667,7 +6667,6 @@ footer {
 }
 
 .current-category {
-  display: none;
   padding-bottom: 12px;
 }
 
@@ -7375,6 +7374,7 @@ footer {
 
 .minicard__allprice .btn {
   font-weight: 700;
+  height: 36px;
 }
 
 .minicard__allprice .btn:not(:hover) {
@@ -7510,7 +7510,7 @@ footer {
 .minicard__in-store .btn {
   height: 36px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 8px 3em 10px 3em;
 }
 
@@ -18418,6 +18418,10 @@ body .fslightbox-slash {
     font-size: 20px;
   }
 
+  .minicard__allprice .btn {
+    height: 40px;
+  }
+
   .minicard__store {
     padding-bottom: 10px;
   }
@@ -18444,7 +18448,7 @@ body .fslightbox-slash {
   }
 
   .minicard__in-store {
-    margin-top: 5px;
+    margin-top: auto;
   }
 
   .minicard__in-store .btn {
@@ -18682,6 +18686,14 @@ body .fslightbox-slash {
     padding: 12px 25px 0 25px;
   }
 
+  .category-filter__subcat {
+    padding: 24px 16px 0;
+  }
+
+  .category-filter__subcat .current-category {
+    padding-bottom: 0;
+  }
+
 @keyframes fade-drop-down {
     from {
       opacity: 0;
@@ -18893,6 +18905,14 @@ body .fslightbox-slash {
 
   .search-index__catalog .btn .icon-catalog {
     margin-right: 0;
+  }
+
+  .minicard__allprice {
+    min-width: 245px;
+  }
+
+  .minicard__in-store {
+    min-width: 245px;
   }
 
   .separator-minicard br {
@@ -19299,9 +19319,24 @@ body .fslightbox-slash {
 }
 
 @media screen and (min-width: 768.98px) and (max-width: 992.98px) {
-  .minicard:not(.minicard--store) .minicard__more {
-    width: 125px;
-    min-width: 125px;
+  .minicard:not(.minicard--store) .minicard__action {
+    height: 30px;
+    bottom: auto;
+    top: -6px;
+  }
+
+  .minicard:not(.minicard--store) .minicard__action a {
+    width: 28px;
+    height: 28px;
+  }
+
+  .minicard:not(.minicard--store) .minicard__action svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .minicard:not(.minicard--store) .minicard__shipping {
+    padding-bottom: 6px;
   }
 
   .minicard__content {
@@ -19346,6 +19381,16 @@ body .fslightbox-slash {
 @media screen and (min-width: 480px) and (max-width: 768.98px) {
   .minicard__other {
     padding-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 375.98px) and (max-width: 576px) {
+  .minicard__allprice .btn {
+    min-width: 180px;
+  }
+
+  .minicard__in-store .btn {
+    min-width: 180px;
   }
 }
 

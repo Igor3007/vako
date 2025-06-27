@@ -40,26 +40,29 @@ mixin catalog-category-3
 
                 .catalog-category__content
                     .catalog-category__aside(style="display:block")
-                        .current-category
-                            .current-category__label Категории
-                            .current-category__parent
-                                a(href='#')
-                                    +icons('#ic_link-back', 6)
-                                    span Верхняя категория
-                            .current-category__parent
-                                a(href='#')
-                                    +icons('#ic_link-back', 6)
-                                    span Подкатегория(1 вложенность)
-                            .current-category__parent
-                                a(href='#')
-                                    +icons('#ic_link-back', 6)
-                                    span Подкатегория(2 вложенность)
-                            .current-category__link Ноутбуки (124)
-
+                       
                         .category-filter(data-filter-container="catalog")
                             .category-filter__head
                                 .category-filter__head-title Фильтры и сортировка
                                 .category-filter__head-close: span.icon-cross(data-filter="open" data-elem="catalog")
+
+                            .category-filter__subcat
+                                .current-category
+                                    .current-category__label Категории
+                                    .current-category__parent
+                                        a(href='#')
+                                            +icons('#ic_link-back', 6)
+                                            span Верхняя категория
+                                    .current-category__parent
+                                        a(href='#')
+                                            +icons('#ic_link-back', 6)
+                                            span Подкатегория(1 вложенность)
+                                    .current-category__parent
+                                        a(href='#')
+                                            +icons('#ic_link-back', 6)
+                                            span Подкатегория(2 вложенность)
+                                    .current-category__link Ноутбуки (124)
+
 
                             .category-filter__wrp
                                 form(action='#' method='POST')

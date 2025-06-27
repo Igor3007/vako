@@ -14,7 +14,7 @@
         padding-bottom: 16px;
 
         & span {
-            @include line-clamp(3);
+            @include line-clamp(8);
         }
     }
 

@@ -110,6 +110,16 @@
     }
   }
 
+  &__subcat {
+    @media screen and (max-width: $w992) {
+      padding: 24px 16px 0;
+
+      & .current-category {
+        padding-bottom: 0;
+      }
+    }
+  }
+
   &__submit {
     display: flex;
     box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
@@ -470,11 +480,13 @@
 }
 
 .current-category {
-  display: none;
+
   padding-bottom: 12px;
+
 
   @media screen and (min-width: $w992) {
     display: block;
+
   }
 
   &__label {
@@ -1083,7 +1095,6 @@
     padding-top: 30px;
   }
 }
-
 
 .icon-cross.clear-color-filter {
   background-position: center;

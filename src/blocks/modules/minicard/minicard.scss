@@ -34,13 +34,39 @@
 
       &__more {
 
-        @media screen and (min-width: 768.98px) and (max-width: 992.98px) {
+        // @media screen and (min-width: 768.98px) and (max-width: 992.98px) {
 
-          width: 125px;
-          min-width: 125px;
-        }
+        //   width: 125px;
+        //   min-width: 125px;
+        // }
 
       }
+
+      &__action {
+        @media screen and (min-width: 768.98px) and (max-width: 992.98px) {
+
+          height: 30px;
+          bottom: auto;
+          top: -6px;
+
+          & a {
+            width: 28px;
+            height: 28px;
+          }
+
+          & svg {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+
+      &__shipping {
+        @media screen and (min-width: 768.98px) and (max-width: 992.98px) {
+          padding-bottom: 6px;
+        }
+      }
+
     }
   }
 
@@ -518,12 +544,26 @@
   &__allprice {
     padding-top: 12px;
 
+
+    @media screen and (max-width: $w576) {
+      min-width: 245px;
+    }
+
     & .btn {
 
       font-weight: 700;
+      height: 36px;
+
+      @media screen and (min-width: $w1440) {
+        height: 40px;
+      }
 
       @media screen and (min-width: $w760) {
         font-size: 15px;
+      }
+
+      @media screen and (min-width: $w375) and (max-width: $w576) {
+        min-width: 180px;
       }
 
       &:not(:hover) {
@@ -788,13 +828,17 @@
     margin-top: auto;
 
     @media screen and (min-width: $w1440) {
-      margin-top: 5px;
+      margin-top: auto;
+    }
+
+    @media screen and (max-width: $w576) {
+      min-width: 245px;
     }
 
     & .btn {
       height: 36px;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 8px 3em 10px 3em;
 
       @media screen and (min-width: $w1440) {
@@ -805,6 +849,10 @@
       @media screen and (min-width: $w760) and (max-width: $w992) {
         padding: 8px 2em 10px 2em;
         min-width: auto;
+      }
+
+      @media screen and (min-width: $w375) and (max-width: $w576) {
+        min-width: 180px;
       }
     }
   }
